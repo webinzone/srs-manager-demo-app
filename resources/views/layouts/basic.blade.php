@@ -55,7 +55,8 @@
 
     @if (($snipeSettings) && ($snipeSettings->logo!=''))
         <center>
-            <img id="login-logo" src="{{ Storage::disk('public')->url('').e($snipeSettings->logo) }}">
+            <img id="login-logo" src="">
+            <h3 style="color: #367fa9;"><b>Residential Care Manager</b></h3>
         </center>
     @endif
   <!-- Content -->

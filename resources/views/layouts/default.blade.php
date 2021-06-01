@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SRS MANAGER
+    <title>Residential care Manager
     </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -14,7 +14,7 @@
 
       <link rel="apple-touch-icon" href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->logo)) : '/img/logo.png' }}">
       <link rel="apple-touch-startup-image" href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->logo)) : '/img/logo.png' }}">
-      <link rel="shortcut icon" type="image/ico" href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->favicon)) : '/favicon.ico' }} ">
+      <link rel="shortcut icon" type="image/ico" href=" ">
 
 
       <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -109,7 +109,7 @@
                  @if ($snipeSettings->brand == '3')
                       <a class="logo navbar-brand no-hover" href="{{ url('/') }}">
                           
-                          <b>SRS MANAGER</b>
+                          <b>Residential Care Manager</b>
                       </a>
                   
                   @endif
@@ -579,7 +579,7 @@
           @endif
           
 
-          <a target="_blank" href="https://snipeitapp.com" rel="noopener">SRS MANAGER</a>  <i class="fa fa-heart" style="color: #a94442; font-size: 10px" aria-hidden="true"></i><span class="sr-only"></span>© 2020 Copyright
+          <a target="_blank" href="https://snipeitapp.com" rel="noopener">Residential Care Manager</a>  <i class="fa fa-heart" style="color: #a94442; font-size: 10px" aria-hidden="true"></i><span class="sr-only"></span>© 2020 Copyright
       </footer>
 
 
