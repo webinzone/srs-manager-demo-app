@@ -3,7 +3,7 @@
 
 {{-- Page title --}}
 @section('title')
-Create StaffRoaster
+Create Staff Roaster
 @parent
 @stop
 @section('header_right')
@@ -52,9 +52,14 @@ Create StaffRoaster
                 <!-- box-body -->
                 <div class="box-body">                          
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Date</label>
-                        <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="s_date" class="form-control" placeholder="Date">
+                      <label for="name" class="col-md-3 control-label">Date</label>
+                      <div class="col-md-7 col-sm-12 required">
+                       <div class='input-group date' id='datepicker'>
+                      <input type='text' name="s_date" class="form-control" placeholder="Date" id="datepicker" />
+                      <span class="input-group-addon">
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                      </span>
+                    </div>
         
                         </div>
                     </div>
@@ -83,9 +88,9 @@ Create StaffRoaster
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Wednsday</label>
+                        <label for="name" class="col-md-3 control-label">Wednesday</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="wed" class="form-control" placeholder="Wednsday">                                       
+                 <input type="text" name="wed" class="form-control" placeholder="Wednesday">                                       
                         </div>
                     </div>
                     <div class="form-group ">
@@ -135,6 +140,7 @@ Create StaffRoaster
                 </div><!-- ./row -->
      </form>
 </div>
+
 @stop
 
 @section('moar_scripts')

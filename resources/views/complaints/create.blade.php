@@ -103,9 +103,16 @@ Create Complaint
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Action Date</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="action_date" class="form-control" placeholder="Action Date">					        	        
+
+                       <div class='input-group date' id='datepicker'>
+                      <input type='text' name="action_date" class="form-control" placeholder="Date" id="datepicker" />
+                      <span class="input-group-addon">
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                      </span>
+                    </div>
+        
+                        </div>					        	        
 					    </div>
-					</div>
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Action Taken</label>
 					    <div class="col-md-7 col-sm-12 required">
@@ -113,9 +120,9 @@ Create Complaint
 					    </div>
 					</div>
 					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Outcome or Methode of Communication</label>
+					    <label for="name" class="col-md-3 control-label">Outcome or Method of Communication</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="outcome" class="form-control" placeholder="Outcome or Methode of Communication">					        	        
+  	             <input type="text" name="outcome" class="form-control" placeholder="Outcome or Method of Communication">					        	        
 					    </div>
 					</div>
 					<div class="box-footer text-right">

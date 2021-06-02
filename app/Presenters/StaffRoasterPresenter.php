@@ -56,7 +56,7 @@ class StaffRoasterPresenter extends Presenter
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Wednsday')     
+                "title" => trans('Wednesday')     
             ],[
                 "field" => "thurs",
                 "searchable" => true,

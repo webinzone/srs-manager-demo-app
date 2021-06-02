@@ -110,7 +110,7 @@ Update Complaints
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Outcome or Methode of Communication</label>
+                        <label for="name" class="col-md-3 control-label">Outcome or Method of Communication</label>
                         <div class="col-md-7 col-sm-12 required">
                  <input type="text" name="outcome" class="form-control" value="{{ $complaint->outcome}}">                                       
                         </div>

@@ -3,7 +3,7 @@
 
 {{-- Page title --}}
 @section('title')
-Update StaffRoasters
+Update Staff Roasters
 @parent
 @stop
 @section('header_right')
@@ -82,7 +82,7 @@ Update StaffRoasters
                     </div>
                     <div class="form-group ">
                     
-                     <label for="name" class="col-md-3 control-label">Wednsday</label>
+                     <label for="name" class="col-md-3 control-label">Wednesday</label>
                         <div class="col-md-7 col-sm-12 required">
                  <input type="text" name="wed" class="form-control" value="{{ $staff_roaster->wed}}">                                       
                         </div>

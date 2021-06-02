@@ -15,6 +15,7 @@
       <link rel="apple-touch-icon" href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->logo)) : '/img/logo.png' }}">
       <link rel="apple-touch-startup-image" href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->logo)) : '/img/logo.png' }}">
       <link rel="shortcut icon" type="image/ico" href=" ">
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
 
       <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -86,6 +87,14 @@
   color: white !important;
   background-color: #222d32 !important;
 
+}
+</style>
+<style type="text/css">
+  .form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: left;
+    padding-left: 20px;
 }
 </style>
   </head>
@@ -682,7 +691,13 @@
     </script>
     @endif
 
-
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
 
   </body>
 </html>

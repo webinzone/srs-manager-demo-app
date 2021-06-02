@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-StaffRoasters
+Staff Roasters
 @parent
 @stop
 

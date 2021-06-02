@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-StaffRoasters
+Staff Roasters
 @parent
 @stop
 
@@ -59,7 +59,7 @@ StaffRoasters
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Wednsday:</label>
+                    <label class="col-sm-3 control-label">Wednesday:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $staff_roaster->wed}}</p>
                     </div>
