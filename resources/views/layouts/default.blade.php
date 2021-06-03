@@ -696,6 +696,9 @@
   <script>
   $(function() {
     $( "#datepicker" ).datepicker();
+        $( "#datepicker1" ).datepicker();
+            $( "#datepicker2" ).datepicker();
+                $( "#datepicker3" ).datepicker();
   });
   </script>
 

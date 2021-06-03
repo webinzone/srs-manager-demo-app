@@ -52,14 +52,21 @@ Update Incidents
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Incident Date</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="i_date" class="form-control"  value="{{ $incident->i_date}}">
+                        <div class='input-group date' id='datepicker1'>
+                          <input type='text' name="i_date" class="form-control" value="{{ $incident->i_date}}"  id="datepicker" />
+                          <span class="input-group-addon">
+                              <i class="fa fa-calendar" aria-hidden="true"></i>
+                          </span>
+
+                    </div>
+
         
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Incident Time</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="i_time" class="form-control"  value="{{ $incident->i_time}}">                                     
+                 <input type="time" name="i_time" class="form-control"  value="{{ $incident->i_time}}">                                     
                         </div>
                     </div>
                     <div class="form-group ">

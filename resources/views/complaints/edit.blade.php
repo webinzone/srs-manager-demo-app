@@ -71,9 +71,11 @@ Update Complaints
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Complaint Details</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="com_details" class="form-control" value="{{ $complaint->com_details}}">                                       
+                
+                        <textarea name="com_details" class="form-control" >{{ $complaint->com_details}}</textarea>                                         
                         </div>
                     </div>
+                    <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Nature of Complaint</label>
                         <div class="col-md-7 col-sm-12 required">
                  <input type="text" name="com_nature" class="form-control" value="{{ $complaint->com_nature}}">                                       
@@ -88,7 +90,8 @@ Update Complaints
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Suggestions for improvement</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="suggestions" class="form-control" value="{{ $complaint->suggestions}}">                                       
+       
+                   <textarea name="suggestions" class="form-control" >{{ $complaint->suggestions}}</textarea>                                          
                         </div>
                     </div>
                     <div class="form-group ">
@@ -100,19 +103,28 @@ Update Complaints
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Action Date</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="action_date" class="form-control" value="{{ $complaint->action_date}}">                                       
+               
+
+                       <div class='input-group date' id='datepicker'>
+                      <input type='text' name="action_date" class="form-control" value="{{ $complaint->action_date}}" id="datepicker1" />
+                      <span class="input-group-addon">
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                      </span>
+                    </div>                                    
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Action Taken</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="action_taken" class="form-control" value="{{ $complaint->action_taken}}">                                       
+                
+                 <textarea name="action_taken" class="form-control" >{{ $complaint->action_taken}}</textarea>                                       
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Outcome or Method of Communication</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="outcome" class="form-control" value="{{ $complaint->outcome}}">                                       
+                          
+                 <textarea name="outcome" class="form-control" >{{ $complaint->outcome}}</textarea>                           
                         </div>
                     </div>
                     <div class="box-footer text-right">

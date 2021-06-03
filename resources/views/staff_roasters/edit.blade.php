@@ -52,8 +52,13 @@ Update Staff Roasters
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Date</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="s_date" class="form-control" value="{{ $staff_roaster->s_date}}">
-        
+                 
+                        <div class='input-group date' id='datepicker'>
+                      <input type='text' name="s_date" class="form-control" value="{{ $staff_roaster->s_date}}" id="datepicker" />
+                      <span class="input-group-addon">
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                      </span>
+                    </div>
                         </div>
                     </div>
                     <div class="form-group ">

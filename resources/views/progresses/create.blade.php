@@ -61,25 +61,29 @@ Create Progress
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Age</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="age" class="form-control" placeholder="Age">					        	        
+  	             <input type="number" name="age" class="form-control" placeholder="Age">					        	        
 					    </div>
 					</div>
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Gender</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="gender" class="form-control" placeholder="Gender">					        	        
+  	                    	     <select name="gender" class="form-control" id="gender">
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                  <option value="other">Other</option>
+                                </select>      	        
 					    </div>
 					</div>
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Room No</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="room_no" class="form-control" placeholder="Room No">					        	        
+  	             <input type="number" name="room_no" class="form-control" placeholder="Room No">					        	        
 					    </div>
 					</div>
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Progress Note</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="p_note" class="form-control" placeholder="Progress Note">					        	        
+  	             				<textarea type="text" name="p_note" class="form-control"></textarea>	        	        
 					    </div>
 					</div>
 					<div class="form-group ">

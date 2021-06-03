@@ -52,7 +52,7 @@ Update Handovers
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Room</label>
                         <div class="col-md-7 col-sm-12 required">
-                          <input type="text" name="room" class="form-control" value="{{ $handover->room}}">
+                          <input type="number" name="room" class="form-control" value="{{ $handover->room}}">
         
                         </div>
                     </div>

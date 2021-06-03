@@ -54,7 +54,7 @@ Create Handover
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Room</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="room" class="form-control" placeholder="Room">
+                 <input type="number" name="room" class="form-control" placeholder="Room">
         
                         </div>
                     </div>

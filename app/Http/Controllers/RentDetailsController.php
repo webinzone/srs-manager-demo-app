@@ -62,10 +62,10 @@ class RentDetailsController extends Controller
         $rent_detail->srs_name = request('srs_name');
         $rent_detail->rent_payment = request('rent_payment');
         $rent_detail->res_name = request('res_name');
-        $rent_detail->res_sign = request('res_sign');
+        $rent_detail->res_sign = request('res_sign')->getClientOriginalName();
         $rent_detail->user_id =  Auth::user()->id;
 
-        
+
         $imageName = time().'.'.request()->res_sign->getClientOriginalExtension();
          request()->res_sign->move(public_path('images/sign'), $imageName);  
         $rent_detail->save();   

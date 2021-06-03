@@ -61,19 +61,29 @@ Create Booking
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">BookFrom</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="b_from" class="form-control" placeholder="BookFrom">					        	        
+		  	                <div class='input-group date' id='datepicker'>
+		                      <input type='text' name="b_from" class="form-control" placeholder="Book From" id="datepicker" />
+		                      <span class="input-group-addon">
+		                          <i class="fa fa-calendar" aria-hidden="true"></i>
+		                      </span>
+		                    </div>					        	        
 					    </div>
 					</div>
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">BookTo</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="b_to" class="form-control" placeholder="BookTo">					        	        
+  	             			<div class='input-group date' id='datepicker'>
+		                      <input type='text' name="b_to" class="form-control" placeholder="Book To" id="datepicker2" />
+		                      <span class="input-group-addon">
+		                          <i class="fa fa-calendar" aria-hidden="true"></i>
+		                      </span>
+		                    </div> 	        
 					    </div>
 					</div>
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Bed</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="bed" class="form-control" placeholder="Bed">					        	        
+  	             <input type="number" name="bed" class="form-control" placeholder="Bed">					        	        
 					    </div>
 					</div>
 					<div class="form-group ">
@@ -97,13 +107,18 @@ Create Booking
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">DOB</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="dob" class="form-control" placeholder="DOB">					        	        
+  	                    <div class='input-group date' id='datepicker3'>
+		                      <input type='text' name="dob" class="form-control" placeholder="DOB" id="datepicker" />
+		                      <span class="input-group-addon">
+		                          <i class="fa fa-calendar" aria-hidden="true"></i>
+		                      </span>
+		                    </div> 				        	        
 					    </div>
 					</div>
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Age</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="age" class="form-control" placeholder="Action Date">					        	        
+  	             <input type="number" name="age" class="form-control" placeholder="Age">					        	        
 					    </div>
 					</div>
 					<div class="form-group ">
@@ -175,7 +190,7 @@ Create Booking
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Notes</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="notes" class="form-control" placeholder="Notes">					        	        
+  	             				<textarea name="notes" class="form-control" placeholder="Notes"></textarea>     	        
 					    </div>
 					</div>
 					<div class="box-footer text-right">

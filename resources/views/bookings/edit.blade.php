@@ -59,13 +59,24 @@ Update Bookings
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">BookFrom</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="b_from" class="form-control" value="{{ $booking->b_from}}">                                        
+                 
+                         <div class='input-group date' id='datepicker'>
+                              <input type='text' name="b_from" class="form-control" value="{{ $booking->b_from}}" id="datepicker" />
+                              <span class="input-group-addon">
+                                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                              </span>
+                            </div>                                          
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">BookTo</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="b_to" class="form-control" value="{{ $booking->b_to}}">                                       
+                           <div class='input-group date' id='datepicker'>
+                              <input type='text' name="b_to" class="form-control" value="{{ $booking->b_to}}" id="datepicker2" />
+                              <span class="input-group-addon">
+                                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                              </span>
+                            </div>                             
                         </div>
                     </div>
                     <div class="form-group ">
@@ -74,6 +85,7 @@ Update Bookings
                  <input type="text" name="bed" class="form-control" value="{{ $booking->bed}}">                                       
                         </div>
                     </div>
+                    <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Paying Via</label>
                         <div class="col-md-7 col-sm-12 required">
                  <input type="text" name="pay_via" class="form-control" value="{{ $booking->pay_via}}">                                       
@@ -94,7 +106,12 @@ Update Bookings
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">DOB</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="dob" class="form-control" value="{{ $booking->dob}}">                                       
+                            <div class='input-group date' id='datepicker3'>
+                              <input type='text' name="dob" class="form-control" value="{{ $booking->dob}}" id="datepicker" />
+                              <span class="input-group-addon">
+                                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                              </span>
+                            </div>                            
                         </div>
                     </div>
                     <div class="form-group ">
@@ -172,7 +189,7 @@ Update Bookings
                      <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Notes</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="notes" class="form-control" value="{{ $booking->notes}}">                                       
+                          <textarea name="notes" class="form-control" >{{ $booking->notes}}</textarea>                               
                         </div>
                     </div>
                     <div class="box-footer text-right">

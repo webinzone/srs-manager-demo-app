@@ -73,7 +73,8 @@ Create Complaint
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Complaint Details</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="com_details" class="form-control" placeholder="Complaint Details">					        	        
+  	             
+  	                    <textarea name="com_details" class="form-control" placeholder="Complaint Details"></textarea>				        	        
 					    </div>
 					</div>
 					<div class="form-group ">
@@ -91,7 +92,8 @@ Create Complaint
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Suggestions for improvement</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="suggestions" class="form-control" placeholder="Suggestions for improvement">					        	        
+  	             	
+  	             <textarea name="suggestions" class="form-control" placeholder="Suggestions for improvement"></textarea>				        	        
 					    </div>
 					</div>
 					<div class="form-group ">
@@ -116,13 +118,14 @@ Create Complaint
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Action Taken</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="action_taken" class="form-control" placeholder="Action Taken">					        	        
+  	             	<textarea name="action_taken" class="form-control" placeholder="Action Taken"></textarea>				        	        
 					    </div>
 					</div>
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Outcome or Method of Communication</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="outcome" class="form-control" placeholder="Outcome or Method of Communication">					        	        
+					    	<textarea name="outcome" class="form-control" placeholder="Outcome or Method of Communication"></textarea>	
+  	            					        	        
 					    </div>
 					</div>
 					<div class="box-footer text-right">

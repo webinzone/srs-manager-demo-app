@@ -59,24 +59,30 @@ Update Progresses
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Age</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="age" class="form-control" value="{{ $progress->age}}">                                        
+                 <input type="number" name="age" class="form-control" value="{{ $progress->age}}">                                        
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Gender</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="gender" class="form-control" value="{{ $progress->gender}}">                                       
+                             <select name="gender" class="form-control" id="gender">
+                                  <option value="Male" {{ ($progress->gender == "Male") ? 'selected' : ''}} >Male</option>
+                                  <option value="Female" {{ ($progress->gender == "Female") ? 'selected' : ''}}>Female</option>
+                                  <option value="Other" {{ ($progress->gender == "Other") ? 'selected' : ''}}>Other</option>
+                                </select>                          
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Room No</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="room_no" class="form-control" value="{{ $progress->room_no}}">                                       
+                 <input type="number" name="room_no" class="form-control" value="{{ $progress->room_no}}">                                       
                         </div>
                     </div>
+                    <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Progress Note</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="p_note" class="form-control" value="{{ $progress->p_note}}">                                       
+
+              <textarea type="text" name="p_note" class="form-control">{{ $progress->p_note}}</textarea>                            
                         </div>
                     </div>
                    <div class="form-group ">
