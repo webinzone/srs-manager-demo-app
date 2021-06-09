@@ -66,7 +66,8 @@ class RentDetailsController extends Controller
         $rent_detail->user_id =  Auth::user()->id;
 
 
-        $imageName = time().'.'.request()->res_sign->getClientOriginalExtension();
+        $imageName = request('res_sign')->getClientOriginalName();
+        //time().'.'.request()->res_sign->getClientOriginalExtension();
          request()->res_sign->move(public_path('images/sign'), $imageName);  
         $rent_detail->save();   
           
@@ -159,6 +160,13 @@ class RentDetailsController extends Controller
     
         return redirect()->route('rent_details.index')
                         ->with('success','deleted successfully');
+    }
+
+    public function downloadFile($file_name){
+        $file = Storage::disk('public')->get($file_name);
+  
+        return (new Response($file, 200))
+              ->header('Content-Type', 'image/jpeg');
     }
 
 }

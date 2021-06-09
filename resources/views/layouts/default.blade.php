@@ -31,7 +31,7 @@
     {{-- page level css --}}
     @stack('css')
 
-
+    
     @if (($snipeSettings) && ($snipeSettings->header_color!=''))
     <style nonce="{{ csrf_token() }}">
         .main-header .navbar, .main-header .logo {
@@ -700,7 +700,9 @@
             $( "#datepicker2" ).datepicker();
                 $( "#datepicker3" ).datepicker();
   });
+  
   </script>
+ 
 
   </body>
 </html>

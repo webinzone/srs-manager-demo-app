@@ -21,7 +21,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('progress_notes','ProgressNotesController');    
     Route::resource('transfer_records','TransferRecordsController');    
     Route::get('/search/', 'IncidentsController@search')->name('search');
-
+    Route::get('downloadFile/{file_name}', 'RentDetailsController@downloadFile');
 
 
 

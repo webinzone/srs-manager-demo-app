@@ -189,12 +189,11 @@
                 @endif
 
               <!-- Activation Status -->
-                  <div class="form-group {{ $errors->has('activated') ? 'has-error' : '' }}">
-
-                      <div class="form-group">
-                          <div class="col-md-3 control-label">
-                              {{ Form::label('activated', trans('general.login_enabled')) }}
-                          </div>
+                   <div class="form-group {{ $errors->has('activated') ? 'has-error' : '' }}">
+                          
+                             <label class="col-md-3 control-label" >
+                              {{  trans('general.login_enabled') }}
+                            </label>
                           <div class="col-md-9">
                               @if (config('app.lock_passwords'))
                                   <div class="icheckbox disabled" style="padding-left: 10px;">
@@ -222,7 +221,6 @@
 
                               {!! $errors->first('activated', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
 
-                          </div>
                       </div>
                   </div>
 

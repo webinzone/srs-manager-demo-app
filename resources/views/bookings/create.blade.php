@@ -108,7 +108,7 @@ Create Booking
 					    <label for="name" class="col-md-3 control-label">DOB</label>
 					    <div class="col-md-7 col-sm-12 required">
   	                    <div class='input-group date' id='datepicker3'>
-		                      <input type='text' name="dob" class="form-control" placeholder="DOB" id="datepicker" />
+		                      <input type='text' name="dob" class="form-control" placeholder="DOB" id="dob" onBlur="getAge(this.value)" />
 		                      <span class="input-group-addon">
 		                          <i class="fa fa-calendar" aria-hidden="true"></i>
 		                      </span>
@@ -118,7 +118,7 @@ Create Booking
 					<div class="form-group ">
 					    <label for="name" class="col-md-3 control-label">Age</label>
 					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="number" name="age" class="form-control" placeholder="Age">					        	        
+  	             <input type="text" name="age" id="ageId" class="form-control" placeholder="Age">					        	        
 					    </div>
 					</div>
 					<div class="form-group ">
@@ -201,9 +201,13 @@ Create Booking
 				</div> <!-- ./box-body -->
 						    <!-- col-md-8 -->
 
+	
 			    </div><!-- ./row -->
+			      
      </form>
+
 </div>
+
 @stop
 
 @section('moar_scripts')

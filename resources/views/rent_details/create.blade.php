@@ -86,6 +86,8 @@ Create Rent Details
 
 			    </div><!-- ./row -->
      </form>
+
+
 </div>
 @stop
 
