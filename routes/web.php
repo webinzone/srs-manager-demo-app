@@ -22,9 +22,20 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('transfer_records','TransferRecordsController');    
     Route::get('/search/', 'IncidentsController@search')->name('search');
     Route::get('downloadFile/{file_name}', 'RentDetailsController@downloadFile');
+   
+   //Client Details
+    Route::resource('clients','ClientsController');    
+    Route::resource('client_details','ClientDetailsController');    
+    Route::resource('client_family','ClientFamilyController');    
+    Route::resource('client_powerofatony','ClientPowerofatonyController');    
+    Route::resource('client_allergy','ClientAllergyController');    
+    Route::resource('client_visitors','ClientVisitorsController');    
+    Route::resource('client_gpdetails','ClientGpdetailsController');    
+    Route::resource('client_nextofkin','ClientNextofkinController');
 
+    Route::post('formSubmit','ClientsController@store');
 
-
+ 
 
     /*
     * Companies

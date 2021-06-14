@@ -80,7 +80,6 @@ class BookingsController extends Controller
         $booking->forensic_history = request('forensic_history');
         $booking->notes = request('notes');
         $booking->user_id =  Auth::user()->id;
-        
         $booking->save();
        
       $activity = new ActivityLog();

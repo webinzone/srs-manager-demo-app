@@ -334,6 +334,18 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'auth:api']
             'parameters' => ['transfer_records' => 'transfer_records_id']
         ]
     );
+
+     Route::resource('client_details', 'ClientDetailsController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.client_details.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['client_details' => 'client_details_id']
+        ]
+    );
     Route::resource('echart', 'EchartController',
         [
             'names' =>

@@ -78,6 +78,10 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <script src="{{ url(asset('js/html5shiv.js')) }}" nonce="{{ csrf_token() }}"></script>
         <script src="{{ url(asset('js/respond.js')) }}" nonce="{{ csrf_token() }}"></script>
+       
+
+        
+ 
 
 <style type="text/css">
   .navbar-custom-menu li:hover {
@@ -97,6 +101,104 @@
     padding-left: 20px;
 }
 </style>
+
+
+<style type="text/css">
+  form {
+  padding: 1.5rem;
+}
+
+form .page {
+  height: 50rem;
+  width: 50rem;
+}
+
+button.next {
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+button.previous {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  left: 38px;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+button.edit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+ .next {
+  background-color: #3c8dbc
+}
+
+.previous {
+  background-color: #980000;
+}
+
+.progress-bar {
+  background-color: #3c8dbc;
+}
+
+h4 {
+  color: #980000;
+}
+.progress {
+    height: 20px;
+    width: 870px;
+    margin-bottom: 20px;
+
+    }
+</style>
+
+<style type="text/css">
+  .form-row {
+    margin-right: -15px;
+    margin-left: -15px;
+    width: 900px;
+}
+</style>
+
+<style type="text/css">
+  .card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    left: 200px;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+</style>
+
   </head>
   <body class="sidebar-mini skin-{{ $snipeSettings->skin!='' ? $snipeSettings->skin : 'blue' }} {{ (session('menu_state')!='open') ? 'sidebar-mini sidebar-collapse' : ''  }}">
   <a class="skip-main" href="#main">Skip to main content</a>
@@ -188,7 +290,7 @@
                
 
                   <li>
-                  <form class="navbar-form navbar-left form-horizontal" role="search" action="{{ route('search') }}" method="get">
+                  <form class="navbar-form navbar-left form-horizontal" role="search" action="{{ route('search') }}" method="get" >
                       <div class="col-xs-12 col-md-12">
                           <div class="col-xs-12 form-group">
                               <label class="sr-only" for="tagSearch">Search Incidents</label>
@@ -214,9 +316,9 @@
                    
                          @can('create', \App\Models\User::class)
                              <li {!! (Request::is('users/create') ? 'class="active"' : '') !!}>
-                                 <a href="{{ route('users.create') }}" tabindex="-1">
+                                 <a href="{{ route('clients.create') }}" tabindex="-1">
                                      <i class="fa fa-user fa-fw" aria-hidden="true"></i>
-                                     {{ trans('general.user') }}
+                                     Add Clients
                                  </a>
                              </li>
                          @endcan
@@ -362,6 +464,15 @@
             </li>           
             @endcan
 
+            @can('view', \App\Models\User::class)
+            <li{!! (Request::is('users*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('clients.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span style="color: white;">Clients</span>
+                </a>
+            </li>
+            @endcan
+
             @can('view', \App\Models\RentDetail::class)
             <li{!! (Request::is('rent_details*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('rent_details.index') }}" style="background-color: #222d32;color: #b8c7ce;">
@@ -481,14 +592,7 @@
             </li>
             @endcan
 
-            @can('view', \App\Models\User::class)
-            <li{!! (Request::is('users*') ? ' class="active"' : '') !!}>
-                <a href="{{ route('users.index') }}" style="background-color: #222d32;color: #b8c7ce;">
-                  <i class="fa fa-user" aria-hidden="true"></i>
-                  <span style="color: white;">People</span>
-                </a>
-            </li>
-            @endcan
+            
             
             
 
@@ -558,6 +662,8 @@
         </section>
 
       </div><!-- /.content-wrapper -->
+
+
 
       <footer class="main-footer hidden-print">
 
@@ -703,6 +809,8 @@
   
   </script>
  
+
+
 
   </body>
 </html>
