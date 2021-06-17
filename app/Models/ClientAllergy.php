@@ -69,7 +69,8 @@ class ClientAllergy extends SnipeModel
         'doc_name', 
         'duration',
          'madicine', 
-         'tests_report'
+         'tests_report',
+         'allergy_status'
     ];
 
 

@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-ClientDetails
+Client Details
 @parent
 @stop
 

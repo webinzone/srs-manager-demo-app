@@ -60,7 +60,7 @@ class ClientsController extends Controller
         $client_detail->l_known = request('l_known');
         $client_detail->ph = request('ph');
         $client_detail->medicard_no = request('medicard_no');
-        $client_detail->medicard_orderno = "null";
+        $client_detail->medicard_orderno = request('medicard_orderno');
         $client_detail->pension_no = request('pension_no');
         $client_detail->insurance_no = request('insurance_no');
         $client_detail->insu_compny = request('insu_compny');
@@ -73,20 +73,20 @@ class ClientsController extends Controller
 
         $clientid = $client_detail->id;
 
-        //$client_family = new ClientFamily();   
-        //$client_family->client_id = $clientid;
-        //$client_family->fname = request('f1name');
-        //$client_family->mname = request('m1name');
-        //$client_family->lname = request('l1name');
-        //$client_family->relation = request('relation');
-        //$client_family->address = request('address1');
-        //$client_family->gender = request('gender1');
-        //$client_family->ph = request('ph1');
-        //$client_family->email = request('email');
-        //$client_family->country = request('country');
-        //$client_family->religion = request('religion1');
-        //$client_family->user_id =  Auth::user()->id;
-        //$client_family->save();
+        $client_family = new ClientFamily();   
+        $client_family->client_id = $clientid;
+        $client_family->fname = request('f1name');
+        $client_family->mname = request('m1name');
+        $client_family->lname = request('l1name');
+        $client_family->relation = request('relation');
+        $client_family->address = request('address1');
+        $client_family->gender = request('gender1');
+        $client_family->ph = request('ph1');
+        $client_family->email = request('email');
+        $client_family->country = request('country');
+        $client_family->religion = request('religion1');
+        $client_family->user_id =  Auth::user()->id;
+        $client_family->save();
 
         $client_powerofatony = new ClientPowerofatony();
         $client_powerofatony->client_id = $clientid;
@@ -103,28 +103,27 @@ class ClientsController extends Controller
 
         $client_allergy = new ClientAllergy();    
         $client_allergy->client_id = $clientid;
-        $client_allergy->allergy_status = request('allergy_status');
         $client_allergy->tof_allergy = request('tof_allergy');
-        $client_allergy->hos_name = "null";
-        $client_allergy->doc_name = "null";
-        $client_allergy->duration = "null";
-        $client_allergy->madicine = "null";
-        $client_allergy->tests_report = "null";
+        $client_allergy->hos_name = request('hos_name');
+        $client_allergy->doc_name = request('doc_name');
+        $client_allergy->duration = request('duration');
+        $client_allergy->madicine = request('madicine');
+        $client_allergy->tests_report = request('tests_report')->getClientOriginalName();
         $client_allergy->user_id =  Auth::user()->id;
-        //$report = request('tests_report')->getClientOriginalName();
-        // request()->tests_report->move(public_path('images/test_reports'), $report); 
+        $report = request('tests_report')->getClientOriginalName();
+         request()->tests_report->move(public_path('images/test_reports'), $report); 
         $client_allergy->save();
 
         $client_visitor = new ClientVisitor();     
         $client_visitor->client_id = $clientid;
         $client_visitor->allowed_status = request('allowed_status');
-        $client_visitor->name = "null";
-        $client_visitor->gender = "null";
-        $client_visitor->relation = "null";
-        $client_visitor->address = "null";
-        $client_visitor->ph = "null";
-        $client_visitor->id_no = "null";
-        $client_visitor->nationality = "null";
+        $client_visitor->name = request('name');
+        $client_visitor->gender = request('gender2');
+        $client_visitor->relation = request('relation1');
+        $client_visitor->address = request('address2');
+        $client_visitor->ph = request('ph2');
+        $client_visitor->id_no = request('id_no');
+        $client_visitor->nationality = request('nationality');
         $client_visitor->user_id =  Auth::user()->id;
         $client_visitor->save();
 
@@ -133,25 +132,25 @@ class ClientsController extends Controller
         $client_gpdetail->gp_name = request('gp_name');
         $client_gpdetail->address = request('gp_address');
         $client_gpdetail->ph = request('ph3');
-        $client_gpdetail->clinic_name = "null";
-        $client_gpdetail->booking_s_time = "null";
-        $client_gpdetail->booking_e_time = "null";
+        $client_gpdetail->clinic_name = request('clinic_name');
+        $client_gpdetail->booking_s_time = request('booking_s_time');
+        $client_gpdetail->booking_e_time = request('booking_e_time');
         $client_gpdetail->gp_email = request('gp_email');
         $client_gpdetail->user_id =  Auth::user()->id;
         $client_gpdetail->save();
 
-        //$client_nextofkin = new ClientNextofkin();    
-        //$client_nextofkin->client_id = $clientid;
-        //$client_nextofkin->allowed_status = request('allowed_status_nok');
-        //$client_nextofkin->name = request('nok_name');
-        //$client_nextofkin->gender = request('gender3');
-        //$client_nextofkin->relation = request('relation2');
-        //$client_nextofkin->address = request('nok_address3');        
-        //$client_nextofkin->ph = request('nok_ph');
-        //$client_nextofkin->id_no = request('id_no1');
-        //$client_nextofkin->nationality = request('nok_nationality');
-        //$client_nextofkin->user_id =  Auth::user()->id;
-        //$client_nextofkin->save();
+        $client_nextofkin = new ClientNextofkin();    
+        $client_nextofkin->client_id = $clientid;
+        $client_nextofkin->allowed_status = request('allowed_status_nok');
+        $client_nextofkin->name = request('nok_name');
+        $client_nextofkin->gender = request('gender3');
+        $client_nextofkin->relation = request('relation2');
+        $client_nextofkin->address = request('nok_address3');        
+        $client_nextofkin->ph = request('nok_ph');
+        $client_nextofkin->id_no = request('id_no1');
+        $client_nextofkin->nationality = request('nok_nationality');
+        $client_nextofkin->user_id =  Auth::user()->id;
+        $client_nextofkin->save();
 
         $activity = new ActivityLog();
         $activity->user = Auth::user()->first_name;
@@ -161,7 +160,7 @@ class ClientsController extends Controller
     
      
         return redirect()->route('clients.index')
-                ->with('success','Client Added successfully');                 
+                ->with('success','Client Added successfully');          
 
     }
 

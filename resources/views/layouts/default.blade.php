@@ -100,6 +100,21 @@
     text-align: left;
     padding-left: 20px;
 }
+.form-control,input[type=text],input[type=date],input[type=tel],input[type=number],input[type=email],select {
+    display: block;
+    width: 100%;
+    height: 26px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    }
+    .form-control, input[type=search] {
+    height: 34px;
+}
 </style>
 
 
@@ -294,7 +309,7 @@ h4 {
                       <div class="col-xs-12 col-md-12">
                           <div class="col-xs-12 form-group">
                               <label class="sr-only" for="tagSearch">Search Incidents</label>
-                              <input type="text" class="form-control" id="search" name="search" placeholder="Search Incidents">
+                              <input type="text" class="form-control" id="search" name="search" placeholder="Search Incidents" style="height: 34px;">
                           </div>
                           <div class="col-xs-1">
                               <button type="submit" class="btn btn-primary pull-right" style="background-color: #307095;border-color: #122b40;">

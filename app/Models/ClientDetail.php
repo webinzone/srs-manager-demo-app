@@ -82,7 +82,8 @@ class ClientDetail extends SnipeModel
         'insu_compny', 
         'likes', 
         'dislikes', 
-        'hobies'
+        'hobies',
+        'exp_date'
     ];
 
 

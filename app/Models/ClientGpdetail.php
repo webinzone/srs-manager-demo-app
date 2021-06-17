@@ -70,7 +70,8 @@ class ClientGpdetail extends SnipeModel
         'ph', 
         'clinic_name', 
         'booking_s_time', 
-        'booking_e_time'
+        'booking_e_time',
+        'gp_email'
     ];
 
 
