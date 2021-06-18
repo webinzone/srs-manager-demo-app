@@ -108,8 +108,7 @@ Add Clients
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="ph">Phone number</label>
-                        <input type="tel" class="form-control" id="ph" placeholder="000-000-0000" name="ph" v-on:change="page_one.ph = $event.target.value" required
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">              
+                        <input type="tel" class="form-control" id="ph" placeholder="000-000-0000" name="ph" v-on:change="page_one.ph = $event.target.value">              
                       </div> 
                       <div class="col-md-4 mb-3">
                         <label for="medicard_no">Medicare card number</label>
@@ -117,7 +116,7 @@ Add Clients
                       </div> 
                       <div class="col-md-4 mb-3">
                         <label for="expiry_date">Expiry date</label>
-                        <input type="date" class="form-control" id="expiry_date" placeholder="Expiry date" required name="expiry_date" v-on:change="page_one.expiry_date = $event.target.value">            
+                        <input type="date" class="form-control" id="expiry_date" placeholder="Expiry date" required name="expiry_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
                       </div> 
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
@@ -166,54 +165,41 @@ Add Clients
                         <input type="radio"  id="allowed_status" value="No" name="allowed_status" required v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                         
                       </div>
-                    </div>&nbsp;&nbsp;&nbsp;
+                    </div>
                     
-                    <h4 class="mb-3"><b>Power of attorney Details</b></h4><br>
+                    <h4 class="mb-3"><b>Next of kin</b></h4><br>
                
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
-                        <label for="po_maker">Person who make power of attorney</label>
-                        <input type="text" class="form-control" id="po_maker" placeholder="Person who make power of attorney" name="po_maker" required v-on:change="page_one.po_maker = $event.target.value">          
+                        <label for="nok_name">Name</label>
+                        <input type="text" class="form-control" id="nok_name" placeholder="Name" name="nok_name" v-on:change="page_one.nok_name = $event.target.value">              
                       </div>
                       <div class="col-md-4 mb-3">
-                        <label for="po_maker_address">Address</label>
-                        <input type="text" class="form-control" id="po_maker_address" placeholder="Address" name="po_maker_address" required v-on:change="page_one.po_maker_address = $event.target.value">              
+                        <label for="nok_address">Address</label>
+                        <input type="text" class="form-control" id="nok_address" placeholder="Address" name="nok_address" v-on:change="page_one.nok_address = $event.target.value">              
                       </div>
                       <div class="col-md-4 mb-3">
-                        <label for="po_granter">Person who the power granted</label>
-                        <input type="text" class="form-control" id="po_granter" placeholder="Person who make power of attorney" name="po_granter" required v-on:change="page_one.po_granter = $event.target.value">      
-                      </div> 
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
-                      <div class="col-md-4 mb-3">
-                        <label for="po_granter_address">Address of the power granted person</label>
-                        <input type="text" class="form-control" id="po_granter_address" placeholder="Address of the power granted person" name="po_granter_address" v-on:change="page_one.po_granter_address = $event.target.value">              
-                      </div>  
-                      <div class="col-md-4 mb-3">
-                        <label for="grant_reason">Reason for granting</label>
-                        <input type="text" class="form-control" id="grant_reason" placeholder="Reason for granting" name="grant_reason" required v-on:change="page_one.grant_reason = $event.target.value">      
-                      </div>
-                      <div class="col-md-4 mb-3">
-                        <label for="g_date">Granted date</label>
-                        <input type="date" class="form-control" id="g_date" placeholder="Granted date" name="g_date" required v-on:change="page_one.g_date = $event.target.value">              
+                        <label for="nok_ph">Phone Number</label>
+                        <input type="tel" class="form-control" id="nok_ph" placeholder="Phone Number" name="nok_ph" v-on:change="page_one.nok_ph = $event.target.value">  
                       </div>  
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
-                        <label for="place">Place</label>
-                        <input type="text" class="form-control" id="place" placeholder="Place" name="place" required v-on:change="page_one.place = $event.target.value">      
+                        <label for="nok_nok">Email</label>
+                        <input type="email" class="form-control" id="nok_email" placeholder="Email" name="nok_email" v-on:change="page_one.nok_email = $event.target.value">  
                       </div>
                       <div class="col-md-4 mb-3">
-                        <label for="termination_date">Date of termination</label>
-                        <input type="date" class="form-control" id="termination_date" placeholder="Date of termination" name="termination_date" required v-on:change="page_one.termination_date = $event.target.value">              
-                      </div>  
-                    </div>&nbsp;&nbsp;&nbsp;
+                        <label type="hidden" for="nok_nok"></label>
+                        <input type="hidden" class="form-control" id="nok" placeholder="Email" name="nok" v-on:change="page_one.nok = $event.target.value">  
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label type="hidden" for="nok_nok"></label>
+                        <input type="hidden" class="form-control" id="nok2" placeholder="Email" name="nok2" v-on:change="page_one.nok2 = $event.target.value">  
+                      </div>
+                    </div>&nbsp;&nbsp;&nbsp;                   
 
                     
-                    
-
-                    
-                    <h4 class="mb-3"><b>GP Details</b></h4><br>
+                    <br>&nbsp;&nbsp;&nbsp;    <h4 class="mb-3"><b>GP Details</b></h4><br>
 
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
@@ -226,8 +212,7 @@ Add Clients
                       </div>
                       <div class="col-md-4 mb-3">
                           <label for="ph3">Phone Number</label>
-                          <input type="tel" class="form-control" id="ph3" placeholder="000-000-0000" required
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="ph3" v-on:change="page_one.ph3 = $event.target.value">              
+                          <input type="tel" class="form-control" id="ph3" placeholder="000-000-0000" name="ph3" v-on:change="page_one.ph3 = $event.target.value">              
                         </div>  
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
@@ -909,6 +894,19 @@ Add Clients
 
       
   };
+</script>
+<script type="text/javascript">
+  function compareDate() {  
+    var dateEntered = new Date(document.getElementById('expiry_date').value);    
+    var currentDate = new Date();
+
+    if (dateEntered > currentDate) {
+    }
+    else {
+        alert("Date Entered is greater than Current Date, Please Enter a Correct date !");
+        document.getElementById('expiry_date').value = "";
+    }
+  }
 </script>
 @include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\BookingPresenter::dataTableLayout()])
 @stop

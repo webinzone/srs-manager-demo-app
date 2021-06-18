@@ -846,3 +846,22 @@ Add Clients
 </script>
 @include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\BookingPresenter::dataTableLayout()])
 @stop
+
+<script type="text/javascript">
+  function compareDate() {
+    var dateEntered = document.getElementById("expiry_date").value; 
+    var date = dateEntered.substring(0, 2);
+    var month = dateEntered.substring(3, 5);
+    var year = dateEntered.substring(6, 10);
+
+    var dateToCompare = new Date(year, month - 1, date);
+    var currentDate = new Date();
+
+    if (dateToCompare > currentDate) {
+        alert("Date Entered is greater than Current Date ");
+    }
+    else {
+        alert("Date Entered is lesser than Current Date");
+    }
+  }
+</script>

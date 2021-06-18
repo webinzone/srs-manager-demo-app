@@ -72,7 +72,8 @@ class ClientNextofkin extends SnipeModel
         'address', 
         'ph', 
         'id_no', 
-        'nationality'
+        'nationality',
+        'nok_email'
     ];
 
 

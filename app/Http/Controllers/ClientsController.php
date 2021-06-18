@@ -88,18 +88,18 @@ class ClientsController extends Controller
         //$client_family->user_id =  Auth::user()->id;
         //$client_family->save();
 
-        $client_powerofatony = new ClientPowerofatony();
-        $client_powerofatony->client_id = $clientid;
-        $client_powerofatony->po_maker = request('po_maker');
-        $client_powerofatony->po_maker_address = request('po_maker_address');
-        $client_powerofatony->po_granter = request('po_granter');
-        $client_powerofatony->po_granter_address = request('po_granter_address');
-        $client_powerofatony->grant_reason = request('grant_reason');
-        $client_powerofatony->g_date = request('g_date');
-        $client_powerofatony->place = request('place');
-        $client_powerofatony->termination_date = request('termination_date');
-        $client_powerofatony->user_id =  Auth::user()->id;
-        $client_powerofatony->save();
+        //$client_powerofatony = new ClientPowerofatony();
+        //$client_powerofatony->client_id = $clientid;
+        //$client_powerofatony->po_maker = request('po_maker');
+        //$client_powerofatony->po_maker_address = request('po_maker_address');
+        //$client_powerofatony->po_granter = request('po_granter');
+        //$client_powerofatony->po_granter_address = request('po_granter_address');
+        //$client_powerofatony->grant_reason = request('grant_reason');
+        //$client_powerofatony->g_date = request('g_date');
+        //$client_powerofatony->place = request('place');
+        //$client_powerofatony->termination_date = request('termination_date');
+        //$client_powerofatony->user_id =  Auth::user()->id;
+        //$client_powerofatony->save();
 
         $client_allergy = new ClientAllergy();    
         $client_allergy->client_id = $clientid;
@@ -140,18 +140,19 @@ class ClientsController extends Controller
         $client_gpdetail->user_id =  Auth::user()->id;
         $client_gpdetail->save();
 
-        //$client_nextofkin = new ClientNextofkin();    
-        //$client_nextofkin->client_id = $clientid;
-        //$client_nextofkin->allowed_status = request('allowed_status_nok');
-        //$client_nextofkin->name = request('nok_name');
-        //$client_nextofkin->gender = request('gender3');
-        //$client_nextofkin->relation = request('relation2');
-        //$client_nextofkin->address = request('nok_address3');        
-        //$client_nextofkin->ph = request('nok_ph');
-        //$client_nextofkin->id_no = request('id_no1');
-        //$client_nextofkin->nationality = request('nok_nationality');
-        //$client_nextofkin->user_id =  Auth::user()->id;
-        //$client_nextofkin->save();
+        $client_nextofkin = new ClientNextofkin();    
+        $client_nextofkin->client_id = $clientid;
+        $client_nextofkin->allowed_status = "null";
+        $client_nextofkin->name = request('nok_name');
+        $client_nextofkin->gender = "null";
+        $client_nextofkin->relation = "null";
+        $client_nextofkin->address = request('nok_address');        
+        $client_nextofkin->ph = request('nok_ph');
+        $client_nextofkin->id_no = "null";
+        $client_nextofkin->nationality = "null";
+        $client_nextofkin->nok_email = request('nok_email');
+        $client_nextofkin->user_id =  Auth::user()->id;
+        $client_nextofkin->save();
 
         $activity = new ActivityLog();
         $activity->user = Auth::user()->first_name;
