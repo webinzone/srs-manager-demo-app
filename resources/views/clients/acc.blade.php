@@ -129,15 +129,24 @@ Add Clients
                       <label for="insu_compny">Insurance company name</label>
                       <input type="text" class="form-control" id="insu_compny" placeholder="Insurance company name" name="insu_compny" required v-on:change="page_one.insu_compny = $event.target.value">          
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <!--<div class="col-md-6 mb-3">
                       <label for="likes">Likes</label>
                       <input type="text" class="form-control" id="likes" placeholder="Likes" name="likes" v-on:change="page_one.likes = $event.target.value">            
+                    </div>-->
+                    <div class="col-md-6 mb-3">
+                      <label for="reference_source">Reference Source</label>
+                      <input type="text" class="form-control" id="Reference Source" placeholder="reference_source" name="reference_source" v-on:change="page_one.reference_source = $event.target.value">            
                     </div>  
                   </div>&nbsp;&nbsp;&nbsp;
                   <div class="form-row">
-                    <div class="col-md-6 mb-3">
+
+                    <!--<div class="col-md-6 mb-3">
                       <label for="dislikes">Dislikes</label>
                       <textarea class="form-control" id="dislikes" placeholder="Dislikes" name="dislikes" required v-on:change="page_one.dislikes = $event.target.value"></textarea>
+                    </div>-->
+                    <div class="col-md-6 mb-3">
+                      <label for="funding_source">Funding source</label>
+                      <input type="text" class="form-control" id="funding_source" placeholder="Funding source"  name="funding_source" required v-on:change="page_one.funding_source = $event.target.value">                
                     </div>
                     <div class="col-md-6 mb-3">
                       <label for="hobies"> Hobbies</label>

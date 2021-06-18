@@ -83,7 +83,9 @@ class ClientDetail extends SnipeModel
         'likes', 
         'dislikes', 
         'hobies',
-        'exp_date'
+        'exp_date',
+        'reference_source',
+        'funding_source'
     ];
 
 

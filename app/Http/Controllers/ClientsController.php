@@ -64,10 +64,12 @@ class ClientsController extends Controller
         $client_detail->pension_no = request('pension_no');
         $client_detail->insurance_no = request('insurance_no');
         $client_detail->insu_compny = request('insu_compny');
-        $client_detail->likes = request('likes');
-        $client_detail->dislikes = request('dislikes');
+        $client_detail->likes = "null";
+        $client_detail->dislikes = "null";
         $client_detail->hobies = request('hobies');
         $client_detail->exp_date = request('exp_date');
+        $client_detail->reference_source = request('reference_source');
+        $client_detail->funding_source = request('funding_source');        
         $client_detail->user_id =  Auth::user()->id;
         $client_detail->save(); 
 
