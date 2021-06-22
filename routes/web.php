@@ -237,6 +237,9 @@ Route::group([ 'prefix' => 'admin','middleware' => ['auth', 'authorize:superuser
 
     Route::get('/', ['as' => 'settings.index', 'uses' => 'SettingsController@index' ]);
 
+    Route::resource('client_users','ClientUsersController');    
+
+
 
 });
 
@@ -504,8 +507,27 @@ Route::group(['middleware' => 'web'], function () {
             'as' => 'logout',
             'uses' => 'Auth\LoginController@logout' ]
     );
-
-   
+//Client Users Authentication
+   Route::get(
+        'clients_login',
+        [
+            'as' => 'clients_login',
+            'middleware' => ['web'],
+            'uses' => 'ClientLoginController@showLoginForm' ]
+    );
+   Route::post(
+        'clients_login',
+        [
+            'as' => 'clients_login',
+            'middleware' => ['web'],
+            'uses' => 'ClientLoginController@authentication' ]
+    );
+   Route::get(
+        'clients_logout',
+        [
+            'as' => 'clients_logout',
+            'uses' => 'Auth\LoginController@logout' ]
+    );
 
 });
 

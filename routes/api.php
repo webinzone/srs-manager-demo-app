@@ -346,6 +346,19 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'auth:api']
             'parameters' => ['client_details' => 'client_details_id']
         ]
     );
+
+      Route::resource('client_users', 'ClientUsersController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.client_users.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['client_users' => 'client_users_id']
+        ]
+    );
+      
     Route::resource('echart', 'EchartController',
         [
             'names' =>

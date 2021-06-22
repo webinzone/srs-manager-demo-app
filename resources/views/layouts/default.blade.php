@@ -331,9 +331,9 @@ h4 {
                    
                          @can('create', \App\Models\User::class)
                              <li {!! (Request::is('users/create') ? 'class="active"' : '') !!}>
-                                 <a href="{{ route('clients.create') }}" tabindex="-1">
+                                 <a href="{{ route('users.index') }}" tabindex="-1">
                                      <i class="fa fa-user fa-fw" aria-hidden="true"></i>
-                                     Add Clients
+                                     Add Users
                                  </a>
                              </li>
                          @endcan
@@ -709,7 +709,7 @@ h4 {
           @endif
           
 
-          <a target="_blank" href="https://snipeitapp.com" rel="noopener">Residential Care Manager</a>  <i class="fa fa-heart" style="color: #a94442; font-size: 10px" aria-hidden="true"></i><span class="sr-only"></span>© 2020 Copyright
+          <a target="_blank" href="" rel="noopener">Residential Care Manager</a>  <i class="fa fa-heart" style="color: #a94442; font-size: 10px" aria-hidden="true"></i><span class="sr-only"></span>© 2020 Copyright
       </footer>
 
 
