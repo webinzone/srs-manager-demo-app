@@ -83,7 +83,8 @@ class ResidentAgreement extends SnipeModel
         'condition_rep', 
         'res_service', 
         'spl_item', 
-        'pers_prop'
+        'pers_prop',
+        'profile_pic'
     ];
 
 

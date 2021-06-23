@@ -80,6 +80,10 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->spl_item = request('spl_item');
         $resident_agreement->pers_prop = request('pers_prop');
         $resident_agreement->user_id =  Auth::user()->id;
+        $resident_agreement->profile_pic = request('profile_pic')->getClientOriginalName();
+        $imageName = request('profile_pic')->getClientOriginalName();
+        request()->profile_pic->move(public_path('images/profile_pics'), $imageName);  
+
         
         $resident_agreement->save();
        

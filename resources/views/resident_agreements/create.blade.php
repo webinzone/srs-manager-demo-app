@@ -22,7 +22,7 @@ Create ResidentAgreement
         <!-- col-md-8 -->
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
 
-          <form id="create-form" class="form-horizontal" method="post" action="{{ route('resident_agreements.store') }}" autocomplete="off" role="form" >
+          <form id="create-form" class="form-horizontal" method="post" action="{{ route('resident_agreements.store') }}" autocomplete="off" role="form" enctype="multipart/form-data">
                  {{ csrf_field() }}
 
             <!-- box -->
@@ -169,6 +169,12 @@ Create ResidentAgreement
                         <label for="name" class="col-md-3 control-label">Personal properties belonging resident brought into SRS</label>
                         <div class="col-md-7 col-sm-12 required">
                  <input type="text" name="pers_prop" class="form-control" placeholder="Personal properties belonging resident brought into SRS">                                       
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Upload Profile Photo</label>
+                        <div class="col-md-7 col-sm-12 required">
+                            <input type="file" name="profile_pic">                                       
                         </div>
                     </div>
                     <div class="box-footer text-right">

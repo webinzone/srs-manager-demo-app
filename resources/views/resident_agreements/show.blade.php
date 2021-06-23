@@ -29,6 +29,12 @@ ResidentAgreements
 
                 <!-- Asset name -->
                 <div class="form-group">
+                    <div class="col-md-6">
+                        <img  class="img-responsive pad" src="{{url('')}}/images/profile_pics/{{ $resident_agreement->profile_pic}}" style="width: 200px;height: 200px;">
+
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label">Resident Name:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $resident_agreement->r_name}}</p>
