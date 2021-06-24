@@ -19,7 +19,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('staff_roasters','StaffRoastersController');    
     Route::resource('condition_reports','ConditionReportsController'); 
     Route::resource('progress_notes','ProgressNotesController');    
-    Route::resource('transfer_records','TransferRecordsController');    
+    Route::resource('transfer_records','TransferRecordsController');   
+    Route::resource('location_masters','LocationMastersController'); 
+    Route::resource('company_masters','CompanyMastersController');  
     Route::get('/search/', 'IncidentsController@search')->name('search');
     Route::get('downloadFile/{file_name}', 'RentDetailsController@downloadFile');
    

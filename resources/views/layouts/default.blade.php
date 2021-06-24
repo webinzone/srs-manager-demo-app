@@ -479,6 +479,29 @@ h4 {
               </a>
             </li>           
             @endcan
+            
+            <li class="treeview">
+                <a href="#" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-shield" aria-hidden="true"></i>
+                  <span style="color: white;">Administration</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
+                  <li>
+                      <a href="{{ route('company_masters.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Company Master
+                    </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('location_masters.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Location Master
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
 
             @can('view', \App\Models\User::class)
             <li{!! (Request::is('users*') ? ' class="active"' : '') !!}>

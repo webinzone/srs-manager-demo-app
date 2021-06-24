@@ -170,15 +170,15 @@ class ClientsController extends Controller
 
    public function show($id)
     {
-        $this->authorize('show',ClientDetail::class);
         $client_detail = ClientDetail::find($id);
         //$client_family = ClientFamily::where('client_id', '=', $id);
         //$power_of_atony = ClientPowerofatony::where('client_id', '=', $id);
-        $allergy = ClientAllergy::where('client_id', '=', $id);
-        $visitor = ClientVisitor::where('client_id', '=', $id);
-        $gpdetail = ClientGpdetail::where('client_id', '=', $id);
-        $next_of_kin = ClientNextofkin::where('client_id', '=', $id);
-        return view('clients/show',compact('client_detail'));
+        $allergy = ClientAllergy::where('client_id', '=', $id)->firstOrFail();
+        $visitor = ClientVisitor::where('client_id', '=', $id)->firstOrFail();
+        $gpdetail = ClientGpdetail::where('client_id', '=', $id)->firstOrFail();
+        $next_of_kin = ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
+  
+        return view('clients/show')->with(compact('client_detail', 'visitor', 'allergy', 'visitor', 'gpdetail', 'next_of_kin'));
     }
      /**
      * Show the form for editing the specified resource.
@@ -208,7 +208,7 @@ class ClientsController extends Controller
      */
     public function update($id)
     {
-        $client_detail = new ClientDetail();    
+        $client_detail = ClientDetail::find($id);   
         $client_detail->fname = request('fname');
         $client_detail->mname = request('mname');
         $client_detail->lname = request('lname');
@@ -234,7 +234,7 @@ class ClientsController extends Controller
         $client_detail->user_id =  Auth::user()->id;
         $client_detail->save(); 
 
-        $clientid = $client_detail->id;
+        //$clientid = $client_detail->id;
 
         //$client_family = new ClientFamily();   
         //$client_family->client_id = $clientid;
@@ -264,68 +264,68 @@ class ClientsController extends Controller
         //$client_powerofatony->user_id =  Auth::user()->id;
         //$client_powerofatony->save();
 
-        $client_allergy = new ClientAllergy();    
-        $client_allergy->client_id = $clientid;
-        $client_allergy->allergy_status = request('allergy_status');
-        $client_allergy->tof_allergy = request('tof_allergy');
-        $client_allergy->hos_name = "null";
-        $client_allergy->doc_name = "null";
-        $client_allergy->duration = "null";
-        $client_allergy->madicine = "null";
-        $client_allergy->tests_report = "null";
-        $client_allergy->user_id =  Auth::user()->id;
-        //$report = request('tests_report')->getClientOriginalName();
-        // request()->tests_report->move(public_path('images/test_reports'), $report); 
-        $client_allergy->save();
-
-        $client_visitor = new ClientVisitor();     
-        $client_visitor->client_id = $clientid;
-        $client_visitor->allowed_status = request('allowed_status');
-        $client_visitor->name = "null";
-        $client_visitor->gender = "null";
-        $client_visitor->relation = "null";
-        $client_visitor->address = "null";
-        $client_visitor->ph = "null";
-        $client_visitor->id_no = "null";
-        $client_visitor->nationality = "null";
-        $client_visitor->user_id =  Auth::user()->id;
-        $client_visitor->save();
-
-        $client_gpdetail = new ClientGpdetail();     
-        $client_gpdetail->client_id = $clientid;
-        $client_gpdetail->gp_name = request('gp_name');
-        $client_gpdetail->address = request('gp_address');
-        $client_gpdetail->ph = request('ph3');
-        $client_gpdetail->clinic_name = "null";
-        $client_gpdetail->booking_s_time = "null";
-        $client_gpdetail->booking_e_time = "null";
-        $client_gpdetail->gp_email = request('gp_email');
-        $client_gpdetail->user_id =  Auth::user()->id;
-        $client_gpdetail->save();
-
-        $client_nextofkin = new ClientNextofkin();    
-        $client_nextofkin->client_id = $clientid;
-        $client_nextofkin->allowed_status = "null";
-        $client_nextofkin->name = request('nok_name');
-        $client_nextofkin->gender = "null";
-        $client_nextofkin->relation = "null";
-        $client_nextofkin->address = request('nok_address');        
-        $client_nextofkin->ph = request('nok_ph');
-        $client_nextofkin->id_no = "null";
-        $client_nextofkin->nationality = "null";
-        $client_nextofkin->nok_email = request('nok_email');
-        $client_nextofkin->user_id =  Auth::user()->id;
-        $client_nextofkin->save();
+        //$client_allergy = ClientAllergy::where('client_id', '=', $id)->firstOrFail();    
+        //$client_allergy->client_id = $clientid;
+        //$client_allergy->allergy_status = request('allergy_status');
+        //$client_allergy->tof_allergy = request('tof_allergy');
+        //$client_allergy->hos_name = "null";
+        //$client_allergy->doc_name = "null";
+        //$client_allergy->duration = "null";
+        //$client_allergy->madicine = "null";
+        //$client_allergy->tests_report = "null";
+        //$client_allergy->user_id =  Auth::user()->id;
+        ////$report = request('tests_report')->getClientOriginalName();
+        //// request()->tests_report->move(public_path('images/test_reports'), $report); 
+        //$client_allergy->save();
+//
+        //$client_visitor = new ClientVisitor::where('client_id', '=', $id)->firstOrFail();     
+        //$client_visitor->client_id = $clientid;
+        //$client_visitor->allowed_status = request('allowed_status');
+        //$client_visitor->name = "null";
+        //$client_visitor->gender = "null";
+        //$client_visitor->relation = "null";
+        //$client_visitor->address = "null";
+        //$client_visitor->ph = "null";
+        //$client_visitor->id_no = "null";
+        //$client_visitor->nationality = "null";
+        //$client_visitor->user_id =  Auth::user()->id;
+        //$client_visitor->save();
+//
+        //$client_gpdetail = new ClientGpdetail::where('client_id', '=', $id)->firstOrFail();  
+        //$client_gpdetail->client_id = $clientid;
+        //$client_gpdetail->gp_name = request('gp_name');
+        //$client_gpdetail->address = request('gp_address');
+        //$client_gpdetail->ph = request('ph3');
+        //$client_gpdetail->clinic_name = "null";
+        //$client_gpdetail->booking_s_time = "null";
+        //$client_gpdetail->booking_e_time = "null";
+        //$client_gpdetail->gp_email = request('gp_email');
+        //$client_gpdetail->user_id =  Auth::user()->id;
+        //$client_gpdetail->save();
+//
+        //$client_nextofkin = new ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
+        //$client_nextofkin->client_id = $clientid;
+        //$client_nextofkin->allowed_status = "null";
+        //$client_nextofkin->name = request('nok_name');
+        //$client_nextofkin->gender = "null";
+        //$client_nextofkin->relation = "null";
+        //$client_nextofkin->address = request('nok_address');        
+        //$client_nextofkin->ph = request('nok_ph');
+        //$client_nextofkin->id_no = "null";
+        //$client_nextofkin->nationality = "null";
+        //$client_nextofkin->nok_email = request('nok_email');
+        //$client_nextofkin->user_id =  Auth::user()->id;
+        //$client_nextofkin->save();
 
         $activity = new ActivityLog();
         $activity->user = Auth::user()->first_name;
-        $activity->action = "Added";
+        $activity->action = "Updated";
         $activity->item = "Client";
         $activity->save();
     
      
         return redirect()->route('clients.index')
-                ->with('success','Client Added successfully'); 
+                ->with('success','Client Updated successfully'); 
     }
     /**
      * Remove the specified resource from storage.

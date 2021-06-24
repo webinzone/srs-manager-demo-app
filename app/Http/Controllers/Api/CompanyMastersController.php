@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+use App\Http\Transformers\CompanyMastersTransformer;
+use App\Http\Transformers\SelectlistTransformer;
+use App\Models\CompanyMaster;
+use App\Helpers\Helper;
+use App\Http\Controllers\Controller;
+use Auth;
+use DB;
+use Illuminate\Http\Request;
+
+class CompanyMastersController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @author [A. Gianotto] [<snipe@snipe.net>]
+     * @since [v4.0]
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $this->authorize('index', CompanyMaster::class);
+        
+        $company_masters = CompanyMaster::where('user_id', '=', Auth::user()->id);
+       
+
+        if ($request->filled('search')) {
+            $company_masters = $company_masters->TextSearch($request->input('search'));
+        }
+        
+        $offset = (($company_masters) && ($request->get('offset') > $company_masters->count())) ? $company_masters->count() : $request->get('offset', 0);
+
+        // Check to make sure the limit is not higher than the max allowed
+        ((config('app.max_results') >= $request->input('limit')) && ($request->filled('limit'))) ? $limit = $request->input('limit') : $limit = config('app.max_results');
+
+        $total = $company_masters->count();
+        $company_masters = $company_masters->skip($offset)->take($limit)->get();
+        return (new CompanyMastersTransformer)->transformCompanyMasters($company_masters, $total);
+    }
+
+
+    
+    
+}

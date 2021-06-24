@@ -358,6 +358,28 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'auth:api']
             'parameters' => ['client_users' => 'client_users_id']
         ]
     );
+        Route::resource('location_masters', 'LocationMastersController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.location_masters.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['location_masters' => 'location_masters_id']
+        ]
+    );
+          Route::resource('company_masters', 'CompanyMastersController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.company_masters.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['company_masters' => 'company_masters_id']
+        ]
+    );
       
     Route::resource('echart', 'EchartController',
         [
