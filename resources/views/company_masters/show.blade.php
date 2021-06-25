@@ -22,14 +22,14 @@ CompanyMasters
         <form class="form-horizontal" method="" action="" autocomplete="off">
           <div class="box box-default">
             <div class="box-header with-border">
-                <h2 class="box-title"> CompanyMaster</h2>
+                <h2 class="box-title"> CompanyMaster -<b> {{ $company_master->company_id}} </b></h2>
             </div>
 
             <div class="box-body">
 
                 <!-- Asset name -->
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Company Nam:</label>
+                    <label class="col-sm-3 control-label">Company Name:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $company_master->company_name}}</p>
                     </div>
@@ -41,15 +41,15 @@ CompanyMasters
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Location Id:</label>
+                    <label class="col-sm-3 control-label">Suburb</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $company_master->location_id}}</p>
+                        <p class="form-control-static">{{ $company_master->suburb}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Email:</label>
+                    <label class="col-sm-3 control-label">Post Code</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $company_master->email}}</p>
+                        <p class="form-control-static">{{ $company_master->post_code}}</p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -59,9 +59,22 @@ CompanyMasters
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">Email:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $company_master->email}}</p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
                     <label class="col-sm-3 control-label">Fax:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $company_master->fax}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Web Id:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $company_master->web}}</p>
                     </div>
                 </div>
           

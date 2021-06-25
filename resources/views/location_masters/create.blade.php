@@ -51,10 +51,16 @@ Create LocationMaster
 
                 <!-- box-body -->
                 <div class="box-body">                          
+                    
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Location Id</label>
-                        <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="location_id" class="form-control" placeholder="Location Id">
+                        <label for="name" class="col-md-3 control-label">Company Id</label>
+                        <div class="col-md-4 col-sm-12 required">
+                         <select class="form-control" name="company_id">
+                            <option>--Select Company ID --</option>
+                          @foreach($companies as $company)
+                          <option value="{{ $company->company_id }}">{{ $company->company_id }}</option>
+                          @endforeach
+                        </select>
         
                         </div>
                     </div>
@@ -71,9 +77,21 @@ Create LocationMaster
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Email</label>
+                        <label for="name" class="col-md-3 control-label">Suburb</label>
                         <div class="col-md-7 col-sm-12 required">
-                         <input type="text" name="email" class="form-control" placeholder="Email">                                        
+                 <input type="text" name="suburb" class="form-control" placeholder="Location Id">                                        
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Post Code</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="post_code" class="form-control" placeholder="Post Code">                                        
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">State</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="state" class="form-control" placeholder="State">                                        
                         </div>
                     </div>
                     <div class="form-group ">
@@ -82,6 +100,13 @@ Create LocationMaster
                  <input type="text" name="ph" class="form-control" placeholder="Phone Number">                                       
                         </div>
                     </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Email</label>
+                        <div class="col-md-7 col-sm-12 required">
+                         <input type="text" name="email" class="form-control" placeholder="Email">                                        
+                        </div>
+                    </div>
+                    
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Fax</label>
                         <div class="col-md-7 col-sm-12 required">

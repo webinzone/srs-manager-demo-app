@@ -22,6 +22,12 @@ class CompanyMasterPresenter extends Presenter
                 "title" => trans('id'),
                 "visible" => false
             ],[
+                "field" => "company_id",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Company ID')
+            ],[
                 "field" => "company_name",
                 "searchable" => true,
                 "sortable" => true,
@@ -34,17 +40,17 @@ class CompanyMasterPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Address')
             ],[
-                "field" => "location_id",
+                "field" => "suburb",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Location Id')
+                "title" => trans('Suburb')
             ],[
-                "field" => "email",
+                "field" => "post_code",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Email')
+                "title" => trans('Post Code')
             ],[
                 "field" => "ph",
                 "searchable" => true,
@@ -52,11 +58,23 @@ class CompanyMasterPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Phone Number')     
             ],[
+                "field" => "email",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Email')
+            ],[
                 "field" => "fax",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Fax')
+            ],[
+                "field" => "web",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Web Id')     
             ],[
                 "field" => "created_at",
                 "searchable" => true,

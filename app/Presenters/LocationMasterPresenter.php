@@ -28,6 +28,12 @@ class LocationMasterPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Location Id')
             ],[
+                "field" => "company_id",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Company Id')
+            ],[
                 "field" => "master_name",
                 "searchable" => true,
                 "sortable" => true,
@@ -40,17 +46,35 @@ class LocationMasterPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Address')
             ],[
-                "field" => "email",
+                "field" => "suburb",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Email')
+                "title" => trans('Suburb')
+            ],[
+                "field" => "post_code",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Post Code')
+            ],[
+                "field" => "state",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('State')
             ],[
                 "field" => "ph",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Phone Number')     
+            ],[
+                "field" => "email",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Email')
             ],[
                 "field" => "fax",
                 "searchable" => true,

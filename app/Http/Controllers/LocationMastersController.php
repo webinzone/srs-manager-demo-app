@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\LocationMaster;
+use App\Models\CompanyMaster;
 use App\Models\ActivityLog;
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -42,7 +44,8 @@ class LocationMastersController extends Controller
     {
          // Show the page
         $this->authorize('create',LocationMaster::class);
-        return view('location_masters/create');
+        $companies = CompanyMaster::all();
+        return view('location_masters/create',compact('companies'));
     }
 
 
@@ -56,9 +59,25 @@ class LocationMastersController extends Controller
     public function store()
     {
         $this->authorize('create',LocationMaster::class);
+        
         $location_master = new LocationMaster();
+        
+        $company_id = request('company_id');
+        //$location = LocationMaster::where('company_id', '=', $company_id)->firstOrFail();
+        if (LocationMaster::where('company_id', '=', $company_id)->exists())
+        {
+           $lastLocationid = LocationMaster::where('company_id', '=', $company_id)->orderBy('created_at', 'desc')->first();        
+           $str = $lastLocationid->location_id;    
 
-        $location_master->location_id = request('location_id');
+        }
+        else
+        {          
+              $str = 'L000';
+          
+        }
+
+        $location_master->location_id = ++$str;
+
         $location_master->master_name = request('master_name');
         $location_master->address = request('address');
         $location_master->email = request('email');
@@ -66,7 +85,10 @@ class LocationMastersController extends Controller
         $location_master->fax = request('fax');
         $location_master->web_id = request('web_id');
         $location_master->user_id =  Auth::user()->id;
-        
+        $location_master->suburb = request('suburb');
+        $location_master->post_code = request('post_code');
+        $location_master->state = request('state');
+        $location_master->company_id = request('company_id');
         $location_master->save();
        
       $activity = new ActivityLog();
@@ -116,6 +138,7 @@ class LocationMastersController extends Controller
     public function update($id)
     {
         $this->authorize('update', LocationMaster::class);
+
         $location_master = LocationMaster::find($id);
 
         $location_master->location_id = request('location_id');
@@ -126,6 +149,11 @@ class LocationMastersController extends Controller
         $location_master->fax = request('fax');
         $location_master->web_id = request('web_id');
         $location_master->user_id =  Auth::user()->id;
+        $location_master->suburb = request('suburb');
+        $location_master->post_code = request('post_code');
+        $location_master->state = request('state');
+
+        $location_master->company_id = request('company_id');
         
         $location_master->save();
         $activity = new ActivityLog();

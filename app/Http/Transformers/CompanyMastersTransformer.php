@@ -25,12 +25,15 @@ class CompanyMastersTransformer
 
             $array = [
                 'id' => (int) $company_master->id,
+                'company_id' => e($company_master->company_id),                
                 'company_name' => e($company_master->company_name),
                 'address' => e($company_master->address),
-                'location_id' => e($company_master->location_id),
-                'email' => e($company_master->email),
+                'suburb' => e($company_master->suburb),
+                'post_code' => e($company_master->post_code),
                 'ph' => e($company_master->ph),
+                'email' => e($company_master->email),                
                 'fax' => e($company_master->fax),
+                'web' => e($company_master->web),
                 'created_at' => e($company_master->created_at),
                 'actions' => view('company_masters/datatables_actions', compact('company_master'))->render() 
                 

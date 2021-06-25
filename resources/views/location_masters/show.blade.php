@@ -34,6 +34,12 @@ LocationMasters
                         <p class="form-control-static">{{ $location_master->location_id}}</p>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Company Id:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $location_master->company_id}}</p>
+                    </div>
+                </div>
                <div class="form-group">
                     <label class="col-sm-3 control-label">Master Name:</label>
                     <div class="col-md-6">
@@ -44,6 +50,24 @@ LocationMasters
                     <label class="col-sm-3 control-label">Address:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $location_master->address}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Suburb</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $location_master->suburb}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Post Code</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $location_master->post_code}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">State</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $location_master->state}}</p>
                     </div>
                 </div>
                 <div class="form-group">

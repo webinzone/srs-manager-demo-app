@@ -55,15 +55,31 @@ class CompanyMastersController extends Controller
     public function store()
     {
         $this->authorize('create',CompanyMaster::class);
+        //$lastCompanyid  = CompanyMaster::orderBy('created_at', 'desc')->first();
+        $lastCompanyid        =   CompanyMaster::orderBy('created_at', 'desc')->first();
+        if ($lastCompanyid) {
+            $str = $lastCompanyid->company_id;
+        }
+        else
+        {
+            $str = 'C000';
+        }
+        
         $company_master = new CompanyMaster();
 
         $company_master->company_name = request('company_name');
         $company_master->address = request('address');
-        $company_master->location_id = request('location_id');
+        $company_master->location_id = "null";
         $company_master->email = request('email');
         $company_master->ph = request('ph');
         $company_master->fax = request('fax');
         $company_master->user_id =  Auth::user()->id;
+        $company_master->suburb = request('suburb');
+        $company_master->post_code = request('post_code');
+        $company_master->web = request('web');
+        $company_master->state = "null";
+
+        $company_master->company_id = ++$str;
         
         $company_master->save();
        
@@ -123,6 +139,9 @@ class CompanyMastersController extends Controller
         $company_master->ph = request('ph');
         $company_master->fax = request('fax');
         $company_master->user_id =  Auth::user()->id;
+        $company_master->suburb = request('suburb');
+        $company_master->post_code = request('post_code');
+        $company_master->web = request('web');
         
         $company_master->save();
         $activity = new ActivityLog();

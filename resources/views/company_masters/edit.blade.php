@@ -48,7 +48,14 @@ Update CompanyMasters
                 </div><!-- /.box-header -->
 
                 <!-- box-body -->
-               <div class="box-body">                           
+               <div class="box-body"> 
+                   <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Company ID</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="company_id" class="form-control" value="{{ $company_master->company_id}}" readonly>
+        
+                        </div>
+                    </div>                          
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Company Name</label>
                         <div class="col-md-7 col-sm-12 required">
@@ -63,15 +70,15 @@ Update CompanyMasters
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Location Id</label>
+                        <label for="name" class="col-md-3 control-label">Suburb</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="location_id" class="form-control" value="{{ $company_master->location_id}}">                                       
+                 <input type="text" name="suburb" class="form-control" value="{{ $company_master->suburb}}">                                       
                         </div>
                     </div>
-                    <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Email</label>
+                     <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Post Code</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="email" class="form-control" value="{{ $company_master->email}}">                                       
+                 <input type="text" name="post_code" class="form-control" value="{{ $company_master->post_code}}">                                        
                         </div>
                     </div>
                     <div class="form-group ">
@@ -80,10 +87,23 @@ Update CompanyMasters
                  <input type="text" name="ph" class="form-control" value="{{ $company_master->ph}}">                                       
                         </div>
                     </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Email</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="email" class="form-control" value="{{ $company_master->email}}">                                       
+                        </div>
+                    </div>
+                    
                    <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Fax</label>
                         <div class="col-md-7 col-sm-12 required">
                  <input type="text" name="fax" class="form-control" value="{{ $company_master->fax}}">                                       
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Web ID</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="web" class="form-control" value="{{ $company_master->web}}">                                       
                         </div>
                     </div>
                     <div class="box-footer text-right">

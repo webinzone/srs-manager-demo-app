@@ -65,15 +65,15 @@ Create CompanyMaster
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Location Id</label>
+                        <label for="name" class="col-md-3 control-label">Suburb</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="location_id" class="form-control" placeholder="Location Id">                                        
+                 <input type="text" name="suburb" class="form-control" placeholder="Location Id">                                        
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Email</label>
+                        <label for="name" class="col-md-3 control-label">Post Code</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="email" class="form-control" placeholder="Email">                                        
+                 <input type="text" name="post_code" class="form-control" placeholder="Post Code">                                        
                         </div>
                     </div>
                     <div class="form-group ">
@@ -83,9 +83,22 @@ Create CompanyMaster
                         </div>
                     </div>
                     <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Email</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="email" class="form-control" placeholder="Email">                                        
+                        </div>
+                    </div>
+                    
+                    <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Fax</label>
                         <div class="col-md-7 col-sm-12 required">
                  <input type="text" name="fax" class="form-control" placeholder="Fax">                                     
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Web ID</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="web" class="form-control" placeholder="Web ID">                                       
                         </div>
                     </div>
                     <div class="box-footer text-right">
