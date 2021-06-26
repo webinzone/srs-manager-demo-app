@@ -21,7 +21,8 @@ Add Clients
    
         
         <div class="col-md-10 offset-1">
-          <form class="form-horizontal" method="POST" action="{{ route('clients.update', $client_detail->id) }}" autocomplete="off" role="form" style="width: 1000px; align-items: center;   background-color: #fff; " enctype="multipart/form-data" >
+          <form class="form-horizontal" method="post" action="{{ route ('clients.update', $client_detail->id) }}" autocomplete="off" role="form" style="width: 1000px; align-items: center;   background-color: #fff; " >
+             @method('PATCH') 
               {{ csrf_field() }}
               <div class="box box-default">
               <!-- box-header -->
@@ -84,7 +85,7 @@ Add Clients
                       </div>  
                       <div class="col-md-2 mb-3">
                         <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
-                        <select name="gender" value="{{ $client_detail->gender}}" required="" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                        <select name="gender"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="" style="font-size: 14px;">---Select--</option> 
                             <option value="Male" {{ $client_detail->gender == 'Male' ? 'selected' : ''  }} style="font-size: 14px;">Male</option> 
                             <option value="Female" {{ $client_detail->gender == 'Female' ? 'selected' : ''  }} style="font-size: 14px;">Female</option> 
@@ -116,7 +117,7 @@ Add Clients
                       </div> 
                       <div class="col-md-4 mb-3">
                         <label for="expiry_date">Expiry date</label>
-                        <input type="date" value="{{ $client_detail->exp_date}}" class="form-control" id="expiry_date" placeholder="Expiry date" required name="expiry_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
+                        <input type="date" value="{{ $client_detail->exp_date}}" class="form-control" id="expiry_date" placeholder="Expiry date" required name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
                       </div> 
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
@@ -163,8 +164,8 @@ Add Clients
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="allergey">Do you have any Allergey ?</label>
-                        <br><input type="radio" {{ $allergy->allergy_status == "Yes" ? 'checked' : '' }}   id="Allergey"  value="Yes" name="allergey" required v-on:change="page_one.allergey = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" {{ $allergy->allergy_status == "No" ? 'checked' : '' }} id="allergey" value="No" name="allergey" required v-on:change="page_one.allergey = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+                        <br><input type="radio" {{ $allergy->allergy_status == "Yes" ? 'checked' : '' }}   id="Allergey"  value="Yes" name="allergy_status" required v-on:change="page_one.allergey = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" {{ $allergy->allergy_status == "No" ? 'checked' : '' }} id="allergey" value="No" name="allergy_status" required v-on:change="page_one.allergey = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="tof_allergy">Allergey Details</label>

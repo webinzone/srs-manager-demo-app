@@ -116,7 +116,7 @@ Add Clients
                       </div> 
                       <div class="col-md-4 mb-3">
                         <label for="expiry_date">Expiry date</label>
-                        <input type="date" class="form-control" id="expiry_date" placeholder="Expiry date" required name="expiry_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
+                        <input type="date" class="form-control" id="expiry_date" placeholder="Expiry date" required name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
                       </div> 
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
@@ -162,9 +162,9 @@ Add Clients
                     </div>
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
-                        <label for="allergey">Do you have any Allergey ?</label>
-                        <br><input type="radio"  id="Allergey"  value="Yes" name="allergey" required v-on:change="page_one.allergey = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="allergey" value="No" name="allergey" required v-on:change="page_one.allergey = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+                        <label for="allergy_status">Do you have any Allergey ?</label>
+                        <br><input type="radio"  id="Allergey"  value="Yes" name="allergy_status" required v-on:change="page_one.allergy_status = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="allergy_status" value="No" name="allergy_status" required v-on:change="page_one.allergy_status = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="tof_allergy">Allergey Details</label>
@@ -788,7 +788,7 @@ Add Clients
         relation2: null,
         nok_ph: null,
         id_no1: null,
-        nok_nationality: null,,
+        nok_nationality: null,
       }
       }
     },
