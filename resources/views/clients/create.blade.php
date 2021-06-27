@@ -174,7 +174,7 @@ New Resident Admission Form
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="room_no">Room No</label>
-                        <input type="text" class="form-control" id="room_no" placeholder="Room No" name="room_no" required v-on:change="page_one.room_no = $event.target.value">            
+                        <input type="number" class="form-control" id="room_no" placeholder="Room No" name="room_no" required v-on:change="page_one.room_no = $event.target.value">            
                       </div>  
                        </div>&nbsp;&nbsp;&nbsp;
 

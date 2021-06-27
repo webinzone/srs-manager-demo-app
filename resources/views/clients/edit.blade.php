@@ -81,12 +81,12 @@ Add Clients
                     <div class="form-row">  
                       <div class="col-md-2 mb-3">
                         <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
-                        <select name="gender"  required="" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                        <select name="gender"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="" style="font-size: 14px;">---Select--</option> 
-                            <option value="Male" style="font-size: 14px;">Male</option> 
-                            <option value="Female" style="font-size: 14px;">Female</option> 
-                            <option value="Other" style="font-size: 14px;">Other</option>
-                        </select> 
+                            <option value="Male" {{ $client_detail->gender == 'Male' ? 'selected' : ''  }} style="font-size: 14px;">Male</option> 
+                            <option value="Female" {{ $client_detail->gender == 'Female' ? 'selected' : ''  }} style="font-size: 14px;">Female</option> 
+                            <option value="Other" {{ $client_detail->gender == 'Other' ? 'selected' : ''  }} style="font-size: 14px;">Other</option>
+                        </select>
        
                       </div>
                       <div class="col-md-2 mb-3">
@@ -172,7 +172,7 @@ Add Clients
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="room_no">Room No</label>
-                        <input type="text" value="{{ $client_detail->room_no}}" class="form-control" placeholder="Room No" id="room_no" name="room_no" required v-on:change="page_one.room_no = $event.target.value">                
+                        <input type="number" value="{{ $client_detail->room_no}}" class="form-control" placeholder="Room No" id="room_no" name="room_no" required v-on:change="page_one.room_no = $event.target.value">                
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
 
