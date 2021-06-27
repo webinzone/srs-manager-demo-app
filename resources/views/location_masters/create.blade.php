@@ -3,7 +3,7 @@
 
 {{-- Page title --}}
 @section('title')
-Create LocationMaster
+Create Location Master
 @parent
 @stop
 @section('header_right')
@@ -55,7 +55,7 @@ Create LocationMaster
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Company Id</label>
                         <div class="col-md-4 col-sm-12 ">
-                         <select class="form-control" name="company_id">
+                         <select class="form-control" required="" name="company_id">
                             <option>--Select Company ID --</option>
                           @foreach($companies as $company)
                           <option value="{{ $company->company_id }}">{{ $company->company_id }}</option>
@@ -65,45 +65,46 @@ Create LocationMaster
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Master Name</label>
+                        <label for="name" class="col-md-3 control-label">Name</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="master_name" class="form-control" placeholder="Master Name">                                      
+                 <input type="text" name="master_name" class="form-control" required="" placeholder="Master Name">                                      
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Address</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="address" class="form-control" placeholder="Address">                                        
+                 <input type="text" name="address" class="form-control" required="" placeholder="Address">                                        
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Suburb</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="suburb" class="form-control" placeholder="Location Id">                                        
+                 <input type="text" name="suburb" class="form-control" required="" placeholder="Location Id">                                        
+                        </div>
+                    </div>
+                     <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">State</label>
+                        <div class="col-md-7 col-sm-12 ">
+                 <input type="text" name="state" class="form-control" required="" placeholder="State">                                        
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Post Code</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="post_code" class="form-control" placeholder="Post Code">                                        
+                 <input type="text" name="post_code" class="form-control" required="" placeholder="Post Code">                                        
                         </div>
                     </div>
-                    <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">State</label>
-                        <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="state" class="form-control" placeholder="State">                                        
-                        </div>
-                    </div>
+                   
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Phone Number</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="ph" class="form-control" placeholder="Phone Number">                                       
+                 <input type="text" name="ph" class="form-control" required="" placeholder="Phone Number">                                       
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Email</label>
                         <div class="col-md-7 col-sm-12 ">
-                         <input type="text" name="email" class="form-control" placeholder="Email">                                        
+                         <input type="text" name="email" class="form-control" required="" placeholder="Email">                                        
                         </div>
                     </div>
                     
@@ -116,7 +117,7 @@ Create LocationMaster
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Web Id</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="web_id" class="form-control" placeholder="Web Id">                                      
+                 <input type="text" name="web_id" class="form-control" required="" placeholder="Web Id">                                      
                         </div>
                     </div>
                     <div class="box-footer text-right">

@@ -507,7 +507,7 @@ h4 {
             <li{!! (Request::is('users*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('clients.index') }}" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-user" aria-hidden="true"></i>
-                  <span style="color: white;">Clients</span>
+                  <span style="color: white;">Resident</span>
                 </a>
             </li>
             @endcan
@@ -539,6 +539,30 @@ h4 {
                 </a>
                 <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
                   <li>
+                      <a href="" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Resident Reports
+                    </a>
+                  </li>
+                  <li>
+                      <a href="" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        RSA Reports
+                    </a>
+                  </li>
+                  <li>
+                      <a href="" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Condition Reports
+                    </a>
+                  </li>
+                  <li>
+                      <a href="" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Referal Reports
+                    </a>
+                  </li>
+                  <!--<li>
                       <a href="{{ route('handovers.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Handover Reports
@@ -561,7 +585,7 @@ h4 {
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         File Reports
                     </a>
-                  </li>
+                  </li>-->
                 </ul>
               </li>
 

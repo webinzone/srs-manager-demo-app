@@ -53,6 +53,12 @@ CompanyMasters
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">State</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $company_master->state}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label">Phone Number:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $company_master->ph}}</p>

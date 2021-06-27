@@ -40,29 +40,11 @@ class ClientDetailPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Last name')
             ],[
-                "field" => "address",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Address')
-            ],[
                 "field" => "dob",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Date of birth')
-            ],[
-                "field" => "cob",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Country of birth')
-            ],[
-                "field" => "age",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Age')
             ],[
                 "field" => "gender",
                 "searchable" => true,
@@ -70,71 +52,11 @@ class ClientDetailPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Gender')
             ],[
-                "field" => "religion",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Religion')
-            ],[
-                "field" => "l_known",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Languages Known')
-            ],[
                 "field" => "ph",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Phone number')
-            ],[
-                "field" => "medicard_no",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Medicare card number')
-            ],[
-                "field" => "medicard_orderno",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Medicare card order number')
-            ],[
-                "field" => "pension_no",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Pension card number')
-            ],[
-                "field" => "insurance_no",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Insurance card number if any')
-            ],[
-                "field" => "insu_compny",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Insurance company name')
-            ],[
-                "field" => "likes",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Likes')
-            ],[
-                "field" => "dislikes",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Dislikes')
-            ],[
-                "field" => "hobies",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Hobbies')
             ],[
                 "field" => "created_at",
                 "searchable" => true,

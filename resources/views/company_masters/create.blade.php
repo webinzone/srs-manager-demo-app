@@ -3,7 +3,7 @@
 
 {{-- Page title --}}
 @section('title')
-Create CompanyMaster
+Create Company Master
 @parent
 @stop
 @section('header_right')
@@ -50,42 +50,73 @@ Create CompanyMaster
                 </div><!-- /.box-header -->
 
                 <!-- box-body -->
-                <div class="box-body">                          
+                <div class="box-body">    
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Company Name</label>
+                            <label for="name" class="col-md-3 control-label">Company ID</label>
+                            <div class="col-md-7 col-sm-12 ">
+                     <input type="text" name="company_id" class="form-control" required="" value="{{$company_id}}" readonly="">
+            
+                            </div>
+                        </div>                      
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Name</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="company_name" class="form-control" placeholder="Company Name">
+                 <input type="text" name="company_name" class="form-control" required="" placeholder="Company Name">
         
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Address</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="address" class="form-control" placeholder="Address">                                      
+                 <input type="text" name="address" class="form-control" required="" placeholder="Address">                                      
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Suburb</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="suburb" class="form-control" placeholder="Location Id">                                        
+                 <input type="text" name="suburb" class="form-control" required="" placeholder="Location Id">                                        
                         </div>
                     </div>
+                      <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">State</label>
+                        <div class="col-md-7 col-sm-12 ">
+                            <select name="state" required="" class="form-control" > 
+                            <option value="" style="font-size: 14px;">---Select State--</option> 
+                            <option value="Victoria" style="font-size: 14px;">Victoria</option> 
+                            <option value="New South Wales" style="font-size: 14px;">New South Wales</option> 
+                            <option value="Queensland" style="font-size: 14px;">Queensland</option>
+                            <option value="Tasmania" style="font-size: 14px;">Tasmania</option>
+                            <option value="South Australia" style="font-size: 14px;">South Australia</option>
+                             <option value="Western Australia" style="font-size: 14px;">Western Australia</option>
+                            <option value="Northern Territory" style="font-size: 14px;">Northern Territory</option>                                               
+                            <option value="Australian Capital Territory" style="font-size: 14px;">Australian Capital Territory</option>
+                        </select> 
+                                     
+                        </div>
+                    </div>
+                    
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Post Code</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="post_code" class="form-control" placeholder="Post Code">                                        
+                 <input type="text" name="post_code" class="form-control" required="" placeholder="Post Code">                                        
+                        </div>
+                    </div>
+                     <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">State</label>
+                        <div class="col-md-7 col-sm-12 ">
+                 <input type="text" name="state" class="form-control" required="" placeholder="State">                                        
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Phone Number</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="ph" class="form-control" placeholder="Phone Number">                                       
+                 <input type="text" name="ph" class="form-control" required="" placeholder="Phone Number">                                       
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Email</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="email" class="form-control" placeholder="Email">                                        
+                 <input type="text" name="email" class="form-control" required="" placeholder="Email">                                        
                         </div>
                     </div>
                     
@@ -98,7 +129,7 @@ Create CompanyMaster
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Web ID</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="web" class="form-control" placeholder="Web ID">                                       
+                 <input type="text" name="web" class="form-control" required="" placeholder="Web ID">                                       
                         </div>
                     </div>
                     <div class="box-footer text-right">

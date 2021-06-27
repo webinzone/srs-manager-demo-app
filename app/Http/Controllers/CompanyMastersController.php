@@ -41,7 +41,16 @@ class CompanyMastersController extends Controller
     {
          // Show the page
         $this->authorize('create',CompanyMaster::class);
-        return view('company_masters/create');
+        $lastCompanyid        =   CompanyMaster::orderBy('created_at', 'desc')->first();
+        if ($lastCompanyid) {
+            $str = $lastCompanyid->company_id;
+        }
+        else
+        {
+            $str = 'C000';
+        }
+        $company_id = ++$str;
+        return view('company_masters/create',compact('company_id'));
     }
 
 
@@ -55,15 +64,15 @@ class CompanyMastersController extends Controller
     public function store()
     {
         $this->authorize('create',CompanyMaster::class);
-        //$lastCompanyid  = CompanyMaster::orderBy('created_at', 'desc')->first();
-        $lastCompanyid        =   CompanyMaster::orderBy('created_at', 'desc')->first();
-        if ($lastCompanyid) {
-            $str = $lastCompanyid->company_id;
-        }
-        else
-        {
-            $str = 'C000';
-        }
+        
+        //$lastCompanyid        =   CompanyMaster::orderBy('created_at', 'desc')->first();
+        //if ($lastCompanyid) {
+            //$str = $lastCompanyid->company_id;
+        //}
+        //else
+        //{
+            //$str = 'C000';
+        //}
         
         $company_master = new CompanyMaster();
 
@@ -76,10 +85,11 @@ class CompanyMastersController extends Controller
         $company_master->user_id =  Auth::user()->id;
         $company_master->suburb = request('suburb');
         $company_master->post_code = request('post_code');
+        $company_master->state = request('state');
         $company_master->web = request('web');
         $company_master->state = "null";
 
-        $company_master->company_id = ++$str;
+        $company_master->company_id = request('company_id');
         
         $company_master->save();
        
@@ -141,6 +151,7 @@ class CompanyMastersController extends Controller
         $company_master->user_id =  Auth::user()->id;
         $company_master->suburb = request('suburb');
         $company_master->post_code = request('post_code');
+        $company_master->state = request('state');
         $company_master->web = request('web');
         
         $company_master->save();

@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-CompanyMasters
+Company Masters
 @parent
 @stop
 

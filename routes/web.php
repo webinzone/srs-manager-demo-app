@@ -35,7 +35,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('client_gpdetails','ClientGpdetailsController');    
     Route::resource('client_nextofkin','ClientNextofkinController');
 
+    Route::resource('guardian_details','GuardianDetailsController');
+    Route::resource('health_services','HealthServicesController');
+    Route::resource('pension_details','PensionDetailsController');
+
+
     Route::post('formSubmit','ClientsController@store');
+    Route::get('generate-pdf','PDFController@generatePDF');
 
  
 

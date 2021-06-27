@@ -2,12 +2,13 @@
 
 {{-- Page title --}}
 @section('title')
-Add Clients
+New Resident Admission Form
 @parent
 @stop
 @section('header_right')
     @can('create', \App\Models\Client::class)
         <a href="{{ route('clients.index') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Back</a>
+
     @endcan
 @stop
 {{-- Page content --}}
@@ -15,7 +16,7 @@ Add Clients
 
 <div id="webui">  
   <div class="row" style="padding-left: 80px;padding-right: 80px;">
-      
+      <!--<a href="http://127.0.0.1:8000/generate-pdf" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Download</a>-->
 
         <div id="app">
    
@@ -65,23 +66,19 @@ Add Clients
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
-                        <label for="address">Address</label>
-                        <input type="text" class="form-control" id="address" placeholder="Address" name="address" required v-on:change="page_one.address = $event.target.value">          
-                      </div>
-                      <div class="col-md-4 mb-3">
                         <label for="dob">Date of birth</label>
                         <input type="date" class="form-control" id="dob" placeholder="Date of birth" name="dob" v-on:change="page_one.dob = $event.target.value">              
                       </div>
                       <div class="col-md-4 mb-3">
-                        <label for="cob">Country of birth</label>
-                        <input type="text" class="form-control" id="cob" placeholder="Country of birth" name="cob" required v-on:change="page_one.cob = $event.target.value">          
+                        <label for="religion">Religion</label>
+                        <input type="text" class="form-control" id="religion" placeholder="Religion" required name="religion" v-on:change="page_one.religion = $event.target.value">              
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="l_known">Languages Known</label>
+                        <input type="text" class="form-control" id="l_known" placeholder="Languages Known" required name="l_known" required v-on:change="page_one.l_known = $event.target.value">          
                       </div>  
                     </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
-                      <div class="col-md-2 mb-3">
-                        <label for="age">Age</label>
-                        <input type="number" class="form-control" id="age" placeholder="age" name="age" required v-on:change="page_one.age = $event.target.value">              
-                      </div>  
+                    <div class="form-row">  
                       <div class="col-md-2 mb-3">
                         <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
                         <select name="gender" required="" class="form-control" style="height: 26px;padding: 3px 10px;"> 
@@ -90,51 +87,48 @@ Add Clients
                             <option value="Female" style="font-size: 14px;">Female</option> 
                             <option value="Other" style="font-size: 14px;">Other</option>
                         </select> 
-
-                        <!--<br><input type="radio"  id="gender"  value="Female" name="gender" required v-on:change="page_one.gender = $event.target.value">&nbsp;Female&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="gender" value="Male" name="gender" required v-on:change="page_one.gender = $event.target.value">&nbsp;Male&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="gender" value="Other" name="gender" required v-on:change="page_one.gender = $event.target.value">&nbsp;Other &nbsp;&nbsp;&nbsp;-->         
+       
                       </div>
-                      <div class="col-md-4 mb-3">
-                        <label for="religion">Religion</label>
-                        <input type="text" class="form-control" id="religion" placeholder="Religion" required name="religion" v-on:change="page_one.religion = $event.target.value">              
-                      </div>  
+                      <div class="col-md-2 mb-3">
+                        <label for="medicard_no">Medicare card no.</label>
+                        <input type="text" class="form-control" id="medicard_no" placeholder="Medicare card number" name="medicard_no" required v-on:change="page_one.medicard_no = $event.target.value">          
+                      </div>   
 
-                      <div class="col-md-4 mb-3">
-                        <label for="l_known">Languages Known</label>
-                        <input type="text" class="form-control" id="l_known" placeholder="Languages Known" required name="l_known" required v-on:change="page_one.l_known = $event.target.value">          
-                      </div>
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
-                      <div class="col-md-4 mb-3">
-                        <label for="ph">Phone number</label>
-                        <input type="tel" class="form-control" id="ph" placeholder="000-000-0000" name="ph" v-on:change="page_one.ph = $event.target.value">              
-                      </div> 
-                      <div class="col-md-4 mb-3">
-                        <label for="medicard_no">Medicare card number</label>
-                        <input type="text" class="form-control" id="medicard_no" placeholder="Languages Known" name="medicard_no" required v-on:change="page_one.medicard_no = $event.target.value">          
-                      </div> 
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label for="expiry_date">Expiry date</label>
                         <input type="date" class="form-control" id="expiry_date" placeholder="Expiry date" required name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
+                      </div>
+                    
+                    <div class="col-md-2 mb-3">
+                        <label for="pension_no">Pension card no.</label>
+                        <input type="text" class="form-control" id="pension_no" placeholder="Pension card" name="pension_no" required v-on:change="page_one.pension_no = $event.target.value">          
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="pen_exp">Expiry date</label>
+                        <input type="date" class="form-control" id="pen_exp" placeholder="Expiry date" required name="pen_exp" v-on:change="page_one.pen_exp = $event.target.value">            
                       </div> 
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
-                       
+                      </div>&nbsp;&nbsp;&nbsp;
+                      <div class="form-row">  
                       <div class="col-md-4 mb-3">
-                        <label for="pension_no">Pension card number</label>
-                        <input type="text" class="form-control" id="pension_no" placeholder="Pension card number" name="pension_no" required v-on:change="page_one.pension_no = $event.target.value">          
+                        <label for="respite">Respite</label>
+                        <input type="text" class="form-control" id="respite" placeholder="Respite" required name="respite" v-on:change="page_one.respite = $event.target.value">            
+                      </div> 
+                                     
+                      <div class="col-md-4 mb-3">
+                        <label for="weeks">Weeks</label>
+                        <input type="text" class="form-control" id="weeks" placeholder="Weeks" name="weeks" required v-on:change="page_one.weeks = $event.target.value">          
                       </div>
                       <div class="col-md-4 mb-3">
-                        <label for="insurance_no">Insurance card number if any</label>
-                        <input type="text" class="form-control" id="insurance_no" placeholder="Insurance card number if any" name="insurance_no" required v-on:change="page_one.insurance_no = $event.target.value">            
+                        <label for="acc">Account to be addressed</label>
+                        <input type="text" class="form-control" id="acc" placeholder="Account to be addressed" name="acc" required v-on:change="page_one.acc = $event.target.value">            
                       </div>  
-                       <div class="col-md-4 mb-3">
-                        <label for="insu_compny">Insurance company name</label>
-                        <input type="text" class="form-control" id="insu_compny" placeholder="Insurance company name" name="insu_compny" required v-on:change="page_one.insu_compny = $event.target.value">          
-                      </div>
-                    </div>&nbsp;&nbsp;&nbsp;
+                       </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
+                       <div class="col-md-4 mb-3">
+                        <label for="res_ph">Phone</label>
+                        <input type="tel" class="form-control" id="res_ph" placeholder="Phone" name="ph" required v-on:change="page_one.res_ph = $event.target.value">          
+                      </div>
+                   
                      
                       <!--<div class="col-md-4 mb-3">
                         <label for="likes">Likes</label>                        
@@ -145,15 +139,47 @@ Add Clients
                         <textarea class="form-control" id="dislikes" placeholder="Dislikes" name="dislikes" required v-on:change="page_one.dislikes = $event.target.value"></textarea>
                       </div> -->
                       <div class="col-md-4 mb-3">
-                        <label for="reference_source">Reference Source</label>
-                        <input type="text" class="form-control" id="Reference Source" placeholder="reference_source" name="reference_source" v-on:change="page_one.reference_source = $event.target.value">            
+                        <label for="res_fax">Fax</label>
+                        <input type="text" class="form-control" id="Fax" placeholder="res_fax" name="res_fax" v-on:change="page_one.res_fax = $event.target.value">            
                       </div> 
                       <div class="col-md-4 mb-3">
-                        <label for="funding_source">Funding source</label>
-                        <input type="text" class="form-control" id="funding_source" placeholder="Funding source"  name="funding_source" required v-on:change="page_one.funding_source = $event.target.value">                
+                        <label for="res_email">Email</label>
+                        <input type="email" class="form-control" id="res_email" placeholder="Email"  name="res_email" required v-on:change="page_one.res_email = $event.target.value">                
                       </div>
-                      
+                       </div>&nbsp;&nbsp;&nbsp;
+                       <div class="form-row">  
                       <div class="col-md-4 mb-3">
+                        <label for="ref_by">Ref By</label>
+                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By" required name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
+                      </div> 
+                                     
+                      <div class="col-md-4 mb-3">
+                        <label for="pre_address">Previous Address</label>
+                        <input type="text" class="form-control" id="pre_address" placeholder="Previous Address" name="pre_address" required v-on:change="page_one.pre_address = $event.target.value">          
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="ent_no">Entitlement No</label>
+                        <input type="text" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no" required v-on:change="page_one.ent_no = $event.target.value">            
+                      </div>  
+                       </div>&nbsp;&nbsp;&nbsp;
+                       <div class="form-row">  
+                      <div class="col-md-4 mb-3">
+                        <label for="nationality">Nationality</label>
+                        <input type="text" class="form-control" id="nationality" placeholder="Nationality" required name="nationality" v-on:change="page_one.nationality = $event.target.value">            
+                      </div> 
+                                     
+                      <div class="col-md-4 mb-3">
+                        <label for="adm_date">Admission Date</label>
+                        <input type="date" class="form-control" id="adm_date" placeholder="Admission Date" name="adm_date" required v-on:change="page_one.adm_date = $event.target.value">          
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="room_no">Room No</label>
+                        <input type="text" class="form-control" id="room_no" placeholder="Room No" name="room_no" required v-on:change="page_one.room_no = $event.target.value">            
+                      </div>  
+                       </div>&nbsp;&nbsp;&nbsp;
+
+                      
+                      <!--<div class="col-md-4 mb-3">
                         <label for="allowed_status">Visitors Allowed ?</label>
                         <br><input type="radio"  id="allowed_status"  value="Yes" name="allowed_status" required v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio"  id="allowed_status" value="No" name="allowed_status" required v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
@@ -174,7 +200,7 @@ Add Clients
                         <label for="hobies"> Hobbies</label>
                         <textarea class="form-control" id="hobies" placeholder=" Hobbies" name="hobies" required v-on:change="page_one.hobies = $event.target.value"></textarea>
                       </div>
-                    </div>
+                    </div>-->
                     
                     <h4 class="mb-3"><b>Next of kin</b></h4><br>
                
@@ -198,12 +224,12 @@ Add Clients
                         <input type="email" class="form-control" id="nok_email" placeholder="Email" name="nok_email" v-on:change="page_one.nok_email = $event.target.value">  
                       </div>
                       <div class="col-md-4 mb-3">
-                        <label type="hidden" for="nok_nok"></label>
-                        <input type="hidden" class="form-control" id="nok" placeholder="Email" name="nok" v-on:change="page_one.nok = $event.target.value">  
+                        <label for="nok_lan">Land Phone</label>
+                        <input type="tel" class="form-control" id="nok_lan" placeholder="Land phone" name="nok_lan" v-on:change="page_one.nok_lan = $event.target.value">  
                       </div>
                       <div class="col-md-4 mb-3">
-                        <label type="hidden" for="nok_nok"></label>
-                        <input type="hidden" class="form-control" id="nok2" placeholder="Email" name="nok2" v-on:change="page_one.nok2 = $event.target.value">  
+                        <label for="nok_fax">Fax</label>
+                        <input type="text" class="form-control" id="nok_fax" placeholder="Fax" name="nok_fax" v-on:change="page_one.nok_fax = $event.target.value">  
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;                   
 
@@ -228,7 +254,101 @@ Add Clients
                         <div class="col-md-4 mb-3">
                           <label for="gp_email">Email</label>
                           <input type="email" class="form-control" id="gp_email" placeholder="Email" name="gp_email" v-on:change="page_one.gp_email = $event.target.value">              
-                        </div>  
+                        </div>
+                        <div class="col-md-4 mb-3">
+                        <label for="gp_lan">Land Phone</label>
+                        <input type="tel" class="form-control" id="gp_lan" placeholder="Land phone" name="gp_lan" v-on:change="page_one.gp_lan = $event.target.value">  
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="gp_fax">Fax</label>
+                        <input type="text" class="form-control" id="gp_fax" placeholder="Fax" name="gp_fax" v-on:change="page_one.gp_fax = $event.target.value">  
+                      </div>  
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <h4 class="mb-3"><b>GuardianDetail</b></h4><br>
+               
+                    <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label for="gr_name">Name</label>
+                        <input type="text" class="form-control" id="gr_name" placeholder="Name" name="gr_name" v-on:change="page_one.gr_name = $event.target.value">              
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="gr_relation">Relation</label>
+                        <input type="text" class="form-control" id="gr_relation" placeholder="Relation" name="gr_relation" v-on:change="page_one.gr_relation = $event.target.value">              
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="gr_lan">Land Phone</label>
+                        <input type="tel" class="form-control" id="gr_lan" placeholder="Land Phone" name="gr_lan" v-on:change="page_one.gr_lan = $event.target.value">  
+                      </div>  
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label for="gr_mob">Mobile</label>
+                        <input type="tel" class="form-control" id="gr_mob" placeholder="Mobile" name="gr_mob" v-on:change="page_one.gr_mob = $event.target.value">  
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="gr_email">Email</label>
+                        <input type="email" class="form-control" id="gr_email" placeholder="Email" name="gr_email" v-on:change="page_one.gr_email = $event.target.value">  
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="gr_address">Address</label>
+                        <input type="text" class="form-control" id="gr_address" placeholder="Fax" name="gr_address" v-on:change="page_one.gr_address = $event.target.value">  
+                      </div>
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <h4 class="mb-3"><b>HealthService</b></h4><br>
+               
+                    <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label for="hs_name">Name</label>
+                        <input type="text" class="form-control" id="hs_name" placeholder="Name" name="hs_name" v-on:change="page_one.hs_name = $event.target.value">              
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="hs_address">Address</label>
+                        <input type="text" class="form-control" id="hs_address" placeholder="Address" name="hs_address" v-on:change="page_one.hs_address = $event.target.value">              
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="hs_lan">Land Phone</label>
+                        <input type="tel" class="form-control" id="hs_lan" placeholder="Land Phone" name="hs_lan" v-on:change="page_one.hs_lan = $event.target.value">  
+                      </div>  
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+                      <div class="col-md-2 mb-3">
+                        <label for="aftr_hrs">After Hours</label>
+                        <input type="text" class="form-control" id="aftr_hrs" placeholder="After Hours" name="aftr_hrs" v-on:change="page_one.aftr_hrs = $event.target.value">  
+                      </div>
+                      <div class="col-md-2 mb-3">
+                        <label for="hs_fax">Fax</label>
+                        <input type="text" class="form-control" id="hs_fax" placeholder="Fax" name="hs_fax" v-on:change="page_one.hs_fax = $event.target.value">  
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="hs_email">Email</label>
+                        <input type="email" class="form-control" id="hs_email" placeholder="Email" name="hs_email" v-on:change="page_one.hs_email = $event.target.value">  
+                      </div>
+                      <div class="col-md-5 mb-3">
+                        <label for="med_history">Medical History</label>
+                        <textarea class="form-control" id="med_history" placeholder="Medical History" name="med_history" v-on:change="page_one.med_history = $event.target.value"></textarea>
+                         
+                      </div>
+                    </div>
+                   
+                      <h4 class="mb-3"><b>Pension Details</b></h4><br>
+               
+                    <div class="form-row">
+                      <div class="col-md-5 mb-3">
+                        <label for="income_type">Type of Income</label><br>
+
+                                <label><input  type="checkbox" name="income_type[]" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="income_type[]" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="income_type[]" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="income_type[]" value="Other"> Other</label>&nbsp;&nbsp;          
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="client_refno">Client Reference no</label>
+                        <input type="text" class="form-control" id="client_refno" placeholder="Client Reference no" name="client_refno" v-on:change="page_one.client_refno = $event.target.value">              
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="con_card">Taxi Concession details</label>
+                        <input type="text" class="form-control" id="con_card" placeholder="Taxi Concession details" name="con_card" v-on:change="page_one.con_card = $event.target.value">  
+                      </div>  
                     </div>&nbsp;&nbsp;&nbsp;
                                                                         
                   </div>  

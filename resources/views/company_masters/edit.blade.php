@@ -51,58 +51,64 @@ Update CompanyMasters
                <div class="box-body"> 
                    <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Company ID</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="company_id" class="form-control" value="{{ $company_master->company_id}}" readonly>
         
                         </div>
                     </div>                          
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Company Name</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <label for="name" class="col-md-3 control-label">Name</label>
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="company_name" class="form-control" value="{{ $company_master->company_name}}">
         
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Address</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="address" class="form-control" value="{{ $company_master->address}}">                                        
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Suburb</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="suburb" class="form-control" value="{{ $company_master->suburb}}">                                       
                         </div>
                     </div>
                      <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Post Code</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="post_code" class="form-control" value="{{ $company_master->post_code}}">                                        
+                        </div>
+                    </div>
+                     <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">State</label>
+                        <div class="col-md-7 col-sm-12 ">
+                 <input type="text" name="state" class="form-control" value="{{ $company_master->state}}">                                        
                         </div>
                     </div>
                     <div class="form-group ">
                      <label for="name" class="col-md-3 control-label">Phone Number</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="ph" class="form-control" value="{{ $company_master->ph}}">                                       
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Email</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="email" class="form-control" value="{{ $company_master->email}}">                                       
                         </div>
                     </div>
                     
                    <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Fax</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="fax" class="form-control" value="{{ $company_master->fax}}">                                       
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Web ID</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="web" class="form-control" value="{{ $company_master->web}}">                                       
                         </div>
                     </div>
