@@ -179,7 +179,8 @@ Add Clients
 
 
                       
-                      <!--<div class="col-md-4 mb-3">
+                      <!--    "barryvdh/laravel-dompdf": "^0.8.4",
+<div class="col-md-4 mb-3">
                         <label for="allowed_status">Visitors Allowed ?</label>
                         <br><input type="radio"  id="allowed_status"  value="Yes" name="allowed_status" required v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio"  id="allowed_status" value="No" name="allowed_status" required v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;

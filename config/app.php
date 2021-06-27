@@ -335,7 +335,7 @@ return [
         Unicodeveloper\DumbPassword\DumbPasswordServiceProvider::class,
         Tightenco\Ziggy\ZiggyServiceProvider::class, // Laravel routes in vue
         Eduardokum\LaravelMailAutoEmbed\ServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
+       // Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
         * Application Service Providers...
@@ -408,7 +408,7 @@ return [
         'Google2FA' => PragmaRX\Google2FALaravel\Facade::class,
         'Image'     => Intervention\Image\ImageServiceProvider::class,
         'Carbon' => Carbon\Carbon::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+        //'PDF' => Barryvdh\DomPDF\Facade::class,
 
 
     ],
