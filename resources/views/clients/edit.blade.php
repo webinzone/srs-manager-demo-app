@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Add Clients
+Update Residents
 @parent
 @stop
 @section('header_right')

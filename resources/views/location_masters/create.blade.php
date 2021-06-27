@@ -85,7 +85,15 @@ Create Location Master
                      <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">State</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="state" class="form-control" required="" placeholder="State">                                        
+                          <select name="state" required="" class="form-control" > 
+                            <option value="" style="font-size: 14px;">---Select State--</option> 
+                            <option value="Victoria" style="font-size: 14px;">Victoria</option> 
+                            <option value="New South Wales" style="font-size: 14px;">New South Wales</option> 
+                            <option value="Queensland" style="font-size: 14px;">Queensland</option>
+                            <option value="Tasmania" style="font-size: 14px;">Tasmania</option>
+                            <option value="South Australia" style="font-size: 14px;">South Australia</option>
+                             <option value="Western Australia" style="font-size: 14px;">Western Australia</option>
+                            <option value="Northern Territory" style="font-size: 14px;">Northern Territory</option>                                       
                         </div>
                     </div>
                     <div class="form-group ">
