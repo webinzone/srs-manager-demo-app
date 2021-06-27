@@ -93,7 +93,9 @@ Create Location Master
                             <option value="Tasmania" style="font-size: 14px;">Tasmania</option>
                             <option value="South Australia" style="font-size: 14px;">South Australia</option>
                              <option value="Western Australia" style="font-size: 14px;">Western Australia</option>
-                            <option value="Northern Territory" style="font-size: 14px;">Northern Territory</option>                                       
+                            <option value="Northern Territory" style="font-size: 14px;">Northern Territory</option>                                               
+                            <option value="Australian Capital Territory" style="font-size: 14px;">Australian Capital Territory</option>
+                        </select>                                        
                         </div>
                     </div>
                     <div class="form-group ">
