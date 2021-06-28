@@ -52,7 +52,7 @@
       <h1 >MEADOWBROOK S R S</h1>
     </center>
     <p style="font-size: 15px;">2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</p>
-    <h3 style="width:250px;height:30px;border:1px solid #000;">&nbsp;New Resident Admission Form&nbsp;</h3>
+    <h3 style="width:2650px;height:30px;border:1px solid #000;">&nbsp;New Resident Admission Form&nbsp;</h3>
     <h5>Personal Details:</h5>
     <table style="border: 2px; border-width: 1px; border-color: black;">
       <tr>
