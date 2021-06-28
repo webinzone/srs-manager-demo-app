@@ -68,7 +68,6 @@ class LocationMaster extends SnipeModel
         'address', 
         'email', 
         'ph', 
-        'fax', 
         'web_id'
     ];
 

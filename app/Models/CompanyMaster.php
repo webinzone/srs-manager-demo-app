@@ -67,8 +67,7 @@ class CompanyMaster extends SnipeModel
         'address', 
         'location_id', 
         'email', 
-        'ph', 
-        'fax'
+        'ph'
     ];
 
 
