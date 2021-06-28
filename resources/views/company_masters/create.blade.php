@@ -122,7 +122,7 @@ Company Master
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Web ID</label>
+                        <label for="name" class="col-md-3 control-label">Web</label>
                         <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="web" class="form-control" required="" placeholder="Web ID">                                       
                         </div>
