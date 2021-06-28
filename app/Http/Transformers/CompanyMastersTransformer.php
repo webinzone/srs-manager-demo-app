@@ -29,6 +29,7 @@ class CompanyMastersTransformer
                 'company_name' => e($company_master->company_name),
                 'address' => e($company_master->address),
                 'suburb' => e($company_master->suburb),
+                'state' => e($company_master->state),
                 'post_code' => e($company_master->post_code),
                 'ph' => e($company_master->ph),
                 'email' => e($company_master->email),                

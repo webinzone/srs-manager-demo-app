@@ -3,7 +3,7 @@
 
 {{-- Page title --}}
 @section('title')
-Create Location Master
+Location Master
 @parent
 @stop
 @section('header_right')

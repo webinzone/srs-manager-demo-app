@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-LocationMasters
+Location Master
 @parent
 @stop
 

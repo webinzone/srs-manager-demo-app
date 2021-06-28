@@ -3,7 +3,7 @@
 
 {{-- Page title --}}
 @section('title')
-Update LocationMasters
+Location Master
 @parent
 @stop
 @section('header_right')

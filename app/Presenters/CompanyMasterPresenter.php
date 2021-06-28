@@ -46,6 +46,12 @@ class CompanyMasterPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Suburb')
             ],[
+                "field" => "state",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('State')
+            ],[
                 "field" => "post_code",
                 "searchable" => true,
                 "sortable" => true,

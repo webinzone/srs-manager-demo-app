@@ -3,7 +3,7 @@
 
 {{-- Page title --}}
 @section('title')
-Create Company Master
+Company Master
 @parent
 @stop
 @section('header_right')
@@ -101,12 +101,7 @@ Create Company Master
                  <input type="text" name="post_code" class="form-control" required="" placeholder="Post Code">                                        
                         </div>
                     </div>
-                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">State</label>
-                        <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="state" class="form-control" required="" placeholder="State">                                        
-                        </div>
-                    </div>
+                  
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Phone Number</label>
                         <div class="col-md-7 col-sm-12 ">

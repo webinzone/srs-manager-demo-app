@@ -3,7 +3,7 @@
 
 {{-- Page title --}}
 @section('title')
-Update CompanyMasters
+Company Masters
 @parent
 @stop
 @section('header_right')
