@@ -462,9 +462,18 @@ class ClientsController extends Controller
     public function generatePDF($id)
     {
         $client_detail = ClientDetail::find($id);
-
+        //$client_family = ClientFamily::where('client_id', '=', $id);
+        //$power_of_atony = ClientPowerofatony::where('client_id', '=', $id);
+        //$allergy = ClientAllergy::where('client_id', '=', $id)->firstOrFail();
+        //$visitor = ClientVisitor::where('client_id', '=', $id)->firstOrFail();
+        $gpdetail = ClientGpdetail::where('client_id', '=', $id)->firstOrFail();
+        $next_of_kin = ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
+        $guardian_detail = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
+        $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
+        $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
+  
       //  $data = ['title' => 'Welcome to SRS Manager'];
-        $pdf = PDF::loadView('clients/report', compact('client_detail'));
+        $pdf = PDF::loadView('clients/report', compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail'));
   
      //  return $pdf->download('resident_report.pdf');
 
