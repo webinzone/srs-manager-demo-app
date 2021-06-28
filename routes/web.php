@@ -41,9 +41,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::post('formSubmit','ClientsController@store');
-    Route::get('generate-pdf','ClientsController@generatePDF');
+    //Route::get('generate-pdf','ClientsController@generatePDF');
+    Route::get('/reports','ClientsController@reports');
+    Route::get('/generatePDF/{id}','ClientsController@generatePDF');
 
- 
 
     /*
     * Companies

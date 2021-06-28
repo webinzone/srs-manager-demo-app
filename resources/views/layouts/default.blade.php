@@ -539,7 +539,7 @@ h4 {
                 </a>
                 <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
                   <li>
-                      <a href="" style="color: #b8c7ce;">
+                      <a href="/reports" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Resident Reports
                     </a>

@@ -47,7 +47,6 @@ New Resident Admission Form
                 <!-- box-body -->
                 <div class="box-body" style="padding-left: 50px;">    
                   <div class="page" v-show="step === 1">
-                    
                     <h4 class="mb-3"><b>Personal Information</b></h4><br>              
 
                     <div class="form-row">

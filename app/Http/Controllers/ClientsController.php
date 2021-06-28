@@ -459,15 +459,24 @@ class ClientsController extends Controller
         return redirect()->route('clients.index')
                         ->with('success','deleted successfully');
     }
-    public function generatePDF()
+    public function generatePDF($id)
     {
-        $data = ['title' => 'Welcome to SRS Manager'];
-        $pdf = PDF::loadView('clients/report', $data);
+        $client_detail = ClientDetail::find($id);
+
+      //  $data = ['title' => 'Welcome to SRS Manager'];
+        $pdf = PDF::loadView('clients/report', compact('client_detail'));
   
      //  return $pdf->download('resident_report.pdf');
 
-         return $pdf->stream('resident_report.pdf', array('Attachment'=>0));   
+         return $pdf->stream('report.pdf', array('Attachment'=>0));   
 
+    }
+    public function reports()
+    {   
+        $id = Auth::user()->id;
+        $client_details = ClientDetail::all();
+        return view('clients/report_show',compact('client_details'));
+    
     }
 
 }
