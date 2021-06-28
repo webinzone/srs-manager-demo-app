@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::post('formSubmit','ClientsController@store');
-    Route::get('generate-pdf','PDFController@generatePDF');
+    Route::get('generate-pdf','ClientsController@generatePDF');
 
  
 

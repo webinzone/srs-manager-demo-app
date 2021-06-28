@@ -20,6 +20,8 @@ use App\Models\ActivityLog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Redirect;
+use PDF;
+
 
 /** This controller handles all actions related to Accessories for
  * the Snipe-IT Asset Management application.
@@ -457,6 +459,15 @@ class ClientsController extends Controller
         return redirect()->route('clients.index')
                         ->with('success','deleted successfully');
     }
+    public function generatePDF()
+    {
+        $data = ['title' => 'Welcome to SRS Manager'];
+        $pdf = PDF::loadView('clients/report', $data);
+  
+     //  return $pdf->download('resident_report.pdf');
 
+         return $pdf->stream('resident_report.pdf', array('Attachment'=>0));   
+
+    }
 
 }
