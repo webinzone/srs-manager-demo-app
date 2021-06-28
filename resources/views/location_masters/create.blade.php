@@ -52,18 +52,7 @@ Location Master
                 <!-- box-body -->
                 <div class="box-body">                          
                     
-                    <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Company Id</label>
-                        <div class="col-md-4 col-sm-12 ">
-                         <select class="form-control" required="" name="company_id">
-                            <option>--Select Company ID --</option>
-                          @foreach($companies as $company)
-                          <option value="{{ $company->company_id }}">{{ $company->company_id }}</option>
-                          @endforeach
-                        </select>
-        
-                        </div>
-                    </div>
+                    
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Name</label>
                         <div class="col-md-7 col-sm-12 ">
@@ -102,6 +91,18 @@ Location Master
                         <label for="name" class="col-md-3 control-label">Post Code</label>
                         <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="post_code" class="form-control" required="" placeholder="Post Code">                                        
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Company Id</label>
+                        <div class="col-md-4 col-sm-12 ">
+                         <select class="form-control" required="" name="company_id">
+                            <option>--Select Company ID --</option>
+                          @foreach($companies as $company)
+                          <option value="{{ $company->company_id }}">{{ $company->company_id }}</option>
+                          @endforeach
+                        </select>
+        
                         </div>
                     </div>
                    
