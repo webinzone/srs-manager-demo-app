@@ -8,27 +8,6 @@
     <title>Residential care Manager
     </title>
     
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-
-      <meta name="apple-mobile-web-app-capable" content="yes">
-
-
-
-      <link rel="apple-touch-icon" href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->logo)) : '/img/logo.png' }}">
-      <link rel="apple-touch-startup-image" href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->logo)) : '/img/logo.png' }}">
-      <link rel="shortcut icon" type="image/ico" href=" ">
-      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-
-
-      <meta name="csrf-token" content="{{ csrf_token() }}">
-      <meta name="baseUrl" content="{{ url('/') }}/">
-
-    <script nonce="{{ csrf_token() }}">
-      window.Laravel = { csrfToken: '{{ csrf_token() }}' };
-    </script>
-
-     {{-- stylesheets --}}
-    <link rel="stylesheet" href="{{ url(mix('css/dist/all.css')) }}">
     
   <style type="text/css">
 

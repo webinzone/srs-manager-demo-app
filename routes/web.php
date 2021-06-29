@@ -46,10 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/generatePDF/{id}','ClientsController@generatePDF');
     Route::get('/viewPDF/{id}','ClientsController@viewPDF');
 
-  //  Route::get('/condition_reports','ConditionReportsController@reports');
-   // Route::get('/condition_generatePDF/{id}','ConditionReportsController@generatePDF');
-
-
+ 
     /*
     * Companies
     */
