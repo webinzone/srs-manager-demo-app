@@ -20,7 +20,7 @@
     border-collapse: collapse;
   }
   .container{
-  width: 1500px;
+  width: 1000px;
   padding: 50px;
   margin: auto;
   border: 3px solid black;
