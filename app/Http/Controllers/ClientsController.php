@@ -499,5 +499,9 @@ class ClientsController extends Controller
          return view('clients/report')->with(compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail'));
 
     }
+    public function clientss()
+    {
+        return view('clients/clientss');
+    }
 
 }

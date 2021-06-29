@@ -45,6 +45,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/reports','ClientsController@reports');
     Route::get('/generatePDF/{id}','ClientsController@generatePDF');
     Route::get('/viewPDF/{id}','ClientsController@viewPDF');
+    Route::get('/viewPDF/{id}','ClientsController@viewPDF');
+    Route::get('/clientss','ClientsController@clientss');
+
 
  
     /*
