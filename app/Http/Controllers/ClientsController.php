@@ -473,7 +473,7 @@ class ClientsController extends Controller
          $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
    
        //  $data = ['title' => 'Welcome to SRS Manager'];
-        $pdf = PDF::loadView('clients/report', compact('client_detail','gpdetail','next_of_kin','// ardian_detail','health_service','pension_detail'));
+        $pdf = PDF::loadView('clients/report', compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail'));
    
       //  return $pdf->download('resident_report.pdf');
  
@@ -486,6 +486,18 @@ class ClientsController extends Controller
         $client_details = ClientDetail::all();
         return view('clients/report_show',compact('client_details'));
     
+    }
+    public function viewPDF($id)
+    {
+         $client_detail = ClientDetail::find($id);        
+         $gpdetail = ClientGpdetail::where('client_id', '=', $id)->firstOrFail();
+         $next_of_kin = ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
+         $guardian_detail = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
+         $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
+         $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
+
+         return view('clients/report')->with(compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail'));
+
     }
 
 }

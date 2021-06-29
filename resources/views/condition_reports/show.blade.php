@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-ConditionReports
+Condition Report
 @parent
 @stop
 
@@ -41,33 +41,69 @@ ConditionReports
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Clean:</label>
+                    <label class="col-sm-3 control-label">Resident Name:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $condition_report->clean}}</p>
+                        <p class="form-control-static">{{ $condition_report->res_name}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Undamaged:</label>
+                    <label class="col-sm-3 control-label">Staff Name:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $condition_report->undamaged}}</p>
+                        <p class="form-control-static">{{ $condition_report->stf_name}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Working:</label>
+                    <label class="col-sm-3 control-label">Date:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $condition_report->working}}</p>
+                        <p class="form-control-static">{{ $condition_report->res_date}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Landlord/Proprietor Comments:</label>
+                    <label class="col-sm-3 control-label">Item No:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $condition_report->prop_comments}}</p>
+                        <p class="form-control-static">{{ $condition_report->item_no}}</p>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Resident Comments:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $condition_report->res_comments}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Owned By:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $condition_report->owned_by}}</p>
+                    </div>
+                </div>
+               <div class="form-group">
+                    <label class="col-sm-3 control-label">Condition:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $condition_report->res_cond}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Resident Sign:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $condition_report->res_sign}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Staff Sign:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $condition_report->st_sign}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Company Id:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $condition_report->company_id}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Location Id:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $condition_report->location_id}}</p>
                     </div>
                 </div>     
           

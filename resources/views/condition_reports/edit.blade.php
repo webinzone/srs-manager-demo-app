@@ -1,9 +1,8 @@
-
 @extends('layouts/default')
 
 {{-- Page title --}}
 @section('title')
-Update ConditionReports
+Condition Report
 @parent
 @stop
 @section('header_right')
@@ -63,32 +62,70 @@ Update ConditionReports
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Clean</label>
+                        <label for="name" class="col-md-3 control-label">Resident Name</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="clean" class="form-control" value="{{ $condition_report->clean}}">                                       
+                 <input type="text" name="res_name" class="form-control" value="{{ $condition_report->res_name}}">                                       
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Undamaged</label>
+                        <label for="name" class="col-md-3 control-label">Staff Name</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="undamaged" class="form-control" value="{{ $condition_report->undamaged}}">                                       
+                 <input type="text" name="stf_name" class="form-control" value="{{ $condition_report->stf_name}}">                                       
                         </div>
                     </div>
-                        <label for="name" class="col-md-3 control-label">Working</label>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Date</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="working" class="form-control" value="{{ $condition_report->working}}">                                       
+                 <input type="date" name="res_date" class="form-control" value="{{ $condition_report->res_date}}">                                       
                         </div>
                     </div>
                    <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Landlord/Proprietor Comments</label>
+                        <label for="name" class="col-md-3 control-label">Item No</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="prop_comments" class="form-control" value="{{ $condition_report->prop_comments}}">                                       
+                 <input type="text" name="item_no" class="form-control" value="{{ $condition_report->item_no}}">                                       
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Resident Comments</label>
                         <div class="col-md-7 col-sm-12 required">
                  <input type="text" name="res_comments" class="form-control" value="{{ $condition_report->res_comments}}">                                       
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Owned By</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="owned_by" class="form-control" value="{{ $condition_report->owned_by}}">
+        
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Condition</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="res_cond" class="form-control" value="{{ $condition_report->res_cond}}">                                        
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Resident Sign</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="res_sign" class="form-control" value="{{ $condition_report->res_sign}}">                                       
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Staff Sign</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="st_sign" class="form-control" value="{{ $condition_report->st_sign}}">                                       
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Company Id</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="date" name="company_id" class="form-control" value="{{ $condition_report->company_id}}">                                       
+                        </div>
+                    </div>
+                   <div class="form-group ">
+                        <label for="name" class="col-md-3 control-label">Location Id</label>
+                        <div class="col-md-7 col-sm-12 required">
+                 <input type="text" name="location_id" class="form-control" value="{{ $condition_report->location_id}}">                                       
                         </div>
                     </div>
                     <div class="box-footer text-right">
@@ -109,4 +146,3 @@ Update ConditionReports
 @section('moar_scripts')
 @include ('partials.bootstrap-table')
 @stop
-

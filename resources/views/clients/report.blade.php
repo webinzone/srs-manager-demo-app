@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Residential care Manager
     </title>
-    <!-- Tell the browser to be responsive to screen width -->
+    
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
       <meta name="apple-mobile-web-app-capable" content="yes">
@@ -40,6 +40,13 @@
     width: 100%;
     border-collapse: collapse;
   }
+  .container{
+  width: 1500px;
+  padding: 50px;
+  margin: auto;
+  border: 3px solid black;
+
+  }
   </style>
 
 
@@ -48,11 +55,17 @@
   </head>
 
   <body>
+
+  <div id="webui">
+    <div class="row">
+      <input type="button" style="left:50px;padding-left: 30px;" onclick="printDiv('print-content')" value="PRINT"/>
+      <div id="print-content">
+        <div class="container">
     <center>
       <h1 >MEADOWBROOK S R S</h1>
     </center>
     <p style="font-size: 15px;">2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</p>
-    <h3 style="width:265px;height:30px;border:1px solid #000;">&nbsp;New Resident Admission Form&nbsp;</h3>
+    <h3 style="width:300px;height:30px;border:1px solid #000;">&nbsp;New Resident Admission Form&nbsp;</h3>
     <h5>Personal Details:</h5>
     <table style="border: 2px; border-width: 1px; border-color: black;">
       <tr>
@@ -97,7 +110,7 @@
 
     <h5>Pension Details</h5>
     <label>Type of Income : {{ $pension_detail->income_type}}</label><br>
-    <label>Client Reference no : {{ $pension_detail->client_refno}}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Taxi Concession Card cletails: {{ $pension_detail->con_card}}</label><br> 
+    <label>Client Reference no : {{ $pension_detail->client_refno}}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Taxi Concession Card details: {{ $pension_detail->con_card}}</label><br> 
 
     <h5>Next Of Kin / Representative</h5>
     <label>Name : {{ $next_of_kin->name}}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Email : {{ $next_of_kin->nok_email}}</label><br>
@@ -130,19 +143,20 @@
     <label>Email : {{ $health_service->hs_email}}</label><br>
     <h5><u>Additional Information : Medical history/diagnosis : {{ $health_service->med_history}}</u></h5><br>
      <label>Date Fixed to Pharmacy: ............................... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature:........................</label>
+      </div>
+   </div>
+ </div>
+ </div>
 
-    <!--<h2>Client Details</h2>
-      <table class="table table-bordered">
-           <tr>
-                                <td>{{ $client_detail->fname}}</td>
-                                <td> {{ $client_detail->mname}}</td>
-                                <td> {{ $client_detail->lname}}</td>
-                                <td>{{ $client_detail->gender}}</td>
-                                <td>{{ $client_detail->ph}}</td>
-                                                         
-                              </tr>
-      </table>
- -->
+<script type="text/javascript">
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        w=window.open();
+        w.document.write(printContents);
+        w.print();
+        w.close();
+    }
+</script>
 
   </body>
 </html>

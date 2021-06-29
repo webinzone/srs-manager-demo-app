@@ -22,6 +22,12 @@ class ConditionReportPresenter extends Presenter
                 "title" => trans('id'),
                 "visible" => false
             ],[
+                "field" => "res_name",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Resident Name')
+            ],[
                 "field" => "room",
                 "searchable" => true,
                 "sortable" => true,
@@ -33,36 +39,6 @@ class ConditionReportPresenter extends Presenter
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Items')
-            ],[
-                "field" => "clean",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Clean')
-            ],[
-                "field" => "undamaged",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Undamaged')
-            ],[
-                "field" => "working",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Working')
-            ],[
-                "field" => "prop_comments",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Landlord/Proprietor Comments')
-            ],[
-                "field" => "res_comments",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Resident Comments')
             ],[
                 "field" => "created_at",
                 "searchable" => true,

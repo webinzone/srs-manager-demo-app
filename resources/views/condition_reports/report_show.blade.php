@@ -2,13 +2,13 @@
 
 {{-- Page title --}}
 @section('title')
-Resident Details
+Condition Report
 @parent
 @stop
 
 @section('header_right')
     @can('create', \App\Models\Client::class)
-        <a href="{{ route('clients.index') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Back</a>
+        <a href="{{ route('condition_reports.index') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Back</a>
     @endcan
 @stop
 
@@ -52,7 +52,7 @@ Resident Details
                                 <td>{{ $client_detail->gender}}</td>
                                 <td>{{ $client_detail->ph}}</td>
                                 <td>{{ $client_detail->created_at}}</td>  
-                                <td><a class="btn btn-info" href="{{action('ClientsController@viewPDF', $client_detail->id)}}" target="_blank">Report Generate</a></td>                         
+                                <td><a class="btn btn-info" href="{{action('ClientsController@generatePDF', $client_detail->id)}}" target="_blank">Report Generate</a></td>                         
                               </tr>
                             @endforeach
                           </tbody>

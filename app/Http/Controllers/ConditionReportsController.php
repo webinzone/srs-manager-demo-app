@@ -40,7 +40,6 @@ class ConditionReportsController extends Controller
      */
     public function create()
     {
-         // Show the page
         $this->authorize('create',ConditionReport::class);
         return view('condition_reports/create');
     }
@@ -60,11 +59,21 @@ class ConditionReportsController extends Controller
 
         $condition_report->room = request('room');
         $condition_report->items = request('items');
-        $condition_report->clean = request('clean');
-        $condition_report->undamaged = request('undamaged');
-        $condition_report->working = request('working');
-        $condition_report->prop_comments = request('prop_comments');
+        $condition_report->clean = "null";
+        $condition_report->undamaged = "null";
+        $condition_report->working = "null";
+        $condition_report->prop_comments = "null";
         $condition_report->res_comments = request('res_comments');
+        $condition_report->res_name = request('res_name');
+        $condition_report->stf_name = request('stf_name');
+        $condition_report->res_date = request('res_date');
+        $condition_report->item_no = request('item_no');
+        $condition_report->owned_by = request('owned_by');
+        $condition_report->res_cond = request('res_cond');
+        $condition_report->res_sign = request('res_sign');
+        $condition_report->st_sign = request('st_sign');
+        $condition_report->company_id = request('company_id');
+        $condition_report->location_id = request('location_id');
         $condition_report->user_id =  Auth::user()->id;
         
         $condition_report->save();
@@ -120,11 +129,21 @@ class ConditionReportsController extends Controller
 
         $condition_report->room = request('room');
         $condition_report->items = request('items');
-        $condition_report->clean = request('clean');
-        $condition_report->undamaged = request('undamaged');
-        $condition_report->working = request('working');
-        $condition_report->prop_comments = request('prop_comments');
+        //$condition_report->clean = request('clean');
+        //$condition_report->undamaged = request('undamaged');
+        //$condition_report->working = request('working');
+        //$condition_report->prop_comments = request('prop_comments');
         $condition_report->res_comments = request('res_comments');
+        $condition_report->res_name = request('res_name');
+        $condition_report->stf_name = request('stf_name');
+        $condition_report->res_date = request('res_date');
+        $condition_report->item_no = request('item_no');
+        $condition_report->owned_by = request('owned_by');
+        $condition_report->res_cond = request('res_cond');
+        $condition_report->res_sign = request('res_sign');
+        $condition_report->st_sign = request('st_sign');
+        $condition_report->company_id = request('company_id');
+        $condition_report->location_id = request('location_id');
         $condition_report->user_id =  Auth::user()->id;
         
         $condition_report->save();
@@ -138,6 +157,27 @@ class ConditionReportsController extends Controller
         return redirect()->route('condition_reports.index')
                         ->with('success','updated successfully');
     }
+
+    public function reports()
+    {   
+        $id = Auth::user()->id;
+        $condition_reports = ConditionReport::all();
+        return view('condition_reports/report_show',compact('condition_reports'));
+    
+    }
+
+     public function generatePDF($id)
+     {
+        $condition_report = ConditionReport::find($id);
+   
+        $pdf = PDF::loadView('condition_reports/report', compact('condition_report'));
+   
+      //  return $pdf->download('resident_report.pdf');
+ 
+          return $pdf->stream('report.pdf', array('Attachment'=>0));   
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *
