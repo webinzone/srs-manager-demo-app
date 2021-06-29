@@ -20,7 +20,7 @@ use App\Models\ActivityLog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Redirect;
-use PDF;
+//use PDF;
 
 
 /** This controller handles all actions related to Accessories for
@@ -459,25 +459,25 @@ class ClientsController extends Controller
         return redirect()->route('clients.index')
                         ->with('success','deleted successfully');
     }
-    public function generatePDF($id)
-    {
-        $client_detail = ClientDetail::find($id);
-        //$client_family = ClientFamily::where('client_id', '=', $id);
-        //$power_of_atony = ClientPowerofatony::where('client_id', '=', $id);
-        //$allergy = ClientAllergy::where('client_id', '=', $id)->firstOrFail();
-        //$visitor = ClientVisitor::where('client_id', '=', $id)->firstOrFail();
-        $gpdetail = ClientGpdetail::where('client_id', '=', $id)->firstOrFail();
-        $next_of_kin = ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
-        $guardian_detail = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
-        $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
-        $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
-  
-      //  $data = ['title' => 'Welcome to SRS Manager'];
-        $pdf = PDF::loadView('clients/report', compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail'));
-  
-     //  return $pdf->download('resident_report.pdf');
-
-         return $pdf->stream('report.pdf', array('Attachment'=>0));   
+    // public function generatePDF($id)
+    // {
+        // $client_detail = ClientDetail::find($id);
+        // //$client_family = ClientFamily::where('client_id', '=', $id);
+        // //$power_of_atony = ClientPowerofatony::where('client_id', '=', $id);
+        // //$allergy = ClientAllergy::where('client_id', '=', $id)->firstOrFail();
+        // //$visitor = ClientVisitor::where('client_id', '=', $id)->firstOrFail();
+        // $gpdetail = ClientGpdetail::where('client_id', '=', $id)->firstOrFail();
+        // $next_of_kin = ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
+        // $guardian_detail = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
+        // $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
+        // $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
+//   
+      // //  $data = ['title' => 'Welcome to SRS Manager'];
+        $pdf = PDF::loadView('clients/report', compact('client_detail','gpdetail','next_of_kin','// guardian_detail','health_service','pension_detail'));
+//   
+     // //  return $pdf->download('resident_report.pdf');
+// 
+         // return $pdf->stream('report.pdf', array('Attachment'=>0));   
 
     }
     public function reports()
