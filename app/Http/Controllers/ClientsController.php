@@ -427,7 +427,7 @@ class ClientsController extends Controller
     
      
         return redirect()->route('clients.index')
-                ->with('success','Client Updated successfully'); 
+                ->with('success','Updated successfully'); 
     }
     /**
      * Remove the specified resource from storage.

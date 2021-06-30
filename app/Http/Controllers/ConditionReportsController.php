@@ -5,10 +5,15 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\ConditionReport;
 use App\Models\ActivityLog;
+use App\Models\ClientDetail;
+
+use App\Models\CompanyMaster;
+use App\Models\LocationMaster;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Redirect;
+use DB;
 
 /** This controller handles all actions related to Accessories for
  * the Snipe-IT Asset Management application.
@@ -28,6 +33,7 @@ class ConditionReportsController extends Controller
     {
         $this->authorize('view', ConditionReport::class);
         $condition_reports = ConditionReport::all();
+      
         return view('condition_reports/index',compact('condition_reports'));
     }
 
@@ -41,7 +47,9 @@ class ConditionReportsController extends Controller
     public function create()
     {
         $this->authorize('create',ConditionReport::class);
-        return view('condition_reports/create');
+        $residents = ClientDetail::all();
+        $companies = CompanyMaster::all();
+        return view('condition_reports/create',compact('residents','companies'));
     }
 
 
@@ -203,6 +211,20 @@ class ConditionReportsController extends Controller
         $activity->save();
         return redirect()->route('condition_reports.index')
                         ->with('success','deleted successfully');
+    }
+
+    public function getDetails($id){
+         $data = ClientDetail::where('id', '=', $id)->firstOrFail();
+         return response()->json($data);
+    }
+    public function getLocation($id){
+        // $data = LocationMaster::where('company_id', '=', $id)->firstOrFail();
+        // return response()->json($data);
+        $value = $id;
+         return response()->json([
+            'locations' => LocationMaster::where('company_id', $id)->get()
+        ]);
+
     }
 
 }

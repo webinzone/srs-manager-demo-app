@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Condition Report
+Room Assets
 @parent
 @stop
 
