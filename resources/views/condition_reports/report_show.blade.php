@@ -39,23 +39,26 @@ Condition Report
                           <thead>
                             <tr>
                                 <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Resident Name </th>
-                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Gender </th>
-                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Phone</th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Room </th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Items</th>
                                 <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Created Date </th>
                                 <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Action </th>
                             </tr>
+                          
                           </thead>
                           <tbody>
-                            @foreach ($client_details as $client_detail)
+                            @foreach ($condition_reports as $condition_report)
                               <tr>
-                                <td>{{ $client_detail->fname}} . {{ $client_detail->mname}}. {{ $client_detail->lname}}</td>
-                                <td>{{ $client_detail->gender}}</td>
-                                <td>{{ $client_detail->ph}}</td>
-                                <td>{{ $client_detail->created_at}}</td>  
-                                <td><a class="btn btn-info" href="{{action('ClientsController@generatePDF', $client_detail->id)}}" target="_blank">Report Generate</a></td>                         
+                                <td>{{ $condition_report->res_name}}</td>
+                                <td>{{ $condition_report->room}}</td>
+                                <td>{{ $condition_report->items}}</td>
+                                <td>{{ $condition_report->created_at}}</td>  
+                                <td><a class="btn btn-info" href="{{action('ConditionReportsController@viewreport', $condition_report->id)}}" target="_blank">Report Generate</a></td>                         
+                                
                               </tr>
                             @endforeach
                           </tbody>
+                          
                                                       
                             </table>
                         </div>

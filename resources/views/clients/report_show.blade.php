@@ -44,7 +44,7 @@ Resident Details
                                 <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Created Date </th>
                                 <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Action </th>
                             </tr>
-                          </thead>
+                            </thead>
                           <tbody>
                             @foreach ($client_details as $client_detail)
                               <tr>
@@ -52,8 +52,7 @@ Resident Details
                                 <td>{{ $client_detail->gender}}</td>
                                 <td>{{ $client_detail->ph}}</td>
                                 <td>{{ $client_detail->created_at}}</td>  
-                                <td><a class="btn btn-info" href="{{action('ClientsController@viewPDF', $client_detail->id)}}" target="_blank">Report Generate</a></td>                         
-                                
+                                <td><a class="btn btn-info" href="{{action('ClientsController@generatePDF', $client_detail->id)}}" target="_blank">Report Generate</a></td>                         
                               </tr>
                             @endforeach
                           </tbody>

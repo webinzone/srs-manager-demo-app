@@ -26,6 +26,10 @@
   border: 3px solid black;
 
   }
+  input.right {
+        float: right;
+        right: 30px;
+      }
   </style>
 
 
@@ -37,7 +41,7 @@
 
   <div id="webui">
     <div class="row">
-      <input type="button" style="left:50px;padding-left: 30px;" onclick="printDiv('print-content')" value="PRINT"/>
+      <input type="button" class="right" style="right: 30px; align-items: right;" onclick="printDiv('print-content')" value="PRINT"/>&nbsp;&nbsp;&nbsp;<br><br>
       <div id="print-content">
         <div class="container">
     <center>

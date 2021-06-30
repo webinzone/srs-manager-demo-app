@@ -7,29 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Residential care Manager
     </title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-
-      <meta name="apple-mobile-web-app-capable" content="yes">
-
-
-
-      <link rel="apple-touch-icon" href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->logo)) : '/img/logo.png' }}">
-      <link rel="apple-touch-startup-image" href="{{ ($snipeSettings) && ($snipeSettings->favicon!='') ?  Storage::disk('public')->url(e($snipeSettings->logo)) : '/img/logo.png' }}">
-      <link rel="shortcut icon" type="image/ico" href=" ">
-      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-
-
-      <meta name="csrf-token" content="{{ csrf_token() }}">
-      <meta name="baseUrl" content="{{ url('/') }}/">
-
-    <script nonce="{{ csrf_token() }}">
-      window.Laravel = { csrfToken: '{{ csrf_token() }}' };
-    </script>
-
-     {{-- stylesheets --}}
-    <link rel="stylesheet" href="{{ url(mix('css/dist/all.css')) }}">
     
+   
   <style type="text/css">
 
   table, td, th {
@@ -38,31 +17,46 @@
 
   table {
     width: 100%;
-    height: 25px;
     border-collapse: collapse;
   }
-  .blank_row
-  {
-      height: 15px !important; /* overwrites any other rules */
-      background-color: #FFFFFF;
-  }
+  .container{
+  width: 1000px;
+  padding: 50px;
+  margin: auto;
+  border: 3px solid black;
 
+  }
+  input.right {
+        float: right;
+        right: 30px;
+      }
   </style>
+
+
+
+
   </head>
 
   <body>
+
+  <div id="webui">
+    <div class="row">
+      <input type="button" class="right" style="right: 30px; align-items: right;" onclick="printDiv('print-content')" value="PRINT"/>&nbsp;&nbsp;&nbsp;<br><br>
+      <div id="print-content">
+        <div class="container">
+
     <center>
       <h1 >MEADOWBROOK</h1>
     </center>
     <table>
       <tr>
         <td rowspan="2" style="width: 185px;align-items: center;">&nbsp;&nbsp;&nbsp;&nbsp;<b>CONDITION REPORT</b></td>
-        <td>Resident Name:</td>
-        <td>Room No:</td>
+        <td>Resident Name:  {{ $condition_report->res_name}}</td>
+        <td>Room No:  {{ $condition_report->room}}</td>
       </tr>
       <tr>
-        <td>Staff Name:</td>
-        <td>Date:</td>
+        <td>Staff Name:  {{ $condition_report->stf_name}}</td>
+        <td>Date:  {{ $condition_report->res_date}}</td>
       </tr>
     </table>
 
@@ -79,13 +73,13 @@
 
       </tr>
       <tr class="blank_row">
-        <td ></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>   
-        <td></td>     
+        <td > {{ $condition_report->item_no}}</td>
+        <td>{{ $condition_report->items}}</td>
+        <td>{{ $condition_report->owned_by}}</td>
+        <td>{{ $condition_report->res_cond}}</td>
+        <td>{{ $condition_report->res_comments}}</td>
+        <td>{{ $condition_report->res_sign}}</td>   
+        <td>{{ $condition_report->st_sign}}</td>     
       </tr>
       <tr class="blank_row">
         <td ></td>
@@ -143,7 +137,20 @@
       </tr>
       
     </table><br>
-   
+   </div>
+   </div>
+ </div>
+ </div>
+
+<script type="text/javascript">
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        w=window.open();
+        w.document.write(printContents);
+        w.print();
+        w.close();
+    }
+</script>
 
   </body>
 </html>

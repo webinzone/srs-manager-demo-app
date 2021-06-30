@@ -48,7 +48,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/viewPDF/{id}','ClientsController@viewPDF');
     Route::get('/clientss','ClientsController@clientss');
 
-
+    Route::get('/condition','ConditionReportsController@condition_reports');
+    Route::get('/viewreport/{id}','ConditionReportsController@viewreport');
  
     /*
     * Companies

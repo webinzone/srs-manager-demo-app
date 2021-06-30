@@ -158,9 +158,8 @@ class ConditionReportsController extends Controller
                         ->with('success','updated successfully');
     }
 
-    public function reports()
+    public function condition_reports()
     {   
-        $id = Auth::user()->id;
         $condition_reports = ConditionReport::all();
         return view('condition_reports/report_show',compact('condition_reports'));
     
@@ -176,6 +175,13 @@ class ConditionReportsController extends Controller
  
           return $pdf->stream('report.pdf', array('Attachment'=>0));   
 
+    }
+
+    public function viewreport($id)
+    {
+      $condition_report = ConditionReport::find($id);
+      return view('condition_reports/report', compact('condition_report'));
+        
     }
 
     /**
