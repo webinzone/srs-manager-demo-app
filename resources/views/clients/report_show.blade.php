@@ -52,7 +52,7 @@ Resident Details
                                 <td>{{ $client_detail->gender}}</td>
                                 <td>{{ $client_detail->ph}}</td>
                                 <td>{{ $client_detail->created_at}}</td>  
-                                <td><a class="btn btn-info" href="{{action('ClientsController@generatePDF', $client_detail->id)}}" target="_blank">Report Generate</a></td>                         
+                                <td><a class="btn btn-info" href="{{action('ClientsController@viewPDF', $client_detail->id)}}" target="_blank">Report Generate</a></td>                         
                               </tr>
                             @endforeach
                           </tbody>

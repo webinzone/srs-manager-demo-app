@@ -41,8 +41,8 @@
 
   <div id="webui">
     <div class="row">
-      <input type="button" class="right" style="right: 30px; align-items: right;" onclick="printDiv('print-content')" value="PRINT"/>&nbsp;&nbsp;&nbsp;<br><br>
-      <div id="print-content">
+      <input type="button" class="right" style="right: 30px; align-items: right;" onclick="printDiv('print-content1')" value="PRINT"/>&nbsp;&nbsp;&nbsp;<br><br>
+      <div id="print-content1">
         <div class="container">
     <center>
       <h1 >MEADOWBROOK S R S</h1>
