@@ -298,7 +298,7 @@ h4 {
                   <li aria-hidden="true"{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!} tabindex="-1">
                       <a href="{{ route('condition_reports.index') }}" tabindex="-1" style="color: white;">
                           <i class="fa fa-list" aria-hidden="true"></i>                         
-                          <span class="sr-only">Condition Report</span>
+                          <span class="sr-only">Room Assets</span>
                       </a>
                   </li>
                   @endcan
@@ -625,7 +625,16 @@ h4 {
                 </a>
             </li>
             @endcan
+            @can('view', \App\Models\SrsStaff::class)
+            <li{!! (Request::is('staff_roasters*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('srs_staffs.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  
+                  <i class="fa fa-users" aria-hidden="true"></i>
 
+                  <span style="color: white;">Staffs</span>
+                </a>
+            </li>
+            @endcan
             @can('view', \App\Models\StaffRoaster::class)
             <li{!! (Request::is('staff_roasters*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('staff_roasters.index') }}" style="background-color: #222d32;color: #b8c7ce;">
@@ -641,7 +650,7 @@ h4 {
             <li{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('condition_reports.index') }}" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-list" aria-hidden="true"></i>
-                  <span style="color: white;">Condition Reports</span>
+                  <span style="color: white;">Room Assets</span>
                 </a>
             </li>
             @endcan

@@ -28,8 +28,6 @@ class ConditionReportsTransformer
                 'res_name' => e($condition_report->res_name),
 
                 'room' => e($condition_report->room),
-                'items' => e($condition_report->items),
-                'clean' => e($condition_report->clean),
                 
                 'created_at' => e($condition_report->created_at),
                 'actions' => view('condition_reports/datatables_actions', compact('condition_report'))->render() 

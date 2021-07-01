@@ -52,52 +52,56 @@ Room Assets
 					<div class="form-row" style="padding-bottom:10px;">
 					<div class="col-md-4 mb-3">
 					    <label for="name" >Resident Name</label>
-					    <select class="form-control" required="" id="res_name" name="res_name">
+					    <select class="form-control" required="" id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Resident Name  --</option>
                           @foreach($residents as $resident)
                           <option value="{{ $resident->id }}"> {{ $resident->fname }}</option>
                           @endforeach
                         </select>
 					   </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-2 mb-3">
 					    <label for="name" >Room</label>
   	                    <input type="text" name="room" id="room" placeholder="room_no" class="form-control" value="">					        	        
 
 					   </div>
                      
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
 					    <label for="name" >Date</label>
   	                    <input type="date" name="res_date" id="res_date" class="form-control" >					        	        
 					   </div>
+					       <div class="col-md-3 mb-3">
+					    <label for="name" >Staff Name</label>
+  	                     <select class="form-control" style="height: 26px;padding: 3px 10px;" id="res_name" name="stf_name">
+                            <option>--   Select Staff Name  --</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
+                          @endforeach
+                        </select>
+					  </div>
 				    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				    <div class="form-row">
-				    	<div class="col-md-4 mb-3">
+				    
+				    <div  class="form-row">
+                      	<div class="col-md-2 mb-3">
 					    <label for="name" >Item No</label>
-  	                    <input type="text" name="item_no" class="form-control" placeholder="Item No">					        	        
+  	                    <input type="text" name="item_no[]" class="form-control" placeholder="Item No">					        	        
 					   </div>
-					    <div class="col-md-4 mb-3">
-					    <label for="name" >Item</label>
-  	                    <input type="text" name="items" class="form-control" placeholder="Items">					        	        
+					    <div class="col-md-2 mb-3">
+					    <label for="name" >Item / Furniture</label>
+  	                    <input type="text" name="items[]" class="form-control" placeholder="Items">					        	        
 					   </div>
-					   <div class="col-md-4 mb-3">
+					   <div class="col-md-2 mb-3">
 					    <label for="name" >Owned By</label>
-					     <select name="owned_by" required="" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+					     <select name="owned_by[]" class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="" style="font-size: 14px;">---Select--</option> 
                             <option value="Resident" style="font-size: 14px;">Resident</option> 
                             <option value="Facility" style="font-size: 14px;">Facility</option> 
                         </select>
 					   </div>
                     
-                      
-                      
-				    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				    <div class="form-row">
-                     
-					  
-					  <div class="col-md-4 mb-3">
+                      <div class="col-md-2 mb-3">
 					    <label for="name" >Condition</label>
   	                   		
-  	                     <select name="res_cond" required="" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+  	                     <select name="res_cond[]"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="" style="font-size: 14px;">---Select--</option> 
                             <option value="Poor" style="font-size: 14px;">Poor</option> 
                             <option value="Good" style="font-size: 14px;">Good</option> 
@@ -105,26 +109,30 @@ Room Assets
 
                         </select>
 					   </div>
-					    <div class="col-md-4 mb-3">
-					    <label for="name" >Resident Comments</label>
-  	                    <input type="text" name="res_comments" class="form-control" placeholder="Resident Comments">					        	        
+                      
+					    <div class="col-md-3 mb-3">
+					    <label for="name" >Comments/Description</label>
+  	                    <input type="text" name="res_comments[]" class="form-control" placeholder="Resident Comments">					        	        
 					  </div>
+				    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<!--  <div class="col-md-4 mb-3">
+				    <div class="form-row">
+                     			  
+					  
 					  <div class="col-md-4 mb-3">
 					    <label for="name" >Resident Sign</label>
   	                    <input type="text" name="res_sign" class="form-control" placeholder="Resident Sign">					        	        
 					   </div>
-				    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				    <div class="form-row">
+				    </div>--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    </div>-->
+				    <!--<div class="form-row">
                        
 					<div class="col-md-4 mb-3">
 					    <label for="name" >Staff Sign</label>
   	                    <input type="text" name="st_sign" class="form-control" placeholder="Staff Sign">					        	        
-					   </div>
-					     <div class="col-md-4 mb-3">
-					    <label for="name" >Staff Name</label>
-  	                    <input type="text" name="stf_name" class="form-control" placeholder="Staff Name">					        	        
-					  </div>
-					 <div class="col-md-4 mb-3">
+					   </div>-->
+					 
+					<!-- <div class="col-md-4 mb-3">
 					    <label for="name" >Company Id</label>
   	                
   	                     <select class="form-control" style="height: 26px;padding: 3px 10px;" required="" name="company_id" id="company_id">
@@ -133,20 +141,24 @@ Room Assets
                           <option value="{{ $company->company_id }}" >{{ $company->company_id }}</option>
                           @endforeach
                         </select>				        	        
-					  </div>
+					  </div>-
 				    
-				    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				    <div class="form-row">
+				    </div>-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    <div id="fieldList" class="form-row">
 				    
-                      <div class="col-md-4 mb-3">
+                      <!--<div class="col-md-4 mb-3">
 					    <label for="name" >Location Id</label>
 					    <select class="form-control" style="height: 26px;padding: 3px 10px;" required="" name="location_id" id="location_id">
 					    	<option>--Select Location Id --</option>
 					    </select>
-					  </div>
+					  </div>-->
 
 				    </div>
-                   </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+				   <br>
+				    <button id="addMore">+</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				     <div class="box-footer text-right">
 					    <a class="btn btn-link text-left" href="{{ route('condition_reports.index') }}">Cancel</a>
 					    <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
@@ -224,6 +236,22 @@ $('#res_name').change(function(){
         }
     });
 });
+</script>
+<script type="text/javascript">
+	$(function() {
+  $("#addMore").click(function(e) {
+   // e.preventDefault();
+    $("#fieldList").append(' <div class="col-md-2 mb-3">  <input type="text" name="item_no[]" class="form-control" placeholder="Item No"></div>&nbsp;&nbsp;&nbsp;  <div class="col-md-2 mb-3">  <input type="text" name="items[]" class="form-control" placeholder="Item Name"></div> &nbsp;&nbsp;&nbsp; <div class="col-md-2 mb-3"> <select name="owned_by[]" required="" class="form-control" style="height: 26px;padding: 3px 10px;">                             <option value="" style="font-size: 14px;">---Select--</option>                             <option value="Resident" style="font-size: 14px;">Resident</option>                            <option value="Facility" style="font-size: 14px;">Facility</option>                        </select>   </div>&nbsp;&nbsp;&nbsp;    <div class="col-md-2 mb-3">   <select name="res_cond[]" required="" class="form-control" style="height: 26px;padding: 3px 10px;">                             <option value="" style="font-size: 14px;">---Select--</option>                             <option value="Poor" style="font-size: 14px;">Poor</option>                             <option value="Good" style="font-size: 14px;">Good</option>                             <option value="In need of repair" style="font-size: 14px;">In need of repair</option>          </select> 					   </div>  <div class="col-md-3 mb-3">    <input type="text" name="res_comments[]" class="form-control" placeholder="Resident Comments">   </div>  <br> <button  class="delete btn btn-danger"><i class="fa fa-trash icon-white"></i></button>  ');
+  });
+
+  $("body").on("click", ".delete", function (e) {
+   $(this).parent("div").remove();
+
+
+});
+
+});
+
 </script>
 @include ('partials.bootstrap-table')
 @stop

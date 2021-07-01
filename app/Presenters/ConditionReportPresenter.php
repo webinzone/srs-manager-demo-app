@@ -34,12 +34,6 @@ class ConditionReportPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Room')
             ],[
-                "field" => "items",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Items')
-            ],[
                 "field" => "created_at",
                 "searchable" => true,
                 "sortable" => true,

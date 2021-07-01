@@ -335,6 +335,18 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'auth:api']
         ]
     );
 
+      Route::resource('srs_staffs', 'SrsStaffsController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.srs_staffs.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['srs_staffs' => 'srs_staffs_id']
+        ]
+    );
+
      Route::resource('client_details', 'ClientDetailsController',
         [
             'names' =>

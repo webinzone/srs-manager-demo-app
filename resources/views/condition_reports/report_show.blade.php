@@ -51,7 +51,6 @@ Condition Report
                               <tr>
                                 <td>{{ $condition_report->res_name}}</td>
                                 <td>{{ $condition_report->room}}</td>
-                                <td>{{ $condition_report->items}}</td>
                                 <td>{{ $condition_report->created_at}}</td>  
                                 <td><a class="btn btn-info" href="{{action('ConditionReportsController@viewreport', $condition_report->id)}}" target="_blank">Report Generate</a></td>                         
                                 

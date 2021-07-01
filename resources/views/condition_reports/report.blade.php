@@ -72,70 +72,18 @@
         <td>Staff's Sign</td>
 
       </tr>
+    @for ($i=0; $i < $num; $i++)
       <tr class="blank_row">
-        <td > {{ $condition_report->item_no}}</td>
-        <td>{{ $condition_report->items}}</td>
-        <td>{{ $condition_report->owned_by}}</td>
-        <td>{{ $condition_report->res_cond}}</td>
-        <td>{{ $condition_report->res_comments}}</td>
-        <td>{{ $condition_report->res_sign}}</td>   
-        <td>{{ $condition_report->st_sign}}</td>     
-      </tr>
-      <tr class="blank_row">
-        <td ></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td > {{$item_no[$i] }}</td>
+        <td> {{$items[$i] }}  </td>
+        <td>{{$owned_by[$i] }}</td>
+        <td>{{$res_cond[$i] }}</td>
+        <td>{{$res_comments[$i] }}</td>
         <td></td>   
         <td></td>     
       </tr>
-      <tr class="blank_row">
-        <td ></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>   
-        <td></td>     
-      </tr>
-      <tr class="blank_row">
-        <td ></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>   
-        <td></td>     
-      </tr>
-      <tr class="blank_row">
-        <td ></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>   
-        <td></td>     
-      </tr>
-      <tr class="blank_row">
-        <td ></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>   
-        <td></td>     
-      </tr>
-      <tr class="blank_row">
-        <td ></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>   
-        <td></td>     
-      </tr>
-      
+    @endfor
+     
     </table><br>
    </div>
    </div>
@@ -144,9 +92,16 @@
 
 <script type="text/javascript">
     function printDiv(divName) {
-        var printContents = document.getElementById(divName).innerHTML;
+        var htmlToPrint = '' +
+        '<style type="text/css">' +
+        'table th, table td {' +
+        'border: 1px solid black;' +
+        '}' +
+        '</style>';
+
+        htmlToPrint += document.getElementById(divName).outerHTML;
         w=window.open();
-        w.document.write(printContents);
+        w.document.write(htmlToPrint);
         w.print();
         w.close();
     }

@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('guardian_details','GuardianDetailsController');
     Route::resource('health_services','HealthServicesController');
     Route::resource('pension_details','PensionDetailsController');
+    Route::resource('srs_staffs','SrsStaffsController');
 
 
     Route::post('formSubmit','ClientsController@store');

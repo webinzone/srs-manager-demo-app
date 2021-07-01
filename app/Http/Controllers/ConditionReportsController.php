@@ -6,7 +6,7 @@ use App\Http\Requests;
 use App\Models\ConditionReport;
 use App\Models\ActivityLog;
 use App\Models\ClientDetail;
-
+use App\Models\SrsStaff;
 use App\Models\CompanyMaster;
 use App\Models\LocationMaster;
 
@@ -49,7 +49,8 @@ class ConditionReportsController extends Controller
         $this->authorize('create',ConditionReport::class);
         $residents = ClientDetail::all();
         $companies = CompanyMaster::all();
-        return view('condition_reports/create',compact('residents','companies'));
+        $emps = SrsStaff::all();
+        return view('condition_reports/create',compact('residents','companies','emps'));
     }
 
 
@@ -64,28 +65,28 @@ class ConditionReportsController extends Controller
     {
         $this->authorize('create',ConditionReport::class);
         $condition_report = new ConditionReport();
-
+       
         $condition_report->room = request('room');
-        $condition_report->items = request('items');
+        $condition_report->items = implode(',', (array) request('items'));
         $condition_report->clean = "null";
         $condition_report->undamaged = "null";
         $condition_report->working = "null";
         $condition_report->prop_comments = "null";
-        $condition_report->res_comments = request('res_comments');
+        $condition_report->res_comments = implode(',', (array) request('res_comments'));
         $condition_report->res_name = request('res_name');
         $condition_report->stf_name = request('stf_name');
         $condition_report->res_date = request('res_date');
-        $condition_report->item_no = request('item_no');
-        $condition_report->owned_by = request('owned_by');
-        $condition_report->res_cond = request('res_cond');
-        $condition_report->res_sign = request('res_sign');
-        $condition_report->st_sign = request('st_sign');
-        $condition_report->company_id = request('company_id');
-        $condition_report->location_id = request('location_id');
+        $condition_report->item_no = implode(',', (array) request('item_no'));
+        $condition_report->owned_by = implode(',', (array) request('owned_by'));
+        $condition_report->res_cond = implode(',', (array) request('res_cond'));
+        $condition_report->res_sign = "";
+        $condition_report->st_sign = "";
+        $condition_report->company_id = "null";
+        $condition_report->location_id = "null";
         $condition_report->user_id =  Auth::user()->id;
         
         $condition_report->save();
-       
+
       $activity = new ActivityLog();
 
       $activity->user = Auth::user()->first_name;
@@ -145,13 +146,13 @@ class ConditionReportsController extends Controller
         $condition_report->res_name = request('res_name');
         $condition_report->stf_name = request('stf_name');
         $condition_report->res_date = request('res_date');
-        $condition_report->item_no = request('item_no');
+        $condition_report->item_no =  implode(',', (array) request('item_no'));
         $condition_report->owned_by = request('owned_by');
         $condition_report->res_cond = request('res_cond');
-        $condition_report->res_sign = request('res_sign');
-        $condition_report->st_sign = request('st_sign');
-        $condition_report->company_id = request('company_id');
-        $condition_report->location_id = request('location_id');
+        $condition_report->res_sign = "null";
+        $condition_report->st_sign = "null";
+        $condition_report->company_id = "null";
+        $condition_report->location_id = "null";
         $condition_report->user_id =  Auth::user()->id;
         
         $condition_report->save();
@@ -188,7 +189,15 @@ class ConditionReportsController extends Controller
     public function viewreport($id)
     {
       $condition_report = ConditionReport::find($id);
-      return view('condition_reports/report', compact('condition_report'));
+      $item_no = explode(',', $condition_report->item_no);
+      $res_comments = explode(',', $condition_report->res_comments);
+      $items = explode(',', $condition_report->items);
+      $owned_by = explode(',', $condition_report->owned_by);
+      $res_cond = explode(',', $condition_report->res_cond);
+      $item_last= last($item_no);
+      $num = (int)$item_last;
+
+      return view('condition_reports/report', compact('condition_report', 'item_no', 'res_comments', 'items', 'owned_by', 'res_cond', 'num'));
         
     }
 
