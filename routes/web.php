@@ -55,8 +55,8 @@ Route::group(['middleware' => 'auth'], function () {
     //Route::get('/info/{id}', 'ConditionReportsController@getres');
     Route::get('get/details/{id}', 'ConditionReportsController@getDetails')->name('getDetails');
     Route::get('get/location/{id}', 'ConditionReportsController@getLocation')->name('getLocation');
-
-
+    
+    
     /*
     * Companies
     */

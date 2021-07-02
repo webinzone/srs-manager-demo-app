@@ -170,7 +170,7 @@ class ConditionReportsController extends Controller
     public function condition_reports()
     {   
         $condition_reports = ConditionReport::all();
-        return view('condition_reports/report_show',compact('condition_reports'));
+        return view('condition_reports/report_show',compact('condition_reports', 'residents'));
     
     }
 
@@ -200,6 +200,7 @@ class ConditionReportsController extends Controller
       return view('condition_reports/report', compact('condition_report', 'item_no', 'res_comments', 'items', 'owned_by', 'res_cond', 'num'));
         
     }
+   
 
     /**
      * Remove the specified resource from storage.

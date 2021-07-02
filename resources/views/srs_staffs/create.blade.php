@@ -3,7 +3,6 @@
 
 {{-- Page title --}}
 @section('title')
-Employees
 @parent
 @stop
 @section('header_right')
@@ -22,69 +21,57 @@ Employees
         <!-- col-md-8 -->
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
 
-          <form id="create-form" class="form-horizontal" method="post" action="{{ route('srs_staffs.store') }}" autocomplete="off" role="form" >
+          <form id="create-form" class="form-horizontal" method="post" action="{{ route('srs_staffs.store') }}" autocomplete="off" role="form" style="width: 800px;">
                  {{ csrf_field() }}
 
             <!-- box -->
             <div class="box box-default">
                 <!-- box-header -->
-                <div class="box-header with-border text-right">
-
-                    <div class="col-md-12 box-title text-right" style="padding: 0px; margin: 0px;">
-
-                        <div class="col-md-12" style="padding: 0px; margin: 0px;">
-                            <div class="col-md-9 text-left">
-                                                        </div>
-                            <div class="col-md-3 text-right" style="padding-right: 10px;">
-                                <a class="btn btn-link text-left" href="{{ route('srs_staffs.index') }}">
-                                    Cancel
-                                </a>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-check icon-white" aria-hidden="true"></i>
-                                    Save
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="box-header with-border text-center">
+                   <h3><b>Employees</b></h3>
+                   
                 </div><!-- /.box-header -->
 
                 <!-- box-body -->
-                <div class="box-body">                          
+                <div class="box-body" style="padding-left: 40px;padding-right: 40px;">                          
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Name</label>
-                        <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="name" class="form-control" placeholder="Name">
-        
-                        </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="fname">First name</label>
+                        <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname" required v-on:change="page_one.fname = $event.target.value" required="">                
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="mname">Middle name</label>
+                        <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname" required v-on:change="page_one.mname = $event.target.value">                
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="lname">Last name</label>
+                        <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname" required v-on:change="page_one.lname = $event.target.value">                
+                      </div>                        
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Address</label>
-                        <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="address" class="form-control" placeholder="Address">                                      
+                           <div class="col-md-6 mb-3 ">
+                        <label for="name" >Date of Birth</label>
+
+                 <input type="date" name="dob" class="form-control" placeholder="Date of Birth">                                        
                         </div>
-                    </div>
-                    <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Phone Number</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        
+                           <div class="col-md-6 mb-3 ">
+                        <label for="name" >Phone Number</label>
+
                  <input type="text" name="ph" class="form-control" placeholder="Phone Number">                                       
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Date of Birth</label>
-                        <div class="col-md-7 col-sm-12 required">
-                 <input type="date" name="dob" class="form-control" placeholder="Date of Birth">                                        
-                        </div>
-                    </div>
-                    <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Email</label>
-                        <div class="col-md-7 col-sm-12 required">
+                     
+                    
+                         <div class="col-md-6 mb-3 ">
+                        <label for="name" >Email</label>
+
                  <input type="email" name="email" class="form-control" placeholder="Email">                                        
                         </div>
-                    </div>
-                    <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Highest Qualification</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-6 mb-3 ">
+                        <label for="name" >Qualification</label>
+
                             <select name="quali" class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="" style="font-size: 14px;">------------  Select Qualification       ------------</option> 
                             <option value="M-Tech" style="font-size: 14px;">M-Tech</option> 
@@ -96,15 +83,22 @@ Employees
                         </select>
                         </div>
                     </div>
+                    <div class="form-group ">
+                         
+                        <div class="col-md-6 mb-3 ">
+                             <label for="name" >Address</label>
+                              <textarea  name="address" class="form-control" placeholder="Address"></textarea>                                 
+                        </div>
+                    </div>
                   <!--  <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Company Id</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <label for="name" >Company Id</label>
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="company_id" class="form-control" placeholder="Company Id">                                     
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Location Id</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <label for="name" >Location Id</label>
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="location_id" class="form-control" placeholder="Location Id">                                     
                         </div>
                     </div>-->

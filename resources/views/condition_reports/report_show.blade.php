@@ -59,10 +59,16 @@ Condition Report
                           </tbody>
                           
                                                       
-                            </table>
+                            </table><br><br>
+
+                          </div>
                         </div>
-                    </div>
                 </div>
+
+
+                
+            </div>
+
              </div>
            </form>
          </div>

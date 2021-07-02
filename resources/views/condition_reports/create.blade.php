@@ -3,7 +3,6 @@
 
 {{-- Page title --}}
 @section('title')
-Room Assets
 @parent
 @stop
 @section('header_right')
@@ -22,28 +21,17 @@ Room Assets
 	    <!-- col-md-8 -->
 	    <div class=" col" style="padding-left: 100px;">
 
-	      <form id="create-form" class="form-horizontal" method="post" action="{{ route('condition_reports.store') }}"  style="width: 1000px; align-items: center;   background-color: #fff; " autocomplete="off" role="form" >
+	      <form id="create-form" class="form-horizontal" method="post" action="{{ route('condition_reports.store') }}"  style="width: 1050px; align-items: center;   background-color: #fff; " autocomplete="off" role="form" >
                  {{ csrf_field() }}
 
 	        <!-- box -->
 	        <div class="box box-default">
 	            <!-- box-header -->
 	           <!-- box-header -->
-                <div class="box-header with-border text-right">
-
-                    <div class="col-md-12 box-title text-right" style="padding: 0px; margin: 0px;">
-
-                        <div class="col-md-12" style="padding: 0px; margin: 0px;">
-                            <div class="col-md-9 text-left">
-                                                        </div>
-                            <div class="col-md-3 text-right" style="padding-right: 10px;">
-                                <a class="btn btn-link text-left" href="{{ route('clients.index') }}">
-                                    Cancel
-                                </a>
-                               
-                            </div>
-                        </div>
-                    </div>
+              <div class="box-header with-border text-center">
+                 <h3><b>Room Assets</b></h3>
+                   
+                </div><!-- /.box-header -->
 
                 </div><!-- /.box-header -->
 
@@ -59,9 +47,9 @@ Room Assets
                           @endforeach
                         </select>
 					   </div>
-                      <div class="col-md-2 mb-3">
+                      <div class="col-md-2 mb-2" style="width: 90px;">
 					    <label for="name" >Room</label>
-  	                    <input type="text" name="room" id="room" placeholder="room_no" class="form-control" value="">					        	        
+  	                    <input type="number" name="room" id="room" placeholder="No" class="form-control" value="">					        	        
 
 					   </div>
                      
@@ -77,15 +65,17 @@ Room Assets
                           <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
                           @endforeach
                         </select>
-					  </div>
-				    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					  </div><br>
+				    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    
+				    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				    
 				    <div  class="form-row">
-                      	<div class="col-md-2 mb-3">
-					    <label for="name" >Item No</label>
-  	                    <input type="text" name="item_no[]" class="form-control" placeholder="Item No">					        	        
+                      	<div class="col-md-2 mb-3" style="width: 90px;">
+					    <label for="name"  >Item No</label>
+  	                    <input type="text" name="item_no[]" id="item_no" value="1" class="form-control" placeholder="No" readonly>					        	        
 					   </div>
-					    <div class="col-md-2 mb-3">
+					    <div class="col-md-3 mb-3">
 					    <label for="name" >Item / Furniture</label>
   	                    <input type="text" name="items[]" class="form-control" placeholder="Items">					        	        
 					   </div>
@@ -93,8 +83,8 @@ Room Assets
 					    <label for="name" >Owned By</label>
 					     <select name="owned_by[]" class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="" style="font-size: 14px;">---Select--</option> 
-                            <option value="Resident" style="font-size: 14px;">Resident</option> 
-                            <option value="Facility" style="font-size: 14px;">Facility</option> 
+                            <option value="O" style="font-size: 14px;">Resident</option> 
+                            <option value="F" style="font-size: 14px;">Facility</option> 
                         </select>
 					   </div>
                     
@@ -103,9 +93,9 @@ Room Assets
   	                   		
   	                     <select name="res_cond[]"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="" style="font-size: 14px;">---Select--</option> 
-                            <option value="Poor" style="font-size: 14px;">Poor</option> 
-                            <option value="Good" style="font-size: 14px;">Good</option> 
-                            <option value="In need of repair" style="font-size: 14px;">In need of repair</option> 
+                            <option value="P" style="font-size: 14px;">Poor</option> 
+                            <option value="G" style="font-size: 14px;">Good</option> 
+                            <option value="R" style="font-size: 14px;">In need of repair</option> 
 
                         </select>
 					   </div>
@@ -114,6 +104,7 @@ Room Assets
 					    <label for="name" >Comments/Description</label>
   	                    <input type="text" name="res_comments[]" class="form-control" placeholder="Resident Comments">					        	        
 					  </div>
+				   
 				    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<!--  <div class="col-md-4 mb-3">
 				    <div class="form-row">
@@ -144,7 +135,7 @@ Room Assets
 					  </div>-
 				    
 				    </div>-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				    <div id="fieldList" class="form-row">
+				    <div id="fieldList" class="form-row"><br>
 				    
                       <!--<div class="col-md-4 mb-3">
 					    <label for="name" >Location Id</label>
@@ -153,12 +144,11 @@ Room Assets
 					    </select>
 					  </div>-->
 
-				    </div>
+				    </div><br>
+                    <button style="color:white; background-color:#23536f;" id="addMore">+</button>
 
 
-				   <br>
-				    <button id="addMore">+</button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				     <div class="box-footer text-right">
 					    <a class="btn btn-link text-left" href="{{ route('condition_reports.index') }}">Cancel</a>
 					    <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
@@ -241,7 +231,7 @@ $('#res_name').change(function(){
 	$(function() {
   $("#addMore").click(function(e) {
    // e.preventDefault();
-    $("#fieldList").append(' <div class="col-md-2 mb-3">  <input type="text" name="item_no[]" class="form-control" placeholder="Item No"></div>&nbsp;&nbsp;&nbsp;  <div class="col-md-2 mb-3">  <input type="text" name="items[]" class="form-control" placeholder="Item Name"></div> &nbsp;&nbsp;&nbsp; <div class="col-md-2 mb-3"> <select name="owned_by[]" required="" class="form-control" style="height: 26px;padding: 3px 10px;">                             <option value="" style="font-size: 14px;">---Select--</option>                             <option value="Resident" style="font-size: 14px;">Resident</option>                            <option value="Facility" style="font-size: 14px;">Facility</option>                        </select>   </div>&nbsp;&nbsp;&nbsp;    <div class="col-md-2 mb-3">   <select name="res_cond[]" required="" class="form-control" style="height: 26px;padding: 3px 10px;">                             <option value="" style="font-size: 14px;">---Select--</option>                             <option value="Poor" style="font-size: 14px;">Poor</option>                             <option value="Good" style="font-size: 14px;">Good</option>                             <option value="In need of repair" style="font-size: 14px;">In need of repair</option>          </select> 					   </div>  <div class="col-md-3 mb-3">    <input type="text" name="res_comments[]" class="form-control" placeholder="Resident Comments">   </div>  <br> <button  class="delete btn btn-danger"><i class="fa fa-trash icon-white"></i></button>  ');
+    $("#fieldList").append(' <div class="col-md-2 mb-3" style="width: 90px;">  <input type="text" name="item_no[]" class="form-control" id="item_no" ></div>&nbsp;&nbsp;&nbsp;  <div class="col-md-3 mb-3">  <input type="text" name="items[]" class="form-control" placeholder="Item Name"></div> &nbsp;&nbsp;&nbsp; <div class="col-md-2 mb-3"> <select name="owned_by[]" required="" class="form-control" style="height: 26px;padding: 3px 10px;">                             <option value="" style="font-size: 14px;">---Select--</option>                             <option value="Resident" style="font-size: 14px;">Resident</option>                            <option value="Facility" style="font-size: 14px;">Facility</option>                        </select>   </div>&nbsp;&nbsp;&nbsp;    <div class="col-md-2 mb-3">   <select name="res_cond[]" required="" class="form-control" style="height: 26px;padding: 3px 10px;">                             <option value="" style="font-size: 14px;">---Select--</option>                             <option value="Poor" style="font-size: 14px;">Poor</option>                             <option value="Good" style="font-size: 14px;">Good</option>                             <option value="In need of repair" style="font-size: 14px;">In need of repair</option>          </select> 					   </div>  <div class="col-md-3 mb-3">    <input type="text" name="res_comments[]" class="form-control" placeholder="Resident Comments"> &nbsp;&nbsp;  </div>  <button style="width:30px;padding:5px;"  class="delete btn btn-danger"><i class="fa fa-trash icon-white"></i></button>  ');
   });
 
   $("body").on("click", ".delete", function (e) {

@@ -58,14 +58,14 @@ class SrsStaffsController extends Controller
         $this->authorize('create',SrsStaff::class);
         $srs_staff = new SrsStaff();
 
-        $srs_staff->name = request('name');
+        $srs_staff->name = request('fname').". ".request('mname').". ".request('lname');
         $srs_staff->address = request('address');
         $srs_staff->ph = request('ph');
         $srs_staff->dob = request('dob');
         $srs_staff->email = request('email');
         $srs_staff->quali = request('quali');
-        $srs_staff->company_id = "";
-        $srs_staff->location_id = "";
+        $srs_staff->company_id = "null";
+        $srs_staff->location_id = "null";
         $srs_staff->user_id =  Auth::user()->id;
         
         $srs_staff->save();

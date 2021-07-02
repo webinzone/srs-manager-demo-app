@@ -65,8 +65,8 @@
       <tr>
         <td>Item no</td>
         <td>Item / Furniture</td>
-        <td>Owned By</td>
-        <td>Condition(P/G/R)</td>
+        <td style="width:50px;">Owned By</td>
+        <td style="width:20px;">Condition(P/G/R)</td>
         <td>Comments / Description</td>
         <td>Resident Sign</td>
         <td>Staff's Sign</td>
