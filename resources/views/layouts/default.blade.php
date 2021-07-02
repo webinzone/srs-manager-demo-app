@@ -625,7 +625,7 @@ h4 {
                 </a>
             </li>
             @endcan
-            @can('view', \App\Models\SrsStaff::class)
+          <!--  @can('view', \App\Models\SrsStaff::class)
             <li{!! (Request::is('staff_roasters*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('srs_staffs.index') }}" style="background-color: #222d32;color: #b8c7ce;">
                   
@@ -644,7 +644,32 @@ h4 {
                   <span style="color: white;">Staff Roaster</span>
                 </a>
             </li>
-            @endcan
+            @endcan-->
+
+               <li class="treeview">
+                <a href="#" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                                  
+                  <span style="color: white;">Employess</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
+                  <li>
+                      <a href="{{ route('srs_staffs.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                       Employees
+                    </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('staff_roasters.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                          Staff Roaster
+                      </a>
+                  </li>
+                
+                </ul>
+              </li>
+
 
             @can('view', \App\Models\ConditionReport::class)
             <li{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!}>

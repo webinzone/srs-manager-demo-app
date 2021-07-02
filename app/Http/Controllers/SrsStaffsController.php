@@ -64,8 +64,8 @@ class SrsStaffsController extends Controller
         $srs_staff->dob = request('dob');
         $srs_staff->email = request('email');
         $srs_staff->quali = request('quali');
-        $srs_staff->company_id = request('company_id');
-        $srs_staff->location_id = request('location_id');
+        $srs_staff->company_id = "";
+        $srs_staff->location_id = "";
         $srs_staff->user_id =  Auth::user()->id;
         
         $srs_staff->save();

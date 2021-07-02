@@ -40,36 +40,6 @@ class SrsStaffPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Phone Number')
             ],[
-                "field" => "dob",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Date of Birth')
-            ],[
-                "field" => "email",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Email')
-            ],[
-                "field" => "quali",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Qualification')     
-            ],[
-                "field" => "company_id",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Company Id')
-            ],[
-                "field" => "location_id",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Location Id')
-            ],[
                 "field" => "created_at",
                 "searchable" => true,
                 "sortable" => true,

@@ -73,22 +73,30 @@ Employees
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Date of Birth</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="dob" class="form-control" placeholder="Date of Birth">                                        
+                 <input type="date" name="dob" class="form-control" placeholder="Date of Birth">                                        
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Email</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="email" class="form-control" placeholder="Email">                                        
+                 <input type="email" name="email" class="form-control" placeholder="Email">                                        
                         </div>
                     </div>
                     <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Qualification</label>
+                        <label for="name" class="col-md-3 control-label">Highest Qualification</label>
                         <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="quali" class="form-control" placeholder="Qualification">                                       
+                            <select name="quali" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                            <option value="" style="font-size: 14px;">------------  Select Qualification       ------------</option> 
+                            <option value="M-Tech" style="font-size: 14px;">M-Tech</option> 
+                            <option value="B-Tech" style="font-size: 14px;">B-Tech</option> 
+                            <option value="PG" style="font-size: 14px;">PG</option> 
+                            <option value="Master Degree" style="font-size: 14px;">Master Degree</option> 
+                            <option value="Degree" style="font-size: 14px;">Degree</option> 
+
+                        </select>
                         </div>
                     </div>
-                    <div class="form-group ">
+                  <!--  <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Company Id</label>
                         <div class="col-md-7 col-sm-12 required">
                  <input type="text" name="company_id" class="form-control" placeholder="Company Id">                                     
@@ -99,7 +107,7 @@ Employees
                         <div class="col-md-7 col-sm-12 required">
                  <input type="text" name="location_id" class="form-control" placeholder="Location Id">                                     
                         </div>
-                    </div>
+                    </div>-->
                     <div class="box-footer text-right">
                         <a class="btn btn-link text-left" href="{{ route('srs_staffs.index') }}">Cancel</a>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>

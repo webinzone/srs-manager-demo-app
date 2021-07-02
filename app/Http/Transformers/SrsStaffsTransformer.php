@@ -28,11 +28,6 @@ class SrsStaffsTransformer
                 'name' => e($srs_staff->name),
                 'address' => e($srs_staff->address),
                 'ph' => e($srs_staff->ph),
-                'dob' => e($srs_staff->dob),
-                'email' => e($srs_staff->email),
-                'quali' => e($srs_staff->quali),
-                'company_id' => e($srs_staff->company_id),
-                'location_id' => e($srs_staff->location_id),
                 'created_at' => e($srs_staff->created_at),
                 'actions' => view('srs_staffs/datatables_actions', compact('srs_staff'))->render() 
                 
