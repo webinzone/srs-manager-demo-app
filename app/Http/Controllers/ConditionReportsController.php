@@ -110,8 +110,19 @@ class ConditionReportsController extends Controller
     public function show($id)
     {
         $this->authorize('show',ConditionReport::class);
-        $condition_report = ConditionReport::find($id);
-        return view('condition_reports/show',compact('condition_report'));
+          
+          $condition_report = ConditionReport::find($id);
+          $item_no = explode(',', $condition_report->item_no);
+          $res_comments = explode(',', $condition_report->res_comments);
+          $items = explode(',', $condition_report->items);
+          $owned_by = explode(',', $condition_report->owned_by);
+          $res_cond = explode(',', $condition_report->res_cond);
+          $item_last= last($item_no);
+          $num = (int)$item_last;
+
+      return view('condition_reports/show', compact('condition_report', 'item_no', 'res_comments', 'items', 'owned_by', 'res_cond', 'num'));
+      //  $condition_report = ConditionReport::find($id);
+       // return view('condition_reports/show',compact('condition_report'));
     }
      /**
      * Show the form for editing the specified resource.
@@ -123,8 +134,18 @@ class ConditionReportsController extends Controller
      public function edit($id)
     {
         $this->authorize('edit',ConditionReport::class);
-        $condition_report = ConditionReport::find($id);
-        return view('condition_reports/edit',compact('condition_report'));
+            $residents = ClientDetail::all();
+            $companies = CompanyMaster::all();
+            $emps = SrsStaff::all();
+          $condition_report = ConditionReport::find($id);
+         $item_no = explode(',', $condition_report->item_no);
+          $res_comments = explode(',', $condition_report->res_comments);
+          $items = explode(',', $condition_report->items);
+          $owned_by = explode(',', $condition_report->owned_by);
+          $res_cond = explode(',', $condition_report->res_cond);
+          $item_last= last($item_no);
+          $num = (int)$item_last;
+        return view('condition_reports/edit',compact('condition_report','residents','companies','emps','item_no', 'res_comments', 'items', 'owned_by', 'res_cond', 'num'));
     }
     /**
      * Update the specified resource in storage.
@@ -139,20 +160,20 @@ class ConditionReportsController extends Controller
         $condition_report = ConditionReport::find($id);
 
         $condition_report->room = request('room');
-        $condition_report->items = request('items');
-        //$condition_report->clean = request('clean');
-        //$condition_report->undamaged = request('undamaged');
-        //$condition_report->working = request('working');
-        //$condition_report->prop_comments = request('prop_comments');
-        $condition_report->res_comments = request('res_comments');
-        $condition_report->res_name = request('res_name');
+        $condition_report->items = implode(',', (array) request('items'));
+        $condition_report->clean = "null";
+        $condition_report->undamaged = "null";
+        $condition_report->working = "null";
+        $condition_report->prop_comments = "null";
+        $condition_report->res_comments = implode(',', (array) request('res_comments'));
+        $condition_report->res_name = request('res_name');;
         $condition_report->stf_name = request('stf_name');
         $condition_report->res_date = request('res_date');
-        $condition_report->item_no =  implode(',', (array) request('item_no'));
-        $condition_report->owned_by = request('owned_by');
-        $condition_report->res_cond = request('res_cond');
-        $condition_report->res_sign = "null";
-        $condition_report->st_sign = "null";
+        $condition_report->item_no = implode(',', (array) request('item_no'));
+        $condition_report->owned_by = implode(',', (array) request('owned_by'));
+        $condition_report->res_cond = implode(',', (array) request('res_cond'));
+        $condition_report->res_sign = "";
+        $condition_report->st_sign = "";
         $condition_report->company_id = "null";
         $condition_report->location_id = "null";
         $condition_report->user_id =  Auth::user()->id;

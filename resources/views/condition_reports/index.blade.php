@@ -2,7 +2,6 @@
 
 {{-- Page title --}}
 @section('title')
-Room Assets
 @parent
 @stop
 
@@ -18,8 +17,13 @@ Room Assets
 <div class="row">
   <div class="col-md-12">
 
-    <div class="box box-default">
-      <div class="box-body">
+    <div class="box box-default" >
+           <div class="box-header with-border text-center">
+                 <h3><b>Room Assets</b></h3>
+                   
+                </div><!-- /.box-header -->
+
+      <div class="box-body" >
         <div class="table-responsive">
 
             <table
