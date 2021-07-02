@@ -56,7 +56,7 @@
       </tr>
       <tr>
         <td>Staff Name:  {{ $condition_report->stf_name}}</td>
-        <td>Date:  {{ $condition_report->res_date}}</td>
+        <td>Date: {{date('d-m-Y', strtotime($condition_report->res_date)) }} </td>
       </tr>
     </table>
 
