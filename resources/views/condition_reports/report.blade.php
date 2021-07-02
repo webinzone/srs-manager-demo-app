@@ -96,6 +96,8 @@
         '<style type="text/css">' +
         'table th, table td {' +
         'border: 1px solid black;' +
+        '    width: 100%;' +
+        'border-collapse: collapse;' +
         '}' +
         '</style>';
 

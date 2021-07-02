@@ -512,25 +512,41 @@ h4 {
             </li>
             @endcan
 
-            @can('view', \App\Models\RentDetail::class)
-            <li{!! (Request::is('rent_details*') ? ' class="active"' : '') !!}>
-                <a href="{{ route('rent_details.index') }}" style="background-color: #222d32;color: #b8c7ce;">
-                  <i class="fa fa-file"></i>
-                  <span style="color: white;">Rent Details</span>
+
+            @can('view', \App\Models\ConditionReport::class)
+            <li{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('condition_reports.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-list" aria-hidden="true"></i>
+                  <span style="color: white;">Room Assets</span>
                 </a>
             </li>
             @endcan
 
-            @can('view', \App\Models\Complaint::class)
-            <li{!! (Request::is('complaints*') ? ' class="active"' : '') !!}>
-                <a href="{{ route('complaints.index') }}" style="background-color: #222d32;color: #b8c7ce;">
-                  <i class="fa fa-comments"></i>
-                  <span style="color: white;">Complaints</span>
+            <li class="treeview">
+                <a href="#" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                                  
+                  <span style="color: white;">Employess</span>
+                  <i class="fa fa-angle-left pull-right"></i>
                 </a>
-            </li>
-            @endcan
+                <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
+                  <li>
+                      <a href="{{ route('srs_staffs.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                       Employees
+                    </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('staff_roasters.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                          Staff Roaster
+                      </a>
+                  </li>
+                
+                </ul>
+              </li>
 
-
+             
             <li class="treeview">
                 <a href="#" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-files-o"></i>                  
@@ -589,6 +605,25 @@ h4 {
                 </ul>
               </li>
 
+
+            @can('view', \App\Models\RentDetail::class)
+            <li{!! (Request::is('rent_details*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('rent_details.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-file"></i>
+                  <span style="color: white;">Rent Details</span>
+                </a>
+            </li>
+            @endcan
+
+            @can('view', \App\Models\Complaint::class)
+            <li{!! (Request::is('complaints*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('complaints.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-comments"></i>
+                  <span style="color: white;">Complaints</span>
+                </a>
+            </li>
+            @endcan
+
              @can('view', \App\Models\SupportPlan::class)
             <li{!! (Request::is('support_plans*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('support_plans.index') }}" style="background-color: #222d32;color: #b8c7ce;">
@@ -646,39 +681,8 @@ h4 {
             </li>
             @endcan-->
 
-               <li class="treeview">
-                <a href="#" style="background-color: #222d32;color: #b8c7ce;">
-                  <i class="fa fa-users" aria-hidden="true"></i>
-                                  
-                  <span style="color: white;">Employess</span>
-                  <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
-                  <li>
-                      <a href="{{ route('srs_staffs.index') }}" style="color: #b8c7ce;">
-                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                       Employees
-                    </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('staff_roasters.index') }}" style="color: #b8c7ce;">
-                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                          Staff Roaster
-                      </a>
-                  </li>
-                
-                </ul>
-              </li>
+          
 
-
-            @can('view', \App\Models\ConditionReport::class)
-            <li{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!}>
-                <a href="{{ route('condition_reports.index') }}" style="background-color: #222d32;color: #b8c7ce;">
-                  <i class="fa fa-list" aria-hidden="true"></i>
-                  <span style="color: white;">Room Assets</span>
-                </a>
-            </li>
-            @endcan
 
             @can('view', \App\Models\ProgressNotes::class)
             <li{!! (Request::is('progress_notes*') ? ' class="active"' : '') !!}>
