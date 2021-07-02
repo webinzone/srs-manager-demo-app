@@ -172,7 +172,7 @@ class ConditionReportsController extends Controller
     public function condition_reports()
     {   
         $condition_reports = ConditionReport::all();
-        return view('condition_reports/report_show',compact('condition_reports', 'residents'));
+        return view('condition_reports/report_show',compact('condition_reports'));
     
     }
 
