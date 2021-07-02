@@ -67,7 +67,7 @@ class ConditionReportsController extends Controller
         $condition_report = new ConditionReport();
         $id = request('res_name');
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $name = $res->fname.". ".$res->fname.". ".$res->fname;
+        $name = $res->fname.". ".$res->lname.". ".$res->mname;
         $condition_report->room = request('room');
         $condition_report->items = implode(',', (array) request('items'));
         $condition_report->clean = "null";

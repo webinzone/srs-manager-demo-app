@@ -68,7 +68,6 @@ Condition Report
                 
             </div>
 
-             </div>
            </form>
          </div>
        </div>
