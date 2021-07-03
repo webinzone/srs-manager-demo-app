@@ -2,7 +2,6 @@
 
 {{-- Page title --}}
 @section('title')
-New Resident Admission Form
 @parent
 @stop
 @section('header_right')
@@ -26,22 +25,9 @@ New Resident Admission Form
               {{ csrf_field() }}
               <div class="box box-default">
               <!-- box-header -->
-                <div class="box-header with-border text-right">
-
-                    <div class="col-md-12 box-title text-right" style="padding: 0px; margin: 0px;">
-
-                        <div class="col-md-12" style="padding: 0px; margin: 0px;">
-                            <div class="col-md-9 text-left">
-                                                        </div>
-                            <div class="col-md-3 text-right" style="padding-right: 10px;">
-                                <a class="btn btn-link text-left" href="{{ route('clients.index') }}">
-                                    Cancel
-                                </a>
-                               
-                            </div>
-                        </div>
-                    </div>
-
+                  <div class="box-header with-border text-center">
+                 <h3><b>New Resident Admission Form</b></h3>
+                   
                 </div><!-- /.box-header -->
 
                 <!-- box-body -->
@@ -52,15 +38,15 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="fname">First name</label>
-                        <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname" required v-on:change="page_one.fname = $event.target.value" required="">                
+                        <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" >                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="mname">Middle name</label>
-                        <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname" required v-on:change="page_one.mname = $event.target.value">                
+                        <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value">                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="lname">Last name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname" required v-on:change="page_one.lname = $event.target.value">                
+                        <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname"  v-on:change="page_one.lname = $event.target.value">                
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
@@ -70,17 +56,17 @@ New Resident Admission Form
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="religion">Religion</label>
-                        <input type="text" class="form-control" id="religion" placeholder="Religion" required name="religion" v-on:change="page_one.religion = $event.target.value">              
+                        <input type="text" class="form-control" id="religion" placeholder="Religion"  name="religion" v-on:change="page_one.religion = $event.target.value">              
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="l_known">Languages Known</label>
-                        <input type="text" class="form-control" id="l_known" placeholder="Languages Known" required name="l_known" required v-on:change="page_one.l_known = $event.target.value">          
+                        <input type="text" class="form-control" id="l_known" placeholder="Languages Known"  name="l_known"  v-on:change="page_one.l_known = $event.target.value">          
                       </div>  
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">  
                       <div class="col-md-2 mb-3">
                         <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
-                        <select name="gender" required="" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                        <select name="gender"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="" style="font-size: 14px;">---Select--</option> 
                             <option value="Male" style="font-size: 14px;">Male</option> 
                             <option value="Female" style="font-size: 14px;">Female</option> 
@@ -90,52 +76,52 @@ New Resident Admission Form
                       </div>
                       <div class="col-md-2 mb-3">
                         <label for="medicard_no">Medicare card no.</label>
-                        <input type="text" class="form-control" id="medicard_no" placeholder="Medicare card number" name="medicard_no" required v-on:change="page_one.medicard_no = $event.target.value">          
+                        <input type="text" class="form-control" id="medicard_no" placeholder="Medicare card number" name="medicard_no"  v-on:change="page_one.medicard_no = $event.target.value">          
                       </div>   
 
                       <div class="col-md-3 mb-3">
                         <label for="expiry_date">Expiry date</label>
-                        <input type="date" class="form-control" id="expiry_date" placeholder="Expiry date" required name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
+                        <input type="date" class="form-control" id="expiry_date" placeholder="Expiry date"  name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
                       </div>
                     
                     <div class="col-md-2 mb-3">
                         <label for="pension_no">Pension card no.</label>
-                        <input type="text" class="form-control" id="pension_no" placeholder="Pension card" name="pension_no" required v-on:change="page_one.pension_no = $event.target.value">          
+                        <input type="text" class="form-control" id="pension_no" placeholder="Pension card" name="pension_no"  v-on:change="page_one.pension_no = $event.target.value">          
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="pen_exp">Expiry date</label>
-                        <input type="date" class="form-control" id="pen_exp" placeholder="Expiry date" required name="pen_exp" v-on:change="page_one.pen_exp = $event.target.value">            
+                        <input type="date" class="form-control" id="pen_exp" placeholder="Expiry date"  name="pen_exp" v-on:change="page_one.pen_exp = $event.target.value">            
                       </div> 
                       </div>&nbsp;&nbsp;&nbsp;
                       <div class="form-row">  
                       <div class="col-md-4 mb-3">
                         <label for="respite">Respite</label>
-                        <input type="text" class="form-control" id="respite" placeholder="Respite" required name="respite" v-on:change="page_one.respite = $event.target.value">            
+                        <input type="text" class="form-control" id="respite" placeholder="Respite"  name="respite" v-on:change="page_one.respite = $event.target.value">            
                       </div> 
                                      
                       <div class="col-md-4 mb-3">
                         <label for="weeks">Weeks</label>
-                        <input type="text" class="form-control" id="weeks" placeholder="Weeks" name="weeks" required v-on:change="page_one.weeks = $event.target.value">          
+                        <input type="text" class="form-control" id="weeks" placeholder="Weeks" name="weeks"  v-on:change="page_one.weeks = $event.target.value">          
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="acc">Account to be addressed</label>
-                        <input type="text" class="form-control" id="acc" placeholder="Account to be addressed" name="acc" required v-on:change="page_one.acc = $event.target.value">            
+                        <input type="text" class="form-control" id="acc" placeholder="Account to be addressed" name="acc"  v-on:change="page_one.acc = $event.target.value">            
                       </div>  
                        </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
                        <div class="col-md-4 mb-3">
                         <label for="res_ph">Phone</label>
-                        <input type="tel" class="form-control" id="res_ph" placeholder="Phone" name="ph" required v-on:change="page_one.res_ph = $event.target.value">          
+                        <input type="tel" class="form-control" id="res_ph" placeholder="Phone" name="ph"  v-on:change="page_one.res_ph = $event.target.value">          
                       </div>
                    
                      
                       <!--<div class="col-md-4 mb-3">
                         <label for="likes">Likes</label>                        
-                        <textarea class="form-control" id="likes" placeholder="likes" name="likes" required v-on:change="page_one.likes = $event.target.value"></textarea>            
+                        <textarea class="form-control" id="likes" placeholder="likes" name="likes"  v-on:change="page_one.likes = $event.target.value"></textarea>            
                       </div> 
                        <div class="col-md-4 mb-3">
                         <label for="dislikes">Dislikes</label>
-                        <textarea class="form-control" id="dislikes" placeholder="Dislikes" name="dislikes" required v-on:change="page_one.dislikes = $event.target.value"></textarea>
+                        <textarea class="form-control" id="dislikes" placeholder="Dislikes" name="dislikes"  v-on:change="page_one.dislikes = $event.target.value"></textarea>
                       </div> -->
                       <div class="col-md-4 mb-3">
                         <label for="res_fax">Fax</label>
@@ -143,53 +129,53 @@ New Resident Admission Form
                       </div> 
                       <div class="col-md-4 mb-3">
                         <label for="res_email">Email</label>
-                        <input type="email" class="form-control" id="res_email" placeholder="Email"  name="res_email" required v-on:change="page_one.res_email = $event.target.value">                
+                        <input type="email" class="form-control" id="res_email" placeholder="Email"  name="res_email"  v-on:change="page_one.res_email = $event.target.value">                
                       </div>
                        </div>&nbsp;&nbsp;&nbsp;
                        <div class="form-row">  
                       <div class="col-md-4 mb-3">
                         <label for="ref_by">Ref By</label>
-                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By" required name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
+                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
                       </div> 
                                      
                       <div class="col-md-4 mb-3">
                         <label for="pre_address">Previous Address</label>
-                        <input type="text" class="form-control" id="pre_address" placeholder="Previous Address" name="pre_address" required v-on:change="page_one.pre_address = $event.target.value">          
+                        <input type="text" class="form-control" id="pre_address" placeholder="Previous Address" name="pre_address"  v-on:change="page_one.pre_address = $event.target.value">          
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="ent_no">Entitlement No</label>
-                        <input type="text" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no" required v-on:change="page_one.ent_no = $event.target.value">            
+                        <input type="text" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
                       </div>  
                        </div>&nbsp;&nbsp;&nbsp;
                        <div class="form-row">  
                       <div class="col-md-4 mb-3">
                         <label for="nationality">Nationality</label>
-                        <input type="text" class="form-control" id="nationality" placeholder="Nationality" required name="nationality" v-on:change="page_one.nationality = $event.target.value">            
+                        <input type="text" class="form-control" id="nationality" placeholder="Nationality"  name="nationality" v-on:change="page_one.nationality = $event.target.value">            
                       </div> 
                                      
                       <div class="col-md-4 mb-3">
                         <label for="adm_date">Admission Date</label>
-                        <input type="date" class="form-control" id="adm_date" placeholder="Admission Date" name="adm_date" required v-on:change="page_one.adm_date = $event.target.value">          
+                        <input type="date" class="form-control" id="adm_date" placeholder="Admission Date" name="adm_date"  v-on:change="page_one.adm_date = $event.target.value">          
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="room_no">Room No</label>
-                        <input type="number" class="form-control" id="room_no" placeholder="Room No" name="room_no" required v-on:change="page_one.room_no = $event.target.value">            
+                        <input type="number" class="form-control" id="room_no" placeholder="Room No" name="room_no"  v-on:change="page_one.room_no = $event.target.value">            
                       </div>  
                        </div>&nbsp;&nbsp;&nbsp;
 
                       
                       <!--<div class="col-md-4 mb-3">
                         <label for="allowed_status">Visitors Allowed ?</label>
-                        <br><input type="radio"  id="allowed_status"  value="Yes" name="allowed_status" required v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="allowed_status" value="No" name="allowed_status" required v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+                        <br><input type="radio"  id="allowed_status"  value="Yes" name="allowed_status"  v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="allowed_status" value="No" name="allowed_status"  v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                         
                       </div>&nbsp;&nbsp;&nbsp;
                     </div>
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="allergy_status">Do you have any Allergey ?</label>
-                        <br><input type="radio"  id="Allergey"  value="Yes" name="allergy_status" required v-on:change="page_one.allergy_status = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="allergy_status" value="No" name="allergy_status" required v-on:change="page_one.allergy_status = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+                        <br><input type="radio"  id="Allergey"  value="Yes" name="allergy_status"  v-on:change="page_one.allergy_status = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="allergy_status" value="No" name="allergy_status"  v-on:change="page_one.allergy_status = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="tof_allergy">Allergey Details</label>
@@ -197,7 +183,7 @@ New Resident Admission Form
                       </div> 
                       <div class="col-md-4 mb-3">
                         <label for="hobies"> Hobbies</label>
-                        <textarea class="form-control" id="hobies" placeholder=" Hobbies" name="hobies" required v-on:change="page_one.hobies = $event.target.value"></textarea>
+                        <textarea class="form-control" id="hobies" placeholder=" Hobbies" name="hobies"  v-on:change="page_one.hobies = $event.target.value"></textarea>
                       </div>
                     </div>-->
                     
@@ -238,7 +224,7 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="gp_name">General practitioner Name</label>
-                        <input type="text" class="form-control" id="gp_name" placeholder="General practitioner Name" name="gp_name" required v-on:change="page_one.gp_name = $event.target.value">          
+                        <input type="text" class="form-control" id="gp_name" placeholder="General practitioner Name" name="gp_name"  v-on:change="page_one.gp_name = $event.target.value">          
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="gp_address">Address</label>
@@ -359,21 +345,21 @@ New Resident Admission Form
                    <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="f1name">First name</label>
-                        <input type="text" class="form-control" id="f1name" placeholder="First Name"  name="f1name" required v-on:change="page_one.f1name = $event.target.value">                
+                        <input type="text" class="form-control" id="f1name" placeholder="First Name"  name="f1name"  v-on:change="page_one.f1name = $event.target.value">                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="m1name">Middle name</label>
-                        <input type="text" class="form-control" id="m1name" placeholder="Middle Name" name="m1name" required v-on:change="page_one.m1name = $event.target.value">                
+                        <input type="text" class="form-control" id="m1name" placeholder="Middle Name" name="m1name"  v-on:change="page_one.m1name = $event.target.value">                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="l1name">Last name</label>
-                        <input type="text" class="form-control" id="l1name" placeholder="Last Name" name="l1name" required v-on:change="page_one.l1name = $event.target.value">                
+                        <input type="text" class="form-control" id="l1name" placeholder="Last Name" name="l1name"  v-on:change="page_one.l1name = $event.target.value">                
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
                       <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="relation">Relation</label>
-                        <input type="text" class="form-control" id="relation" placeholder="Relation" name="relation" required v-on:change="page_one.relation = $event.target.value">      
+                        <input type="text" class="form-control" id="relation" placeholder="Relation" name="relation"  v-on:change="page_one.relation = $event.target.value">      
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="address1">Address</label>
@@ -383,9 +369,9 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="gender1">Gender</label>&nbsp;&nbsp;&nbsp;
-                        <br><input type="radio"  id="gender1"  value="Female" name="gender1" required v-on:change="page_one.gender1 = $event.target.value">&nbsp;&nbsp;&nbsp;Female&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="gender1" value="Male" name="gender1" required v-on:change="page_one.gender1 = $event.target.value">&nbsp;&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="gender1" value="Other" name="gender1" required v-on:change="page_one.gender1 = $event.target.value">&nbsp;&nbsp;&nbsp;Other &nbsp;&nbsp;&nbsp;           
+                        <br><input type="radio"  id="gender1"  value="Female" name="gender1"  v-on:change="page_one.gender1 = $event.target.value">&nbsp;&nbsp;&nbsp;Female&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="gender1" value="Male" name="gender1"  v-on:change="page_one.gender1 = $event.target.value">&nbsp;&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="gender1" value="Other" name="gender1"  v-on:change="page_one.gender1 = $event.target.value">&nbsp;&nbsp;&nbsp;Other &nbsp;&nbsp;&nbsp;           
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="ph1">Phone number</label>
@@ -395,7 +381,7 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Email" name="email" required v-on:change="page_one.email = $event.target.value">      
+                        <input type="email" class="form-control" id="email" placeholder="Email" name="email"  v-on:change="page_one.email = $event.target.value">      
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="country">Country</label>
@@ -405,7 +391,7 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="religion1">Religion</label>
-                        <input type="text" class="form-control" id="religion1" placeholder="Religion" name="religion1" required v-on:change="page_one.religion1 = $event.target.value">      
+                        <input type="text" class="form-control" id="religion1" placeholder="Religion" name="religion1"  v-on:change="page_one.religion1 = $event.target.value">      
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;              
              
@@ -419,7 +405,7 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="po_maker">Person who make power of attorney</label>
-                        <input type="text" class="form-control" id="po_maker" placeholder="Person who make power of attorney" name="po_maker" required v-on:change="page_one.po_maker = $event.target.value">          
+                        <input type="text" class="form-control" id="po_maker" placeholder="Person who make power of attorney" name="po_maker"  v-on:change="page_one.po_maker = $event.target.value">          
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="po_maker_address">Address</label>
@@ -429,7 +415,7 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="po_granter">Person who the power granted</label>
-                        <input type="text" class="form-control" id="po_granter" placeholder="Person who make power of attorney" name="po_granter" required v-on:change="page_one.po_granter = $event.target.value">      
+                        <input type="text" class="form-control" id="po_granter" placeholder="Person who make power of attorney" name="po_granter"  v-on:change="page_one.po_granter = $event.target.value">      
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="po_granter_address">Address of the power granted person</label>
@@ -439,7 +425,7 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="grant_reason">Reason for granting</label>
-                        <input type="text" class="form-control" id="grant_reason" placeholder="Reason for granting" name="grant_reason" required v-on:change="page_one.grant_reason = $event.target.value">      
+                        <input type="text" class="form-control" id="grant_reason" placeholder="Reason for granting" name="grant_reason"  v-on:change="page_one.grant_reason = $event.target.value">      
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="g_date">Granted date</label>
@@ -449,7 +435,7 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="place">Place</label>
-                        <input type="text" class="form-control" id="place" placeholder="Place" name="place" required v-on:change="page_one.place = $event.target.value">      
+                        <input type="text" class="form-control" id="place" placeholder="Place" name="place"  v-on:change="page_one.place = $event.target.value">      
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="termination_date">Date of termination</label>
@@ -465,8 +451,8 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="allergey">Allergey</label>
-                        <br><input type="radio"  id="Allergey"  value="Yes" name="allergey" required v-on:change="page_one.allergey = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="allergey" value="No" name="allergey" required v-on:change="page_one.allergey = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+                        <br><input type="radio"  id="Allergey"  value="Yes" name="allergey"  v-on:change="page_one.allergey = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="allergey" value="No" name="allergey"  v-on:change="page_one.allergey = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="allergey_details">Allergey Details</label>
@@ -476,7 +462,7 @@ New Resident Admission Form
                      <!--<div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="tof_allergy">Type of alergy caused</label>
-                        <input type="text" class="form-control" id="tof_allergy" placeholder="Type of alergy caused" name="tof_allergy" required v-on:change="page_one.tof_allergy = $event.target.value">          
+                        <input type="text" class="form-control" id="tof_allergy" placeholder="Type of alergy caused" name="tof_allergy"  v-on:change="page_one.tof_allergy = $event.target.value">          
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="hos_name">Name of the Doctor</label>
@@ -491,7 +477,7 @@ New Resident Admission Form
                       </div> 
                       <div class="col-md-6 mb-3">
                         <label for="duration">Duration period to visit</label>
-                        <input type="text" class="form-control" id="duration" placeholder="Duration period to visit" name="duration" required v-on:change="page_one.duration = $event.target.value">          
+                        <input type="text" class="form-control" id="duration" placeholder="Duration period to visit" name="duration"  v-on:change="page_one.duration = $event.target.value">          
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
@@ -502,7 +488,7 @@ New Resident Admission Form
                       </div>  
                       <div class="col-md-6 mb-3">
                         <label for="tests_report">Test Reports</label>
-                        <input type="file"  id="tests_report" placeholder="Choose File" name="tests_report" required v-on:change="page_one.tests_report = $event.target.value">          
+                        <input type="file"  id="tests_report" placeholder="Choose File" name="tests_report"  v-on:change="page_one.tests_report = $event.target.value">          
                       </div>&nbsp;&nbsp;&nbsp;                      
                         
                     
@@ -516,15 +502,15 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="allowed_status">Allowed Status</label>
-                        <br><input type="radio"  id="allowed_status"  value="Yes" name="allowed_status" required v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="allowed_status" value="No" name="allowed_status" required v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+                        <br><input type="radio"  id="allowed_status"  value="Yes" name="allowed_status"  v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="allowed_status" value="No" name="allowed_status"  v-on:change="page_one.allowed_status = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                         
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="gender2">Gender</label>
-                        <br><input type="radio"  id="gender2"  value="Female" name="gender2" required v-on:change="page_one.gender2 = $event.target.value">&nbsp;&nbsp;&nbsp;Female&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="gender2" value="Male" name="gender2" required v-on:change="page_one.gender2 = $event.target.value">&nbsp;&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="gender2" value="Other" name="gender2" required v-on:change="page_one.gender2 = $event.target.value">&nbsp;&nbsp;&nbsp;Other &nbsp;&nbsp;&nbsp;                   
+                        <br><input type="radio"  id="gender2"  value="Female" name="gender2"  v-on:change="page_one.gender2 = $event.target.value">&nbsp;&nbsp;&nbsp;Female&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="gender2" value="Male" name="gender2"  v-on:change="page_one.gender2 = $event.target.value">&nbsp;&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="gender2" value="Other" name="gender2"  v-on:change="page_one.gender2 = $event.target.value">&nbsp;&nbsp;&nbsp;Other &nbsp;&nbsp;&nbsp;                   
                       </div>
                        
                     </div>&nbsp;&nbsp;&nbsp;
@@ -570,7 +556,7 @@ New Resident Admission Form
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="gp_name">General practitioner Name</label>
-                        <input type="text" class="form-control" id="gp_name" placeholder="General practitioner Name" name="gp_name" required v-on:change="page_one.gp_name = $event.target.value">          
+                        <input type="text" class="form-control" id="gp_name" placeholder="General practitioner Name" name="gp_name"  v-on:change="page_one.gp_name = $event.target.value">          
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="gp_address">Address</label>
@@ -601,21 +587,21 @@ New Resident Admission Form
                    
                   </div>
 
-                  <!--<div class="page" v-show="step === 7">
+                  <div class="page" v-show="step === 7">
                     
                     <h4 class="mb-3"><b>Next of kin</b></h4><br>
 
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="allowed_status_nok">Allowed Status</label>
-                        <br><input type="radio"  id="allowed_status_nok"  value="Yes" name="allowed_status_nok" required v-on:change="page_one.allowed_status_nok = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="allowed_status_nok" value="No" name="allowed_status_nok" required v-on:change="page_one.allowed_status_nok = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+                        <br><input type="radio"  id="allowed_status_nok"  value="Yes" name="allowed_status_nok"  v-on:change="page_one.allowed_status_nok = $event.target.value">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="allowed_status_nok" value="No" name="allowed_status_nok"  v-on:change="page_one.allowed_status_nok = $event.target.value">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="gender3">Gender</label>
-                      <br><input type="radio"  id="gender3"  value="Female" name="gender3" required v-on:change="page_one.gender3 = $event.target.value">&nbsp;&nbsp;&nbsp;Female&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="gender3" value="Male" name="gender3" required v-on:change="page_one.gender3 = $event.target.value">&nbsp;&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="gender3" value="Other" name="gender3" required v-on:change="page_one.gender3 = $event.target.value">&nbsp;&nbsp;&nbsp;Other &nbsp;&nbsp;&nbsp; 
+                      <br><input type="radio"  id="gender3"  value="Female" name="gender3"  v-on:change="page_one.gender3 = $event.target.value">&nbsp;&nbsp;&nbsp;Female&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="gender3" value="Male" name="gender3"  v-on:change="page_one.gender3 = $event.target.value">&nbsp;&nbsp;&nbsp;Male&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="gender3" value="Other" name="gender3"  v-on:change="page_one.gender3 = $event.target.value">&nbsp;&nbsp;&nbsp;Other &nbsp;&nbsp;&nbsp; 
                       </div>                
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
@@ -802,7 +788,7 @@ New Resident Admission Form
      
                 </div>
              
-                <div class="box-footer text-right">
+                <div class="box-footer text-right" style="padding-right:50px;">
                   <a class="btn btn-link text-left" href="{{ route('clients.index') }}">Cancel</a>
                   <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
                 </div>

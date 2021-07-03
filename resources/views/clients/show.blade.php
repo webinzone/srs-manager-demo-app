@@ -2,7 +2,6 @@
 
 {{-- Page title --}}
 @section('title')
-Resident Details
 @parent
 @stop
 
@@ -21,11 +20,13 @@ Resident Details
       <div class="col-md-7">
         <form class="form-horizontal" method="" action="" autocomplete="off">
           <div class="box box-default">
-            <div class="box-header with-border">
-                <h2 class="box-title"> {{ $client_detail->fname}} </h2>
-            </div>
+              <div class="box-header with-border text-center">
+                 <h3><b>Rsident Details</b></h3>
+                   
+                </div><!-- /.box-header -->
+           
 
-            <div class="box-body">
+            <div class="box-body" style="padding-left:80px;">
 
                 <!-- Asset name -->
                 <h4 class="mb-3"><b>Personal Information</b></h4><br>

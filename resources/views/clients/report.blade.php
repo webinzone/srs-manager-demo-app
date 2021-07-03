@@ -50,8 +50,8 @@
     <p style="font-size: 15px;">2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</p>
     <h3 style="width:300px;height:30px;border:1px solid #000;">&nbsp;New Resident Admission Form&nbsp;</h3>
     <h5>Personal Details:</h5>
-    <table style="border: 2px; border-width: 1px; border-color: black;">
-      <tr>
+    <table>
+      <tr style="border: 1px solid black;">
         <td>Name</td>
         <td>Date of Birth</td>
         <td>Nationality</td>
@@ -62,11 +62,23 @@
       <tr>
         <td>{{ $client_detail->fname}}. {{ $client_detail->mname}}. {{ $client_detail->lname}}</td>
         <td>{{ $client_detail->dob}}</td>
-        <td></td>
+        <td>{{ $client_detail->nationality}}</td>
         <td>{{ $client_detail->religion}}</td>
         <td>{{ $client_detail->l_known}}</td>
         <td>{{ $client_detail->gender}}</td>        
       </tr>
+      <tr>
+        <td>Ref By</td>
+        <td colspan="3">{{ $client_detail->ref_by}}</td>
+        <td>Admission Date</td>
+        <td>Roon No</td>
+      </tr>
+      <tr>
+        <td colspan="4">Previous Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp; {{ $client_detail->pre_address}}</td>
+        <td>{{ $client_detail->adm_date}}</td>
+        <td>{{ $client_detail->room_no}}</td>
+      </tr>   
+      
     </table><br>
     <table>
          <tr>
@@ -133,13 +145,27 @@
 
 <script type="text/javascript">
     function printDiv(divName) {
-        var printContents = document.getElementById(divName).innerHTML;
+        var htmlToPrint = '' +
+        '<style type="text/css">' +
+        'table, td {' +
+        'border: 1px solid black;' +
+        '    width: 100%;' +
+        'border-collapse: collapse;' +
+        '}' +
+         '.container{' +
+          'width: 900px;' +
+          'padding: 50px;' +
+          'margin: auto;' +
+          'border: 3px solid black;' +
+          '}' +
+        '</style>';
+
+        htmlToPrint += document.getElementById(divName).outerHTML;
         w=window.open();
-        w.document.write(printContents);
+        w.document.write(htmlToPrint);
         w.print();
         w.close();
-    }
-</script>
+    }</script>
 
   </body>
 </html>

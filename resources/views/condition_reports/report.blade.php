@@ -94,13 +94,13 @@
     function printDiv(divName) {
         var htmlToPrint = '' +
         '<style type="text/css">' +
-        'table th, table td {' +
+        'table, td {' +
         'border: 1px solid black;' +
         '    width: 100%;' +
         'border-collapse: collapse;' +
         '}' +
-         'container{' +
-          'width: 1000px;' +
+         '.container{' +
+          'width: 900px;' +
           'padding: 50px;' +
           'margin: auto;' +
           'border: 3px solid black;' +

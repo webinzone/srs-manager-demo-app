@@ -254,12 +254,12 @@ class ClientsController extends Controller
         //$allergy = ClientAllergy::where('client_id', '=', $id)->firstOrFail();
         //$visitor = ClientVisitor::where('client_id', '=', $id)->firstOrFail();
         $gpdetail = ClientGpdetail::where('client_id', '=', $id)->firstOrFail();
-        $next_of_kin = ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
+        $client_nextofkin = ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
         $guardian_detail = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
         $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
         $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
-  
-        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'next_of_kin', 'guardian_detail', 'health_service', 'pension_detail'));
+        $income = explode(',', $pension_detail->income_type);
+        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income'));
     }
     /**
      * Update the specified resource in storage.
@@ -275,10 +275,10 @@ class ClientsController extends Controller
         $client_detail->fname = request('fname');
         $client_detail->mname = request('mname');
         $client_detail->lname = request('lname');
-        $client_detail->address = request('address');
+        $client_detail->address = "null";
         $client_detail->dob = request('dob');
-        $client_detail->cob = request('cob');
-        $client_detail->age = request('age');
+        $client_detail->cob = "null";
+        $client_detail->age = "null";
         $client_detail->gender = request('gender');
         $client_detail->religion = request('religion');
         $client_detail->l_known = request('l_known');
@@ -286,21 +286,30 @@ class ClientsController extends Controller
         $client_detail->medicard_no = request('medicard_no');
         $client_detail->medicard_orderno = "null";
         $client_detail->pension_no = request('pension_no');
-        $client_detail->insurance_no = request('insurance_no');
-        $client_detail->insu_compny = request('insu_compny');
+        $client_detail->insurance_no = "null";
+        $client_detail->insu_compny = "null";
         $client_detail->likes = "null";
         $client_detail->dislikes = "null";
-        $client_detail->hobies = request('hobies');
+        $client_detail->hobies = "null";
         $client_detail->exp_date = request('exp_date');
-        $client_detail->reference_source = request('reference_source');
-        $client_detail->funding_source = request('funding_source');     
+        $client_detail->reference_source = "null";
+        $client_detail->funding_source = "null";
+        $client_detail->ref_by = request('ref_by');
+        $client_detail->pre_address = request('pre_address');
+        $client_detail->ent_no = request('ent_no');
+        $client_detail->pen_exp = request('pen_exp');
+        $client_detail->respite = request('respite');
+        $client_detail->weeks = request('weeks'); 
+        $client_detail->acc = request('acc');
+        $client_detail->res_ph = "null";
+        $client_detail->res_fax = request('res_fax');
+        $client_detail->res_email = request('res_email'); 
         $client_detail->ref_by = request('ref_by');        
         $client_detail->pre_address = request('pre_address');        
         $client_detail->ent_no = request('ent_no'); 
         $client_detail->nationality = request('nationality');        
         $client_detail->adm_date = request('adm_date');        
         $client_detail->room_no = request('room_no'); 
-
 
         $client_detail->user_id =  Auth::user()->id;
         $client_detail->save(); 
@@ -335,32 +344,32 @@ class ClientsController extends Controller
         //$client_powerofatony->user_id =  Auth::user()->id;
         //$client_powerofatony->save();
 
-        $client_allergy = ClientAllergy::where('client_id', '=', $clientid)->firstOrFail();
-        $client_allergy->client_id = $clientid;
-        $client_allergy->allergy_status = request('allergy_status');
-        $client_allergy->tof_allergy = request('tof_allergy');
-        $client_allergy->hos_name = "null";
-        $client_allergy->doc_name = "null";
-        $client_allergy->duration = "null";
-        $client_allergy->madicine = "null";
-        $client_allergy->tests_report = "null";
-        $client_allergy->user_id =  Auth::user()->id;
-        //$report = request('tests_report')->getClientOriginalName();
-        // request()->tests_report->move(public_path('images/test_reports'), $report); 
-        $client_allergy->save();
+        //$client_allergy = ClientAllergy::where('client_id', '=', $clientid)->firstOrFail();
+        //$client_allergy->client_id = $clientid;
+        //$client_allergy->allergy_status = request('allergy_status');
+        //$client_allergy->tof_allergy = request('tof_allergy');
+        //$client_allergy->hos_name = "null";
+        //$client_allergy->doc_name = "null";
+        //$client_allergy->duration = "null";
+        //$client_allergy->madicine = "null";
+        //$client_allergy->tests_report = "null";
+        //$client_allergy->user_id =  Auth::user()->id;
+        ////$report = request('tests_report')->getClientOriginalName();
+        //// request()->tests_report->move(public_path('images/test_reports'), $report); 
+        //$client_allergy->save();
 
-        $client_visitor = ClientVisitor::where('client_id', '=', $clientid)->firstOrFail();     
-        $client_visitor->client_id = $clientid;
-        $client_visitor->allowed_status = request('allowed_status');
-        $client_visitor->name = "null";
-        $client_visitor->gender = "null";
-        $client_visitor->relation = "null";
-        $client_visitor->address = "null";
-        $client_visitor->ph = "null";
-        $client_visitor->id_no = "null";
-        $client_visitor->nationality = "null";
-        $client_visitor->user_id =  Auth::user()->id;
-        $client_visitor->save();
+      //  $client_visitor = ClientVisitor::where('client_id', '=', $clientid)->firstOrFail();//     
+        //$client_visitor->client_id = $clientid;
+        //$client_visitor->allowed_status = request('allowed_status');
+        //$client_visitor->name = "null";
+        //$client_visitor->gender = "null";
+        //$client_visitor->relation = "null";
+        //$client_visitor->address = "null";
+        //$client_visitor->ph = "null";
+        //$client_visitor->id_no = "null";
+        //$client_visitor->nationality = "null";
+        //$client_visitor->user_id =  Auth::user()->id;
+        //$client_visitor->save();
 
         $client_gpdetail = ClientGpdetail::where('client_id', '=', $clientid)->firstOrFail();
         $client_gpdetail->client_id = $clientid;
@@ -371,9 +380,11 @@ class ClientsController extends Controller
         $client_gpdetail->booking_s_time = "null";
         $client_gpdetail->booking_e_time = "null";
         $client_gpdetail->gp_email = request('gp_email');
+        $client_gpdetail->gp_lan = request('gp_lan');
+        $client_gpdetail->gp_fax = request('gp_fax');
         $client_gpdetail->user_id =  Auth::user()->id;
         $client_gpdetail->save();
-
+        
         $client_nextofkin = ClientNextofkin::where('client_id', '=', $clientid)->firstOrFail();
         $client_nextofkin->client_id = $clientid;
         $client_nextofkin->allowed_status = "null";
@@ -385,6 +396,8 @@ class ClientsController extends Controller
         $client_nextofkin->id_no = "null";
         $client_nextofkin->nationality = "null";
         $client_nextofkin->nok_email = request('nok_email');
+        $client_nextofkin->nok_lan = request('nok_lan');
+        $client_nextofkin->nok_fax = request('nok_fax');
         $client_nextofkin->user_id =  Auth::user()->id;
         $client_nextofkin->save();
 
