@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Company Master
+
 @parent
 @stop
 
@@ -22,10 +22,10 @@ Company Master
         <form class="form-horizontal" method="" action="" autocomplete="off">
           <div class="box box-default">
             <div class="box-header with-border">
-                <h2 class="box-title"> CompanyMaster -<b> {{ $company_master->company_id}} </b></h2>
-            </div>
+                <h2 class="box-title centre" style="padding-left: 200px;"> CompanyMaster -<b> {{ $company_master->company_id}} </b></h2><br>
+            </div><br>
 
-            <div class="box-body">
+            <div class="box-body" style="padding-left:80px;">
 
                 <!-- Asset name -->
                 <div class="form-group">

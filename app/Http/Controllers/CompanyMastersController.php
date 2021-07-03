@@ -87,7 +87,6 @@ class CompanyMastersController extends Controller
         $company_master->post_code = request('post_code');
         $company_master->state = request('state');
         $company_master->web = request('web');
-        $company_master->state = "null";
 
         $company_master->company_id = request('company_id');
         

@@ -2,7 +2,6 @@
 
 {{-- Page title --}}
 @section('title')
-Location Master
 @parent
 @stop
 
@@ -21,11 +20,12 @@ Location Master
       <div class="col-md-7">
         <form class="form-horizontal" method="" action="" autocomplete="off">
           <div class="box box-default">
-            <div class="box-header with-border">
-                <h2 class="box-title"> LocationMaster</h2>
-            </div>
+               <div class="box-header with-border text-center">
+                 <h3><b>Location Master</b></h3>
+                   
+                </div><!-- /.box-header -->
 
-            <div class="box-body">
+            <div class="box-body" style="padding-left:80px;">
 
                 <!-- Asset name -->
                 <div class="form-group">

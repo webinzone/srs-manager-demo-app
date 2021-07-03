@@ -63,11 +63,7 @@ class CompanyMaster extends SnipeModel
      * @var array
      */
     protected $fillable = [
-        'company_name', 
-        'address', 
-        'location_id', 
-        'email', 
-        'ph'
+        'company_name'
     ];
 
 

@@ -52,42 +52,6 @@ class LocationMasterPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Suburb')
             ],[
-                "field" => "state",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('State')
-            ],[
-                "field" => "post_code",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Post Code')
-            ],[
-                "field" => "ph",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Phone Number')     
-            ],[
-                "field" => "email",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Email')
-            ],[
-                "field" => "fax",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Fax')
-            ],[
-                "field" => "web_id",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Web Id')
-            ],[
                 "field" => "created_at",
                 "searchable" => true,
                 "sortable" => true,

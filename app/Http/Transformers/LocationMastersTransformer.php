@@ -30,12 +30,6 @@ class LocationMastersTransformer
                 'master_name' => e($location_master->master_name),
                 'address' => e($location_master->address),
                 'suburb' => e($location_master->suburb),
-                'state' => e($location_master->state),
-                'post_code' => e($location_master->post_code),                
-                'ph' => e($location_master->ph),                
-                'email' => e($location_master->email),                
-                'fax' => e($location_master->fax),
-                'web_id' => e($location_master->web_id),
                 'created_at' => e($location_master->created_at),
                 'actions' => view('location_masters/datatables_actions', compact('location_master'))->render() 
                 

@@ -35,7 +35,7 @@ class LocationMaster extends SnipeModel
     use Searchable;
 
 
-    protected $searchableAttributes = ['location_id', 'master_name', 'address', 'ph', 'fax', 'web_id'];
+    protected $searchableAttributes = ['location_id', 'master_name'];
 
     /**
      * The relations and their attributes that should be included when searching the model.

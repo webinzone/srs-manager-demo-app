@@ -3,7 +3,7 @@
 
 {{-- Page title --}}
 @section('title')
-Company Master
+
 @parent
 @stop
 @section('header_right')
@@ -28,29 +28,15 @@ Company Master
             <!-- box -->
             <div class="box box-default">
                 <!-- box-header -->
-                <div class="box-header with-border text-right">
-
-                    <div class="col-md-12 box-title text-right" style="padding: 0px; margin: 0px;">
-
-                        <div class="col-md-12" style="padding: 0px; margin: 0px;">
-                            <div class="col-md-9 text-left">
-                                                        </div>
-                            <div class="col-md-3 text-right" style="padding-right: 10px;">
-                                <a class="btn btn-link text-left" href="{{ route('company_masters.index') }}">
-                                    Cancel
-                                </a>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-check icon-white" aria-hidden="true"></i>
-                                    Save
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
+        
+             <div class="box-header with-border text-center">
+                 <h3><b>Company Master</b></h3>
+                   
                 </div><!-- /.box-header -->
 
+
                 <!-- box-body -->
-                <div class="box-body">    
+                <div class="box-body" style="padding-left:90px;">    
                     <div class="form-group ">
                             <label for="name" class="col-md-3 control-label">Company ID</label>
                             <div class="col-md-7 col-sm-12 ">
@@ -80,7 +66,7 @@ Company Master
                       <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">State</label>
                         <div class="col-md-7 col-sm-12 ">
-                            <select name="state" required="" class="form-control" > 
+                            <select name="state"  class="form-control" > 
                             <option value="" style="font-size: 14px;">---Select State--</option> 
                             <option value="Victoria" style="font-size: 14px;">Victoria</option> 
                             <option value="New South Wales" style="font-size: 14px;">New South Wales</option> 
@@ -98,20 +84,20 @@ Company Master
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Post Code</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="post_code" class="form-control" required="" placeholder="Post Code">                                        
+                 <input type="text" name="post_code" class="form-control"  placeholder="Post Code">                                        
                         </div>
                     </div>
                   
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Phone Number</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="ph" class="form-control" required="" placeholder="Phone Number">                                       
+                 <input type="text" name="ph" class="form-control"  placeholder="Phone Number">                                       
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Email</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="email" class="form-control" required="" placeholder="Email">                                        
+                 <input type="text" name="email" class="form-control"  placeholder="Email">                                        
                         </div>
                     </div>
                     
@@ -124,10 +110,10 @@ Company Master
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Web</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="web" class="form-control" required="" placeholder="Web ID">                                       
+                 <input type="text" name="web" class="form-control"  placeholder="Web ID">                                       
                         </div>
                     </div>
-                    <div class="box-footer text-right">
+                    <div class="box-footer text-right" style="padding-right:110px;">
                         <a class="btn btn-link text-left" href="{{ route('company_masters.index') }}">Cancel</a>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
                     </div>

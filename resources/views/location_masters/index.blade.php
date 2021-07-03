@@ -2,7 +2,6 @@
 
 {{-- Page title --}}
 @section('title')
-Location Masters
 @parent
 @stop
 
@@ -19,6 +18,11 @@ Location Masters
   <div class="col-md-12">
 
     <div class="box box-default">
+          <div class="box-header with-border text-center">
+                 <h3><b>Location Masters</b></h3>
+                   
+                </div><!-- /.box-header -->
+
       <div class="box-body">
         <div class="table-responsive">
 

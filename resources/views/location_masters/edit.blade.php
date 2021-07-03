@@ -3,7 +3,7 @@
 
 {{-- Page title --}}
 @section('title')
-Location Master
+
 @parent
 @stop
 @section('header_right')
@@ -26,29 +26,12 @@ Location Master
             <!-- box -->
             <div class="box box-default">
                 <!-- box-header -->
-                <div class="box-header with-border text-right">
-
-                    <div class="col-md-12 box-title text-right" style="padding: 0px; margin: 0px;">
-
-                        <div class="col-md-12" style="padding: 0px; margin: 0px;">
-                            <div class="col-md-9 text-left">
-                                                        </div>
-                            <div class="col-md-3 text-right" style="padding-right: 10px;">
-                                <a class="btn btn-link text-left" href="{{ route('location_masters.index') }}">
-                                    Cancel
-                                </a>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-check icon-white" aria-hidden="true"></i>
-                                    Save
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div><!-- /.box-header -->
-
+               <div class="box-header with-border text-center">
+                 <h3><b>Location Master</b></h3>
+                   
+                </div>
                 <!-- box-body -->
-               <div class="box-body">                           
+               <div class="box-body" style="padding-left:90px;">                           
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Location Id</label>
                         <div class="col-md-7 col-sm-12 ">
@@ -117,7 +100,7 @@ Location Master
                  <input type="text" name="web_id" class="form-control" value="{{ $location_master->web_id}}">                                       
                         </div>
                     </div>
-                    <div class="box-footer text-right">
+                    <div class="box-footer text-right"  style="padding-right:110px;">
                         <a class="btn btn-link text-left" href="{{ route('location_masters.index') }}">Cancel</a>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
                     </div>
