@@ -73,7 +73,16 @@
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">State</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="state" class="form-control" value="{{ $location_master->state}}">                                        
+                   <select name="state"  class="form-control" > 
+                            <option value="Victoria" {{ $location_master->state == 'Victoria' ? 'selected' : ''  }} style="font-size: 14px;">Victoria</option> 
+                            <option value="New South Wales" {{ $location_master->state == 'New South Wales' ? 'selected' : ''  }} style="font-size: 14px;">New South Wales</option> 
+                            <option value="Queensland" {{ $location_master->state == 'Queensland' ? 'selected' : ''  }}  style="font-size: 14px;">Queensland</option>
+                            <option value="Tasmania" {{ $location_master->state == 'Tasmania' ? 'selected' : ''  }}  style="font-size: 14px;">Tasmania</option>
+                            <option value="South Australia" {{ $location_master->state == 'South Australia' ? 'selected' : ''  }}  style="font-size: 14px;">South Australia</option>
+                             <option value="Western Australia" {{ $location_master->state == 'Western Australia' ? 'selected' : ''  }}  style="font-size: 14px;">Western Australia</option>
+                            <option value="Northern Territory" {{ $location_master->state == 'Northern Territory' ? 'selected' : ''  }}  style="font-size: 14px;">Northern Territory</option>                                               
+                            <option value="Australian Capital Territory" {{ $location_master->state == 'Australian Capital Territory' ? 'selected' : ''  }}  style="font-size: 14px;">Australian Capital Territory</option>
+                        </select>                                     
                         </div>
                     </div>
                       <div class="form-group ">

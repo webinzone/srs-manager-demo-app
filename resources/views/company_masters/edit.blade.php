@@ -70,9 +70,19 @@
                         </div>
                     </div>
                      <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">State</label>
+                        <label for="name" class="col-md-3 control-label">State</label>               
+                        
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="state" class="form-control" value="{{ $company_master->state}}">                                        
+                         <select name="state"  class="form-control" > 
+                            <option value="Victoria" {{ $company_master->state == 'Victoria' ? 'selected' : ''  }} style="font-size: 14px;">Victoria</option> 
+                            <option value="New South Wales" {{ $company_master->state == 'New South Wales' ? 'selected' : ''  }} style="font-size: 14px;">New South Wales</option> 
+                            <option value="Queensland" {{ $company_master->state == 'Queensland' ? 'selected' : ''  }}  style="font-size: 14px;">Queensland</option>
+                            <option value="Tasmania" {{ $company_master->state == 'Tasmania' ? 'selected' : ''  }}  style="font-size: 14px;">Tasmania</option>
+                            <option value="South Australia" {{ $company_master->state == 'South Australia' ? 'selected' : ''  }}  style="font-size: 14px;">South Australia</option>
+                             <option value="Western Australia" {{ $company_master->state == 'Western Australia' ? 'selected' : ''  }}  style="font-size: 14px;">Western Australia</option>
+                            <option value="Northern Territory" {{ $company_master->state == 'Northern Territory' ? 'selected' : ''  }}  style="font-size: 14px;">Northern Territory</option>                                               
+                            <option value="Australian Capital Territory" {{ $company_master->state == 'Australian Capital Territory' ? 'selected' : ''  }}  style="font-size: 14px;">Australian Capital Territory</option>
+                        </select> 
                         </div>
                     </div>
                     <div class="form-group ">
