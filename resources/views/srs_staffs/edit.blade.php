@@ -3,7 +3,7 @@
 
 {{-- Page title --}}
 @section('title')
-Employees
+
 @parent
 @stop
 @section('header_right')
@@ -26,78 +26,53 @@ Employees
             <!-- box -->
             <div class="box box-default">
                 <!-- box-header -->
-                <div class="box-header with-border text-right">
+                <!-- box-header -->
 
-                    <div class="col-md-12 box-title text-right" style="padding: 0px; margin: 0px;">
-
-                        <div class="col-md-12" style="padding: 0px; margin: 0px;">
-                            <div class="col-md-9 text-left">
-                                                        </div>
-                            <div class="col-md-3 text-right" style="padding-right: 10px;">
-                                <a class="btn btn-link text-left" href="{{ route('srs_staffs.index') }}">
-                                    Cancel
-                                </a>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-check icon-white" aria-hidden="true"></i>
-                                    Save
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
+                          <div class="box-header with-border text-center">
+                 <h3><b>Employee</b></h3>
+                   
                 </div><!-- /.box-header -->
 
                 <!-- box-body -->
-               <div class="box-body">                           
+               <div class="box-body" style="padding-left: 40px;padding-right: 40px;">                           
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Name</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="name" class="form-control" value="{{ $srs_staff->name}}">
         
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Address</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="address" class="form-control" value="{{ $srs_staff->address}}">                                        
                         </div>
                     </div>
                     <div class="form-group ">
                      <label for="name" class="col-md-3 control-label">Phone Number</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="ph" class="form-control" value="{{ $srs_staff->ph}}">                                       
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Date of Birth</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="dob" class="form-control" value="{{ $srs_staff->dob}}">                                       
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Email</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="email" class="form-control" value="{{ $srs_staff->email}}">                                       
                         </div>
                     </div>
                     <div class="form-group ">
                      <label for="name" class="col-md-3 control-label">Qualification</label>
-                        <div class="col-md-7 col-sm-12 required">
+                        <div class="col-md-7 col-sm-12 ">
                  <input type="text" name="quali" class="form-control" value="{{ $srs_staff->quali}}">                                       
                         </div>
                     </div>
-                   <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Company Id</label>
-                        <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="company_id" class="form-control" value="{{ $srs_staff->company_id}}">                                       
-                        </div>
-                    </div>
-                    <div class="form-group ">
-                        <label for="name" class="col-md-3 control-label">Location Id</label>
-                        <div class="col-md-7 col-sm-12 required">
-                 <input type="text" name="location_id" class="form-control" value="{{ $srs_staff->location_id}}">                                       
-                        </div>
-                    </div>
+                 
                     <div class="box-footer text-right">
                         <a class="btn btn-link text-left" href="{{ route('srs_staffs.index') }}">Cancel</a>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>

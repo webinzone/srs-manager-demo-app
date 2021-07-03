@@ -70,7 +70,7 @@ Room Assets
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                    @for ($i=0; $i < $num; $i++)
-                    <div  class="form-row">
+                    <div  class="form-row" style="padding-bottom:30px;">
                         <div class="col-md-2 mb-3" style="width: 90px;">
                         <label for="name"  >Item No</label>
                         <input type="text" name="item_no[]" id="item_no"  class="form-control" value="{{ $item_no[$i] }}" >                                      
@@ -103,9 +103,12 @@ Room Assets
                         <input type="text" name="res_comments[]"  class="form-control" value="{{ $res_comments[$i] }}">                                      
                       </div>
                    
-                    </div>
+                    </div>             
+                  <br><br>
                 @endfor
-                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br><br>
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <!--  <div class="col-md-4 mb-3">
                     <div class="form-row">
                                   
@@ -145,14 +148,14 @@ Room Assets
                       </div>-->
 
 
+                       <br><br>
+                </div> <!-- ./box-body -->
 
-
-                     <div class="box-footer text-right">
+                     <div class="box-footer text-right" style="padding-right:150px;">
                         <a class="btn btn-link text-left" href="{{ route('condition_reports.index') }}">Cancel</a>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
                     </div>
 
-                </div> <!-- ./box-body -->
                             <!-- col-md-8 -->
 
             </div><!-- ./row -->

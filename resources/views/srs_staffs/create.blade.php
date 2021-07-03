@@ -37,15 +37,15 @@
                     <div class="form-group ">
                       <div class="col-md-4 mb-3">
                         <label for="fname">First name</label>
-                        <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname" required v-on:change="page_one.fname = $event.target.value" required="">                
+                        <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" >                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="mname">Middle name</label>
-                        <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname" required v-on:change="page_one.mname = $event.target.value">                
+                        <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value">                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="lname">Last name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname" required v-on:change="page_one.lname = $event.target.value">                
+                        <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname"  v-on:change="page_one.lname = $event.target.value">                
                       </div>                        
                     </div>
                     <div class="form-group ">

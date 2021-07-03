@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Employees
+
 @parent
 @stop
 
@@ -21,11 +21,11 @@ Employees
       <div class="col-md-7">
         <form class="form-horizontal" method="" action="" autocomplete="off">
           <div class="box box-default">
-            <div class="box-header with-border">
-                <h2 class="box-title"> SrsStaff</h2>
-            </div>
-
-            <div class="box-body">
+             <div class="box-header with-border text-center">
+                 <h3><b>Employee</b></h3>
+                   
+                </div><!-- /.box-header -->
+            <div class="box-body" style="padding-left:80px;">
 
                 <!-- Asset name -->
                 <div class="form-group">

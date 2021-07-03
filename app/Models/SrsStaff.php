@@ -63,14 +63,7 @@ class SrsStaff extends SnipeModel
      * @var array
      */
     protected $fillable = [
-        'name', 
-        'address', 
-        'ph', 
-        'dob', 
-        'email', 
-        'quali', 
-        'company_id', 
-        'location_id'
+        'name'
     ];
 
 

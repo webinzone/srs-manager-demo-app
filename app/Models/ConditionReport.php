@@ -63,13 +63,8 @@ class ConditionReport extends SnipeModel
      * @var array
      */
     protected $fillable = [
-        'room', 
-        'items', 
-        'clean', 
-        'undamaged', 
-        'working', 
-        'prop_comments', 
-        'res_comments'
+        'room'
+    
     ];
 
 
