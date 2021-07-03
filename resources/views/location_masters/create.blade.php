@@ -52,13 +52,13 @@
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Suburb</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="suburb" class="form-control" required="" placeholder="Location Id">                                        
+                 <input type="text" name="suburb" class="form-control"  placeholder="Location Id">                                        
                         </div>
                     </div>
                      <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">State</label>
                         <div class="col-md-7 col-sm-12 ">
-                          <select name="state" required="" class="form-control" > 
+                          <select name="state"  class="form-control" > 
                             <option value="" style="font-size: 14px;">---Select State--</option> 
                             <option value="Victoria" style="font-size: 14px;">Victoria</option> 
                             <option value="New South Wales" style="font-size: 14px;">New South Wales</option> 
@@ -74,13 +74,13 @@
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Post Code</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="post_code" class="form-control" required="" placeholder="Post Code">                                        
+                 <input type="text" name="post_code" class="form-control"  placeholder="Post Code">                                        
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Company Id</label>
                         <div class="col-md-4 col-sm-12 ">
-                         <select class="form-control" required="" name="company_id">
+                         <select class="form-control"  name="company_id">
                             <option>--Select Company ID --</option>
                           @foreach($companies as $company)
                           <option value="{{ $company->company_id }}">{{ $company->company_id }}</option>
@@ -93,13 +93,13 @@
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Phone Number</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="ph" class="form-control" required="" placeholder="Phone Number">                                       
+                 <input type="text" name="ph" class="form-control"  placeholder="Phone Number">                                       
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Email</label>
                         <div class="col-md-7 col-sm-12 ">
-                         <input type="text" name="email" class="form-control" required="" placeholder="Email">                                        
+                         <input type="text" name="email" class="form-control"  placeholder="Email">                                        
                         </div>
                     </div>
                     
