@@ -64,16 +64,7 @@ class ClientNextofkin extends SnipeModel
      */
     protected $fillable = [
         'id', 
-        'client_id', 
-        'allowed_status', 
-        'name', 
-        'gender', 
-        'relation', 
-        'address', 
-        'ph', 
-        'id_no', 
-        'nationality',
-        'nok_email'
+        'client_id'
     ];
 
 

@@ -64,14 +64,7 @@ class ClientGpdetail extends SnipeModel
      */
     protected $fillable = [
         'id', 
-        'client_id', 
-        'gp_name', 
-        'address', 
-        'ph', 
-        'clinic_name', 
-        'booking_s_time', 
-        'booking_e_time',
-        'gp_email'
+        'client_id'
     ];
 
 

@@ -64,15 +64,7 @@ class ClientPowerofatony extends SnipeModel
      */
     protected $fillable = [
         'id', 
-        'client_id', 
-        'po_maker', 
-        'po_maker_address', 
-        'po_granter', 
-        'po_granter_address', 
-        'grant_reason', 
-        'g_date', 
-        'place', 
-        'termination_date'
+        'client_id'
     ];
 
 

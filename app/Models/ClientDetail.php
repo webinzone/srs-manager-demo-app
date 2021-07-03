@@ -66,26 +66,7 @@ class ClientDetail extends SnipeModel
         'id', 
         'fname',
         'mname', 
-        'lname', 
-        'address', 
-        'dob', 
-        'cob', 
-        'age', 
-        'gender', 
-        'religion', 
-        'l_known', 
-        'ph', 
-        'medicard_no', 
-        'medicard_orderno', 
-        'pension_no', 
-        'insurance_no', 
-        'insu_compny', 
-        'likes', 
-        'dislikes', 
-        'hobies',
-        'exp_date',
-        'reference_source',
-        'funding_source'
+        'lname'
     ];
 
 

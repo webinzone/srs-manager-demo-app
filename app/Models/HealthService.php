@@ -63,13 +63,7 @@ class HealthService extends SnipeModel
      * @var array
      */
     protected $fillable = [
-        'hs_name', 
-        'hs_address', 
-        'hs_lan', 
-        'aftr_hrs', 
-        'hs_fax', 
-        'hs_email',
-        'med_history'
+
     ];
 
 

@@ -67,7 +67,7 @@ class ConditionReportsController extends Controller
         $condition_report = new ConditionReport();
         $id = request('res_name');
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $name = $res->fname.". ".$res->lname.". ".$res->mname;
+        $name = $res->fname.". ".$res->mname.". ".$res->lname;
         $condition_report->room = request('room');
         $condition_report->items = implode(',', (array) request('items'));
         $condition_report->clean = "null";
@@ -158,7 +158,9 @@ class ConditionReportsController extends Controller
     {
         $this->authorize('update', ConditionReport::class);
         $condition_report = ConditionReport::find($id);
-
+        $id = request('res_name');
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname.". ".$res->mname.". ".$res->lname;
         $condition_report->room = request('room');
         $condition_report->items = implode(',', (array) request('items'));
         $condition_report->clean = "null";
@@ -166,7 +168,7 @@ class ConditionReportsController extends Controller
         $condition_report->working = "null";
         $condition_report->prop_comments = "null";
         $condition_report->res_comments = implode(',', (array) request('res_comments'));
-        $condition_report->res_name = request('res_name');;
+        $condition_report->res_name = $name;
         $condition_report->stf_name = request('stf_name');
         $condition_report->res_date = request('res_date');
         $condition_report->item_no = implode(',', (array) request('item_no'));

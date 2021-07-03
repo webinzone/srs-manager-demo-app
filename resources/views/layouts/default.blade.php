@@ -212,14 +212,14 @@ h4 {
     flex: 1 1 auto;
     padding: 1.25rem;
 }
-
 </style>
 
   </head>
   <body  class="sidebar-mini skin-{{ $snipeSettings->skin!='' ? $snipeSettings->skin : 'blue' }} {{ (session('menu_state')!='open') ? 'sidebar-mini sidebar-collapse' : ''  }}">
+  
   <a class="skip-main" href="#main">Skip to main content</a>
-    <div class="wrapper">
 
+    <div class="wrapper">
       <header class="main-header">
 
         <!-- Logo -->
@@ -900,17 +900,6 @@ h4 {
 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-  <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-        $( "#datepicker1" ).datepicker();
-            $( "#datepicker2" ).datepicker();
-                $( "#datepicker3" ).datepicker();
-  });
-  
-  </script>
- 
-
 
 
   </body>

@@ -63,12 +63,8 @@ class GuardianDetail extends SnipeModel
      * @var array
      */
     protected $fillable = [
-        'gr_name', 
-        'gr_relation', 
-        'gr_lan', 
-        'gr_mob', 
-        'gr_email', 
-        'gr_address'
+         
+       
     ];
 
 
