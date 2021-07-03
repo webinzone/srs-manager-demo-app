@@ -2,15 +2,9 @@
 
 {{-- Page title --}}
 @section('title')
-Condition Report
 @parent
 @stop
 
-@section('header_right')
-    @can('create', \App\Models\Client::class)
-        <a href="{{ route('condition_reports.index') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Back</a>
-    @endcan
-@stop
 
 {{-- Page content --}}
 @section('content')
@@ -19,7 +13,7 @@ Condition Report
     <div class="row">
         <!-- left column -->
       <div class="col-md-7">
-        <form class="form-horizontal" method="" action="" autocomplete="off">
+    <!--    <form class="form-horizontal" method="" action="" autocomplete="off">
            <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
@@ -68,7 +62,46 @@ Condition Report
                 
             </div>
 
-           </form>
+           </form>-->
+           <div class="box box-default" style="left: 100px;padding-bottom: 50px;">
+              <!-- box-header -->
+                  <div class="box-header with-border text-center">
+                 <h3><b>Generate Condition Report</b></h3>
+                   
+                </div><!-- /.box-header -->
+
+                <!-- box-body -->
+                <div class="box-body" style="padding-left: 50px;">    
+              
+
+           <form class="form-horizontal" target="_blank"  action="{{ route('generateReport') }}" method="get" >
+
+                     <div class="form-row">
+                      <div class="col-md-5 mb-3">
+                        <label for="fname">Select Resident Name</label>
+                         <select class="form-control" required="" id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
+                            <option>--   Select Resident Name  --</option>
+                          @foreach($condition_reports as $resident)
+                          <option value="{{ $resident->res_name }}"> {{ $resident->res_name}}</option>
+                          @endforeach
+                        </select>
+                       
+                      </div>
+                      <div class="col-md-3 mb-3">
+                          <br><button type="submit" target="_blank" id="button" class="btn btn-primary pull-right" >
+                                   Generate Report
+                          </button>
+                      </div>
+                      </div>
+
+                  </form>
+              </div>
+              <div class="box-footer text-right">
+
+                    </div>
+
+          </div>
+                  
          </div>
        </div>
   </div>
@@ -76,5 +109,21 @@ Condition Report
 @stop
 
 @section('moar_scripts')
+<script type='text/javascript'>
+$('res_name').change(function(){
+  var theVal = $(this).val();
+  switch(theVal){
+    case '0':
+      $('#button').prop('disabled', true);
+      break;
+    case '1':
+      $('#button').prop('disabled', false);
+      break;
+  }
+});
+
+
+</script>
+
 @include ('partials.bootstrap-table')
 @stop

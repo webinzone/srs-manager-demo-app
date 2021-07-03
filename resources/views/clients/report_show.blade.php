@@ -2,15 +2,9 @@
 
 {{-- Page title --}}
 @section('title')
-Resident Details
 @parent
 @stop
 
-@section('header_right')
-    @can('create', \App\Models\Client::class)
-        <a href="{{ route('clients.index') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Back</a>
-    @endcan
-@stop
 
 {{-- Page content --}}
 @section('content')
@@ -19,7 +13,7 @@ Resident Details
     <div class="row">
         <!-- left column -->
       <div class="col-md-7">
-        <form class="form-horizontal" method="" action="" autocomplete="off">
+       <!-- <form class="form-horizontal" method="" action="" autocomplete="off">
            <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
@@ -62,7 +56,48 @@ Resident Details
                     </div>
                 </div>
              </div>
-           </form>
+           </form>-->
+
+           <div class="box box-default" style="left: 100px;padding-bottom: 50px;">
+              <!-- box-header -->
+                  <div class="box-header with-border text-center">
+                 <h3><b>Generate Resident Report</b></h3>
+                   
+                </div><!-- /.box-header -->
+
+                <!-- box-body -->
+                <div class="box-body" style="padding-left: 50px;">    
+              
+
+           <form class="form-horizontal" target="_blank"  action="{{ route('generateResReport') }}" method="get" >
+
+                     <div class="form-row">
+                      <div class="col-md-5 mb-3">
+                        <label for="fname">Select Resident Name</label>
+                         <select class="form-control" required="" id="res_name" name="res" style="height: 26px;padding: 3px 10px;">
+                            <option>--   Select Resident Name  --</option>
+                          @foreach($client_details as $resident)
+                          <option value="{{ $resident->id }}"> {{ $resident->fname}}. {{$resident->mname}}. {{$resident->lname  }}</option>
+                          @endforeach
+                        </select>
+                       
+                      </div>
+                      <div class="col-md-3 mb-3">
+                          <br><button type="submit" target="_blank" id="button" class="btn btn-primary pull-right" >
+                                   Generate Report
+                          </button>
+                      </div>
+                      </div>
+
+                  </form>
+              </div>
+              <div class="box-footer text-right">
+
+                    </div>
+
+          </div>
+                  
+         
          </div>
        </div>
   </div>

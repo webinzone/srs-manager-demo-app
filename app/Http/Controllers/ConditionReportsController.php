@@ -226,7 +226,21 @@ class ConditionReportsController extends Controller
         
     }
    
+     public function generateReport()
+     {
+      $res = request('res_name');
+      $condition_report = ConditionReport::where('res_name', '=', $res)->firstOrFail();
+      $item_no = explode(',', $condition_report->item_no);
+      $res_comments = explode(',', $condition_report->res_comments);
+      $items = explode(',', $condition_report->items);
+      $owned_by = explode(',', $condition_report->owned_by);
+      $res_cond = explode(',', $condition_report->res_cond);
+      $item_last= last($item_no);
+      $num = (int)$item_last;
 
+      return view('condition_reports/report', compact('condition_report', 'item_no', 'res_comments', 'items', 'owned_by', 'res_cond', 'num'));
+      
+     }
     /**
      * Remove the specified resource from storage.
      *

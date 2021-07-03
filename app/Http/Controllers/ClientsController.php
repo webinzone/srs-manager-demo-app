@@ -500,6 +500,21 @@ class ClientsController extends Controller
         return view('clients/report_show',compact('client_details'));
     
     }
+
+    public function generateResReport(){
+         $id = request('res');
+         
+         $client_detail = ClientDetail::find($id);        
+         $gpdetail = ClientGpdetail::where('client_id', '=', $id)->firstOrFail();
+         $next_of_kin = ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
+         $guardian_detail = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
+         $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
+         $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
+
+         return view('clients/report')->with(compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail'));
+
+    }
+
     public function viewPDF($id)
     {
          $client_detail = ClientDetail::find($id);        

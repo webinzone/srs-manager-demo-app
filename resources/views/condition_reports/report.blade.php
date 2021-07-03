@@ -50,7 +50,7 @@
     </center>
     <table>
       <tr>
-        <td rowspan="2" style="width: 185px;align-items: center;">&nbsp;&nbsp;&nbsp;&nbsp;<b>CONDITION REPORT</b></td>
+        <td rowspan="2" style="width: 200px;align-items: center;">&nbsp;&nbsp;&nbsp;&nbsp;<b>CONDITION &nbsp;&nbsp; REPORT</b></td>
         <td>Resident Name:  {{ $condition_report->res_name}}</td>
         <td>Room No:  {{ $condition_report->room}}</td>
       </tr>
@@ -100,7 +100,7 @@
         'border-collapse: collapse;' +
         '}' +
          '.container{' +
-          'width: 900px;' +
+          'width: 1000px;' +
           'padding: 50px;' +
           'margin: auto;' +
           'border: 3px solid black;' +
