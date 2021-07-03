@@ -143,7 +143,7 @@ class CompanyMastersController extends Controller
 
         $company_master->company_name = request('company_name');
         $company_master->address = request('address');
-        $company_master->location_id = request('location_id');
+        $company_master->location_id = "null";
         $company_master->email = request('email');
         $company_master->ph = request('ph');
         $company_master->fax = request('fax');
@@ -152,7 +152,8 @@ class CompanyMastersController extends Controller
         $company_master->post_code = request('post_code');
         $company_master->state = request('state');
         $company_master->web = request('web');
-        
+        $company_master->company_id = request('company_id');
+
         $company_master->save();
         $activity = new ActivityLog();
 
