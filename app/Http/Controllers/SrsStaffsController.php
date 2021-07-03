@@ -92,6 +92,7 @@ class SrsStaffsController extends Controller
     {
         $this->authorize('show',SrsStaff::class);
         $srs_staff = SrsStaff::find($id);
+        
         return view('srs_staffs/show',compact('srs_staff'));
     }
      /**
@@ -105,7 +106,8 @@ class SrsStaffsController extends Controller
     {
         $this->authorize('edit',SrsStaff::class);
         $srs_staff = SrsStaff::find($id);
-        return view('srs_staffs/edit',compact('srs_staff'));
+        $name = explode('.', $srs_staff->name);
+        return view('srs_staffs/edit',compact('srs_staff', 'name'));
     }
     /**
      * Update the specified resource in storage.
@@ -119,7 +121,7 @@ class SrsStaffsController extends Controller
         $this->authorize('update', SrsStaff::class);
         $srs_staff = SrsStaff::find($id);
 
-        $srs_staff->name = request('name');
+        $srs_staff->name = request('fname').". ".request('mname').". ".request('lname');
         $srs_staff->address = request('address');
         $srs_staff->ph = request('ph');
         $srs_staff->dob = request('dob');
