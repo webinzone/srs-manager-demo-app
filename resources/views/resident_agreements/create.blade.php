@@ -47,7 +47,7 @@
                                                             
                       <div class="col-md-2 mb-3">
                         <label>Room No</label>
-                        <input type="text" name="room_no" id="room" class="form-control" placeholder="Room No">                                        
+                        <input type="text" name="room_no" id="roomm" class="form-control" placeholder="Room No">                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Need assistance  in reading ?</label>
@@ -56,7 +56,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Staff</label>
-                        <input type="text" name="staff" id="staff" class="form-control" placeholder="Staff">                                        
+                        <input type="text" name="staff" id="staffm" class="form-control" placeholder="Staff">                                        
                       </div>
                       
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -65,20 +65,20 @@
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Guardian</label>
-                        <input type="text" name="guardian" id="guardian" class="form-control" placeholder="Guardian">                                       
+                        <input type="text" name="guardian" id="guardianm" class="form-control" placeholder="Guardian">                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Telephone</label>
-                        <input type="tel" name="g_tel" id="g_tel" class="form-control" placeholder="Telephone">                                        
+                        <input type="tel" name="g_tel" id="gtel" class="form-control" placeholder="Telephone">                                        
                       </div>
                       
                       <div class="col-md-3 mb-3">
                         <label>Email</label>
-                        <input type="email" name="g_email" id="g_email" class="form-control" placeholder="Email">                                       
+                        <input type="email" name="g_email" id="gemail" class="form-control" placeholder="Email">                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Address</label>
-                        <textarea name="g_adress" class="form-control" id="g_adress" placeholder="Address"></textarea>
+                        <textarea name="g_adress" class="form-control" id="gadress" placeholder="Address"></textarea>
                                                               
                       </div>
                 </div>
@@ -133,11 +133,11 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Fixed period stay form</label>
-                        <input type="date" name="f_period" id="f_period" class="form-control" placeholder="Fixed period stay form">                                        
+                        <input type="date" name="f_period" id="fperiod" class="form-control" placeholder="Fixed period stay form">                                        
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Ending on</label>
-                        <input type="date" name="ending_on" id="end_period" class="form-control" placeholder="Ending on">                                       
+                        <input type="date" name="ending_on" id="endperiod" class="form-control" placeholder="Ending on">                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Fee And Charges</b></h5>
@@ -293,14 +293,14 @@ $('#resi_name').change(function(){
         dataType: 'json',
         success: function(response){
             if(response != null){
-                $('#room').val(response.data.room_no);
-                $('#staff').val(response.staff.stf_name);
-                $('#guardian').val(response.guardian.gr_name);
-                $('#g_tel').val(response.guardian.gr_lan);
-                $('#g_email').val(response.guardian.gr_email);
-                $('#g_adress').val(response.guardian.gr_address);
-                $('#f_period').val(response.books.b_from);
-                $('#end_period').val(response.books.b_to);
+                $('#roomm').val(response.data.room_no);
+                $('#staffm').val(response.staff.stf_name);
+                $('#guardianm').val(response.guardian.gr_name);
+                $('#gtelm').val(response.guardian.gr_lan);
+                $('#gemail').val(response.guardian.gr_email);
+                $('#gadress').val(response.guardian.gr_address);
+                $('#fperiod').val(response.books.b_from);
+                $('#endperiod').val(response.books.b_to);
 
             }
             else{
