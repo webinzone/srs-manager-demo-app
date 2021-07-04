@@ -54,15 +54,22 @@ class ResidentAgreementsController extends Controller
         return view('resident_agreements/create',compact('residents', 'emps'));
     }
 
+    //public function getRSADetails($id){
+         //$data = ClientDetail::where('id', '=', $id)->firstOrFail();
+         //$guardian = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
+         //$name = $data->fname.". ".$data->mname.". ".$data->lname;
+         //$staff = ConditionReport::where('res_name', '=', $name)->firstOrFail();
+         //$books = Booking::where('c_name', '=', $name)->firstOrFail();
+         //return response()->json(['data' => $data, 'staff' => $staff, 'guardian' => $guardian, 'books'// => $books]);
+//
+    //}
+
     public function getRSADetails($id){
-         $data = ClientDetail::where('id', '=', $id)->firstOrFail();
-         $guardian = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
-         $name = $data->fname.". ".$data->mname.". ".$data->lname;
-         $staff = ConditionReport::where('res_name', '=', $name)->firstOrFail();
-         $books = Booking::where('c_name', '=', $name)->firstOrFail();
-         return response()->json(['data' => $data, 'staff' => $staff, 'guardian' => $guardian, 'books' => $books]);
+         $data = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
+        return response()->json($data);      
 
     }
+
     public function generateRSAReport()
     {
       $res = request('res_name');

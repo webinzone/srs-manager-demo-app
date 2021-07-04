@@ -293,14 +293,14 @@ $('#resi_name').change(function(){
         dataType: 'json',
         success: function(response){
             if(response != null){
-                $('#roomm').val(response.data.room_no);
-                $('#staffm').val(response.staff.stf_name);
-                $('#guardianm').val(response.guardian.gr_name);
-                $('#gtelm').val(response.guardian.gr_lan);
-                $('#gemail').val(response.guardian.gr_email);
-                $('#gadress').val(response.guardian.gr_address);
-                $('#fperiod').val(response.books.b_from);
-                $('#endperiod').val(response.books.b_to);
+               // $('#roomm').val(response.data.room_no);
+               // $('#staffm').val(response.staff.stf_name);
+                $('#guardianm').val(response.gr_name);
+                $('#gtelm').val(response.gr_lan);
+                $('#gemail').val(response.gr_email);
+                $('#gadress').val(response.gr_address);
+                //$('#fperiod').val(response.books.b_from);
+                //$('#endperiod').val(response.books.b_to);
 
             }
             else{
