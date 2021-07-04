@@ -296,11 +296,83 @@ $('#resi_name').change(function(){
                // $('#roomm').val(response.data.room_no);
                // $('#staffm').val(response.staff.stf_name);
                 $('#guardianm').val(response.gr_name);
-                $('#gtelm').val(response.gr_lan);
+                $('#gtel').val(response.gr_lan);
                 $('#gemail').val(response.gr_email);
                 $('#gadress').val(response.gr_address);
                 //$('#fperiod').val(response.books.b_from);
                 //$('#endperiod').val(response.books.b_to);
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAclientDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#roomm').val(response.room_no);            
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAstaffDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+              alert(response.stf_name);
+                $('#staffm').val(response.stf_name);            
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAbookDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+              alert(response.stf_name);
+                $('#fperiod').val(response.b_from);
+                $('#endperiod').val(response.b_to);           
 
             }
             else{

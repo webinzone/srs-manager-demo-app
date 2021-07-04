@@ -70,6 +70,28 @@ class ResidentAgreementsController extends Controller
 
     }
 
+    public function getRSAclientDetails($id)
+    {
+        $data = ClientDetail::where('id', '=', $id)->firstOrFail();
+        return response()->json($data);
+    }
+    
+    public function getRSAstaffDetails($id)
+    {
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname.". ".$data->mname.". ".$data->lname;
+        $data = ConditionReport::where('res_name', '=', $name)->firstOrFail();
+        return response()->json($data);     
+    }
+      
+    public function getRSAbookDetails($id){
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname.". ".$data->mname.". ".$data->lname;
+        $data = Booking::where('c_name', '=', $name)->firstOrFail();
+        return response()->json($data);     
+
+    }
+
     public function generateRSAReport()
     {
       $res = request('res_name');

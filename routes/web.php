@@ -60,6 +60,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('get/location/{id}', 'ConditionReportsController@getLocation')->name('getLocation');
     
     Route::get('get/resdetails/{id}', 'ResidentAgreementsController@getRSADetails')->name('getRSADetails');
+    Route::get('get/resclientdetails/{id}', 'ResidentAgreementsController@getRSAclientDetails')->name('getRSAclientDetails');
+    Route::get('get/resstaffdetails/{id}', 'ResidentAgreementsController@getRSAstaffDetails')->name('getRSAstaffDetails');
+    Route::get('get/resbookdetails/{id}', 'ResidentAgreementsController@getRSAbookDetails')->name('getRSAbookDetails');
     Route::get('/agreement','ResidentAgreementsController@agreement_generate');
     Route::get('/generateRSAReport/', 'ResidentAgreementsController@generateRSAReport')->name('generateRSAReport');
 
