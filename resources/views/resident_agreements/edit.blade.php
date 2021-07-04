@@ -282,32 +282,7 @@
 
 @section('moar_scripts')
 <script>
-$('#guardian').change(function(){
-    var id = $(this).val();
-    var url = '{{ route("getRSADetails", ":id") }}';
-    url = url.replace(':id', id);
 
-    $.ajax({
-        url: url,
-        type: 'get',
-        dataType: 'json',
-        success: function(response){
-            if(response != null){
-                $('#room1').val(response.data.room_no);
-                $('#staff1').val(response.staff.stf_name);
-                $('#guardian1').val(response.guardian.gr_name);
-                $('#g_tel1').val(response.guardian.gr_lan);
-                $('#g_email1').val(response.guardian.gr_email);
-                $('#g_adress1').val(response.guardian.gr_address);
-
-            }
-            else{
-              alert("error");
- 
-            }
-        }
-    });
-});
 </script>
 @include ('partials.bootstrap-table')
 @stop
