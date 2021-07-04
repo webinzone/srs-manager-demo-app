@@ -66,8 +66,8 @@ class ResidentAgreementsController extends Controller
     public function generateRSAReport()
     {
       $res = request('res_name');
-      $rsa = ResidentAgreement::where('r_name', '=', $res)->firstOrFail();
-      return view('resident_agreements/report',compact('rsa'));
+      $resident_agreement = ResidentAgreement::where('r_name', '=', $res)->firstOrFail();
+      return view('resident_agreements/report',compact('resident_agreement'));
      
     }
 

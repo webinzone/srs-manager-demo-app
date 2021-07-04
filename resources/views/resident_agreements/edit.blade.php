@@ -179,7 +179,7 @@
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label>Security deposite charged ?</label>
-                        <br><input type="radio" {{ $resident_agreement->secu_depo == 'Yes' ? 'checked' : ''  }} id="secu_depo"  value="Yes" name="secu_depo">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <br><input type="radio" id={{ $resident_agreement->secu_depo == 'Yes' ? 'checked' : ''  }} "secu_depo"  value="Yes" name="secu_depo">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio" {{ $resident_agreement->secu_depo == 'No' ? 'checked' : ''  }} id="secu_depo" value="No" name="secu_depo">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp; 
                       </div>
                       <div class="col-md-4 mb-3">
