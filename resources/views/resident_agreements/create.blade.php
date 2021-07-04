@@ -37,7 +37,7 @@
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label>Resident Name</label>
-                        <select class="form-control" required="" id="res_name" name="r_name" style="height: 26px;padding: 3px 10px;">
+                        <select class="form-control" required="" id="resi_name" name="r_name" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Resident Name  --</option>
                           @foreach($residents as $resident)
                           <option value="{{ $resident->id }}"> {{ $resident->fname}}. {{$resident->mname}}. {{$resident->lname  }}</option>
@@ -282,7 +282,7 @@
 
 @section('moar_scripts')
 <script>
-$('#res_name').change(function(){
+$('#resi_name').change(function(){
     var id = $(this).val();
     var url = '{{ route("getRSADetails", ":id") }}';
     url = url.replace(':id', id);
