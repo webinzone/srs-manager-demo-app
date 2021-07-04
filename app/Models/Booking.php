@@ -63,26 +63,7 @@ class Booking extends SnipeModel
      * @var array
      */
     protected $fillable = [
-        'c_name', 
-        'b_from', 
-        'b_to', 'bed', 
-        'pay_via', 
-        'quated_fee', 
-        'freq_fee', 
-        'dob', 
-        'age', 
-        'reffer_ph', 
-        'f_address', 
-        'reason', 
-        'p_car', 
-        'd_history', 
-        'behav', 
-        'substances', 
-        'c_meds', 
-        'case_mngr', 
-        'social_wrkr', 
-        'forensic_history', 
-        'notes'
+        'c_name'
     ];
 
 

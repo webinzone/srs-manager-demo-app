@@ -5,6 +5,7 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\Booking;
 use App\Models\ActivityLog;
+use App\Models\ClientDetail;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -42,9 +43,16 @@ class BookingsController extends Controller
     {
          // Show the page
         $this->authorize('create',Booking::class);
-        return view('bookings/create');
+        $residents = ClientDetail::all();
+        return view('bookings/create',compact('residents'));
     }
+    
+    public function getbookDetails($id){
+         $data = ClientDetail::where('id', '=', $id)->firstOrFail();
+         
+         return response()->json(['data' => $data]);
 
+    }
 
     /**
      * Validate and save new Accessory from form post
@@ -57,8 +65,10 @@ class BookingsController extends Controller
     {
         $this->authorize('create',Booking::class);
         $booking = new Booking();
-
-        $booking->c_name = request('c_name');
+        $id = request('c_name');
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname.". ".$res->mname.". ".$res->lname;
+        $booking->c_name = $name;
         $booking->b_from = request('b_from');
         $booking->b_to = request('b_to');
         $booking->bed = request('bed');

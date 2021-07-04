@@ -34,113 +34,11 @@ class ResidentAgreementPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Room No')
             ],[
-                "field" => "bed",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Bed')
-            ],[
-                "field" => "dob",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Date of Birth')
-            ],[
                 "field" => "guardian",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Guardian')
-            ],[
-                "field" => "admin",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Administrator')
-            ],[
-                "field" => "p_nomini",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Person Nominated')
-            ],[
-                "field" => "i_period",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Indefinite period of stay form')
-            ],[
-                "field" => "f_period",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Fixed period stay form')
-            ],[
-                "field" => "ending_on",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Ending on')
-            ],[
-                "field" => "acc_fee",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Fee for accommodation and personal support')
-            ],[
-                "field" => "pay_method",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('How to pay')
-            ],[
-                "field" => "freq_pay",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Frequency of payment')
-            ],[
-                "field" => "advnc_fee",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Fee in advance charged for other items/service provide by SRS')
-            ],[
-                "field" => "secu_depo",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Security deposite charged')
-            ],[
-                "field" => "reserv_fee",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Reservation for charged')
-            ],[
-                "field" => "condition_rep",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Condition report provided to the resident?')
-            ],[
-                "field" => "res_service",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Specify items and services provided to the resident')
-            ],[
-                "field" => "spl_item",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Any special items that may apply to the resident')
-            ],[
-                "field" => "pers_prop",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Personal properties belonging resident brought into SRS')
             ],[
                 "field" => "created_at",
                 "searchable" => true,

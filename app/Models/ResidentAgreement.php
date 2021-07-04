@@ -63,28 +63,7 @@ class ResidentAgreement extends SnipeModel
      * @var array
      */
     protected $fillable = [
-        'r_name', 
-        'room_no', 
-        'bed', 
-        'dob', 
-        'guardian', 
-        'admin', 
-        'p_nomini', 
-        'i_period', 
-        'f_period', 
-        'ending_on', 
-        'acc_fee', 
-        'pay_method', 
-        'freq_pay', 
-        'advnc_fee', 
-        'secu_depo', 
-        'secu_depo', 
-        'reserv_fee', 
-        'condition_rep', 
-        'res_service', 
-        'spl_item', 
-        'pers_prop',
-        'profile_pic'
+        'r_name'
     ];
 
 

@@ -545,7 +545,23 @@ h4 {
                 
                 </ul>
               </li>
+             @can('view', \App\Models\Booking::class)
+            <li{!! (Request::is('bookings*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('bookings.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-list-alt" aria-hidden="true"></i>
+                  <span style="color: white;">Bookings</span>
+                </a>
+            </li>
+            @endcan
 
+            @can('view', \App\Models\ResidentAgreement::class)
+            <li{!! (Request::is('resident_agreements*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('resident_agreements.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-id-card" aria-hidden="true"></i>
+                  <span style="color: white;">RSA</span>
+                </a>
+            </li>
+            @endcan
              
             <li class="treeview">
                 <a href="#" style="background-color: #222d32;color: #b8c7ce;">
@@ -561,7 +577,7 @@ h4 {
                     </a>
                   </li>
                   <li>
-                      <a href="" style="color: #b8c7ce;">
+                      <a href="/agreement" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         RSA Reports
                     </a>
@@ -643,23 +659,7 @@ h4 {
             </li>
             @endcan
 
-            @can('view', \App\Models\Booking::class)
-            <li{!! (Request::is('bookings*') ? ' class="active"' : '') !!}>
-                <a href="{{ route('bookings.index') }}" style="background-color: #222d32;color: #b8c7ce;">
-                  <i class="fa fa-list-alt" aria-hidden="true"></i>
-                  <span style="color: white;">Bookings</span>
-                </a>
-            </li>
-            @endcan
-
-            @can('view', \App\Models\ResidentAgreement::class)
-            <li{!! (Request::is('resident_agreements*') ? ' class="active"' : '') !!}>
-                <a href="{{ route('resident_agreements.index') }}" style="background-color: #222d32;color: #b8c7ce;">
-                  <i class="fa fa-id-card" aria-hidden="true"></i>
-                  <span style="color: white;">RSA</span>
-                </a>
-            </li>
-            @endcan
+            
           <!--  @can('view', \App\Models\SrsStaff::class)
             <li{!! (Request::is('staff_roasters*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('srs_staffs.index') }}" style="background-color: #222d32;color: #b8c7ce;">

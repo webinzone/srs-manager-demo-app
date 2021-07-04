@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Bookings
+
 @parent
 @stop
 
@@ -21,9 +21,10 @@ Bookings
       <div class="col-md-7">
         <form class="form-horizontal" method="" action="" autocomplete="off">
           <div class="box box-default">
-            <div class="box-header with-border">
-                <h2 class="box-title"> Booking</h2>
-            </div>
+            <div class="box-header with-border text-center">
+                 <h3><b>Bookings</b></h3>
+                   
+                </div><!-- /.box-header -->
 
             <div class="box-body">
 
