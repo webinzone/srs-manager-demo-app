@@ -346,7 +346,6 @@ $('#resi_name').change(function(){
         dataType: 'json',
         success: function(response){
             if(response != null){
-              alert(response.stf_name);
                 $('#staffm').val(response.stf_name);            
 
             }
@@ -370,7 +369,6 @@ $('#resi_name').change(function(){
         dataType: 'json',
         success: function(response){
             if(response != null){
-              alert(response.stf_name);
                 $('#fperiod').val(response.b_from);
                 $('#endperiod').val(response.b_to);           
 
