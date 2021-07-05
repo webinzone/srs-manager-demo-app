@@ -11,6 +11,20 @@
 
 {{-- Page content --}}
 @section('content')
+<style type="text/css">
+  table, td, th {
+    border: 1px solid black;
+    align-items: center;
+  }
+
+  table {
+    width: 800px;
+    left: 80px;
+    border-collapse: collapse;
+    align-items: center;
+    align-content: center;
+  }
+</style>
 <div id="webui">
   
     <div class="row" style="padding-left: 80px;padding-right: 80px;">
@@ -252,11 +266,148 @@
                         <br><input type="radio" {{ $resident_agreement->srs_assist_status == 'Yes' ? 'checked' : ''  }} id="srs_assist_status"  value="Yes" name="srs_assist_status">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio"  {{ $resident_agreement->srs_assist_status == 'No' ? 'checked' : ''  }} id="srs_assist_status" value="No" name="srs_assist_status">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                       
                       </div>
-                       <div class="col-md-3 mb-3">
+                       <div class="col-md-6 mb-3">
                         <label>Ammount to be managed</label>
-                        <input type="text" name="assist_amnt" class="form-control" value="{{ $resident_agreement->assist_amnt}}" placeholder="Ammount to be managed">                                        
+                        <input type="text" style="width:200px" name="assist_amnt" class="form-control" value="{{ $resident_agreement->assist_amnt}}" placeholder="Ammount to be managed">                                        
                       </div>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h5 style="color:#980000;font-size: 16px;"><b>Personal and Special Support Services</b></h5>
+                <div class="form-row">
+              
+                <table style="border: 2px; border-width: 1px; border-color: black; padding-left: 8px;">
+                  <tr style="padding:5px;">
+                    <th>Type of Support</th>
+                    <th colspan="3">Level of assistance offered</th>
+                    <th>Included in fee</th>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>&nbsp;&nbsp;&nbsp;   Full</td>
+                    <td>&nbsp;&nbsp;&nbsp;   Part</td>
+                    <td>&nbsp;&nbsp;&nbsp;   None</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Bathing and showering</td>
+                    <td> &nbsp;&nbsp;&nbsp;   
+                     <input type="checkbox" {{ $resident_agreement->bath == 'Full' ? 'checked' : ''  }} name="bath" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" {{ $resident_agreement->bath == 'Part' ? 'checked' : ''  }} name="bath" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->bath == 'None' ? 'checked' : ''  }} name="bath" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $resident_agreement->bath_fee}} name="bath_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Oral Support</td>
+                    <td>    
+                     <input {{ $resident_agreement->oral == 'Full' ? 'checked' : ''  }} type="checkbox" name="oral" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" {{ $resident_agreement->oral == 'Part' ? 'checked' : ''  }}  name="oral" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->oral == 'None' ? 'checked' : ''  }}  name="oral" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $resident_agreement->oral_fee}} name="oral_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Hair and nails</td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->hair == 'Full' ? 'checked' : ''  }}  name="hair" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" {{ $resident_agreement->hair == 'Part' ? 'checked' : ''  }} name="hair" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->hair == 'None' ? 'checked' : ''  }} name="hair" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $resident_agreement->hair_fee}} name="hair_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Toileting</td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->toileting == 'Full' ? 'checked' : ''  }}  name="toileting" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" {{ $resident_agreement->toileting == 'Part' ? 'checked' : ''  }} name="toileting" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->toileting == 'None' ? 'checked' : ''  }} name="toileting" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $resident_agreement->toileting_fee}} name="toileting_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Mobility</td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->mobility == 'Full' ? 'checked' : ''  }}  name="mobility" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" {{ $resident_agreement->mobility == 'Part' ? 'checked' : ''  }} name="mobility" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox"  {{ $resident_agreement->mobility == 'None' ? 'checked' : ''  }} name="mobility" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $resident_agreement->mobility_fee}} name="mobility_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Assistance with medication</td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->medi_assi == 'Full' ? 'checked' : ''  }}  name="medi_assi" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" {{ $resident_agreement->medi_assi == 'Part' ? 'checked' : ''  }} name="medi_assi" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->medi_assi == 'None' ? 'checked' : ''  }} name="medi_assi" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $resident_agreement->medi_assi_fee}} name="medi_assi_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Continence management</td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->continence == 'Full' ? 'checked' : ''  }}  name="continence" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" {{ $resident_agreement->continence == 'Part' ? 'checked' : ''  }} name="continence" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->continence == 'None' ? 'checked' : ''  }} name="continence" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $resident_agreement->continence_fee}} name="continence_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Bed making</td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->bed_make == 'Full' ? 'checked' : ''  }}  name="bed_make" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox"  {{ $resident_agreement->bed_make == 'Part' ? 'checked' : ''  }} name="bed_make" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox"  {{ $resident_agreement->bed_make == 'None' ? 'checked' : ''  }} name="bed_make" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $resident_agreement->bed_make_fee}} name="bed_make_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Dressing</td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->dressing == 'Full' ? 'checked' : ''  }}  name="dressing" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" {{ $resident_agreement->dressing == 'Part' ? 'checked' : ''  }} name="dressing" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" {{ $resident_agreement->dressing == 'None' ? 'checked' : ''  }} name="dressing" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $resident_agreement->dressing_fee}} name="dressing_fee"></td>
+                  </tr><br>
+                </table>
+              </div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br><br>
                     
                     <!--<div class="form-group ">

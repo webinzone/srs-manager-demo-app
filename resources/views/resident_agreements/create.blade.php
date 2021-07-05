@@ -14,6 +14,20 @@
 
 {{-- Page content --}}
 @section('content')
+<style type="text/css">
+  table, td, th {
+    border: 1px solid black;
+    align-items: center;
+  }
+
+  table {
+    width: 800px;
+    left: 80px;
+    border-collapse: collapse;
+    align-items: center;
+    align-content: center;
+  }
+</style>
 <div id="webui">
   
   <div class="row" style="padding-left: 80px;padding-right: 80px;">
@@ -254,11 +268,151 @@
                         <br><input type="radio"  id="srs_assist_status"  value="Yes" name="srs_assist_status">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio"  id="srs_assist_status" value="No" name="srs_assist_status">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                       
                       </div>
-                       <div class="col-md-3 mb-3">
+                       <div class="col-md-6 mb-3" >
                         <label>Ammount to be managed</label>
-                        <input type="text" name="assist_amnt" class="form-control" placeholder="Ammount to be managed">                                        
+                        <input type="text" style="width:200px" name="assist_amnt" class="form-control" placeholder="Ammount to be managed">                                        
                       </div>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <h5 style="color:#980000;font-size: 16px;"><b>Personal and Special Support Services</b></h5>
+                <div class="form-row">
+              
+                <table style="border: 2px; border-width: 1px; border-color: black; padding-left: 8px;">
+                  <tr style="padding:5px;">
+                    <th>Type of Support</th>
+                    <th colspan="3">Level of assistance offered</th>
+                    <th>Included in fee</th>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>&nbsp;&nbsp;&nbsp;   Full</td>
+                    <td>&nbsp;&nbsp;&nbsp;   Part</td>
+                    <td>&nbsp;&nbsp;&nbsp;   None</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Bathing and showering</td>
+                    <td> &nbsp;&nbsp;&nbsp;   
+                     <input type="checkbox" name="bath" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" name="bath" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" name="bath" value="None" />    
+                    </td>
+                    <td><input type="text" name="bath_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Oral Support</td>
+                    <td>    
+                     <input type="checkbox" name="oral" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" name="oral" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" name="oral" value="None" />    
+                    </td>
+                    <td><input type="text" name="oral_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Hair and nails</td>
+                    <td>    
+                     <input type="checkbox" name="hair" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" name="hair" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" name="hair" value="None" />    
+                    </td>
+                    <td><input type="text" name="hair_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Toileting</td>
+                    <td>    
+                     <input type="checkbox" name="toileting" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" name="toileting" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" name="toileting" value="None" />    
+                    </td>
+                    <td><input type="text" name="toileting_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Mobility</td>
+                    <td>    
+                     <input type="checkbox" name="mobility" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" name="mobility" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" name="mobility" value="None" />    
+                    </td>
+                    <td><input type="text" name="mobility_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Assistance with medication</td>
+                    <td>    
+                     <input type="checkbox" name="medi_assi" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" name="medi_assi" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" name="medi_assi" value="None" />    
+                    </td>
+                    <td><input type="text" name="medi_assi_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Continence management</td>
+                    <td>    
+                     <input type="checkbox" name="continence" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" name="continence" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" name="continence" value="None" />    
+                    </td>
+                    <td><input type="text" name="continence_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Bed making</td>
+                    <td>    
+                     <input type="checkbox" name="bed_make" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" name="bed_make" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" name="bed_make" value="None" />    
+                    </td>
+                    <td><input type="text" name="bed_make_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Dressing</td>
+                    <td>    
+                     <input type="checkbox" name="dressing" value="Full" />    
+                    </td>
+                     <td>    
+                     <input type="checkbox" name="dressing" value="Part" />    
+                    </td>
+                    <td>    
+                     <input type="checkbox" name="dressing" value="None" />    
+                    </td>
+                    <td><input type="text" name="dressing_fee"></td>
+                  </tr><br>
+                </table>
+              </div>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br><br>
                     
                     <!--<div class="form-group ">
@@ -380,6 +534,14 @@ $('#resi_name').change(function(){
         }
     });
 });
+</script>
+<script type="text/javascript">
+  function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('bath')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
 </script>
 
 @include ('partials.bootstrap-table')

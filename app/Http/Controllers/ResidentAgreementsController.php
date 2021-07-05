@@ -169,6 +169,27 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->amt_est = request('amt_est');
         $resident_agreement->amt_adv = request('amt_adv');
 
+        $resident_agreement->bath = request('bath');
+        $resident_agreement->bath_fee = request('bath_fee');
+        $resident_agreement->oral = request('oral');
+        $resident_agreement->oral_fee = request('oral_fee');
+        $resident_agreement->hair = request('hair');
+        $resident_agreement->hair_fee = request('hair_fee');
+        $resident_agreement->toileting = request('toileting');
+        $resident_agreement->toileting_fee = request('toileting_fee');
+        $resident_agreement->mobility = request('mobility');
+        $resident_agreement->mobility_fee = request('mobility_fee');
+        $resident_agreement->medi_assi = request('medi_assi');
+        $resident_agreement->medi_assi_fee = request('medi_assi_fee');
+        $resident_agreement->continence = request('continence');
+        $resident_agreement->continence_fee = request('continence_fee');
+        $resident_agreement->bed_make = request('bed_make');
+        $resident_agreement->bed_make_fee = request('bed_make_fee');
+        $resident_agreement->dressing = request('dressing');
+        $resident_agreement->dressing_fee = request('dressing_fee');       
+
+
+
         $resident_agreement->user_id =  Auth::user()->id;
        // $resident_agreement->profile_pic = request('profile_pic')->getClientOriginalName();
         //$imageName = request('profile_pic')->getClientOriginalName();
@@ -273,6 +294,25 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->assist_amnt = request('assist_amnt');
         $resident_agreement->location_id = "null";
         $resident_agreement->company_id = "null";
+        
+        $resident_agreement->bath = request('bath');
+        $resident_agreement->bath_fee = request('bath_fee');
+        $resident_agreement->oral = request('oral');
+        $resident_agreement->oral_fee = request('oral_fee');
+        $resident_agreement->hair = request('hair');
+        $resident_agreement->hair_fee = request('hair_fee');
+        $resident_agreement->toileting = request('toileting');
+        $resident_agreement->toileting_fee = request('toileting_fee');
+        $resident_agreement->mobility = request('mobility');
+        $resident_agreement->mobility_fee = request('mobility_fee');
+        $resident_agreement->medi_assi = request('medi_assi');
+        $resident_agreement->medi_assi_fee = request('medi_assi_fee');
+        $resident_agreement->continence = request('continence');
+        $resident_agreement->continence_fee = request('continence_fee');
+        $resident_agreement->bed_make = request('bed_make');
+        $resident_agreement->bed_make_fee = request('bed_make_fee');
+        $resident_agreement->dressing = request('dressing');
+        $resident_agreement->dressing_fee = request('dressing_fee');
 
         $resident_agreement->amt_pay = request('amt_pay');
         $resident_agreement->amt_res = request('amt_res');
