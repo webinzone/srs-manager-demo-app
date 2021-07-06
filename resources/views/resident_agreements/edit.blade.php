@@ -403,7 +403,7 @@
                     <td> &nbsp;&nbsp;&nbsp;    
                      <input type="checkbox" {{ $resident_agreement->dressing == 'None' ? 'checked' : ''  }} name="dressing" value="None" />    
                     </td>
-                    <td><input type="text" value="{{ $resident_agreement->dressing_fee}}"" name="dressing_fee"></td>
+                    <td><input type="text" value="{{ $resident_agreement->dressing_fee}}" name="dressing_fee"></td>
                   </tr><br>
                 </table>
               </div></div>
@@ -432,8 +432,10 @@
 @stop
 
 @section('moar_scripts')
-<script>
-
+<script type="text/javascript">
+  $('input[type="checkbox"]').on('change', function() {
+    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+});
 </script>
 @include ('partials.bootstrap-table')
 @stop

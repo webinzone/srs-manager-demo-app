@@ -119,7 +119,7 @@
       </tr>
       <tr>
         <td>Frequency of payment: </td>
-        <td><input {{ $resident_agreement->freq_pay == 'Weekly' ? 'checked' : ''  }} type="checkbox">Weekly &nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->freq_pay == 'Fortnightly' ? 'checked' : ''  }}>Fortnightly&nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->freq_pay == 'Every Calender Month' ? 'checked' : ''  }}>Every calendar month&nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->freq_pay == 'Other' ? 'checked' : ''  }}>Other</td>
+        <td>{{ $resident_agreement->freq_pay}}</td>
       </tr>
       <tr>
         <td>Any rent paid in advance: </td>
@@ -217,7 +217,7 @@ depending on your ongoing requirements and fees may change.</b></p><br>
       <tr>
         <td>Bathing and showering</td>
         <td><form action="">    
-         <input type="checkbox" {{ $resident_agreement->bath == 'Full' ? 'checked' : ''  }} name="" value="Fall" />    
+         {{ $resident_agreement->bath == 'Full' ? 'Yes' : 'No'  }}   
         </form></td>
          <td><form action="">    
          <input type="checkbox" name="" {{ $resident_agreement->bath == 'Part' ? 'checked' : ''  }} value="Part" />    

@@ -544,6 +544,11 @@ $('#resi_name').change(function(){
     })
 }
 </script>
+<script type="text/javascript">
+  $('input[type="checkbox"]').on('change', function() {
+    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+});
+</script>
 
 @include ('partials.bootstrap-table')
 @stop

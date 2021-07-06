@@ -20,24 +20,34 @@
    
         
         <div class="col-md-10 offset-1">
-          <form class="form-horizontal" method="post" action="{{ route ('clients.update', $client_detail->id) }}" autocomplete="off" role="form" style="width: 1000px; align-items: center;   background-color: #fff; " >
+          <form class="form-horizontal" method="post" action="{{ route ('clients.update', $client_detail->id) }}" autocomplete="off" role="form" style="width: 1000px; align-items: center;   background-color: #fff; " enctype="multipart/form-data" >
              @method('PATCH') 
               {{ csrf_field() }}
+
               <div class="box box-default">
+
               <div class="box-header with-border text-center">
                  <h3><b> Resident Details</b></h3>
-                   
+
+               
                 </div><!-- /.box-header -->
+                        <!--  <img id="preview-image-before-upload" src="{{url('')}}/images/profile_pics/{{ $client_detail->prof_pic}}"
+                         alt="preview image" style="width: 100px;height: 100px; border-color: red;  border: 5px solid #555;padding: 5px;border-radius: 10px;right: 20px;" class="pull-right">
+                      <input style="padding-left:100px;" type="file" class="pull-right" name="prof_pic" placeholder="Choose image" id="image">
+                         <br><br>-->       
+
                 <!-- box-body -->
-                <div class="box-body" style="padding-left: 50px;">    
+                <div class="box-body" style="padding-left: 50px;">
+                
+                        
                   <div class="page" v-show="step === 1">
-                    
+                   
                     <h4 class="mb-3"><b>Personal Information</b></h4><br>              
 
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="fname">First name</label>
-                        <input type="text" value="{{ $client_detail->fname}}" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" ="">                
+                        <input type="text" value="{{ $client_detail->fname}}" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" >                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="mname">Middle name</label>
@@ -319,8 +329,11 @@
                
                     <div class="form-row">
                       <div class="col-md-5 mb-3">
-                       <label for="income_type">Type of Income</label>
-                        <input type="text" value="{{ $pension_detail->income_type}}" class="form-control" id="client_refno" placeholder="Client Reference no" name="income_type" v-on:change="page_one.client_refno = $event.target.value">              
+                       <label for="income_type">Type of Income</label><br>
+                          <label><input {{ $pension_detail->income_type == 'Centre Link' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;
+                                <label><input {{ $pension_detail->income_type == 'Veterans Affairs' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;
+                                <label><input {{ $pension_detail->income_type == 'State Trustees' ? 'checked' : ''  }} type="checkbox" name="income_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
+                                <label><input {{ $pension_detail->income_type == 'Other' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Other"> Other</label>&nbsp;&nbsp;                
            
                       </div>
                       <div class="col-md-3 mb-3">
@@ -1019,5 +1032,32 @@
     }
   }
 </script>
+<script type="text/javascript">
+      
+$(document).ready(function (e) {
+ 
+   
+   $('#image').change(function(){
+            
+    let reader = new FileReader();
+ 
+    reader.onload = (e) => { 
+ 
+      $('#preview-image-before-upload').attr('src', e.target.result); 
+    }
+ 
+    reader.readAsDataURL(this.files[0]); 
+   
+   });
+   
+});
+ 
+</script>
+<script type="text/javascript">
+  $('input[type="checkbox"]').on('change', function() {
+    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+});
+</script>
+
 @include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\BookingPresenter::dataTableLayout()])
 @stop

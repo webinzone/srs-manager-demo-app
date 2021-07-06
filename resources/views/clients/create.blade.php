@@ -25,11 +25,18 @@
               {{ csrf_field() }}
               <div class="box box-default">
               <!-- box-header -->
+                  
+                 
                   <div class="box-header with-border text-center">
                  <h3><b>New Resident Admission Form</b></h3>
                    
                 </div><!-- /.box-header -->
+                <!--<div class="text-right">
+                 <img id="preview-image-before-upload" src="https://www.riobeauty.co.uk/images/product_image_not_found.gif"
+                      alt="preview image" style="width: 100px;height: 100px; border-color: red;border: 2px;"><input type="file" class="text-right" name="prof_pic" placeholder="Choose image" id="image">
 
+                  
+                </div>-->
                 <!-- box-body -->
                 <div class="box-body" style="padding-left: 50px;">    
                   <div class="page" v-show="step === 1">
@@ -1021,6 +1028,38 @@
         document.getElementById('expiry_date').value = "";
     }
   }
+
+
+
 </script>
+<script type="text/javascript">
+      
+$(document).ready(function (e) {
+ 
+   
+   $('#image').change(function(){
+            
+    let reader = new FileReader();
+ 
+    reader.onload = (e) => { 
+ 
+      $('#preview-image-before-upload').attr('src', e.target.result); 
+    }
+ 
+    reader.readAsDataURL(this.files[0]); 
+   
+   });
+   
+});
+ 
+</script>
+<script type="text/javascript">
+  $('input[type="checkbox"]').on('change', function() {
+    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+});
+</script>
+
+
+
 @include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\BookingPresenter::dataTableLayout()])
 @stop
