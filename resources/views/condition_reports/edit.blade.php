@@ -110,11 +110,6 @@ Room Assets
                   </div>
                    
                     </div>             
-                  <br><br>
-                
-                <br><br>
-                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                       <div id="fieldList" style="padding-bottom: 20px;padding-top: 20px;">
                     </div>

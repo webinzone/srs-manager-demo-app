@@ -139,17 +139,17 @@
                <h5 style="color:#980000;font-size: 16px;"><b>Duration Of Stay</b></h5>
 
                 <div class="form-row">
-                      <div class="col-md-4 mb-3">
+                      <!--<div class="col-md-4 mb-3">
                         <label>Indefinite period of stay from</label>
                         <input type="date" name="i_period" class="form-control" value="{{ $resident_agreement->i_period}}" placeholder="Indefinite period of stay form">                                        
+                      </div>-->
+                      <div class="col-md-3 mb-3">
+                        <label>Fixed period stay from</label>
+                        <input type="date" style="width: 200px;" name="f_period" class="form-control" value="{{ $resident_agreement->f_period}}" placeholder="Fixed period stay form">                                        
                       </div>
-                      <div class="col-md-4 mb-3">
-                        <label>Fixed period stay form</label>
-                        <input type="date" name="f_period" class="form-control" value="{{ $resident_agreement->f_period}}" placeholder="Fixed period stay form">                                        
-                      </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-8 mb-3">
                         <label>Ending on</label>
-                        <input type="date" name="ending_on" class="form-control" value="{{ $resident_agreement->ending_on}}" placeholder="Ending on">                                       
+                        <input type="date" style="width: 200px;" name="ending_on" class="form-control" value="{{ $resident_agreement->ending_on}}" placeholder="Ending on">                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Fee And Charges</b></h5>
@@ -202,8 +202,8 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Condition report provided to the resident ?</label>
-                        <br><input type="radio"  id="condition_rep" {{ $resident_agreement->condition_rep == 'Yes' ? 'checked' : ''  }}  value="Yes" name="condition_rep">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" {{ $resident_agreement->condition_rep == 'No' ? 'checked' : ''  }} id="condition_rep" value="No" name="condition_rep">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
+                        <br><input type="radio" required=""  id="condition_rep" {{ $resident_agreement->condition_rep == 'Yes' ? 'checked' : ''  }}  value="Yes" name="condition_rep">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" required="" {{ $resident_agreement->condition_rep == 'No' ? 'checked' : ''  }} id="condition_rep" value="No" name="condition_rep">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">

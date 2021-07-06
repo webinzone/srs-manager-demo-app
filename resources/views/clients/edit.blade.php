@@ -259,7 +259,7 @@
                         <input type="text" value="{{ $gpdetail->gp_fax}}" class="form-control" id="gp_fax" placeholder="Fax" name="gp_fax" v-on:change="page_one.gp_fax = $event.target.value">  
                       </div>  
                     </div>&nbsp;&nbsp;&nbsp;
-                    <h4 class="mb-3"><b>GuardianDetail</b></h4><br>
+                    <h4 class="mb-3"><b>Guardian Detail</b></h4><br>
                
                     <div class="form-row">
                       <div class="col-md-4 mb-3">

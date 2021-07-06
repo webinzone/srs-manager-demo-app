@@ -141,17 +141,18 @@
                <h5 style="color:#980000;font-size: 16px;"><b>Duration Of Stay</b></h5>
 
                 <div class="form-row">
-                      <div class="col-md-4 mb-3">
+                      <!--<div class="col-md-4 mb-3">
                         <label>Indefinite period of stay from</label>
                         <input type="date" name="i_period" class="form-control" placeholder="Indefinite period of stay form">                                        
+                      </div>-->
+                      
+                      <div class="col-md-3 mb-3">
+                        <label>Fixed period stay from</label>
+                        <input type="date" style="width: 200px;" name="f_period" id="fperiod" class="form-control" placeholder="Fixed period stay form">                                        
                       </div>
-                      <div class="col-md-4 mb-3">
-                        <label>Fixed period stay form</label>
-                        <input type="date" name="f_period" id="fperiod" class="form-control" placeholder="Fixed period stay form">                                        
-                      </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-8 mb-3">
                         <label>Ending on</label>
-                        <input type="date" name="ending_on" id="endperiod" class="form-control" placeholder="Ending on">                                       
+                        <input type="date" style="width: 200px;" name="ending_on" id="endperiod" class="form-control" placeholder="Ending on">                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Fee And Charges</b></h5>
@@ -204,8 +205,8 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Condition report provided to the resident ?</label>
-                        <br><input type="radio"  id="condition_rep"  value="Yes" name="condition_rep">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="condition_rep" value="No" name="condition_rep">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
+                        <br><input required type="radio"  id="condition_rep"  value="Yes" name="condition_rep">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" required="" id="condition_rep" value="No" name="condition_rep">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
