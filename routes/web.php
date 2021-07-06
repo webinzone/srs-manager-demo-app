@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('health_services','HealthServicesController');
     Route::resource('pension_details','PensionDetailsController');
     Route::resource('srs_staffs','SrsStaffsController');
+    Route::resource('room_details','RoomDetailsController');
 
 
     Route::post('formSubmit','ClientsController@store');

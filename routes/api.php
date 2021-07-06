@@ -370,6 +370,19 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'auth:api']
             'parameters' => ['client_users' => 'client_users_id']
         ]
     );
+      
+
+Route::resource('room_details', 'RoomDetailsController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.room_details.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['room_details' => 'room_details_id']
+        ]
+    );
         Route::resource('location_masters', 'LocationMastersController',
         [
             'names' =>

@@ -562,7 +562,15 @@ h4 {
                 </a>
             </li>
             @endcan
-             
+             @can('view', \App\Models\ResidentAgreement::class)
+            <li{!! (Request::is('resident_agreements*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('room_details.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-object-group" aria-hidden="true"></i>
+
+                  <span style="color: white;">Rooms</span>
+                </a>
+            </li>
+            @endcan
             <li class="treeview">
                 <a href="#" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-files-o"></i>                  

@@ -102,17 +102,20 @@ Room Assets
                         <div class="col-md-3 mb-3"  style="width: 200px;">
                         <label for="name" >Comments/Description</label>
                         <input type="text" name="res_comments[]"  class="form-control" value="{{ $res_comments[$i] }}">                                      
-                      </div>
+                      </div> 
                          @endfor 
-                      <div class="col-md-4 mb-3" style="width: 50px;padding-top: 6px;left: 24px;">
+                      &nbsp;&nbsp;<div class="col-md-4 mb-3" style="width: 50px;padding-top: 6px;left: 24px;">
                       <br>
                       <button style="color:white; background-color:#23536f; top: 5px;" id="addMore">+</button> 
                   </div>
                    
-                    </div>             
+                    </div>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
 
-                      <div id="fieldList" style="padding-bottom: 20px;padding-top: 20px;">
-                    </div>
                     <!--  <div class="col-md-4 mb-3">
                     <div class="form-row">
                                   
@@ -123,7 +126,7 @@ Room Assets
                        </div>
                     </div>--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </div>-->
-                    <!--<div class="form-row">
+                    <!--a<div class="form-row">
                        
                     <div class="col-md-4 mb-3">
                         <label for="name" >Staff Sign</label>
@@ -141,24 +144,36 @@ Room Assets
                         </select>                                   
                       </div>-
                     
-                    </div>-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  
-                    
+                    </div>-->
+                    <div id="fieldList"  style="padding-bottom: 20px;padding-top: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                 
+                
                       <!--<div class="col-md-4 mb-3">
                         <label for="name" >Location Id</label>
                         <select class="form-control" style="height: 26px;padding: 3px 10px;" required="" name="location_id" id="location_id">
                             <option>--Select Location Id --</option>
                         </select>
                       </div>-->
+                    
+                    
+                    <br><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-
-                       <br><br>
-                </div> <!-- ./box-body -->
-
-                     <div class="box-footer text-right" style="padding-right:150px;">
-                        <a class="btn btn-link text-left" href="{{ route('condition_reports.index') }}">Cancel</a>
+       
+                     <div class="box-footer text-right">
+                        <br><br><a class="btn btn-link text-left" href="{{ route('condition_reports.index') }}">Cancel</a>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
                     </div>
+                </div>
 
                             <!-- col-md-8 -->
 

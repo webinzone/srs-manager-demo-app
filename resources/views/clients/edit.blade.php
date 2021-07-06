@@ -166,7 +166,13 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="room_no">Room No</label>
-                        <input type="number" value="{{ $client_detail->room_no}}" class="form-control" placeholder="Room No" id="room_no" name="room_no"  v-on:change="page_one.room_no = $event.target.value">                
+                        <select class="form-control" required="" id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
+                            <option>--   Select Resident Name  --</option>
+                          @foreach($rooms as $room)
+                          <option value="{{ $room->room_no }}" {{ $client_detail->room_no == $room->room_no ? 'selected' : ''  }}> &nbsp;&nbsp;&nbsp;{{ $room->room_no}}&nbsp;&nbsp;&nbsp; </option>
+                          @endforeach
+                        </select>
+                
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
 

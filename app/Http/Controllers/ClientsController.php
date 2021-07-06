@@ -15,6 +15,7 @@ use App\Models\GuardianDetail;
 use App\Models\HealthService;
 use App\Models\PensionDetail;
 use App\Models\ActivityLog;
+use App\Models\RoomDetail;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +47,10 @@ class ClientsController extends Controller
     {
          
         $this->authorize('create');
-        return view('clients/create');
+        $status = "Free";
+        $rooms = RoomDetail::where('status', '=', $status)->get();
+
+        return view('clients/create',compact('rooms'));
     }
 
     public function store()
@@ -264,7 +268,9 @@ class ClientsController extends Controller
         $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
         $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
         $income = explode(',', $pension_detail->income_type);
-        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income'));
+        $status = "Free";
+        $rooms = RoomDetail::where('status', '=', $status)->get();
+        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms'));
     }
     /**
      * Update the specified resource in storage.
