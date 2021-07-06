@@ -98,7 +98,7 @@
     </table>&nbsp;&nbsp;
     <table>
       <tr>
-        <td colspan="5" style="width: 185px" style=>&nbsp;&nbsp;&nbsp;&nbsp;<center><b>DURATION OF STAY</b></td></center>
+        <td colspan="5" ><center><b>DURATION OF STAY</b></td></center>
       </tr>
       <tr>
         <td>Fixed period stay form:  {{ $resident_agreement->f_period}}</td>
@@ -111,7 +111,7 @@
     </table>&nbsp;&nbsp;
     <table>
       <tr>
-        <td colspan="5" style="width: 185px" style=>&nbsp;&nbsp;&nbsp;&nbsp;<center><b>FEES AND CHARGES</b></td></center>
+        <td colspan="5" ><center><b>FEES AND CHARGES</b></td></center>
       </tr>
       <tr>
         <td>Fee for accommodation and personal support:  </td>
@@ -132,7 +132,7 @@
     </table>&nbsp;&nbsp;
     <table>
       <tr>
-        <td colspan="5" style="width: 185px" style=>&nbsp;&nbsp;&nbsp;&nbsp;<center><b>OTHER FEES AND CHARGES</b></td></center>
+        <td colspan="5" ><center><b>OTHER FEES AND CHARGES</b></td></center>
       </tr>
       <tr>
         <td>Security Deposit Charged:  {{ $resident_agreement->secu_depo}}</td>
@@ -145,25 +145,17 @@
     </table>&nbsp;&nbsp;
     <table>
       <tr>
-        <td colspan="5" style="width: 185px" style=>&nbsp;&nbsp;&nbsp;&nbsp;<center><b>OTHER FEES AND CHARGES</b></td></center>
+        <td colspan="5" ><center><b>OTHER FEES AND CHARGES</b></td></center>
       </tr>
       <tr>
         <td>Condition report provided to the resident?:  </td>
         <td><input type="checkbox" {{ $resident_agreement->condition_rep == 'Yes' ? 'checked' : ''  }}>Yes &nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->condition_rep == 'No' ? 'checked' : ''  }}>No&nbsp;&nbsp;</td>
       </tr>
       <tr>
-        <td>Furniture in resident's room belonging to thr SRS: {{ $resident_agreement->pers_prop}}</td>
-        <td><p>Attach or List items duly signed by staff and resident</p></td>
+        <td>Furniture in resident's room belonging to thr SRS: </td>
+        <td><p>{{ $resident_agreement->pers_prop}}</p></td>
       </tr>
 </table>
-   </div>
-   </div>
- </div>
- </div>
-
- <div id="print-content">
-        <div class="container">
-
       <table>
         <tr>
         <td>Reservation fee charged: </td>
@@ -186,11 +178,10 @@ included.</p>
 </td>
       </tr>
     </table>&nbsp;&nbsp;
-  </div> <div class="container">
 
-    <table>
+    <table >
       <tr>
-        <td colspan="5" style="width: 185px" style=>&nbsp;&nbsp;&nbsp;&nbsp;<center><b>MANAGEMENT OF RESIDENT’S MONEY</b></td></center>
+        <td colspan="5" ><center><b>MANAGEMENT OF RESIDENT’S MONEY</b></td></center>
       </tr>
       <tr>
         <td>Will the SRS assist the resident in managing their finances:  </td>
@@ -198,10 +189,10 @@ included.</p>
         Ammount to be managed:$ {{ $resident_agreement->assist_amnt}}</td>
       </tr>
     </table><br>
-    </div><div class="container">
+
     <table>
       <tr>
-        <td colspan="5" style="width: 185px" style=>&nbsp;&nbsp;&nbsp;&nbsp;<center><b>ITEMS AND SERVICES PROVIDED
+        <td colspan="5" ><center><b>ITEMS AND SERVICES PROVIDED
        </b></td></center>
       </tr>
       <tr>
@@ -226,119 +217,119 @@ depending on your ongoing requirements and fees may change.</b></p><br>
       <tr>
         <td>Bathing and showering</td>
         <td><form action="">    
-         <input type="checkbox" name="" value="Fall" />    
+         <input type="checkbox" {{ $resident_agreement->bath == 'Full' ? 'checked' : ''  }} name="" value="Fall" />    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" value="Part" />    
+         <input type="checkbox" name="" {{ $resident_agreement->bath == 'Part' ? 'checked' : ''  }} value="Part" />    
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" value="None" />    
+         <input type="checkbox" name="" {{ $resident_agreement->bath == 'None' ? 'checked' : ''  }} value="None" />    
         </form></td>
-        <td>Y/N</td>
+        <td>{{ $resident_agreement->bath_fee}}</td>
       </tr>
       <tr>
         <td>Oral Support</td>
         <td><form action="">    
-         <input type="checkbox" name="" value="Fall" />    
+         <input {{ $resident_agreement->oral == 'Full' ? 'checked' : ''  }}  type="checkbox" name="" value="Fall" />    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" value="Part" />    
+         <input {{ $resident_agreement->oral == 'Part' ? 'checked' : ''  }}  type="checkbox" name="" value="Part" />    
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" value="None" />    
+         <input {{ $resident_agreement->oral == 'None' ? 'checked' : ''  }}  type="checkbox" name="" value="None" />    
         </form></td>
-        <td>Y/N</td>
+        <td>{{ $resident_agreement->oral_fee}}</td>
       </tr>
       <tr>
         <td>Hair and nails</td>
         <td><form action="">    
-         <input type="checkbox" name="" value="Fall" />    
+         <input type="checkbox" {{ $resident_agreement->hair == 'Full' ? 'checked' : ''  }} name="" value="Fall" />    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" value="Part" />    
+         <input type="checkbox" {{ $resident_agreement->hair == 'Part' ? 'checked' : ''  }} name="" value="Part" />    
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" value="None" />    
+         <input type="checkbox" {{ $resident_agreement->hair == 'None' ? 'checked' : ''  }} name="" value="None" />    
         </form></td>
-        <td>Y/N</td>
+        <td>{{ $resident_agreement->hair_fee}}</td>
       </tr>
       <tr>
         <td>Toileting</td>
         <td><form action="">    
-         <input type="checkbox" name="" value="Fall" />    
+         <input type="checkbox" {{ $resident_agreement->toileting == 'Full' ? 'checked' : ''  }} name="" value="Fall" />    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" value="Part" />    
+         <input type="checkbox" {{ $resident_agreement->toileting == 'Part' ? 'checked' : ''  }} name="" value="Part" />    
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" value="None" />    
+         <input type="checkbox" {{ $resident_agreement->toileting == 'None' ? 'checked' : ''  }} name="" value="None" />    
         </form></td>
-        <td>Y/N</td>
+        <td>{{ $resident_agreement->toileting_fee}}</td>
       </tr>
       <tr>
         <td>Mobility</td>
         <td><form action="">    
-         <input type="checkbox" name="" value="Fall" />    
+         <input type="checkbox" {{ $resident_agreement->mobility == 'Full' ? 'checked' : ''  }} name="" value="Fall" />    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" value="Part" />    
+         <input type="checkbox" {{ $resident_agreement->mobility == 'Part' ? 'checked' : ''  }} name="" value="Part" />    
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" value="None" />    
+         <input type="checkbox" {{ $resident_agreement->mobility == 'None' ? 'checked' : ''  }} name="" value="None" />    
         </form></td>
-        <td>Y/N</td>
+        <td>{{ $resident_agreement->mobility_fee}}</td>
       </tr>
       <tr>
         <td>Assistance with medication</td>
         <td><form action="">    
-         <input type="checkbox" name="" value="Fall" />    
+         <input type="checkbox" name="" {{ $resident_agreement->medi_assi == 'Full' ? 'checked' : ''  }} value="Fall" />    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" value="Part" />    
+         <input type="checkbox" name="" {{ $resident_agreement->medi_assi == 'Part' ? 'checked' : ''  }} value="Part" />    
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" value="None" />    
+         <input type="checkbox" name="" {{ $resident_agreement->medi_assi == 'None' ? 'checked' : ''  }} value="None" />    
         </form></td>
-        <td>Y/N</td>
+        <td>{{ $resident_agreement->medi_assi_fee}}</td>
       </tr>
       <tr>
         <td>Continence management</td>
         <td><form action="">    
-         <input type="checkbox" name="" value="Fall" />    
+         <input type="checkbox" name="" {{ $resident_agreement->continence == 'Full' ? 'checked' : ''  }} value="Fall" />    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" value="Part" />    
+         <input type="checkbox" name="" {{ $resident_agreement->continence == 'Part' ? 'checked' : ''  }} value="Part" />    
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" value="None" />    
+         <input type="checkbox" name="" {{ $resident_agreement->continence == 'None' ? 'checked' : ''  }} value="None" />    
         </form></td>
-        <td>Y/N</td>
+        <td>{{ $resident_agreement->continence_fee}}</td>
       </tr>
       <tr>
         <td>Bed making</td>
         <td><form action="">    
-         <input type="checkbox" name="" value="Fall" />    
+         <input type="checkbox" name="" {{ $resident_agreement->bed_make == 'Full' ? 'checked' : ''  }} value="Fall" />    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" value="Part" />    
+         <input type="checkbox" name="" {{ $resident_agreement->bed_make == 'Part' ? 'checked' : ''  }} value="Part" />    
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" value="None" />    
+         <input type="checkbox" name="" {{ $resident_agreement->bed_make == 'None' ? 'checked' : ''  }} value="None" />    
         </form></td>
-        <td>Y/N</td>
+        <td>{{ $resident_agreement->bed_make_fee}}</td>
       </tr>
       <tr>
         <td>Dressing</td>
         <td><form action="">    
-         <input type="checkbox" name="" value="Fall" />    
+         <input type="checkbox" name="" {{ $resident_agreement->dressing == 'Full' ? 'checked' : ''  }} value="Fall" />    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" value="Part" />    
+         <input type="checkbox" name="" {{ $resident_agreement->dressing == 'Part' ? 'checked' : ''  }} value="Part" />    
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" value="None" />    
+         <input type="checkbox" name="" {{ $resident_agreement->dressing == 'None' ? 'checked' : ''  }} value="None" />    
         </form></td>
-        <td>Y/N</td>
+        <td>{{ $resident_agreement->dressing_fee}}</td>
       </tr><br>
     </table>
       <h7><p><i>Other Services</i></p></h7>
@@ -349,7 +340,7 @@ depending on your ongoing requirements and fees may change.</b></p><br>
         <p>Assist with personal laundry is available once a week (Depends on individual circumstances). Current cost for this service is S0 All articles must be washing machine safe and clearly marked with the resident's name.</p><br>
     <table>
       <tr>
-        <td colspan="5" style="width: 185px" style=>&nbsp;&nbsp;&nbsp;&nbsp;<center><b>RESIDENT CONCERNS AND COMPLAINTS</b></td></center>
+        <td colspan="5" ><center><b>RESIDENT CONCERNS AND COMPLAINTS</b></td></center>
       </tr>
       <tr>
         <td><p>At our facility, complaints (from you/family) and fee dback are taken seriously, and we will do our best to resolve them promptly. We have nominated our Manager as
@@ -358,9 +349,7 @@ with the outcome, you/family can also get assistance from a community visitor or
 Residents Handbook for further details, setting out the minimum standards of Support and accommodation, are available at the Office for your information, Living in a SRS — Guide to residents and prospective residents.</p></td>
       </tr>
     </table>&nbsp;&nbsp;
-  </div></div>
-  <div id="print-content">
-        <div class="container">
+  
     <center>
       <h2>HOUSE RULES</h2>
       <i>Rights of Residents:</i>You have a right to:<br>
@@ -433,12 +422,9 @@ Residents Handbook for further details, setting out the minimum standards of Sup
       <li>Offers range of outings, social gatherings for the elderly</li>
       <li>Melton Community Centre</li>
     </ul>
+      <br>
 
 
-</div></div>
-
- <div id="print-content">
-        <div class="container">
           <table>
             <tr>
               <td>
@@ -484,10 +470,7 @@ Residents Handbook for further details, setting out the minimum standards of Sup
             </td>
             </tr>
           </table>
-        </div>
- </div>
- <div id="print-content">
-        <div class="container">
+        <br>
       <table>
       <tr>
            <div style="border:1px solid black;">
