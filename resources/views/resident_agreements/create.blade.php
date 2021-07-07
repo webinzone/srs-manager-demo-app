@@ -196,12 +196,12 @@
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label>Security deposite charged ?</label>
-                        <br><input type="radio"  id="secu_depo"  value="Yes" name="secu_depo">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="secu_depo" value="No" name="secu_depo">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp; 
+                        <br><input type="radio" onclick="findselected();" id="secu_depo"  value="Yes" name="secu_depo">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" onclick="findselected();" id="secu_depo" value="No" name="secu_depo">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp; 
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Amount Payable</label>
-                        <input type="text" name="amt_pay" class="form-control" placeholder="Amount Payable">                                        
+                        <input type="text" name="amt_pay" id="amt_pay" class="form-control" placeholder="Amount Payable" disabled>                                        
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Condition report provided to the resident ?</label>
@@ -222,23 +222,23 @@
                       
                       <div class="col-md-3 mb-3">
                         <label>Reservation fee charged ?</label>
-                        <br><input type="radio"  id="reserv_fee"  value="Yes" name="reserv_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="reserv_fee" value="No" name="reserv_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+                        <br><input type="radio"  id="r1"  onclick="findselected1();" value="Yes" name="reserv_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" onclick="findselected1();" id="r1" value="No" name="reserv_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                       </div>
                       <div class="col-md-3 mb-3">
 
                         <label>Reservation Amount</label>
-                        <input type="text" name="amt_res" class="form-control" placeholder="Amount">                                       
+                        <input type="text" id="r2" name="amt_res" class="form-control" placeholder="Amount" disabled>                                       
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Establishment fee charged ?</label>
-                        <br><input type="radio"  id="est_fee"  value="Yes" name="est_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="est_fee" value="No" name="est_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
+                        <br><input type="radio"  id="e1" onclick="findselected2();" value="Yes" name="est_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="e1" onclick="findselected2();" value="No" name="est_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
                       </div>
                       <div class="col-md-3 mb-3">
 
                         <label>Establishment Amount</label>
-                        <input type="text" name="amt_est" class="form-control" placeholder="Amount">                                       
+                        <input type="text" id="e2" name="amt_est" class="form-control" placeholder="Amount" disabled>                                       
                       </div>
                        
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -248,13 +248,13 @@
                       <div class="col-md-6 mb-3">
 
                         <label>Fee in advance charged for other items/service provide by SRS ?</label>
-                        <br><input type="radio"  id="advnc_fee"  value="Yes" name="advnc_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="advnc_fee" value="No" name="advnc_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                      
+                        <br><input type="radio" onclick="findselected3();" id="a1"  value="Yes" name="advnc_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="a1" onclick="findselected3();" value="No" name="advnc_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                      
                       </div>
                         <div class="col-md-3 mb-3">
 
                         <label>Advance Amount</label>
-                        <input type="text" name="amt_adv" class="form-control" placeholder="Amount">                                       
+                        <input type="text" name="amt_adv" id="a2" class="form-control" placeholder="Amount" disabled>                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Refund to resident</label>
@@ -266,12 +266,12 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Will the SRS assist the resident in managing their finances ?</label>
-                        <br><input type="radio"  id="srs_assist_status"  value="Yes" name="srs_assist_status">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="srs_assist_status" value="No" name="srs_assist_status">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                       
+                        <br><input type="radio" onclick="findselected4();" id="srs_assist_status"  value="Yes" name="srs_assist_status">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" onclick="findselected4();" id="srs_assist_status" value="No" name="srs_assist_status">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                       
                       </div>
                        <div class="col-md-6 mb-3" >
                         <label>Ammount to be managed</label>
-                        <input type="text" style="width:200px" name="assist_amnt" class="form-control" placeholder="Ammount to be managed">                                        
+                        <input type="text" id="s1" style="width:200px" name="assist_amnt" class="form-control" placeholder="Ammount to be managed" disabled>                                        
                       </div>
                 </div>
 
@@ -296,119 +296,119 @@
                   <tr>
                     <td>Bathing and showering</td>
                     <td> &nbsp;&nbsp;&nbsp;   
-                     <input type="checkbox" name="bath" value="Full" />    
+                     <input type="checkbox" name="bath" onclick="findselected5();" value="Full" />    
                     </td>
                      <td>  &nbsp;&nbsp;&nbsp;      
-                     <input type="checkbox" name="bath" value="Part" />    
+                     <input type="checkbox" name="bath" onclick="findselected5();" value="Part" />    
                     </td>
                     <td>  &nbsp;&nbsp;&nbsp;      
-                     <input type="checkbox" name="bath" value="None" />    
+                     <input type="checkbox" name="bath" onclick="findselected5();" value="None" />    
                     </td>
-                    <td><input type="text" name="bath_fee"></td>
+                    <td><input type="text" id="f1" name="bath_fee"></td>
                   </tr>
                   <tr>
                     <td>Oral Support</td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="oral" value="Full" />    
+                     <input type="checkbox" name="oral" onclick="findselected6();" value="Full" />    
                     </td>
                      <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="oral" value="Part" />    
+                     <input type="checkbox" name="oral" onclick="findselected6();" value="Part" />    
                     </td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="oral" value="None" />    
+                     <input type="checkbox" name="oral" onclick="findselected6();" value="None" />    
                     </td>
-                    <td><input type="text" name="oral_fee"></td>
+                    <td><input type="text" id="f2" name="oral_fee"></td>
                   </tr>
                   <tr>
                     <td>Hair and nails</td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="hair" value="Full" />    
+                     <input type="checkbox" name="hair" onclick="findselected7();" value="Full" />    
                     </td>
                      <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="hair" value="Part" />    
+                     <input type="checkbox" name="hair" onclick="findselected7();" value="Part" />    
                     </td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="hair" value="None" />    
+                     <input type="checkbox" name="hair" onclick="findselected7();" value="None" />    
                     </td>
-                    <td><input type="text" name="hair_fee"></td>
+                    <td><input type="text" id="f3" name="hair_fee"></td>
                   </tr>
                   <tr>
                     <td>Toileting</td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="toileting" value="Full" />    
+                     <input type="checkbox" name="toileting" onclick="findselected8();" value="Full" />    
                     </td>
                      <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="toileting" value="Part" />    
+                     <input type="checkbox" name="toileting" onclick="findselected8();" value="Part" />    
                     </td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="toileting" value="None" />    
+                     <input type="checkbox" name="toileting" onclick="findselected8();" value="None" />    
                     </td>
-                    <td><input type="text" name="toileting_fee"></td>
+                    <td><input type="text" id="f4" name="toileting_fee"></td>
                   </tr>
                   <tr>
                     <td>Mobility</td>
                     <td>  &nbsp;&nbsp;&nbsp;      
-                     <input type="checkbox" name="mobility" value="Full" />    
+                     <input type="checkbox" name="mobility" onclick="findselected9();" value="Full" />    
                     </td>
                      <td>  &nbsp;&nbsp;&nbsp;      
-                     <input type="checkbox" name="mobility" value="Part" />    
+                     <input type="checkbox" name="mobility" onclick="findselected9();" value="Part" />    
                     </td>
                     <td>  &nbsp;&nbsp;&nbsp;      
-                     <input type="checkbox" name="mobility" value="None" />    
+                     <input type="checkbox" name="mobility" onclick="findselected9();" value="None" />    
                     </td>
-                    <td><input type="text" name="mobility_fee"></td>
+                    <td><input type="text" id="f5" name="mobility_fee"></td>
                   </tr>
                   <tr>
                     <td>Assistance with medication</td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="medi_assi" value="Full" />    
+                     <input type="checkbox" name="medi_assi" onclick="findselected10();" value="Full" />    
                     </td>
                      <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="medi_assi" value="Part" />    
+                     <input type="checkbox" name="medi_assi" onclick="findselected10();" value="Part" />    
                     </td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="medi_assi" value="None" />    
+                     <input type="checkbox" name="medi_assi" onclick="findselected10();" value="None" />    
                     </td>
-                    <td><input type="text" name="medi_assi_fee"></td>
+                    <td><input type="text" id="f6" name="medi_assi_fee"></td>
                   </tr>
                   <tr>
                     <td>Continence management</td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="continence" value="Full" />    
+                     <input type="checkbox" name="continence" onclick="findselected11();" value="Full" />    
                     </td>
                      <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="continence" value="Part" />    
+                     <input type="checkbox" name="continence"onclick="findselected11();" value="Part" />    
                     </td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="continence" value="None" />    
+                     <input type="checkbox" name="continence"onclick="findselected11();" value="None" />    
                     </td>
-                    <td><input type="text" name="continence_fee"></td>
+                    <td><input type="text" id="f7" name="continence_fee"></td>
                   </tr>
                   <tr>
                     <td>Bed making</td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="bed_make" value="Full" />    
+                     <input type="checkbox" name="bed_make" onclick="findselected12();" value="Full" />    
                     </td>
                      <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="bed_make" value="Part" />    
+                     <input type="checkbox" name="bed_make" onclick="findselected12();" value="Part" />    
                     </td>
                     <td>  &nbsp;&nbsp;&nbsp;     
-                     <input type="checkbox" name="bed_make" value="None" />    
+                     <input type="checkbox" name="bed_make" onclick="findselected12();" value="None" />    
                     </td>
-                    <td><input type="text" name="bed_make_fee"></td>
+                    <td><input type="text" id="f8" name="bed_make_fee"></td>
                   </tr>
                   <tr>
                     <td>Dressing</td>
                     <td>   &nbsp;&nbsp;&nbsp;    
-                     <input type="checkbox" name="dressing" value="Full" />    
+                     <input type="checkbox" name="dressing" onclick="findselected13();" value="Full" />    
                     </td>
                      <td>   &nbsp;&nbsp;&nbsp;    
-                     <input type="checkbox" name="dressing" value="Part" />    
+                     <input type="checkbox" name="dressing" onclick="findselected13();" value="Part" />    
                     </td>
                     <td>   &nbsp;&nbsp;&nbsp;    
-                     <input type="checkbox" name="dressing" value="None" />    
+                     <input type="checkbox" name="dressing" onclick="findselected13();" value="None" />    
                     </td>
-                    <td><input type="text" name="dressing_fee"></td>
+                    <td><input type="text" id="f9" name="dressing_fee"></td>
                   </tr><br>
                 </table>
               </div>
@@ -480,7 +480,8 @@ $('#resi_name').change(function(){
         success: function(response){
             if(response != null){
                 $('#roomm').val(response.room_no);            
-
+                 $('#fperiod').val(response.start_period);
+                $('#endperiod').val(response.end_period);           
             }
             else{
               alert("error");
@@ -525,8 +526,7 @@ $('#resi_name').change(function(){
         dataType: 'json',
         success: function(response){
             if(response != null){
-                $('#fperiod').val(response.b_from);
-                $('#endperiod').val(response.b_to);           
+               
 
             }
             else{
@@ -550,6 +550,155 @@ $('#resi_name').change(function(){
     $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
 </script>
+<script type="text/javascript">
+ function findselected() { 
+    var result = document.querySelector('input[name="secu_depo"]:checked').value;
+    if(result=="No"){
 
+        document.getElementById("amt_pay").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("amt_pay").removeAttribute('disabled', true);
+    }
+}
+function findselected1() { 
+    var result = document.querySelector('input[name="reserv_fee"]:checked').value;
+    if(result=="No"){
+
+        document.getElementById("r2").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("r2").removeAttribute('disabled', true);
+    }
+}
+function findselected2() { 
+    var result = document.querySelector('input[name="est_fee"]:checked').value;
+    if(result=="No"){
+
+        document.getElementById("e2").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("e2").removeAttribute('disabled', true);
+    }
+}
+function findselected3() { 
+    var result = document.querySelector('input[name="advnc_fee"]:checked').value;
+    if(result=="No"){
+
+        document.getElementById("a2").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("a2").removeAttribute('disabled', true);
+    }
+}
+function findselected4() { 
+    var result = document.querySelector('input[name="srs_assist_status"]:checked').value;
+    if(result=="No"){
+
+        document.getElementById("s1").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("s1").removeAttribute('disabled', true);
+    }
+}
+function findselected5() { 
+    var result = document.querySelector('input[name="bath"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f1").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f1").removeAttribute('disabled', true);
+    }
+  }
+function findselected6() { 
+
+    var result = document.querySelector('input[name="oral"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f2").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f2").removeAttribute('disabled', true);
+    }
+  }
+function findselected7() { 
+
+    var result = document.querySelector('input[name="hair"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f3").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f3").removeAttribute('disabled', true);
+    }
+}
+function findselected8() { 
+
+    var result = document.querySelector('input[name="toileting"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f4").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f4").removeAttribute('disabled', true);
+    }
+}
+function findselected9() { 
+
+    var result = document.querySelector('input[name="mobility"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f5").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f5").removeAttribute('disabled', true);
+    }
+}
+function findselected10() { 
+
+    var result = document.querySelector('input[name="medi_assi"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f6").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f6").removeAttribute('disabled', true);
+    }
+}
+function findselected11() { 
+
+    var result = document.querySelector('input[name="continence"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f7").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f7").removeAttribute('disabled', true);
+    }
+}
+function findselected12() { 
+
+    var result = document.querySelector('input[name="bed_make"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f8").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f8").removeAttribute('disabled', true);
+    }
+}
+function findselected13() { 
+
+    var result = document.querySelector('input[name="dressing"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f9").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f9").removeAttribute('disabled', true);
+    }
+}
+</script>
 @include ('partials.bootstrap-table')
 @stop

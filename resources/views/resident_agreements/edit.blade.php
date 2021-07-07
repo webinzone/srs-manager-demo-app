@@ -432,6 +432,107 @@
 @stop
 
 @section('moar_scripts')
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSADetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+               // $('#roomm').val(response.data.room_no);
+               // $('#staffm').val(response.staff.stf_name);
+                $('#guardianm').val(response.gr_name);
+                $('#gtel').val(response.gr_lan);
+                $('#gemail').val(response.gr_email);
+                $('#gadress').val(response.gr_address);
+                //$('#fperiod').val(response.books.b_from);
+                //$('#endperiod').val(response.books.b_to);
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAclientDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#roomm').val(response.room_no);            
+                 $('#fperiod').val(response.start_period);
+                $('#endperiod').val(response.end_period);           
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAstaffDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#staffm').val(response.stf_name);            
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAbookDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+               
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+
 <script type="text/javascript">
   $('input[type="checkbox"]').on('change', function() {
     $('input[name="' + this.name + '"]').not(this).prop('checked', false);

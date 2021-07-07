@@ -48,8 +48,8 @@
     <center>
       <h1 >MEADOWBROOK</h1>
     </center>
-    <p style="font-size: 15px;"><center>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</p></center>
-    <h2>RESIDENTIAL AND SERVICES AGREEMENT</h2><br>
+    <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></p></center>
+    <h3><center>RESIDENTIAL AND SERVICES AGREEMENT</center></h3><br>
     <p><i>Type of service</i></p>
     <p>Our facility is a Supported Residential Service</p>
     <p><i>Philosophy</i></p>
@@ -132,12 +132,12 @@
         <td colspan="5" ><center><b>OTHER FEES AND CHARGES</b></td></center>
       </tr>
       <tr>
-        <td>Security Deposit Charged:  </td>
-        <td>{{ $resident_agreement->secu_depo }}</td>
+        <td width="300px;">Security Deposit Charged:  </td>
+        <td width="300px;">{{ $resident_agreement->secu_depo }}</td>
       </tr>
       <tr>
-        <td>Amount Payable: </td>
-        <td>{{ $resident_agreement->amt_pay}}</td>
+        <td width="300px;">Amount Payable: </td>
+        <td width="300px;">{{ $resident_agreement->amt_pay}}</td>
       </tr>
     </table>&nbsp;&nbsp;
     <table>
@@ -155,24 +155,32 @@
 </table>
       <table>
         <tr>
-        <td>Reservation fee charged: </td>
-        <td>{{ $resident_agreement->reserv_fee}} </td>
+        <td width="300px;">Reservation fee charged: </td>
+        <td width="300px;">{{ $resident_agreement->reserv_fee}} </td>
+        <td width="300px;"> Amount:</td>
+        <td width="300px;">{{ $resident_agreement->amt_res}}</td>
       </tr>
       <tr>
-        <td>Establishment fee charged: </td>
-        <td>{{ $resident_agreement->est_fee}}</td>
+        <td width="300px;">Establishment fee charged: </td>
+        <td width="300px;">{{ $resident_agreement->est_fee}}</td>
+        <td width="300px;"> Amount:</td>
+        <td width="300px;">{{ $resident_agreement->amt_est}}</td>
       </tr>
       <tr>
-        <td>Fee in advance charged for other items/service provide by SRS: </td>
-        <td>{{ $resident_agreement->advnc_fee}}</td>
+        <td width="300px;">Fee in advance charged for other items/service provide by SRS: </td>
+        <td width="300px;">{{ $resident_agreement->advnc_fee}}</td>
+        <td width="300px;"> Amount:</td>
+        <td width="300px;">{{ $resident_agreement->amt_adv}}</td>
       </tr>
       <tr>
-        <td>Refund to resident: {{ $resident_agreement->refund}}</td>
-        <td><p>Refunds of money held in trust will be returned to the resident within 14 days of leaving the SRS. A resident can apply to the Victorian Civil and Administrative
+        <td width="300px;">Refund to resident: {{ $resident_agreement->refund}}</td>
+        <td width="500px;"><p>Refunds of money held in trust will be returned to the resident within 14 days of leaving the SRS. A resident can apply to the Victorian Civil and Administrative
 Tribunal (VCAT) for an order if the proprietor does not refund a security, fee in
 advance, reservation fee or establishment fee in accordance with the Act, must be
 included.</p>
 </td>
+      <td width="300px;"> Amount:</td>
+        <td width="300px;">{{ $resident_agreement->refund}}</td>
       </tr>
     </table>&nbsp;&nbsp;
 
@@ -181,8 +189,10 @@ included.</p>
         <td colspan="5" ><center><b>MANAGEMENT OF RESIDENT’S MONEY</b></td></center>
       </tr>
       <tr>
-        <td>Will the SRS assist the resident in managing their finances:  </td>
-        <td>{{ $resident_agreement->srs_assist_status}}</td>
+        <td width="300px;">Will the SRS assist the resident in managing their finances:  </td>
+        <td width="300px;">{{ $resident_agreement->srs_assist_status}}</td>
+        <td width="300px;"> Amount:</td>
+        <td width="300px;">{{ $resident_agreement->assist_amnt}}</td>
       </tr>
     </table><br>
 
@@ -196,18 +206,18 @@ included.</p>
         <p><b>Towards any extra services that need to be included may incur variations in your charge/week, payable by
 towards which will be notified to you after your Support plan assessment. Care and Support needs may change
 depending on your ongoing requirements and fees may change.</b></p><br>
-      <p>Personal and Special Support Services (tick applicable boxes)</p><br>
+      <p>Personal and Special Support Services </p><br>
       <table style="border: 2px; border-width: 1px; border-color: black;">
       <tr>
-        <th>Type of Support</th>
+        <th>Types of Support</th>
         <th colspan="3">Level of assistance offered</th>
         <th>Included in fee</th>
       </tr>
       <tr>
         <td></td>
-        <td>Full</td>
-        <td>Part</td>
-        <td>None</td>
+        <td><b>Full</b></td>
+        <td><b>Part</b></td>
+        <td><b>None</b></td>
         <td></td>
       </tr>
       <tr>

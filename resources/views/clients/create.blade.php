@@ -72,14 +72,38 @@
                         <label for="dob">Date of birth</label>
                         <input type="date" class="form-control" id="dob" placeholder="Date of birth" name="dob" v-on:change="page_one.dob = $event.target.value">              
                       </div>
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-2 mb-3">
                         <label for="religion">Religion</label>
                         <input type="text" class="form-control" id="religion" placeholder="Religion"  name="religion" v-on:change="page_one.religion = $event.target.value">              
                       </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-2 mb-3">
+                        <label for="nationality">Nationality</label>
+                        <input type="text" class="form-control" id="nationality" placeholder="Nationality"  name="nationality" v-on:change="page_one.nationality = $event.target.value">            
+                      </div> 
+                       <div class="col-md-3 mb-3">
+                        <label for="res_ph">Mobile Number</label>
+                        <input type="tel" class="form-control" id="res_ph" placeholder="Phone" name="ph"  v-on:change="page_one.res_ph = $event.target.value">          
+                      </div> 
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+
+                      <div class="col-md-3 mb-3">
+                        <label for="res_email">Email</label>
+                        <input type="email" class="form-control" id="res_email" placeholder="Email"  name="res_email"  v-on:change="page_one.res_email = $event.target.value">                
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="res_fax">Fax</label>
+                        <input type="text" class="form-control" id="Fax" placeholder="res_fax" name="res_fax" v-on:change="page_one.res_fax = $event.target.value">            
+                      </div>
+                      <div class="col-md-3 mb-3">
                         <label for="l_known">Languages Known</label>
                         <input type="text" class="form-control" id="l_known" placeholder="Languages Known"  name="l_known"  v-on:change="page_one.l_known = $event.target.value">          
-                      </div>  
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <label for="pre_address">Previous Address</label>
+                        <input type="text" class="form-control" id="pre_address" placeholder="Previous Address" name="pre_address"  v-on:change="page_one.pre_address = $event.target.value">          
+                      </div>
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">  
                       <div class="col-md-3 mb-3" style="width:170px;right: 0px;">
@@ -108,7 +132,7 @@
                       <div class="form-row">  
                       <div class="col-md-3 mb-3">
                         <label for="respite">Respite/permanent</label>
-                       <select name="respite"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                       <select name="respite" id="respite" class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="Respite" style="font-size: 14px;">Respite</option> 
                             <option value="Permanent" style="font-size: 14px;">Permanent</option> 
                         </select> 
@@ -126,20 +150,26 @@
 
                       <div class="col-md-3 mb-3">
                         <label for="adm_date">Admission Date</label>
-                        <input type="date" class="form-control" id="adm_date" placeholder="Admission Date" name="adm_date"  v-on:change="page_one.adm_date = $event.target.value">          
+                        <input type="date" class="form-control" id="adm_date" placeholder="Admission Date" name="adm_date"  v-on:change="page_one.adm_date = $event.target.value" disabled>          
                       </div>
 
                        </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
+                      <div class="col-md-3 mb-3">
+                        <label for="room_no">Room No</label>
+                        <select class="form-control" required="" id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
+                            <option>--Select Room--</option>
+                          @foreach($rooms as $room)
+                          <option value="{{ $room->room_no }}"> &nbsp;&nbsp;&nbsp;{{ $room->room_no}}&nbsp;&nbsp;&nbsp; </option>
+                          @endforeach
+                        </select>
 
+                      </div> 
                       <div class="col-md-3 mb-3">
                         <label for="acc">Account to be addressed</label>
                         <input type="text" class="form-control" id="acc" placeholder="Account to be addressed" name="acc"  v-on:change="page_one.acc = $event.target.value">            
                       </div>  
-                       <div class="col-md-3 mb-3">
-                        <label for="res_ph">Phone</label>
-                        <input type="tel" class="form-control" id="res_ph" placeholder="Phone" name="ph"  v-on:change="page_one.res_ph = $event.target.value">          
-                      </div>
+                       
                    
                      
                       <!--<div class="col-md-4 mb-3">
@@ -150,47 +180,20 @@
                         <label for="dislikes">Dislikes</label>
                         <textarea class="form-control" id="dislikes" placeholder="Dislikes" name="dislikes"  v-on:change="page_one.dislikes = $event.target.value"></textarea>
                       </div> -->
+                      
+                      
                       <div class="col-md-3 mb-3">
-                        <label for="res_fax">Fax</label>
-                        <input type="text" class="form-control" id="Fax" placeholder="res_fax" name="res_fax" v-on:change="page_one.res_fax = $event.target.value">            
-                      </div> 
-                      <div class="col-md-3 mb-3">
-                        <label for="res_email">Email</label>
-                        <input type="email" class="form-control" id="res_email" placeholder="Email"  name="res_email"  v-on:change="page_one.res_email = $event.target.value">                
-                      </div>
-                       </div>&nbsp;&nbsp;&nbsp;
-                       <div class="form-row">  
-                      <div class="col-md-4 mb-3">
+
                         <label for="ref_by">Ref By</label>
                         <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
                       </div> 
-                                     
-                      <div class="col-md-4 mb-3">
-                        <label for="pre_address">Previous Address</label>
-                        <input type="text" class="form-control" id="pre_address" placeholder="Previous Address" name="pre_address"  v-on:change="page_one.pre_address = $event.target.value">          
-                      </div>
-                      <div class="col-md-4 mb-3">
+                            
+                      <div class="col-md-3 mb-3">
                         <label for="ent_no">Entitlement No</label>
                         <input type="text" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
                       </div>  
                        </div>&nbsp;&nbsp;&nbsp;
-                       <div class="form-row">  
-                      <div class="col-md-4 mb-3">
-                        <label for="nationality">Nationality</label>
-                        <input type="text" class="form-control" id="nationality" placeholder="Nationality"  name="nationality" v-on:change="page_one.nationality = $event.target.value">            
-                      </div> 
-                            
-                      <div class="col-md-4 mb-3">
-                        <label for="room_no">Room No</label>
-                        <select class="form-control" required="" id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
-                            <option>--   Select Resident Name  --</option>
-                          @foreach($rooms as $room)
-                          <option value="{{ $room->room_no }}"> &nbsp;&nbsp;&nbsp;{{ $room->room_no}}&nbsp;&nbsp;&nbsp; </option>
-                          @endforeach
-                        </select>
-
-                      </div>  
-                       </div>&nbsp;&nbsp;&nbsp;
+                       
 
                       
                       <!--<div class="col-md-4 mb-3">
@@ -1096,11 +1099,20 @@ $(document).ready(function (e) {
 </script>
 <script type="text/javascript">
   
-var sel = document.getElementById("respite"), text = document.getElementById("adm_date");
 
-sel.onchange = function(e) {
-  text.disabled = (sel.value !== "Respite");
-};
+$('#respite').change(function () {
+    if ($(this).find('option:selected').text() != 'Permanent') {
+        $('#adm_date').prop('disabled', true);
+        $('#book_from').prop('disabled', false);
+        $('#book_to').prop('disabled', false);
+
+
+    } else {
+        $('#adm_date').prop('disabled', false);
+        $('#book_from').prop('disabled', true);
+        $('#book_to').prop('disabled', true);
+    }
+});
 
 </script>
 
