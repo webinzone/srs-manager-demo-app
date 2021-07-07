@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-RoomDetails
+
 @parent
 @stop
 
