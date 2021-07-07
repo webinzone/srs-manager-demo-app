@@ -48,6 +48,7 @@
     <center>
       <h1 >MEADOWBROOK</h1>
     </center>
+    <p style="font-size: 15px;"><center>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</p></center>
     <h2>RESIDENTIAL AND SERVICES AGREEMENT</h2><br>
     <p><i>Type of service</i></p>
     <p>Our facility is a Supported Residential Service</p>
@@ -101,12 +102,12 @@
         <td colspan="5" ><center><b>DURATION OF STAY</b></td></center>
       </tr>
       <tr>
-        <td>Fixed period stay form:  {{ $resident_agreement->f_period}}</td>
-        <td>Ending on:  {{ $resident_agreement->ending_on}}</td>
+        <td>Fixed period stay form:  {{date('d-m-Y', strtotime($resident_agreement->f_period)) }}</td>
+        <td>Ending on:   {{date('d-m-Y', strtotime($resident_agreement->ending_on)) }}</td>
       </tr>
       <tr>
         <td>Indefinite period of stay form: </td>
-        <td>{{ $resident_agreement->i_period}}</td>
+        <td>{{date('d-m-Y', strtotime($resident_agreement->i_period)) }}</td>
       </tr>
     </table>&nbsp;&nbsp;
     <table>
@@ -123,11 +124,11 @@
       </tr>
       <tr>
         <td>Any rent paid in advance: </td>
-        <td><input {{ $resident_agreement->any_rent_adv == 'Weekly' ? 'checked' : ''  }} type="checkbox">Weekly &nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->any_rent_adv == 'Fortnightly' ? 'checked' : ''  }}>Fortnightly&nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->any_rent_adv == 'Every Calender Month' ? 'checked' : ''  }}>Every calendar month&nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->any_rent_adv == 'Other' ? 'checked' : ''  }}>Other</td>
+        <td>{{ $resident_agreement->any_rent_adv}}</td>
       </tr>
       <tr>
         <td>How to pay: </td>
-        <td><input {{ $resident_agreement->pay_method == 'Direct Debit' ? 'checked' : ''  }}type="checkbox">Direct Debit &nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->pay_method == 'Cash' ? 'checked' : ''  }}>Cash&nbsp;&nbsp;<input {{ $resident_agreement->pay_method == 'State Trustees' ? 'checked' : ''  }} type="checkbox">State Trustees&nbsp;&nbsp;<input{{ $resident_agreement->pay_method == 'Centrelink' ? 'checked' : ''  }} type="checkbox">Centrelink<input type="checkbox" {{ $resident_agreement->pay_method == 'Other' ? 'checked' : ''  }}>Other</td>
+        <td>{{ $resident_agreement->pay_method}}</td>
       </tr>
     </table>&nbsp;&nbsp;
     <table>
@@ -135,8 +136,8 @@
         <td colspan="5" ><center><b>OTHER FEES AND CHARGES</b></td></center>
       </tr>
       <tr>
-        <td>Security Deposit Charged:  {{ $resident_agreement->secu_depo}}</td>
-        <td><input type="checkbox" {{ $resident_agreement->secu_depo == 'Yes' ? 'checked' : ''  }} >Yes &nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->secu_depo == 'No' ? 'checked' : ''  }} >No&nbsp;&nbsp;</td>
+        <td>Security Deposit Charged:  </td>
+        <td>{{ $resident_agreement->secu_depo }}</td>
       </tr>
       <tr>
         <td>Amount Payable: </td>
@@ -149,7 +150,7 @@
       </tr>
       <tr>
         <td>Condition report provided to the resident?:  </td>
-        <td><input type="checkbox" {{ $resident_agreement->condition_rep == 'Yes' ? 'checked' : ''  }}>Yes &nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->condition_rep == 'No' ? 'checked' : ''  }}>No&nbsp;&nbsp;</td>
+        <td>{{ $resident_agreement->condition_rep}}</td>
       </tr>
       <tr>
         <td>Furniture in resident's room belonging to thr SRS: </td>
@@ -159,15 +160,15 @@
       <table>
         <tr>
         <td>Reservation fee charged: </td>
-        <td><input type="checkbox" {{ $resident_agreement->reserv_fee == 'Yes' ? 'checked' : ''  }}>Yes &nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->reserv_fee == 'No' ? 'checked' : ''  }}>No&nbsp;&nbsp;Amount Payable:$ {{ $resident_agreement->amt_res}}</td>
+        <td>{{ $resident_agreement->reserv_fee}} </td>
       </tr>
       <tr>
         <td>Establishment fee charged: </td>
-        <td><input type="checkbox" {{ $resident_agreement->est_fee == 'Yes' ? 'checked' : ''  }}>Yes &nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->est_fee == 'No' ? 'checked' : ''  }}>No&nbsp;&nbsp;Amount Payable:$ {{ $resident_agreement->amt_est}}</td>
+        <td>{{ $resident_agreement->est_fee}}</td>
       </tr>
       <tr>
         <td>Fee in advance charged for other items/service provide by SRS: </td>
-        <td><input type="checkbox" {{ $resident_agreement->advnc_fee == 'Yes' ? 'checked' : ''  }}>Yes &nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->advnc_fee == 'No' ? 'checked' : ''  }}>No&nbsp;&nbsp;Amount Payable:$ {{ $resident_agreement->amt_adv}}</td>
+        <td>{{ $resident_agreement->advnc_fee}}</td>
       </tr>
       <tr>
         <td>Refund to resident: {{ $resident_agreement->refund}}</td>
@@ -185,8 +186,7 @@ included.</p>
       </tr>
       <tr>
         <td>Will the SRS assist the resident in managing their finances:  </td>
-        <td><input type="checkbox" {{ $resident_agreement->srs_assist_status == 'Yes' ? 'checked' : ''  }}>Yes &nbsp;&nbsp;<input type="checkbox" {{ $resident_agreement->srs_assist_status == 'No' ? 'checked' : ''  }}>No&nbsp;&nbsp;&nbsp;&nbsp;
-        Ammount to be managed:$ {{ $resident_agreement->assist_amnt}}</td>
+        <td>{{ $resident_agreement->srs_assist_status}}</td>
       </tr>
     </table><br>
 
@@ -220,114 +220,114 @@ depending on your ongoing requirements and fees may change.</b></p><br>
          {{ $resident_agreement->bath == 'Full' ? 'Yes' : 'No'  }}   
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->bath == 'Part' ? 'checked' : ''  }} value="Part" />    
+         {{ $resident_agreement->bath == 'Part' ? 'Yes' : 'No'  }}    
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->bath == 'None' ? 'checked' : ''  }} value="None" />    
+         {{ $resident_agreement->bath == 'None' ? 'Yes' : 'No'  }}   
         </form></td>
         <td>{{ $resident_agreement->bath_fee}}</td>
       </tr>
       <tr>
         <td>Oral Support</td>
         <td><form action="">    
-         <input {{ $resident_agreement->oral == 'Full' ? 'checked' : ''  }}  type="checkbox" name="" value="Fall" />    
+         {{ $resident_agreement->oral == 'Full' ? 'Yes' : 'No'  }}  
         </form></td>
          <td><form action="">    
-         <input {{ $resident_agreement->oral == 'Part' ? 'checked' : ''  }}  type="checkbox" name="" value="Part" />    
+         {{ $resident_agreement->oral == 'Part' ? 'Yes' : 'No'  }}     
         </form></td>
         <td><form action="">    
-         <input {{ $resident_agreement->oral == 'None' ? 'checked' : ''  }}  type="checkbox" name="" value="None" />    
+         {{ $resident_agreement->oral == 'None' ? 'Yes' : 'No'  }}     
         </form></td>
         <td>{{ $resident_agreement->oral_fee}}</td>
       </tr>
       <tr>
         <td>Hair and nails</td>
         <td><form action="">    
-         <input type="checkbox" {{ $resident_agreement->hair == 'Full' ? 'checked' : ''  }} name="" value="Fall" />    
+         {{ $resident_agreement->hair == 'Full' ? 'Yes' : 'No'  }}       
         </form></td>
          <td><form action="">    
-         <input type="checkbox" {{ $resident_agreement->hair == 'Part' ? 'checked' : ''  }} name="" value="Part" />    
+         {{ $resident_agreement->hair == 'Part' ? 'Yes' : 'No'  }}        
         </form></td>
         <td><form action="">    
-         <input type="checkbox" {{ $resident_agreement->hair == 'None' ? 'checked' : ''  }} name="" value="None" />    
+         {{ $resident_agreement->hair == 'None' ? 'Yes' : 'No'  }}      
         </form></td>
         <td>{{ $resident_agreement->hair_fee}}</td>
       </tr>
       <tr>
         <td>Toileting</td>
         <td><form action="">    
-         <input type="checkbox" {{ $resident_agreement->toileting == 'Full' ? 'checked' : ''  }} name="" value="Fall" />    
+         {{ $resident_agreement->toileting == 'Full' ? 'Yes' : 'No'  }}   
         </form></td>
          <td><form action="">    
-         <input type="checkbox" {{ $resident_agreement->toileting == 'Part' ? 'checked' : ''  }} name="" value="Part" />    
+         {{ $resident_agreement->toileting == 'Part' ? 'Yes' : 'No'  }}     
         </form></td>
         <td><form action="">    
-         <input type="checkbox" {{ $resident_agreement->toileting == 'None' ? 'checked' : ''  }} name="" value="None" />    
+         {{ $resident_agreement->toileting == 'None' ? 'Yes' : 'No'  }}     
         </form></td>
         <td>{{ $resident_agreement->toileting_fee}}</td>
       </tr>
       <tr>
         <td>Mobility</td>
         <td><form action="">    
-         <input type="checkbox" {{ $resident_agreement->mobility == 'Full' ? 'checked' : ''  }} name="" value="Fall" />    
+         {{ $resident_agreement->mobility == 'Full' ? 'Yes' : 'No'  }}    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" {{ $resident_agreement->mobility == 'Part' ? 'checked' : ''  }} name="" value="Part" />    
-        </form></td>
+         {{ $resident_agreement->mobility == 'Part' ? 'Yes' : 'No'  }}
+          </form></td>
         <td><form action="">    
-         <input type="checkbox" {{ $resident_agreement->mobility == 'None' ? 'checked' : ''  }} name="" value="None" />    
+         {{ $resident_agreement->mobility == 'None' ? 'Yes' : 'No'  }}    
         </form></td>
         <td>{{ $resident_agreement->mobility_fee}}</td>
       </tr>
       <tr>
         <td>Assistance with medication</td>
         <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->medi_assi == 'Full' ? 'checked' : ''  }} value="Fall" />    
+         {{ $resident_agreement->medi_assi == 'Full' ? 'Yes' : 'No'  }}    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->medi_assi == 'Part' ? 'checked' : ''  }} value="Part" />    
+         {{ $resident_agreement->medi_assi == 'Part' ? 'Yes' : 'No'  }}   
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->medi_assi == 'None' ? 'checked' : ''  }} value="None" />    
+         {{ $resident_agreement->medi_assi == 'None' ? 'Yes' : 'No'  }}   
         </form></td>
         <td>{{ $resident_agreement->medi_assi_fee}}</td>
       </tr>
       <tr>
         <td>Continence management</td>
         <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->continence == 'Full' ? 'checked' : ''  }} value="Fall" />    
+         {{ $resident_agreement->continence == 'Full' ? 'Yes' : 'No'  }}   
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->continence == 'Part' ? 'checked' : ''  }} value="Part" />    
+         {{ $resident_agreement->continence == 'Part' ? 'Yes' : 'No'  }}   
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->continence == 'None' ? 'checked' : ''  }} value="None" />    
+         {{ $resident_agreement->continence == 'None' ? 'Yes' : 'No'  }}
         </form></td>
         <td>{{ $resident_agreement->continence_fee}}</td>
       </tr>
       <tr>
         <td>Bed making</td>
         <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->bed_make == 'Full' ? 'checked' : ''  }} value="Fall" />    
+         {{ $resident_agreement->bed_make == 'Full' ?  'Yes' : 'No'  }}   
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->bed_make == 'Part' ? 'checked' : ''  }} value="Part" />    
+         {{ $resident_agreement->bed_make == 'Part' ?  'Yes' : 'No'  }}   
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->bed_make == 'None' ? 'checked' : ''  }} value="None" />    
+         {{ $resident_agreement->bed_make == 'None' ?   'Yes' : 'No'  }}   
         </form></td>
         <td>{{ $resident_agreement->bed_make_fee}}</td>
       </tr>
       <tr>
         <td>Dressing</td>
         <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->dressing == 'Full' ? 'checked' : ''  }} value="Fall" />    
+         {{ $resident_agreement->dressing == 'Full' ? 'Yes' : 'No'  }}    
         </form></td>
          <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->dressing == 'Part' ? 'checked' : ''  }} value="Part" />    
+         {{ $resident_agreement->dressing == 'Part' ? 'Yes' : 'No'  }}    
         </form></td>
         <td><form action="">    
-         <input type="checkbox" name="" {{ $resident_agreement->dressing == 'None' ? 'checked' : ''  }} value="None" />    
+         {{ $resident_agreement->dressing == 'None' ? 'Yes' : 'No'  }}    
         </form></td>
         <td>{{ $resident_agreement->dressing_fee}}</td>
       </tr><br>

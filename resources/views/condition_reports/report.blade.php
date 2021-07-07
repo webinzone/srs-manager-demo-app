@@ -1,5 +1,3 @@
-<!-- pdf.blade.php -->
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -48,28 +46,29 @@
     <center>
       <h1 >MEADOWBROOK</h1>
     </center>
+    <p style="font-size: 15px;"><center>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</p></center>
     <table>
       <tr>
         <td rowspan="2" style="width: 200px;align-items: center;">&nbsp;&nbsp;&nbsp;&nbsp;<b>CONDITION &nbsp;&nbsp; REPORT</b></td>
-        <td>Resident Name:  {{ $condition_report->res_name}}</td>
-        <td>Room No:  {{ $condition_report->room}}</td>
+        <td>&nbsp;&nbsp;Resident Name:  {{ $condition_report->res_name}}</td>
+        <td>&nbsp;&nbsp;Room No:  {{ $condition_report->room}}</td>
       </tr>
       <tr>
-        <td>Staff Name:  {{ $condition_report->stf_name}}</td>
-        <td>Date: {{date('d-m-Y', strtotime($condition_report->res_date)) }} </td>
+        <td>&nbsp;&nbsp;Staff Name:  {{ $condition_report->stf_name}}</td>
+        <td>&nbsp;&nbsp;Date: {{date('d-m-Y', strtotime($condition_report->res_date)) }} </td>
       </tr>
     </table>
 
     <p> Legends:&nbsp;&nbsp;Facilty Owned: F &nbsp;&nbsp;&nbsp;&nbsp;Resident Owned: O &nbsp;&nbsp;&nbsp;&nbsp; Poor: P &nbsp;&nbsp;&nbsp;&nbsp;Good: G &nbsp;&nbsp;&nbsp;&nbsp;In need of Repair: R</p>
     <table style="border: 2px; border-width: 1px; border-color: black;">
       <tr>
-        <td>Item no</td>
-        <td>Item / Furniture</td>
-        <td style="width:50px;">Owned By</td>
-        <td style="width:20px;">Condition(P/G/R)</td>
-        <td>Comments / Description</td>
-        <td>Resident Sign</td>
-        <td>Staff's Sign</td>
+        <td><center>Item no</center></td>
+        <td><center>Item / Furniture</center></td>
+        <td style="width:50px;"><center>Owned By</center></td>
+        <td style="width:20px;"><center>Condition(P/G/R)</center></td>
+        <td><center>Comments / Description</center></td>
+        <td><center>Resident Sign</center></td>
+        <td><center>Staff's Sign</center></td>
 
       </tr>
     @for ($i=0; $i < $num; $i++)
@@ -100,7 +99,7 @@
         'border-collapse: collapse;' +
         '}' +
          '.container{' +
-          'width: 1000px;' +
+          'width: 100;' +
           'padding: 50px;' +
           'margin: auto;' +
           'border: 3px solid black;' +

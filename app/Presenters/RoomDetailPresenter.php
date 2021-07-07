@@ -44,7 +44,7 @@ class RoomDetailPresenter extends Presenter
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Client Id')
+                "title" => trans('Client Name')
             ],[
                 "field" => "status",
                 "searchable" => true,
