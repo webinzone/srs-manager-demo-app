@@ -295,7 +295,7 @@
                         <input type="text" value="{{ $guardian_detail->gr_address}}" class="form-control" id="gr_address" placeholder="Fax" name="gr_address" v-on:change="page_one.gr_address = $event.target.value">  
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
-                    <h4 class="mb-3"><b>HealthService</b></h4><br>
+                    <h4 class="mb-3"><b>Health Service</b></h4><br>
                
                     <div class="form-row">
                       <div class="col-md-4 mb-3">

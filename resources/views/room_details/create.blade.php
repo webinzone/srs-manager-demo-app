@@ -47,8 +47,8 @@
 					    <select class="form-control" style="width: 200px;"  id="type" name="type" style="height: 20px;padding: 3px 10px;">
                             <option>--   Select Room Type  --</option>
                          
-                          <option value="A/C"> A/C</option>
-                          <option value="Non A/C">Non A/C</option>
+                          <option value="Single"> Single</option>
+                          <option value="Double">Double</option>
                         </select>
 					   </div>
 

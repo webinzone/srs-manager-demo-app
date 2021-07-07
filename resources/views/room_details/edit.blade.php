@@ -50,8 +50,8 @@
                         <select class="form-control" style="width: 200px;"  id="type" name="type" style="height: 20px;padding: 3px 10px;">
                             <option>--   Select Room Type  --</option>
                          
-                          <option {{ $room_detail->type == "A/C" ? 'selected' : ''  }} value="A/C"> A/C</option>
-                          <option {{ $room_detail->type == "Non A/C" ? 'selected' : ''  }} value="Non A/C">Non A/C</option>
+                          <option {{ $room_detail->type == "Single" ? 'selected' : ''  }} value="Single"> Single</option>
+                          <option {{ $room_detail->type == "Double" ? 'selected' : ''  }} value="Double">Double</option>
                         </select>
                        </div>
 
@@ -62,7 +62,7 @@
                                      
                                       <option {{ $room_detail->client_type == "Guest" ? 'selected' : ''  }}  value="Guest">Guest</option>
                                       <option {{ $room_detail->client_type == "Resident" ? 'selected' : ''  }}  value="Resident">Resident</option>
-                                      <option {{ $room_detail->client_type == "Employee" ? 'selected' : ''  }}  value="Employee">Employee</option>
+                                      
                                     </select>
                          </div>
                                  

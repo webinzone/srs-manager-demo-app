@@ -68,7 +68,7 @@
         <td style="border: 1px solid black;">Ref By</td>
         <td style="border: 1px solid black;" colspan="3">{{ $client_detail->ref_by}}</td>
         <td style="border: 1px solid black;">Admission Date</td>
-        <td style="border: 1px solid black;">Roon No</td>
+        <td style="border: 1px solid black;">Room No</td>
       </tr>
       <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;" colspan="4">Previous Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp; {{ $client_detail->pre_address}}</td>
