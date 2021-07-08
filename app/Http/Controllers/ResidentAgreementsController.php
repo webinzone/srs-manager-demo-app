@@ -120,13 +120,14 @@ class ResidentAgreementsController extends Controller
         $resident_agreement = new ResidentAgreement();
         $id = request('r_name');
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $status = $res->respite;
         $name = $res->fname.". ".$res->mname.". ".$res->lname;
         $resident_agreement->r_name = $name;
         $resident_agreement->room_no = request('room_no') ?? '';
         $resident_agreement->bed = "" ?? '';
         $resident_agreement->dob = "" ?? '';
         $resident_agreement->guardian = request('guardian') ?? '';
-        $resident_agreement->admin = "" ?? '';
+        $resident_agreement->admin = $status ?? '';
         $resident_agreement->p_nomini = request('p_nomini') ?? '';
         $resident_agreement->i_period = request('i_period') ?? '';
         $resident_agreement->f_period = request('f_period') ?? '';
@@ -251,13 +252,14 @@ class ResidentAgreementsController extends Controller
 
         $id = request('r_name');
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $status = $res->respite;
         $name = $res->fname.". ".$res->mname.". ".$res->lname;
         $resident_agreement->r_name = $name;
         $resident_agreement->room_no = request('room_no') ?? '';
         $resident_agreement->bed = "" ?? '';
         $resident_agreement->dob = "" ?? '';
         $resident_agreement->guardian = request('guardian') ?? '';
-        $resident_agreement->admin = "" ?? '';
+        $resident_agreement->admin = $status ?? '';
         $resident_agreement->p_nomini = request('p_nomini') ?? '';
         $resident_agreement->i_period = request('i_period') ?? '';
         $resident_agreement->f_period = request('f_period') ?? '';

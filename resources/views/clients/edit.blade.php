@@ -127,8 +127,8 @@
                       <div class="col-md-3 mb-3">
                         <label for="respite">Respite/permanent</label>
                        <select name="respite" id="respite" class="form-control" style="height: 26px;padding: 3px 10px;"> 
-                            <option value="Respite" style="font-size: 14px;">Respite</option> 
-                            <option value="Permanent" style="font-size: 14px;">Permanent</option> 
+                            <option value="Respite" {{ $client_detail->respite == 'Respite' ? 'selected' : ''  }} style="font-size: 14px;">Respite</option> 
+                            <option {{ $client_detail->respite == 'Permanent' ? 'selected' : ''  }} value="Permanent" style="font-size: 14px;">Permanent</option> 
                         </select> 
                   
                       </div> 

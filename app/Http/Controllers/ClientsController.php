@@ -85,7 +85,8 @@ class ClientsController extends Controller
         $client_detail->pen_exp = request('pen_exp')  ?? '';
         $client_detail->respite = request('respite')  ?? '';
         
-        $client_detail->weeks = request('weeks') ?? ''; 
+
+
         $client_detail->acc = request('acc')  ?? '';
         $client_detail->res_ph = request('res_ph')  ?? '';
         $client_detail->res_fax = request('res_fax')  ?? '';
@@ -100,6 +101,10 @@ class ClientsController extends Controller
         $client_detail->medi_no2 = request('medi_no2')  ?? ''; 
         $client_detail->start_period = request('start_period')  ?? ''; 
         $client_detail->end_period = request('end_period')  ?? ''; 
+
+        $HowManyWeeks = date( 'W', strtotime( $client_detail->end_period ) ) - date( 'W', strtotime( $client_detail->start_period ) );
+
+        $client_detail->weeks = $HowManyWeeks ?? ''; 
         
         //$client_detail->prof_pic = request('prof_pic')->getClientOriginalName()  ?? '';
         //$imageName = request('prof_pic')->getClientOriginalName() ?? '';

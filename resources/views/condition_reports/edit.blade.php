@@ -41,7 +41,7 @@
                         <label for="name" >Resident Name</label>
                         <select class="form-control" required="" id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                           @foreach($residents as $resident)
-                          <option value="{{ $resident->id }}" {{ $condition_report->res_name == $resident->fname. $resident->mname. $resident->lname ? 'selected' : ''  }}> {{ $resident->fname}}. {{$resident->mname}}. {{$resident->lname  }}</option>
+                          <option value="{{ $resident->id }}" {{ $condition_report->res_name == $resident->fname.". ".$resident->mname.". ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}}. {{$resident->mname}}. {{$resident->lname}}</option>
                           @endforeach
                         </select>
                        </div>
@@ -154,7 +154,7 @@
                     
                     <br><br>
 
-       
+                    <br><br>
                      <div class="box-footer text-right">
                         <br><br><a class="btn btn-link text-left" href="{{ route('condition_reports.index') }}">Cancel</a>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>

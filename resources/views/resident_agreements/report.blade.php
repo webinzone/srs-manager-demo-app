@@ -71,9 +71,9 @@
         <td>Room No:  {{ $resident_agreement->room_no}}</td>
       </tr>
       <tr>
-        <td>Guide to resident and prospective resident:  {{ $resident_agreement->res_gp}}</td>
-        <td>Need assistance  in reading ?:  {{ $resident_agreement->asistance_status}}</td>
-        <td>(Yes/No)</td>
+        <td width="350px;">Guide to resident and prospective resident:  {{ $resident_agreement->res_gp}}</td>
+        <td >Need assistance  in reading ?</td>
+        <td>{{ $resident_agreement->asistance_status}}</td>
         <td>Staff: {{ $resident_agreement->staff}}</td>
       </tr>
     </table>&nbsp;&nbsp;
@@ -99,11 +99,20 @@
     </table>&nbsp;&nbsp;
     <table>
       <tr>
-        <td colspan="5" ><center><b>DURATION OF STAY</b></td></center>
+        <td colspan="5" ><center><b>DURATION OF STAY</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $resident_agreement->admin}}</td></center>
       </tr>
       <tr>
+        @if($resident_agreement->admin =='Respite')
+
         <td style="width:500px;">Fixed period stay from:  {{date('d-m-Y', strtotime($resident_agreement->f_period)) }}</td>
         <td>Ending on:   {{date('d-m-Y', strtotime($resident_agreement->ending_on)) }}</td>
+
+        @else
+        
+        <td style="width:500px;">Admission Date</td>
+        <td>{{ $resident_agreement->adv_fee}}</td>
+        @endif
+
       </tr>
     </table>&nbsp;&nbsp;
     <table>
