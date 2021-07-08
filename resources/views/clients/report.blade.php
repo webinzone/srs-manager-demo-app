@@ -111,26 +111,26 @@
     <h5>Pension Details</h5>
     <table>
       <tr>
-        <td>Type of Income : {{ $client_detail->income_type}}</td>
+        <td>Type of Income : {{ $pension_detail->income_type}}   <label id="oi"> {{ $client_detail->other_income}}</label></td>
       </tr>
       <tr>
-        <td>Client Reference no : {{ $client_detail->client_refno}}</td>
-        <td style="width:660px;">Taxi Concession Card details : {{ $client_detail->con_card}}</td>
+        <td>Client Reference no : {{ $pension_detail->client_refno}}</td>
+        <td style="width:660px;">Taxi Concession Card details : {{ $pension_detail->con_card}}</td>
       </tr>
     </table><br> 
 
     <h5>Next Of Kin / Representative</h5>
     <table>
       <tr>
-        <td style="width:340px;">Name : {{ $client_detail->name}}</td>
-        <td>Email : {{ $client_detail->nok_email}}</td>
+        <td style="width:340px;">Name : {{ $next_of_kin->name}}</td>
+        <td>Email : {{ $next_of_kin->nok_email}}</td>
       </tr>
       <tr>
-        <td>Address : {{ $client_detail->address}}</td>
+        <td>Address : {{ $next_of_kin->address}}</td>
       <tr>
-        <td>Lan Phone : {{ $client_detail->ph}}</td>
-        <td>Mobile : {{ $client_detail->nok_lan}}</td>
-        <td>Fax : {{ $client_detail->nok_fax}}</td>
+        <td>Lan Phone : {{ $next_of_kin->ph}}</td>
+        <td>Mobile : {{ $next_of_kin->nok_lan}}</td>
+        <td>Fax : {{ $next_of_kin->nok_fax}}</td>
       </tr>
     </table><br>
     
@@ -141,45 +141,48 @@
         <td style="width:655px;">Relationship : {{ $client_detail->gr_relation}}</td>
       </tr>
       <tr>
-        <td>Lan Phone : {{ $client_detail->gr_lan}}</td>
-        <td style="width:655px;">Mobile : {{ $client_detail->gr_mob}}</td>
+        <td>Address : {{ $client_detail->gr_address}}</td>
+      </tr>
       <tr>
         <td >Email : {{ $client_detail->gr_email}}</td>
       </tr>
+      
       <tr>
-        <td>Address : {{ $client_detail->gr_address}}</td>
-      </tr>
+        <td>Lan Phone : {{ $client_detail->gr_lan}}</td>
+        <td style="width:655px;">Mobile : {{ $client_detail->gr_mob}}</td>
+      
     </table><br>
 
     
     <h5>Medical Practitioner</h5>
     <table>
       <tr>
-        <td style="width:350px;">Name : {{ $client_detail->gp_name}}</td>
-        <td >Email : {{ $client_detail->gp_email}}</td>
+        <td style="width:350px;">Name : {{ $gpdetail->gp_name}}</td>
+        <td >Email : {{ $gpdetail->gp_email}}</td>
       </tr>
       <tr>
-        <td>Address : {{ $client_detail->address}}</td>
+        <td>Address : {{ $gpdetail->address}}</td>
       <tr>
-        <td>Lan Phone : {{ $client_detail->gp_lan}}</td>
-        <td>Mobile : {{ $client_detail->ph}}</td>
-        <td>Fax : {{ $client_detail->gp_fax}}</td>
+        <td>Lan Phone : {{ $gpdetail->gp_lan}}</td>
+        <td>Mobile : {{ $gpdetail->ph}}</td>
+        <td>Fax : {{ $gpdetail->gp_fax}}</td>
       </tr>
     </table><br>
     
     <h5>Other Health Services</h5>
     <table>
       <tr>
+        <td>Name : {{ $health_service->hs_name}}</td>
       </tr>
       <tr>
-        <td>Address : {{ $client_detail->hs_address}}</td>
+        <td>Address : {{ $health_service->hs_address}}</td>
       </tr>
       <tr>
-        <td style="width:350px;">Lan Phone : {{ $client_detail->hs_lan}}</td>
-        <td style="width:460px;">(after hours) : {{ $client_detail->aftr_hrs}}</td>
-        <td >Fax : {{ $client_detail->hs_fax}}</td>
+        <td style="width:350px;">Lan Phone : {{ $health_service->hs_lan}}</td>
+        <td style="width:460px;">(after hours) : {{ $health_service->aftr_hrs}}</td>
+        <td >Fax : {{ $health_service->hs_fax}}</td>
       <tr>
-        <td>Email : {{ $client_detail->hs_email}}</td>
+        <td>Email : {{ $health_service->hs_email}}</td>
       </tr>
     </table><br>
     <h5><u>Additional Information : Medical history/diagnosis : {{ $health_service->med_history}}</u></h5><br>
