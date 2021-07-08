@@ -84,7 +84,8 @@ class ClientsController extends Controller
         $client_detail->ent_no = request('ent_no')  ?? '';
         $client_detail->pen_exp = request('pen_exp')  ?? '';
         $client_detail->respite = request('respite')  ?? '';
-        $client_detail->weeks = request('weeks')  ?? ''; 
+        
+        $client_detail->weeks = request('weeks') ?? ''; 
         $client_detail->acc = request('acc')  ?? '';
         $client_detail->res_ph = request('res_ph')  ?? '';
         $client_detail->res_fax = request('res_fax')  ?? '';
@@ -224,7 +225,7 @@ class ClientsController extends Controller
 
         $pension_detail = new PensionDetail();    
         $pension_detail->client_id = $clientid;
-        $pension_detail->income_type = request('income_type')  ?? '';//implode(',', (array) request('income_type'))  ?? '';
+        $pension_detail->income_type = request('income_type')  ?? ''; //implode(',', (array) request('income_type'))  ?? '';
         $pension_detail->client_refno = request('client_refno')  ?? '';
         $pension_detail->con_card = request('con_card')  ?? '';
         $pension_detail->user_id =  Auth::user()->id;
@@ -343,6 +344,13 @@ class ClientsController extends Controller
         $client_detail->save(); 
 
         $clientid = $client_detail->id;
+        $clientid = $client_detail->id;
+        $room = $client_detail->room_no;
+        $roomdetails = RoomDetail::where('room_no', '=', $room)->firstOrFail();
+        $roomdetails->status = "Booked";
+        $roomdetails->client_id = $client_detail->fname.". ".$client_detail->mname.". ".$client_detail->lname;
+        $roomdetails->save();
+
 
         //$client_family = new ClientFamily();   
         //$client_family->client_id = $clientid;
@@ -532,14 +540,24 @@ class ClientsController extends Controller
     public function generateResReport(){
          $id = request('res');
          
-         $client_detail = ClientDetail::find($id);        
+         $client_detail = ClientDetail::find($id); 
+         $status = $client_detail->respite;
+         if ($status == "Respite") {
+            $duration = "From :".$client_detail->start_period.","."To :".$client_detail->end_period;
+            $weeks = $client_detail->weeks;
+         }else
+         {
+            $duration = "Admisiion Date :".$client_detail->adm_date;
+            $weeks = '';
+         }
+
          $gpdetail = ClientGpdetail::where('client_id', '=', $id)->firstOrFail();
          $next_of_kin = ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
          $guardian_detail = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
          $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
          $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
 
-         return view('clients/report')->with(compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail'));
+         return view('clients/report')->with(compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail','duration','weeks'));
 
     }
 

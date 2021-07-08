@@ -106,14 +106,11 @@
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">  
-                      <div class="col-md-3 mb-3" style="width:170px;right: 0px;">
+                      <div class="col-md-3 mb-3" >
                         <label for="medicard_no">Medicare card no.</label>
                         <input type="text" class="form-control" id="medicard_no" placeholder="Medicare card number" name="medicard_no"  v-on:change="page_one.medicard_no = $event.target.value">
                         </div>
-                      <div class="col-md-3 mb-3" style="width:50px;">
-                       <label for="medicard_no" > &nbsp;&nbsp;&nbsp;</label>
-                        <input type="text" class="form-control" id="medicard_no" placeholder="Medicare card number" name="medi_no2"  v-on:change="page_one.medicard_no = $event.target.value">      
-                      </div>   
+                      
 
                       <div class="col-md-3 mb-3">
                         <label for="expiry_date">Expiry date</label>
@@ -157,7 +154,7 @@
                     <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label for="room_no">Room No</label>
-                        <select class="form-control" required="" id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
+                        <select class="form-control" required id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
                             <option>--Select Room--</option>
                           @foreach($rooms as $room)
                           <option value="{{ $room->room_no }}"> &nbsp;&nbsp;&nbsp;{{ $room->room_no}}&nbsp;&nbsp;&nbsp; </option>
@@ -332,17 +329,18 @@
                       </div>  
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
-                      <div class="col-md-2 mb-3">
-                        <label for="aftr_hrs">After Hours</label>
-                        <input type="text" class="form-control" id="aftr_hrs" placeholder="After Hours" name="aftr_hrs" v-on:change="page_one.aftr_hrs = $event.target.value">  
+                      
+                      <div class="col-md-3 mb-3">
+                        <label for="hs_email">Email</label>
+                        <input type="email" class="form-control" id="hs_email" placeholder="Email" name="hs_email" v-on:change="page_one.hs_email = $event.target.value">  
                       </div>
                       <div class="col-md-2 mb-3">
                         <label for="hs_fax">Fax</label>
                         <input type="text" class="form-control" id="hs_fax" placeholder="Fax" name="hs_fax" v-on:change="page_one.hs_fax = $event.target.value">  
                       </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="hs_email">Email</label>
-                        <input type="email" class="form-control" id="hs_email" placeholder="Email" name="hs_email" v-on:change="page_one.hs_email = $event.target.value">  
+                      <div class="col-md-2 mb-3">
+                        <label for="aftr_hrs">After Hours</label>
+                        <input type="text" class="form-control" id="aftr_hrs" placeholder="After Hours" name="aftr_hrs" v-on:change="page_one.aftr_hrs = $event.target.value">  
                       </div>
                       <div class="col-md-5 mb-3">
                         <label for="med_history">Medical History</label>
@@ -357,10 +355,10 @@
                       <div class="col-md-5 mb-3">
                         <label for="income_type">Type of Income</label><br>
 
-                                <label><input  type="checkbox" name="income_type[]" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="income_type[]" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="income_type[]" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
-                                <label><input id="other" type="checkbox" name="income_type[]" value="Other" onclick="addbox();"> Other</label>&nbsp;&nbsp;&nbsp;&nbsp;<label><input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;"></label>
+                                <label><input  type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="income_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="income_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
+                                <label><input id="other" type="checkbox" name="income_type" value="Other" onclick="addbox();"> Other</label>&nbsp;&nbsp;&nbsp;&nbsp;<label><input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;"></label>
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="client_refno">Client Reference no</label>

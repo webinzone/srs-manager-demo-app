@@ -46,7 +46,7 @@
     <center>
       <h1 >MEADOWBROOK</h1>
     </center>
-    <p style="font-size: 15px;"><center>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</p></center>
+    <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></center></p>
     <table>
       <tr>
         <td rowspan="2" style="width: 200px;align-items: center;">&nbsp;&nbsp;&nbsp;&nbsp;<b>CONDITION &nbsp;&nbsp; REPORT</b></td>

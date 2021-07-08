@@ -44,7 +44,7 @@
     <center>
       <h1 >MEADOWBROOK S R S</h1>
     </center>
-    <p style="font-size: 15px;"><center>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</p></center>
+    <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></p></center>
     <h3 style="width:300px;height:30px;border:1px solid #000;">&nbsp;New Resident Admission Form&nbsp;</h3>
     <h5>Personal Details:</h5>
     <table style="border: 1px solid black;">
@@ -93,10 +93,10 @@
         <td style="border: 1px solid black;">{{ $client_detail->ent_no}}</td>        
       </tr>
     </table><br>
-     <h5>PERMANENT / RESPITE: {{ $client_detail->respite}}</h5>
+     <h5>PERMANENT / RESPITE: {{ $client_detail->respite}} - {{ $duration}}</h5>
     <table>
       <tr>
-        <td>Weeks : {{ $client_detail->weeks}}</td>
+        <td>Weeks : {{ $weeks}}</td>
       </tr>
       <tr>
         <td>Accont to be addressed : {{ $client_detail->acc}}</td>

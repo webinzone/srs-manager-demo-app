@@ -61,7 +61,7 @@
                                                             
                       <div class="col-md-2 mb-3">
                         <label>Room No</label>
-                        <input type="text" name="room_no" id="roomm" class="form-control" placeholder="Room No">                                        
+                        <input type="text" name="room_no" id="roomm" class="form-control" placeholder="Room No" readonly>                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Need assistance  in reading ?</label>
@@ -70,7 +70,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Staff</label>
-                        <input type="text" name="staff" id="staffm" class="form-control" placeholder="Staff">                                        
+                        <input type="text" name="staff" id="staffm" class="form-control" placeholder="Staff" readonly>                                        
                       </div>
                       
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -79,20 +79,20 @@
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Guardian</label>
-                        <input type="text" name="guardian" id="guardianm" class="form-control" placeholder="Guardian">                                       
+                        <input type="text" name="guardian" id="guardianm" class="form-control" placeholder="Guardian" readonly>                                       
                       </div>
                       <div class="col-md-3 mb-3">
-                        <label>Telephone</label>
-                        <input type="tel" name="g_tel" id="gtel" class="form-control" placeholder="Telephone">                                        
+                        <label>Phone No.</label>
+                        <input type="tel" name="g_tel" id="gtel" class="form-control" placeholder="Phone No." readonly>                                        
                       </div>
                       
                       <div class="col-md-3 mb-3">
                         <label>Email</label>
-                        <input type="email" name="g_email" id="gemail" class="form-control" placeholder="Email">                                       
+                        <input type="email" name="g_email" id="gemail" class="form-control" placeholder="Email" readonly>                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Address</label>
-                        <textarea name="g_adress" class="form-control" id="gadress" placeholder="Address"></textarea>
+                        <textarea name="g_adress"  readonly class="form-control" id="gadress" placeholder="Address"></textarea>
                                                               
                       </div>
                 </div>
@@ -103,8 +103,8 @@
                         <input type="text" name="p_nomini" class="form-control" placeholder="Person Nominated">                                        
                       </div>
                       <div class="col-md-3 mb-3">
-                        <label>Telephone</label>
-                        <input type="tel" name="per_tel" class="form-control" placeholder="Telephone">                                        
+                        <label>Phone No.</label>
+                        <input type="tel" name="per_tel" class="form-control" placeholder="Phone No.">                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Email</label>
@@ -124,8 +124,8 @@
                         <input type="text" name="emg_contact" class="form-control" placeholder="Emergency Contact">                                        
                       </div>
                       <div class="col-md-3 mb-3">
-                        <label>Telephone</label>
-                        <input type="tel" name="emg_tel" class="form-control" placeholder="Telephone">                                        
+                        <label>Phone No.</label>
+                        <input type="tel" name="emg_tel" class="form-control" placeholder="Phone No.">                                        
                       </div>
 
                       <div class="col-md-3 mb-3">
@@ -148,11 +148,15 @@
                       
                       <div class="col-md-3 mb-3">
                         <label>Fixed period stay from</label>
-                        <input type="date" style="width: 200px;" name="f_period" id="fperiod" class="form-control" placeholder="Fixed period stay form">                                        
+                        <input type="date" style="width: 200px;" name="f_period" readonly id="fperiod" class="form-control" placeholder="Fixed period stay form">                                        
                       </div>
-                      <div class="col-md-8 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label>Ending on</label>
-                        <input type="date" style="width: 200px;" name="ending_on" id="endperiod" class="form-control" placeholder="Ending on">                                       
+                        <input type="date" style="width: 200px;" name="ending_on"  readonly id="endperiod" class="form-control" placeholder="Ending on">                                       
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label>Admission Date</label>
+                        <input type="date" style="width: 200px;" name="adm_date" readonly id="adm_date" class="form-control" placeholder="Ending on">                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Fee And Charges</b></h5>
@@ -288,9 +292,9 @@
                   </tr>
                   <tr>
                     <td></td>
-                    <td>&nbsp;&nbsp;&nbsp;   Full</td>
-                    <td>&nbsp;&nbsp;&nbsp;   Part</td>
-                    <td>&nbsp;&nbsp;&nbsp;   None</td>
+                    <td>&nbsp;&nbsp;&nbsp;   <b>Full</b></td>
+                    <td>&nbsp;&nbsp;&nbsp;   <b>Part</b></td>
+                    <td>&nbsp;&nbsp;&nbsp;   <b>None</b></td>
                     <td></td>
                   </tr>
                   <tr>
@@ -481,7 +485,9 @@ $('#resi_name').change(function(){
             if(response != null){
                 $('#roomm').val(response.room_no);            
                  $('#fperiod').val(response.start_period);
-                $('#endperiod').val(response.end_period);           
+                $('#endperiod').val(response.end_period);
+                $('#adm_date').val(response.adm_date);           
+
             }
             else{
               alert("error");

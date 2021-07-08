@@ -102,7 +102,7 @@
         <td colspan="5" ><center><b>DURATION OF STAY</b></td></center>
       </tr>
       <tr>
-        <td style="width:500px;">Fixed period stay form:  {{date('d-m-Y', strtotime($resident_agreement->f_period)) }}</td>
+        <td style="width:500px;">Fixed period stay from:  {{date('d-m-Y', strtotime($resident_agreement->f_period)) }}</td>
         <td>Ending on:   {{date('d-m-Y', strtotime($resident_agreement->ending_on)) }}</td>
       </tr>
     </table>&nbsp;&nbsp;
