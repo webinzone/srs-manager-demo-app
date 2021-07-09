@@ -205,7 +205,7 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Amount Payable</label>
-                        <input type="text" name="amt_pay" class="form-control" value="{{ $resident_agreement->amt_pay}}" id="amt_pay1" placeholder="Amount Payable">                                        
+                        <input type="text" name="amt_pay" class="form-control" value="{{ $resident_agreement->amt_pay}}" {{ $resident_agreement->secu_depo == 'No' ? 'disabled' : ''  }} id="amt_pay1" placeholder="Amount Payable">                                        
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Condition report provided to the resident ?</label>
@@ -232,7 +232,7 @@
                       <div class="col-md-3 mb-3">
 
                         <label>Reservation Amount</label>
-                        <input type="text" name="amt_res" id="r2" class="form-control" value="{{ $resident_agreement->amt_res}}" placeholder="Amount">                                       
+                        <input type="text" name="amt_res" id="r2" class="form-control" value="{{ $resident_agreement->amt_res}}" {{ $resident_agreement->reserv_fee == 'No' ? 'disabled' : ''  }} placeholder="Amount">                                       
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Establishment fee charged ?</label>
@@ -242,7 +242,7 @@
                       <div class="col-md-3 mb-3">
 
                         <label>Establishment Amount</label>
-                        <input type="text" name="amt_est" id="e2" class="form-control" value="{{ $resident_agreement->amt_est}}" placeholder="Amount">                                       
+                        <input type="text" name="amt_est" id="e2" class="form-control" value="{{ $resident_agreement->amt_est}}"  {{ $resident_agreement->est_fee == 'No' ? 'disabled' : ''  }} placeholder="Amount">                                       
                       </div>
                        
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -258,7 +258,7 @@
                         <div class="col-md-3 mb-3">
 
                         <label>Advance Amount</label>
-                        <input type="text" name="amt_adv" id="a2" class="form-control" value="{{ $resident_agreement->amt_adv}}" placeholder="Amount">                                       
+                        <input type="text" name="amt_adv" id="a2" class="form-control" value="{{ $resident_agreement->amt_adv}}" {{ $resident_agreement->advnc_fee == 'No' ? 'disabled' : ''  }} placeholder="Amount">                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Refund to resident</label>
@@ -275,7 +275,7 @@
                       </div>
                        <div class="col-md-6 mb-3" >
                         <label>Ammount to be managed</label>
-                        <input type="text" style="width:200px" name="assist_amnt" id="s1" class="form-control" value="{{ $resident_agreement->assist_amnt}}" placeholder="Ammount to be managed">                                        
+                        <input type="text" style="width:200px" name="assist_amnt" id="s1" class="form-control" value="{{ $resident_agreement->assist_amnt}}" placeholder="Ammount to be managed" {{ $resident_agreement->srs_assist_status == 'No' ? 'disabled' : ''  }}>                                        
                       </div>
                 </div>
 
@@ -308,7 +308,7 @@
                     <td>  &nbsp;&nbsp;&nbsp;      
                      <input type="checkbox" onchange="findselected5();" {{ $resident_agreement->bath == 'None' ? 'checked' : ''  }} name="bath" value="None" />   
                     </td>
-                    <td><input type="text" id="f1" value="{{ $resident_agreement->bath_fee}}" name="bath_fee"></td>
+                    <td><input type="text" id="f1" {{ $resident_agreement->bath == 'None' ? 'disabled' : ''  }} value="{{ $resident_agreement->bath_fee}}" name="bath_fee"></td>
                   </tr>
                   <tr>
                     <td>Oral Support</td>
@@ -321,7 +321,7 @@
                     <td>  &nbsp;&nbsp;&nbsp;     
                      <input type="checkbox" onchange="findselected6();" {{ $resident_agreement->oral == 'None' ? 'checked' : ''  }}  name="oral" value="None" />    
                     </td>
-                    <td><input type="text" id="f2" value="{{ $resident_agreement->oral_fee}}" name="oral_fee"></td>
+                    <td><input type="text" {{ $resident_agreement->oral == 'None' ? 'disabled' : ''  }} id="f2" value="{{ $resident_agreement->oral_fee}}" name="oral_fee"></td>
                   </tr>
                   <tr>
                     <td>Hair and nails</td>
@@ -334,7 +334,7 @@
                     <td>  &nbsp;&nbsp;&nbsp;     
                      <input type="checkbox" onchange="findselected7();" {{ $resident_agreement->hair == 'None' ? 'checked' : ''  }} name="hair" value="None" />    
                     </td>
-                    <td><input type="text" id="f3" value="{{ $resident_agreement->hair_fee}}"" name="hair_fee"></td>
+                    <td><input type="text" {{ $resident_agreement->hair == 'None' ? 'disabled' : ''  }} id="f3" value="{{ $resident_agreement->hair_fee}}"" name="hair_fee"></td>
                   </tr>
                   <tr>
                     <td>Toileting</td>
@@ -347,7 +347,7 @@
                     <td>  &nbsp;&nbsp;&nbsp;     
                      <input type="checkbox" onchange="findselected8();" {{ $resident_agreement->toileting == 'None' ? 'checked' : ''  }} name="toileting" value="None" />     
                     </td>
-                    <td><input type="text" id="f4" value="{{ $resident_agreement->toileting_fee}}"  name="toileting_fee"></td>
+                    <td><input type="text" {{ $resident_agreement->toileting == 'None' ? 'disabled' : ''  }} id="f4" value="{{ $resident_agreement->toileting_fee}}"  name="toileting_fee"></td>
                   </tr>
                   <tr>
                     <td>Mobility</td>
@@ -360,7 +360,7 @@
                     <td>  &nbsp;&nbsp;&nbsp;      
                      <input type="checkbox" onchange="findselected9();"  {{ $resident_agreement->mobility == 'None' ? 'checked' : ''  }} name="mobility" value="None" />    
                     </td>
-                    <td><input type="text" id="f5" value="{{ $resident_agreement->mobility_fee}}" name="mobility_fee"></td>
+                    <td><input type="text" {{ $resident_agreement->mobility == 'None' ? 'disabled' : ''  }} id="f5" value="{{ $resident_agreement->mobility_fee}}" name="mobility_fee"></td>
                   </tr>
                   <tr>
                     <td>Assistance with medication</td>
@@ -373,7 +373,7 @@
                     <td>  &nbsp;&nbsp;&nbsp;     
                      <input type="checkbox" onchange="findselected10();" {{ $resident_agreement->medi_assi == 'None' ? 'checked' : ''  }} name="medi_assi" value="None" />    
                     </td>
-                    <td><input type="text" id="f6" value="{{ $resident_agreement->medi_assi_fee}}" name="medi_assi_fee"></td>
+                    <td><input type="text" {{ $resident_agreement->medi_assi == 'None' ? 'disabled' : ''  }} id="f6" value="{{ $resident_agreement->medi_assi_fee}}" name="medi_assi_fee"></td>
                   </tr>
                   <tr>
                     <td>Continence management</td>
@@ -386,7 +386,7 @@
                     <td>  &nbsp;&nbsp;&nbsp;     
                      <input type="checkbox" onchange="findselected11();" {{ $resident_agreement->continence == 'None' ? 'checked' : ''  }} name="continence" value="None" />    
                     </td>
-                    <td><input type="text" id="f7" value="{{ $resident_agreement->continence_fee}}" name="continence_fee"></td>
+                    <td><input type="text" {{ $resident_agreement->continence == 'None' ? 'disabled' : ''  }} id="f7" value="{{ $resident_agreement->continence_fee}}" name="continence_fee"></td>
                   </tr>
                   <tr>
                     <td>Bed making</td>
@@ -399,7 +399,7 @@
                     <td>  &nbsp;&nbsp;&nbsp;     
                      <input type="checkbox" onchange="findselected12();"  {{ $resident_agreement->bed_make == 'None' ? 'checked' : ''  }} name="bed_make" value="None" />    
                     </td>
-                    <td><input type="text" id="f8" value="{{ $resident_agreement->bed_make_fee}}" name="bed_make_fee"></td>
+                    <td><input type="text" {{ $resident_agreement->bed_make == 'None' ? 'disabled' : ''  }} id="f8" value="{{ $resident_agreement->bed_make_fee}}" name="bed_make_fee"></td>
                   </tr>
                   <tr>
                     <td>Dressing</td>
@@ -412,7 +412,7 @@
                     <td>   &nbsp;&nbsp;&nbsp;    
                      <input type="checkbox" onchange="findselected13();" {{ $resident_agreement->dressing == 'None' ? 'checked' : ''  }} name="dressing" value="None" />    
                     </td>
-                    <td><input type="text" id="f9" value="{{ $resident_agreement->dressing_fee}}" name="dressing_fee"></td>
+                    <td><input type="text" {{ $resident_agreement->dressing == 'None' ? 'disabled' : ''  }} id="f9" value="{{ $resident_agreement->dressing_fee}}" name="dressing_fee"></td>
                   </tr><br>
                 </table>
               </div>
