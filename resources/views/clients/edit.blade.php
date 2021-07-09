@@ -151,8 +151,8 @@
                     <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label for="room_no">Room No</label>
-                         <select class="form-control" required="" id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
-                            <option>--   Select Resident Name  --</option>
+                         <select class="form-control" required id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
+                            <option value="">--Select Room--</option>
                           @foreach($rooms as $room)
                           <option value="{{ $room->room_no }}" {{ $client_detail->room_no == $room->room_no ? 'selected' : ''  }}> &nbsp;&nbsp;&nbsp;{{ $room->room_no}}&nbsp;&nbsp;&nbsp; </option>
                           @endforeach
