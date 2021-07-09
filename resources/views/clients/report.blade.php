@@ -137,19 +137,19 @@
     <h5>Guardian / Administrator</h5>
     <table>
       <tr>
-        <td>Name : {{ $client_detail->gr_name}}</td>
-        <td style="width:655px;">Relationship : {{ $client_detail->gr_relation}}</td>
+        <td>Name : {{ $guardian_detail->gr_name}}</td>
+        <td style="width:655px;">Relationship : {{ $guardian_detail->gr_relation}}</td>
       </tr>
       <tr>
-        <td>Address : {{ $client_detail->gr_address}}</td>
+        <td>Address : {{ $guardian_detail->gr_address}}</td>
       </tr>
       <tr>
-        <td >Email : {{ $client_detail->gr_email}}</td>
+        <td >Email : {{ $guardian_detail->gr_email}}</td>
       </tr>
       
       <tr>
-        <td>Lan Phone : {{ $client_detail->gr_lan}}</td>
-        <td style="width:655px;">Mobile : {{ $client_detail->gr_mob}}</td>
+        <td>Lan Phone : {{ $guardian_detail->gr_lan}}</td>
+        <td style="width:655px;">Mobile : {{ $guardian_detail->gr_mob}}</td>
       
     </table><br>
 
