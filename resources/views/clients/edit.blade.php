@@ -353,7 +353,7 @@
                                  <label><input {{ $pension_detail->income_type == 'Centre Link' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;
                                 <label><input {{ $pension_detail->income_type == 'Veterans Affairs' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;
                                 <label><input {{ $pension_detail->income_type == 'State Trustees' ? 'checked' : ''  }} type="checkbox" name="income_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
-                                <label><input {{ $pension_detail->income_type == 'Other' ? 'checked' : ''  }} id="other" onclick="addbox();" type="checkbox" name="income_type" value="Other"> Other</label>&nbsp;&nbsp; <label id="oi">: {{ $client_detail->other_income}}</label>  <label><input id="income" type="text"  value=""  name="other_income" style="width: 200px;"></label>
+                                <label><input {{ $pension_detail->income_type == 'Other' ? 'checked' : ''  }} id="other" onclick="addbox();" type="checkbox" name="income_type" value="Other"> Other</label>&nbsp;&nbsp;<!-- <label id="oi">: {{ $client_detail->other_income}}</label>  <label><input id="income" type="text"  value=""  name="other_income" style="width: 200px;"></label>-->
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="client_refno">Client Reference no</label>
