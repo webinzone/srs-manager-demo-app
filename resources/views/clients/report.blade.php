@@ -45,8 +45,8 @@
       <h1 >MEADOWBROOK S R S</h1>
     </center>
     <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></p></center>
-    <h3 style="width:300px;height:30px;border:1px solid #000;">&nbsp;New Resident Admission Form&nbsp;</h3>
-    <h5>Personal Details:</h5>
+    <h2><center>New Resident Admission Form</center></h2>
+    <h3 style="font-family:Bedrock">Personal Details:</h3>
     <table style="border: 1px solid black;">
       <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">Name</td>
@@ -93,99 +93,122 @@
         <td style="border: 1px solid black;">{{ $client_detail->ent_no}}</td>        
       </tr>
     </table><br>
-     <h5>PERMANENT / RESPITE: {{ $client_detail->respite}} - {{ $duration}}</h5>
-    <table>
+     <h3 style="font-family:Bedrock">Permanent / Respite:</h3>{{ $client_detail->respite}}&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<i style="padding-bottom:30px;">{{ $duration}}</i>
+    <table style="padding-top: 5px;">
       <tr>
-        <td>Weeks : {{ $weeks}}</td>
+        <td style="border: 1px solid black;">Weeks</td>
+        <td style="border: 1px solid black;">Accont to be addressed</td>
+        <td style="border: 1px solid black;">Phone</td>
+        <td style="border: 1px solid black;">Email ID</td>
+        <td style="border: 1px solid black;">Permanent / Respite</td>
+        <td style="border: 1px solid black;">Duration / Admission Date</td>
       </tr>
       <tr>
-        <td>Accont to be addressed : {{ $client_detail->acc}}</td>
-      </tr>
-      <tr>
-        <td>Phone : {{ $client_detail->ph}}</td>
-        <td  style="width:658px;">Email ID : {{ $client_detail->res_email}}</td>
+        <td style="border: 1px solid black;">{{ $weeks}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->acc}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->ph}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->res_email}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->respite}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->duration}}</td>       
       </tr>
     </table><br>
     
 
-    <h5>Pension Details</h5>
+    <h3 style="font-family:Bedrock">Pension Details:</h3>
     <table>
       <tr>
-        <td>Type of Income : {{ $pension_detail->income_type}}   <label id="oi"> {{ $client_detail->other_income}}</label></td>
+        <td style="border: 1px solid black;">Type of Income</td>
+        <td style="border: 1px solid black;">Client Reference no</td>
+        <td style="border: 1px solid black;">Taxi Concession Card details</td>
       </tr>
       <tr>
-        <td>Client Reference no : {{ $pension_detail->client_refno}}</td>
-        <td style="width:660px;">Taxi Concession Card details : {{ $pension_detail->con_card}}</td>
+        <td style="border: 1px solid black;">{{ $pension_detail->income_type}}   <label id="oi"> {{ $client_detail->other_income}}</label></td>
+        <td style="border: 1px solid black;">{{ $pension_detail->client_refno}}</td>
+        <td style="border: 1px solid black;">{{ $pension_detail->con_card}}</td>      
       </tr>
     </table><br> 
 
-    <h5>Next Of Kin / Representative</h5>
+    <h3 style="font-family:Bedrock">Next Of Kin / Representative:</h3>
     <table>
       <tr>
-        <td style="width:340px;">Name : {{ $next_of_kin->name}}</td>
-        <td>Email : {{ $next_of_kin->nok_email}}</td>
+        <td style="border: 1px solid black;">Name</td>
+        <td style="border: 1px solid black;">Email</td>
+        <td style="border: 1px solid black;">Address</td>
+        <td style="border: 1px solid black;">Lan Phone</td>
+        <td style="border: 1px solid black;">Mobile</td>
+        <td style="border: 1px solid black;">Fax</td>
       </tr>
       <tr>
-        <td>Address : {{ $next_of_kin->address}}</td>
-      <tr>
-        <td>Lan Phone : {{ $next_of_kin->ph}}</td>
-        <td>Mobile : {{ $next_of_kin->nok_lan}}</td>
-        <td>Fax : {{ $next_of_kin->nok_fax}}</td>
+        <td style="border: 1px solid black;">{{ $next_of_kin->name}}</td>
+        <td style="border: 1px solid black;">{{ $next_of_kin->nok_email}}</td>
+        <td style="border: 1px solid black;">{{ $next_of_kin->address}}</td>
+        <td style="border: 1px solid black;">{{ $next_of_kin->ph}}</td>
+        <td style="border: 1px solid black;">{{ $next_of_kin->nok_lan}}</td>
+        <td style="border: 1px solid black;">{{ $next_of_kin->nok_fax}}</td>      
       </tr>
     </table><br>
     
-    <h5>Guardian / Administrator</h5>
+    <h3 style="font-family:Bedrock">Guardian / Administrator:</h3>
     <table>
       <tr>
-        <td>Name : {{ $guardian_detail->gr_name}}</td>
-        <td style="width:655px;">Relationship : {{ $guardian_detail->gr_relation}}</td>
+        <td style="border: 1px solid black;">Name</td>
+        <td style="border: 1px solid black;">Relationship</td>
+        <td style="border: 1px solid black;">Address</td>
+        <td style="border: 1px solid black;">Email</td>
+        <td style="border: 1px solid black;">Lan Phone</td>
+        <td style="border: 1px solid black;">Mobile</td>
       </tr>
       <tr>
-        <td>Address : {{ $guardian_detail->gr_address}}</td>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_name}}</td>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_relation}}</td>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_address}}</td>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_email}}</td>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_lan}}</td>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_mob}}</td>      
       </tr>
-      <tr>
-        <td >Email : {{ $guardian_detail->gr_email}}</td>
-      </tr>
-      
-      <tr>
-        <td>Lan Phone : {{ $guardian_detail->gr_lan}}</td>
-        <td style="width:655px;">Mobile : {{ $guardian_detail->gr_mob}}</td>
-      
     </table><br>
 
     
-    <h5>Medical Practitioner</h5>
+    <h3 style="font-family:Bedrock">Medical Practitioner:</h3>
     <table>
       <tr>
-        <td style="width:350px;">Name : {{ $gpdetail->gp_name}}</td>
-        <td >Email : {{ $gpdetail->gp_email}}</td>
+        <td style="border: 1px solid black;">Name</td>
+        <td style="border: 1px solid black;">Email</td>
+        <td style="border: 1px solid black;">Address</td>
+        <td style="border: 1px solid black;">Lan Phone</td>
+        <td style="border: 1px solid black;">Mobile</td>
+        <td style="border: 1px solid black;">Fax</td>
       </tr>
       <tr>
-        <td>Address : {{ $gpdetail->address}}</td>
-      <tr>
-        <td>Lan Phone : {{ $gpdetail->gp_lan}}</td>
-        <td>Mobile : {{ $gpdetail->ph}}</td>
-        <td>Fax : {{ $gpdetail->gp_fax}}</td>
+        <td style="border: 1px solid black;">{{ $gpdetail->gp_name}}</td>
+        <td style="border: 1px solid black;">{{ $gpdetail->gp_email}}</td>
+        <td style="border: 1px solid black;">{{ $gpdetail->address}}</td>
+        <td style="border: 1px solid black;">{{ $gpdetail->gp_lan}}</td>
+        <td style="border: 1px solid black;">{{ $gpdetail->ph}}</td>
+        <td style="border: 1px solid black;">{{ $gpdetail->gp_fax}}</td>      
       </tr>
     </table><br>
     
-    <h5>Other Health Services</h5>
+    <h3 style="font-family:Bedrock">Other Health Services:</h3>
     <table>
       <tr>
-        <td>Name : {{ $health_service->hs_name}}</td>
+        <td style="border: 1px solid black;">Name</td>
+        <td style="border: 1px solid black;">Address</td>
+        <td style="border: 1px solid black;">Lan Phone</td>
+        <td style="border: 1px solid black;">(after hours)</td>
+        <td style="border: 1px solid black;">Fax</td>
+        <td style="border: 1px solid black;">Email</td>
       </tr>
       <tr>
-        <td>Address : {{ $health_service->hs_address}}</td>
-      </tr>
-      <tr>
-        <td style="width:350px;">Lan Phone : {{ $health_service->hs_lan}}</td>
-        <td style="width:460px;">(after hours) : {{ $health_service->aftr_hrs}}</td>
-        <td >Fax : {{ $health_service->hs_fax}}</td>
-      <tr>
-        <td>Email : {{ $health_service->hs_email}}</td>
+        <td style="border: 1px solid black;">{{ $health_service->hs_name}}</td>
+        <td style="border: 1px solid black;">{{ $health_service->hs_address}}</td>
+        <td style="border: 1px solid black;">{{ $health_service->hs_lan}}</td>
+        <td style="border: 1px solid black;">{{ $health_service->aftr_hrs}}</td>
+        <td style="border: 1px solid black;">{{ $health_service->hs_fax}}</td>
+        <td style="border: 1px solid black;">{{ $health_service->hs_email}}</td>      
       </tr>
     </table><br>
-    <h5><u>Additional Information : Medical history/diagnosis : {{ $health_service->med_history}}</u></h5><br>
+    <h3 style="font-family:Bedrock"><u>Additional Information : <i>Medical history/diagnosis </i>: {{ $health_service->med_history}}</u></h3><br>
      <label>Date Fixed to Pharmacy: ..............................................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature: ..............................................................</label>
          </div>
    </div>

@@ -39,7 +39,7 @@
 					<div class="form-row" style="padding-bottom:30px;">
 					<div class="col-md-4 mb-3">
 					    <label for="name" >Resident Name</label>
-					    <select class="form-control" required="" id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
+					    <select class="form-control" required="" id="resname" name="res_name" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Resident Name  --</option>
                           @foreach($residents as $resident)
                           <option value="{{ $resident->id }}"> {{ $resident->fname}}. {{$resident->mname}}. {{$resident->lname  }}</option>
@@ -48,7 +48,7 @@
 					   </div>
                       <div class="col-md-2 mb-2" style="width: 90px;">
 					    <label for="name" >Room</label>
-  	                    <input type="number" name="room" id="room" placeholder="No" class="form-control" value="">					        	        
+  	                    <input type="text" name="room" id="room" placeholder="No" class="form-control" readonly>					        	        
 
 					   </div>
                      
@@ -70,7 +70,30 @@
 				    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				    
 				    <div  class="form-row" style="padding-bottom:10px;">
-                      	<div class="col-md-2 mb-3" style="width: 90px;">
+				    	<div class="table-responsive">
+				    		<button style="float: right;bottom: 50px; " class="btn  btn-primary text-right" 
+						      id="addBtn" type="button">
+						        <i class="fa fa-plus" aria-hidden="true"></i>
+						    </button><br>
+						      <table class="table table-bordered">
+						        <thead>
+						          <tr>
+						            <th width="65px;" class="text-center">No</th>
+						            <th width="150px;" class="text-center">Item / Furniture</th>
+						            <th class="text-center">Owned By</th>
+						            <th class="text-center">Condition</th>
+						            <th class="text-center">Comments/Description</th>
+						            <th class="text-center">Action</th>                                   
+						          </tr>
+						        </thead>
+						        <tbody id="tbody">
+						  
+						        </tbody>
+						      </table>
+						    </div>
+						    
+						  </div>
+                      <!--	<div class="col-md-2 mb-3" style="width: 90px;">
 					    <label for="name"  >Item No</label>
   	                    <input type="text" name="item_no[]" id="item_no" value="1" class="form-control" placeholder="No" readonly>					        	        
 					   </div>
@@ -107,7 +130,7 @@
                       <br>
 				      <button style="color:white; background-color:#23536f; top: 5px;" id="addMore">+</button> 
 				  </div>
-				    </div>
+				    </div>-->
 
 					<!--  <div class="col-md-4 mb-3">
 				    <div class="form-row">
@@ -152,7 +175,7 @@
                     
 
 				                       
-				     <div class="box-footer text-right">
+				     <div class="box-footer text-right" style="padding-right:80px;">
 					    <br><br><a class="btn btn-link text-left" href="{{ route('condition_reports.index') }}">Cancel</a>
 					    <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
 					</div>
@@ -167,7 +190,7 @@
 
 @section('moar_scripts')
 <script>
-$('#res_name').change(function(){
+$('#resname').change(function(){
     var id = $(this).val();
     var url = '{{ route("getDetails", ":id") }}';
     url = url.replace(':id', id);
@@ -187,6 +210,7 @@ $('#res_name').change(function(){
     });
 });
 </script>
+
 <script type="text/javascript">
 	Date.prototype.toDateInputValue = (function() {
     var local = new Date(this);
@@ -248,6 +272,85 @@ $('#res_name').change(function(){
 });
 
 </script>
+  <script>
+    $(document).ready(function () {
+  
+      // Denotes total number of rows
+      var rowIdx = 0;
+  
+      // jQuery button click event to add a row
+      $('#addBtn').on('click', function () {
+  
+        // Adding a row inside the tbody.
+        $('#tbody').append(`<tr id="R${++rowIdx}">
+             <td class="row-index text-center">
+             <input type="text" name="item_no[]" value="${rowIdx}" readonly>
+             </td>
+             <td class="row-index text-center">
+             <input name="items[]" type="text" >
+             </td>
+             <td class="row-index text-center">
+             <select name="owned_by[]" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                <option value="" style="font-size: 14px;">---Select--</option> 
+                <option value="O" style="font-size: 14px;">Resident</option> 
+                <option value="F" style="font-size: 14px;">Facility</option> 
+            </select>
+             </td>
+             <td class="row-index text-center">
+             <select name="res_cond[]"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                            <option value="" style="font-size: 14px;">---Select--</option> 
+                            <option value="P" style="font-size: 14px;">Poor</option> 
+                            <option value="G" style="font-size: 14px;">Good</option> 
+                            <option value="R" style="font-size: 14px;">In need of repair</option> 
+
+                        </select>
+             </td>
+             <td class="row-index text-center">
+             <input type="text" name="res_comments[]"  >
+             </td>
+              <td class="text-center">
+                
+                  <button style="height:20px;background-color:white;color:red;"  class="remove btn "><i class="fa fa-trash icon-white"></i></button>
+                </td>
+              </tr>`);
+      });
+  
+      // jQuery button click event to remove a row.
+      $('#tbody').on('click', '.remove', function () {
+  
+        // Getting all the rows next to the row
+        // containing the clicked button
+        var child = $(this).closest('tr').nextAll();
+  
+        // Iterating across all the rows 
+        // obtained to change the index
+        child.each(function () {
+  
+          // Getting <tr> id.
+          var id = $(this).attr('id');
+  
+          // Getting the <p> inside the .row-index class.
+          var idx = $(this).children('.row-index').children('p');
+  
+          // Gets the row number from <tr> id.
+          var dig = parseInt(id.substring(1));
+  
+          // Modifying row index.
+          idx.html(`Row ${dig - 1}`);
+  
+          // Modifying row id.
+          $(this).attr('id', `R${dig - 1}`);
+        });
+  
+        // Removing the current row.
+        $(this).closest('tr').remove();
+  
+        // Decreasing total number of rows by 1.
+        rowIdx--;
+      });
+    });
+  </script>
+
 @include ('partials.bootstrap-table')
 @stop
 

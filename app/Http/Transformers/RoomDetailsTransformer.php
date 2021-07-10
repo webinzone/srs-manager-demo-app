@@ -31,7 +31,7 @@ class RoomDetailsTransformer
                 'client_id' => e($room_detail->client_id),
                 'status' => e($room_detail->status),
                 'beds_no' => e($room_detail->beds_no),
-                'created_at' => e($room_detail->created_at),
+                'created_at' => e(date('d-m-Y', strtotime($room_detail->created_at))),
                 'actions' => view('room_details/datatables_actions', compact('room_detail'))->render() 
                 
             ];

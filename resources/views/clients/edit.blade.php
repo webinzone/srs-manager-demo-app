@@ -334,8 +334,8 @@
                         <input type="text" value="{{ $health_service->hs_fax}}" class="form-control" id="hs_fax" placeholder="Fax" name="hs_fax" v-on:change="page_one.hs_fax = $event.target.value">  
                       </div>
                       <div class="col-md-2 mb-3">
-                        <label for="aftr_hrs">After Hours</label>
-                        <input type="text" value="{{ $health_service->aftr_hrs}}" class="form-control" id="aftr_hrs" placeholder="After Hours" name="aftr_hrs" v-on:change="page_one.aftr_hrs = $event.target.value">
+                        <label for="aftr_hrs">After Hours No.</label>
+                        <input type="text" value="{{ $health_service->aftr_hrs}}" class="form-control" id="aftr_hrs" placeholder="After Hours No." name="aftr_hrs" v-on:change="page_one.aftr_hrs = $event.target.value">
                        </div>
                       <div class="col-md-5 mb-3">
                         <label for="med_history">Medical History</label>

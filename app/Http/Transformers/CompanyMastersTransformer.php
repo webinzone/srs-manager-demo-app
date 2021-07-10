@@ -30,7 +30,7 @@ class CompanyMastersTransformer
                 'address' => e($company_master->address),
                 'suburb' => e($company_master->suburb),
                 
-                'created_at' => e($company_master->created_at),
+                'created_at' => e(date('d-m-Y', strtotime($company_master->created_at))),
                 'actions' => view('company_masters/datatables_actions', compact('company_master'))->render() 
                 
             ];

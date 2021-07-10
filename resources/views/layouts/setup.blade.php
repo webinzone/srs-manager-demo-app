@@ -3,7 +3,7 @@
 <html>
     <head>
       <title>
-       SRS MANAGER
+       Residential care Manager
       </title>
         <link rel="stylesheet" href="{{ url(mix('css/dist/all.css')) }}">
 

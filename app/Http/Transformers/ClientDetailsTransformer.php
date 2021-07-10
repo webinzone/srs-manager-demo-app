@@ -28,10 +28,10 @@ class ClientDetailsTransformer
                 'fname' => e($client_detail->fname),
                 'mname' => e($client_detail->mname),
                 'lname' => e($client_detail->lname),
-                'dob' => e($client_detail->dob),
+                'dob' => e(date('d-m-Y', strtotime($client_detail->dob))),
                 'gender' => e($client_detail->gender),
                 'ph' => e($client_detail->ph),
-                'created_at' => e($client_detail->created_at),
+                'created_at' => e(date('d-m-Y', strtotime($client_detail->created_at))),
                 'actions' => view('clients/datatables_actions', compact('client_detail'))->render()                 
             ];
 

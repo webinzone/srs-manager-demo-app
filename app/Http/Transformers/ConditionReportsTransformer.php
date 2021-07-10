@@ -29,7 +29,7 @@ class ConditionReportsTransformer
 
                 'room' => e($condition_report->room),
                 
-                'created_at' => e($condition_report->created_at),
+                'created_at' => e(date('d-m-Y', strtotime($condition_report->created_at))),
                 'actions' => view('condition_reports/datatables_actions', compact('condition_report'))->render() 
                 
             ];

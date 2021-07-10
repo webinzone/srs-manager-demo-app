@@ -30,7 +30,7 @@ class LocationMastersTransformer
                 'master_name' => e($location_master->master_name),
                 'address' => e($location_master->address),
                 'suburb' => e($location_master->suburb),
-                'created_at' => e($location_master->created_at),
+                'created_at' => e(date('d-m-Y', strtotime($location_master->created_at))),
                 'actions' => view('location_masters/datatables_actions', compact('location_master'))->render() 
                 
             ];

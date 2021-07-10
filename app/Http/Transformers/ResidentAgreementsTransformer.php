@@ -28,7 +28,7 @@ class ResidentAgreementsTransformer
                 'r_name' => e($resident_agreement->r_name),
                 'room_no' => e($resident_agreement->room_no),
                 'guardian' => e($resident_agreement->guardian),
-                'created_at' => e($resident_agreement->created_at),
+                'created_at' => e(date('d-m-Y', strtotime($resident_agreement->created_at))),
                 'actions' => view('resident_agreements/datatables_actions', compact('resident_agreement'))->render() 
                 
             ];

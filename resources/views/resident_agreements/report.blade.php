@@ -67,34 +67,47 @@
     <table>
       <tr>
         <td rowspan="2" style="width: 185px;align-items: center;">&nbsp;&nbsp;&nbsp;&nbsp;<b>RESIDENT DETAILS</b></td>
-        <td>Name:  {{ $resident_agreement->r_name}}</td>
-        <td>Room No:  {{ $resident_agreement->room_no}}</td>
+        <td >Name</td>
+        <td>{{ $resident_agreement->r_name}}</td>
+        <td>Room No:  </td>
+        <td>{{ $resident_agreement->room_no}}</td>
       </tr>
       <tr>
-        <td width="350px;">Guide to resident and prospective resident:  {{ $resident_agreement->res_gp}}</td>
-        <td >Need assistance  in reading ?</td>
-        <td>{{ $resident_agreement->asistance_status}}</td>
+        <td width="290px;">Guide to resident and prospective resident:  {{ $resident_agreement->res_gp}}</td>
+        <td width="200px;" >Need assistance  in reading ?</td>
+        <td width="100px;">{{ $resident_agreement->asistance_status}}</td>
         <td>Staff: {{ $resident_agreement->staff}}</td>
       </tr>
     </table>&nbsp;&nbsp;
     <table>
       <tr>
-        <td>Guardian: {{ $resident_agreement->guardian}}</td>
-        <td>Telephone:  {{ $resident_agreement->g_tel}}</td>
-        <td>Address:  {{ $resident_agreement->g_adress}}</td>
-        <td>Email: {{ $resident_agreement->g_email}}</td>
+        <td>Relation</td>
+        <td>Name</td>
+        <td>Address</td>
+        <td>Phone</td>
+        <td>Email</td>
+
       </tr>
       <tr>
-        <td>Person Nominated: {{ $resident_agreement->p_nomini}}</td>
-        <td>Telephone:  {{ $resident_agreement->per_tel}}</td>
-        <td>Address:  {{ $resident_agreement->per_address}}</td>
-        <td>Email: {{ $resident_agreement->per_email}}</td>
+        <td>Guardian</td>
+        <td>{{ $resident_agreement->guardian}}</td>
+        <td> {{ $resident_agreement->g_adress}}</td>
+        <td>  {{ $resident_agreement->g_tel}}</td>
+        <td> {{ $resident_agreement->g_email}}</td>
+      </tr>
+      <tr>
+        <td>Person Nominated</td>
+        <td>{{ $resident_agreement->p_nomini}}</td>
+        <td> {{ $resident_agreement->per_address}}</td>
+        <td>  {{ $resident_agreement->per_tel}}</td>
+        <td> {{ $resident_agreement->per_email}}</td>
       </tr>
        <tr>
-        <td>Emergency Contact: {{ $resident_agreement->emg_contact}}</td>
-        <td>Telephone:  {{ $resident_agreement->emg_tel}}</td>
-        <td>Address:  {{ $resident_agreement->emg_address}}</td>
-        <td>Email: {{ $resident_agreement->emg_email}}</td>
+        <td>Emergency Contact</td>
+        <td>{{ $resident_agreement->emg_contact}}</td>
+        <td> {{ $resident_agreement->emg_address}}</td>
+        <td>  {{ $resident_agreement->emg_tel}}</td>
+        <td> {{ $resident_agreement->emg_email}}</td>
       </tr>
     </table>&nbsp;&nbsp;
     <table>
@@ -154,12 +167,12 @@
         <td colspan="5" ><center><b>OTHER FEES AND CHARGES</b></td></center>
       </tr>
       <tr>
-        <td>Condition report provided to the resident?:  </td>
-        <td>{{ $resident_agreement->condition_rep}}</td>
+        <td width="300px;">Condition report provided to the resident?:  </td>
+        <td width="300px;">{{ $resident_agreement->condition_rep}}</td>
       </tr>
       <tr>
-        <td>Furniture in resident's room belonging to thr SRS: </td>
-        <td><p>{{ $resident_agreement->pers_prop}}</p></td>
+        <td width="300px;">Furniture in resident's room belonging to thr SRS: </td>
+        <td width="300px;"><p>{{ $resident_agreement->pers_prop}}</p></td>
       </tr>
 </table>
       <table>
