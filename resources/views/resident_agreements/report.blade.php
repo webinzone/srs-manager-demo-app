@@ -32,7 +32,7 @@
       }
   </style>
 
-
+    <link rel="stylesheet" href="{{ url(mix('css/dist/report.css')) }}">
 
 
   </head>
@@ -237,125 +237,125 @@ depending on your ongoing requirements and fees may change.</b></p><br>
       </tr>
       <tr>
         <td></td>
-        <td><b>Full</b></td>
-        <td><b>Part</b></td>
-        <td><b>None</b></td>
+        <td><b><center>Full</center></b></td>
+        <td><b><center>Part</center></b></td>
+        <td><b><center>None</center></b></td>
         <td></td>
       </tr>
       <tr>
         <td>Bathing and showering</td>
         <td><form action="">    
-         {{ $resident_agreement->bath == 'Full' ? 'Yes' : 'No'  }}   
+         {!! $resident_agreement->bath == 'Full' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
         </form></td>
          <td><form action="">    
-         {{ $resident_agreement->bath == 'Part' ? 'Yes' : 'No'  }}    
+         {!! $resident_agreement->bath == 'Part' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
         </form></td>
         <td><form action="">    
-         {{ $resident_agreement->bath == 'None' ? 'Yes' : 'No'  }}   
+          {!! $resident_agreement->bath == 'None' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
         </form></td>
         <td>{{ $resident_agreement->bath_fee}}</td>
       </tr>
       <tr>
         <td>Oral Support</td>
         <td><form action="">    
-         {{ $resident_agreement->oral == 'Full' ? 'Yes' : 'No'  }}  
+         {!! $resident_agreement->oral == 'Full' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}  
         </form></td>
          <td><form action="">    
-         {{ $resident_agreement->oral == 'Part' ? 'Yes' : 'No'  }}     
+         {!! $resident_agreement->oral == 'Part' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}     
         </form></td>
         <td><form action="">    
-         {{ $resident_agreement->oral == 'None' ? 'Yes' : 'No'  }}     
+         {!! $resident_agreement->oral == 'None' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}     
         </form></td>
         <td>{{ $resident_agreement->oral_fee}}</td>
       </tr>
       <tr>
         <td>Hair and nails</td>
         <td><form action="">    
-         {{ $resident_agreement->hair == 'Full' ? 'Yes' : 'No'  }}       
+         {!! $resident_agreement->hair == 'Full' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}       
         </form></td>
          <td><form action="">    
-         {{ $resident_agreement->hair == 'Part' ? 'Yes' : 'No'  }}        
+         {!! $resident_agreement->hair == 'Part' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}        
         </form></td>
         <td><form action="">    
-         {{ $resident_agreement->hair == 'None' ? 'Yes' : 'No'  }}      
+         {!! $resident_agreement->hair == 'None' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}      
         </form></td>
         <td>{{ $resident_agreement->hair_fee}}</td>
       </tr>
       <tr>
         <td>Toileting</td>
         <td><form action="">    
-         {{ $resident_agreement->toileting == 'Full' ? 'Yes' : 'No'  }}   
+         {!! $resident_agreement->toileting == 'Full' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
         </form></td>
          <td><form action="">    
-         {{ $resident_agreement->toileting == 'Part' ? 'Yes' : 'No'  }}     
+         {!! $resident_agreement->toileting == 'Part' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}     
         </form></td>
         <td><form action="">    
-         {{ $resident_agreement->toileting == 'None' ? 'Yes' : 'No'  }}     
+         {!! $resident_agreement->toileting == 'None' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}     
         </form></td>
         <td>{{ $resident_agreement->toileting_fee}}</td>
       </tr>
       <tr>
         <td>Mobility</td>
         <td><form action="">    
-         {{ $resident_agreement->mobility == 'Full' ? 'Yes' : 'No'  }}    
+         {!! $resident_agreement->mobility == 'Full' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
         </form></td>
          <td><form action="">    
-         {{ $resident_agreement->mobility == 'Part' ? 'Yes' : 'No'  }}
+         {!! $resident_agreement->mobility == 'Part' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}
           </form></td>
         <td><form action="">    
-         {{ $resident_agreement->mobility == 'None' ? 'Yes' : 'No'  }}    
+         {!! $resident_agreement->mobility == 'None' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
         </form></td>
         <td>{{ $resident_agreement->mobility_fee}}</td>
       </tr>
       <tr>
         <td>Assistance with medication</td>
         <td><form action="">    
-         {{ $resident_agreement->medi_assi == 'Full' ? 'Yes' : 'No'  }}    
+         {!! $resident_agreement->medi_assi == 'Full' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
         </form></td>
          <td><form action="">    
-         {{ $resident_agreement->medi_assi == 'Part' ? 'Yes' : 'No'  }}   
+         {!! $resident_agreement->medi_assi == 'Part' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
         </form></td>
         <td><form action="">    
-         {{ $resident_agreement->medi_assi == 'None' ? 'Yes' : 'No'  }}   
+         {!! $resident_agreement->medi_assi == 'None' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
         </form></td>
         <td>{{ $resident_agreement->medi_assi_fee}}</td>
       </tr>
       <tr>
         <td>Continence management</td>
         <td><form action="">    
-         {{ $resident_agreement->continence == 'Full' ? 'Yes' : 'No'  }}   
+         {!! $resident_agreement->continence == 'Full' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
         </form></td>
          <td><form action="">    
-         {{ $resident_agreement->continence == 'Part' ? 'Yes' : 'No'  }}   
+         {!! $resident_agreement->continence == 'Part' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
         </form></td>
         <td><form action="">    
-         {{ $resident_agreement->continence == 'None' ? 'Yes' : 'No'  }}
+         {!! $resident_agreement->continence == 'None' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}
         </form></td>
         <td>{{ $resident_agreement->continence_fee}}</td>
       </tr>
       <tr>
         <td>Bed making</td>
         <td><form action="">    
-         {{ $resident_agreement->bed_make == 'Full' ?  'Yes' : 'No'  }}   
+         {!! $resident_agreement->bed_make == 'Full' ?  '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
         </form></td>
          <td><form action="">    
-         {{ $resident_agreement->bed_make == 'Part' ?  'Yes' : 'No'  }}   
+         {!! $resident_agreement->bed_make == 'Part' ?  '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
         </form></td>
         <td><form action="">    
-         {{ $resident_agreement->bed_make == 'None' ?   'Yes' : 'No'  }}   
+         {!! $resident_agreement->bed_make == 'None' ?   '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
         </form></td>
         <td>{{ $resident_agreement->bed_make_fee}}</td>
       </tr>
       <tr>
         <td>Dressing</td>
         <td><form action="">    
-         {{ $resident_agreement->dressing == 'Full' ? 'Yes' : 'No'  }}    
+         {!! $resident_agreement->dressing == 'Full' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
         </form></td>
          <td><form action="">    
-         {{ $resident_agreement->dressing == 'Part' ? 'Yes' : 'No'  }}    
+         {!! $resident_agreement->dressing == 'Part' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
         </form></td>
         <td><form action="">    
-         {{ $resident_agreement->dressing == 'None' ? 'Yes' : 'No'  }}    
+         {!! $resident_agreement->dressing == 'None' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
         </form></td>
         <td>{{ $resident_agreement->dressing_fee}}</td>
       </tr><br>

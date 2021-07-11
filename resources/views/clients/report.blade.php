@@ -208,7 +208,7 @@
         <td style="border: 1px solid black;">{{ $health_service->hs_email}}</td>      
       </tr>
     </table><br>
-    <h3 style="font-family:Bedrock"><u>Additional Information : <i>Medical history/diagnosis </i>: {{ $health_service->med_history}}</u></h3><br>
+    <h3 style="font-family:Bedrock"><u>Additional Information : <i>Medical history/diagnosis </i>: </u></h3><label style="border: 1px solid black; padding: 5px;">{{ $health_service->med_history}}</label><br><br>
      <label>Date Fixed to Pharmacy: ..............................................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature: ..............................................................</label>
          </div>
    </div>

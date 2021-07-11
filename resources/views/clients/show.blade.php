@@ -13,12 +13,23 @@
 
 {{-- Page content --}}
 @section('content')
+<style type="text/css">
+      table, td, th {
+    border: 1px solid black;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 10px;
+  }
+</style>
 
   <div id="webui">
     <div class="row">
         <!-- left column -->
       <div class="col-md-7">
-        <form class="form-horizontal" method="" action="" autocomplete="off">
+        <form class="form-horizontal" method="" action="" autocomplete="off" style="width: 1000px; align-items: center;   background-color: #fff; padding-right: 100px;">
           <div class="box box-default">
               <div class="box-header with-border text-center">
                  <h3><b>Rsident Details</b></h3>
@@ -29,319 +40,169 @@
             <div class="box-body" style="padding-left:80px;">
 
                 <!-- Asset name -->
-                <h4 class="mb-3"><b>Personal Information</b></h4><br>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">First Name:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->fname}}</p>
-                    </div>
-                </div>
-               <div class="form-group">
-                    <label class="col-sm-3 control-label">Middle Name:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->mname}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Last Name:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->lname}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Date of Birth:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->dob}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Religion:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->religion}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Languages Known:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->l_known}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Gender:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->gender}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Medicare card number:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->medicard_no}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Expiry date:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->exp_date}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Pension card number:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->pension_no}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Expiry date:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->pen_exp}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Respite:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->respite}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Weeks:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->weeks}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Account to be addressed:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->acc}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Phone:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->ph}}</p>
-                    </div>
-                </div>
-                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Fax:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->res_fax}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Email:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->res_email}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Ref By:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->ref_by}}</p>
-                    </div>
-                </div>
-               <div class="form-group">
-                    <label class="col-sm-3 control-label">Previous Address:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->pre_address}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Entitlement No:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->ent_no}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Nationality:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->nationality}}</p>
-                    </div>
-                </div>
-               <div class="form-group">
-                    <label class="col-sm-3 control-label">Admission Date:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->adm_date}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Room No:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $client_detail->room_no}}</p>
-                    </div>
-                </div>
+               <h4 style="font-family:Bedrock">Personal Details:</h4>
+    <table style="border: 1px solid black;">
+      <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Name</td>
+        <td style="border: 1px solid black;">Date of Birth</td>
+        <td style="border: 1px solid black;">Nationality</td>
+        <td style="border: 1px solid black;">Religion</td>
+        <td style="border: 1px solid black;">Languages Spoken</td>
+        <td style="border: 1px solid black;">M/F</td>
+      </tr>
+      <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">{{ $client_detail->fname}}. {{ $client_detail->mname}}. {{ $client_detail->lname}}</td>
+        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->dob)) }}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->nationality}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->religion}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->l_known}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->gender}}</td>        
+      </tr>
+      <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Ref By</td>
+        <td style="border: 1px solid black;" colspan="3">{{ $client_detail->ref_by}}</td>
+        <td style="border: 1px solid black;">Admission Date</td>
+        <td style="border: 1px solid black;">Room No</td>
+      </tr>
+      <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;" colspan="4">Previous Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp; {{ $client_detail->pre_address}}</td>
+        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->adm_date)) }}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->room_no}}</td>
+      </tr>   
+      
+    </table><br>
+      <table style="border: 1px solid black;">
+         <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Medicare Number</td>
+        <td style="border: 1px solid black;">Expiry</td>
+        <td style="border: 1px solid black;">Pension Number</td>
+        <td style="border: 1px solid black;">Expiry</td>
+        <td style="border: 1px solid black;">Safety Net Entitlenment Number</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black;">{{ $client_detail->medicard_no}}</td>
+        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->exp_date)) }}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->pension_no}}</td>
+        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->pen_exp)) }}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->ent_no}}</td>        
+      </tr>
+    </table><br>
+     <h4 style="font-family:Bedrock">Permanent / Respite:</h4>{{ $client_detail->respite}}&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<i style="padding-bottom:30px;">{{ $duration}}</i>
+    <table style="padding-top: 5px;">
+      <tr>
+        <td style="border: 1px solid black;">Weeks</td>
+        <td style="border: 1px solid black;">Accont to be addressed</td>
+        <td style="border: 1px solid black;">Phone</td>
+        <td style="border: 1px solid black;">Email ID</td>
+        <td style="border: 1px solid black;">Permanent / Respite</td>
+        <td style="border: 1px solid black;">Duration / Admission Date</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black;">{{ $weeks}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->acc}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->ph}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->res_email}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->respite}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->duration}}</td>       
+      </tr>
+    </table><br>
+    
 
-                <h4 class="mb-3"><b>Next of kin</b></h4><br>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Name:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $next_of_kin->name}}</p>
-                    </div>
-                </div>
-               <div class="form-group">
-                    <label class="col-sm-3 control-label">Address:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $next_of_kin->address}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Phone Number:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $next_of_kin->ph}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Email:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $next_of_kin->nok_email}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Land Phone:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $next_of_kin->nok_lan}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Fax:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $next_of_kin->nok_fax}}</p>
-                    </div>
-                </div>
-                <h4 class="mb-3"><b>GP Details</b></h4><br>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">General practitioner Name:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $gpdetail->gp_name}}</p>
-                    </div>
-                </div>
-               <div class="form-group">
-                    <label class="col-sm-3 control-label">Address:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $gpdetail->address}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Phone Number:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $gpdetail->ph}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Email:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $gpdetail->gp_email}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Land Phone:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $gpdetail->gp_lan}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Fax:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $gpdetail->gp_fax}}</p>
-                    </div>
-                </div>
-                <h4 class="mb-3"><b>GuardianDetail</b></h4><br>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Name:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $guardian_detail->gr_name}}</p>
-                    </div>
-                </div>
-               <div class="form-group">
-                    <label class="col-sm-3 control-label">Relation:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $guardian_detail->gr_relation}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Land Phone:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $guardian_detail->gr_lan}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Mobile:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $guardian_detail->gr_mob}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Email:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $guardian_detail->gr_email}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Address:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $guardian_detail->gr_address}}</p>
-                    </div>
-                </div>
-                <h4 class="mb-3"><b>HealthService</b></h4><br>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Name:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $health_service->hs_name}}</p>
-                    </div>
-                </div>
-               <div class="form-group">
-                    <label class="col-sm-3 control-label">Address:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $health_service->hs_address}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Land Phone:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $health_service->hs_lan}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">After Hours:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $health_service->aftr_hrs}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Fax:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $health_service->hs_fax}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Email:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $health_service->hs_email}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Medical History:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $health_service->med_history}}</p>
-                    </div>
-                </div>
-                <h4 class="mb-3"><b>Pension Details</b></h4><br>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Type of Income:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $pension_detail->income_type}}</p>
-                    </div>
-                </div>
-               <div class="form-group">
-                    <label class="col-sm-3 control-label">Client Reference no:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $pension_detail->client_refno}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Taxi Concession details:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $pension_detail->con_card}}</p>
-                    </div>
-                </div>
+    <h4 style="font-family:Bedrock">Pension Details:</h4>
+    <table>
+      <tr>
+        <td style="border: 1px solid black;">Type of Income</td>
+        <td style="border: 1px solid black;">Client Reference no</td>
+        <td style="border: 1px solid black;">Taxi Concession Card details</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black;">{{ $pension_detail->income_type}}   <label id="oi"> {{ $client_detail->other_income}}</label></td>
+        <td style="border: 1px solid black;">{{ $pension_detail->client_refno}}</td>
+        <td style="border: 1px solid black;">{{ $pension_detail->con_card}}</td>      
+      </tr>
+    </table><br> 
+
+    <h4 style="font-family:Bedrock">Next Of Kin / Representative:</h4>
+    <table>
+      <tr>
+        <td style="border: 1px solid black;">Name</td>
+        <td style="border: 1px solid black;">Email</td>
+        <td style="border: 1px solid black;">Address</td>
+        <td style="border: 1px solid black;">Lan Phone</td>
+        <td style="border: 1px solid black;">Mobile</td>
+        <td style="border: 1px solid black;">Fax</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black;">{{ $next_of_kin->name}}</td>
+        <td style="border: 1px solid black;">{{ $next_of_kin->nok_email}}</td>
+        <td style="border: 1px solid black;">{{ $next_of_kin->address}}</td>
+        <td style="border: 1px solid black;">{{ $next_of_kin->ph}}</td>
+        <td style="border: 1px solid black;">{{ $next_of_kin->nok_lan}}</td>
+        <td style="border: 1px solid black;">{{ $next_of_kin->nok_fax}}</td>      
+      </tr>
+    </table><br>
+    
+    <h4 style="font-family:Bedrock">Guardian / Administrator:</h4>
+    <table>
+      <tr>
+        <td style="border: 1px solid black;">Name</td>
+        <td style="border: 1px solid black;">Relationship</td>
+        <td style="border: 1px solid black;">Address</td>
+        <td style="border: 1px solid black;">Email</td>
+        <td style="border: 1px solid black;">Lan Phone</td>
+        <td style="border: 1px solid black;">Mobile</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_name}}</td>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_relation}}</td>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_address}}</td>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_email}}</td>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_lan}}</td>
+        <td style="border: 1px solid black;">{{ $guardian_detail->gr_mob}}</td>      
+      </tr>
+    </table><br>
+
+    
+    <h4 style="font-family:Bedrock">Medical Practitioner:</h4>
+    <table>
+      <tr>
+        <td style="border: 1px solid black;">Name</td>
+        <td style="border: 1px solid black;">Email</td>
+        <td style="border: 1px solid black;">Address</td>
+        <td style="border: 1px solid black;">Lan Phone</td>
+        <td style="border: 1px solid black;">Mobile</td>
+        <td style="border: 1px solid black;">Fax</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black;">{{ $gpdetail->gp_name}}</td>
+        <td style="border: 1px solid black;">{{ $gpdetail->gp_email}}</td>
+        <td style="border: 1px solid black;">{{ $gpdetail->address}}</td>
+        <td style="border: 1px solid black;">{{ $gpdetail->gp_lan}}</td>
+        <td style="border: 1px solid black;">{{ $gpdetail->ph}}</td>
+        <td style="border: 1px solid black;">{{ $gpdetail->gp_fax}}</td>      
+      </tr>
+    </table><br>
+    
+    <h4 style="font-family:Bedrock">Other Health Services:</h4>
+    <table>
+      <tr>
+        <td style="border: 1px solid black;">Name</td>
+        <td style="border: 1px solid black;">Address</td>
+        <td style="border: 1px solid black;">Lan Phone</td>
+        <td style="border: 1px solid black;">(after hours)</td>
+        <td style="border: 1px solid black;">Fax</td>
+        <td style="border: 1px solid black;">Email</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black;">{{ $health_service->hs_name}}</td>
+        <td style="border: 1px solid black;">{{ $health_service->hs_address}}</td>
+        <td style="border: 1px solid black;">{{ $health_service->hs_lan}}</td>
+        <td style="border: 1px solid black;">{{ $health_service->aftr_hrs}}</td>
+        <td style="border: 1px solid black;">{{ $health_service->hs_fax}}</td>
+        <td style="border: 1px solid black;">{{ $health_service->hs_email}}</td>      
+      </tr>
+    </table><br>
+    <h4 style="font-family:Bedrock"><u>Additional Information : <i>Medical history/diagnosis </i>: {{ $health_service->med_history}}</u></h4><br>
           
             </div>
           </div>

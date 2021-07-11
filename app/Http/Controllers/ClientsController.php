@@ -251,6 +251,16 @@ class ClientsController extends Controller
    public function show($id)
     {
         $client_detail = ClientDetail::find($id);
+        $status = $client_detail->respite;
+         if ($status == "Respite") {
+            $duration = "From :".date('d-m-Y', strtotime($client_detail->start_period)).","."To :".date('d-m-Y', strtotime($client_detail->end_period));
+            $weeks = $client_detail->weeks;
+         }else
+         {
+            $duration = "Admisiion Date :".date('d-m-Y', strtotime($client_detail->adm_date));
+            $weeks = '';
+         }
+
         //$client_family = ClientFamily::where('client_id', '=', $id);
         //$power_of_atony = ClientPowerofatony::where('client_id', '=', $id);
         //$allergy = ClientAllergy::where('client_id', '=', $id)->firstOrFail();
@@ -261,7 +271,7 @@ class ClientsController extends Controller
         $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
         $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
   
-        return view('clients/show')->with(compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail'));
+        return view('clients/show')->with(compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail','duration','weeks'));
     }
      /**
      * Show the form for editing the specified resource.
