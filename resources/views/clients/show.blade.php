@@ -202,7 +202,7 @@
         <td style="border: 1px solid black;">{{ $health_service->hs_email}}</td>      
       </tr>
     </table><br>
-    <h4 style="font-family:Bedrock"><u>Additional Information : <i>Medical history/diagnosis </i>: {{ $health_service->med_history}}</u></h4><br>
+   <h4 style="font-family:Bedrock"><u>Additional Information : <i>Medical history/diagnosis </i>: </u></h4><p style="border: 1px solid black; padding: 5px;">{{ $health_service->med_history}}</p><br><br>
           
             </div>
           </div>
