@@ -276,4 +276,16 @@ class ConditionReportsController extends Controller
 
     }
 
+    //public function getRow($id, $rid){
+//
+        //$data = ClientDetail::where('id', '=', $id)->firstOrFail();               
+        //for ($i=0; $i < $num; $i++)
+        //$array[$i] = $data->
+            //if ($rid == $i) {
+//                
+            //}
+        //end
+//
+    //}
+
 }

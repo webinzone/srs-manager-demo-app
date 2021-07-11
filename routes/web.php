@@ -59,7 +59,9 @@ Route::group(['middleware' => 'auth'], function () {
     //Route::get('/info/{id}', 'ConditionReportsController@getres');
     Route::get('get/details/{id}', 'ConditionReportsController@getDetails')->name('getDetails');
     Route::get('get/location/{id}', 'ConditionReportsController@getLocation')->name('getLocation');
+    Route::get('client/{id}/row/{i}', 'ConditionReportsController@getRow')->name('getRow');
     
+
     Route::get('get/resdetails/{id}', 'ResidentAgreementsController@getRSADetails')->name('getRSADetails');
     Route::get('get/resclientdetails/{id}', 'ResidentAgreementsController@getRSAclientDetails')->name('getRSAclientDetails');
     Route::get('get/resstaffdetails/{id}', 'ResidentAgreementsController@getRSAstaffDetails')->name('getRSAstaffDetails');

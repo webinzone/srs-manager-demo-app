@@ -39,7 +39,7 @@
                     <div class="form-row" style="padding-bottom:10px;">
                     <div class="col-md-4 mb-3">
                         <label for="name" >Resident Name</label>
-                        <select class="form-control" required="" id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
+                        <select class="form-control" required="" id="resname" name="res_name" style="height: 26px;padding: 3px 10px;">
                           @foreach($residents as $resident)
                           <option value="{{ $resident->id }}" {{ $condition_report->res_name == $resident->fname.". ".$resident->mname.". ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}}. {{$resident->mname}}. {{$resident->lname}}</option>
                           @endforeach
@@ -160,8 +160,8 @@
                                 </thead>
                                     @for ($i=0; $i < $num; $i++)
 
-                                <tbody>
-                                    <tr >
+                                <tbody id="tbodym">
+                                    <tr id="R{$i}">
                                       <td class="row-index text-center">
                                          <input type="text"  name="item_no[]" value="{{  $item_no[$i] }}" readonly>
                                          </td>
@@ -187,6 +187,8 @@
                                           <input type="text" name="res_comments[]"  class="form-control" value="{{ $res_comments[$i] }}">                                      
                                          </td>
                                          <td>
+                                            <!--<a style="height:20px;background-color:white;color:red;padding-left: 20px;"  class="btn " href="{{ route('getRow', [$condition_report->id, $i]) }}"><i class="fa fa-trash icon-white"></i></a>-->
+                                             
                                          </td>
                                          
                                       <tr>                           
@@ -228,6 +230,29 @@
 @stop
 
 @section('moar_scripts')
+
+<script>
+$('#resname').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#room').val(response.room_no);
+            }
+            else{
+                alert("error");
+            }
+        }
+    });
+});
+</script>
+
 <script type="text/javascript">
     $(function() {
     output = [];
@@ -291,6 +316,39 @@
   
       // jQuery button click event to remove a row.
       $('#tbody').on('click', '.remove', function () {
+  
+        // Getting all the rows next to the row
+        // containing the clicked button
+        var child = $(this).closest('tr').nextAll();
+  
+        // Iterating across all the rows 
+        // obtained to change the index
+        child.each(function () {
+  
+          // Getting <tr> id.
+          var id = $(this).attr('id');
+  
+          // Getting the <p> inside the .row-index class.
+          var idx = $(this).children('.row-index').children('p');
+  
+          // Gets the row number from <tr> id.
+          var dig = parseInt(id.substring(1));
+  
+          // Modifying row index.
+          idx.html(`Row ${dig - 1}`);
+  
+          // Modifying row id.
+          $(this).attr('id', `R${dig - 1}`);
+        });
+  
+        // Removing the current row.
+        $(this).closest('tr').remove();
+  
+        // Decreasing total number of rows by 1.
+        rowIdx--;
+      });
+
+      $('#tbodym').on('click', '.remove', function () {
   
         // Getting all the rows next to the row
         // containing the clicked button
