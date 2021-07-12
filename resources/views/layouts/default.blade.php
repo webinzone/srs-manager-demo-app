@@ -211,6 +211,10 @@ h4 {
     flex: 1 1 auto;
     padding: 1.25rem;
 }
+.content-wrapper{
+
+ background-color: #000000;
+}
 </style>
 
   </head>
@@ -711,7 +715,7 @@ h4 {
 
       <!-- Content Wrapper. Contains page content -->
 
-      <div class="content-wrapper" role="main">
+      <div class="content-wrapper"  role="main">
 
           @if ($debug_in_production)
               <div class="row" style="margin-bottom: 0px; background-color: red; color: white; font-size: 15px;">
@@ -724,7 +728,7 @@ h4 {
 
         <!-- Content Header (Page header) -->
         <section class="content-header" style="padding-bottom: 30px;">
-          <h1 class="pull-left">
+          <h1 class="pull-left" style="color:white;">
             @yield('title')
 
 
