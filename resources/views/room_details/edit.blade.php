@@ -49,22 +49,30 @@
                         <label for="name" >Room Type</label>
                         <select class="form-control" style="width: 200px;"  id="type" name="type" style="height: 20px;padding: 3px 10px;">
                             <option>--   Select Room Type  --</option>
+                            <option  {{ $room_detail->type == "Single with Ensuite" ? 'selected' : ''  }} value="Single with Ensuite"> Single with Ensuite</option>
+                          <option  {{ $room_detail->type == "Single Room with Sharing Ensuite" ? 'selected' : ''  }} value="Single Room with Sharing Ensuite">Single Room with Sharing Ensuite</option>
+                          <option  {{ $room_detail->type == "Single Rooms" ? 'selected' : ''  }} value="Single Rooms">Single Rooms</option>
+                          <option  {{ $room_detail->type == "Sharing Room With Ensuite" ? 'selected' : ''  }} value="Sharing Room With Ensuite">Sharing Room With Ensuite</option>
+                          <option  {{ $room_detail->type == "Sharing Room" ? 'selected' : ''  }} value="Sharing Room">Sharing Room</option>
                          
-                          <option {{ $room_detail->type == "Single" ? 'selected' : ''  }} value="Single"> Single</option>
-                          <option {{ $room_detail->type == "Double" ? 'selected' : ''  }} value="Double">Double</option>
                         </select>
                        </div>
+                       <div class="col-md-7 mb-3" >
+                          <label for="name" >Rent / Week</label>
+                          <input type="text"  name="room_rent" id="room_rent" class="form-control" placeholder="Room Rate"  value="{{ $room_detail->room_rent}}" style="width: 200px;">
+                         </div>
 
-                         <div class="col-md-7 mb-3" >
+                        <!-- <div class="col-md-7 mb-3" >
                           <label for="name" >Client Type</label>
                           <select class="form-control" style="width: 200px;"  name="client_type" >
                                         <option>--   Select Client Type  --</option>
                                      
                                       <option {{ $room_detail->client_type == "Guest" ? 'selected' : ''  }}  value="Guest">Guest</option>
                                       <option {{ $room_detail->client_type == "Resident" ? 'selected' : ''  }}  value="Resident">Resident</option>
+
                                       
                                     </select>
-                         </div>
+                         </div>-->
                                  
                     
                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

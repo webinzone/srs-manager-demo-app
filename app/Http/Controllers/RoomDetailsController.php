@@ -70,12 +70,13 @@ class RoomDetailsController extends Controller
 
         $room_detail->room_no = request('room_no');
         $room_detail->type = request('type');
-        $room_detail->client_type = request('client_type');
-        $room_detail->client_id = request('client_id') ?? 'null';
+        $room_detail->room_rent = request('room_rent') ?? ' ';
+        $room_detail->client_type = request('client_type') ?? ' ';;
+        $room_detail->client_id = request('client_id') ?? ' ';
         $room_detail->status = request('status') ?? 'Free';
-        $room_detail->beds_no = request('beds_no') ?? 'null';
-        $room_detail->company_id = request('company_id') ?? 'null';
-        $room_detail->location_id = request('location_id') ?? 'null';
+        $room_detail->beds_no = request('beds_no') ?? ' ';
+        $room_detail->company_id = request('company_id') ?? ' ';
+        $room_detail->location_id = request('location_id') ?? ' ';
         $room_detail->user_id =  Auth::user()->id;
         
         $room_detail->save();
@@ -84,7 +85,7 @@ class RoomDetailsController extends Controller
 
       $activity->user = Auth::user()->first_name;
       $activity->action = "Created";
-      $activity->item = "RoomDetail Report";
+      $activity->item = "Room Report";
       $activity->save();
 
       return redirect()->route('room_details.index')
@@ -131,12 +132,13 @@ class RoomDetailsController extends Controller
 
         $room_detail->room_no = request('room_no');
         $room_detail->type = request('type');
-        $room_detail->client_type = request('client_type');
-        $room_detail->client_id = request('client_id') ?? 'null';
+        $room_detail->room_rent = request('room_rent') ?? ' ';
+        $room_detail->client_type = request('client_type') ?? ' ';;
+        $room_detail->client_id = request('client_id') ?? ' ';
         $room_detail->status = request('status') ?? 'Free';
-        $room_detail->beds_no = request('beds_no') ?? 'null';
-        $room_detail->company_id = request('company_id') ?? 'null';
-        $room_detail->location_id = request('location_id') ?? 'null';
+        $room_detail->beds_no = request('beds_no') ?? ' ';
+        $room_detail->company_id = request('company_id') ?? ' ';
+        $room_detail->location_id = request('location_id') ?? ' ';
         $room_detail->user_id =  Auth::user()->id;
         $room_detail->save();
         

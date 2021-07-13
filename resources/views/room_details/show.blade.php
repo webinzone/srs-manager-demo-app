@@ -41,13 +41,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Client Type:</label>
+                    <label class="col-sm-3 control-label">Room Rent / Week:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $room_detail->client_type}}</p>
+                        <p class="form-control-static">{{ $room_detail->room_rent}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Client Id:</label>
+                    <label class="col-sm-3 control-label">Client Name:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $room_detail->client_id}}</p>
                     </div>

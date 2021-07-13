@@ -34,11 +34,11 @@ class RoomDetailPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Room Type')
             ],[
-                "field" => "client_type",
+                "field" => "room_rent",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Client Type')
+                "title" => trans('Room Rent / Week')
             ],[
                 "field" => "client_id",
                 "searchable" => true,

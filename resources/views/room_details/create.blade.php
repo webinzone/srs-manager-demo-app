@@ -47,12 +47,21 @@
 					    <select class="form-control" style="width: 200px;"  id="type" name="type" style="height: 20px;padding: 3px 10px;">
                             <option>--   Select Room Type  --</option>
                          
-                          <option value="Single"> Single</option>
-                          <option value="Double">Double</option>
+                          <option value="Single with Ensuite"> Single with Ensuite</option>
+                          <option value="Single Room with Sharing Ensuite">Single Room with Sharing Ensuite</option>
+                          <option value="Single Rooms">Single Rooms</option>
+                          <option value="Sharing Room With Ensuite">Sharing Room With Ensuite</option>
+                          <option value="Sharing Room">Sharing Room</option>
+
                         </select>
 					   </div>
 
-                         <div class="col-md-7 mb-3" >
+                       <div class="col-md-7 mb-3" >
+                          <label for="name" >Rent / Week</label>
+                          <input type="text"  name="room_rent" id="room_rent" class="form-control" placeholder="Room Rate" style="width: 200px;">
+                         </div>
+
+                        <!-- <div class="col-md-7 mb-3" >
                           <label for="name" >Client Type</label>
                           <select class="form-control" style="width: 200px;"  name="client_type" >
                                         <option>--   Select Client Type  --</option>
@@ -61,7 +70,7 @@
                                       <option value="Resident">Resident</option>
                                       <option value="Employee">Employee</option>
                                     </select>
-                         </div>
+                         </div>-->
                                  
                     
 				    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -27,7 +27,7 @@ class RoomDetailsTransformer
                 'id' => (int) $room_detail->id,
                 'room_no' => e($room_detail->room_no),
                 'type' => e($room_detail->type),
-                'client_type' => e($room_detail->client_type),
+                'room_rent' => e($room_detail->room_rent),
                 'client_id' => e($room_detail->client_id),
                 'status' => e($room_detail->status),
                 'beds_no' => e($room_detail->beds_no),
