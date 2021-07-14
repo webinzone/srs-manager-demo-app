@@ -51,7 +51,7 @@
         <td style="border: 1px solid black;">M/F</td>
       </tr>
       <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">{{ $client_detail->fname}}. {{ $client_detail->mname}}. {{ $client_detail->lname}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->fname}}&nbsp;{{ $client_detail->mname}}&nbsp;&nbsp; {{ $client_detail->lname}}</td>
         <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->dob)) }}</td>
         <td style="border: 1px solid black;">{{ $client_detail->nationality}}</td>
         <td style="border: 1px solid black;">{{ $client_detail->religion}}</td>

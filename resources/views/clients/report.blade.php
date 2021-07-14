@@ -57,7 +57,7 @@
         <td style="border: 1px solid black;">M/F</td>
       </tr>
       <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">{{ $client_detail->fname}}. {{ $client_detail->mname}}. {{ $client_detail->lname}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->fname}}&nbsp; {{ $client_detail->mname}}&nbsp;&nbsp; {{ $client_detail->lname}}</td>
         <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->dob)) }}</td>
         <td style="border: 1px solid black;">{{ $client_detail->nationality}}</td>
         <td style="border: 1px solid black;">{{ $client_detail->religion}}</td>
@@ -109,8 +109,7 @@
         <td style="border: 1px solid black;">{{ $client_detail->ph}}</td>
         <td style="border: 1px solid black;">{{ $client_detail->res_email}}</td>
         <td style="border: 1px solid black;">{{ $client_detail->respite}}</td>
-        <td style="border: 1px solid black;">{{ $client_detail->duration}}</td> 
-        <td>{{ $duration}}</td>      
+        <td style="border: 1px solid black;">{{ $duration}}</td>       
       </tr>
     </table><br>
     
