@@ -63,11 +63,14 @@
         <td style="border: 1px solid black;" colspan="3">{{ $client_detail->ref_by}}</td>
         <td style="border: 1px solid black;">Admission Date</td>
         <td style="border: 1px solid black;">Room No</td>
+        <td style="border: 1px solid black;">Room rate</td>
       </tr>
       <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;" colspan="4">Previous Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp; {{ $client_detail->pre_address}}</td>
         <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->adm_date)) }}</td>
         <td style="border: 1px solid black;">{{ $client_detail->room_no}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->room_rent}}</td>
+        
       </tr>   
       
     </table><br>

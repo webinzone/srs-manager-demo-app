@@ -95,8 +95,13 @@ class ClientsController extends Controller
         $client_detail->pre_address = request('pre_address')  ?? '';        
         $client_detail->ent_no = request('ent_no')  ?? ''; 
         $client_detail->nationality = request('nationality')  ?? '';        
-        $client_detail->adm_date = request('adm_date')  ?? '';        
-        $client_detail->room_no = request('room_no')  ?? ''; 
+        $client_detail->adm_date = request('adm_date')  ?? '';  
+        $roomid = request('room_no')  ?? '';
+        $roomm = RoomDetail::where('id', '=', $roomid)->firstOrFail();
+        $rroom = $roomm->room_no;
+
+        $client_detail->room_no = $rroom  ?? ''; 
+
         $client_detail->other_income = request('other_income')  ?? ''; 
         $client_detail->medi_no2 = request('medi_no2')  ?? ''; 
         $client_detail->start_period = request('start_period')  ?? ''; 
@@ -105,6 +110,8 @@ class ClientsController extends Controller
         $HowManyWeeks = date( 'W', strtotime( $client_detail->end_period ) ) - date( 'W', strtotime( $client_detail->start_period ) );
 
         $client_detail->weeks = $HowManyWeeks ?? ''; 
+        $rate = request('room_rent')  ?? '';
+        $client_detail->room_rent = (int)$HowManyWeeks * (int)$rate ?? '';
         
         //$client_detail->prof_pic = request('prof_pic')->getClientOriginalName()  ?? '';
         //$imageName = request('prof_pic')->getClientOriginalName() ?? '';
@@ -591,6 +598,12 @@ class ClientsController extends Controller
          return view('clients/report')->with(compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail'));
 
     }
+    
+    public function getRoomDetails($id){
+        $data = RoomDetail::where('id', '=', $id)->firstOrFail();
+        return response()->json($data);
+    }
+
     public function clientss()
     {
         return view('clients/clientss');

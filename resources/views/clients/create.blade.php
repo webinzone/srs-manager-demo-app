@@ -154,14 +154,18 @@
                     <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label for="room_no">Room No</label>
-                        <select class="form-control" required id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
+                        <select class="form-control" required  id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
                             <option value="">--Select Room--</option>
                           @foreach($rooms as $room)
-                          <option value="{{ $room->room_no }}"> &nbsp;&nbsp;&nbsp;{{ $room->room_no}}&nbsp;&nbsp;&nbsp; </option>
+                          <option value="{{ $room->id }}"> &nbsp;&nbsp;&nbsp;{{ $room->room_no}}&nbsp;&nbsp;&nbsp; </option>
                           @endforeach
                         </select>
 
-                      </div> 
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="acc">Room Rent</label>
+                        <input type="text" class="form-control" id="roommmrent" placeholder="Room Rent" name="room_rent"  readonly>            
+                      </div>   
                       <div class="col-md-3 mb-3">
                         <label for="acc">Account to be addressed</label>
                         <input type="text" class="form-control" id="acc" placeholder="Account to be addressed" name="acc"  v-on:change="page_one.acc = $event.target.value">            
@@ -184,10 +188,13 @@
                         <label for="ref_by">Ref By</label>
                         <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
                       </div> 
+                    </div>
+                      &nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
                             
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-12 mb-3">
                         <label for="ent_no">Entitlement No</label>
-                        <input type="text" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
+                        <input type="text" style="width:200px;" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
                       </div>  
                        </div>&nbsp;&nbsp;&nbsp;
                        
@@ -843,6 +850,7 @@
 
 @section('moar_scripts')
 
+
 <script type="text/javascript">
   const app = new Vue({
   el:'#app',
@@ -1112,6 +1120,29 @@ $('#respite').change(function () {
     }
 });
 
+</script>
+<script>
+$('#room_no').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRoomDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#roommmrent').val(response.room_rent);            
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
 </script>
 
 
