@@ -77,7 +77,7 @@
                          <select class="form-control" required="" id="res_name" name="res" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Resident Name  --</option>
                           @foreach($client_details as $resident)
-                          <option value="{{ $resident->id }}"> {{ $resident->fname}}. {{$resident->mname}}. {{$resident->lname  }}</option>
+                          <option value="{{ $resident->id }}"> {{ $resident->fname}} &nbsp;{{$resident->mname}} &nbsp;&nbsp;{{$resident->lname  }}</option>
                           @endforeach
                         </select>
                        
