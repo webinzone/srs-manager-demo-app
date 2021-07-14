@@ -97,7 +97,7 @@
 
             </div>
                  
-                    <div class="box-footer text-right">
+                    <div class="box-footer text-right" style="padding-right:50px;">
                         <a class="btn btn-link text-left" href="{{ route('srs_staffs.index') }}">Cancel</a>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
                     </div>

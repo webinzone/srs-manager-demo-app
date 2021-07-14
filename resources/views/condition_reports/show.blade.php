@@ -38,7 +38,7 @@
   </style>
 
   <div id="webui">
-    <div class="row">
+    <div class="row" style="padding-left: 80px;padding-right: 80px;">
         <!-- left column -->
       <div class="col-md-7">
         <form class="form-horizontal" method="" action="" autocomplete="off"  style="width:1100px;padding: 20px;">

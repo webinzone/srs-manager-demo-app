@@ -16,16 +16,16 @@
 @section('content')
 
   <div id="webui">
-    <div class="row">
+    <div class="row" style="padding-left: 300px;">
         <!-- left column -->
       <div class="col-md-7">
-        <form class="form-horizontal" method="" action="" autocomplete="off">
+        <form class="form-horizontal" method="" style="width:600px;" action="" autocomplete="off">
           <div class="box box-default">
             <div class="box-header with-border">
                 <h2 class="box-title centre" style="padding-left: 200px;"> CompanyMaster -<b> {{ $company_master->company_id}} </b></h2><br>
             </div><br>
 
-            <div class="box-body" style="padding-left:80px;">
+            <div class="box-body" style="padding-left:100px;">
 
                 <!-- Asset name -->
                 <div class="form-group">

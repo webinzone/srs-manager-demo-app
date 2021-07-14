@@ -26,7 +26,7 @@
 </style>
 
   <div id="webui">
-    <div class="row">
+    <div class="row" style="padding-left: 80px;padding-right: 80px;">
         <!-- left column -->
       <div class="col-md-7">
         <form class="form-horizontal" method="" action="" autocomplete="off" style="width: 1000px; align-items: center;   background-color: #fff; padding-right: 100px;">
@@ -64,12 +64,16 @@
         <td style="border: 1px solid black;">Admission Date</td>
         <td style="border: 1px solid black;">Room No</td>
         <td style="border: 1px solid black;">Room rate</td>
+        <td style="border: 1px solid black;">Room Type</td>
+
       </tr>
       <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;" colspan="4">Previous Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp; {{ $client_detail->pre_address}}</td>
         <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->adm_date)) }}</td>
         <td style="border: 1px solid black;">{{ $client_detail->room_no}}</td>
         <td style="border: 1px solid black;">{{ $client_detail->room_rent}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->room_type}}</td>
+
         
       </tr>   
       
@@ -90,7 +94,7 @@
         <td style="border: 1px solid black;">{{ $client_detail->ent_no}}</td>        
       </tr>
     </table><br>
-     <h4 style="font-family:Bedrock">Permanent / Respite:</h4>{{ $client_detail->respite}}&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<i style="padding-bottom:30px;">{{ $duration}}</i>
+     <h4 style="font-family:Bedrock">Permanent / Respite:</h4>{{ $client_detail->respite}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="padding-bottom:30px;"></i>
     <table style="padding-top: 5px;">
       <tr>
         <td style="border: 1px solid black;">Weeks</td>
@@ -106,7 +110,7 @@
         <td style="border: 1px solid black;">{{ $client_detail->ph}}</td>
         <td style="border: 1px solid black;">{{ $client_detail->res_email}}</td>
         <td style="border: 1px solid black;">{{ $client_detail->respite}}</td>
-        <td style="border: 1px solid black;">{{ $client_detail->duration}}</td>       
+        <td style="border: 1px solid black;">{{ $duration}}</td>       
       </tr>
     </table><br>
     

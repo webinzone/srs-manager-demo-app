@@ -225,10 +225,10 @@
         'border-collapse: collapse;' +
         '}' +
          '.container{' +
-          'width: 900px;' +
-          'padding: 50px;' +
+          'width: 1000px;' +
+          'padding: 10px;' +
           'margin: auto;' +
-          'border: 3px solid black;' +
+          'border: 1px solid black;' +
           '}' +
         '</style>';
 

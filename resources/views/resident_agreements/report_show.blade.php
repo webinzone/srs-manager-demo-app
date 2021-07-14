@@ -10,7 +10,7 @@
 @section('content')
 
  <div id="webui">
-    <div class="row">
+    <div class="row" >
         <!-- left column -->
       <div class="col-md-7">
    

@@ -15,10 +15,10 @@
 @section('content')
 
   <div id="webui">
-    <div class="row">
+    <div class="row" style="padding-left: 300px;">
         <!-- left column -->
       <div class="col-md-7">
-        <form class="form-horizontal" method="" action="" autocomplete="off">
+        <form class="form-horizontal" method="" style="width:600px;" action="" autocomplete="off">
           <div class="box box-default">
                <div class="box-header with-border text-center">
                  <h3><b>Location Master</b></h3>

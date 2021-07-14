@@ -99,8 +99,8 @@
         'border-collapse: collapse;' +
         '}' +
          '.container{' +
-          'width: 100;' +
-          'padding: 50px;' +
+          'width: 1000;' +
+          'padding: 10px;' +
           'margin: auto;' +
           'border: 3px solid black;' +
           '}' +

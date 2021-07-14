@@ -152,11 +152,25 @@
                       <div class="col-md-3 mb-3">
                         <label for="room_no">Room No</label>
                          <select class="form-control" required="" id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
+                          <option value="{{ $rrid }}" > &nbsp;&nbsp;&nbsp;{{ $client_detail->room_no}}&nbsp;&nbsp;&nbsp; </option>
                           @foreach($rooms as $room)
-                          <option value="{{ $room->room_no }}" {{ $client_detail->room_no == $room->room_no ? 'selected' : ''  }}> &nbsp;&nbsp;&nbsp;{{ $room->room_no}}&nbsp;&nbsp;&nbsp; </option>
+                          <option value="{{ $room->id }}"> &nbsp;&nbsp;&nbsp;{{ $room->room_no}}&nbsp;&nbsp;&nbsp; </option>
                           @endforeach
                         </select>
                       </div> 
+
+                      <div class="col-md-3 mb-3">
+
+                        <label for="room_type">Room Structure</label>
+                        <input type="text" value="{{ $client_detail->room_type}}" class="form-control" placeholder="Ref By" id="roomtype" name="room_type"  v-on:change="page_one.room_type = $event.target.value" readonly>            
+                      </div> 
+
+                      <div class="col-md-3 mb-3">
+                        <label for="acc">Room Rent</label>
+                        <input type="text" class="form-control" value="{{ $client_detail->week_rent}}" id="roommmrent" placeholder="Room Rent" name="room_rent"  readonly>            
+                      </div>
+
+
                       <div class="col-md-3 mb-3">
                         <label for="acc">Account to be addressed</label>
                         <input type="text" value="{{ $client_detail->acc}}" class="form-control" id="acc" placeholder="Account to be addressed" name="acc"  v-on:change="page_one.acc = $event.target.value">            
@@ -174,15 +188,16 @@
                       </div> -->
                       
                       
+                      </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
                       <div class="col-md-3 mb-3">
 
                         <label for="ref_by">Ref By</label>
                         <input type="text" value="{{ $client_detail->ref_by}}" class="form-control" placeholder="Ref By" id="ref_by" name="ref_by"  v-on:change="page_one.ref_by = $event.target.value" >            
-                      </div> 
-                            
-                      <div class="col-md-3 mb-3">
+                      </div>       
+                      <div class="col-md-9 mb-3">
                         <label for="ent_no">Entitlement No</label>
-                        <input type="text" value="{{ $client_detail->ent_no}}" class="form-control" placeholder="Last Name" id="ent_no" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
+                        <input type="text" style="width: 200px;" value="{{ $client_detail->ent_no}}" class="form-control" placeholder="Last Name" id="ent_no" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
                       </div>  
                        </div>&nbsp;&nbsp;&nbsp;
                        
@@ -1109,7 +1124,29 @@ $('#respite').change(function () {
 });
 
 </script>
+<script>
+$('#room_no').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRoomDetails", ":id") }}';
+    url = url.replace(':id', id);
 
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#roommmrent').val(response.room_rent);            
+                $('#roomtype').val(response.type);                        
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
 
 @include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\BookingPresenter::dataTableLayout()])
 @stop

@@ -96,11 +96,14 @@ class ClientsController extends Controller
         $client_detail->ent_no = request('ent_no')  ?? ''; 
         $client_detail->nationality = request('nationality')  ?? '';        
         $client_detail->adm_date = request('adm_date')  ?? '';  
+        
         $roomid = request('room_no')  ?? '';
         $roomm = RoomDetail::where('id', '=', $roomid)->firstOrFail();
         $rroom = $roomm->room_no;
-
         $client_detail->room_no = $rroom  ?? ''; 
+
+        $client_detail->week_rent = request('room_rent')  ?? '';  
+        $client_detail->room_type = request('room_type')  ?? '';  
 
         $client_detail->other_income = request('other_income')  ?? ''; 
         $client_detail->medi_no2 = request('medi_no2')  ?? ''; 
@@ -121,8 +124,8 @@ class ClientsController extends Controller
         $client_detail->save(); 
 
         $clientid = $client_detail->id;
-        $room = $client_detail->room_no;
-        $roomdetails = RoomDetail::where('room_no', '=', $room)->firstOrFail();
+        //$room = $client_detail->room_no;
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
         $roomdetails->status = "Booked";
         $roomdetails->client_id = $client_detail->fname.". ".$client_detail->mname.". ".$client_detail->lname;
         $roomdetails->save();
@@ -290,6 +293,9 @@ class ClientsController extends Controller
      public function edit($id)
     {
         $client_detail = ClientDetail::find($id);
+        $roomid = $client_detail->room_no;
+        $r_no = RoomDetail::where('room_no', '=', $roomid)->firstOrFail();
+        $rrid = $r_no->id;
         //$client_family = ClientFamily::where('client_id', '=', $id);
         //$power_of_atony = ClientPowerofatony::where('client_id', '=', $id);
         //$allergy = ClientAllergy::where('client_id', '=', $id)->firstOrFail();
@@ -302,7 +308,7 @@ class ClientsController extends Controller
         $income = explode(',', $pension_detail->income_type);
         $status = "Free";
         $rooms = RoomDetail::where('status', '=', $status)->get();
-        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms'));
+        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid'));
     }
     /**
      * Update the specified resource in storage.
@@ -317,51 +323,64 @@ class ClientsController extends Controller
         $client_detail = ClientDetail::find($id);   
         $client_detail->fname = request('fname');
         $client_detail->mname = request('mname') ?? '';
-        $client_detail->lname = request('lname') ?? '';
-        $client_detail->address = "" ?? '';
-        $client_detail->dob = request('dob') ?? '';
-        $client_detail->cob = "" ?? '';
-        $client_detail->age = "" ?? '';
-        $client_detail->gender = request('gender') ?? '';
+        $client_detail->lname = request('lname');
+        $client_detail->address = ""  ?? '';
+        $client_detail->dob = request('dob')  ?? '';
+        $client_detail->cob = ""  ?? '';
+        $client_detail->age = ""  ?? '';
+        $client_detail->gender = request('gender')  ?? '';
         $client_detail->religion = request('religion')  ?? '';
-        $client_detail->l_known = request('l_known') ?? '';
-        $client_detail->ph = request('ph') ?? '';
-        $client_detail->medicard_no = request('medicard_no') ?? '';
-        $client_detail->medicard_orderno = "" ?? '';
-        $client_detail->pension_no = request('pension_no') ?? '';
-        $client_detail->insurance_no = "" ?? '';
-        $client_detail->insu_compny = "" ?? '';
-        $client_detail->likes = "" ?? '';
-        $client_detail->dislikes = "" ?? '';
-        $client_detail->hobies = "" ?? '';
-        $client_detail->exp_date = request('exp_date') ?? '';
-        $client_detail->reference_source = "" ?? '';
-        $client_detail->funding_source = "" ?? '';
-        $client_detail->ref_by = request('ref_by') ?? '';
-        $client_detail->pre_address = request('pre_address') ?? '';
-        $client_detail->ent_no = request('ent_no') ?? '';
-        $client_detail->pen_exp = request('pen_exp') ?? '';
-        $client_detail->respite = request('respite') ?? '';
-        $client_detail->acc = request('acc') ?? '';
-        $client_detail->res_ph = "" ?? '';
-        $client_detail->res_fax = request('res_fax') ?? '';
-        $client_detail->res_email = request('res_email') ?? ''; 
-        $client_detail->ref_by = request('ref_by') ?? '';        
-        $client_detail->pre_address = request('pre_address') ?? '';        
-        $client_detail->ent_no = request('ent_no') ?? ''; 
-        $client_detail->nationality = request('nationality') ?? '';        
-        $client_detail->adm_date = request('adm_date') ?? '';        
-        $client_detail->room_no = request('room_no') ?? ''; 
+        $client_detail->l_known = request('l_known')  ?? '';
+        $client_detail->ph = request('ph')  ?? '';
+        $client_detail->medicard_no = request('medicard_no')  ?? '';
+        $client_detail->medicard_orderno = ""  ?? '';
+        $client_detail->pension_no = request('pension_no')  ?? '';
+        $client_detail->insurance_no = ""  ?? '';
+        $client_detail->insu_compny = ""  ?? '';
+        $client_detail->likes = ""  ?? '';
+        $client_detail->dislikes = ""  ?? '';
+        $client_detail->hobies = ""  ?? '';
+        $client_detail->exp_date = request('exp_date')  ?? '';
+        $client_detail->reference_source = ""  ?? '';
+        $client_detail->funding_source = ""  ?? '';
+        $client_detail->ref_by = request('ref_by')  ?? '';
+        $client_detail->pre_address = request('pre_address')  ?? '';
+        $client_detail->ent_no = request('ent_no')  ?? '';
+        $client_detail->pen_exp = request('pen_exp')  ?? '';
+        $client_detail->respite = request('respite')  ?? '';
+        
+
+
+        $client_detail->acc = request('acc')  ?? '';
+        $client_detail->res_ph = request('res_ph')  ?? '';
+        $client_detail->res_fax = request('res_fax')  ?? '';
+        $client_detail->res_email = request('res_email')  ?? ''; 
+        $client_detail->ref_by = request('ref_by')  ?? '';        
+        $client_detail->pre_address = request('pre_address')  ?? '';        
+        $client_detail->ent_no = request('ent_no')  ?? ''; 
+        $client_detail->nationality = request('nationality')  ?? '';        
+        $client_detail->adm_date = request('adm_date')  ?? '';  
+        
+        $roomid = request('room_no')  ?? '';
+        $roomm = RoomDetail::where('id', '=', $roomid)->firstOrFail();
+        $rroom = $roomm->room_no;
+        $client_detail->room_no = $rroom  ?? ''; 
+
+        $client_detail->week_rent = request('room_rent')  ?? '';  
+        $client_detail->room_type = request('room_type')  ?? '';  
+
         $client_detail->other_income = request('other_income')  ?? ''; 
         $client_detail->medi_no2 = request('medi_no2')  ?? ''; 
         $client_detail->start_period = request('start_period')  ?? ''; 
         $client_detail->end_period = request('end_period')  ?? ''; 
-        
+
         $HowManyWeeks = date( 'W', strtotime( $client_detail->end_period ) ) - date( 'W', strtotime( $client_detail->start_period ) );
 
         $client_detail->weeks = $HowManyWeeks ?? ''; 
+        $rate = request('room_rent')  ?? '';
+        $client_detail->room_rent = (int)$HowManyWeeks * (int)$rate ?? '';
         
-        //$client_detail->prof_pic = request('prof_pic')->getClientOriginalName() ?? '';
+        //$client_detail->prof_pic = request('prof_pic')->getClientOriginalName()  ?? '';
         //$imageName = request('prof_pic')->getClientOriginalName() ?? '';
         //request()->prof_pic->move(public_path('images/profile_pics'), $imageName);  
 
@@ -369,13 +388,11 @@ class ClientsController extends Controller
         $client_detail->save(); 
 
         $clientid = $client_detail->id;
-        $clientid = $client_detail->id;
-        $room = $client_detail->room_no;
-        $roomdetails = RoomDetail::where('room_no', '=', $room)->firstOrFail();
+        //$room = $client_detail->room_no;
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
         $roomdetails->status = "Booked";
         $roomdetails->client_id = $client_detail->fname.". ".$client_detail->mname.". ".$client_detail->lname;
         $roomdetails->save();
-
 
         //$client_family = new ClientFamily();   
         //$client_family->client_id = $clientid;

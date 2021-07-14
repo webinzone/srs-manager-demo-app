@@ -564,9 +564,9 @@ Residents Handbook for further details, setting out the minimum standards of Sup
         '}' +
          '.container{' +
           'width: 1000px;' +
-          'padding: 50px;' +
+          'padding: 10px;' +
           'margin: auto;' +
-          'border: 3px solid black;' +
+          'border: 1px solid black;' +
           '}' +
         '</style>';
 

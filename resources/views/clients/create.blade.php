@@ -163,6 +163,11 @@
 
                       </div>
                       <div class="col-md-3 mb-3">
+
+                        <label for="ref_by">Room Structure</label>
+                        <input type="text"  class="form-control" placeholder="Room Type" id="roomtype" name="room_type"   readonly>            
+                      </div> 
+                      <div class="col-md-3 mb-3">
                         <label for="acc">Room Rent</label>
                         <input type="text" class="form-control" id="roommmrent" placeholder="Room Rent" name="room_rent"  readonly>            
                       </div>   
@@ -181,18 +186,20 @@
                         <label for="dislikes">Dislikes</label>
                         <textarea class="form-control" id="dislikes" placeholder="Dislikes" name="dislikes"  v-on:change="page_one.dislikes = $event.target.value"></textarea>
                       </div> -->
+                       
+                    </div>
+                      &nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
                       
+
                       
                       <div class="col-md-3 mb-3">
 
                         <label for="ref_by">Ref By</label>
                         <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
-                      </div> 
-                    </div>
-                      &nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
-                            
-                      <div class="col-md-12 mb-3">
+                      </div>
+
+                      <div class="col-md-9 mb-3">
                         <label for="ent_no">Entitlement No</label>
                         <input type="text" style="width:200px;" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
                       </div>  
@@ -1133,7 +1140,8 @@ $('#room_no').change(function(){
         dataType: 'json',
         success: function(response){
             if(response != null){
-                $('#roommmrent').val(response.room_rent);            
+                $('#roommmrent').val(response.room_rent);
+                $('#roomtype').val(response.type);                        
 
             }
             else{
