@@ -93,7 +93,7 @@
         <td style="border: 1px solid black;">{{ $client_detail->ent_no}}</td>        
       </tr>
     </table><br>
-     <h3 style="font-family:Bedrock">Permanent / Respite:</h3>{{ $client_detail->respite}}&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<i style="padding-bottom:30px;">{{ $duration}}</i>
+     <h3 style="font-family:Bedrock">Permanent / Respite:</h3>{{ $client_detail->respite}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="padding-bottom:30px;"></i>
     <table style="padding-top: 5px;">
       <tr>
         <td style="border: 1px solid black;">Weeks</td>
@@ -109,7 +109,8 @@
         <td style="border: 1px solid black;">{{ $client_detail->ph}}</td>
         <td style="border: 1px solid black;">{{ $client_detail->res_email}}</td>
         <td style="border: 1px solid black;">{{ $client_detail->respite}}</td>
-        <td style="border: 1px solid black;">{{ $client_detail->duration}}</td>       
+        <td style="border: 1px solid black;">{{ $client_detail->duration}}</td> 
+        <td>{{ $duration}}</td>      
       </tr>
     </table><br>
     
