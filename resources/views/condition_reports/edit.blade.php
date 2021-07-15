@@ -41,7 +41,7 @@
                         <label for="name" >Resident Name</label>
                         <select class="form-control" required="" id="resname" name="res_name" style="height: 26px;padding: 3px 10px;">
                           @foreach($residents as $resident)
-                          <option value="{{ $resident->id }}" {{ $condition_report->res_name == $resident->fname.". ".$resident->mname.". ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}}. {{$resident->mname}}. {{$resident->lname}}</option>
+                          <option value="{{ $resident->id }}" {{ $condition_report->res_name == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname}}</option>
                           @endforeach
                         </select>
                        </div>

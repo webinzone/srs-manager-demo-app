@@ -557,9 +557,14 @@ Residents Handbook for further details, setting out the minimum standards of Sup
      function printDiv(divName) {
         var htmlToPrint = '' +
         '<style type="text/css">' +
-        'table, td {' +
+        'table {' +
         'border: 1px solid black;' +
         '    width: 100%;' +
+        'border-collapse: collapse;' +
+        '}' +
+        'td {' +
+        'border: 1px solid black;' +
+        '    width: 200px;' +
         'border-collapse: collapse;' +
         '}' +
          '.container{' +

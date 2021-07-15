@@ -67,7 +67,7 @@ class BookingsController extends Controller
         $booking = new Booking();
         $id = request('c_name');
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $name = $res->fname.". ".$res->mname.". ".$res->lname;
+        $name = $res->fname." ".$res->mname." ".$res->lname;
         $booking->c_name = $name;
         $booking->b_from = request('b_from');
         $booking->b_to = request('b_to');

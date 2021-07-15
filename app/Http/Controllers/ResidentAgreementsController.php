@@ -79,14 +79,14 @@ class ResidentAgreementsController extends Controller
     public function getRSAstaffDetails($id)
     {
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $name = $res->fname.". ".$res->mname.". ".$res->lname;
+        $name = $res->fname." ".$res->mname." ".$res->lname;
         $data = ConditionReport::where('res_name', '=', $name)->firstOrFail();
         return response()->json($data);     
     }
       
     public function getRSAbookDetails($id){
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $name = $res->fname.". ".$res->mname.". ".$res->lname;
+        $name = $res->fname." ".$res->mname." ".$res->lname;
         $data = Booking::where('c_name', '=', $name)->firstOrFail();
         return response()->json($data);     
 
@@ -121,7 +121,7 @@ class ResidentAgreementsController extends Controller
         $id = request('r_name');
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
         $status = $res->respite;
-        $name = $res->fname.". ".$res->mname.". ".$res->lname;
+        $name = $res->fname." ".$res->mname." ".$res->lname;
         $resident_agreement->r_name = $name;
         $resident_agreement->room_no = request('room_no') ?? '';
         $resident_agreement->bed = "" ?? '';
@@ -253,7 +253,7 @@ class ResidentAgreementsController extends Controller
         $id = request('r_name');
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
         $status = $res->respite;
-        $name = $res->fname.". ".$res->mname.". ".$res->lname;
+        $name = $res->fname." ".$res->mname." ".$res->lname;
         $resident_agreement->r_name = $name;
         $resident_agreement->room_no = request('room_no') ?? '';
         $resident_agreement->bed = "" ?? '';

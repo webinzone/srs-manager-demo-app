@@ -26,19 +26,7 @@ class ClientDetailPresenter extends Presenter
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('First name')
-            ],[
-                "field" => "mname",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Middle name')
-            ],[
-                "field" => "lname",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Last name')
+                "title" => trans('Name')
             ],[
                 "field" => "dob",
                 "searchable" => true,

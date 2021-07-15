@@ -127,7 +127,7 @@ class ClientsController extends Controller
         //$room = $client_detail->room_no;
         $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
         $roomdetails->status = "Booked";
-        $roomdetails->client_id = $client_detail->fname.". ".$client_detail->mname.". ".$client_detail->lname;
+        $roomdetails->client_id = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
         $roomdetails->save();
 
         //$client_family = new ClientFamily();   
@@ -391,7 +391,7 @@ class ClientsController extends Controller
         //$room = $client_detail->room_no;
         $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
         $roomdetails->status = "Booked";
-        $roomdetails->client_id = $client_detail->fname.". ".$client_detail->mname.". ".$client_detail->lname;
+        $roomdetails->client_id = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
         $roomdetails->save();
 
         //$client_family = new ClientFamily();   

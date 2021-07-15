@@ -25,9 +25,7 @@ class ClientDetailsTransformer
 
             $array = [
                 'id' => (int) $client_detail->id,
-                'fname' => e($client_detail->fname),
-                'mname' => e($client_detail->mname),
-                'lname' => e($client_detail->lname),
+                'fname' => e($client_detail->fname." ".$client_detail->mname." ".$client_detail->lname),
                 'dob' => e(date('d-m-Y', strtotime($client_detail->dob))),
                 'gender' => e($client_detail->gender),
                 'ph' => e($client_detail->ph),
