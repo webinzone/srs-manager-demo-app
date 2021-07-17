@@ -162,18 +162,18 @@
                 <h5 style="color:#980000;font-size: 16px;"><b>Fee And Charges</b></h5>
 
                 <div class="form-row">
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label>Accommodation & personal support Fee</label>
                         <input type="text" name="acc_fee" class="form-control" value="{{ $resident_agreement->acc_fee}}" placeholder="Fee for accommodation and personal support">                                        
                       </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label>Frequency of payment</label><br>
                             <label><input {{ $resident_agreement->freq_pay == 'Weekly' ? 'checked' : ''  }}  type="checkbox" name="freq_pay[]" value="Weekly"> Weekly</label>&nbsp;&nbsp;
                                 <label><input {{ $resident_agreement->freq_pay == 'Fortnightly' ? 'checked' : ''  }}  type="checkbox" name="freq_pay[]" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
                                 <label><input {{ $resident_agreement->freq_pay == 'Every Calender Month' ? 'checked' : ''  }} type="checkbox" name="freq_pay[]" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
                                 <label><input {{ $resident_agreement->freq_pay == 'Other' ? 'checked' : ''  }} type="checkbox" name="freq_pay[]" value="Other"> Other</label>&nbsp;&nbsp;          
                       </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label>Any rent paid in advance</label><br>
                         
 
@@ -182,18 +182,13 @@
                                 <label><input {{ $resident_agreement->any_rent_adv == 'Every Calender Month' ? 'checked' : ''  }} type="checkbox" name="any_rent_adv[]" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
                                 <label><input {{ $resident_agreement->any_rent_adv == 'Other' ? 'checked' : ''  }} type="checkbox" name="any_rent_adv[]" value="Other"> Other</label>&nbsp;&nbsp;                                          
                       </div>
-                </div>&nbsp;&nbsp;&nbsp;
-                <div class="form-row">
-                      <div class="col-md-12 mb-3">
-                        <label>How to pay</label><br>
-                         <label><input {{ $resident_agreement->pay_method == 'Direct Debit' ? 'checked' : ''  }} type="checkbox" name="pay_method[]" value="Direct Debit"> Direct Debit</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->pay_method == 'Cash' ? 'checked' : ''  }} type="checkbox" name="pay_method[]" value="Cash"> Cash</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->pay_method == 'State Trustees' ? 'checked' : ''  }} type="checkbox" name="pay_method[]" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
-                                <label><label><label><input {{ $resident_agreement->pay_method == 'Centrelink' ? 'checked' : ''  }} type="checkbox" name="pay_method[]" value="Centrelink"> Centrelink</label>&nbsp;&nbsp;                                       
-                                  <input {{ $resident_agreement->pay_method == 'Other' ? 'checked' : ''  }} type="checkbox" name="pay_method[]" value="Other"> Other</label>&nbsp;&nbsp;                                      
+                      <div class="col-md-3 mb-3">
+                        <label>How to pay</label>
+                        <input type="text" name="pay_method" value="{{ $resident_agreement->pay_method}}" class="form-control" placeholder="Payment Method" id="pay_meth" readonly>
+                                                               
                       </div>
-                      
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                 <h5 style="color:#980000;font-size: 16px;"><b>Other Fee & Charges</b></h5>
  
                 
@@ -510,6 +505,29 @@ $('#resi_name').change(function(){
         success: function(response){
             if(response != null){
                 $('#staffm').val(response.stf_name);            
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAincomeDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#pay_meth').val(response.income_type);            
 
             }
             else{

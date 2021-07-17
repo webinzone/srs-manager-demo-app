@@ -67,6 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('get/resclientdetails/{id}', 'ResidentAgreementsController@getRSAclientDetails')->name('getRSAclientDetails');
     Route::get('get/resstaffdetails/{id}', 'ResidentAgreementsController@getRSAstaffDetails')->name('getRSAstaffDetails');
     Route::get('get/resbookdetails/{id}', 'ResidentAgreementsController@getRSAbookDetails')->name('getRSAbookDetails');
+    Route::get('get/resincomedetails/{id}', 'ResidentAgreementsController@getRSAincomeDetails')->name('getRSAincomeDetails');
     Route::get('/agreement','ResidentAgreementsController@agreement_generate');
     Route::get('/generateRSAReport/', 'ResidentAgreementsController@generateRSAReport')->name('generateRSAReport');
 

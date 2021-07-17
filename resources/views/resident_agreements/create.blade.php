@@ -162,42 +162,37 @@
                 <h5 style="color:#980000;font-size: 16px;"><b>Fee And Charges</b></h5>
 
                 <div class="form-row">
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label>Accommodation & personal support Fee</label>
                         <input type="text" name="acc_fee" class="form-control" placeholder="Fee for accommodation and personal support">                                        
                       </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label>Frequency of payment</label><br>
                             <label><input  type="checkbox" name="freq_pay[]" value="Weekly"> Weekly</label>&nbsp;&nbsp;
                                 <label><input  type="checkbox" name="freq_pay[]" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
                                 <label><input  type="checkbox" name="freq_pay[]" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="freq_pay[]" value="Other"> Other</label>&nbsp;&nbsp;          
+                                <label><input  type="checkbox" name="freq_pay[]" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
                       </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label>Any rent paid in advance</label><br>
                         
 
                             <label><input  type="checkbox" name="any_rent_adv[]" value="Weekly"> Weekly</label>&nbsp;&nbsp;
                                 <label><input  type="checkbox" name="any_rent_adv[]" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
                                 <label><input  type="checkbox" name="any_rent_adv[]" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="any_rent_adv[]" value="Other"> Other</label>&nbsp;&nbsp;                                          
+                                <label><input  type="checkbox" name="any_rent_adv[]" value="Other"> Other</label>&nbsp;&nbsp;<br>                                          
                       </div>
-                </div>&nbsp;&nbsp;&nbsp;
-                <div class="form-row">
-                      <div class="col-md-12 mb-3">
-                        <label>How to pay</label><br>
-                         <label><input  type="checkbox" name="pay_method[]" value="Direct Debit"> Direct Debit</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="pay_method[]" value="Cash"> Cash</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="pay_method[]" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
-                                <label><label><input  type="checkbox" name="pay_method[]" value="Centrelink"> Centrelink</label>&nbsp;&nbsp;                                       
-                                  <input  type="checkbox" name="pay_method[]" value="Other"> Other</label>&nbsp;&nbsp;                                      
+                      <div class="col-md-3 mb-3">
+                        <label>How to pay</label>
+                        <input type="text" name="pay_method" class="form-control" placeholder="Payment Method" id="pay_meth" readonly>
+                                                               
                       </div>
-                      
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <h5 style="color:#980000;font-size: 16px;"><b>Other Fee & Charges</b></h5>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <br><h5 style="color:#980000;font-size: 16px;"><b>Other Fee & Charges</b></h5>
  
                 
-                <div class="form-row">
+                <div class="form-row" style="top: 10px;">
                       <div class="col-md-4 mb-3">
                         <label>Security deposite charged ?</label>
                         <br><input type="radio" onclick="findselected();" id="secu_depo"  value="Yes" name="secu_depo">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
@@ -212,7 +207,7 @@
                         <br><input required type="radio"  id="condition_rep"  value="Yes" name="condition_rep">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio" required="" id="condition_rep" value="No" name="condition_rep">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
                       </div>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                     <div class="col-md-12 mb-3">
                         <label>Furniture in resident's room belonging to the SRS</label>
@@ -487,6 +482,7 @@ $('#resi_name').change(function(){
                  $('#fperiod').val(response.start_period);
                 $('#endperiod').val(response.end_period);
                 $('#adm_date').val(response.adm_date);           
+                   
 
             }
             else{
@@ -510,6 +506,29 @@ $('#resi_name').change(function(){
         success: function(response){
             if(response != null){
                 $('#staffm').val(response.stf_name);            
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAincomeDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#pay_meth').val(response.income_type);            
 
             }
             else{

@@ -116,14 +116,18 @@
                         <label for="expiry_date">Expiry date</label>
                         <input type="date" class="form-control" id="expiry_date" placeholder="Expiry date"  name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
                       </div>
+
                       <div class="col-md-3 mb-3">
-                        <label for="pension_no">Pension card no.</label>
-                        <input type="text" class="form-control" id="pension_no" placeholder="Pension card" name="pension_no"  v-on:change="page_one.pension_no = $event.target.value">          
+
+                        <label for="ref_by">Ref By</label>
+                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
                       </div>
+
                       <div class="col-md-3 mb-3">
-                        <label for="pen_exp">Expiry date</label>
-                        <input type="date" class="form-control" id="pen_exp" placeholder="Expiry date"  name="pen_exp" v-on:change="page_one.pen_exp = $event.target.value">            
-                      </div> 
+                        <label for="ent_no">Entitlement No</label>
+                        <input type="text" style="width:200px;" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
+                      </div>  
+                       
                       </div>&nbsp;&nbsp;&nbsp;
                       
                       <div class="form-row">  
@@ -189,22 +193,7 @@
                        
                     </div>
                       &nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
-                      
-
-                      
-                      <div class="col-md-3 mb-3">
-
-                        <label for="ref_by">Ref By</label>
-                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
-                      </div>
-
-                      <div class="col-md-9 mb-3">
-                        <label for="ent_no">Entitlement No</label>
-                        <input type="text" style="width:200px;" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
-                      </div>  
-                       </div>&nbsp;&nbsp;&nbsp;
-                       
+                   
 
                       
                       <!--<div class="col-md-4 mb-3">
@@ -366,25 +355,53 @@
                       <h4 class="mb-3"><b>Pension Details</b></h4><br>
                
                     <div class="form-row">
-                      <div class="col-md-5 mb-3">
-                        <label for="income_type">Type of Income</label><br>
-
-                                <label><input  type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="income_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="income_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
-                                <label><input id="other" type="checkbox" name="income_type" value="Other" onclick="addbox();"> Other</label><!--&nbsp;&nbsp;&nbsp;&nbsp;<label><input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;"></label>-->
+                      
+                      <div class="col-md-3 mb-3">
+                        <label for="pension_no">Pension card no.</label>
+                        <input type="text" class="form-control" id="pension_no" placeholder="Pension card" name="pension_no"  v-on:change="page_one.pension_no = $event.target.value">          
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="pen_exp">Expiry date</label>
+                        <input type="date" class="form-control" id="pen_exp" placeholder="Expiry date"  name="pen_exp" v-on:change="page_one.pen_exp = $event.target.value">            
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="client_refno">Client Reference no</label>
                         <input type="text" class="form-control" id="client_refno" placeholder="Client Reference no" name="client_refno" v-on:change="page_one.client_refno = $event.target.value">              
                       </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label for="con_card">Taxi Concession details</label>
                         <input type="text" class="form-control" id="con_card" placeholder="Taxi Concession details" name="con_card" v-on:change="page_one.con_card = $event.target.value">  
                       </div>  
                     </div>&nbsp;&nbsp;&nbsp;
-                                                                        
-                  </div>  
+                      <h4 class="mb-3"><b>Income Details</b></h4><br>
+               
+                    <div class="form-row">
+                      <div class="col-md-12 mb-3">
+                        <label for="income_type">Type of Income : </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="income_type" value="Direct Debit"> Direct Debit</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="income_type" value="Cash"> Cash</label>&nbsp;&nbsp;&nbsp;&nbsp;                         
+                                <label><input  type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="income_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="income_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input id="other" type="checkbox" name="income_type" value="Other" onclick="addbox();"> Other</label><!--&nbsp;&nbsp;&nbsp;&nbsp;<label><input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;"></label>-->
+                      </div>
+                      </div>&nbsp;&nbsp;&nbsp;
+               
+                    <div class="form-row">
+                      <div class="col-md-3 mb-3">
+                        <label for="client_refno">Finance Admin Name</label>
+                        <input type="text" class="form-control" id="inc_sname" placeholder="Finance Admin Name" name="inc_sname" v-on:change="page_one.inc_sname = $event.target.value">              
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="con_card">Phone No.</label>
+                        <input type="text" class="form-control" id="inc_phone" placeholder="Phone" name="inc_phone" v-on:change="page_one.inc_phone = $event.target.value">  
+                      </div> 
+                       <div class="col-md-3 mb-3">
+                        <label for="inc_email">Email</label>
+                        <input type="email" class="form-control" id="inc_email" placeholder="Email" name="inc_email" v-on:change="page_one.inc_email = $event.target.value">  
+                      </div>   
+                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      <br>                                          
+                  </div>  <br>
                                                
                   <!--<div class="page" v-show="step === 2">              
                     

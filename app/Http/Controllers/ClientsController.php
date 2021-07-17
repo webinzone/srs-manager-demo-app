@@ -95,7 +95,13 @@ class ClientsController extends Controller
         $client_detail->pre_address = request('pre_address')  ?? '';        
         $client_detail->ent_no = request('ent_no')  ?? ''; 
         $client_detail->nationality = request('nationality')  ?? '';        
-        $client_detail->adm_date = request('adm_date')  ?? '';  
+        $client_detail->adm_date = request('adm_date')  ?? ''; 
+
+        $client_detail->inc_sname = request('inc_sname')  ?? ''; 
+        $client_detail->inc_phone = request('inc_phone')  ?? ''; 
+        $client_detail->inc_email = request('inc_email')  ?? ''; 
+
+
         
         $roomid = request('room_no')  ?? '';
         $roomm = RoomDetail::where('id', '=', $roomid)->firstOrFail();
@@ -359,7 +365,11 @@ class ClientsController extends Controller
         $client_detail->pre_address = request('pre_address')  ?? '';        
         $client_detail->ent_no = request('ent_no')  ?? ''; 
         $client_detail->nationality = request('nationality')  ?? '';        
-        $client_detail->adm_date = request('adm_date')  ?? '';  
+        $client_detail->adm_date = request('adm_date')  ?? ''; 
+
+        $client_detail->inc_sname = request('inc_sname')  ?? ''; 
+        $client_detail->inc_phone = request('inc_phone')  ?? ''; 
+        $client_detail->inc_email = request('inc_email')  ?? '';  
         
         $roomid = request('room_no')  ?? '';
         $roomm = RoomDetail::where('id', '=', $roomid)->firstOrFail();
