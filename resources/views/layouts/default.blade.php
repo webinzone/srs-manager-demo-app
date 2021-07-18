@@ -213,7 +213,7 @@ h4 {
 }
 .content-wrapper{
 
- background-color: #000000;
+ background-color: #9F2B68;
 }
 </style>
 
@@ -604,6 +604,12 @@ h4 {
                       <a href="/condition" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Condition Reports
+                    </a>
+                  </li>
+                  <li>
+                      <a href="/accountsDetails" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Accounts Reports
                     </a>
                   </li>
                   <li>

@@ -140,8 +140,8 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->f_period = request('f_period') ?? '';
         $resident_agreement->ending_on = request('ending_on') ?? '';
         $resident_agreement->acc_fee = request('acc_fee') ?? '';
-        $resident_agreement->pay_method = implode(',', (array) request('pay_method')) ?? '';
-        $resident_agreement->freq_pay = implode(',', (array) request('freq_pay')) ?? '';
+        $resident_agreement->pay_method = request('pay_method') ?? '';
+        $resident_agreement->freq_pay = request('freq_pay') ?? '';
         $resident_agreement->advnc_fee = request('advnc_fee') ?? '';
         $resident_agreement->adv_fee = request('adm_date') ?? '';
         $resident_agreement->secu_depo = request('secu_depo') ?? '';
@@ -164,7 +164,7 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->emg_address = request('emg_address') ?? '';
         $resident_agreement->emg_email = request('emg_email') ?? '';
         $resident_agreement->amt_fee = request('amt_fee') ?? '';
-        $resident_agreement->any_rent_adv = implode(',', (array) request('any_rent_adv')) ?? '';
+        $resident_agreement->any_rent_adv = request('any_rent_adv') ?? '';
         $resident_agreement->est_fee = request('est_fee') ?? '';
         $resident_agreement->refund = request('refund') ?? '';
         $resident_agreement->srs_assist_status = request('srs_assist_status') ?? '';
@@ -272,8 +272,8 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->f_period = request('f_period') ?? '';
         $resident_agreement->ending_on = request('ending_on') ?? '';
         $resident_agreement->acc_fee = request('acc_fee') ?? '';
-        $resident_agreement->pay_method = implode(',', (array) request('pay_method')) ?? '';
-        $resident_agreement->freq_pay = implode(',', (array) request('freq_pay')) ?? '';
+        $resident_agreement->pay_method = request('pay_method') ?? '';
+        $resident_agreement->freq_pay = request('freq_pay') ?? '';
         $resident_agreement->advnc_fee = request('advnc_fee') ?? '';
         $resident_agreement->adv_fee = request('adm_date') ?? '';
         $resident_agreement->secu_depo = request('secu_depo') ?? '';
@@ -296,7 +296,7 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->emg_address = request('emg_address') ?? '';
         $resident_agreement->emg_email = request('emg_email') ?? '';
         $resident_agreement->amt_fee = request('amt_fee') ?? '';
-        $resident_agreement->any_rent_adv = implode(',', (array) request('any_rent_adv')) ?? '';
+        $resident_agreement->any_rent_adv = request('any_rent_adv') ?? '';
         $resident_agreement->est_fee = request('est_fee') ?? '';
         $resident_agreement->refund = request('refund') ?? '';
         $resident_agreement->srs_assist_status = request('srs_assist_status') ?? '';

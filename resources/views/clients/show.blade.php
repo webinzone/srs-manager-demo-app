@@ -82,15 +82,13 @@
          <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">Medicare Number</td>
         <td style="border: 1px solid black;">Expiry</td>
-        <td style="border: 1px solid black;">Pension Number</td>
-        <td style="border: 1px solid black;">Expiry</td>
+
         <td style="border: 1px solid black;">Safety Net Entitlenment Number</td>
       </tr>
       <tr>
         <td style="border: 1px solid black;">{{ $client_detail->medicard_no}}</td>
         <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->exp_date)) }}</td>
-        <td style="border: 1px solid black;">{{ $client_detail->pension_no}}</td>
-        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->pen_exp)) }}</td>
+        
         <td style="border: 1px solid black;">{{ $client_detail->ent_no}}</td>        
       </tr>
     </table><br>
@@ -115,19 +113,7 @@
     </table><br>
     
 
-    <h4 style="font-family:Bedrock">Pension Details:</h4>
-    <table>
-      <tr>
-        <td style="border: 1px solid black;">Type of Income</td>
-        <td style="border: 1px solid black;">Client Reference no</td>
-        <td style="border: 1px solid black;">Taxi Concession Card details</td>
-      </tr>
-      <tr>
-        <td style="border: 1px solid black;">{{ $pension_detail->income_type}}   <label id="oi"> {{ $client_detail->other_income}}</label></td>
-        <td style="border: 1px solid black;">{{ $pension_detail->client_refno}}</td>
-        <td style="border: 1px solid black;">{{ $pension_detail->con_card}}</td>      
-      </tr>
-    </table><br> 
+   
 
     <h4 style="font-family:Bedrock">Next Of Kin / Representative:</h4>
     <table>
@@ -209,6 +195,39 @@
         <td style="border: 1px solid black;">{{ $health_service->hs_email}}</td>      
       </tr>
     </table><br>
+     <h4 style="font-family:Bedrock">Pension Details:</h4>
+    <table>
+      <tr>
+        <td style="border: 1px solid black;">Pension Card No.</td>
+        <td style="border: 1px solid black;">Expiry Date</td>
+        <td style="border: 1px solid black;">Client Reference no</td>
+        <td style="border: 1px solid black;">Taxi Concession Card details</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black;">{{ $client_detail->pension_no}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->pen_exp}}</td>
+        <td style="border: 1px solid black;">{{ $pension_detail->client_refno}}</td>
+        <td style="border: 1px solid black;">{{ $pension_detail->con_card}}</td>      
+      </tr>
+    </table><br> 
+
+     <h4 style="font-family:Bedrock">Income Details:</h4>
+    <table>
+      <tr>
+        <td style="border: 1px solid black;">Type of Income</td>
+        <td style="border: 1px solid black;">Source Name</td>
+        <td style="border: 1px solid black;">Phone No.</td>
+        <td style="border: 1px solid black;">Email</td>
+
+      </tr>
+      <tr>
+        <td style="border: 1px solid black;">{{ $pension_detail->income_type}}   <label id="oi"> {{ $client_detail->other_income}}</label></td>
+        <td style="border: 1px solid black;">{{ $client_detail->inc_sname}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->inc_phone}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->inc_email}}</td>      
+
+      </tr>
+    </table><br> 
    <h4 style="font-family:Bedrock"><u>Additional Information : <i>Medical history/diagnosis </i>: </u></h4><p style="border: 1px solid black; padding: 5px;">{{ $health_service->med_history}}</p><br><br>
           
             </div>

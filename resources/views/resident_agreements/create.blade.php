@@ -168,19 +168,19 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Frequency of payment</label><br>
-                            <label><input  type="checkbox" name="freq_pay[]" value="Weekly"> Weekly</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="freq_pay[]" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="freq_pay[]" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="freq_pay[]" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
+                            <label><input  type="checkbox" name="freq_pay" value="Weekly"> Weekly</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="freq_pay" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="freq_pay" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="freq_pay" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Any rent paid in advance</label><br>
                         
 
-                            <label><input  type="checkbox" name="any_rent_adv[]" value="Weekly"> Weekly</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="any_rent_adv[]" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="any_rent_adv[]" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="any_rent_adv[]" value="Other"> Other</label>&nbsp;&nbsp;<br>                                          
+                            <label><input  type="checkbox" name="any_rent_adv" value="Weekly"> Weekly</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="any_rent_adv" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="any_rent_adv" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="any_rent_adv" value="Other"> Other</label>&nbsp;&nbsp;<br>                                          
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>How to pay</label>

@@ -174,7 +174,7 @@
         <td width="300px;">Furniture in resident's room belonging to thr SRS: </td>
         <td width="300px;"><p>{{ $resident_agreement->pers_prop}}</p></td>
       </tr>
-</table>
+</table><br><br>
       <table>
         <tr>
         <td width="300px;">Reservation fee charged: </td>
