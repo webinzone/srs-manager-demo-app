@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\AdminController;
 use App\Models\ActivityLog;
 use App\Models\Booking;
+use App\Models\ClientDetail;
+
 
 use Auth;
 use View;
@@ -31,8 +33,10 @@ class DashboardController extends Controller
             $asset_stats=null;
 
             $bookings = Booking::all();
+            $residents = ClientDetail::all();
+            
 
-            $counts['complaint'] = \App\Models\Complaint::count();
+            $counts['resident'] = \App\Models\ClientDetail::count();
             $counts['rent_details'] = \App\Models\RentDetail::count();
             $counts['bookings'] = \App\Models\Booking::count();
             $counts['staff_roaster'] = \App\Models\StaffRoaster::count();
@@ -41,7 +45,7 @@ class DashboardController extends Controller
                 \Artisan::call('migrate', ['--force' => true]);
                 \Artisan::call('passport:install');
             }
-            return view('dashboard')->with('asset_stats', $asset_stats)->with('counts', $counts)->with('bookings', $bookings);
+            return view('dashboard')->with('asset_stats', $asset_stats)->with('counts', $counts)->with('bookings', $bookings)->with('residents', $residents);
         } else {
         // Redirect to the profile page
             return redirect()->intended('account/view-assets');

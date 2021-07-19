@@ -140,9 +140,9 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->f_period = request('f_period') ?? '';
         $resident_agreement->ending_on = request('ending_on') ?? '';
         $resident_agreement->acc_fee = request('acc_fee') ?? '';
-        $resident_agreement->pay_method = request('pay_method') ?? '';
         $resident_agreement->freq_pay = request('freq_pay') ?? '';
         $resident_agreement->advnc_fee = request('advnc_fee') ?? '';
+        $resident_agreement->pay_method = request('pay_method') ?? '';
         $resident_agreement->adv_fee = request('adm_date') ?? '';
         $resident_agreement->secu_depo = request('secu_depo') ?? '';
         $resident_agreement->reserv_fee = request('reserv_fee') ?? '';
