@@ -269,14 +269,14 @@ h4 {
                   </li>
                   @endcan
 
-                  @can('index', \App\Models\Booking::class)
+                  <!--@can('index', \App\Models\Booking::class)
                   <li aria-hidden="true"{!! (Request::is('bookings*') ? ' class="active"' : '') !!} tabindex="-1">
                       <a href="{{ route('bookings.index') }}" tabindex="-1" style="color: white;">
                           <i class="fa fa-list-alt" aria-hidden="true"></i>                         
                           <span class="sr-only">Bookings</span>
                       </a>
                   </li>
-                  @endcan
+                  @endcan -->
 
                    @can('index', \App\Models\StaffRoaster::class)
                   <li aria-hidden="true"{!! (Request::is('staff_roasters*') ? ' class="active"' : '') !!} tabindex="-1">
@@ -555,14 +555,14 @@ h4 {
                 
                 </ul>
               </li>
-             @can('view', \App\Models\Booking::class)
+             <!--@can('view', \App\Models\Booking::class)
             <li{!! (Request::is('bookings*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('bookings.index') }}" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-list-alt" aria-hidden="true"></i>
                   <span style="color: white;">Bookings</span>
                 </a>
             </li>
-            @endcan
+            @endcan -->
 
             @can('view', \App\Models\ResidentAgreement::class)
             <li{!! (Request::is('resident_agreements*') ? ' class="active"' : '') !!}>
@@ -607,7 +607,7 @@ h4 {
                     </a>
                   </li>
                   <li>
-                      <a href="/generateAccountReport" style="color: #b8c7ce;">
+                      <a href="/generateAccountReport" style="color: #b8c7ce;" target="_blank">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Accounts Reports
                     </a>
@@ -619,9 +619,9 @@ h4 {
                     </a>
                   </li>
                   <li>
-                      <a href="generateHandoverReport" style="color: #b8c7ce;">
+                      <a href="generateHandoverReport" style="color: #b8c7ce;" target="_blank">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                        Shift Handover Reports
+                        Handover Reports
                     </a>
                   </li>
                   <!--<li>

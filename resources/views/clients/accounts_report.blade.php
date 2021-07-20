@@ -69,13 +69,24 @@
           <tr>
             <td style="border: 1px solid black;">{{ $i++ }}</td>
             <td style="border: 1px solid black;">{{ $res->fname}}&nbsp; {{ $res->mname}}&nbsp;&nbsp; {{ $res->lname}}</td>
-            <td style="border: 1px solid black;"></td>
+            
+             <td style="border: 1px solid black;">
+              @foreach($pension_details as $income)
+              {{ $income->client_id == $res->id ? $income->income_type : ''}}
+             @endforeach 
+              </td>
+                      
             <td style="border: 1px solid black;">{{ $res->week_rent}}</td>           
-            <td style="border: 1px solid black;"></td>
+            <td style="border: 1px solid black;">
+              @foreach($resident_agreements as $agree)
+              {{ $agree->r_name == $res->fname." ".$res->mname." ".$res->lname ? $agree->freq_pay : ''}}
+             @endforeach 
+           </td>
             <td style="border: 1px solid black;">{{ $res->inc_sname}}</td>
             <td style="border: 1px solid black;">{{ $res->inc_phone}}</td>
             <td style="border: 1px solid black;">{{ $res->inc_email}}</td>
           </tr>
+         
         @endforeach         
         </tbody>
       </table>

@@ -653,9 +653,9 @@ class ClientsController extends Controller
          $pension_details = PensionDetail::all();
 
          //$res = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
-         //$resident_agreement = ResidentAgreement::where('r_name', '=', $res)->firstOrFail();
+         $resident_agreements = ResidentAgreement::all();
 
-         return view('clients/accounts_report')->with(compact('client_details','pension_details','i'));
+         return view('clients/accounts_report')->with(compact('client_details','pension_details','i','resident_agreements'));
 
     }
 

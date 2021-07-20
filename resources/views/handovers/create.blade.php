@@ -54,21 +54,23 @@
                     <div class="form-row ">
                          <div class="col-md-4 mb-3">
                         <label >Morning Staff-Evening Staff</label>
-                          <select class="form-control" style="width: 270px;height: 26px;padding: 3px 10px;" id="res_name" name="me_staffs">
+                          <!--<select class="form-control" style="width: 270px;height: 26px;padding: 3px 10px;" id="res_name" name="me_staffs">
                             <option>--   Select Staff Name  --</option>
                           @foreach($emps as $emp)
                           <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
                           @endforeach
-                        </select>
+                        </select>-->
+                        <input type="text" class="form-control" name="me_staffs" placeholder="Morning - Evening">
                                                                  
                         </div>
                          <div class="col-md-4 mb-3">
                             <label>Evening Staff-Morning Staff</label>
-                             <select class="form-control" style="width: 270px; height: 26px;padding: 3px 10px;" id="res_name" name="em_staffs">
+                             <!--<select class="form-control" style="width: 270px; height: 26px;padding: 3px 10px;" id="res_name" name="em_staffs">
                             <option>--   Select Staff Name  --</option>
                           @foreach($emps as $emp)
                           <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
-                          @endforeach
+                          @endforeach-->
+                          <input type="text" class="form-control" name="em_staffs" placeholder="Evening - Morning">
                         </select>
                         
                          </div>                        
