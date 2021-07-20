@@ -607,7 +607,7 @@ h4 {
                     </a>
                   </li>
                   <li>
-                      <a href="/accountsDetails" style="color: #b8c7ce;">
+                      <a href="/generateAccountReport" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Accounts Reports
                     </a>
@@ -616,6 +616,12 @@ h4 {
                       <a href="" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Referal Reports
+                    </a>
+                  </li>
+                  <li>
+                      <a href="generateHandoverReport" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Shift Handover Reports
                     </a>
                   </li>
                   <!--<li>
@@ -643,8 +649,17 @@ h4 {
                     </a>
                   </li>-->
                 </ul>
+
               </li>
 
+            @can('view', \App\Models\RentDetail::class)
+            <li{!! (Request::is('handovers*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('handovers.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                  <span style="color: white;">Shift Handovers</span>
+                </a>
+            </li>
+            @endcan
 
             @can('view', \App\Models\RentDetail::class)
             <li{!! (Request::is('rent_details*') ? ' class="active"' : '') !!}>

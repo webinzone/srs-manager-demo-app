@@ -101,7 +101,7 @@
   <div class="col-lg-3 col-xs-6" style="width:240px;">
     <!-- small box -->
       <a href="{{ route('bookings.index') }}">
-    <div class="small-box bg-orange">
+    <div class="small-box bg-red">
       <div class="inner">
         <h3 >&nbsp;&nbsp;</h3>
           <p>Act/Regulations</p>
@@ -123,9 +123,9 @@
 <!-- Recent Activity -->
 <div class="row">
   <div class="col-md-12">
-    <div class="box">
+    <div class="box" style="background-color: #BDF5BD;">
       <div class="box-header with-border">
-        <h2 class="box-title">Resident Details</h2>
+        <h2 class="box-title"><b>Resident Details</b></h2>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" aria-hidden="true">
                 <i class="fa fa-minus" aria-hidden="true"></i>
@@ -164,15 +164,15 @@
                                 class="table table-striped snipe-table"
                                 data-url="">
 
-                          <thead>
-                            <tr>
-                                <th class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Resident Name </th>
-                                <th class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Dob </th>
-                                <th class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Phone No. </th>
-                                <th class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Respite/Permanent </th>
+                          <thead >
+                            <tr style="padding: 5px;">
+                                <th style="padding: 10px;" class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Resident Name </th>
+                                <th style="padding: 10px;" class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Dob </th>
+                                <th style="padding: 10px;" class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Phone No. </th>
+                                <th style="padding: 10px;" class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Respite/Permanent </th>
                                 
-                                <th class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Duration </th>
-                                <th class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Room No </th>
+                                <th style="padding: 10px;" class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Duration </th>
+                                <th style="padding: 10px;" class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Room No </th>
                             </tr>
                           </thead>
                           <tbody>

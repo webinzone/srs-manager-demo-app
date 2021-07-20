@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Handovers
+
 @parent
 @stop
 
@@ -19,6 +19,10 @@ Handovers
   <div class="col-md-12">
 
     <div class="box box-default">
+        <div class="box-header with-border text-center">
+                  <h3><b>Shift Handovers</b></h3>
+                   
+                </div><!-- /.box-header -->
       <div class="box-body">
         <div class="table-responsive">
 

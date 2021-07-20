@@ -12,6 +12,10 @@
   td,th {
     width: 200px;
     padding: 5px;
+    align-items: center;
+  }
+  td{
+
   }
 
   table {
@@ -47,34 +51,28 @@
       <h1 >MEADOWBROOK S R S</h1>
     </center>
     <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></p></center>
-    <h2><center>Accounts Detail Report</center></h2>
-    <h3 style="font-family:Bedrock">Personal Details:</h3>
+    <h2><center>Shift Handover Report</center></h2>
     <table style="border: 1px solid black;">
       <thead style="border: 1px solid black;">
         <tr>
           <th style="border: 1px solid black;">No</th>
-          <th style="border: 1px solid black;">Name</th>
-          <th style="border: 1px solid black;">Type of Income</th>
-          <th style="border: 1px solid black;">Rent/ Week</th>
-          <th style="border: 1px solid black;">Frequency of payment</th>                    
-          <th style="border: 1px solid black;">Finance Admin Name</th>
-          <th style="border: 1px solid black;">Phone Number</th>
-          <th style="border: 1px solid black;">Email</th>
+          <th style="border: 1px solid black;">Room</th>
+          <th style="border: 1px solid black;">Resident Name</th>
+          <th style="border: 1px solid black;">Morning Staff-Evening Staff</th>
+          <th style="border: 1px solid black;">Evening Staff-Morning Staff</th>                    
+
         </tr>
       </thead>
-        <tbody>
-        @foreach ($client_details as $res)  
+        <tbody >
+        @foreach ($handovers as $handover)  
         
                      
-          <tr>
-            <td style="border: 1px solid black;">{{ $i++ }}</td>
-            <td style="border: 1px solid black;">{{ $res->fname}}&nbsp; {{ $res->mname}}&nbsp;&nbsp; {{ $res->lname}}</td>
-            <td style="border: 1px solid black;"></td>
-            <td style="border: 1px solid black;">{{ $res->week_rent}}</td>           
-            <td style="border: 1px solid black;"></td>
-            <td style="border: 1px solid black;">{{ $res->inc_sname}}</td>
-            <td style="border: 1px solid black;">{{ $res->inc_phone}}</td>
-            <td style="border: 1px solid black;">{{ $res->inc_email}}</td>
+          <tr style="align-items: center;">
+            <td style="border: 1px solid black; align-content: center;align-self: center;">{{ $i++ }}</td>
+            <td style="border: 1px solid black;">{{ $handover->room}}</td>
+            <td style="border: 1px solid black;">{{ $handover->res_name}}</td>
+            <td style="border: 1px solid black;">{{ $handover->me_staffs}}</td>           
+            <td style="border: 1px solid black;">{{ $handover->em_staffs}}</td>
           </tr>
         @endforeach         
         </tbody>
@@ -103,6 +101,7 @@
         '    width: 200px;' +
         'padding: 5px;' +
         'border-collapse: collapse;' +
+        'align-items: center' +
         '}' +
          '.container{' +
           'width: 1000px;' +

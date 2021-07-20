@@ -5,6 +5,9 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\Handover;
 use App\Models\ActivityLog;
+use App\Models\SrsStaff;
+use App\Models\ClientDetail;
+
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -42,7 +45,9 @@ class HandoversController extends Controller
     {
          // Show the page
         $this->authorize('create',Handover::class);
-        return view('handovers/create');
+        $residents = ClientDetail::all();
+        $emps = SrsStaff::all();
+        return view('handovers/create',compact('residents', 'emps'));
     }
 
 
@@ -59,7 +64,12 @@ class HandoversController extends Controller
         $handover = new Handover();
 
         $handover->room = request('room');
-        $handover->res_name = request('res_name');
+
+        $id = request('res_name');
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+        $handover->res_name = $name;
+
         $handover->me_staffs = request('me_staffs');
         $handover->em_staffs = request('em_staffs');
         $handover->user_id =  Auth::user()->id;
@@ -101,7 +111,9 @@ class HandoversController extends Controller
     {
         $this->authorize('edit',Handover::class);
         $handover = Handover::find($id);
-        return view('handovers/edit',compact('handover'));
+        $residents = ClientDetail::all();
+        $emps = SrsStaff::all();
+        return view('handovers/edit',compact('handover', 'residents', 'emps'));
     }
     /**
      * Update the specified resource in storage.
@@ -116,7 +128,10 @@ class HandoversController extends Controller
         $handover = Handover::find($id);
 
         $handover->room = request('room');
-        $handover->res_name = request('res_name');
+        $id = request('res_name');
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+        $handover->res_name = $name;
         $handover->me_staffs = request('me_staffs');
         $handover->em_staffs = request('em_staffs');
         $handover->user_id =  Auth::user()->id;
@@ -151,6 +166,14 @@ class HandoversController extends Controller
         $activity->save();
         return redirect()->route('handovers.index')
                         ->with('success','deleted successfully');
+    }
+
+    public function generateHandoverReport()
+    {
+         $i = 1;         
+         
+         $handovers = Handover::all();         
+         return view('handovers/report',compact('handovers', 'i'));
     }
 
 }

@@ -646,29 +646,16 @@ class ClientsController extends Controller
 
     public function generateAccountReport()
     {
-        $id = request('res');
+        //$id = request('res');
+         $i = 1;
+         $client_details = ClientDetail::all(); 
          
-         $client_detail = ClientDetail::find($id); 
-         $status = $client_detail->respite;
-         if ($status == "Respite") {
-            $duration = "From :".date('d-m-Y', strtotime($client_detail->start_period)).","."To :".date('d-m-Y', strtotime($client_detail->end_period));
-            $weeks = $client_detail->weeks;
-         }else
-         {
-            $duration = "Admisiion Date :".date('d-m-Y', strtotime($client_detail->adm_date));
-            $weeks = '';
-         }
+         $pension_details = PensionDetail::all();
 
-         $gpdetail = ClientGpdetail::where('client_id', '=', $id)->firstOrFail();
-         $next_of_kin = ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
-         $guardian_detail = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
-         $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
-         $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
+         //$res = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
+         //$resident_agreement = ResidentAgreement::where('r_name', '=', $res)->firstOrFail();
 
-         $res = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
-         $resident_agreement = ResidentAgreement::where('r_name', '=', $res)->firstOrFail();
-
-         return view('clients/accounts_report')->with(compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail','duration','weeks', 'resident_agreement'));
+         return view('clients/accounts_report')->with(compact('client_details','pension_details','i'));
 
     }
 
