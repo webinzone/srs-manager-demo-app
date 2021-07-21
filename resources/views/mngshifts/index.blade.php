@@ -1,18 +1,15 @@
 @extends('layouts/default')
 
 {{-- Page title --}}
-@section('title')
-@parent
-@stop
+
 
 @section('header_right')
 
         <a href="{{ route('mngshifts.create') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Create New</a>
    
 @stop
-
-{{-- Page content --}}
 @section('content')
+
 
 <div class="row">
   <div class="col-md-12">

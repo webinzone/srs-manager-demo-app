@@ -5,6 +5,8 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\Evngshift;
 use App\Models\ActivityLog;
+use App\Models\ClientDetail;
+use App\Models\SrsStaff;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -27,8 +29,7 @@ class EvngshiftsController extends Controller
     public function index()
     {
         $this->authorize('view', Evngshift::class);
-        $evngshifts = Evngshift::all();
-        return view('evngshifts/index',compact('evngshifts'));
+        return view('evngshifts/index');
     }
 
      /**
@@ -42,7 +43,9 @@ class EvngshiftsController extends Controller
     {
          // Show the page
         $this->authorize('create',Evngshift::class);
-        return view('evngshifts/create');
+        $residents = ClientDetail::all();
+        $emps = SrsStaff::all();
+        return view('evngshifts/create',compact('residents','emps'));
     }
 
 

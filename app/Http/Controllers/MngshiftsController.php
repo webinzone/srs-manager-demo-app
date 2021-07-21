@@ -46,7 +46,7 @@ class MngshiftsController extends Controller
         $this->authorize('create',Mngshift::class);
         $residents = ClientDetail::all();
         $emps = SrsStaff::all();
-        return view('mngshifts/create');
+        return view('mngshifts/create',compact('residents','emps'));
     }
 
 
@@ -64,7 +64,12 @@ class MngshiftsController extends Controller
 
         $mngshift->mng_staff = request('mng_staff') ?? '';
         $mngshift->evng_staff = request('evng_staff') ?? '';
-        $mngshift->res_name = request('res_name') ?? '';
+        
+        $id = request('res_name');
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;        
+        $mngshift->res_name = $name ?? '';
+
         $mngshift->room = request('room') ?? '';
         $mngshift->notes = request('notes') ?? '';
         $mngshift->mng_date = request('mng_date') ?? '';
@@ -109,7 +114,9 @@ class MngshiftsController extends Controller
     {
         $this->authorize('edit',Mngshift::class);
         $mngshift = Mngshift::find($id);
-        return view('mngshifts/edit',compact('mngshift'));
+        $residents = ClientDetail::all();
+        $emps = SrsStaff::all();
+        return view('mngshifts/edit',compact('mngshift','residents','emps'));
     }
     /**
      * Update the specified resource in storage.
@@ -125,7 +132,12 @@ class MngshiftsController extends Controller
 
         $mngshift->mng_staff = request('mng_staff') ?? '';
         $mngshift->evng_staff = request('evng_staff') ?? '';
-        $mngshift->res_name = request('res_name') ?? '';
+
+        $id = request('res_name');
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;        
+        $mngshift->res_name = $name ?? '';
+
         $mngshift->room = request('room') ?? '';
         $mngshift->notes = request('notes') ?? '';
         $mngshift->mng_date = request('mng_date') ?? '';

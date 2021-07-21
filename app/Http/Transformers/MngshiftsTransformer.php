@@ -19,7 +19,7 @@ class MngshiftsTransformer
         return (new DatatablesTransformer)->transformDatatables($array, $total);
     }
 
-    public function transformMngshift (Roaster $mngshift = null)
+    public function transformMngshift (Mngshift $mngshift = null)
     {
         if ($mngshift) {
 

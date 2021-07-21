@@ -19,7 +19,7 @@ class EvngshiftsTransformer
         return (new DatatablesTransformer)->transformDatatables($array, $total);
     }
 
-    public function transformEvngshift (Roaster $evngshift = null)
+    public function transformEvngshift (Evngshift $evngshift = null)
     {
         if ($evngshift) {
 
