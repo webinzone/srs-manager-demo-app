@@ -124,9 +124,11 @@ class ClientsController extends Controller
         $rate = request('room_rent')  ?? '';
         $client_detail->room_rent = (int)$HowManyWeeks * (int)$rate ?? '';
         
-        //$client_detail->prof_pic = request('prof_pic')->getClientOriginalName()  ?? '';
-        //$imageName = request('prof_pic')->getClientOriginalName() ?? '';
-        //request()->prof_pic->move(public_path('images/profile_pics'), $imageName);  
+        if(request('prof_pic') != ''){ 
+        $client_detail->prof_pic = request('prof_pic')->getClientOriginalName()  ?? '';
+        $imageName = request('prof_pic')->getClientOriginalName() ?? '';
+        request()->prof_pic->move(public_path('images/profile_pics'), $imageName);
+        }  
 
         $client_detail->user_id =  Auth::user()->id;
         $client_detail->save(); 
@@ -391,10 +393,14 @@ class ClientsController extends Controller
         $client_detail->weeks = $HowManyWeeks ?? ''; 
         $rate = request('room_rent')  ?? '';
         $client_detail->room_rent = (int)$HowManyWeeks * (int)$rate ?? '';
+
+        if(request('prof_pic') != ''){ 
         
-        //$client_detail->prof_pic = request('prof_pic')->getClientOriginalName()  ?? '';
-        //$imageName = request('prof_pic')->getClientOriginalName() ?? '';
-        //request()->prof_pic->move(public_path('images/profile_pics'), $imageName);  
+        $client_detail->prof_pic = request('prof_pic')->getClientOriginalName()  ?? '';
+        $imageName = request('prof_pic')->getClientOriginalName() ?? '';
+        request()->prof_pic->move(public_path('images/profile_pics'), $imageName);  
+
+        }
 
         $client_detail->user_id =  Auth::user()->id;
         $client_detail->save(); 

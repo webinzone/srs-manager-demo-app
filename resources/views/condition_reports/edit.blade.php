@@ -37,13 +37,14 @@
                 <!-- box-body -->
              <div class="box-body" style="padding-left: 50px;">                         
                     <div class="form-row" style="padding-bottom:10px;">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                         <label for="name" >Resident Name</label>
-                        <select class="form-control" required="" id="resname" name="res_name" style="height: 26px;padding: 3px 10px;">
+                        <input type="text" style="width: 200px;" value="{{ $condition_report->res_name }}" name="res_name" readonly class="form-control">
+                       <!-- <select class="form-control" required="" id="resname" name="res_name" style="height: 26px;padding: 3px 10px;" readonly>
                           @foreach($residents as $resident)
                           <option value="{{ $resident->id }}" {{ $condition_report->res_name == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname}}</option>
                           @endforeach
-                        </select>
+                        </select>-->
                        </div>
                       <div class="col-md-2 mb-2" style="width: 90px;">
                         <label for="name" >Room</label>
@@ -187,7 +188,7 @@
                                           <input type="text" name="res_comments[]"  class="form-control" value="{{ $res_comments[$i] }}">                                      
                                          </td>
                                          <td>
-                                            <!--<a style="height:20px;background-color:white;color:red;padding-left: 20px;"  class="btn " href="{{ route('getRow', [$condition_report->id, $i]) }}"><i class="fa fa-trash icon-white"></i></a>-->
+                                            <a style="height:20px;background-color:white;color:red;padding-left: 20px;"  class="btn " href="{{ route('getRow', $condition_report->id) }}"><i class="fa fa-trash icon-white"></i></a>
                                              
                                          </td>
                                          

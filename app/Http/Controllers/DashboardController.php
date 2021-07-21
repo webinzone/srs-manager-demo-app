@@ -37,7 +37,7 @@ class DashboardController extends Controller
             
 
             $counts['resident'] = \App\Models\ClientDetail::count();
-            $counts['rent_details'] = \App\Models\RentDetail::count();
+            $counts['appointments'] = \App\Models\Appointment::count();
             $counts['bookings'] = \App\Models\Booking::count();
             $counts['staff_roaster'] = \App\Models\StaffRoaster::count();
             

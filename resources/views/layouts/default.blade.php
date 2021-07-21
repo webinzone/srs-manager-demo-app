@@ -572,6 +572,40 @@ h4 {
                 </a>
             </li>
             @endcan
+            @can('view', \App\Models\ResidentAgreement::class)
+            <li{!! (Request::is('appointments*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('appointments.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+
+                  <span style="color: white;">Appointments</span>
+                </a>
+            </li>
+            @endcan
+
+             <li class="treeview">
+                <a href="#" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                  <span style="color: white;">Shift Handovers</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
+                  <li>
+                      <a href="{{ route('mngshifts.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Morning - Evening
+                    </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('evngshifts.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Evening - Morning
+                    </a>
+                  </li>
+                  
+                 
+                </ul>
+              </li>
+
              @can('view', \App\Models\ResidentAgreement::class)
             <!--<li{!! (Request::is('resident_agreements*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('room_details.index') }}" style="background-color: #222d32;color: #b8c7ce;">
@@ -652,15 +686,15 @@ h4 {
 
               </li>
 
-            @can('view', \App\Models\RentDetail::class)
+            <!--@can('view', \App\Models\RentDetail::class)
             <li{!! (Request::is('handovers*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('handovers.index') }}" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-hand-o-right" aria-hidden="true"></i>
                   <span style="color: white;">Shift Handovers</span>
                 </a>
             </li>
-            @endcan
-
+            @endcan-->
+           
             @can('view', \App\Models\RentDetail::class)
             <li{!! (Request::is('rent_details*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('rent_details.index') }}" style="background-color: #222d32;color: #b8c7ce;">

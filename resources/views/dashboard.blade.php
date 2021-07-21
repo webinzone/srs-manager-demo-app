@@ -47,17 +47,17 @@
   </div><!-- ./col -->
 
   <div class="col-lg-3 col-xs-6" style="width:240px;">
-     <a href="{{ route('rent_details.index') }}">
+     <a href="{{ route('appointments.index') }}">
     <!-- small box -->
     <div class="small-box bg-maroon">
       <div class="inner">
-        <h3>{{ number_format($counts['rent_details']) }}</h3>
+        <h3>{{ number_format($counts['appointments']) }}</h3>
         <p>Appointments</p>
       </div>
       <div class="icon" aria-hidden="true">
         <i class="fa fa-calendar" aria-hidden="true"></i>
       </div>
-       <a href="{{ route('rent_details.index') }}" class="small-box-footer">{{ trans('general.moreinfo') }} <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       <a href="{{ route('appointments.index') }}" class="small-box-footer">{{ trans('general.moreinfo') }} <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
     </div>
      </a>
   </div><!-- ./col -->

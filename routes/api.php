@@ -383,6 +383,40 @@ Route::resource('room_details', 'RoomDetailsController',
             'parameters' => ['room_details' => 'room_details_id']
         ]
     );
+
+Route::resource('appointments', 'AppointmentsController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.appointments.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['appointments' => 'appointments_id']
+        ]
+    );Route::resource('mngshifts', 'MngshiftsController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.mngshifts.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['mngshifts' => 'mngshifts_id']
+        ]
+    );Route::resource('evngshifts', 'EvngshiftsController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.evngshifts.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['evngshifts' => 'evngshifts_id']
+        ]
+    );
+
+
         Route::resource('location_masters', 'LocationMastersController',
         [
             'names' =>

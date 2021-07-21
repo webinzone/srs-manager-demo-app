@@ -40,6 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('pension_details','PensionDetailsController');
     Route::resource('srs_staffs','SrsStaffsController');
     Route::resource('room_details','RoomDetailsController');
+    Route::resource('appointments','AppointmentsController');
+    Route::resource('mngshifts','MngshiftsController');
+    Route::resource('evngshifts','EvngshiftsController');
 
 
     Route::post('formSubmit','ClientsController@store');
@@ -65,7 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
     //Route::get('/info/{id}', 'ConditionReportsController@getres');
     Route::get('get/details/{id}', 'ConditionReportsController@getDetails')->name('getDetails');
     Route::get('get/location/{id}', 'ConditionReportsController@getLocation')->name('getLocation');
-    Route::get('client/{id}/row/{i}', 'ConditionReportsController@getRow')->name('getRow');
+    Route::get('client/{id}', 'ConditionReportsController@getRow')->name('getRow');
     
 
     Route::get('get/resdetails/{id}', 'ResidentAgreementsController@getRSADetails')->name('getRSADetails');

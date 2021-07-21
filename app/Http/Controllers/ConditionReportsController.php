@@ -276,16 +276,20 @@ class ConditionReportsController extends Controller
 
     }
 
-    //public function getRow($id, $rid){
-//
-        //$data = ClientDetail::where('id', '=', $id)->firstOrFail();               
-        //for ($i=0; $i < $num; $i++)
-        //$array[$i] = $data->
-            //if ($rid == $i) {
-//                
-            //}
-        //end
-//
-    //}
+    public function getRow($id){
+
+        //$data = ConditionReport::where('id', '=', $id)->firstOrFail(); 
+//        $array = explode(',', $data->items);
+//        if (($key = array_search("green", $colors)) !== false) {
+//                unset($colors[$key]);
+//            }            
+//        //for ($i=0; $i < $num; $i++)
+//        //$array[$i] = $data->items;
+//            //if ($rid == $i) {
+//                //$array[$i] = '';
+//            //}
+//        //end
+
+    }
 
 }

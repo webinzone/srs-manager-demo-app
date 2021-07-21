@@ -11,6 +11,65 @@
     @endcan
 @stop
 {{-- Page content --}}
+<style type="text/css">
+ 
+.custom-file-upload {
+   
+    display: flex;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+
+.outer {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 150px !important; /* any size */
+  max-height: 150px !important; /* any size */
+  margin: auto;
+  background-color: #6eafd4;
+  border-radius: 100%;
+  position: relative;
+  }
+  
+.inner {
+  background-color: #ff1414;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.inner:hover {
+  background-color: #5555ff;
+}
+.inputfile {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+}
+.inputfile + label {
+    font-size: 1.25rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+    cursor: pointer;
+    line-height: 50px;
+    text-align: center;
+}
+.inputfile + label svg {
+    fill: #fff;
+}
+</style>
 @section('content')
 
 <div id="webui">  
@@ -31,27 +90,45 @@
                  <h3><b>New Resident Admission Form</b></h3>
                    
                 </div><!-- /.box-header -->
-                <!--<div class="text-right">
-                 <img id="preview-image-before-upload" src="https://www.riobeauty.co.uk/images/product_image_not_found.gif"
-                      alt="preview image" style="width: 100px;height: 100px; border-color: red;border: 2px;"><input type="file" class="text-right" name="prof_pic" placeholder="Choose image" id="image">
-
-                  
-                </div>-->
+                
                 <!-- box-body -->
                 <div class="box-body" style="padding-left: 50px;">    
-                  <div class="page" v-show="step === 1">
-                    <h4 class="mb-3"><b>Personal Information</b></h4><br>              
 
+                  <div class="page" v-show="step === 1">
+                    <div class="form-row ">
+                      <div class="outer pull-right">
+                        <img id="preview-image-before-upload" src="" alt="" onerror="if (this.src != 'error.jpg') this.src = '{{url('')}}/images/profile_pics/user.jpg';" class="outer" />
+                    <div class="inner">
+                      
+                    <input class="inputfile" name="prof_pic" id="image" type="file" ><br>
+                    <label style="color:white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<svg  xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg></label>
+                    </div>
+                  </div><!--
+                      <div class="col-md-3 mb-6 pull-right">
+                 <img id="preview-image-before-upload" src="" onerror="if (this.src != 'error.jpg') this.src = 'error.jpg';"
+                      alt="preview image" style="width: 100px;height: 100px;border: 1px solid black;">
+
+                      <label class="custom-file-upload">
+                          <input type="file" name="prof_pic" id="image" style="display:none;" />
+                          <i class="fa fa-edit"></i>
+                      </label>
+                    
+                    
+                  </div> -->
+                </div>
+                  
+                    <h4 class="mb-3"><b>Personal Information</b></h4><br>              
+                    
                     <div class="form-row">
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label for="fname">First name</label>
                         <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" >                
                       </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label for="mname">Middle name</label>
                         <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value">                
                       </div>
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label for="lname">Last name</label>
                         <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname"  v-on:change="page_one.lname = $event.target.value">                
                       </div>
@@ -80,12 +157,12 @@
                         <label for="nationality">Nationality</label>
                         <input type="text" class="form-control" id="nationality" placeholder="Nationality"  name="nationality" v-on:change="page_one.nationality = $event.target.value">            
                       </div> 
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
                        <div class="col-md-3 mb-3">
                         <label for="res_ph">Mobile Number</label>
                         <input type="tel" class="form-control" id="res_ph" placeholder="Phone" name="ph"  v-on:change="page_one.res_ph = $event.target.value">          
-                      </div> 
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
+                      </div>
 
                       <div class="col-md-3 mb-3">
                         <label for="res_email">Email</label>
@@ -95,6 +172,13 @@
                         <label for="res_fax">Fax</label>
                         <input type="text" class="form-control" id="Fax" placeholder="res_fax" name="res_fax" v-on:change="page_one.res_fax = $event.target.value">            
                       </div>
+                        <div class="col-md-3 mb-3">
+                        <label for="acc">Account to be addressed</label>
+                        <input type="text" class="form-control" id="acc" placeholder="Account to be addressed" name="acc"  v-on:change="page_one.acc = $event.target.value">            
+                      </div>   
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+
                       <div class="col-md-3 mb-3">
                         <label for="l_known">Languages Known</label>
                         <input type="text" class="form-control" id="l_known" placeholder="Languages Known"  name="l_known"  v-on:change="page_one.l_known = $event.target.value">          
@@ -104,8 +188,6 @@
                         <label for="pre_address">Previous Address</label>
                         <input type="text" class="form-control" id="pre_address" placeholder="Previous Address" name="pre_address"  v-on:change="page_one.pre_address = $event.target.value">          
                       </div>
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">  
                       <div class="col-md-3 mb-3" >
                         <label for="medicard_no">Medicare card no.</label>
                         <input type="text" class="form-control" id="medicard_no" placeholder="Medicare card number" name="medicard_no"  v-on:change="page_one.medicard_no = $event.target.value">
@@ -117,18 +199,8 @@
                         <input type="date" class="form-control" id="expiry_date" placeholder="Expiry date"  name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
                       </div>
 
-                      <div class="col-md-3 mb-3">
-
-                        <label for="ref_by">Ref By</label>
-                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
-                      </div>
-
-                      <div class="col-md-3 mb-3">
-                        <label for="ent_no">Entitlement No</label>
-                        <input type="text" style="width:200px;" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
-                      </div>  
-                       
-                      </div>&nbsp;&nbsp;&nbsp;
+                    </div>&nbsp;&nbsp;&nbsp;
+                    
                       
                       <div class="form-row">  
                       <div class="col-md-3 mb-3">
@@ -175,10 +247,21 @@
                         <label for="acc">Room Rent</label>
                         <input type="text" class="form-control" id="roommmrent" placeholder="Room Rent" name="room_rent"  readonly>            
                       </div>   
+                      
                       <div class="col-md-3 mb-3">
-                        <label for="acc">Account to be addressed</label>
-                        <input type="text" class="form-control" id="acc" placeholder="Account to be addressed" name="acc"  v-on:change="page_one.acc = $event.target.value">            
+
+                        <label for="ref_by">Ref By</label>
+                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
+                      </div>
+                        </div>&nbsp;&nbsp;&nbsp;
+                        <div class="form-row">
+
+                      <div class="col-md-12 mb-3">
+                        <label for="ent_no">Entitlement No</label>
+                        <input type="text" style="width:200px;" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
                       </div>  
+                       
+                    
                        
                    
                      
