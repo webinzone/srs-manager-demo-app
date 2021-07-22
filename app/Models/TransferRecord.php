@@ -58,7 +58,7 @@ class TransferRecord extends SnipeModel
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['user_name'];
 
 
 

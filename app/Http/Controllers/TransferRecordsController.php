@@ -61,7 +61,6 @@ class TransferRecordsController extends Controller
         $transfer_record = new Transfer();
         $id = request('user_name') ?? '';
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $status = $res->respite;
         $name = $res->fname." ".$res->mname." ".$res->lname;
         
         $transfer_record->user_name = $name;

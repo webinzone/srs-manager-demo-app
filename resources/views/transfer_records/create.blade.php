@@ -119,7 +119,7 @@
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Phone No.</label>
-                        <input type="tel" name="ph" class="form-control" placeholder="Phone No.">                                        
+                        <input type="text" name="ph" class="form-control" placeholder="Phone No.">                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Fax</label>
@@ -154,7 +154,7 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3 ">
                         <label>Contact</label>
-                        <input type="tel" name="nok_contact" class="form-control" placeholder="Contact">                                        
+                        <input type="text" name="nok_contact" class="form-control" placeholder="Contact">                                        
                       </div>
                       <div class="col-md-6 mb-3 ">
                         <label>Has been advised of the transfer?</label>
@@ -171,12 +171,12 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3 ">
                         <label>Contact</label>
-                        <input type="tel" name="gua_contact" class="form-control" placeholder="Contact">                                        
+                        <input type="text" name="gua_contact" class="form-control" placeholder="Contact">                                        
                       </div>
                       <div class="col-md-6 mb-3 ">
                         <label>Has been advised of the transfer?</label>
-                        <br><input type="radio"  id="gua_contact"  value="Yes" name="gua_contact">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  id="gua_contact" value="No" name="gua_contact">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
+                        <br><input type="radio"  id="guardian_adv"  value="Yes" name="guardian_adv">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="guardian_adv" value="No" name="guardian_adv">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <br><h5 style="color:#980000;font-size: 16px;"><b>Person Nominated by Resident</b></h5>
@@ -185,7 +185,7 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3 ">
                         <label>Contact</label>
-                        <input type="tel" name="nomini_contact" class="form-control" placeholder="Contact">                                        
+                        <input type="text" name="nomini_contact" class="form-control" placeholder="Contact">                                        
                       </div>
                       <div class="col-md-6 mb-3 ">
                         <label>Has been advised of the transfer?</label>
@@ -200,7 +200,7 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3 ">
                         <label>Contact</label>
-                        <input type="tel" name="resadmin_contact" class="form-control" placeholder="Contact">                                        
+                        <input type="text" name="resadmin_contact" class="form-control" placeholder="Contact">                                        
                       </div>
                       <div class="col-md-6 mb-3 ">
                         <label>Has been advised of the transfer?</label>
