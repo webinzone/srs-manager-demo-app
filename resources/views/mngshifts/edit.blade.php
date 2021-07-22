@@ -13,11 +13,11 @@
 @section('content')
 <div id="webui">
   
-    <div class="row">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
         <!-- col-md-8 -->
-        <div class=" col" style="padding-left: 100px;">
+       
 
-          <form id="create-form" class="form-horizontal" method="post" action="{{ route('mngshifts.store') }}"  style="width: 1050px; align-items: center;   background-color: #fff; " autocomplete="off" role="form" >
+          <form id="create-form" class="form-horizontal" method="post" action="{{ route('mngshifts.store') }}"  style="width: 800px; align-items: center;   background-color: #fff; " autocomplete="off" role="form" >
                  {{ csrf_field() }}
 
             <!-- box -->
@@ -31,9 +31,9 @@
 
 
                 <!-- box-body -->
-                <div class="box-body" style="padding-left: 60px;padding-right: 0px;">                           
-                    <div class="form-row">
-                    <div class="col-md-6 mb-3">
+                <div class="box-body" style="padding-left: 100px;padding-right: 40px;">                     
+                    <div class="form-row" >
+                    <div class="col-md-4 mb-3">
                         <label for="name" >Morning staff</label>
                          <select class="form-control" style="height: 26px;padding: 3px 10px;" id="mng_staff" name="mng_staff">
                          @foreach($emps as $emp)
@@ -41,9 +41,9 @@
                           @endforeach
                         </select>
                       </div>
-                      <div class="col-md-6 mb-3" >
+                      <div class="col-md-8 mb-3" >
                        <label for="name" >Evening staff</label>
-                         <select class="form-control" style="height: 26px;padding: 3px 10px;" id="evng_staff" name="evng_staff">
+                         <select class="form-control" style="width: 250px;height: 26px;padding: 3px 10px;" id="evng_staff" name="evng_staff">
                          @foreach($emps as $emp)
                           <option value="{{ $emp->name }}" {{ $mngshift->me_staffs == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
                           @endforeach
@@ -53,7 +53,7 @@
                      </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      
                      <div class="form-row" >
-                      <div class="col-md-6 mb-3">
+                      <div class="col-md-4 mb-3">
                         <label for="name" >Resident Name</label>
                         <select class="form-control" required="" id="resi_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                            @foreach($residents as $resident)
@@ -61,19 +61,19 @@
                           @endforeach
                         </select>                                   
                        </div>
-                       <div class="col-md-6 mb-3">
+                       <div class="col-md-8 mb-3">
                         <label for="name" >Room No</label>
-                        <input type="text" name="room" id="rooms" class="form-control" value="{{ $mngshift->room}}" readonly>
+                        <input type="text" style="width: 250px;" name="room" id="rooms" class="form-control" value="{{ $mngshift->room}}" readonly>
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
-                      <div class="col-md-6 mb-3">
+                      <div class="col-md-4 mb-3">
                         <label for="name" >Note</label>
                         <textarea name="notes" id="notes" class="form-control" >{{ $mngshift->notes}}</textarea>                                     
                        </div>
-                       <div class="col-md-6 mb-3">
+                       <div class="col-md-8 mb-3">
                         <label for="name" >Date</label>
-                        <input type="date" name="mng_date" id="mng_date" class="form-control" value="{{ $mngshift->mng_date}}" >                                     
+                        <input type="date" name="mng_date" style="width: 250px;" id="mng_date" class="form-control" value="{{ $mngshift->mng_date}}" >                                     
                        </div>
                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     

@@ -44,9 +44,14 @@ class MngshiftsController extends Controller
     {
          // Show the page
         $this->authorize('create',Mngshift::class);
+
+        $last        =   Mngshift::orderBy('created_at', 'desc')->first();
+        $ms = $last->mng_staff ?? '';
+        $es = $last->evng_staff ?? '';
+
         $residents = ClientDetail::all();
         $emps = SrsStaff::all();
-        return view('mngshifts/create',compact('residents','emps'));
+        return view('mngshifts/create',compact('residents','emps','es','ms'));
     }
 
 

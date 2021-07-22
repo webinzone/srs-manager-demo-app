@@ -19,7 +19,7 @@
 
     <div class="box box-default">
         <div class="box-header with-border text-center">
-                  <h3><b>Evening - Morning Shift</b></h3>
+                  <h3><b>Evening Shift - Morning Shift</b></h3>
                    
                 </div><!-- /.box-header -->
       <div class="box-body">

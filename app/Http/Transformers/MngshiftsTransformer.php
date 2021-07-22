@@ -29,7 +29,7 @@ class MngshiftsTransformer
                 'evng_staff' => e($mngshift->evng_staff),
                 'res_name' => e($mngshift->res_name),
                 'room' => e($mngshift->room),
-                'created_at' => e($mngshift->created_at),
+                'created_at' => e(date('d-m-Y', strtotime($mngshift->created_at))),
                 'actions' => view('mngshifts/datatables_actions', compact('mngshift'))->render() 
                 
             ];

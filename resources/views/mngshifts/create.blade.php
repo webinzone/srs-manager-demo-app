@@ -19,9 +19,9 @@
   
 	<div class="row">
 	    <!-- col-md-8 -->
-	    <div class=" col" style="padding-left: 100px;">
+	     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
 
-	      <form id="create-form" class="form-horizontal" method="post" action="{{ route('mngshifts.store') }}"  style="width: 1050px; align-items: center;   background-color: #fff; " autocomplete="off" role="form" >
+	      <form id="create-form" class="form-horizontal" method="post" action="{{ route('mngshifts.store') }}"  style="width: 800px; " autocomplete="off" role="form" >
                  {{ csrf_field() }}
 
 	        <!-- box -->
@@ -35,23 +35,23 @@
 
 
 	            <!-- box-body -->
-	            <div class="box-body" style="padding-left: 60px;padding-right: 0px;">		                    
-					<div class="form-row" style="padding-bottom:30px;">
-					<div class="col-md-6 mb-3">
+	            <div class="box-body" style="padding-left: 100px;padding-right: 40px;">	                    
+					<div class="form-row" >
+					<div class="col-md-4 mb-3">
 					    <label for="name" >Morning staff</label>
   	                     <select class="form-control" style="height: 26px;padding: 3px 10px;" id="mng_staff" name="mng_staff">
                             <option>--   Select Staff Name  --</option>
                           @foreach($emps as $emp)
-                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
+                          <option value="{{ $emp->name }}" {{ $ms == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
                           @endforeach
                         </select>
 					  </div>
-                      <div class="col-md-6 mb-3" >
+                      <div class="col-md-8 mb-3" >
 					   <label for="name" >Evening staff</label>
-  	                     <select class="form-control" style="height: 26px;padding: 3px 10px;" id="evng_staff" name="evng_staff">
+  	                     <select class="form-control" style="width: 250px;height: 26px;padding: 3px 10px;" id="evng_staff" name="evng_staff">
                             <option>--   Select Staff Name  --</option>
                           @foreach($emps as $emp)
-                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
+                          <option value="{{ $emp->name }}" {{ $es == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
                           @endforeach
                         </select>
 					  </div>
@@ -59,7 +59,7 @@
 					 </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      
                      <div class="form-row">
-					  <div class="col-md-6 mb-6">
+					  <div class="col-md-4 mb-6">
 					    <label for="name" >Resident Name</label>
 					    <select class="form-control" required="" id="resi_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Resident Name  --</option>
@@ -68,20 +68,20 @@
                           @endforeach
                         </select>				        	        
 					   </div>
-					   <div class="col-md-6 mb-6">
+					   <div class="col-md-8 mb-6">
                         <label for="name" >Room No</label>
-                        <input type="text" name="room" id="rooms" class="form-control" readonly>
+                        <input type="text" style="width: 250px;" name="room" id="rooms" class="form-control" readonly>
                       </div>
 				    </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 				    <div class="form-row" >
-					  <div class="col-md-6 mb-6">
+					  <div class="col-md-4 mb-6">
 					  	<label for="name" >Note</label>
   	                    <textarea name="notes" id="notes" class="form-control" ></textarea>					        	        
 					   </div>
-					   <div class="col-md-6 mb-6">
+					   <div class="col-md-8 mb-6">
 					  	<label for="name" >Date</label>
-  	                    <input type="date" name="mng_date" id="res_date" class="form-control" >					        	        
+  	                    <input type="date" style="width: 250px;" name="mng_date" id="res_date" class="form-control" >					        	        
 					   </div>
 					</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				    

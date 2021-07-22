@@ -37,7 +37,7 @@
                <div class="form-group">
                     <label class="col-sm-6 control-label">Date:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $appointment->app_date}}</p>
+                        <p class="form-control-static">{{ date('d-m-Y', strtotime($appointment->app_date))}}</p>
                     </div>
                 </div>
                 <div class="form-group">

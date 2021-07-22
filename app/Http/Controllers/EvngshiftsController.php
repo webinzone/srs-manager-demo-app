@@ -43,9 +43,12 @@ class EvngshiftsController extends Controller
     {
          // Show the page
         $this->authorize('create',Evngshift::class);
+        $last        =   Evngshift::orderBy('created_at', 'desc')->first();
+        $ms = $last->mng_staff ?? '';
+        $es = $last->evng_staff ?? '';
         $residents = ClientDetail::all();
         $emps = SrsStaff::all();
-        return view('evngshifts/create',compact('residents','emps'));
+        return view('evngshifts/create',compact('residents','emps','ms','es'));
     }
 
 
@@ -63,7 +66,12 @@ class EvngshiftsController extends Controller
 
         $evngshift->mng_staff = request('mng_staff') ?? '';
         $evngshift->evng_staff = request('evng_staff') ?? '';
-        $evngshift->res_name = request('res_name') ?? '';
+
+        $id = request('res_name');
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;        
+        $evngshift->res_name = $name ?? '';
+
         $evngshift->room = request('room') ?? '';
         $evngshift->notes = request('notes') ?? '';
         $evngshift->eveng_date = request('eveng_date') ?? '';
@@ -108,7 +116,9 @@ class EvngshiftsController extends Controller
     {
         $this->authorize('edit',Evngshift::class);
         $evngshift = Evngshift::find($id);
-        return view('evngshifts/edit',compact('evngshift'));
+        $residents = ClientDetail::all();
+        $emps = SrsStaff::all();
+        return view('evngshifts/edit',compact('evngshift','residents','emps'));
     }
     /**
      * Update the specified resource in storage.
@@ -124,7 +134,12 @@ class EvngshiftsController extends Controller
 
         $evngshift->mng_staff = request('mng_staff') ?? '';
         $evngshift->evng_staff = request('evng_staff') ?? '';
-        $evngshift->res_name = request('res_name') ?? '';
+
+        $id = request('res_name');
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;        
+        $evngshift->res_name = $name ?? '';
+
         $evngshift->room = request('room') ?? '';
         $evngshift->notes = request('notes') ?? '';
         $evngshift->eveng_date = request('eveng_date') ?? '';

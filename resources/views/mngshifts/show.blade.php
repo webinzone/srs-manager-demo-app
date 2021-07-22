@@ -2,7 +2,6 @@
 
 {{-- Page title --}}
 @section('title')
-Morning Shifts
 @parent
 @stop
 
@@ -16,66 +15,55 @@ Morning Shifts
 @section('content')
 
   <div id="webui">
-    <div class="row">
+    <div class="row" style="padding-left: 300px;">
         <!-- left column -->
       <div class="col-md-7">
-        <form class="form-horizontal" method="" action="" autocomplete="off">
+        <form class="form-horizontal" method="" style="width:600px;" action="" autocomplete="off">
           <div class="box box-default">
-            <div class="box-header with-border">
-                <h2 class="box-title"> Morning Shift</h2>
+            <div class="box-header with-border text-center">
+                 <h3><b> Morning Shift - Evening Shift</b></h3>
             </div>
 
-            <div class="box-body">
+            <div class="box-body"  style="padding-left:130px;">
 
                 <!-- Asset name -->
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Morning staff:</label>
+                    <label class="col-sm-6 control-label">Morning staff:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $mngshift->mng_staff}}</p>
                     </div>
                 </div>
                <div class="form-group">
-                    <label class="col-sm-3 control-label">Evening staff:</label>
+                    <label class="col-sm-6 control-label">Evening staff:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $mngshift->evng_staff}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Resident Name:</label>
+                    <label class="col-sm-6 control-label">Resident Name:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $mngshift->res_name}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Room No:</label>
+                    <label class="col-sm-6 control-label">Room No:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $mngshift->room}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Note:</label>
+                    <label class="col-sm-6 control-label">Note:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $mngshift->notes}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Date:</label>
+                    <label class="col-sm-6 control-label">Date:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $mngshift->mng_date}}</p>
+                        <p class="form-control-static">{{ date('d-m-Y', strtotime($mngshift->mng_date))}}</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Company Id:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $mngshift->company_id}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Location Id:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $mngshift->location_id}}</p>
-                    </div>
-                </div>
+
 
           
             </div>
