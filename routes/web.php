@@ -86,6 +86,13 @@ Route::group(['middleware' => 'auth'], function () {
     
      Route::get('get/resident/{id}', 'BookingsController@getbookDetails')->name('getbookDetails');
 
+
+    Route::get('/generatetransfer', 'TransferRecordsController@generatetransfer');
+    Route::get('/generateTransferReport/', 'TransferRecordsController@generateTransferReport')->name('generateTransferReport');
+
+
+
+
     /*
     * Companies
     */

@@ -1,47 +1,52 @@
-@extends('layouts/default')
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Residential care Manager
+    </title>
+    
+    
+  <style type="text/css">
 
-{{-- Page title --}}
-@section('title')
-
-@parent
-@stop
-
-@section('header_right')
-    @can('create', \App\Models\TransferRecord::class)
-        <a href="{{ route('transfer_records.index') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Back</a>
-    @endcan
-@stop
-
-{{-- Page content --}}
-@section('content')
-<style type="text/css">
-      table, td, th {
-    border: 1px solid black;
-    padding: 10px;
+  table, td, th {
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
-    padding: 10px;
   }
-</style>
+  .container{
+  width: 1000px;
+  padding: 50px;
+  margin: auto;
+  border: 3px solid black;
+
+  }
+  input.right {
+        float: right;
+        right: 30px;
+      }
+  </style>
+
+
+
+
+  </head>
+
+  <body>
 
   <div id="webui">
-    <div class="row" style="padding-left: 80px;padding-right: 80px;">
-        <!-- left column -->
-      <div class="col-md-7">
-        <form class="form-horizontal" method="" action="" autocomplete="off" style="width: 1000px; align-items: center;   background-color: #fff; padding-right: 100px;">
-          <div class="box box-default">
-              <div class="box-header with-border text-center">
-                 <h3><b>Transfer Record</b></h3>
-                   
-                </div><!-- /.box-header -->
-           
-
-            <div class="box-body" style="padding-left:80px;">
-          
-                <h3 style="font-family:Bedrock">Resident Details:</h3>
+    <div class="row">
+      <input type="button" class="right" style="right: 30px; align-items: right;" onclick="printDiv('print-content1')" value="PRINT"/>&nbsp;&nbsp;&nbsp;<br><br>
+      <div id="print-content1">
+        <div class="container">
+    <center>
+      <h1 >MEADOWBROOK S R S</h1>
+    </center>
+    <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></p></center>
+    <h2><center>Transfer Record</center></h2>
+    <h3 style="font-family:Bedrock">Resident Details:</h3>
     <table style="border: 1px solid black;">
       <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">Resident Name</td>
@@ -62,6 +67,7 @@
         <td style="border: 1px solid black;">{{ $transfer_record->religion}}</td>
         <td style="border: 1px solid black;">{{ $transfer_record->medi_no}}</td> 
         <td style="border: 1px solid black;">{{ $transfer_record->pension_no}}</td>        
+        
       </tr>
     </table><br>
 
@@ -203,22 +209,45 @@
     </table><br> 
     <table style="border: 1px solid black;">
       <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;" width="200px;">Staff in Charge </td>
-        <td style="border: 1px solid black; padding-left: 10px">{{ $transfer_record->staff_incharge}}</td>
+        <td style="border: 1px solid black;">Staff in Charge </td>
       </tr>
-      
+       <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">{{ $transfer_record->staff_incharge}}</td>
+      </tr>
     </table><br>  
-   
-          
-             </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+         </div>
+   </div>
+ </div>
+ </div>
 
-@stop
+<script type="text/javascript">
+    function printDiv(divName) {
+        var htmlToPrint = '' +
+        '<style type="text/css">' +
+        'table {' +
+        'border: 1px solid black;' +
+        '    width: 100%;' +
+        'border-collapse: collapse;' +
+        '}' +
+        'td {' +
+        'border: 1px solid black;' +
+        '    width: 200px;' +
+        'border-collapse: collapse;' +
+        '}' +
+         '.container{' +
+          'width: 1000px;' +
+          'padding: 10px;' +
+          'margin: auto;' +
+          'border: 1px solid black;' +
+          '}' +
+        '</style>';
 
-@section('moar_scripts')
-@include ('partials.bootstrap-table')
-@stop
+        htmlToPrint += document.getElementById(divName).outerHTML;
+        w=window.open();
+        w.document.write(htmlToPrint);
+        w.print();
+        w.close();
+    }</script>
+
+  </body>
+</html>

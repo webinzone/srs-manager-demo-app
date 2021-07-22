@@ -57,8 +57,8 @@ class TransferRecordsController extends Controller
      */
     public function store()
     {
-        $this->authorize('create',Transfer::class);
-        $transfer_record = new Transfer();
+        $this->authorize('create',TransferRecord::class);
+        $transfer_record = new TransferRecord();
         $id = request('user_name') ?? '';
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
         $name = $res->fname." ".$res->mname." ".$res->lname;
@@ -226,6 +226,19 @@ class TransferRecordsController extends Controller
         $activity->save();
         return redirect()->route('transfer_records.index')
                         ->with('success','deleted successfully');
+    }
+
+    public function generatetransfer()
+    {
+        $residents = TransferRecord::all();
+        return view('transfer_records/report_show',compact('residents'));
+    }
+
+    public function generateTransferReport(){
+      
+      $name = request('res_name');
+      $transfer_record = TransferRecord::where('res_name', '=', $name)->firstOrFail();
+      return view('transfer_records/report',compact('transfer_record'));
     }
 
 }

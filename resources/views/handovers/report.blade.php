@@ -10,8 +10,9 @@
   <style type="text/css">
 
   td,th {
-    width: 200px;
+    
     padding: 5px;
+    padding-left: 50px;
     align-items: center;
   }
   td{
@@ -70,7 +71,7 @@
         
                      
           <tr style="align-items: center;">
-            <td style="border: 1px solid black; align-content: center;align-self: center;" width="50px;">{{ $i++ }}</td>
+            <td style="border: 1px solid black; align-content: center;align-self: center;width: 30px;" >{{ $i++ }}</td>
             <td style="border: 1px solid black;" width="100px;">{{ $mng->room}}</td>
             <td style="border: 1px solid black;">{{ $mng->res_name}}</td>
             <td style="border: 1px solid black;">{{ $mng->notes}}</td>                     
@@ -105,7 +106,6 @@
         '}' +
         'td, th {' +
         'border: 1px solid black;' +
-        '    width: 200px;' +
         'padding: 5px;' +
         'border-collapse: collapse;' +
         'align-items: center' +
