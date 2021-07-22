@@ -605,6 +605,14 @@ h4 {
                  
                 </ul>
               </li>
+              @can('view', \App\Models\TransferRecords::class)
+            <li{!! (Request::is('transfer_records*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('transfer_records.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                  <span style="color: white;">Transffer Records</span>
+                </a>
+            </li>
+            @endcan
 
              @can('view', \App\Models\ResidentAgreement::class)
             <!--<li{!! (Request::is('resident_agreements*') ? ' class="active"' : '') !!}>
@@ -656,6 +664,12 @@ h4 {
                       <a href="/shiftreports" style="color: #b8c7ce;" >
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Handover Reports
+                    </a>
+                  </li>
+                  <li>
+                      <a href="/shiftreports" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Transfer Reports
                     </a>
                   </li>
                   <!--<li>
@@ -723,14 +737,7 @@ h4 {
             </li>
             @endcan
 
-            @can('view', \App\Models\TransferRecords::class)
-            <li{!! (Request::is('transfer_records*') ? ' class="active"' : '') !!}>
-                <a href="{{ route('transfer_records.index') }}" style="background-color: #222d32;color: #b8c7ce;">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  <span style="color: white;">Transffer Records</span>
-                </a>
-            </li>
-            @endcan
+            
 
             
           <!--  @can('view', \App\Models\SrsStaff::class)

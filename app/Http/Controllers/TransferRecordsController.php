@@ -5,6 +5,8 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\TransferRecord;
 use App\Models\ActivityLog;
+use App\Models\ClientDetail;
+
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -41,7 +43,8 @@ class TransferRecordsController extends Controller
     {
          // Show the page
         $this->authorize('create',TransferRecord::class);
-        return view('transfer_records/create');
+        $residents = ClientDetail::all();
+        return view('transfer_records/create',compact('residents'));
     }
 
 
@@ -54,41 +57,59 @@ class TransferRecordsController extends Controller
      */
     public function store()
     {
-        $this->authorize('create',TransferRecord::class);
-        $transfer_record = new TransferRecord();
-
-        $transfer_record->user_name = request('user_name');
-        $transfer_record->dob = request('dob');
-        $transfer_record->gender = request('gender');
-        $transfer_record->nation = request('nation');
-        $transfer_record->lan = request('lan');
-        $transfer_record->religion = request('religion');
-        $transfer_record->medi_no = request('medi_no');
-        $transfer_record->pension_no = request('pension_no');
-        $transfer_record->chemist = request('chemist');
-        $transfer_record->date = request('date');
-        $transfer_record->from = request('from');
-        $transfer_record->address = request('address');
-        $transfer_record->ph = request('ph');
-        $transfer_record->fax = request('fax');
-        $transfer_record->to = request('to');
-        $transfer_record->reason = request('reason');  
-        $transfer_record->medi_chart = request('medi_chart');
-        $transfer_record->medi_list = request('medi_list');
-        $transfer_record->webst = request('webst');
-        $transfer_record->medi_sent = request('medi_sent');
-        $transfer_record->last_time_medi = request('last_time_medi');
-        $transfer_record->accomp_rpt = request('accomp_rpt');
-        $transfer_record->next = request('next');
-        $transfer_record->advised = request('advised');
-        $transfer_record->guardian = request('guardian');
-        $transfer_record->guardian_adv = request('guardian_adv');
-        $transfer_record->case_mngr = request('case_mngr');
-        $transfer_record->case_mngr_adv = request('case_mngr_adv');
-        $transfer_record->nomini = request('nomini');
-        $transfer_record->nomini_adv = request('nomini_adv');
-        $transfer_record->admin = request('admin');
-        $transfer_record->admin_adv = request('admin_adv');
+        $this->authorize('create',Transfer::class);
+        $transfer_record = new Transfer();
+        $id = request('user_name') ?? '';
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $status = $res->respite;
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+        
+        $transfer_record->user_name = $name;
+        $transfer_record->dob = request('dob') ?? '';
+        $transfer_record->gender = request('gender') ?? '';
+        $transfer_record->nation = request('nation') ?? '';
+        $transfer_record->lan = request('lan') ?? '';
+        $transfer_record->religion = request('religion') ?? '';
+        $transfer_record->medi_no = request('medi_no') ?? '';
+        $transfer_record->pension_no = request('pension_no') ?? '';
+        $transfer_record->chemist = request('chemist') ?? '';
+        $transfer_record->date = request('date') ?? '';
+        $transfer_record->from = request('from') ?? '';
+        $transfer_record->address = request('address') ?? '';
+        $transfer_record->ph = request('ph') ?? '';
+        $transfer_record->fax = request('fax') ?? '';
+        $transfer_record->to = request('to') ?? '';
+        $transfer_record->reason = request('reason') ?? '';  
+        $transfer_record->medi_chart = request('medi_chart') ?? '';
+        $transfer_record->medi_list = request('medi_list') ?? '';
+        $transfer_record->webst = request('webst') ?? '';
+        $transfer_record->medi_sent = request('medi_sent') ?? '';
+        $transfer_record->last_time_medi = request('last_time_medi') ?? '';
+        $transfer_record->accomp_rpt = request('accomp_rpt') ?? '';
+        $transfer_record->next = request('next') ?? '';
+        $transfer_record->advised = request('advised') ?? '';
+        $transfer_record->guardian = request('guardian') ?? '';
+        $transfer_record->guardian_adv = request('guardian_adv') ?? '';
+        $transfer_record->case_mngr = request('case_mngr') ?? '';
+        $transfer_record->case_mngr_adv = request('case_mngr_adv') ?? '';
+        $transfer_record->nomini = request('nomini') ?? '';
+        $transfer_record->nomini_adv = request('nomini_adv') ?? '';
+        $transfer_record->admin = request('admin') ?? '';
+        $transfer_record->admin_adv = request('admin_adv') ?? '';
+        $transfer_record->notif = request('notif') ?? '';
+        $transfer_record->nok_contact = request('nok_contact') ?? '';
+        $transfer_record->gua_contact = request('gua_contact') ?? '';
+        $transfer_record->resadmin_contact = request('resadmin_contact') ?? '';
+        $transfer_record->nomini_contact = request('nomini_contact') ?? '';
+        $transfer_record->doc_name = request('doc_name') ?? '';
+        $transfer_record->doc_ph = request('doc_ph') ?? '';
+        $transfer_record->doc_fax = request('doc_fax') ?? '';
+        $transfer_record->doc_other = request('doc_other') ?? '';
+        $transfer_record->allergy = request('allergy') ?? '';
+        $transfer_record->exis_medi = request('exis_medi') ?? '';
+        $transfer_record->sum_req = request('sum_req') ?? '';
+        $transfer_record->other_relevent = request('other_relevent') ?? '';
+        $transfer_record->staff_incharge = request('staff_incharge') ?? '';
         $transfer_record->user_id =  Auth::user()->id;
         
         $transfer_record->save();

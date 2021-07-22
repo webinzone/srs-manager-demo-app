@@ -11,6 +11,8 @@ use App\Models\SrsStaff;
 use App\Models\GuardianDetail;
 use App\Models\Booking;
 use App\Models\PensionDetail;
+use App\Models\HealthService;
+
 
 
 use Illuminate\Support\Facades\Auth;
@@ -96,6 +98,11 @@ class ResidentAgreementsController extends Controller
     public function getRSAincomeDetails($id)
     {
         $data = PensionDetail::where('client_id', '=', $id)->firstOrFail();
+        return response()->json($data);
+    }
+    public function getHealthDetails($id)
+    {
+        $data = HealthService::where('client_id', '=', $id)->firstOrFail();
         return response()->json($data);
     }
 

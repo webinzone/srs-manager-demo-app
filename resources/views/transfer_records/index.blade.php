@@ -2,7 +2,6 @@
 
 {{-- Page title --}}
 @section('title')
-TransferRecords
 @parent
 @stop
 
@@ -19,6 +18,11 @@ TransferRecords
   <div class="col-md-12">
 
     <div class="box box-default">
+        <div class="box-header with-border text-center">
+                 <h3><b>Transfer Records</b></h3>
+                   
+                </div><!-- /.box-header -->
+
       <div class="box-body">
         <div class="table-responsive">
 
@@ -39,7 +43,7 @@ TransferRecords
                 class="table table-striped snipe-table"
                 data-url="{{ route('api.transfer_records.index') }}"
                 data-export-options='{
-                "fileName": "TransferRecords",
+                "fileName": "Transfers",
                 "ignoreColumn": ["actions"]
                 }'                
                >
@@ -50,7 +54,6 @@ TransferRecords
     </div>
   </div>
 </div>
-
 @stop
 
 @section('moar_scripts')

@@ -58,7 +58,7 @@ class TransferRecord extends SnipeModel
      *
      * @var array
      */
-    protected $fillable = ['user_name', 'dob', 'gender', 'nation', 'lan', 'religion', 'medi_no', 'pension_no', 'chemist', 'date', 'from', 'address', 'ph', 'fax', 'to', 'reason', 'medi_chart', 'medi_list', 'webst', 'medi_sent', 'last_time_medi', 'accomp_rpt', 'next', 'advised', 'guardian', 'guardian_adv', 'case_mngr', 'case_mngr_adv', 'nomini', 'nomini_adv', 'admin', 'admin_adv'];
+    protected $fillable = [];
 
 
 
