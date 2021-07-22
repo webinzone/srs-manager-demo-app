@@ -22,17 +22,17 @@ class EvngshiftPresenter extends Presenter
                 "title" => trans('id'),
                 "visible" => false
             ],[
-                "field" => "mng_staff",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Morning Staff')
-            ],[
                 "field" => "evng_staff",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Evening Staff')
+            ],[
+                "field" => "mng_staff",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Morning Staff')
             ],[
                 "field" => "res_name",
                 "searchable" => true,

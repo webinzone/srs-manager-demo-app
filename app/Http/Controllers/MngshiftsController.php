@@ -7,7 +7,7 @@ use App\Models\Mngshift;
 use App\Models\ActivityLog;
 use App\Models\ClientDetail;
 use App\Models\SrsStaff;
-
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -44,14 +44,15 @@ class MngshiftsController extends Controller
     {
          // Show the page
         $this->authorize('create',Mngshift::class);
-
-        $last        =   Mngshift::orderBy('created_at', 'desc')->first();
+        $date = Carbon::now();
+        $date = $date->toDateString();
+        $last        =   Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->first();
         $ms = $last->mng_staff ?? '';
         $es = $last->evng_staff ?? '';
 
         $residents = ClientDetail::all();
         $emps = SrsStaff::all();
-        return view('mngshifts/create',compact('residents','emps','es','ms'));
+        return view('mngshifts/create',compact('residents','emps','es','ms','date'));
     }
 
 
@@ -180,6 +181,12 @@ class MngshiftsController extends Controller
         $activity->save();
         return redirect()->route('mngshifts.index')
                         ->with('success','deleted successfully');
+    }
+
+    public function getshiftdate($id)
+    {
+        $data = Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->first();
+        return response()->json($data);
     }
 
 }

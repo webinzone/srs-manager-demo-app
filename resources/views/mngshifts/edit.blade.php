@@ -17,7 +17,9 @@
         <!-- col-md-8 -->
        
 
-          <form id="create-form" class="form-horizontal" method="post" action="{{ route('mngshifts.store') }}"  style="width: 800px; align-items: center;   background-color: #fff; " autocomplete="off" role="form" >
+          <form id="create-form" class="form-horizontal" method="post" action="{{ route('mngshifts.update', $mngshift->id) }}"  style="width: 800px; align-items: center;   background-color: #fff; " autocomplete="off" role="form" >
+
+            @method('PATCH') 
                  {{ csrf_field() }}
 
             <!-- box -->
@@ -31,13 +33,21 @@
 
 
                 <!-- box-body -->
-                <div class="box-body" style="padding-left: 100px;padding-right: 40px;">                     
+                <div class="box-body" style="padding-left: 100px;padding-right: 40px;">           
+                         <div class="form-row">
+                        <div class="col-md-2 mb-3" style="left:100px;">
+                        <label for="name" >Date</label>
+                      </div>
+                      <div class="col-md-6 mb-3" style="left:0px;">
+                        <input type="date" style="width: 250px;" value="{{ $mngshift->mng_date}}" name="mng_date" id="res_date" class="form-control" >                                     
+                       </div>
+                    </div>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                
                     <div class="form-row" >
                     <div class="col-md-4 mb-3">
                         <label for="name" >Morning staff</label>
                          <select class="form-control" style="height: 26px;padding: 3px 10px;" id="mng_staff" name="mng_staff">
                          @foreach($emps as $emp)
-                          <option value="{{ $emp->name }}" {{ $mngshift->me_staffs == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
+                          <option value="{{ $emp->name }}" {{ $mngshift->mng_staff == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
                           @endforeach
                         </select>
                       </div>
@@ -45,7 +55,7 @@
                        <label for="name" >Evening staff</label>
                          <select class="form-control" style="width: 250px;height: 26px;padding: 3px 10px;" id="evng_staff" name="evng_staff">
                          @foreach($emps as $emp)
-                          <option value="{{ $emp->name }}" {{ $mngshift->me_staffs == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
+                          <option value="{{ $emp->name }}" {{ $mngshift->evng_staff == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
                           @endforeach
                         </select>
                       </div>
@@ -67,21 +77,16 @@
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-12 mb-3">
                         <label for="name" >Note</label>
-                        <textarea name="notes" id="notes" class="form-control" >{{ $mngshift->notes}}</textarea>                                     
+                        <textarea name="notes" style="width:250px;" id="notes" class="form-control" >{{ $mngshift->notes}}</textarea>                                     
                        </div>
-                       <div class="col-md-8 mb-3">
-                        <label for="name" >Date</label>
-                        <input type="date" name="mng_date" style="width: 250px;" id="mng_date" class="form-control" value="{{ $mngshift->mng_date}}" >                                     
-                       </div>
-                    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    
-                    
+                       
+                    </div>&nbsp;
 
                                        
                      <div class="box-footer text-right" style="padding-right:80px;">
-                        <br><br><a class="btn btn-link text-left" href="{{ route('condition_reports.index') }}">Cancel</a>
+                        <br><br><a class="btn btn-link text-left" href="{{ route('mngshifts.index') }}">Cancel</a>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
                     </div>
 

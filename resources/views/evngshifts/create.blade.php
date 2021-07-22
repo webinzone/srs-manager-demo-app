@@ -36,7 +36,14 @@
 
 
 	            <!-- box-body -->
-	            <div class="box-body" style="padding-left: 100px;padding-right: 40px;">	                    
+	            <div class="box-body" style="padding-left: 100px;padding-right: 40px;">	        <div class="form-row">
+	                	<div class="col-md-2 mb-3" style="left:100px;">
+					  	<label for="name" >Date</label>
+					  </div>
+					  <div class="col-md-6 mb-3" style="left:0px;">
+  	                    <input type="date" style="width: 250px;" name="eveng_date" id="res_date" class="form-control" >					        	        
+					   </div>
+	                </div>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               
 					<div class="form-row" >
 						<div class="col-md-4 mb-3" >
 					   <label for="name" >Evening staff</label>
@@ -76,13 +83,11 @@
                       </div>
 				    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				    <div class="form-row" >
-					  <div class="col-md-4 mb-3">
+					  <div class="col-md-12 mb-3">
 					  	<label for="name" >Note</label>
-  	                    <textarea name="notes" id="notes" class="form-control" ></textarea>					        	        
+  	                    <textarea name="notes" id="notes" style="width: 250px;" class="form-control" ></textarea>					        	        
 					   </div>
-					   <div class="col-md-8 mb-3">
-					  	<label for="name" >Date</label>
-  	                    <input type="date" name="eveng_date" style="width: 250px;" id="res_date" class="form-control" >					        	        
+					  				        	        
 					   </div>
 					</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				    

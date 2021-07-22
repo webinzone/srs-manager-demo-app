@@ -51,17 +51,16 @@
       <h1 >MEADOWBROOK S R S</h1>
     </center>
     <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></p></center>
-    <h2><center>Shift Handover Report</center></h2>
+    <h2><center>Shift Handover Report</center></h2><br>
+    <h4>Morning Staff : <b>{{ $mstaf }}</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Evening Staff : {{ $estaf }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date : {{ date('d-m-Y', strtotime($sdate))}} </h4>
     <table style="border: 1px solid black;">
       <thead style="border: 1px solid black;">
         <tr>
           <th style="border: 1px solid black;">No</th>
           <th style="border: 1px solid black;">Room</th>
           <th style="border: 1px solid black;">Resident Name</th>
-          <th style="border: 1px solid black;">Morning Staff-Evening Staff</th>
-          <th style="border: 1px solid black;">Notes</th>
-          <th style="border: 1px solid black;">Evening Staff-Morning Staff</th>
-          <th style="border: 1px solid black;">Notes</th>
+          <th style="border: 1px solid black;">Morning - Evening </th>
+          <th style="border: 1px solid black;">Evening - Morning </th>
 
 
         </tr>
@@ -74,10 +73,12 @@
             <td style="border: 1px solid black; align-content: center;align-self: center;" width="50px;">{{ $i++ }}</td>
             <td style="border: 1px solid black;" width="100px;">{{ $mng->room}}</td>
             <td style="border: 1px solid black;">{{ $mng->res_name}}</td>
-            <td style="border: 1px solid black;">{{ $mng->mng_staff}}</td> 
             <td style="border: 1px solid black;">{{ $mng->notes}}</td>                     
-            <td style="border: 1px solid black;"></td>
-            <td style="border: 1px solid black;"></td>           
+            <td style="border: 1px solid black;">
+            @foreach($evngs as $evng)
+              {{ $evng->res_name == $mng->res_name ? $evng->notes : ''}}
+             @endforeach
+            </td>
 
           </tr>
         @endforeach         

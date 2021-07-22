@@ -3,7 +3,6 @@
 
 {{-- Page title --}}
 @section('title')
-Update Evngshifts
 @parent
 @stop
 @section('header_right')
@@ -19,7 +18,9 @@ Update Evngshifts
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
 
 
-          <form id="create-form" class="form-horizontal" method="post" action="{{ route('evngshifts.store') }}"  style="width: 800px;" autocomplete="off" role="form" >
+          <form id="create-form" class="form-horizontal" method="post" action="{{ route('evngshifts.update', $evngshift->id) }}"  style="width: 800px;" autocomplete="off" role="form" >
+                        @method('PATCH') 
+
                  {{ csrf_field() }}
 
             <!-- box -->
@@ -35,6 +36,14 @@ Update Evngshifts
                 <!-- box-body -->
                 -->
                 <div class="box-body" style="padding-left: 100px;padding-right: 40px;"> 
+                     <div class="form-row">
+                        <div class="col-md-2 mb-3" style="left:100px;">
+                        <label for="name" >Date</label>
+                      </div>
+                      <div class="col-md-6 mb-3" style="left:0px;">
+                        <input type="date" style="width: 250px;" value="{{$evngshift->eveng_date}}" name="eveng_date" id="res_date" class="form-control" >                                     
+                       </div>
+                    </div>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               
                     <div class="form-row" >
                          <div class="col-md-4 mb-3" >
                        <label for="name" >Evening staff</label>
@@ -73,15 +82,12 @@ Update Evngshifts
                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      
                     <div class="form-row" >
-                      <div class="col-md-4 mb-3">
+                      <div class="col-md-12 mb-3">
                         <label for="name" >Note</label>
-                        <textarea name="notes" id="notes" class="form-control" >{{$evngshift->notes}}</textarea>                                     
+                        <textarea name="notes" style="width: 250px;" id="notes" class="form-control" >{{$evngshift->notes}}</textarea>                                     
                        </div>
-                       <div class="col-md-8 mb-3">
-                        <label for="name" >Date</label>
-                        <input type="date" style="width: 250px;" name="eveng_date" id="eveng_date" class="form-control" value="{{$evngshift->eveng_date}}" >                                     
-                       </div>
-                    </div>
+                   </div>
+                       
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      
                     

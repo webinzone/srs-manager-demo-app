@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\Evngshift;
+use App\Models\Mngshift;
+
 use App\Models\ActivityLog;
 use App\Models\ClientDetail;
 use App\Models\SrsStaff;
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -43,9 +46,17 @@ class EvngshiftsController extends Controller
     {
          // Show the page
         $this->authorize('create',Evngshift::class);
-        $last        =   Evngshift::orderBy('created_at', 'desc')->first();
+        
+        $date = Carbon::now();
+        $date = $date->toDateString();
+        $last        =   Evngshift::where('eveng_date', '=', $date)->orderBy('created_at', 'desc')->first();
+
         $ms = $last->mng_staff ?? '';
-        $es = $last->evng_staff ?? '';
+
+        $lastt        =   Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->first();
+
+        $es = $lastt->evng_staff ?? '';
+
         $residents = ClientDetail::all();
         $emps = SrsStaff::all();
         return view('evngshifts/create',compact('residents','emps','ms','es'));

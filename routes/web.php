@@ -59,6 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
 
      Route::get('/shiftreports','HandoversController@shiftreports');
      Route::get('/generateHandoverReport/', 'HandoversController@generateHandoverReport')->name('generateHandoverReport');
+     Route::get('get/shiftdate/{id}', 'MngshiftsController@getshiftdate')->name('getshiftdate');
 
 
     Route::get('/condition','ConditionReportsController@condition_reports');

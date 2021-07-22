@@ -35,7 +35,15 @@
 
 
 	            <!-- box-body -->
-	            <div class="box-body" style="padding-left: 100px;padding-right: 40px;">	                    
+	            <div class="box-body" style="padding-left: 100px;padding-right: 40px;">	
+	                <div class="form-row">
+	                	<div class="col-md-2 mb-3" style="left:100px;">
+					  	<label for="name" >Date</label>
+					  </div>
+					  <div class="col-md-6 mb-3" style="left:0px;">
+  	                    <input type="date" style="width: 250px;" name="mng_date" id="res_date" class="form-control" >					        	        
+					   </div>
+	                </div>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               
 					<div class="form-row" >
 					<div class="col-md-4 mb-3">
 					    <label for="name" >Morning staff</label>
@@ -75,14 +83,11 @@
 				    </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 				    <div class="form-row" >
-					  <div class="col-md-4 mb-6">
+					  <div class="col-md-12 mb-6">
 					  	<label for="name" >Note</label>
-  	                    <textarea name="notes" id="notes" class="form-control" ></textarea>					        	        
+  	                    <textarea name="notes" style="width: 250px;" id="notes" class="form-control" ></textarea>					        	        
 					   </div>
-					   <div class="col-md-8 mb-6">
-					  	<label for="name" >Date</label>
-  	                    <input type="date" style="width: 250px;" name="mng_date" id="res_date" class="form-control" >					        	        
-					   </div>
+					   
 					</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				    
                     
@@ -135,6 +140,32 @@ $('#resi_name').change(function(){
 	$(document).ready( function() {
     $('#res_date').val(new Date().toDateInputValue());
 });
+</script>
+<script>
+
+$('#res_date').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getshiftdate", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+               $('#mng_staff').val(response.mng_staff); 
+               $('#evng_staff').val(response.evng_staff); 
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
 </script>
 @include ('partials.bootstrap-table')
 @stop

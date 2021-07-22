@@ -7,6 +7,8 @@ use App\Models\Handover;
 use App\Models\ActivityLog;
 use App\Models\SrsStaff;
 use App\Models\ClientDetail;
+use App\Models\Mngshift;
+use App\Models\Evngshift;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -174,8 +176,16 @@ class HandoversController extends Controller
          $i = 1;         
          
          $mngs = Mngshift::where('mng_date', '=', $sdate)->get() ?? '';
-        // $evngs = Evngshift::where('evng_date', '=', $sdate)->get() ?? '';        
-         return view('handovers/report',compact('mngs','i'));
+
+         $mngsss = Mngshift::where('mng_date', '=', $sdate)->firstOrFail() ?? '';
+         $mstaf = $mngsss->mng_staff;
+
+         $evngsss = Evngshift::where('eveng_date', '=', $sdate)->firstOrFail() ?? '';
+         $estaf = $evngsss->evng_staff;
+
+         $evngs = Evngshift::where('eveng_date', '=', $sdate)->get() ?? '';   
+
+         return view('handovers/report',compact('mngs','i','mstaf','estaf','evngs','sdate'));
     }
 
     public function shiftreports()
