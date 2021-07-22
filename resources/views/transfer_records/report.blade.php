@@ -209,10 +209,10 @@
     </table><br> 
     <table style="border: 1px solid black;">
       <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Staff in Charge </td>
-      </tr>
-       <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">{{ $transfer_record->staff_incharge}}</td>
+        <td style="border: 1px solid black;padding-left: 10px" width="200px;">Staff in Charge </td>
+        <td style="border: 1px solid black; padding-left: 10px" width="200px">{{ $transfer_record->staff_incharge}}</td>
+        <td style="border: 1px solid black;padding-left: 10px" width="100px;">Sign </td>
+        <td style="border: 1px solid black; padding-left: 10px" width="200px"></td>
       </tr>
     </table><br>  
          </div>

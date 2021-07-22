@@ -237,7 +237,7 @@ class TransferRecordsController extends Controller
     public function generateTransferReport(){
       
       $name = request('res_name');
-      $transfer_record = TransferRecord::where('res_name', '=', $name)->firstOrFail();
+      $transfer_record = TransferRecord::where('user_name', '=', $name)->firstOrFail();
       return view('transfer_records/report',compact('transfer_record'));
     }
 
