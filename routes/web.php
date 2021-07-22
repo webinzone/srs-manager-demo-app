@@ -57,7 +57,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/accountsDetails', 'ClientsController@getaccountsDetails');
     Route::get('/generateAccountReport/', 'ClientsController@generateAccountReport')->name('generateAccountReport');
 
+     Route::get('/shiftreports','HandoversController@shiftreports');
      Route::get('/generateHandoverReport/', 'HandoversController@generateHandoverReport')->name('generateHandoverReport');
+
 
     Route::get('/condition','ConditionReportsController@condition_reports');
     Route::get('/viewreport/{id}','ConditionReportsController@viewreport');

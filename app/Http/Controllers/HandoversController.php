@@ -170,10 +170,17 @@ class HandoversController extends Controller
 
     public function generateHandoverReport()
     {
+         $sdate = request('sdate');
          $i = 1;         
          
-         $handovers = Handover::all();         
-         return view('handovers/report',compact('handovers', 'i'));
+         $mngs = Mngshift::where('mng_date', '=', $sdate)->get() ?? '';
+        // $evngs = Evngshift::where('evng_date', '=', $sdate)->get() ?? '';        
+         return view('handovers/report',compact('mngs','i'));
+    }
+
+    public function shiftreports()
+    {
+        return view('handovers/report_show');
     }
 
 }

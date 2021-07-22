@@ -46,7 +46,7 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="app_date">Date</label>
-                        <input type="date" class="form-control" placeholder="Date" id="app_date" name="app_date"  v-on:change="page_one.app_date = $event.target.value">                
+                        <input type="date" class="form-control" placeholder="Date" id="res_date" name="app_date"  v-on:change="page_one.app_date = $event.target.value">                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="app_time">Time</label>
@@ -77,8 +77,13 @@
                         <textarea class="form-control" placeholder="Note" id="app_bookby" name="app_note"  v-on:change="page_one.app_bookby = $event.target.value"></textarea>
                     </div>
                         <div class="col-md-4 mb-3">
-                        <label for="app_note">Booked by</label>
-                        <input type="text" class="form-control" placeholder="Booked by" id="app_note" name="app_bookby"  v-on:change="page_one.app_note = $event.target.value">                
+                        <label for="app_note">Booked by</label>   
+                        <select class="form-control" style="width: 250px;height: 26px;padding: 3px 10px;" id="mng_staff" name="app_bookby">
+                            <option>--   Select Staff Name  --</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}" > {{ $emp->name }}</option>
+                          @endforeach
+                        </select>            
                       </div>  
                       
                                       
@@ -99,6 +104,16 @@
 @stop
 
 @section('moar_scripts')
+<script type="text/javascript">
+    Date.prototype.toDateInputValue = (function() {
+    var local = new Date(this);
+    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+    return local.toJSON().slice(0,10);
+})
+    $(document).ready( function() {
+    $('#res_date').val(new Date().toDateInputValue());
+});
+</script>
 @include ('partials.bootstrap-table')
 @stop
 

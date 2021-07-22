@@ -59,20 +59,26 @@
           <th style="border: 1px solid black;">Room</th>
           <th style="border: 1px solid black;">Resident Name</th>
           <th style="border: 1px solid black;">Morning Staff-Evening Staff</th>
-          <th style="border: 1px solid black;">Evening Staff-Morning Staff</th>                    
+          <th style="border: 1px solid black;">Notes</th>
+          <th style="border: 1px solid black;">Evening Staff-Morning Staff</th>
+          <th style="border: 1px solid black;">Notes</th>
+
 
         </tr>
       </thead>
         <tbody >
-        @foreach ($handovers as $handover)  
+        @foreach ($mngs as $mng)  
         
                      
           <tr style="align-items: center;">
-            <td style="border: 1px solid black; align-content: center;align-self: center;">{{ $i++ }}</td>
-            <td style="border: 1px solid black;">{{ $handover->room}}</td>
-            <td style="border: 1px solid black;">{{ $handover->res_name}}</td>
-            <td style="border: 1px solid black;">{{ $handover->me_staffs}}</td>           
-            <td style="border: 1px solid black;">{{ $handover->em_staffs}}</td>
+            <td style="border: 1px solid black; align-content: center;align-self: center;" width="50px;">{{ $i++ }}</td>
+            <td style="border: 1px solid black;" width="100px;">{{ $mng->room}}</td>
+            <td style="border: 1px solid black;">{{ $mng->res_name}}</td>
+            <td style="border: 1px solid black;">{{ $mng->mng_staff}}</td> 
+            <td style="border: 1px solid black;">{{ $mng->notes}}</td>                     
+            <td style="border: 1px solid black;"></td>
+            <td style="border: 1px solid black;"></td>           
+
           </tr>
         @endforeach         
         </tbody>

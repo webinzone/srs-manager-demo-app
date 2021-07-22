@@ -653,7 +653,7 @@ h4 {
                     </a>
                   </li>
                   <li>
-                      <a href="generateHandoverReport" style="color: #b8c7ce;" target="_blank">
+                      <a href="/shiftreports" style="color: #b8c7ce;" >
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Handover Reports
                     </a>

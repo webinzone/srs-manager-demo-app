@@ -76,7 +76,11 @@
                       </div>               
                         <div class="col-md-4 mb-3">
                         <label for="app_bookby">Booked by</label>
-                        <input type="text" class="form-control" value="{{ $appointment->app_bookby}}" placeholder="Booked by" id="app_bookby" name="app_bookby"  v-on:change="page_one.app_bookby = $event.target.value">          
+                        <select class="form-control" style="width: 250px;height: 26px;padding: 3px 10px;" id="app_bookby" name="app_bookby">
+                             @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}" {{ $appointment->app_bookby == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
+                          @endforeach
+                        </select>          
                         </div>         
                     </div>
                         

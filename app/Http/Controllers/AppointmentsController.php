@@ -6,6 +6,8 @@ use App\Http\Requests;
 use App\Models\Appointment;
 use App\Models\ActivityLog;
 use App\Models\ClientDetail;
+use App\Models\SrsStaff;
+
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -43,7 +45,8 @@ class AppointmentsController extends Controller
          // Show the page
         $this->authorize('create',Appointment::class);
         $residents = ClientDetail::all();
-        return view('appointments/create',compact('residents'));
+        $emps = SrsStaff::all();
+        return view('appointments/create',compact('residents','emps'));
     }
 
 
@@ -113,7 +116,9 @@ class AppointmentsController extends Controller
         $this->authorize('edit',Appointment::class);
         $appointment = Appointment::find($id);
         $residents = ClientDetail::all();
-        return view('appointments/edit',compact('appointment','residents'));
+        $emps = SrsStaff::all();
+
+        return view('appointments/edit',compact('appointment','residents','emps'));
     }
     /**
      * Update the specified resource in storage.
