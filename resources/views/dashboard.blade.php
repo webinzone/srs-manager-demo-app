@@ -7,7 +7,7 @@
 @stop
 @section('header_right')
   
-      <a href="/generateAccountReport" style="background-color:#50762A; right: 30px;" class="btn btn-primary pull-right"  target="_blank"> Accounts Report</a>
+      <a href="/generateAccountReport" style="background-color:#486467; right: 30px;" class="btn btn-primary pull-right"  target="_blank"> Accounts Report</a>
 @stop
 
 {{-- Page content --}}
