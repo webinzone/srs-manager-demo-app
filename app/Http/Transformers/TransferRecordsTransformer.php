@@ -27,11 +27,12 @@ class TransferRecordsTransformer
                 'id' => (int) $transfer_record->id,
                 'user_name' => e($transfer_record->user_name),
               
-                'chemist' => e($transfer_record->chemist),
+                'from' => e($transfer_record->from),
+                'to' => e($transfer_record->to),
                 
                 'reason' => e($transfer_record->reason),
                
-                'created_at' => e($transfer_record->created_at),
+                'created_at' => e(date('d-m-Y', strtotime($transfer_record->created_at))),
                 'actions' => view('transfer_records/datatables_actions', compact('transfer_record'))->render() 
                 
             ];

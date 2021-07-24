@@ -67,6 +67,7 @@
         </tr>
       </thead>
         <tbody >
+    @if  (!$mngs->isEmpty() && !$evngs->isEmpty())
         @foreach ($mngs as $mng)  
         
                      
@@ -82,7 +83,11 @@
             </td>
 
           </tr>
-        @endforeach         
+        @endforeach
+      @else   
+            <tr style="align-items: center;">
+              <p>No Shift scheduled</p>
+            </tr>
         </tbody>
       </table>
 

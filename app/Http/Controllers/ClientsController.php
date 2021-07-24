@@ -128,7 +128,12 @@ class ClientsController extends Controller
         $client_detail->prof_pic = request('prof_pic')->getClientOriginalName()  ?? '';
         $imageName = request('prof_pic')->getClientOriginalName() ?? '';
         request()->prof_pic->move(public_path('images/profile_pics'), $imageName);
-        }  
+        }      
+ 
+         $client_detail->allergy_det = request('allergy_det')  ?? ''; 
+         $client_detail->status = request('status')  ?? ''; 
+         $client_detail->company_id = request('company_id')  ?? ''; 
+         $client_detail->location_id = request('location_id')  ?? ''; 
 
         $client_detail->user_id =  Auth::user()->id;
         $client_detail->save(); 
@@ -401,7 +406,12 @@ class ClientsController extends Controller
         request()->prof_pic->move(public_path('images/profile_pics'), $imageName);  
 
         }
-
+        
+        $client_detail->allergy_det = request('allergy_det')  ?? ''; 
+         $client_detail->status = request('status')  ?? ''; 
+         $client_detail->company_id = request('company_id')  ?? ''; 
+         $client_detail->location_id = request('location_id')  ?? '';
+         
         $client_detail->user_id =  Auth::user()->id;
         $client_detail->save(); 
 

@@ -99,7 +99,7 @@ class EvngshiftsController extends Controller
       $activity->item = "Evngshift Report";
       $activity->save();
 
-      return redirect()->route('evngshifts.index')
+      return redirect()->route('evngshifts.create')
                     ->with('success','created successfully');
               
 

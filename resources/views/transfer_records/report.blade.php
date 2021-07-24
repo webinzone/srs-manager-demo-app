@@ -71,43 +71,40 @@
       </tr>
     </table><br>
 
-    <h3 style="font-family:Bedrock">Chemist Details:</h3>
+    <h3 style="font-family:Bedrock">Transfer Details:</h3>
     <table style="border: 1px solid black;">
       <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Chemist Detail</td>
+        <td style="border: 1px solid black;" width="200px">From</td>
+        <td style="border: 1px solid black;" width="200px">To</td>
+        <td style="border: 1px solid black;" width="200px">Reason</td>
+        <td style="border: 1px solid black;" width="200px">Notification</td>
         <td style="border: 1px solid black;">Date</td>
-        <td style="border: 1px solid black;">From</td>
-        <td style="border: 1px solid black;">Address</td>
-        <td style="border: 1px solid black;">Phone No</td>
-        <td style="border: 1px solid black;">Fax</td>
-        <td style="border: 1px solid black;">To</td>
-        <td style="border: 1px solid black;">Reason For Transfer</td>
+       
       </tr>
       <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">{{ $transfer_record->chemist}}</td>
-        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($transfer_record->date)) }}</td>
+       
         <td style="border: 1px solid black;">{{ $transfer_record->from}}</td>
-        <td style="border: 1px solid black;">{{ $transfer_record->address}}</td>
-        <td style="border: 1px solid black;">{{ $transfer_record->ph}}</td>
-        <td style="border: 1px solid black;">{{ $transfer_record->fax}}</td>
         <td style="border: 1px solid black;">{{ $transfer_record->to}}</td>
-        <td style="border: 1px solid black;">{{ $transfer_record->reason}}</td>        
+
+        <td style="border: 1px solid black;">{{ $transfer_record->reason}}</td> 
+        <td style="border: 1px solid black;">{{ $transfer_record->notif}}</td>
+
+        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($transfer_record->date)) }}</td>       
       </tr>
     </table><br>
 
-    <table style="border: 1px solid black;">
+    <!--<table style="border: 1px solid black;">
       <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">Notification</td>
       </tr>
        <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">{{ $transfer_record->notif}}</td>
       </tr>
-    </table><br>
+    </table>--><br>
 
     <h3 style="font-family:Bedrock">Next Of Kin / Relative:</h3>
     <table>
       <tr>
-        <td style="border: 1px solid black;">Contact</td>
+        <td style="border: 1px solid black;" width="550px;">Contact</td>
         <td style="border: 1px solid black;">Has been advised of the transfer?</td>
       </tr>
       <tr>
@@ -119,7 +116,7 @@
     <h3 style="font-family:Bedrock">Resident's Guardian:</h3>
     <table>
       <tr>
-        <td style="border: 1px solid black;">Contact</td>
+        <td style="border: 1px solid black;" width="550px;">Contact</td>
         <td style="border: 1px solid black;">Has been advised of the transfer?</td>
       </tr>
       <tr>
@@ -132,7 +129,7 @@
     <h3 style="font-family:Bedrock">Person Nominated by Resident:</h3>
     <table>
       <tr>
-        <td style="border: 1px solid black;">Contact</td>
+        <td style="border: 1px solid black;" width="550px;">Contact</td>
         <td style="border: 1px solid black;">Has been advised of the transfer?</td>
       </tr>
       <tr>
@@ -144,7 +141,7 @@
     <h3 style="font-family:Bedrock">Resident's Administrator:</h3>
     <table>
       <tr>
-        <td style="border: 1px solid black;">Contact</td>
+        <td style="border: 1px solid black;" width="550px;">Contact</td>
         <td style="border: 1px solid black;">Has been advised of the transfer?</td>
       </tr>
       <tr>
@@ -175,7 +172,7 @@
     <h3 style="font-family:Bedrock">Details of Current Resident's Medication:</h3>
     <table>
       <tr>
-        <td style="border: 1px solid black;">Current Medication Details</td>
+        <td style="border: 1px solid black;" width="500px;">Current Medication Details</td>
         <td style="border: 1px solid black;">Has all of the above medication been sent with Resident?</td>
       </tr>
       <tr>

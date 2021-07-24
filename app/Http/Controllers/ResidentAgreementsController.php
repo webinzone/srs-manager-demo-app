@@ -12,6 +12,8 @@ use App\Models\GuardianDetail;
 use App\Models\Booking;
 use App\Models\PensionDetail;
 use App\Models\HealthService;
+use App\Models\ClientGpdetail;
+use App\Models\ClientNextofkin;
 
 
 
@@ -105,6 +107,27 @@ class ResidentAgreementsController extends Controller
         $data = HealthService::where('client_id', '=', $id)->firstOrFail();
         return response()->json($data);
     }
+    public function getGPDetails($id)
+    {
+        $data = ClientGpdetail::where('client_id', '=', $id)->firstOrFail();
+        return response()->json($data);
+    }
+    public function getNokDetails($id)
+    {
+        $data = ClientNextofkin::where('client_id', '=', $id)->firstOrFail();
+        return response()->json($data);
+    }
+    public function getGuaDetails($id)
+    {
+        $data = GuardianDetail::where('client_id', '=', $id)->firstOrFail();
+        return response()->json($data);
+    }
+   
+    public function getNominiDetails($id)
+    {
+        $data = ResidentAgreement::where('client_id', '=', $id)->firstOrFail();
+        return response()->json($data);
+    }
 
     public function generateRSAReport()
     {
@@ -120,6 +143,7 @@ class ResidentAgreementsController extends Controller
       return view('resident_agreements/report_show',compact('agreements'));
 
    }
+
 
     /**
      * Validate and save new Accessory from form post
@@ -137,6 +161,7 @@ class ResidentAgreementsController extends Controller
         $status = $res->respite;
         $name = $res->fname." ".$res->mname." ".$res->lname;
         $resident_agreement->r_name = $name;
+        $resident_agreement->client_id = $id;
         $resident_agreement->room_no = request('room_no') ?? '';
         $resident_agreement->bed = "" ?? '';
         $resident_agreement->dob = "" ?? '';
@@ -269,6 +294,7 @@ class ResidentAgreementsController extends Controller
         $status = $res->respite;
         $name = $res->fname." ".$res->mname." ".$res->lname;
         $resident_agreement->r_name = $name;
+        $resident_agreement->client_id = $id;
         $resident_agreement->room_no = request('room_no') ?? '';
         $resident_agreement->bed = "" ?? '';
         $resident_agreement->dob = "" ?? '';

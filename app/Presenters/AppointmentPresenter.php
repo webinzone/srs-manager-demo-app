@@ -32,7 +32,7 @@ class AppointmentPresenter extends Presenter
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Date')
+                "title" => trans('Appointment Date')
             ],[
                 "field" => "app_time",
                 "searchable" => true,

@@ -178,10 +178,10 @@ class HandoversController extends Controller
          $mngs = Mngshift::where('mng_date', '=', $sdate)->get() ?? '';
 
          $mngsss = Mngshift::where('mng_date', '=', $sdate)->firstOrFail() ?? '';
-         $mstaf = $mngsss->mng_staff;
+         $mstaf = $mngsss->mng_staff ?? '';
 
          $evngsss = Evngshift::where('eveng_date', '=', $sdate)->firstOrFail() ?? '';
-         $estaf = $evngsss->evng_staff;
+         $estaf = $evngsss->evng_staff ?? '';
 
          $evngs = Evngshift::where('eveng_date', '=', $sdate)->get() ?? '';   
 

@@ -28,7 +28,7 @@ class SrsStaffsTransformer
                 'name' => e($srs_staff->name),
                 'address' => e($srs_staff->address),
                 'ph' => e($srs_staff->ph),
-                'created_at' => e($srs_staff->created_at),
+                'created_at' => e(date('d-m-Y', strtotime($srs_staff->created_at))),
                 'actions' => view('srs_staffs/datatables_actions', compact('srs_staff'))->render() 
                 
             ];

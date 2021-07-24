@@ -92,7 +92,7 @@ class MngshiftsController extends Controller
       $activity->item = "Mngshift Report";
       $activity->save();
 
-      return redirect()->route('mngshifts.index')
+      return redirect()->route('mngshifts.create')
                     ->with('success','created successfully');
               
 

@@ -5,7 +5,10 @@
 {{ trans('general.dashboard') }}
 @parent
 @stop
-
+@section('header_right')
+  
+      <a href="/generateAccountReport" style="background-color:#50762A; right: 30px;" class="btn btn-primary pull-right"  target="_blank"> Accounts Report</a>
+@stop
 
 {{-- Page content --}}
 @section('content')
@@ -29,7 +32,7 @@
 
 <div class="row">
   <!-- panel -->
-  <div class="col-lg-3 col-xs-3" style="width:240px;">
+  <div class="col-lg-3 col-xs-3" style="width:246px;">
       <a href="{{ route('clients.index') }}">
     <!-- small box -->
     <div class="small-box bg-teal">
@@ -46,7 +49,7 @@
       </a>
   </div><!-- ./col -->
 
-  <div class="col-lg-3 col-xs-6" style="width:240px;">
+  <div class="col-lg-3 col-xs-6" style="width:246px;">
      <a href="{{ route('appointments.index') }}">
     <!-- small box -->
     <div class="small-box bg-maroon">
@@ -64,10 +67,10 @@
 
 
 
-  <div class="col-lg-3 col-xs-6" style="width:240px;">
+  <div class="col-lg-3 col-xs-6" style="width:246px;">
     <!-- small box -->
 
-      <a href="{{ route('staff_roasters.index') }}" style="width:240px;">
+      <a href="{{ route('staff_roasters.index') }}" style="width:246px;">
     <div class="small-box bg-purple">
       <div class="inner">
         <h3> {{ number_format($counts['staff_roaster']) }}</h3>
@@ -81,7 +84,7 @@
   </div><!-- ./col -->
 
 
-  <div class="col-lg-3 col-xs-6" style="width:240px;">
+  <div class="col-lg-3 col-xs-6" style="width:246px;">
     <!-- small box -->
       <a href="{{ route('bookings.index') }}">
     <div class="small-box bg-orange">
@@ -98,7 +101,7 @@
   </div><!-- ./col -->
 
 
-  <div class="col-lg-3 col-xs-6" style="width:240px;">
+  <div class="col-lg-3 col-xs-6" style="width:246px;">
     <!-- small box -->
       <a href="{{ route('bookings.index') }}">
     <div class="small-box bg-red">
@@ -118,6 +121,8 @@
 
 
 </div>
+
+        
 
 
 <!-- Recent Activity -->

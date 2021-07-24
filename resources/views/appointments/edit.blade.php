@@ -69,19 +69,27 @@
 
                     <div class="form-group ">
                       
-
-                        <div class="col-md-4 mb-3">
-                        <label for="app_note">Note</label>
-                        <textarea class="form-control"placeholder="Note" id="app_note" name="app_note"  v-on:change="page_one.app_note = $event.target.value">{{ $appointment->app_note}}</textarea>
-                      </div>               
+                         <div class="col-md-3 mb-3">
+                        <label for="ent_no">Status</label>
+                          <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                            <option value="Active" {{ $appointment->status == 'Active' ? 'selected' : ''  }} style="font-size: 14px;">Active</option> 
+                            <option value="Closed" {{ $appointment->status == 'Closed' ? 'selected' : ''  }} style="font-size: 14px;">Closed</option> 
+                        
+                        </select>          
+                      </div>     
+                                     
                         <div class="col-md-4 mb-3">
                         <label for="app_bookby">Booked by</label>
-                        <select class="form-control" style="width: 250px;height: 26px;padding: 3px 10px;" id="app_bookby" name="app_bookby">
+                        <select class="form-control" style="height: 26px;padding: 3px 10px;" id="app_bookby" name="app_bookby">
                              @foreach($emps as $emp)
                           <option value="{{ $emp->name }}" {{ $appointment->app_bookby == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
                           @endforeach
                         </select>          
-                        </div>         
+                        </div>   
+                         <div class="col-md-5 mb-3">
+                        <label for="app_note">Note</label>
+                        <textarea class="form-control"placeholder="Note" id="app_note" name="app_note"  v-on:change="page_one.app_note = $event.target.value">{{ $appointment->app_note}}</textarea>
+                      </div>       
                     </div>
                         
                           

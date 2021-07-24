@@ -254,12 +254,25 @@
                         <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
                       </div>
                         </div>&nbsp;&nbsp;&nbsp;
-                        <div class="form-row">
+                        <div class="form-row">                        
+                       <div class="col-md-6 mb-3">
+                        <label for="ent_no">Allergy Details</label>
+                        <textarea placeholder="Allergy Details" class="form-control" name="allergy_det"  v-on:change="page_one.allergy_det = $event.target.value"></textarea>
 
-                      <div class="col-md-12 mb-3">
+                                  
+                      </div> 
+                       <div class="col-md-3 mb-3">
+                        <label for="ent_no">Status</label>
+                          <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                            <option value="Active" style="font-size: 14px;">Active</option> 
+                            <option value="Vacate" style="font-size: 14px;">Vacate</option> 
+                            <option value="Transfered" style="font-size: 14px;">Transfered</option>
+                        </select>          
+                      </div> 
+                      <div class="col-md-3 mb-3">
                         <label for="ent_no">Entitlement No</label>
-                        <input type="text" style="width:200px;" class="form-control" id="ent_no" placeholder="ntitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
-                      </div>  
+                        <input type="text" style="width:200px;" class="form-control" id="ent_no" placeholder="Entitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
+                      </div>
                        
                     
                        
@@ -275,7 +288,7 @@
                       </div> -->
                        
                     </div>
-                      &nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                    
 
                       

@@ -95,66 +95,63 @@
                                                               
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <h5 style="color:#980000;font-size: 16px;"><b>Chemist Details</b></h5>
+                <h5 style="color:#980000;font-size: 16px;"><b>Transfer Details</b></h5>
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
+                        <label>From</label>
+                        <textarea rows="4" name="from" class="form-control" placeholder="From Address"></textarea>
+                                                             
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>To</label>
+                        <textarea rows="4"  name="to" class="form-control" placeholder="To Address"></textarea>                                      
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Reason For Transfer</label>
+                        <textarea rows="4"  name="reason" class="form-control" placeholder="Reason For Transfer"></textarea>
+                       
+                      </div>
+
+                      <div class="col-md-3 mb-12">
+                        <label><b>Notification</b></label>
+                       
+                        <textarea rows="4"  name="notif" class="form-control" placeholder="Notification"></textarea>                                        
+                      </div>
+                      <!--<div class="col-md-3 mb-3">
                         <label>Chemist Detail</label>
                         <input type="text" name="chemist" class="form-control" placeholder="Chemist Detail">                                        
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label>Date</label>
-                        <input type="date" name="date" class="form-control" placeholder="Date">                                        
-                      </div>
-                       <div class="col-md-3 mb-3">
-                        <label>From</label>
-                        <input type="text" name="from" class="form-control" placeholder="From">                                       
-                      </div>
+                      </div>-->
+                       
                      
-                      <div class="col-md-3 mb-3">
-                        <label>Address</label>
-                        <textarea name="address" class="form-control" placeholder="Address"></textarea>
-                      </div>
+                      
                 </div>
-                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
-                      <div class="col-md-3 mb-3">
+
+                      <div class="col-md-12 mb-3">
+                        <label>Date</label>
+                        <input type="date" style="width: 200px;" name="date" class="form-control" placeholder="Date">                                        
+                      </div>
+                     <!-- <div class="col-md-3 mb-3">
                         <label>Phone No.</label>
                         <input type="text" name="ph" class="form-control" placeholder="Phone No.">                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Fax</label>
                         <input type="text" name="fax" class="form-control" placeholder="Fax">                                        
-                      </div>
-
-                      <div class="col-md-3 mb-3">
-                        <label>To</label>
-                        <input type="email" name="to" class="form-control" placeholder="To">                                       
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label>Reason For Transfer</label>
-                        <textarea  name="reason" class="form-control" placeholder="Reason For Transfer"></textarea>
-                       
-                      </div>
-                </div>
-
-                <div class="form-row">
-                      <!--<div class="col-md-4 mb-3">
-                        <label>Indefinite period of stay from</label>
-                        <input type="date" name="i_period" class="form-control" placeholder="Indefinite period of stay form">                                        
                       </div>-->
-                      
-                      <div class="col-md-12 mb-12">
-                        <label><b>Notification</b></label>
-                        <input type="text" style="width: 200px;" name="notif" id="notif" class="form-control" placeholder="Notification">                                        
-                      </div>
 
+                      
+                      
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Next of Kin</b></h5>
 
                 <div class="form-row">
                       <div class="col-md-6 mb-3 ">
                         <label>Contact</label>
-                        <input type="text" name="nok_contact" class="form-control" placeholder="Contact">                                        
+                        <input type="text" name="nok_contact" class="form-control" placeholder="Contact" id="co1">                                        
                       </div>
                       <div class="col-md-6 mb-3 ">
                         <label>Has been advised of the transfer?</label>
@@ -171,7 +168,7 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3 ">
                         <label>Contact</label>
-                        <input type="text" name="gua_contact" class="form-control" placeholder="Contact">                                        
+                        <input type="text" name="gua_contact" class="form-control" placeholder="Contact" id="co2">                                        
                       </div>
                       <div class="col-md-6 mb-3 ">
                         <label>Has been advised of the transfer?</label>
@@ -185,7 +182,7 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3 ">
                         <label>Contact</label>
-                        <input type="text" name="nomini_contact" class="form-control" placeholder="Contact">                                        
+                        <input type="text" id="co3" name="nomini_contact" class="form-control" placeholder="Contact">                                        
                       </div>
                       <div class="col-md-6 mb-3 ">
                         <label>Has been advised of the transfer?</label>
@@ -200,7 +197,7 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3 ">
                         <label>Contact</label>
-                        <input type="text" name="resadmin_contact" class="form-control" placeholder="Contact">                                        
+                        <input type="text" name="resadmin_contact" id="co4" class="form-control" placeholder="Contact">                                        
                       </div>
                       <div class="col-md-6 mb-3 ">
                         <label>Has been advised of the transfer?</label>
@@ -209,7 +206,7 @@
                       </div>
 
                   </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <h5 style="color:#980000;font-size: 16px;"><b>Resident's Medical Practitioner/Health Details </b></h5>
+                  <h5 style="color:#980000;font-size: 16px;"><b>Resident's Medical Practitioner Details </b></h5>
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Name</label>
@@ -232,11 +229,12 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Detail of Known Allergies</label>
-                        <input type="text" name="allergy"  class="form-control" placeholder="Doctor Name">                                        
+                        <textarea name="allergy" id="al" class="form-control" placeholder="Known Allergies"></textarea>                                       
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Pre Existing Medical Condition</label>
-                        <input type="text" name="exis_medi" id="d" class="form-control" placeholder="Pre Existing MedicalCondition">                                        
+                        <textarea name="exis_medi" id="d" class="form-control" placeholder="Pre Existing MedicalCondition"></textarea>
+                                                               
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <h5 style="color:#980000;font-size: 16px;"><b> Details of Current Resident's Medication</b></h5>
@@ -298,36 +296,7 @@
 @stop
 
 @section('moar_scripts')
-<script>
-$('#resi_name').change(function(){
-    var id = $(this).val();
-    var url = '{{ route("getHealthDetails", ":id") }}';
-    url = url.replace(':id', id);
-
-    $.ajax({
-        url: url,
-        type: 'get',
-        dataType: 'json',
-        success: function(response){
-            if(response != null){
-             
-                $('#a').val(response.hs_name);
-                $('#b').val(response.hs_lan);
-                $('#c').val(response.hs_fax);
-                $('#d').val(response.med_history);
-
-               
-
-            }
-            else{
-              alert("error");
- 
-            }
-        }
-    });
-});
-</script>
-<script>
+<script type="text/javascript">
 $('#resi_name').change(function(){
     var id = $(this).val();
     var url = '{{ route("getRSAclientDetails", ":id") }}';
@@ -345,7 +314,8 @@ $('#resi_name').change(function(){
                 $('#medi_no').val(response.medicard_no); 
                 $('#pension_no').val(response.pension_no);           
                 $('#religion').val(response.religion);           
-                $('#lan').val(response.l_known);                         
+                $('#lan').val(response.l_known);
+                $('#al').val(response.allergy_det);                         
 
             }
             else{
@@ -356,6 +326,87 @@ $('#resi_name').change(function(){
     });
 });
 </script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getGPDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+             
+                $('#a').val(response.gp_name);
+                $('#b').val(response.gp_lan);
+                $('#c').val(response.gp_fax);
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getNokDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+             
+                $('#co1').val((response.name)+' - '+(response.ph));
+
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getHealthDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+             
+              
+                $('#d').val(response.med_history);
+
+               
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+
+
 <script>
 $('#resi_name').change(function(){
     var id = $(this).val();
@@ -405,7 +456,30 @@ $('#resi_name').change(function(){
 <script>
 $('#resi_name').change(function(){
     var id = $(this).val();
-    var url = '{{ route("getRSAbookDetails", ":id") }}';
+    var url = '{{ route("getNominiDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+              $('#co3').val(response.p_nomini+' - '+response.per_tel); 
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getGuaDetails", ":id") }}';
     url = url.replace(':id', id);
 
     $.ajax({
@@ -415,7 +489,7 @@ $('#resi_name').change(function(){
         success: function(response){
             if(response != null){
                
-
+              $('#co2').val(response.gr_name+' - '+response.gr_mob);
             }
             else{
               alert("error");

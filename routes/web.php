@@ -80,6 +80,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('get/resbookdetails/{id}', 'ResidentAgreementsController@getRSAbookDetails')->name('getRSAbookDetails');
     Route::get('get/resincomedetails/{id}', 'ResidentAgreementsController@getRSAincomeDetails')->name('getRSAincomeDetails');
     Route::get('get/reshealthdetails/{id}', 'ResidentAgreementsController@getHealthDetails')->name('getHealthDetails');
+    Route::get('get/resgpdetails/{id}', 'ResidentAgreementsController@getGPDetails')->name('getGPDetails');
+
+    Route::get('get/resnokdetails/{id}', 'ResidentAgreementsController@getNokDetails')->name('getNokDetails');
+      Route::get('get/resguadetails/{id}', 'ResidentAgreementsController@getGuaDetails')->name('getGuaDetails');
+      Route::get('get/resnominidetails/{id}', 'ResidentAgreementsController@getNominiDetails')->name('getNominiDetails');
+      
     Route::get('/agreement','ResidentAgreementsController@agreement_generate');
     Route::get('/generateRSAReport/', 'ResidentAgreementsController@generateRSAReport')->name('generateRSAReport');
 

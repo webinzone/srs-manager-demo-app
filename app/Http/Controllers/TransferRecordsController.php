@@ -64,6 +64,7 @@ class TransferRecordsController extends Controller
         $name = $res->fname." ".$res->mname." ".$res->lname;
         
         $transfer_record->user_name = $name;
+        $transfer_record->client_id = $id;
         $transfer_record->dob = request('dob') ?? '';
         $transfer_record->gender = request('gender') ?? '';
         $transfer_record->nation = request('nation') ?? '';

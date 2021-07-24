@@ -271,12 +271,25 @@
                   
                        <div class="form-row">  
                       
-                            
-                      <div class="col-md-12 mb-3">
+                         <div class="col-md-6 mb-3">
+                        <label for="ent_no">Allergy Details</label>
+                        <textarea placeholder="Allergy Details"  class="form-control" name="allergy_det"  v-on:change="page_one.allergy_det = $event.target.value">{{ $client_detail->allergy_det}}</textarea>
+
+                                  
+                      </div> 
+                       <div class="col-md-3 mb-3">
+                        <label for="ent_no">Status</label>
+                          <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                            <option value="Active" {{ $client_detail->status == 'Active' ? 'selected' : ''  }} style="font-size: 14px;">Active</option> 
+                            <option value="Vacate" {{ $client_detail->status == 'Vacate' ? 'selected' : ''  }} style="font-size: 14px;">Vacate</option> 
+                            <option value="Transfered" {{ $client_detail->status == 'Transfered' ? 'selected' : ''  }} style="font-size: 14px;">Transfered</option>
+                        </select>          
+                      </div>     
+                      <div class="col-md-3 mb-3">
                         <label for="ent_no">Entitlement No</label>
-                        <input type="text" style="width: 200px;" value="{{ $client_detail->ent_no}}" class="form-control" placeholder="Last Name" id="ent_no" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
+                        <input type="text" style="width: 200px;" value="{{ $client_detail->ent_no}}" class="form-control" placeholder="Entitlement No" id="ent_no" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
                       </div>  
-                      </div>&nbsp;&nbsp;&nbsp;
+                      </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                       
                       <!--<div class="col-md-4 mb-3">

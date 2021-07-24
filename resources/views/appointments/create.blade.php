@@ -69,16 +69,20 @@
                         <input type="text" class="form-control" placeholder="Reason of the booked appointment" id="app_reason" name="app_reason"  v-on:change="page_one.app_reason = $event.target.value">                
                       </div>                        
                     </div>
-
                     <div class="form-group ">
+                        <div class="col-md-3 mb-3">
+                        <label for="ent_no">Status</label>
+                          <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                            <option value="Active" style="font-size: 14px;">Active</option> 
+                            <option value="Closed" style="font-size: 14px;">Closed</option> 
+                           
+                        </select>          
+                      </div> 
                         
-                        <div class="col-md-4 mb-3">
-                        <label for="app_bookby">Note</label>
-                        <textarea class="form-control" placeholder="Note" id="app_bookby" name="app_note"  v-on:change="page_one.app_bookby = $event.target.value"></textarea>
-                    </div>
+                       
                         <div class="col-md-4 mb-3">
                         <label for="app_note">Booked by</label>   
-                        <select class="form-control" style="width: 250px;height: 26px;padding: 3px 10px;" id="mng_staff" name="app_bookby">
+                        <select class="form-control" style="height: 26px;padding: 3px 10px;" id="mng_staff" name="app_bookby">
                             <option>--   Select Staff Name  --</option>
                           @foreach($emps as $emp)
                           <option value="{{ $emp->name }}" > {{ $emp->name }}</option>
@@ -86,7 +90,10 @@
                         </select>            
                       </div>  
                       
-                                      
+                           <div class="col-md-5 mb-3">
+                        <label for="app_bookby">Note</label>
+                        <textarea class="form-control" placeholder="Note" id="app_bookby" name="app_note"  v-on:change="page_one.app_bookby = $event.target.value"></textarea>
+                    </div>            
                     </div>
                         
                           

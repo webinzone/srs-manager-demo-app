@@ -28,11 +28,17 @@ class TransferRecordPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Resident Name')
             ],[
-                "field" => "chemist",
+                "field" => "from",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Chemist Detail')
+                "title" => trans('From')
+            ],[
+                "field" => "to",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('To')
             ],[
                 "field" => "reason",
                 "searchable" => true,

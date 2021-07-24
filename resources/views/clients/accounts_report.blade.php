@@ -48,7 +48,6 @@
     </center>
     <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></p></center>
     <h2><center>Accounts Detail Report</center></h2>
-    <h3 style="font-family:Bedrock">Personal Details:</h3>
     <table style="border: 1px solid black;">
       <thead style="border: 1px solid black;">
         <tr>
