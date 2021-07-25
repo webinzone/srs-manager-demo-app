@@ -256,7 +256,7 @@
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>List of Reports Sent With Resident </label>
-                        <textarea name="medi_chart" class="form-control" placeholder="List of Reports Sent With Resident"></textarea>                                        
+                        <textarea name="medi_list" class="form-control" placeholder="List of Reports Sent With Resident"></textarea>                                        
                       </div>
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

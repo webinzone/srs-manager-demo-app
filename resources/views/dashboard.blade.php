@@ -184,7 +184,7 @@
                             @foreach ($residents as $res)
                               
                               <tr>
-                                <td>{{ $res->fname}} {{ $res->mname}} {{ $res->lname}}</td>
+                                <td><a href="{{ route("residentDetails", $res->id) }}">{{ $res->fname}} {{ $res->mname}} {{ $res->lname}}</a></td>
                                 <td>{{ $res->dob}}</td>
                                 <td>{{ $res->ph}}</td>
 
@@ -237,7 +237,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        <div class="box box-default">
+        <div class="box box-default" style="background-color: #BDF5BD;">
             <div class="box-header with-border">
                 <h2 class="box-title">Reports by Status</h2>
                 <div class="box-tools pull-right">
@@ -262,7 +262,7 @@
     <div class="col-md-6">
 
         <!-- Categories -->
-        <div class="box box-default">
+        <div class="box box-default" style="background-color: #BDF5BD;">
             <div class="box-header with-border">
                 <h2 class="box-title">Bookings Report </h2>
                 <div class="box-tools pull-right">
@@ -291,19 +291,19 @@
 
                           <thead>
                             <tr>
-                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Client Name </th>
-                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Book From </th>
-                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Book To </th>
-                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Created Date </th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Resident Name </th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Date & Time </th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Appointment With </th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Status </th>
                             </tr>
                           </thead>
                           <tbody>
-                            @foreach ($bookings as $booking)
+                            @foreach ($apps as $app)
                               <tr>
-                                <td>{{ $booking->c_name}}</td>
-                                <td>{{ $booking->b_from}}</td>
-                                <td>{{ $booking->b_to}}</td>
-                                <td>{{ $booking->created_at}}</td>                           
+                                <td>{{ $app->res_name}}</td>
+                                <td>{{ $app->app_date}} - {{ $app->app_time}}</td>
+                                <td>{{ $app->app_with}}</td>
+                                <td>{{ $app->status}}</td>                           
                               </tr>
                             @endforeach
                           </tbody>
@@ -315,7 +315,7 @@
                         </div>
                     </div> <!-- /.col -->
                     <div class="col-md-12 text-center" style="padding-top: 10px;">
-                        <a href="{{ route('bookings.index') }}" class="btn btn-primary btn-sm" style="width: 100%">view all</a>
+                        <a href="{{ route('appointments.index') }}" class="btn btn-primary btn-sm" style="width: 100%">view all</a>
                     </div>
                 </div> <!-- /.row -->
 

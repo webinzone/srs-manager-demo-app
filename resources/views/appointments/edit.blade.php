@@ -72,7 +72,7 @@
                          <div class="col-md-3 mb-3">
                         <label for="ent_no">Status</label>
                           <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
-                            <option value="Active" {{ $appointment->status == 'Active' ? 'selected' : ''  }} style="font-size: 14px;">Active</option> 
+                            <option value="Pending" {{ $appointment->status == 'Pending' ? 'selected' : ''  }} style="font-size: 14px;">Pending</option> 
                             <option value="Closed" {{ $appointment->status == 'Closed' ? 'selected' : ''  }} style="font-size: 14px;">Closed</option> 
                         
                         </select>          

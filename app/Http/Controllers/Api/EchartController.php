@@ -26,12 +26,12 @@ class EchartController extends Controller
 	 */
 	public function index(Request $request)
 	{
+			$rsa = \App\Models\ResidentAgreement::count();
 			$condition = \App\Models\ConditionReport::count();
-			$incident = \App\Models\Incident::count();
-			$handover = \App\Models\Handover::count();
-			$progresses = \App\Models\Progress::count();
-			  $labels=['Condition','Incident','Handover','Progresses'];
-        $points=[$condition,$incident,$handover,$progresses];
+			$transfer = \App\Models\TransferRecord::count();
+			$resident = \App\Models\ClientDetail::count();
+			  $labels=['Residents','RSA','Condition','Transfer'];
+        $points=[$resident,$rsa,$condition,$transfer];
         $default_color_count = 4;
         $colors_array = ['#34B4CD','#CAA8D2','#307D47','#EA4369'];
 

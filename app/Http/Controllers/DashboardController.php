@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Models\ActivityLog;
 use App\Models\Booking;
 use App\Models\ClientDetail;
+use App\Models\Appointment;
 
 
 use Auth;
@@ -32,12 +33,12 @@ class DashboardController extends Controller
             
             $asset_stats=null;
 
-            $bookings = Booking::all();
+            $apps = Appointment::where('status', '=', 'Pending')->orderBy('created_at', 'desc')->get() ?? '';
             $residents = ClientDetail::all();
             
 
             $counts['resident'] = \App\Models\ClientDetail::count();
-            $counts['appointments'] = \App\Models\Appointment::count();
+            $counts['appointments'] = Appointment::count();
             $counts['bookings'] = \App\Models\Booking::count();
             $counts['staff_roaster'] = \App\Models\StaffRoaster::count();
             
@@ -45,7 +46,7 @@ class DashboardController extends Controller
                 \Artisan::call('migrate', ['--force' => true]);
                 \Artisan::call('passport:install');
             }
-            return view('dashboard')->with('asset_stats', $asset_stats)->with('counts', $counts)->with('bookings', $bookings)->with('residents', $residents);
+            return view('dashboard')->with('asset_stats', $asset_stats)->with('counts', $counts)->with('apps', $apps)->with('residents', $residents);
         } else {
         // Redirect to the profile page
             return redirect()->intended('account/view-assets');

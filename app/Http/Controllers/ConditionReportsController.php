@@ -76,6 +76,7 @@ class ConditionReportsController extends Controller
         $condition_report->prop_comments = " " ?? ' ';
         $condition_report->res_comments = implode(',', (array) request('res_comments')) ?? ' ';
         $condition_report->res_name = $name ?? ' ';
+        $condition_report->client_id = $id  ?? ' ';
         $condition_report->stf_name = request('stf_name') ?? ' ';
         $condition_report->res_date = request('res_date') ?? ' ';
         $condition_report->item_no = implode(',', (array) request('item_no')) ?? ' ';
@@ -169,6 +170,7 @@ class ConditionReportsController extends Controller
         $condition_report->prop_comments = " " ?? ' ';
         $condition_report->res_comments = implode(',', (array) request('res_comments')) ?? ' ';
         $condition_report->res_name = $name ?? ' ';
+        $condition_report->client_id = $id  ?? ' ';
         $condition_report->stf_name = request('stf_name') ?? ' ';
         $condition_report->res_date = request('res_date') ?? ' ';
         $condition_report->item_no = implode(',', (array) request('item_no')) ?? ' ';

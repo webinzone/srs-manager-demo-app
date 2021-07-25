@@ -543,10 +543,20 @@ class ClientsController extends Controller
         $activity->action = "Updated";
         $activity->item = "Client";
         $activity->save();
-    
-     
-        return redirect()->route('clients.index')
+        
+        $val = request('val')  ?? '';
+        if($val == 'res')
+        {
+            return redirect()->route('residentDetails', $client_detail->id)
+                ->with('success','Updated successfully');
+        }
+        else
+        {
+            return redirect()->route('clients.index')
                 ->with('success','Updated successfully'); 
+        }
+     
+        
     }
     /**
      * Remove the specified resource from storage.
