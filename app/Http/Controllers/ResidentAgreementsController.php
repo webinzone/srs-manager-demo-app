@@ -370,8 +370,18 @@ class ResidentAgreementsController extends Controller
         $activity->item = "Resident Agreement Report";
         $activity->save();
 
+        $val = request('val')  ?? '';
+        if($val == 'res')
+        {
+            return redirect()->route('rsaDetails', $resident_agreement->client_id)
+                ->with('success','Updated successfully');
+        }
+        else
+        {
+
         return redirect()->route('resident_agreements.index')
                         ->with('success','updated successfully');
+                    }
     }
     /**
      * Remove the specified resource from storage.

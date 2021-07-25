@@ -97,6 +97,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/generateTransferReport/', 'TransferRecordsController@generateTransferReport')->name('generateTransferReport');
 
     Route::get('get/residents/{id}','ResidentUiController@index')->name('residentDetails');
+    Route::get('get/resAgreements/{id}','ResidentUiController@getRsa')->name('rsaDetails');
    
 
 

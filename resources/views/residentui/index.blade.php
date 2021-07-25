@@ -61,6 +61,34 @@
 }
 </style>
 @section('content')
+           <div class="panel with-nav-tabs panel-default">
+                       <div class="panel-heading single-project-nav">
+                          <ul class="nav nav-tabs"> 
+                           <li class="active">
+                              <a href="{{ route("residentDetails", $client_detail->id) }}" >Account</a>
+                           </li>
+                           <li >
+                              <a href="{{ route("rsaDetails", $client_detail->id) }}" >RSA</a>
+                           </li>
+                           <li>
+                              <a href="" >Room Assets</a>
+                           </li>
+                           <li>
+                               <a href="" >Transfer</a>
+                           </li>
+                           <li>
+                               <a href="" >Referal</a>
+                           </li>
+                           <li>
+                               <a href="" class="dropbtn" >Reports</a>
+                              
+                           </li>
+
+                       </ul>
+                    </div>
+                    
+                 </div>
+
 
 <div id="webui">  
   <div class="row" style="padding-left: 30px;padding-right: 80px;">

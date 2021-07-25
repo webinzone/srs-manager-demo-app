@@ -39,6 +39,7 @@ class ResidentUiController extends Controller
      */
     public function index($id)
     {
+        $r_id = $id;
         $client_detail = ClientDetail::find($id);
         $roomid = $client_detail->room_no;
         $r_no = RoomDetail::where('room_no', '=', $roomid)->firstOrFail();
@@ -55,8 +56,18 @@ class ResidentUiController extends Controller
         $income = explode(',', $pension_detail->income_type);
         $status = "Free";
         $rooms = RoomDetail::where('status', '=', $status)->get();
-        return view('residentui/index')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid'));
+        return view('residentui/index')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid','r_id'));
         
     }
+
+    public function getRsa($id)
+    {
+        $r_id = $id;        
+        $residents = ClientDetail::all();
+        $emps = SrsStaff::all();
+        $resident_agreement = ResidentAgreement::where('client_id', '=', $id)->firstOrFail();
+        return view('residentui/rsa',compact('resident_agreement', 'residents', 'emps', 'r_id'));
+    }
+
 
  }

@@ -953,41 +953,7 @@ ul.asset-list {
       @endif
        <br><br><div class="container-res">
 
-        <!-- Content Header (Page header) -->
-        					            <div class="panel with-nav-tabs panel-default">
-				               <div class="panel-heading single-project-nav">
-				                  <ul class="nav nav-tabs"> 
-				                   <li class="active">
-				                      <a href="" data-toggle="tab">Account</a>
-				                   </li>
-				                   <li>
-				                      <a href="" data-toggle="tab">Room Assets</a>
-				                   </li>
-				                   <li>
-				                      <a href="" data-toggle="tab">RSA</a>
-				                   </li>
-				                   <li>
-				                       <a href="" data-toggle="tab">Transfer</a>
-				                   </li>
-				                   <li>
-				                       <a href="" data-toggle="tab">Referal</a>
-				                   </li>
-				                   <li>
-				                       <a href="" class="dropbtn" data-toggle="tab">Reports</a>
-				                      
-				                   </li>
-
-				               </ul>
-				            </div>
-				            
-				         </div>
-
-        
-          <h1 class="pull-left" style="color:white;">
-            @yield('title')
-
-
-          </h1>
+      
 
             @if (isset($helpText))
             @include ('partials.more-info',
@@ -996,10 +962,7 @@ ul.asset-list {
                                        'helpPosition' => (isset($helpPosition)) ? $helpPosition : 'left'
                                    ])
             @endif
-          <div class="pull-right">
-            @yield('header_right')
-          </div>
-
+        
 
         <section class="content" id="main" tabindex="-1">
 
