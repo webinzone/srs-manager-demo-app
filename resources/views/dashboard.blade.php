@@ -184,7 +184,7 @@
                             @foreach ($residents as $res)
                               
                               <tr>
-                                <td><a href="{{ route("residentDetails", $res->id) }}">{{ $res->fname}} {{ $res->mname}} {{ $res->lname}}</a></td>
+                                <td><a href="{{ route("residentDetails", $res->id) }}"><b>{{ $res->fname}} {{ $res->mname}} {{ $res->lname}}</b></a></td>
                                 <td>{{ $res->dob}}</td>
                                 <td>{{ $res->ph}}</td>
 

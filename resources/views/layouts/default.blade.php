@@ -614,6 +614,15 @@ h4 {
             </li>
             @endcan
 
+            @can('view', \App\Models\TransferRecords::class)
+            <li{!! (Request::is('referrals*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('referrals.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-user-plus" aria-hidden="true"></i>
+                  <span style="color: white;">Referral Records</span>
+                </a>
+            </li>
+            @endcan
+
              @can('view', \App\Models\ResidentAgreement::class)
             <!--<li{!! (Request::is('resident_agreements*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('room_details.index') }}" style="background-color: #222d32;color: #b8c7ce;">

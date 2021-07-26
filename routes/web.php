@@ -43,6 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('appointments','AppointmentsController');
     Route::resource('mngshifts','MngshiftsController');
     Route::resource('evngshifts','EvngshiftsController');
+    Route::resource('referrals','ReferralsController');
+    Route::resource('referrals2','Referrals2Controller');
+
 
 
     Route::post('formSubmit','ClientsController@store');

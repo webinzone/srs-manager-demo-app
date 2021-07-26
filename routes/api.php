@@ -440,6 +440,18 @@ Route::resource('appointments', 'AppointmentsController',
         ]
     );
       
+    Route::resource('referrals', 'ReferralsController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.referrals.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['referrals' => 'referrals_id']
+        ]
+    );
+
     Route::resource('echart', 'EchartController',
         [
             'names' =>

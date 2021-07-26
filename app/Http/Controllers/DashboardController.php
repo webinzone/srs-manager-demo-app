@@ -34,7 +34,7 @@ class DashboardController extends Controller
             $asset_stats=null;
 
             $apps = Appointment::where('status', '=', 'Pending')->orderBy('created_at', 'desc')->get() ?? '';
-            $residents = ClientDetail::all();
+            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('created_at', 'desc')->get() ?? '';
             
 
             $counts['resident'] = \App\Models\ClientDetail::count();
