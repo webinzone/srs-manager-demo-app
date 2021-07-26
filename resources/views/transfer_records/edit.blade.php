@@ -516,5 +516,4 @@ $('#resi_name').change(function(){
 
 @include ('partials.bootstrap-table')
 @stop
-edit.blade.php
-Displaying edit.blade.php.
+
