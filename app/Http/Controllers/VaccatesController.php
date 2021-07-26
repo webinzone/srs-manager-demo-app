@@ -57,8 +57,8 @@ class VaccatesController extends Controller
      */
     public function store()
     {
-        $this->authorize('create',Transfer::class);
-        $vaccate = new Transfer();
+        $this->authorize('create',vaccate::class);
+        $vaccate = new vaccate();
         $vaccate->res_name = request('res_name') ?? '';
         $vaccate->client_id = request('client_id') ?? '';
         $vaccate->v_date = request('v_date') ?? '';
