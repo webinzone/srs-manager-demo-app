@@ -28,12 +28,7 @@ class SupportPlansTransformer
                 'user_name' => e($support_plan->user_name),
                 'hygiene' => e($support_plan->hygiene),
                 'nutrition' => e($support_plan->nutrition),
-                'health_care' => e($support_plan->health_care),
-                'medication' => e($support_plan->medication),
-                'social_contact' => e($support_plan->social_contact),
-                'behaviour' => e($support_plan->behaviour),
-                'goals' => e($support_plan->goals),
-                'created_at' => e($support_plan->created_at),
+                'created_at' => e(date('d-m-Y', strtotime($support_plan->created_at))),
                 'actions' => view('support_plans/datatables_actions', compact('support_plan'))->render() 
                 
             ];

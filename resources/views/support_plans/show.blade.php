@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-SupportPlans
+
 @parent
 @stop
 
@@ -15,63 +15,63 @@ SupportPlans
 {{-- Page content --}}
 @section('content')
 
-  <div id="webui">
-    <div class="row">
+    <div id="webui">
+    <div class="row" style="padding-left: 300px;">
         <!-- left column -->
       <div class="col-md-7">
-        <form class="form-horizontal" method="" action="" autocomplete="off">
+        <form class="form-horizontal" method="" style="width:700px;" action="" autocomplete="off">
           <div class="box box-default">
-            <div class="box-header with-border">
-                <h2 class="box-title"> SupportPlan</h2>
+            <div class="box-header with-border text-center">
+                <h2 class="box-title"><b> Support Plan</b></h2>
             </div>
 
-            <div class="box-body">
+            <div class="box-body" style="padding-left:130px;">
 
                 <!-- Asset name -->
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Name:</label>
+                    <label class="col-sm-6 control-label">Name:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $support_plan->user_name}}</p>
                     </div>
                 </div>
                <div class="form-group">
-                    <label class="col-sm-3 control-label">Personal Hygiene:</label>
+                    <label class="col-sm-6 control-label">Personal Hygiene:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $support_plan->hygiene}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Eating ana Nutrition:</label>
+                    <label class="col-sm-6 control-label">Eating ana Nutrition:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $support_plan->nutrition}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Health Care:</label>
+                    <label class="col-sm-6 control-label">Health Care:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $support_plan->health_care}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Medication:</label>
+                    <label class="col-sm-6 control-label">Medication:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $support_plan->medication}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Social Contact and Emotional Wellbeing:</label>
+                    <label class="col-sm-6 control-label">Social Contact and Emotional Wellbeing:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $support_plan->social_contact}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Behaviour:</label>
+                    <label class="col-sm-6 control-label">Behaviour:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $support_plan->behaviour}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Goals/Finances/Other:</label>
+                    <label class="col-sm-6 control-label">Goals/Finances/Other:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $support_plan->goals}}</p>
                     </div>

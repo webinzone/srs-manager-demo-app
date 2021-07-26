@@ -5,6 +5,7 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\SupportPlan;
 use App\Models\ActivityLog;
+use App\Models\ClientDetail;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -27,8 +28,7 @@ class SupportPlansController extends Controller
     public function index()
     {
         $this->authorize('view', SupportPlan::class);
-        $support_plans = SupportPlan::all();
-        return view('support_plans/index',compact('support_plans'));
+        return view('support_plans/index');
     }
 
      /**
@@ -42,7 +42,8 @@ class SupportPlansController extends Controller
     {
          // Show the page
         $this->authorize('create',SupportPlan::class);
-        return view('support_plans/create');
+        $residents = ClientDetail::all();        
+        return view('support_plans/create',compact('residents'));
     }
 
 
@@ -57,16 +58,25 @@ class SupportPlansController extends Controller
     {
         $this->authorize('create',SupportPlan::class);
         $support_plan = new SupportPlan();
+        
+        $id = request('user_name') ?? '';
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
 
-        $support_plan->user_name = request('user_name');
-        $support_plan->hygiene = request('hygiene');
-        $support_plan->nutrition = request('nutrition');
-        $support_plan->health_care = request('health_care');
-        $support_plan->medication = request('medication');
-        $support_plan->social_contact = request('social_contact');
-        $support_plan->behaviour = request('behaviour');
-        $support_plan->goals = request('goals');
+        $support_plan->user_name = $name ?? '';
+        $support_plan->client_id = $id ?? '';
+
+        $support_plan->hygiene = request('hygiene') ?? '';
+        $support_plan->nutrition = request('nutrition') ?? '';
+        $support_plan->health_care = request('health_care') ?? '';
+        $support_plan->medication = request('medication') ?? '';
+        $support_plan->social_contact = request('social_contact') ?? '';
+        $support_plan->behaviour = request('behaviour') ?? '';
+        $support_plan->goals = request('goals') ?? '';
+        $support_plan->company_id = request('company_id') ?? ' ';
+        $support_plan->location_id = request('location_id') ?? ' ';
         $support_plan->user_id =  Auth::user()->id;
+        
         
         $support_plan->save();
        $activity = new ActivityLog();
@@ -104,7 +114,9 @@ class SupportPlansController extends Controller
     {
         $this->authorize('edit',SupportPlan::class);
         $support_plan = SupportPlan::find($id);
-        return view('support_plans/edit',compact('support_plan'));
+        $residents = ClientDetail::all();        
+
+        return view('support_plans/edit',compact('support_plan','residents'));
     }
     /**
      * Update the specified resource in storage.
@@ -118,14 +130,24 @@ class SupportPlansController extends Controller
         $this->authorize('update', SupportPlan::class);
         $support_plan = SupportPlan::find($id);
 
-        $support_plan->user_name = request('user_name');
-        $support_plan->hygiene = request('hygiene');
-        $support_plan->nutrition = request('nutrition');
-        $support_plan->health_care = request('health_care');
-        $support_plan->medication = request('medication');
-        $support_plan->social_contact = request('social_contact');
-        $support_plan->behaviour = request('behaviour');
-        $support_plan->goals = request('goals');
+        $id = request('user_name') ?? '';
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+
+        $support_plan->user_name = $name ?? '';
+        $support_plan->client_id = $id ?? '';
+
+        $support_plan->hygiene = request('hygiene') ?? '';
+        $support_plan->nutrition = request('nutrition') ?? '';
+        $support_plan->health_care = request('health_care') ?? '';
+        $support_plan->medication = request('medication') ?? '';
+        $support_plan->social_contact = request('social_contact') ?? '';
+        $support_plan->behaviour = request('behaviour') ?? '';
+        $support_plan->goals = request('goals') ?? '';
+        $support_plan->company_id = request('company_id') ?? ' ';
+        $support_plan->location_id = request('location_id') ?? ' ';
+        $support_plan->user_id =  Auth::user()->id;
+        
         
         $support_plan->save();
         

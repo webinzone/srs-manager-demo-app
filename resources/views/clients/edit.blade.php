@@ -281,7 +281,7 @@
                         <label for="ent_no">Status</label>
                           <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="Active" {{ $client_detail->status == 'Active' ? 'selected' : ''  }} style="font-size: 14px;">Active</option> 
-                            <option value="Vacate" {{ $client_detail->status == 'Vacate' ? 'selected' : ''  }} style="font-size: 14px;">Vacate</option> 
+                            <option value="Vaccate" {{ $client_detail->status == 'Vaccate' ? 'selected' : ''  }} style="font-size: 14px;">Vaccate</option> 
                             <option value="Transfered" {{ $client_detail->status == 'Transfered' ? 'selected' : ''  }} style="font-size: 14px;">Transfered</option>
                         </select>          
                       </div>     

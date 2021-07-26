@@ -265,7 +265,7 @@
                         <label for="ent_no">Status</label>
                           <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="Active" style="font-size: 14px;">Active</option> 
-                            <option value="Vacate" style="font-size: 14px;">Vacate</option> 
+                            <option value="Vaccate" style="font-size: 14px;">Vaccate</option> 
                             <option value="Transfered" style="font-size: 14px;">Transfered</option>
                         </select>          
                       </div> 

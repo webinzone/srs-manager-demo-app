@@ -91,7 +91,7 @@ class VaccatesController extends Controller
         $roomdetails->save();
 
         $ress = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $ress->status = "Vacate";
+        $ress->status = "Vaccate";
         $ress->save();
 
       $activity = new ActivityLog();
@@ -174,7 +174,7 @@ class VaccatesController extends Controller
         $roomdetails->save();
 
         $ress = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $ress->status = "Vacate";
+        $ress->status = "Vaccate";
         $ress->save();
 
         

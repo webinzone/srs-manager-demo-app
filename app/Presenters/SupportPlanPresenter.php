@@ -38,37 +38,7 @@ class SupportPlanPresenter extends Presenter
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Eating ana Nutrition')
-            ],[
-                "field" => "health_care",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Health Care')
-            ],[
-                "field" => "medication",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Medication')
-            ],[
-                "field" => "social_contact",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Social Contact and Emotional Wellbeing')
-            ],[
-                "field" => "behaviour",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Behaviour')
-            ],[
-                "field" => "goals",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Goals/Finances/Other')
+                "title" => trans('Nutrition')
             ],[
                 "field" => "created_at",
                 "searchable" => true,
