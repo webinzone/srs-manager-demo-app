@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\Referral;
+use App\Models\Referral2;
+
 use App\Models\ActivityLog;
 
 use Illuminate\Support\Facades\Auth;
