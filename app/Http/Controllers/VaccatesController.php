@@ -5,6 +5,7 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\Vaccate;
 use App\Models\ClientDetail;
+use App\Models\RoomDetail;
 
 use App\Models\ActivityLog;
 
@@ -83,7 +84,16 @@ class VaccatesController extends Controller
         $vaccate->user_id =  Auth::user()->id;
         
         $vaccate->save();
-       
+
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
+        $roomdetails->status = "Free";
+        $roomdetails->client_id = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
+        $roomdetails->save();
+
+        $ress = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $ress->status = "Vacate";
+        $ress->save();
+
       $activity = new ActivityLog();
 
       $activity->user = Auth::user()->first_name;
