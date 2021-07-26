@@ -136,7 +136,7 @@ class ReferralsController extends Controller
         $referral->save();
 
         $referral2 = new Referral2();
-        $referral2->client_id = referral->id ?? '';
+        $referral2->client_id = $referral->id ?? '';
         $referral2->med1 = request('med1') ?? '';
         $referral2->med1_det = request('med1_det') ?? '';
         $referral2->med2 = request('med2') ?? '';
@@ -340,7 +340,7 @@ class ReferralsController extends Controller
         
         $referral->save();
         $referral2 = new Referral2();
-        $referral2->client_id = referral->id ?? '';
+        $referral2->client_id = $referral->id ?? '';
         $referral2->med1 = request('med1') ?? '';
         $referral2->med1_det = request('med1_det') ?? '';
         $referral2->med2 = request('med2') ?? '';
