@@ -13,8 +13,7 @@ use Watson\Validating\ValidatingTrait;
  *
  * @version    v1.0
  */
-class 
- extends SnipeModel
+class Vaccate extends SnipeModel
 {
     protected $presenter = 'App\Presenters\VaccatePresenter';
     use Presentable;

@@ -35,45 +35,40 @@
                 <!-- box-body -->
                 <div class="box-body" style="padding-left: 40px;padding-right: 40px;">                          
                     <div class="form-group ">
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-4 mb-3">
                         <label>Resident Name</label>
-                        <select class="form-control" required="" id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
+                        <select class="form-control" required="" id="resi_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Resident Name  --</option>
                           @foreach($residents as $resident)
-                          <option value="{{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}"> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
+                          <option value="{{ $resident->id }}"> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
                           @endforeach
                         </select>                
                       </div>
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-2 mb-3">
                         <label>Room No</label>
-                        <input type="text" name="roomno" id="roomno" class="form-control" placeholder="Room No">                
+                        <input type="text" name="roomno" id="roomno" class="form-control" placeholder="Room No" readonly>                
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="name">Date</label>
-                        <input type="date" name="v_date" id="v_date" class="form-control" placeholder="Date">               
+                        <input type="date" name="v_date" id="res_date" class="form-control" placeholder="Date">               
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
-                        <select name="gender"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
-                            <option value="" style="font-size: 14px;">---Select--</option> 
-                            <option value="Male" style="font-size: 14px;">Male</option> 
-                            <option value="Female" style="font-size: 14px;">Female</option> 
-                            <option value="Other" style="font-size: 14px;">Other</option>
-                        </select>               
+                        <input type="text" class="form-control" name="gender" id="gender" readonly>             
                         </div>                        
                     </div>
                     <div class="form-group ">
                         <div class="col-md-4 mb-3">
                         <label>Address</label>
-                        <textarea  name="address" class="form-control" placeholder="Address"></textarea>                
+                        <textarea  name="address" id="adr" class="form-control" placeholder="Address" readonly></textarea>                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Phone Number</label>
-                        <input type="tel" name="ph" id="ph" class="form-control" placeholder="Phone Number">                
+                        <input type="tel" name="ph" id="ph" class="form-control" placeholder="Phone Number" readonly>                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Room No">                
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" readonly>                
                       </div>
                     </div>
                     <div class="form-group ">
@@ -133,6 +128,45 @@
 @stop
 
 @section('moar_scripts')
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAclientDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#roomno').val(response.room_no);            
+                 $('#ph').val(response.ph);
+                $('#gender').val(response.gender);
+                $('#email').val(response.res_email);
+                $('#adr').val(response.pre_address);           
+
+                   
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script type="text/javascript">
+    Date.prototype.toDateInputValue = (function() {
+    var local = new Date(this);
+    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+    return local.toJSON().slice(0,10);
+})
+    $(document).ready( function() {
+    $('#res_date').val(new Date().toDateInputValue());
+});
+</script>
 @include ('partials.bootstrap-table')
 @stop
 

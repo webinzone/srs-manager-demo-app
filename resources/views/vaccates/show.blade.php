@@ -29,95 +29,84 @@
 
                 <!-- Asset name -->
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Resident Name:</label>
+                    <label class="col-sm-6 control-label">Resident Name:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $vaccate->res_name}}</p>
                     </div>
                 </div>
                <div class="form-group">
-                    <label class="col-sm-3 control-label">Room No:</label>
+                    <label class="col-sm-6 control-label">Room No:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $vaccate->roomno}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Date:</label>
+                    <label class="col-sm-6 control-label">Date:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $vaccate->v_date}}</p>
+                        <p class="form-control-static">{{ date('d-m-Y', strtotime($vaccate->v_date))}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Gender:</label>
+                    <label class="col-sm-6 control-label">Gender:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $vaccate->gender}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Address:</label>
+                    <label class="col-sm-6 control-label">Address:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $vaccate->address}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Phone Number:</label>
+                    <label class="col-sm-6 control-label">Phone Number:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $vaccate->ph}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Email:</label>
+                    <label class="col-sm-6 control-label">Email:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $vaccate->email}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Reason for moving:</label>
+                    <label class="col-sm-6 control-label">Reason for moving:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $vaccate->reason}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Expected move-out Date:</label>
+                    <label class="col-sm-6 control-label">Expected move-out Date:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $vaccate->ex_date}}</p>
+                        <p class="form-control-static">{{ date('d-m-Y', strtotime($vaccate->ex_date))}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Has all resident moving?:</label>
+                    <label class="col-sm-6 control-label">Has all resident moving?:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $vaccate->al_res}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Forwarding Address:</label>
+                    <label class="col-sm-6 control-label">Forwarding Address:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $vaccate->f_addr}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Has all amount paid?:</label>
+                    <label class="col-sm-6 control-label">Has all amount paid?:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $vaccate->pay_status}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Paid Amount:</label>
+                    <label class="col-sm-6 control-label">Paid Amount:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $vaccate->pay_amt}}</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Company Id:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $vaccate->company_id}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Location Id:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $vaccate->location_id}}</p>
-                    </div>
-                </div>
+                
           
             </div>
           </div>

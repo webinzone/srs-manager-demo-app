@@ -64,18 +64,7 @@
                         <p class="form-control-static">{{ $srs_staff->quali}}</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Company Id:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $srs_staff->company_id}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Location Id:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $srs_staff->location_id}}</p>
-                    </div>
-                </div>
+              
           
             </div>
           </div>

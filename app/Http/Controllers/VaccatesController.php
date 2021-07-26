@@ -59,8 +59,12 @@ class VaccatesController extends Controller
     {
         $this->authorize('create',vaccate::class);
         $vaccate = new vaccate();
-        $vaccate->res_name = request('res_name') ?? '';
-        $vaccate->client_id = request('client_id') ?? '';
+        $id = request('res_name') ?? '';
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+        $vaccate->res_name  = $name;
+        $vaccate->client_id = $id;
+
         $vaccate->v_date = request('v_date') ?? '';
         $vaccate->address = request('address') ?? '';
         $vaccate->gender = request('gender') ?? '';
@@ -115,7 +119,8 @@ class VaccatesController extends Controller
     {
         $this->authorize('edit',Vaccate::class);
         $vaccate = Vaccate::find($id);
-        return view('vaccates/edit',compact('vaccate'));
+        $residents = ClientDetail::all();
+        return view('vaccates/edit',compact('residents'));
     }
     /**
      * Update the specified resource in storage.
@@ -129,8 +134,12 @@ class VaccatesController extends Controller
         $this->authorize('update', Vaccate::class);
         $vaccate = Vaccate::find($id);
 
-        $vaccate->res_name = request('res_name') ?? '';
-        $vaccate->client_id = request('client_id') ?? '';
+        $id = request('res_name') ?? '';
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+        $vaccate->res_name  = $name;
+        $vaccate->client_id = $id;
+
         $vaccate->v_date = request('v_date') ?? '';
         $vaccate->address = request('address') ?? '';
         $vaccate->gender = request('gender') ?? '';
