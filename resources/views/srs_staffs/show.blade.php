@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Date of Birth:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $srs_staff->dob}}</p>
+                        <p class="form-control-static">{{ date('d-m-Y', strtotime($srs_staff->dob))}}</p>
                     </div>
                 </div>
                 <div class="form-group">

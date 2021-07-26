@@ -15,6 +15,9 @@ use App\Models\HealthService;
 use App\Models\ClientGpdetail;
 use App\Models\ClientNextofkin;
 use App\Models\RoomDetail;
+use App\Models\CompanyMaster;
+use App\Models\TransferRecord;
+
 
 
 
@@ -68,6 +71,29 @@ class ResidentUiController extends Controller
         $resident_agreement = ResidentAgreement::where('client_id', '=', $id)->firstOrFail();
         return view('residentui/rsa',compact('resident_agreement', 'residents', 'emps', 'r_id'));
     }
+    
+    public function getRoom($id)
+    {
+           $r_id = $id; 
+            $residents = ClientDetail::all();
+            $companies = CompanyMaster::all();
+            $emps = SrsStaff::all();
+          $condition_report = ConditionReport::where('client_id', '=', $id)->firstOrFail();
+         $item_no = explode(',', $condition_report->item_no);
+          $res_comments = explode(',', $condition_report->res_comments);
+          $items = explode(',', $condition_report->items);
+          $owned_by = explode(',', $condition_report->owned_by);
+          $res_cond = explode(',', $condition_report->res_cond);
+          $item_last= last($item_no);
+          $num = (int)$item_last;
+        return view('residentui/room_assets',compact('condition_report','residents','companies','emps','item_no', 'res_comments', 'items', 'owned_by', 'res_cond', 'num', 'r_id'));
+    }
 
-
+    public function getTransfer($id)
+    {
+        $r_id = $id; 
+        $transfer_record = TransferRecord::where('client_id', '=', $id)->firstOrFail();
+        $residents = ClientDetail::all();
+        return view('residentui/transfer',compact('transfer_record','residents','r_id'));
+    }
  }

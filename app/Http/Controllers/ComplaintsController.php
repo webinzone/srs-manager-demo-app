@@ -115,7 +115,8 @@ class ComplaintsController extends Controller
     {
         $this->authorize('edit',Complaint::class);
         $complaint = Complaint::find($id);
-        return view('complaints/edit',compact('complaint'));
+         $emps = SrsStaff::all();
+        return view('complaints/edit',compact('complaint','emps'));
     }
     /**
      * Update the specified resource in storage.

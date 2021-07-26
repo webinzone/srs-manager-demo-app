@@ -226,8 +226,20 @@ class TransferRecordsController extends Controller
         $activity->item = "Transfer Report";
         $activity->save();
 
-        return redirect()->route('transfer_records.index')
+         $val = request('val')  ?? '';
+        if($val == 'res')
+        {
+            return redirect()->route('transferDetails', $transfer_record->client_id)
+                ->with('success','Updated successfully');
+        }
+        else
+        {
+
+       return redirect()->route('transfer_records.index')
                         ->with('success','updated successfully');
+        }
+
+        
     }
     /**
      * Remove the specified resource from storage.

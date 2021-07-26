@@ -71,10 +71,10 @@
                               <a href="{{ route("rsaDetails", $client_detail->id) }}" >RSA</a>
                            </li>
                            <li>
-                              <a href="" >Room Assets</a>
+                              <a href="{{ route("roomDetails", $client_detail->id) }}" >Room Assets</a>
                            </li>
                            <li>
-                               <a href="" >Transfer</a>
+                               <a href="{{ route("transferDetails", $client_detail->id) }}" >Transfer</a>
                            </li>
                            <li>
                                <a href="" >Referal</a>

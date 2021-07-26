@@ -65,7 +65,7 @@ class VaccatesController extends Controller
         $name = $res->fname." ".$res->mname." ".$res->lname;
         $vaccate->res_name  = $name;
         $vaccate->client_id = $id;
-
+        $rroom = request('roomno') ?? '';
         $vaccate->v_date = request('v_date') ?? '';
         $vaccate->address = request('address') ?? '';
         $vaccate->gender = request('gender') ?? '';
@@ -87,7 +87,7 @@ class VaccatesController extends Controller
 
         $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
         $roomdetails->status = "Free";
-        $roomdetails->client_id = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
+      
         $roomdetails->save();
 
         $ress = ClientDetail::where('id', '=', $id)->firstOrFail();
@@ -130,7 +130,7 @@ class VaccatesController extends Controller
         $this->authorize('edit',Vaccate::class);
         $vaccate = Vaccate::find($id);
         $residents = ClientDetail::all();
-        return view('vaccates/edit',compact('residents'));
+        return view('vaccates/edit',compact('vaccate','residents'));
     }
     /**
      * Update the specified resource in storage.
@@ -143,13 +143,12 @@ class VaccatesController extends Controller
     {
         $this->authorize('update', Vaccate::class);
         $vaccate = Vaccate::find($id);
-
         $id = request('res_name') ?? '';
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
         $name = $res->fname." ".$res->mname." ".$res->lname;
         $vaccate->res_name  = $name;
         $vaccate->client_id = $id;
-
+        $rroom = request('roomno') ?? '';
         $vaccate->v_date = request('v_date') ?? '';
         $vaccate->address = request('address') ?? '';
         $vaccate->gender = request('gender') ?? '';
@@ -168,6 +167,17 @@ class VaccatesController extends Controller
         $vaccate->user_id =  Auth::user()->id;
         
         $vaccate->save();
+
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
+        $roomdetails->status = "Free";
+      
+        $roomdetails->save();
+
+        $ress = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $ress->status = "Vacate";
+        $ress->save();
+
+        
         $activity = new ActivityLog();
 
         $activity->user = Auth::user()->first_name;

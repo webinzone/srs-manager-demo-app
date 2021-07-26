@@ -102,8 +102,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('get/residents/{id}','ResidentUiController@index')->name('residentDetails');
     Route::get('get/resAgreements/{id}','ResidentUiController@getRsa')->name('rsaDetails');
-   
-
+    Route::get('get/resRoomassets/{id}','ResidentUiController@getRoom')->name('roomDetails');
+    Route::get('get/resTransfer/{id}','ResidentUiController@getTransfer')->name('transferDetails');
+    
 
     /*
     * Companies

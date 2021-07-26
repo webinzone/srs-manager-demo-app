@@ -21,7 +21,9 @@
         <!-- col-md-8 -->
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
 
-          <form id="create-form" class="form-horizontal" method="post" action="{{ route('vaccates.store') }}" autocomplete="off" role="form" style="width: 800px;">
+          <form id="create-form" class="form-horizontal" method="post" action="{{ route ('vaccates.update', $vaccate->id) }}" autocomplete="off" role="form" style="width: 800px;">
+            @method('PATCH') 
+
                  {{ csrf_field() }}
 
             <!-- box -->
@@ -37,42 +39,38 @@
                     <div class="form-group ">
                       <div class="col-md-3 mb-3">
                         <label>Resident Name</label>
-                        <select class="form-control" required="" id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
+                        <select class="form-control" required="" id="resi_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                             @foreach($residents as $resident)
-                            <option value="{{ $resident->id }}" {{ $vaccate->r_name == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
+                            <option value="{{ $resident->id }}" {{ $vaccate->res_name == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
                           @endforeach
                         </select>                
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Room No</label>
-                        <input type="text" name="roomno" id="roomno" class="form-control" value="{{ $vaccate->roomno}}" placeholder="Room No">                
+                        <input type="text" name="roomno" id="roomno" class="form-control" value="{{ $vaccate->roomno}}" placeholder="Room No" readonly>                
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="name">Date</label>
                         <input type="date" name="v_date" id="v_date" class="form-control" value="{{ $vaccate->v_date}}" placeholder="Date">               
                       </div>
                       <div class="col-md-3 mb-3">
-                        <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
-                        <select name="gender"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
-                            <option value="" style="font-size: 14px;">---Select--</option> 
-                            <option value="Male" {{ $vaccate->gender == 'Male' ? 'selected' : ''  }} style="font-size: 14px;">Male</option> 
-                            <option value="Female" {{ $vaccate->gender == 'Female' ? 'selected' : ''  }} style="font-size: 14px;">Female</option> 
-                            <option value="Other" {{ $vaccate->gender == 'Other' ? 'selected' : ''  }} style="font-size: 14px;">Other</option>
-                        </select>               
+                        <label for="gender">Gender</label>
+                        <input type="date" name="gender" id="gender" class="form-control" value="{{ $vaccate->gender}}" placeholder="Gender" readonly>   
+                                    
                         </div>                        
                     </div>
                     <div class="form-group ">
                         <div class="col-md-4 mb-3">
                         <label>Address</label>
-                        <textarea  name="address" class="form-control"  placeholder="Address">{{ $vaccate->address}}</textarea>                
+                        <textarea  name="address" class="form-control" id="adr"  placeholder="Address" readonly>{{ $vaccate->address}}</textarea>                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Phone Number</label>
-                        <input type="tel" name="ph" id="ph" class="form-control" value="{{ $vaccate->ph}}" placeholder="Phone Number">                
+                        <input type="tel" name="ph" id="ph" class="form-control" value="{{ $vaccate->ph}}" placeholder="Phone Number" readonly>                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Email</label>
-                        <input type="email" name="email" id="email" class="form-control" value="{{ $vaccate->email}}" placeholder="Room No">                
+                        <input type="email" name="email" id="email" class="form-control" value="{{ $vaccate->email}}" placeholder="Room No" readonly>                
                       </div>
                     </div>
                     <div class="form-group ">
@@ -86,19 +84,19 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Has all resident moving?</label>
-                        <br><input type="radio" onchange="findselected2();" {{ $vaccate->al_res == 'Yes' ? 'checked' : ''  }} id="al_res"  value="Yes" name="al_res">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" onchange="findselected2();" {{ $vaccate->al_res == 'No' ? 'checked' : ''  }}  id="al_res" value="No" name="al_res">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;               
+                        <br><input type="radio"  {{ $vaccate->al_res == 'Yes' ? 'checked' : ''  }} id="al_res"  value="Yes" name="al_res">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  {{ $vaccate->al_res == 'No' ? 'checked' : ''  }}  id="al_res" value="No" name="al_res">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;               
                       </div>
                     </div>
                     <div class="form-group ">
                      <div class="col-md-4 mb-3">
                         <label>Forwarding Address</label>
-                        <textarea  name="f_addr" class="form-control" value="{{ $vaccate->f_addr}}"placeholder="Forwarding Address"></textarea>                
+                        <textarea  name="f_addr" class="form-control" placeholder="Forwarding Address">{{ $vaccate->f_addr}}</textarea>                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Has all amount paid?</label>
-                        <br><input type="radio" onchange="findselected2();" {{ $vaccate->pay_status == 'Yes' ? 'checked' : ''  }} id="pay_status"  value="Yes" name="pay_status">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" onchange="findselected2();" {{ $vaccate->pay_status == 'No' ? 'checked' : ''  }}  id="pay_status" value="No" name="pay_status">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                 
+                        <br><input type="radio" {{ $vaccate->pay_status == 'Yes' ? 'checked' : ''  }} id="pay_status"  value="Yes" name="pay_status">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" {{ $vaccate->pay_status == 'No' ? 'checked' : ''  }}  id="pay_status" value="No" name="pay_status">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                 
                       </div>
                       <div class="form-group ">
                      <div class="col-md-4 mb-3">
@@ -132,6 +130,45 @@
 @stop
 
 @section('moar_scripts')
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAclientDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#roomno').val(response.room_no);            
+                 $('#ph').val(response.ph);
+                $('#gender').val(response.gender);
+                $('#email').val(response.res_email);
+                $('#adr').val(response.pre_address);           
+
+                   
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script type="text/javascript">
+    Date.prototype.toDateInputValue = (function() {
+    var local = new Date(this);
+    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+    return local.toJSON().slice(0,10);
+})
+    $(document).ready( function() {
+    $('#res_date').val(new Date().toDateInputValue());
+});
+</script>
 @include ('partials.bootstrap-table')
 @stop
 
