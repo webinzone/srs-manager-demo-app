@@ -242,7 +242,7 @@ class ConditionReportsController extends Controller
      public function generateReport()
      {
       $res = request('res_name');
-      $condition_report = ConditionReport::where('res_name', '=', $res)->firstOrFail();
+      $condition_report = ConditionReport::where('client_id', '=', $res)->firstOrFail();
       $item_no = explode(',', $condition_report->item_no);
       $res_comments = explode(',', $condition_report->res_comments);
       $items = explode(',', $condition_report->items);

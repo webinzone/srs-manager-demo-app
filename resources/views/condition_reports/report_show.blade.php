@@ -82,7 +82,7 @@
                          <select class="form-control" required="" id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Resident Name  --</option>
                           @foreach($condition_reports as $resident)
-                          <option value="{{ $resident->res_name }}"> {{ $resident->res_name}}</option>
+                          <option value="{{ $resident->client_id }}"> {{ $resident->res_name}}</option>
                           @endforeach
                         </select>
                        

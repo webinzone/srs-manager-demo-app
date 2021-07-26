@@ -33,7 +33,7 @@
                          <select class="form-control" required="" id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Resident Name  --</option>
                           @foreach($agreements as $resident)
-                          <option value="{{ $resident->r_name }}"> {{ $resident->r_name}}</option>
+                          <option value="{{ $resident->client_id }}"> {{ $resident->r_name}}</option>
                           @endforeach
                         </select>
                        
