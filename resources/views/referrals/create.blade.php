@@ -20,6 +20,7 @@
   table, td, th {
     border: 1px solid black;
     align-items: center;
+    padding: 10px;
   }
 
   table {
@@ -129,7 +130,7 @@
 
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
-                        <label>First Name</label>
+                        <label>Rsident Name</label>
                         <input type="text" name="cfname" class="form-control" placeholder="First Name">                                        
                       </div>
                       <div class="col-md-3 mb-3">
@@ -143,12 +144,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="cgender">Gender</label>&nbsp;&nbsp;&nbsp;
-                        <select name="cgender"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
-                            <option value="" style="font-size: 14px;">---Select--</option> 
-                            <option value="Male" style="font-size: 14px;">Male</option> 
-                            <option value="Female" style="font-size: 14px;">Female</option> 
-                            <option value="Other" style="font-size: 14px;">Other</option>
-                        </select>  
+                          <input type="text" name="cgender" class="form-control" placeholder="Gender">
                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -303,11 +299,8 @@
 
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
-                        <label>Type of Income</label><br>
-                            <label><input  type="checkbox" name="pen_type" value="Centrelink"> Centrelink</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="pen_type" value="Veterans' Affairs"> Veterans' Affairs</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="pen_type" value="Overseas Pension"> Overseas Pension</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="pen_type" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
+                        <label>Type of Income</label>
+                        <input type="text" class="form-control" name="pen_type" placeholder="Type of Income">
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Client Ref Number</label>
@@ -339,7 +332,7 @@
                 <h5 style="color:#980000;font-size: 16px;"><b>Medication.This information to be provided by client's health provider.</b></h5>
                 <div class="form-row">
                   <div class="col-md-12 mb-3" >
-                <table style="border: 2px; border-width: 1px; border-color: black; padding-left: 8px;left: 50px;">
+                <table style="border: 2px; border-width: 1px; border-color: black; padding-left: 8px;left: 50px; padding: 10px;">
                   <tr style="padding:5px;">
                     <th>Drug name</th>
                     <th>Dose</th>
@@ -348,60 +341,57 @@
                     <th>Last Taken</th>
                   </tr>
                   <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="medi_drugname[]"></td>
+                  <td><input type="text" id="f7" name="medi_dose[]"></td>
+                  <td><input type="text" id="f7" name="medi_freq[]"></td>
+                  <td><input type="text" id="f7" name="medi_duration[]"></td>
+                  <td><input type="text" id="f7" name="medi_lasttaken[]"></td>
                 </tr>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="medi_drugname[]"></td>
+                  <td><input type="text" id="f7" name="medi_dose[]"></td>
+                  <td><input type="text" id="f7" name="medi_freq[]"></td>
+                  <td><input type="text" id="f7" name="medi_duration[]"></td>
+                  <td><input type="text" id="f7" name="medi_lasttaken[]"></td>
                 </tr>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="medi_drugname[]"></td>
+                  <td><input type="text" id="f7" name="medi_dose[]"></td>
+                  <td><input type="text" id="f7" name="medi_freq[]"></td>
+                  <td><input type="text" id="f7" name="medi_duration[]"></td>
+                  <td><input type="text" id="f7" name="medi_lasttaken[]"></td>
                 </tr>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="medi_drugname[]"></td>
+                  <td><input type="text" id="f7" name="medi_dose[]"></td>
+                  <td><input type="text" id="f7" name="medi_freq[]"></td>
+                  <td><input type="text" id="f7" name="medi_duration[]"></td>
+                  <td><input type="text" id="f7" name="medi_lasttaken[]"></td>
                 </tr>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="medi_drugname[]"></td>
+                  <td><input type="text" id="f7" name="medi_dose[]"></td>
+                  <td><input type="text" id="f7" name="medi_freq[]"></td>
+                  <td><input type="text" id="f7" name="medi_duration[]"></td>
+                  <td><input type="text" id="f7" name="medi_lasttaken[]"></td>
                 </tr>
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="medi_drugname[]"></td>
+                  <td><input type="text" id="f7" name="medi_dose[]"></td>
+                  <td><input type="text" id="f7" name="medi_freq[]"></td>
+                  <td><input type="text" id="f7" name="medi_duration[]"></td>
+                  <td><input type="text" id="f7" name="medi_lasttaken[]"></td>
                 </tr>
                 </table>
               </div>
             </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
-                    <div class="col-md-12 mb-3">
+                    <div class="col-md-6 mb-3">
                        <label>Does client have the medication with her/him?</label>
                         <br><input type="radio"  id="r1"  onclick="findselected1();" value="Yes" name="c_medi">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio" onclick="findselected1();" id="r1" value="No" name="c_medi">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
                       </div>
-                    
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="form-row">
-                    <div class="col-md-12 mb-3">
+                      <div class="col-md-6 mb-3">
                        <label>Is the client able to administer own medication?</label>
                         <br><input type="radio"  id="r1"  onclick="findselected1();" value="Yes" name="c_ownmedi">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio" onclick="findselected1();" id="r1" value="No" name="c_ownmedi">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
@@ -514,16 +504,19 @@
                       <div class="col-md-12 mb-3">
                         <label>List any known "triggers" for problem behaviour</label>
                         <textarea name="triger" class="form-control" placeholder="List any known triggers for problem behaviour"></textarea>                                       
-                      </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </div>
+                    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                   <div class="col-md-12 mb-3" >
-                <table style="border: 2px; border-width: 1px; border-color: black; padding-left: 8px;left: 50px;">
+            <table style="border: 2px; border-width: 1px; border-color: black; padding-left: 8px;left: 50px;">
                   <tr style="padding:5px;">
-                    <th>S.NO</th>
-                    <th>If you answer "Yes" pl provide further information.</th>
-                    <th>YES</th>
-                    <th>NO</th>
-                    <th>Details(If you answer "Yes" pl provide further information)</th>
+                    <thead style="padding:10px;">
+                    <th style="left:5px;" width="50px;">S.NO</th>
+                    <th width="500px;">If you answer "Yes" pl provide further information.</th>
+                    <th width="50px;">&nbsp;&nbsp;YES</th>
+                    <th width="50px;">&nbsp;&nbsp;NO</th>
+                    <th width="200px;">Details(If you answer "Yes" pl provide further information)</th>
+                    </thead>
                   </tr>
                   <tr>
                   <td>1</td>
@@ -532,7 +525,7 @@
                     <input type="checkbox" name="med1" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med1" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med1_det" style="height:70px;"></td>
                 </tr>
                 <tr>
                   <td>2</td>
@@ -541,7 +534,7 @@
                     <input type="checkbox" name="med2" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med2" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med2_det"></td>
                 </tr>
                 <tr>
                   <td>3</td>
@@ -550,7 +543,7 @@
                     <input type="checkbox" name="med3" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med3" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med3_det"></td>
                 </tr>
                 <tr>
                   <td>4</td>
@@ -559,7 +552,7 @@
                     <input type="checkbox" name="med4" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med4" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med4_det"></td>
                 </tr>
                 <tr>
                   <td>5</td>
@@ -568,7 +561,7 @@
                     <input type="checkbox" name="med5" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med5" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med5_det"></td>
                 </tr>
                 <tr>
                   <td>6</td>
@@ -577,7 +570,7 @@
                     <input type="checkbox" name="med6" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med6" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med6_det"></td>
                 </tr>
                 <tr>
                   <td>7</td>
@@ -586,7 +579,7 @@
                     <input type="checkbox" name="med7" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med7" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med7_det"></td>
                 </tr>
                 <tr>
                   <td>8</td>
@@ -595,7 +588,7 @@
                     <input type="checkbox" name="med8" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med8" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med8_det"></td>
                 </tr>
                 <tr>
                   <td>9</td>
@@ -604,7 +597,7 @@
                     <input type="checkbox" name="med9" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med9" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med9_det"></td>
                 </tr>
                 <tr>
                   <td>10</td>
@@ -613,7 +606,7 @@
                     <input type="checkbox" name="med10" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med10" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med10_det"></td>
                 </tr>
                 <tr>
                   <td>11</td>
@@ -622,7 +615,7 @@
                     <input type="checkbox" name="med11" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med11" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med11_det"></td>
                 </tr>
                 <tr>
                   <td>12</td>
@@ -631,7 +624,7 @@
                     <input type="checkbox" name="med12" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med12" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med12_det"></td>
                 </tr>
                 <tr>
                   <td>13</td>
@@ -640,7 +633,7 @@
                     <input type="checkbox" name="med13" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med13" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med13_det"></td>
                 </tr>
                 <tr>
                   <td>14</td>
@@ -649,7 +642,7 @@
                     <input type="checkbox" name="med14" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med14" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med14_det"></td>
                 </tr>
                 <tr>
                   <td>15</td>
@@ -658,7 +651,7 @@
                     <input type="checkbox" name="med15" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med15" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med315det"></td>
                 </tr>
                 <tr>
                   <td>16</td>
@@ -667,7 +660,7 @@
                     <input type="checkbox" name="med16" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med16" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med16_det"></td>
                 </tr>
                 <tr>
                   <td>17</td>
@@ -676,7 +669,7 @@
                     <input type="checkbox" name="med17" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med17" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med17_det"></td>
                 </tr>
                 <tr>
                   <td>18</td>
@@ -685,7 +678,7 @@
                     <input type="checkbox" name="med18" onclick="findselected5();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
                     <input type="checkbox" name="med18" onclick="findselected5();" value="NO" /></td>
-                  <td></td>
+                  <td><input type="text" id="f7" name="med18_det"></td>
                 </tr>
                 </table>
               </div>
@@ -793,7 +786,8 @@
                 </tr>
                 </table>
               </div>
-            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <h5 style="color:#980000;font-size: 16px;"><b>Aids and Appliances</b></h5>
           <h5 style="font-size: 16px;">Does client use any aids or appliances?</h5>
 

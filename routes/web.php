@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('evngshifts','EvngshiftsController');
     Route::resource('referrals','ReferralsController');
     Route::resource('referrals2','Referrals2Controller');
+    Route::resource('vaccates','VaccatesController');
 
 
 

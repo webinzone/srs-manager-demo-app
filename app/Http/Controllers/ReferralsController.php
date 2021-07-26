@@ -110,11 +110,11 @@ class ReferralsController extends Controller
         $referral->pen_mediexp = request('pen_mediexp') ?? '';
         $referral->pen_taxi = request('pen_taxi') ?? '';
         $referral->pen_taxiexp = request('pen_taxiexp') ?? '';
-        $referral->medi_drugname = request('medi_drugname') ?? '';
-        $referral->medi_dose = request('medi_dose') ?? '';
-        $referral->medi_freq = request('medi_freq') ?? '';
-        $referral->medi_duration = request('medi_duration') ?? '';
-        $referral->medi_lasttaken = request('medi_lasttaken') ?? '';
+        $referral->medi_drugname = implode(',', (array) request('medi_drugname')) ?? '';
+        $referral->medi_dose = implode(',', (array) request('medi_dose')) ?? '';
+        $referral->medi_freq = implode(',', (array) request('medi_freq')) ?? '';
+        $referral->medi_duration = implode(',', (array) request('medi_duration')) ?? '';
+        $referral->medi_lasttaken = implode(',', (array) request('medi_lasttaken')) ?? '';
         $referral->c_medi = request('c_medi') ?? '';
         $referral->c_ownmedi = request('c_ownmedi') ?? '';
         $referral->c_medisideeffect = request('c_medisideeffect') ?? '';

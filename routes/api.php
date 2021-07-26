@@ -346,6 +346,17 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'auth:api']
             'parameters' => ['srs_staffs' => 'srs_staffs_id']
         ]
     );
+      Route::resource('vaccates', 'VaccatesController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.vaccates.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['vaccates' => 'vaccates_id']
+        ]
+    );
 
      Route::resource('client_details', 'ClientDetailsController',
         [
