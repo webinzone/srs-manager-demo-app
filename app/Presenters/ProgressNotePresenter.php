@@ -22,17 +22,23 @@ class ProgressNotePresenter extends Presenter
                 "title" => trans('Id'),
                 "visible" => false
             ],[
-                "field" => "prg_note",
+                "field" => "res_name",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans(' Prg_Note')
+                "title" => trans(' Resident Name')
             ],[
                 "field" => "staff",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Staff')
+            ],[
+                "field" => "prg_note",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans(' Progress Note')
             ],[
                 "field" => "career",
                 "searchable" => true,

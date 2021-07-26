@@ -25,11 +25,13 @@ class ProgressNotesTransformer
 
             $array = [
                 'id' => (int) $progress_note->id,
-                'prg_note' => e($progress_note->prg_note),
+                'res_name' => e($progress_note->res_name),
                 'staff' => e($progress_note->staff),
+                'prg_note' => e($progress_note->prg_note),
+                
                 'career' => e($progress_note->career),
 
-                'created_at' => e($progress_note->created_at),
+                'created_at' => e(date('d-m-Y', strtotime($progress_note->created_at))),
                 'actions' => view('progress_notes/datatables_actions', compact('progress_note'))->render() 
                 
             ];

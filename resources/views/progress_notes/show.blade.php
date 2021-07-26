@@ -2,7 +2,6 @@
 
 {{-- Page title --}}
 @section('title')
-Complaints
 @parent
 @stop
 
@@ -15,33 +14,41 @@ Complaints
 {{-- Page content --}}
 @section('content')
 
-  <div id="webui">
-    <div class="row">
+ <div id="webui">
+    <div class="row" style="padding-left: 300px;">
         <!-- left column -->
       <div class="col-md-7">
-        <form class="form-horizontal" method="" action="" autocomplete="off">
+        <form class="form-horizontal" method="" style="width:600px;" action="" autocomplete="off">
           <div class="box box-default">
-            <div class="box-header with-border">
-                <h2 class="box-title"> Progress</h2>
-            </div>
+             <div class="box-header with-border text-center">
+                 <h3><b>Progress Notes</b></h3>
+                   
+                </div><!-- /.box-header -->
+            <div class="box-body" style="padding-left:130px;">
 
-            <div class="box-body">
 
                 <!-- Asset name -->
-               <div class="form-group">
-                    <label class="col-sm-3 control-label">Progress Note:</label>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Resident Name:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $progress_note->prg_note}}</p>
+                        <p class="form-control-static">{{ $progress_note->res_name}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Staff:</label>
+                    <label class="col-sm-6 control-label">Staff:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $progress_note->staff}}</p>
                     </div>
                 </div>
+               <div class="form-group">
+                    <label class="col-sm-6 control-label">Progress Note:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $progress_note->prg_note}}</p>
+                    </div>
+                </div>
+                
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Career:</label>
+                    <label class="col-sm-6 control-label">Career:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $progress_note->career}}</p>
                     </div>

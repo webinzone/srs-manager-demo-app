@@ -5,6 +5,7 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\ProgressNote;
 use App\Models\ActivityLog;
+use App\Models\ClientDetail;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -41,7 +42,8 @@ class ProgressNotesController extends Controller
     {
          // Show the page
         $this->authorize('create',ProgressNote::class);
-        return view('progress_notes/create');
+        $residents = ClientDetail::all();
+        return view('progress_notes/create',compact('residents'));
     }
 
 
@@ -57,9 +59,17 @@ class ProgressNotesController extends Controller
         $this->authorize('create',ProgressNote::class);
         $progress_notes = new ProgressNote();
 
-        $progress_notes->prg_note = request('prg_note');
-        $progress_notes->staff = request('staff');
-        $progress_notes->career = request('career');
+        $id = request('res_name') ?? '';
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+
+        $progress_notes->res_name = $name ?? '';
+        $progress_notes->client_id = $id ?? '';
+        $progress_notes->prg_note = request('prg_note') ?? '';
+        $progress_notes->staff = request('staff') ?? '';
+        $progress_notes->career = request('career') ?? '';
+        $progress_notes->company_id = request('company_id') ?? ' ';
+        $progress_notes->location_id = request('location_id') ?? ' ';
         $progress_notes->user_id =  Auth::user()->id;
         
         $progress_notes->save();
@@ -97,7 +107,9 @@ class ProgressNotesController extends Controller
     {
         $this->authorize('edit',ProgressNote::class);
         $progress_note = ProgressNote::find($id);
-        return view('progress_notes/edit',compact('progress_note'));
+        $residents = ClientDetail::all();
+
+        return view('progress_notes/edit',compact('progress_note','residents'));
     }
     /**
      * Update the specified resource in storage.
@@ -112,9 +124,17 @@ class ProgressNotesController extends Controller
         $progress_notes = ProgressNote::find($id);
 
         
-        $progress_notes->prg_note = request('prg_note');
-        $progress_notes->staff = request('staff');
-        $progress_notes->career = request('career');
+       $id = request('res_name') ?? '';
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+
+        $progress_notes->res_name = $name ?? '';
+        $progress_notes->client_id = $id ?? '';
+        $progress_notes->prg_note = request('prg_note') ?? '';
+        $progress_notes->staff = request('staff') ?? '';
+        $progress_notes->career = request('career') ?? '';
+        $progress_notes->company_id = request('company_id') ?? ' ';
+        $progress_notes->location_id = request('location_id') ?? ' ';
         $progress_notes->user_id =  Auth::user()->id;
         
      
