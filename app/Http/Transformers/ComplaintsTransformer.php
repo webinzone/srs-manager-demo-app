@@ -30,13 +30,8 @@ class ComplaintsTransformer
                 'c_name' => e($complaint->c_name),
                 'com_details' => e($complaint->com_details),
                 'com_nature' => e($complaint->com_nature),
-                'phone' => e($complaint->phone),
-                'suggestions' => e($complaint->suggestions),
-                'sign' => e($complaint->sign),
-                'action_date' => e($complaint->action_date),
-                'action_taken' => e($complaint->action_taken),
-                'outcome' => e($complaint->outcome),
-                'created_at' => e($complaint->created_at),
+            
+                'created_at' => e(date('d-m-Y', strtotime($complaint->created_at))),
                 'actions' => view('complaints/datatables_actions', compact('complaint'))->render() 
                 
             ];

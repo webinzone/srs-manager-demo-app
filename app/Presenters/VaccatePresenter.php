@@ -5,7 +5,7 @@ namespace App\Presenters;
  * Class AccessoryPresenter
  * @package App\Presenters
  */
-class ComplaintPresenter extends Presenter
+class VaccatePresenter extends Presenter
 {
     /**
      * Json Column Layout for bootstrap table
@@ -20,37 +20,25 @@ class ComplaintPresenter extends Presenter
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('id'),
-                "visible" => true
+                "visible" => false
             ],[
-                "field" => "f_name",
+                "field" => "res_name",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Facility Name')
+                "title" => trans('Resident Name')
             ],[
-                "field" => "user_name",
+                "field" => "v_date",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Name of Person Commenting')
+                "title" => trans('Date')
             ],[
-                "field" => "c_name",
+                "field" => "address",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Person Completing Form')
-            ],[
-                "field" => "com_details",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Complaint Details')
-            ],[
-                "field" => "com_nature",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Nature of Complaint')
+                "title" => trans('Address')
             ],[
                 "field" => "created_at",
                 "searchable" => true,
@@ -77,7 +65,7 @@ class ComplaintPresenter extends Presenter
      */
     public function nameUrl()
     {
-        return (string) link_to_route('complaints.show', $this->f_name, $this->id);
+        return (string) link_to_route('vaccates.show', $this->user_name, $this->id);
     }
 
     /**
@@ -86,11 +74,11 @@ class ComplaintPresenter extends Presenter
      */
     public function viewUrl()
     {
-        return route('complaints.show', $this->id);
+        return route('vaccates.show', $this->id);
     }
 
     public function name()
     {
-        return $this->model->f_name;
+        return $this->model->user_name;
     }
 }

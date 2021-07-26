@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\Complaint;
+use App\Models\ClientDetail;
+use App\Models\SrsStaff;
+
 use App\Models\ActivityLog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -41,7 +44,9 @@ class ComplaintsController extends Controller
     {
          // Show the page
         $this->authorize('create',Complaint::class);
-        return view('complaints/create');
+        $residents = ClientDetail::all();
+        $emps = SrsStaff::all();
+        return view('complaints/create',compact('residents','emps'));
     }
 
 
@@ -57,18 +62,20 @@ class ComplaintsController extends Controller
         $this->authorize('create',Complaint::class);
         $complaint = new Complaint();
 
-        $complaint->f_name = request('f_name');
-        $complaint->user_name = request('user_name');
-        $complaint->c_name = request('c_name');
-        $complaint->com_details = request('com_details');
-        $complaint->com_nature = request('com_nature');
-        $complaint->phone = request('phone');
-        $complaint->suggestions = request('suggestions');
-        $complaint->sign = request('sign');
-        $complaint->action_date = request('action_date');
-        $complaint->action_taken = request('action_taken');
-        $complaint->outcome = request('outcome');
-        $complaint->user_id =  Auth::user()->id;  
+        $complaint->f_name = request('stf_name') ?? '';
+        $complaint->user_name = request('user_name') ?? '';
+        $complaint->c_name = request('c_name') ?? '';
+        $complaint->com_details = request('com_details') ?? '';
+        $complaint->com_nature = request('com_nature') ?? '';
+        $complaint->phone = request('phone') ?? '';
+        $complaint->suggestions = request('suggestions') ?? '';
+        $complaint->sign = request('sign') ?? '';
+        $complaint->action_date = request('action_date') ?? '';
+        $complaint->action_taken = request('action_taken') ?? '';
+        $complaint->outcome = request('outcome') ?? '';
+        $complaint->company_id = request('company_id') ?? ' ';
+        $complaint->location_id = request('location_id') ?? ' ';
+        $complaint->user_id =  Auth::user()->id;   
 
         $complaint->save(); 
 
@@ -122,17 +129,21 @@ class ComplaintsController extends Controller
         $this->authorize('update', Complaint::class);
         $complaint = Complaint::find($id);
 
-        $complaint->f_name = request('f_name');
-        $complaint->user_name = request('user_name');
-        $complaint->c_name = request('c_name');
-        $complaint->com_details = request('com_details');
-        $complaint->com_nature = request('com_nature');
-        $complaint->phone = request('phone');
-        $complaint->suggestions = request('suggestions');
-        $complaint->sign = request('sign');
-        $complaint->action_date = request('action_date');
-        $complaint->action_taken = request('action_taken');
-        $complaint->outcome = request('outcome');
+        $complaint->f_name = request('stf_name') ?? '';
+        $complaint->user_name = request('user_name') ?? '';
+        $complaint->c_name = request('c_name') ?? '';
+        $complaint->com_details = request('com_details') ?? '';
+        $complaint->com_nature = request('com_nature') ?? '';
+        $complaint->phone = request('phone') ?? '';
+        $complaint->suggestions = request('suggestions') ?? '';
+        $complaint->sign = request('sign') ?? '';
+        $complaint->action_date = request('action_date') ?? '';
+        $complaint->action_taken = request('action_taken') ?? '';
+        $complaint->outcome = request('outcome') ?? '';
+        $complaint->company_id = request('company_id') ?? ' ';
+        $complaint->location_id = request('location_id') ?? ' ';
+        $complaint->user_id =  Auth::user()->id;   
+
         
         $complaint->save();
 

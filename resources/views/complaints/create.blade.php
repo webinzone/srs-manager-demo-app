@@ -1,9 +1,7 @@
-
 @extends('layouts/default')
 
 {{-- Page title --}}
 @section('title')
-Create Complaint
 @parent
 @stop
 @section('header_right')
@@ -18,125 +16,102 @@ Create Complaint
 @section('content')
 <div id="webui">
   
-	<div class="row">
-	    <!-- col-md-8 -->
-	    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
+    <div class="row">
+        <!-- col-md-8 -->
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
 
-	      <form id="create-form" class="form-horizontal" method="post" action="{{ route('complaints.store') }}" autocomplete="off" role="form" >
+          <form id="create-form" class="form-horizontal" method="post" action="{{ route('complaints.store') }}" autocomplete="off" role="form" style="width: 800px;">
                  {{ csrf_field() }}
 
-	        <!-- box -->
-	        <div class="box box-default">
-	            <!-- box-header -->
-	            <div class="box-header with-border text-right">
+            <!-- box -->
+            <div class="box box-default">
+                <!-- box-header -->
+                <div class="box-header with-border text-center">
+                   <h3><b>Complaints</b></h3>
+                   
+                </div><!-- /.box-header -->
 
-	                <div class="col-md-12 box-title text-right" style="padding: 0px; margin: 0px;">
-
-	                    <div class="col-md-12" style="padding: 0px; margin: 0px;">
-	                        <div class="col-md-9 text-left">
-	                                                    </div>
-	                        <div class="col-md-3 text-right" style="padding-right: 10px;">
-	                            <a class="btn btn-link text-left" href="{{ route('complaints.index') }}">
-	                                Cancel
-	                            </a>
-	                            <button type="submit" class="btn btn-primary">
-	                                <i class="fa fa-check icon-white" aria-hidden="true"></i>
-	                                Save
-	                            </button>
-	                        </div>
-	                    </div>
-	                </div>
-
-	            </div><!-- /.box-header -->
-
-	            <!-- box-body -->
-	            <div class="box-body">		                    
-					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Facility Name</label>
-					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="f_name" class="form-control" placeholder="Facility Name">
-        
-					    </div>
-					</div>
-					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Name of Person Commenting</label>
-					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="user_name" class="form-control" placeholder="Name of Person Commenting">					        	        
-					    </div>
-					</div>
-					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Person Completing Form</label>
-					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="c_name" class="form-control" placeholder="Person Completing Form">					        	        
-					    </div>
-					</div>
-					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Complaint Details</label>
-					    <div class="col-md-7 col-sm-12 required">
-  	             
-  	                    <textarea name="com_details" class="form-control" placeholder="Complaint Details"></textarea>				        	        
-					    </div>
-					</div>
-					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Nature of Complaint</label>
-					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="com_nature" class="form-control" placeholder="Nature of Complaint">					        	        
-					    </div>
-					</div>
-					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Contact Number</label>
-					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="phone" class="form-control" placeholder="Contact Number">					        	        
-					    </div>
-					</div>
-					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Suggestions for improvement</label>
-					    <div class="col-md-7 col-sm-12 required">
-  	             	
-  	             <textarea name="suggestions" class="form-control" placeholder="Suggestions for improvement"></textarea>				        	        
-					    </div>
-					</div>
-					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Sign</label>
-					    <div class="col-md-7 col-sm-12 required">
-  	             <input type="text" name="sign" class="form-control" placeholder="Sign">					        	        
-					    </div>
-					</div>
-					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Action Date</label>
-					    <div class="col-md-7 col-sm-12 required">
-
-                       <div class='input-group date' id='datepicker'>
-                      <input type='text' name="action_date" class="form-control" placeholder="Date" id="datepicker" />
-                      <span class="input-group-addon">
-                          <i class="fa fa-calendar" aria-hidden="true"></i>
-                      </span>
+                <!-- box-body -->
+                <div class="box-body" style="padding-left: 40px;padding-right: 40px;">                          
+                    <div class="form-group ">
+                      <div class="col-md-4 mb-3">
+                        <label for="name" >Staff Name</label>
+                         <select class="form-control" style="height: 26px;padding: 3px 10px;" id="res_name" name="stf_name">
+                            <option>--   Select Staff Name  --</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
+                          @endforeach
+                        </select>              
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="name">Person Commenting</label>
+                        <input type="text" name="user_name" class="form-control" placeholder="Name of Person Commenting">               
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="name">Complaint Details</label>
+                        <textarea name="com_details" class="form-control" placeholder="Complaint Details"></textarea>               
+                      </div>                        
                     </div>
-        
-                        </div>					        	        
-					    </div>
-					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Action Taken</label>
-					    <div class="col-md-7 col-sm-12 required">
-  	             	<textarea name="action_taken" class="form-control" placeholder="Action Taken"></textarea>				        	        
-					    </div>
-					</div>
-					<div class="form-group ">
-					    <label for="name" class="col-md-3 control-label">Outcome or Method of Communication</label>
-					    <div class="col-md-7 col-sm-12 required">
-					    	<textarea name="outcome" class="form-control" placeholder="Outcome or Method of Communication"></textarea>	
-  	            					        	        
-					    </div>
-					</div>
-					<div class="box-footer text-right">
-					    <a class="btn btn-link text-left" href="{{ route('complaints.index') }}">Cancel</a>
-					    <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
-					</div>
+                    <div class="form-group ">
+                           <div class="col-md-4 mb-3 ">
+                        <label for="name" >Nature of Complaint</label>
 
-				</div> <!-- ./box-body -->
-						    <!-- col-md-8 -->
+                 <input type="text" name="com_nature" class="form-control" placeholder="Nature of Complaint">                                        
+                        </div>
+                        
+                           <div class="col-md-4 mb-3 ">
+                        <label for="name" >Contact Number</label>
 
-			    </div><!-- ./row -->
+                 <input type="text" name="phone" class="form-control" placeholder="Contact Number">                                       
+                        </div>
+                         <div class="col-md-4 mb-3 ">
+                        <label for="name" >Action Date</label>
+
+                 <input type="date" name="action_date" class="form-control" placeholder="Action Date">                                        
+                        </div>
+                       
+                    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-group ">
+                     
+                     <div class="col-md-4 mb-3 ">
+                        <label for="name" >Suggestions for improvement</label>
+
+                 <textarea name="suggestions" class="form-control" placeholder="Suggestions for improvement"></textarea>                                        
+                        </div>
+                        
+                        <div class="col-md-4 mb-3 ">
+                        <label for="name" >Action Taken</label>
+
+                 <textarea name="action_taken" class="form-control" placeholder="Action Taken"></textarea>
+                        </div>
+                        <div class="col-md-4 mb-3 ">
+                        <label for="name" >Method of Communication</label>
+
+                 <textarea name="outcome" class="form-control" placeholder="Outcome or Method of Communication"></textarea>
+                        </div>
+                    </div>
+                    
+                  <!--  <div class="form-group ">
+                        <label for="name" >Company Id</label>
+                        <div class="col-md-7 col-sm-12 ">
+                 <input type="text" name="company_id" class="form-control" placeholder="Company Id">                                     
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="name" >Location Id</label>
+                        <div class="col-md-7 col-sm-12 ">
+                 <input type="text" name="location_id" class="form-control" placeholder="Location Id">                                     
+                        </div>
+                    </div>-->
+                    <div class="box-footer text-right">
+                        <a class="btn btn-link text-left" href="{{ route('complaints.index') }}">Cancel</a>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
+                    </div>
+
+                </div> <!-- ./box-body -->
+                            <!-- col-md-8 -->
+
+                </div><!-- ./row -->
      </form>
 </div>
 @stop
@@ -144,4 +119,3 @@ Create Complaint
 @section('moar_scripts')
 @include ('partials.bootstrap-table')
 @stop
-

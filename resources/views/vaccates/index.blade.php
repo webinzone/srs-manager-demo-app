@@ -6,8 +6,8 @@
 @stop
 
 @section('header_right')
-    @can('create', \App\Models\Complaint::class)
-        <a href="{{ route('complaints.create') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Create New</a>
+    @can('create', \App\Models\Vaccate::class)
+        <a href="{{ route('vaccates.create') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Create New</a>
     @endcan
 @stop
 
@@ -18,19 +18,19 @@
   <div class="col-md-12">
 
     <div class="box box-default">
-         <div class="box-header with-border text-center">
-                 <h3><b>Complaints</b></h3>
+        <div class="box-header with-border text-center">
+                 <h3><b>Vaccate</b></h3>
                    
-                </div>
+                </div><!-- /.box-header -->
       <div class="box-body">
         <div class="table-responsive">
 
             <table
-                data-columns="{{ \App\Presenters\ComplaintPresenter::dataTableLayout() }}"
-                data-cookie-id-table="complaintsTable"
+                data-columns="{{ \App\Presenters\VaccatePresenter::dataTableLayout() }}"
+                data-cookie-id-table="vaccatesTable"
                 data-toolbar="#toolbar"
                 data-pagination="true"
-                data-id-table="complaintsTable"
+                data-id-table="vaccatesTable"
                 data-search="true"
                 data-side-pagination="server"
                 data-show-columns="true"
@@ -38,11 +38,11 @@
                 data-show-refresh="true"
                 data-show-footer="true"
                 data-sort-order="asc"
-                id="complaintsTable"
+                id="vaccatesTable"
                 class="table table-striped snipe-table"
-                data-url="{{ route('api.complaints.index') }}"
+                data-url="{{ route('api.vaccates.index') }}"
                 data-export-options='{
-                "fileName": "Complaints",
+                "fileName": "Vaccates",
                 "ignoreColumn": ["actions"]
                 }'                
                >
@@ -57,5 +57,5 @@
 @stop
 
 @section('moar_scripts')
-@include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\ComplaintPresenter::dataTableLayout()])
+@include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\VaccatePresenter::dataTableLayout()])
 @stop

@@ -746,6 +746,17 @@ h4 {
             </li>
             @endcan
 
+            @can('view', \App\Models\SupportPlan::class)
+            <li{!! (Request::is('vaccates*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('vaccates.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-user-times" aria-hidden="true"></i>
+
+
+                  <span style="color: white;">Vaccate Records</span>
+                </a>
+            </li>
+            @endcan
+
             
 
             

@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Complaints
+
 @parent
 @stop
 
@@ -16,80 +16,70 @@ Complaints
 @section('content')
 
   <div id="webui">
-    <div class="row">
+   <div class="row" style="padding-left: 300px;">
         <!-- left column -->
       <div class="col-md-7">
-        <form class="form-horizontal" method="" action="" autocomplete="off">
+        <form class="form-horizontal" method="" style="width:700px;" action="" autocomplete="off">
           <div class="box box-default">
             <div class="box-header with-border">
-                <h2 class="box-title"> Complaint</h2>
-            </div>
+                <h2 class="box-title centre" style="padding-left: 300px;"> <b> Complaints </b></h2><br>
+            </div><br>
 
-            <div class="box-body">
+            <div class="box-body" style="padding-left:100px;">
+
 
                 <!-- Asset name -->
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Facility Name:</label>
+                    <label class="col-sm-6 control-label">Staff Name:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $complaint->f_name}}</p>
                     </div>
                 </div>
                <div class="form-group">
-                    <label class="col-sm-3 control-label">Name of Person Commenting:</label>
+                    <label class="col-sm-6 control-label">Name of Person Commenting:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $complaint->user_name}}</p>
                     </div>
                 </div>
+                
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Person Completing Form:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $complaint->c_name}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Complaint Details:</label>
+                    <label class="col-sm-6 control-label">Complaint Details:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $complaint->com_details}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Nature of Complaint:</label>
+                    <label class="col-sm-6 control-label">Nature of Complaint:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $complaint->com_nature}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Contact Number:</label>
+                    <label class="col-sm-6 control-label">Contact Number:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $complaint->phone}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Suggestions for improvement:</label>
+                    <label class="col-sm-6 control-label">Suggestions for improvement:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $complaint->suggestions}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Sign:</label>
+                    <label class="col-sm-6 control-label">Action Date:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $complaint->sign}}</p>
+                        <p class="form-control-static">{{ date('d-m-Y', strtotime($complaint->action_date))}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Action Date:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $complaint->action_date}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Action Taken:</label>
+                    <label class="col-sm-6 control-label">Action Taken:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $complaint->action_taken}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Outcome or Methode of Communication:</label>
+                    <label class="col-sm-6 control-label">Outcome or Methode of Communication:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $complaint->outcome}}</p>
                     </div>
