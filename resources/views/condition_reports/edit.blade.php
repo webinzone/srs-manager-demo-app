@@ -188,7 +188,7 @@
                                           <input type="text" name="res_comments[]"  class="form-control" value="{{ $res_comments[$i] }}">                                      
                                          </td>
                                          <td>
-                                            <a style="height:20px;background-color:white;color:red;padding-left: 20px;"  class="btn " href="{{ route('getRow', $condition_report->id) }}"><i class="fa fa-trash icon-white"></i></a>
+                                            <a style="height:20px;background-color:white;color:red;padding-left: 20px;"  class="btn " href="{{ route('getRow', [$condition_report->id, 'val' => $i]) }}"><i class="fa fa-trash icon-white"></i></a>
                                              
                                          </td>
                                          

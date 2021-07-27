@@ -291,17 +291,31 @@ class ConditionReportsController extends Controller
 
     public function getRow($id){
 
-        //$data = ConditionReport::where('id', '=', $id)->firstOrFail(); 
-//        $array = explode(',', $data->items);
-//        if (($key = array_search("green", $colors)) !== false) {
-//                unset($colors[$key]);
-//            }            
-//        //for ($i=0; $i < $num; $i++)
-//        //$array[$i] = $data->items;
-//            //if ($rid == $i) {
-//                //$array[$i] = '';
-//            //}
-//        //end
+        $data = ConditionReport::where('id', '=', $id)->firstOrFail(); 
+        $val = request('val')  ?? '';
+        $no = (int)$val;
+          $item_no = explode(',', $data->item_no);
+          $res_comments = explode(',', $data->res_comments);
+          $items = explode(',', $data->items);
+          $owned_by = explode(',', $data->owned_by);
+          $res_cond = explode(',', $data->res_cond);
+          $item_last= last($item_no);
+          $num = (int)$item_last;
+
+        for ($i=0; $i <= $num ; $i++) { 
+            if ($no == $i) {
+                unset($item_no[$i]);
+                unset($res_comments[$i]);
+                unset($items[$i]);
+                unset($owned_by[$i]);
+                unset($res_cond[$i]);
+
+            }
+            
+        }
+
+       // return redirect()->route('condition_reports.index')
+            //            ->with('success','deleted successfully');
 
     }
 
