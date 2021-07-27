@@ -291,31 +291,38 @@ class ConditionReportsController extends Controller
 
     public function getRow($id){
 
-        $data = ConditionReport::where('id', '=', $id)->firstOrFail(); 
+        $condition_report = ConditionReport::where('id', '=', $id)->firstOrFail(); 
         $val = request('val')  ?? '';
-        $no = (int)$val;
-          $item_no = explode(',', $data->item_no);
-          $res_comments = explode(',', $data->res_comments);
-          $items = explode(',', $data->items);
-          $owned_by = explode(',', $data->owned_by);
-          $res_cond = explode(',', $data->res_cond);
-          $item_last= last($item_no);
-          $num = (int)$item_last;
+        $i = (int)$val;
+          $item_no = explode(',', $condition_report->item_no);
+          $res_comments = explode(',', $condition_report->res_comments);
+          $items = explode(',', $condition_report->items);
+          $owned_by = explode(',', $condition_report->owned_by);
+          $res_cond = explode(',', $condition_report->res_cond);
+             
+        unset($item_no[$i]);
+        unset($res_comments[$i]);
+        unset($items[$i]);
+        unset($owned_by[$i]);
+        unset($res_cond[$i]);
+        $item_no = array_values($item_no);
+        $res_comments = array_values($res_comments);
+        $items = array_values($items);
+        $owned_by = array_values($owned_by);
+        $res_cond = array_values($res_cond);
+        
+        $condition_report->item_no = implode(',', (array) $item_no) ;
+        $condition_report->items = implode(',', (array) $items) ;
+        $condition_report->res_comments = implode(',', (array) $res_comments) ;
 
-        for ($i=0; $i <= $num ; $i++) { 
-            if ($no == $i) {
-                unset($item_no[$i]);
-                unset($res_comments[$i]);
-                unset($items[$i]);
-                unset($owned_by[$i]);
-                unset($res_cond[$i]);
+        $condition_report->owned_by = implode(',', (array) $owned_by) ;
+        $condition_report->res_cond = implode(',', (array) $res_cond) ;
+        $condition_report->save();
 
-            }
-            
-        }
+           
 
-       // return redirect()->route('condition_reports.index')
-            //            ->with('success','deleted successfully');
+        return redirect()->route('condition_reports.edit', compact('condition_report'))
+                   ->with('success','deleted successfully');
 
     }
 
