@@ -2,7 +2,6 @@
 
 {{-- Page title --}}
 @section('title')
-Incident Reports
 @parent
 @stop
 
@@ -19,6 +18,10 @@ Incident Reports
   <div class="col-md-12">
 
     <div class="box box-default">
+         <div class="box-header with-border text-center">
+                 <h3><b>Incident Records</b></h3>
+                   
+                </div>
       <div class="box-body">
         <div class="table-responsive">
 

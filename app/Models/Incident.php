@@ -62,32 +62,9 @@ class Incident extends SnipeModel
      *
      * @var array
      */
-    protected $fillable = [
-        'i_date', 
-        'i_time', 
-        's_name', 
-        's_sign', 
-        'p_name', 
-        'place', 
-        'doctor', 
-        'nok', 
-        'case_mgr', 
-        'management', 
-        'dhhs', 
-        'n_date', 
-        'n_time',
-        'res_hos',
-        'i_details', 
-        'actions', 
-        'action_date', 
-        'o_det', 
-        'i_prescribed', 
-        'police_noti',
-        'sp_update',
-        'reported', 
-        'auth_name', 
-        'rep_date', 
-        'rep_time'
+    protected $fillable = [ 's_name',  
+        'p_name'
+        
     ];
 
 

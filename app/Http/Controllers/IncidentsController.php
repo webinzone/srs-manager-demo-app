@@ -5,6 +5,7 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\Incident;
 use App\Models\ActivityLog;
+use App\Models\ClientDetail;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -42,7 +43,8 @@ class IncidentsController extends Controller
     {
          // Show the page
         $this->authorize('create',Incident::class);
-        return view('incidents/create');
+        $residents = ClientDetail::all();
+        return view('incidents/create',compact('residents'));
     }
 
 
@@ -58,31 +60,41 @@ class IncidentsController extends Controller
         $this->authorize('create',Incident::class);
         $incident = new Incident();
 
-        $incident->i_date = request('i_date');
-        $incident->i_time = request('i_time');
-        $incident->s_name = request('s_name');
-        $incident->s_sign = request('s_sign');
-        $incident->p_name = request('p_name');
-        $incident->place = request('place');
-        $incident->doctor = request('doctor');
-        $incident->nok = request('nok');
-        $incident->case_mgr = request('case_mgr');
-        $incident->management = request('management');
-        $incident->dhhs = request('dhhs');
-        $incident->n_date = request('n_date');
-        $incident->n_time = request('n_time');
-        $incident->res_hos = request('res_hos');
-        $incident->i_details = request('i_details');
-        $incident->actions = request('actions');
-        $incident->action_date = request('action_date');
-        $incident->o_det = request('o_det');
-        $incident->i_prescribed = request('i_prescribed');
-        $incident->police_noti = request('police_noti');
-        $incident->sp_update = request('sp_update');
-        $incident->reported = request('reported');
-        $incident->auth_name = request('auth_name');
-        $incident->rep_date = request('rep_date');
-        $incident->rep_time = request('rep_time');
+         $id = request('p_name') ?? '';
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+        $incident->p_name = $name;
+        $incident->client_id = $id;
+
+        $incident->i_date = request('i_date') ?? ' ';
+        $incident->i_time = request('i_time') ?? ' ';
+        $incident->s_name = request('s_name') ?? ' ';
+        $incident->s_sign = request('s_sign') ?? ' ';
+        
+
+        $incident->place = request('place') ?? ' ';
+        $incident->doctor = request('doctor') ?? ' ';
+        $incident->nok = request('nok') ?? ' ';
+        $incident->case_mgr = request('case_mgr') ?? ' ';
+        $incident->management = request('management') ?? ' ';
+        $incident->dhhs = request('dhhs') ?? ' ';
+        $incident->n_date = request('n_date') ?? ' ';
+        $incident->n_time = request('n_time') ?? ' ';
+        $incident->res_hos = request('res_hos') ?? ' ';
+        $incident->i_details = request('i_details') ?? ' ';
+        $incident->actions = request('actions') ?? ' ';
+        $incident->action_date = request('action_date') ?? ' ';
+        $incident->o_det = request('o_det') ?? ' ';
+        $incident->i_prescribed = request('i_prescribed') ?? ' ';
+        $incident->police_noti = request('police_noti') ?? ' ';
+        $incident->sp_update = request('sp_update') ?? ' ';
+        $incident->reported = request('reported') ?? ' ';
+        $incident->auth_name = request('auth_name') ?? ' ';
+        $incident->rep_date = request('rep_date') ?? ' ';
+        $incident->rep_time = request('rep_time') ?? ' ';
+        $incident->need = request('need') ?? ' ';
+        $support_plan->company_id = request('company_id') ?? ' ';
+        $support_plan->location_id = request('location_id') ?? ' ';
         $incident->user_id =  Auth::user()->id;
         
         $incident->save();
@@ -121,7 +133,9 @@ class IncidentsController extends Controller
     {
         $this->authorize('edit',Incident::class);
         $incident = Incident::find($id);
-        return view('incidents/edit',compact('incident'));
+        $residents = ClientDetail::all();
+
+        return view('incidents/edit',compact('incident','residents'));
     }
     /**
      * Update the specified resource in storage.
@@ -134,12 +148,19 @@ class IncidentsController extends Controller
     {
         $this->authorize('update', Incident::class);
         $incident = Incident::find($id);
+        
+        $id = request('p_name') ?? '';
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+        $incident->p_name = $name;
+        $incident->client_id = $id;
 
         $incident->i_date = request('i_date');
         $incident->i_time = request('i_time');
         $incident->s_name = request('s_name');
         $incident->s_sign = request('s_sign');
-        $incident->p_name = request('p_name');
+        
+
         $incident->place = request('place');
         $incident->doctor = request('doctor');
         $incident->nok = request('nok');

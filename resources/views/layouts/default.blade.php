@@ -100,7 +100,7 @@
     text-align: left;
     padding-left: 20px;
 }
-.form-control,input[type=text],input[type=date],input[type=tel],input[type=number],input[type=email],select {
+.form-control,input[type=text],input[type=date],input[type=time],input[type=tel],input[type=number],input[type=email],select {
     display: block;
     width: 100%;
     height: 26px;
