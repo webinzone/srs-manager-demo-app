@@ -49,47 +49,100 @@
                       </div>                        
                     </div>
                     <div class="form-group ">
-                           <div class="col-md-6 mb-3 ">
+                           <div class="col-md-4 mb-3 ">
                         <label for="name" >Date of Birth</label>
 
                  <input type="date" name="dob" class="form-control" placeholder="Date of Birth">                                        
                         </div>
                         
-                           <div class="col-md-6 mb-3 ">
+                           <div class="col-md-4 mb-3 ">
                         <label for="name" >Phone Number</label>
 
                  <input type="text" name="ph" class="form-control" placeholder="Phone Number">                                       
+                        </div>
+                        <div class="col-md-4 mb-3 ">
+                        <label for="name" >Email</label>
+
+                 <input type="email" name="email" class="form-control" placeholder="Email">                                        
                         </div>
                     </div>
                     <div class="form-group ">
                      
                     
                          <div class="col-md-6 mb-3 ">
-                        <label for="name" >Email</label>
-
-                 <input type="email" name="email" class="form-control" placeholder="Email">                                        
+                             <label for="name" >Address</label>
+                              <textarea  name="address" class="form-control" placeholder="Address"></textarea>                                 
                         </div>
                         <div class="col-md-6 mb-3 ">
                         <label for="name" >Qualification</label>
 
-                            <select name="quali" class="form-control" style="height: 26px;padding: 3px 10px;"> 
-                            <option value="" style="font-size: 14px;">------------  Select Qualification       ------------</option> 
-                            <option value="M-Tech" style="font-size: 14px;">M-Tech</option> 
-                            <option value="B-Tech" style="font-size: 14px;">B-Tech</option> 
-                            <option value="PG" style="font-size: 14px;">PG</option> 
-                            <option value="Master Degree" style="font-size: 14px;">Master Degree</option> 
-                            <option value="Degree" style="font-size: 14px;">Degree</option> 
+                        <textarea name="quali" placeholder="Qualifications" class="form-control"></textarea>
 
-                        </select>
+                           
                         </div>
                     </div>
                     <div class="form-group ">
                          
-                        <div class="col-md-6 mb-3 ">
-                             <label for="name" >Address</label>
-                              <textarea  name="address" class="form-control" placeholder="Address"></textarea>                                 
+                        <div class="col-md-4 mb-3 ">
+                          <label for="name" >Position</label>
+
+                          <input type="text" name="posi" class="form-control" placeholder="Position">                                       
                         </div>
+
+                       <div class="col-md-4 mb-3 ">
+                            <label for="name" >Tax File Number (TFN)</label>
+
+                             <input type="text" name="tfn" class="form-control" placeholder="TFN">                                        
+                        </div>
+                        
+                     <div class="col-md-4 mb-3 ">
+                        <label for="name" >Australian Business Number</label>
+
+                        <input type="text" name="abn" class="form-control" placeholder="ABN">                                        
+                     </div>
+                        
                     </div>
+
+                     <div class="form-group ">
+                         
+                        <div class="col-md-4 mb-3 ">
+                          <label for="name" >Super Company</label>
+
+                          <input type="text" name="s_comp" class="form-control" placeholder="Super Company">                                       
+                        </div>
+
+                       <div class="col-md-4 mb-3 ">
+                            <label for="name" >Super number </label>
+
+                             <input type="text" name="s_no" class="form-control" placeholder="Super number">                                        
+                        </div>
+                        
+                     <div class="col-md-4 mb-3 ">
+                        <label for="name" >First Aid & CPR </label>
+
+                        <input type="date" name="fi_date" class="form-control" placeholder="First Aid & CPR (Issue date)">                                        
+                     </div>
+                        
+                    </div>
+
+                    <div class="form-group ">
+                         
+                        <div class="col-md-4 mb-3 ">
+                          <label for="name" >Super Criminal check </label>
+
+                          <input type="date" name="crime" class="form-control" placeholder="Criminal check (Release date)">                                       
+                        </div>
+
+                       <div class="col-md-6 mb-3 ">
+                            <label for="name" >Working With Children Check </label>
+
+                             <input type="text" style="width: 250px;" name="w_child" class="form-control" placeholder="Super number">                                        
+                        </div>
+                        
+                     
+                        
+                    </div>
+
                   <!--  <div class="form-group ">
                         <label for="name" >Company Id</label>
                         <div class="col-md-7 col-sm-12 ">

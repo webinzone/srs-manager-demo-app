@@ -130,8 +130,13 @@
 
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
-                        <label>Rsident Name</label>
-                        <input type="text" name="cfname" class="form-control" placeholder="First Name">                                        
+                        <label>Rsident Name</label>                        
+                        <select class="form-control" required="" id="resi_name" name="cfname" style="height: 26px;padding: 3px 10px;">
+                            <option>--   Select Resident Name  --</option>
+                          @foreach($residents as $resident)
+                          <option value="{{ $resident->id }}"> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
+                          @endforeach
+                        </select>                                      
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Surname:</label>
@@ -140,31 +145,31 @@
 
                       <div class="col-md-3 mb-3">
                         <label>Date of Birth</label>
-                        <input type="date" name="cdob" class="form-control" placeholder="Date of Birth">                                       
+                        <input type="date" name="cdob" id="dob" class="form-control" placeholder="Date of Birth" readonly>                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="cgender">Gender</label>&nbsp;&nbsp;&nbsp;
-                          <input type="text" name="cgender" class="form-control" placeholder="Gender">
+                          <input type="text" id="gender" name="cgender" class="form-control" placeholder="Gender" readonly>
                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Religion</label>
-                        <input type="text" name="creligion" class="form-control" placeholder="Religion">                                        
+                        <input type="text" name="creligion" id="rel" class="form-control" placeholder="Religion" readonly>                                        
                       </div>
                       <div class="col-md-3 mb-3">
-                        <label>Client Contact details: Mobile</label>
-                        <input type="text" name="cph" class="form-control" placeholder="Client Contact details: Mobile">                                        
+                        <label>Mobile</label>
+                        <input type="tel" name="cph" class="form-control" id="ph1" placeholder=" Mobile" readonly>                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Email ID</label>
-                        <input type="email" name="cemail" class="form-control" placeholder="Email ID">                                       
+                        <input type="email" name="cemail" id="em1" class="form-control" placeholder="Email ID" readonly>                                       
                       </div>
                      
                       <div class="col-md-3 mb-3">
                         <label>Current Address</label>
-                        <textarea name="caddress" class="form-control" placeholder="Current Address"></textarea>
+                        <textarea name="caddress" id="adr" class="form-control" placeholder="Current Address" readonly></textarea>
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <h5 style="color:#980000;font-size: 16px;">[If client is residing in another SRS]</h5>
@@ -196,7 +201,7 @@
                <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Name</label>
-                        <input type="text" name="nok_name" class="form-control" placeholder="Name">                                        
+                        <input type="text" name="nok_name" id="nname" class="form-control" placeholder="Name" readonly>                                        
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Relation</label>
@@ -206,15 +211,15 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Address</label>
-                        <textarea name="nok_address" class="form-control" placeholder="Address"></textarea>                                        
+                        <textarea name="nok_address" id="nadr" class="form-control" placeholder="Address" readonly></textarea>                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Email</label>
-                        <input type="email" name="nok_email" class="form-control" placeholder="Email">                                        
+                        <input type="email" id="nemail" name="nok_email" class="form-control" placeholder="Email" readonly>                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Phone</label>
-                        <input type="tel" name="nok_ph" class="form-control" placeholder="Phone">                                       
+                        <input type="tel" name="nok_ph" id="nph" class="form-control" placeholder="Phone" readonly>                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Medical Practitioner</b></h5>
@@ -222,51 +227,51 @@
                <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Name</label>
-                        <input type="text" name="gp_name" class="form-control" placeholder="Name">                                        
+                        <input type="text" name="gp_name" id="gpname" class="form-control" placeholder="Name" readonly>                                        
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Address</label>
-                        <textarea name="gp_address" class="form-control" placeholder="Address"></textarea>                                        
+                        <textarea name="gp_address" id="gpadr" class="form-control" placeholder="Address" readonly></textarea>                                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Phone</label>
-                        <input type="tel" name="gp_ph" class="form-control" placeholder="Phone">                                        
+                        <input type="tel" id="gpph" name="gp_ph" class="form-control" placeholder="Phone" readonly>                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Fax</label>
-                        <input type="text" name="gp_fax" class="form-control" placeholder="Fax">                                        
+                        <input type="text" id="gpfax" name="gp_fax" class="form-control" placeholder="Fax" readonly>                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Email</label>
-                        <input type="email" name="gp_email" class="form-control" placeholder="Email">                                       
+                        <input type="email" id="gpemail" name="gp_email" class="form-control" placeholder="Email" readonly>                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <h5 style="color:#980000;font-size: 16px;"><b>Guardian Details (if the ctient has guardian)</b></h5>
+                <h5 style="color:#980000;font-size: 16px;"><b>Guardian Details (if the client has guardian)</b></h5>
 
                <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Client Ref Number</label>
-                        <input type="text" name="gua_refno" class="form-control" placeholder="Client Ref Number">                                        
+                        <input type="text" name="gua_refno" id="" class="form-control" placeholder="Client Ref Number">                                        
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Name</label>
-                        <input type="text" name="gua_name" class="form-control" placeholder="Name">                                        
+                        <input type="text" id="gname" name="gua_name" class="form-control" placeholder="Name" readonly>                                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Address</label>
-                        <textarea name="gua_addr" class="form-control" placeholder="Address"></textarea>                                        
+                        <textarea name="gua_addr" id="gadr" class="form-control" placeholder="Address" readonly></textarea>                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Email ID</label>
-                        <input type="email" name="gua_email" class="form-control" placeholder="Email ID">                                        
+                        <input type="email" id="gemail" name="gua_email" class="form-control" placeholder="Email ID" readonly>                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Phone</label>
-                        <input type="tel" name="gua_ph" class="form-control" placeholder="Phone">                                       
+                        <input type="tel" name="gua_ph" id="gph" class="form-control" placeholder="Phone" readonly>                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;">[If the client has an administrator]</h5>
@@ -300,27 +305,26 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Type of Income</label>
-                        <input type="text" class="form-control" name="pen_type" placeholder="Type of Income">
+                        <input type="text" class="form-control" id="tof" name="pen_type" placeholder="Type of Income" readonly>
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Client Ref Number</label>
-                        <input type="text" name="pen_refno" class="form-control" placeholder="Client Ref Number">                                          
+                        <input type="text" name="pen_refno" id="ref" class="form-control" placeholder="Client Ref Number" readonly>                                          
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Medicare Number</label>
-                        <input type="text" name="pen_medino" id="pen_medino
-                        " class="form-control" placeholder="Medicare Number" >                                       
+                        <input type="text" name="pen_medino" id="medi1" class="form-control" placeholder="Medicare Number" readonly >                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Expiry Date</label>
-                        <input type="date" name="pen_mediexp" id="pen_mediexp" class="form-control" placeholder="Expiry Date" >                                        
+                        <input type="date" name="pen_mediexp" id="mediexp" class="form-control" placeholder="Expiry Date" readonly>                                        
                       </div>
                       
                       <div class="col-md-3 mb-3">
                         <label>Taxi Card Concession Number</label>
-                        <input type="text" name="pen_taxi" id="pen_taxi" class="form-control" placeholder="Taxi Card Concession Number" >                                       
+                        <input type="text" name="pen_taxi" id="taxi" class="form-control" placeholder="Taxi Card Concession Number" readonly>                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Expiry Date</label>
@@ -1024,11 +1028,128 @@ $('#resi_name').change(function(){
         dataType: 'json',
         success: function(response){
             if(response != null){
-                $('#roomm').val(response.room_no);            
-                 $('#fperiod').val(response.start_period);
-                $('#endperiod').val(response.end_period);
-                $('#adm_date').val(response.adm_date);           
+                $('#dob').val(response.dob);            
+                $('#gender').val(response.gender);            
+                $('#rel').val(response.religion);            
+
+                $('#ph1').val(response.ph);            
+                $('#em1').val(response.res_email);           
+                 
+                $('#adr').val(response.pre_address);           
+                $('#medi1').val(response.medicard_no);           
+                $('#mediexp').val(response.exp_date);           
                    
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getGuaDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+               
+              $('#gname').val(response.gr_name);
+              $('#gph').val(response.gr_mob);
+              $('#gadr').val(response.gr_address);
+              $('#gemail').val(response.gr_email);
+
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAincomeDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#tof').val(response.income_type);   
+                $('#taxi').val(response.con_card);            
+                $('#ref').val(response.client_refno);            
+
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getNokDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+             
+                $('#nname').val((response.name));
+                $('#nph').val((response.ph));
+                $('#nadr').val((response.address));
+                $('#nemail').val((response.nok_email));
+
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getGPDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+             
+                $('#gpname').val(response.gp_name);
+                $('#gpph').val(response.ph);
+                $('#gpfax').val(response.gp_fax);
+                $('#gpadr').val(response.address);
+                $('#gpemail').val(response.gp_email);
+
 
             }
             else{
@@ -1121,155 +1242,6 @@ $('#resi_name').change(function(){
     $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
 </script>
-<script type="text/javascript">
- function findselected() { 
-    var result = document.querySelector('input[name="secu_depo"]:checked').value;
-    if(result=="No"){
 
-        document.getElementById("amt_pay").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("amt_pay").removeAttribute('disabled', true);
-    }
-}
-function findselected1() { 
-    var result = document.querySelector('input[name="reserv_fee"]:checked').value;
-    if(result=="No"){
-
-        document.getElementById("r2").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("r2").removeAttribute('disabled', true);
-    }
-}
-function findselected2() { 
-    var result = document.querySelector('input[name="est_fee"]:checked').value;
-    if(result=="No"){
-
-        document.getElementById("e2").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("e2").removeAttribute('disabled', true);
-    }
-}
-function findselected3() { 
-    var result = document.querySelector('input[name="advnc_fee"]:checked').value;
-    if(result=="No"){
-
-        document.getElementById("a2").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("a2").removeAttribute('disabled', true);
-    }
-}
-function findselected4() { 
-    var result = document.querySelector('input[name="srs_assist_status"]:checked').value;
-    if(result=="No"){
-
-        document.getElementById("s1").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("s1").removeAttribute('disabled', true);
-    }
-}
-function findselected5() { 
-    var result = document.querySelector('input[name="bath"]:checked').value;
-    if(result=="None"){
-
-        document.getElementById("f1").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("f1").removeAttribute('disabled', true);
-    }
-  }
-function findselected6() { 
-
-    var result = document.querySelector('input[name="oral"]:checked').value;
-    if(result=="None"){
-
-        document.getElementById("f2").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("f2").removeAttribute('disabled', true);
-    }
-  }
-function findselected7() { 
-
-    var result = document.querySelector('input[name="hair"]:checked').value;
-    if(result=="None"){
-
-        document.getElementById("f3").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("f3").removeAttribute('disabled', true);
-    }
-}
-function findselected8() { 
-
-    var result = document.querySelector('input[name="toileting"]:checked').value;
-    if(result=="None"){
-
-        document.getElementById("f4").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("f4").removeAttribute('disabled', true);
-    }
-}
-function findselected9() { 
-
-    var result = document.querySelector('input[name="mobility"]:checked').value;
-    if(result=="None"){
-
-        document.getElementById("f5").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("f5").removeAttribute('disabled', true);
-    }
-}
-function findselected10() { 
-
-    var result = document.querySelector('input[name="medi_assi"]:checked').value;
-    if(result=="None"){
-
-        document.getElementById("f6").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("f6").removeAttribute('disabled', true);
-    }
-}
-function findselected11() { 
-
-    var result = document.querySelector('input[name="continence"]:checked').value;
-    if(result=="None"){
-
-        document.getElementById("f7").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("f7").removeAttribute('disabled', true);
-    }
-}
-function findselected12() { 
-
-    var result = document.querySelector('input[name="bed_make"]:checked').value;
-    if(result=="None"){
-
-        document.getElementById("f8").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("f8").removeAttribute('disabled', true);
-    }
-}
-function findselected13() { 
-
-    var result = document.querySelector('input[name="dressing"]:checked').value;
-    if(result=="None"){
-
-        document.getElementById("f9").setAttribute('disabled', false);
-    }
-    else{
-        document.getElementById("f9").removeAttribute('disabled', true);
-    }
-}
-</script>
 @include ('partials.bootstrap-table')
 @stop

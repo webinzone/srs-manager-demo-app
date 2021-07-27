@@ -50,46 +50,98 @@
                       </div>                        
                     </div>
                     <div class="form-group ">
-                           <div class="col-md-6 mb-3 ">
+                           <div class="col-md-4 mb-3 ">
                         <label for="name" >Date of Birth</label>
 
                  <input type="date" name="dob" class="form-control" value="{{ $srs_staff->dob}}">                                        
                         </div>
                         
-                           <div class="col-md-6 mb-3 ">
+                           <div class="col-md-4 mb-3 ">
                         <label for="name" >Phone Number</label>
 
                  <input type="text" name="ph" class="form-control" value="{{ $srs_staff->ph}}">                                       
                         </div>
-                    </div>
-                    <div class="form-group ">
-                     
-                    
-                         <div class="col-md-6 mb-3 ">
+                          <div class="col-md-4 mb-3 ">
                         <label for="name" >Email</label>
 
                  <input type="email" name="email" class="form-control" value="{{ $srs_staff->email}}">                                        
                         </div>
-                        <div class="col-md-6 mb-3 ">
-                        <label for="name" >Qualification</label>
-
-                            <select name="quali" class="form-control"  style="height: 26px;padding: 3px 10px;"> 
-                           
-                            <option value="M-Tech" {{ $srs_staff->quali == 'M-Tech' ? 'selected' : ''  }} style="font-size: 14px;">M-Tech</option> 
-                            <option value="B-Tech" {{ $srs_staff->quali == 'B-Tech' ? 'selected' : ''  }} style="font-size: 14px;">B-Tech</option> 
-                            <option value="PG" {{ $srs_staff->quali == 'PG' ? 'selected' : ''  }} style="font-size: 14px;">PG</option> 
-                            <option value="Master Degree" {{ $srs_staff->quali == 'Master Degree' ? 'selected' : ''  }} style="font-size: 14px;">Master Degree</option> 
-                            <option value="Degree" {{ $srs_staff->quali == 'Degree' ? 'selected' : ''  }} style="font-size: 14px;">Degree</option> 
-
-                        </select>
-                        </div>
                     </div>
                     <div class="form-group ">
-                         
-                        <div class="col-md-6 mb-3 ">
+                     
+                    <div class="col-md-6 mb-3 ">
                              <label for="name" >Address</label>
                               <textarea  name="address" class="form-control" >{{ $srs_staff->address}}</textarea>                                 
                         </div>
+                       
+                        <div class="col-md-6 mb-3 ">
+                        <label for="name" >Qualification</label>
+                            <textarea name="quali" placeholder="Qualifications" class="form-control">{{ $srs_staff->quali }}</textarea>
+
+                           
+                        </div>
+                    </div>
+                    
+                     <div class="form-group ">
+                         
+                        <div class="col-md-4 mb-3 ">
+                          <label for="name" >Position</label>
+
+                          <input type="text" value="{{ $srs_staff->posi}}" name="posi" class="form-control" placeholder="Position">                                       
+                        </div>
+
+                       <div class="col-md-4 mb-3 ">
+                            <label for="name" >Tax File Number (TFN)</label>
+
+                             <input type="text" value="{{ $srs_staff->tfn}}" name="tfn" class="form-control" placeholder="TFN">                                        
+                        </div>
+                        
+                     <div class="col-md-4 mb-3 ">
+                        <label for="name" >Australian Business Number</label>
+
+                        <input type="text" value="{{ $srs_staff->abn}}" name="abn" class="form-control" placeholder="ABN">                                        
+                     </div>
+                        
+                    </div>
+
+                     <div class="form-group ">
+                         
+                        <div class="col-md-4 mb-3 ">
+                          <label for="name" >Super Company</label>
+
+                          <input type="text" value="{{ $srs_staff->s_comp}}" name="s_comp" class="form-control" placeholder="Super Company">                                       
+                        </div>
+
+                       <div class="col-md-4 mb-3 ">
+                            <label for="name" >Super number </label>
+
+                             <input type="text" value="{{ $srs_staff->s_no}}" name="s_no" class="form-control" placeholder="Super number">                                        
+                        </div>
+                        
+                     <div class="col-md-4 mb-3 ">
+                        <label for="name" >First Aid & CPR </label>
+
+                        <input type="date" value="{{ $srs_staff->fi_date}}" name="fi_date" class="form-control" placeholder="First Aid & CPR (Issue date)">                                        
+                     </div>
+                        
+                    </div>
+
+                    <div class="form-group ">
+                         
+                        <div class="col-md-4 mb-3 ">
+                          <label for="name" >Super Criminal check </label>
+
+                          <input type="date" name="crime" value="{{ $srs_staff->crime}}" class="form-control" placeholder="Criminal check (Release date)">                                       
+                        </div>
+
+                       <div class="col-md-6 mb-3 ">
+                            <label for="name" >Working With Children Check </label>
+
+                             <input type="text" value="{{ $srs_staff->w_child}}" style="width: 250px;" name="w_child" class="form-control" placeholder="Super number">                                        
+                        </div>
+                        
+                     
+                        
                     </div>
 
                 <!-- ./box-body -->

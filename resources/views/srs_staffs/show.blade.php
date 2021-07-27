@@ -29,39 +29,89 @@
 
                 <!-- Asset name -->
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Name:</label>
+                    <label class="col-sm-6 control-label">Name:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $srs_staff->name}}</p>
                     </div>
                 </div>
                <div class="form-group">
-                    <label class="col-sm-3 control-label">Address:</label>
+                    <label class="col-sm-6 control-label">Address:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $srs_staff->address}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Phone Number:</label>
+                    <label class="col-sm-6 control-label">Phone Number:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $srs_staff->ph}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Date of Birth:</label>
+                    <label class="col-sm-6 control-label">Date of Birth:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ date('d-m-Y', strtotime($srs_staff->dob))}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Email:</label>
+                    <label class="col-sm-6 control-label">Email:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $srs_staff->email}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Qualification:</label>
+                    <label class="col-sm-6 control-label">Qualification:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $srs_staff->quali}}</p>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Position:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $srs_staff->posi}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Tax File Number (TFN):</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $srs_staff->tfn}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Australian Business Number:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $srs_staff->abn}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Super Company:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $srs_staff->s_comp}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Super number:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $srs_staff->s_no}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">First Aid & CPR:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $srs_staff->fi_date}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Super Criminal check:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $srs_staff->crime}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Working With Children Check:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $srs_staff->w_child}}</p>
                     </div>
                 </div>
               

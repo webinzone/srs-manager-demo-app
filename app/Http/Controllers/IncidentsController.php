@@ -155,32 +155,35 @@ class IncidentsController extends Controller
         $incident->p_name = $name;
         $incident->client_id = $id;
 
-        $incident->i_date = request('i_date');
-        $incident->i_time = request('i_time');
-        $incident->s_name = request('s_name');
-        $incident->s_sign = request('s_sign');
+        $incident->i_date = request('i_date') ?? ' ';
+        $incident->i_time = request('i_time') ?? ' ';
+        $incident->s_name = request('s_name') ?? ' ';
+        $incident->s_sign = request('s_sign') ?? ' ';
         
 
-        $incident->place = request('place');
-        $incident->doctor = request('doctor');
-        $incident->nok = request('nok');
-        $incident->case_mgr = request('case_mgr');
-        $incident->management = request('management');
-        $incident->dhhs = request('dhhs');
-        $incident->n_date = request('n_date');
-        $incident->n_time = request('n_time');
-        $incident->res_hos = request('res_hos');
-        $incident->i_details = request('i_details');
-        $incident->actions = request('actions');
-        $incident->action_date = request('action_date');
-        $incident->o_det = request('o_det');
-        $incident->i_prescribed = request('i_prescribed');
-        $incident->police_noti = request('police_noti');
-        $incident->sp_update = request('sp_update');
-        $incident->reported = request('reported');
-        $incident->auth_name = request('auth_name');
-        $incident->rep_date = request('rep_date');
-        $incident->rep_time = request('rep_time');
+        $incident->place = request('place') ?? ' ';
+        $incident->doctor = request('doctor') ?? ' ';
+        $incident->nok = request('nok') ?? ' ';
+        $incident->case_mgr = request('case_mgr') ?? ' ';
+        $incident->management = request('management') ?? ' ';
+        $incident->dhhs = request('dhhs') ?? ' ';
+        $incident->n_date = request('n_date') ?? ' ';
+        $incident->n_time = request('n_time') ?? ' ';
+        $incident->res_hos = request('res_hos') ?? ' ';
+        $incident->i_details = request('i_details') ?? ' ';
+        $incident->actions = request('actions') ?? ' ';
+        $incident->action_date = request('action_date') ?? ' ';
+        $incident->o_det = request('o_det') ?? ' ';
+        $incident->i_prescribed = request('i_prescribed') ?? ' ';
+        $incident->police_noti = request('police_noti') ?? ' ';
+        $incident->sp_update = request('sp_update') ?? ' ';
+        $incident->reported = request('reported') ?? ' ';
+        $incident->auth_name = request('auth_name') ?? ' ';
+        $incident->rep_date = request('rep_date') ?? ' ';
+        $incident->rep_time = request('rep_time') ?? ' ';
+        $incident->need = request('need') ?? ' ';
+        $incident->company_id = request('company_id') ?? ' ';
+        $incident->location_id = request('location_id') ?? ' ';
         $incident->user_id =  Auth::user()->id;
 
         

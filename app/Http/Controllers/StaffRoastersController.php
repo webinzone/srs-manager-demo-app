@@ -57,18 +57,20 @@ class StaffRoastersController extends Controller
         $this->authorize('create',StaffRoaster::class);
         $staff_roaster = new StaffRoaster();
 
-        $staff_roaster->s_date = request('s_date');
-        $staff_roaster->s_name = request('s_name');
-        $staff_roaster->position = request('position');
-        $staff_roaster->mon = request('mon');
-        $staff_roaster->tues = request('tues');
-        $staff_roaster->wed = request('wed');
-        $staff_roaster->thurs = request('thurs');
-        $staff_roaster->fri = request('fri');
-        $staff_roaster->sat = request('sat');
-        $staff_roaster->sun = request('sun');
-        $staff_roaster->total_hrs = request('total_hrs');
-        $staff_roaster->total = request('total');
+        $staff_roaster->s_date = request('s_date')  ?? '';
+        $staff_roaster->s_name = request('s_name')  ?? '';
+        $staff_roaster->position = request('position')  ?? '';
+        $staff_roaster->mon = request('mon')  ?? '';
+        $staff_roaster->tues = request('tues')  ?? '';
+        $staff_roaster->wed = request('wed')  ?? '';
+        $staff_roaster->thurs = request('thurs')  ?? '';
+        $staff_roaster->fri = request('fri')  ?? '';
+        $staff_roaster->sat = request('sat')  ?? '';
+        $staff_roaster->sun = request('sun')  ?? '';
+        $staff_roaster->total_hrs = request('total_hrs')  ?? '';
+        $staff_roaster->total = request('total')  ?? '';
+
+        
         $staff_roaster->user_id =  Auth::user()->id;
         
         $staff_roaster->save();

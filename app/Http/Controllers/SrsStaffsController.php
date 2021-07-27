@@ -59,13 +59,23 @@ class SrsStaffsController extends Controller
         $srs_staff = new SrsStaff();
 
         $srs_staff->name = request('fname').". ".request('mname').". ".request('lname');
-        $srs_staff->address = request('address');
-        $srs_staff->ph = request('ph');
-        $srs_staff->dob = request('dob');
-        $srs_staff->email = request('email');
-        $srs_staff->quali = request('quali');
-        $srs_staff->company_id = "null";
-        $srs_staff->location_id = "null";
+        $srs_staff->address = request('address') ?? '';
+        $srs_staff->ph = request('ph') ?? '';
+        $srs_staff->dob = request('dob') ?? '';
+        $srs_staff->email = request('email') ?? '';
+        $srs_staff->quali = request('quali') ?? '';
+        $srs_staff->company_id = "null" ?? '';
+        $srs_staff->location_id = "null" ?? '';
+
+        $srs_staff->posi = request('posi')  ?? '';
+        $srs_staff->tfn = request('tfn')  ?? '';
+        $srs_staff->abn = request('abn')  ?? '';
+        $srs_staff->s_comp = request('s_comp')  ?? '';
+        $srs_staff->s_no = request('s_no')  ?? '';
+        $srs_staff->fi_date = request('fi_date')  ?? '';
+        $srs_staff->crime = request('crime')  ?? '';
+        $srs_staff->w_child = request('w_child')  ?? '';
+      
         $srs_staff->user_id =  Auth::user()->id;
         
         $srs_staff->save();
@@ -122,14 +132,22 @@ class SrsStaffsController extends Controller
         $srs_staff = SrsStaff::find($id);
 
         $srs_staff->name = request('fname').". ".request('mname').". ".request('lname');
-        $srs_staff->address = request('address');
-        $srs_staff->ph = request('ph');
-        $srs_staff->dob = request('dob');
-        $srs_staff->email = request('email');
-        $srs_staff->quali = request('quali');
-        $srs_staff->company_id = "null";
-        $srs_staff->location_id = "null";
-        $srs_staff->user_id =  Auth::user()->id;
+        $srs_staff->address = request('address') ?? '';
+        $srs_staff->ph = request('ph') ?? '';
+        $srs_staff->dob = request('dob') ?? '';
+        $srs_staff->email = request('email') ?? '';
+        $srs_staff->quali = request('quali') ?? '';
+        $srs_staff->company_id = "null" ?? '';
+        $srs_staff->location_id = "null" ?? '';
+
+        $srs_staff->posi = request('posi')  ?? '';
+        $srs_staff->tfn = request('tfn')  ?? '';
+        $srs_staff->abn = request('abn')  ?? '';
+        $srs_staff->s_comp = request('s_comp')  ?? '';
+        $srs_staff->s_no = request('s_no')  ?? '';
+        $srs_staff->fi_date = request('fi_date')  ?? '';
+        $srs_staff->crime = request('crime')  ?? '';
+        $srs_staff->w_child = request('w_child')  ?? '';        $srs_staff->user_id =  Auth::user()->id;
         
         $srs_staff->save();
         $activity = new ActivityLog();

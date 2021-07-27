@@ -5,7 +5,15 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\Referral;
 use App\Models\Referral2;
-
+use App\Models\ClientDetail;
+use App\Models\ConditionReport;
+use App\Models\SrsStaff;
+use App\Models\GuardianDetail;
+use App\Models\Booking;
+use App\Models\PensionDetail;
+use App\Models\HealthService;
+use App\Models\ClientGpdetail;
+use App\Models\ClientNextofkin;
 use App\Models\ActivityLog;
 
 use Illuminate\Support\Facades\Auth;
@@ -43,7 +51,9 @@ class ReferralsController extends Controller
     {
          // Show the page
         $this->authorize('create',Referral::class);
-        return view('referrals/create');
+        $residents = ClientDetail::all();
+        $emps = SrsStaff::all();
+        return view('referrals/create',compact('residents','emps'));
     }
 
 
@@ -58,6 +68,7 @@ class ReferralsController extends Controller
     {
         $this->authorize('create',Referral::class);
         $referral = new Referral();
+
         $referral->con_name = request('con_name') ?? '';
         $referral->refer_name = request('refer_name') ?? '';
         $referral->r_date = request('r_date') ?? '';
@@ -72,7 +83,14 @@ class ReferralsController extends Controller
         $referral->ref_agency = request('ref_agency') ?? '';
         $referral->ref_email = request('ref_email') ?? '';
         $referral->ref_ph = request('ref_ph') ?? '';
-        $referral->cfname = request('cfname') ?? '';
+
+        $id = request('cfname') ?? '';
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+
+        $referral->cfname = $name ?? '';
+        $referral->client_id = $id ?? '';
+
         $referral->csurname = request('csurname') ?? '';  
         $referral->cdob = request('cdob') ?? '';
         $referral->cgender = request('cgender') ?? '';
