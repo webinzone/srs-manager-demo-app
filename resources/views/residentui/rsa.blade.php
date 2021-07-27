@@ -35,11 +35,20 @@
                            <li>
                                <a href="" >Referal</a>
                            </li>
-                           <li>
-                               <a href="" class="dropbtn" >Reports</a>
-                              
-                           </li>
-
+                           <li class="dropdown">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reports <span class="caret"></span></a>
+                              <ul class="dropdown-menu" role="menu">
+                                 <li><a href="{{ route('generateResReport', ['res' => $r_id]) }}" target="_blank">Resident</a></li>
+                                 <li class="divider"></li>                                 
+                                 <li><a href="{{ route('generateReport', ['res_name' => $r_id]) }}" target="_blank">Condition Report</a></li>
+                                 <li class="divider"></li>
+                                 <li><a href="{{ route('generateRSAReport', ['res_name' => $r_id]) }}" target="_blank">RSA</a></li>
+                                 <li class="divider"></li>
+                                 <li><a href="{{ route('generateTransferReport', ['res_name' => $r_id]) }}" target="_blank">Transfer</a></li>
+                                 <li class="divider"></li>
+                                 <li><a href="#">Referral</a></li>
+                              </ul>
+                          </li>
                        </ul>
                     </div>
                     

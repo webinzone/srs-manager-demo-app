@@ -93,8 +93,8 @@ class IncidentsController extends Controller
         $incident->rep_date = request('rep_date') ?? ' ';
         $incident->rep_time = request('rep_time') ?? ' ';
         $incident->need = request('need') ?? ' ';
-        $support_plan->company_id = request('company_id') ?? ' ';
-        $support_plan->location_id = request('location_id') ?? ' ';
+        $incident->company_id = request('company_id') ?? ' ';
+        $incident->location_id = request('location_id') ?? ' ';
         $incident->user_id =  Auth::user()->id;
         
         $incident->save();

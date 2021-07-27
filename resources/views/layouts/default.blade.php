@@ -757,6 +757,7 @@ h4 {
             </li>
             @endcan
 
+
             
 
             
@@ -794,7 +795,17 @@ h4 {
             @endcan
 
             
-            
+             @can('view', \App\Models\SupportPlan::class)
+            <li{!! (Request::is('incidents*') ? ' class="active"' : '') !!}>
+                <a href="{{ route('incidents.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+
+
+                  <span style="color: white;">Incident Records</span>
+                </a>
+            </li>
+            @endcan
+
             
 
           </ul>
