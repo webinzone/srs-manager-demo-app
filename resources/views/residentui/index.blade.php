@@ -59,13 +59,16 @@
 .inputfile + label svg {
     fill: #fff;
 }
+.panel{
+  background-color: #BDF5BD;
+}
 </style>
 @section('content')
-           <div class="panel with-nav-tabs panel-default">
+           <div class="panel with-nav-tabs panel-default" style="padding-left:28px;padding-right: 32px;background-color: #BDF5BD;border-color: #BDF5BD;">
                        <div class="panel-heading single-project-nav">
                           <ul class="nav nav-tabs"> 
                            <li class="active">
-                              <a href="{{ route("residentDetails", $client_detail->id) }}" >Account</a>
+                              <a href="{{ route("residentDetails", $client_detail->id) }}" ><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></a>
                            </li>
                            <li >
                               <a href="{{ route("rsaDetails", $client_detail->id) }}" >RSA</a>
@@ -79,7 +82,14 @@
                            <li>
                                <a href="" >Referal</a>
                            </li>
-                           
+                          
+                           <li>
+                               <a href="" >Support Plan</a>
+                           </li>
+                           <li>
+                               <a href="" >Rent details</a>
+                           </li>
+
                            <li class="dropdown">
                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reports <span class="caret"></span></a>
                               <ul class="dropdown-menu" role="menu">
@@ -92,6 +102,8 @@
                                  <li><a href="{{ route('generateTransferReport', ['res_name' => $client_detail->id]) }}" target="_blank">Transfer</a></li>
                                  <li class="divider"></li>
                                  <li><a href="#">Referral</a></li>
+                                 <li class="divider"></li>
+                                 <li><a href="{{ route('generateProgressReport', ['res_name' => $client_detail->id]) }}"  target="_blank">Progress Report</a></li>
                               </ul>
                           </li>
 

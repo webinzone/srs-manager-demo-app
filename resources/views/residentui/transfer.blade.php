@@ -16,7 +16,7 @@
     align-content: center;
   }
 </style>
-<div class="panel with-nav-tabs panel-default">
+<div class="panel with-nav-tabs panel-default" style="padding-left:28px;padding-right: 32px;background-color: #BDF5BD;border-color: #BDF5BD;">
                        <div class="panel-heading single-project-nav">
                           <ul class="nav nav-tabs"> 
                            <li >

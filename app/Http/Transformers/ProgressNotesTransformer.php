@@ -27,9 +27,8 @@ class ProgressNotesTransformer
                 'id' => (int) $progress_note->id,
                 'res_name' => e($progress_note->res_name),
                 'staff' => e($progress_note->staff),
-                'prg_note' => e($progress_note->prg_note),
+                'room' => e($progress_note->room),
                 
-                'career' => e($progress_note->career),
 
                 'created_at' => e(date('d-m-Y', strtotime($progress_note->created_at))),
                 'actions' => view('progress_notes/datatables_actions', compact('progress_note'))->render() 

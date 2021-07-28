@@ -128,7 +128,7 @@
                     <div class="form-group ">
                          
                         <div class="col-md-4 mb-3 ">
-                          <label for="name" >Super Criminal check </label>
+                          <label for="name" >Criminal check </label>
 
                           <input type="date" name="crime" class="form-control" placeholder="Criminal check (Release date)">                                       
                         </div>

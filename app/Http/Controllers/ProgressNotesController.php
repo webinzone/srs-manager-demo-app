@@ -68,6 +68,14 @@ class ProgressNotesController extends Controller
         $progress_notes->prg_note = request('prg_note') ?? '';
         $progress_notes->staff = request('staff') ?? '';
         $progress_notes->career = request('career') ?? '';
+
+        $progress_notes->p_date = request('p_date') ?? '';
+        $progress_notes->dob = request('dob') ?? '';
+        $progress_notes->gender = request('gender') ?? '';
+        $progress_notes->room = request('room') ?? '';
+        $progress_notes->g_name = request('g_name') ?? '';
+
+
         $progress_notes->company_id = request('company_id') ?? ' ';
         $progress_notes->location_id = request('location_id') ?? ' ';
         $progress_notes->user_id =  Auth::user()->id;
@@ -133,6 +141,13 @@ class ProgressNotesController extends Controller
         $progress_notes->prg_note = request('prg_note') ?? '';
         $progress_notes->staff = request('staff') ?? '';
         $progress_notes->career = request('career') ?? '';
+
+        $progress_notes->p_date = request('p_date') ?? '';
+        $progress_notes->dob = request('dob') ?? '';
+        $progress_notes->gender = request('gender') ?? '';
+        $progress_notes->room = request('room') ?? '';
+        $progress_notes->g_name = request('g_name') ?? '';
+
         $progress_notes->company_id = request('company_id') ?? ' ';
         $progress_notes->location_id = request('location_id') ?? ' ';
         $progress_notes->user_id =  Auth::user()->id;
@@ -168,6 +183,24 @@ class ProgressNotesController extends Controller
         $activity->save();
         return redirect()->route('progress_notes.index')
                         ->with('success','deleted successfully');
+    }
+
+    public function progress_generate(){
+        
+
+        $users = ProgressNote::get();
+        $progress = $users->unique();
+
+
+         return view('progress_notes/report_show',compact('progress'));
+    }
+
+    public function generateProgressReport(){
+      $res = request('res_name');
+      $progress_note = ProgressNote::where('client_id', '=', $res)->get();
+      $resi = ProgressNote::where('client_id', '=', $res)->firstOrFail();
+
+      return view('progress_notes/report',compact('progress_note','resi'));
     }
 
 }

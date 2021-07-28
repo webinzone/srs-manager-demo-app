@@ -18,7 +18,7 @@
     <div class="row" style="padding-left: 300px;">
         <!-- left column -->
       <div class="col-md-7">
-        <form class="form-horizontal" method="" style="width:600px;" action="" autocomplete="off">
+        <form class="form-horizontal" method="" style="width:700px;" action="" autocomplete="off">
           <div class="box box-default">
              <div class="box-header with-border text-center">
                  <h3><b>Progress Notes</b></h3>
@@ -29,9 +29,41 @@
 
                 <!-- Asset name -->
                 <div class="form-group">
+                    <label class="col-sm-6 control-label">Date:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $progress_note->p_date}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-6 control-label">Resident Name:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $progress_note->res_name}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Given Name:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $progress_note->g_name}}</p>
+                    </div>
+                </div>
+                
+
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Dob:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $progress_note->dob}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Gender:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $progress_note->gender}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Room No:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $progress_note->room}}</p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -47,12 +79,7 @@
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <label class="col-sm-6 control-label">Career:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $progress_note->career}}</p>
-                    </div>
-                </div>
+                
                     </div>
                 </div>
                 

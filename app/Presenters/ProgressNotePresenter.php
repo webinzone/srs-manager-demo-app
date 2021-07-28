@@ -34,17 +34,11 @@ class ProgressNotePresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Staff')
             ],[
-                "field" => "prg_note",
+                "field" => "room",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans(' Progress Note')
-            ],[
-                "field" => "career",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Career')
+                "title" => trans(' Room No')
             ],[
                 "field" => "created_at",
                 "searchable" => true,

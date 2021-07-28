@@ -34,7 +34,7 @@
                 <!-- box-body -->
                 <div class="box-body" style="padding-left: 40px;padding-right: 40px;">                          
                     <div class="form-group ">
-                      <div class="col-md-6 mb-3">
+                      <div class="col-md-4 mb-3">
                         <label>Resident Name</label>
                         <select class="form-control" required="" id="resi_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Resident Name  --</option>
@@ -43,23 +43,52 @@
                           @endforeach
                         </select>                
                       </div>
-                      <div class="col-md-6 mb-3">
+                      <div class="col-md-4 mb-3">
+                        <label for="name" >Given Name</label>
+                         <input type="text" id="" placeholder="Given Name" class="form-control" name="g_name" >               
+                      </div>
+                      <div class="col-md-4 mb-3">
                         <label for="name" >Staff Name</label>
                          <input type="text" id="staff" placeholder="Staff" class="form-control" name="staff" readonly>               
                       </div>
+                      
                     </div>
+
                     <div class="form-group ">
-                           <div class="col-md-6 mb-3 ">
+
+                        <div class="col-md-4 mb-3">
+                        <label for="name" >DOB</label>
+                         <input type="text" id="dob" placeholder="DOB" class="form-control" name="dob" readonly>               
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <label for="name" >Gender</label>
+                         <input type="text" id="gender" placeholder="Gender" class="form-control" name="gender" readonly>               
+                      </div>
+
+                      <div class="col-md-2 mb-3">
+                        <label for="name" >Room No</label>
+                         <input type="text" id="room" placeholder="Room No" class="form-control" name="room" readonly>               
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <label for="name" >Date</label>
+                         <input type="date" id="res_date" placeholder="Date" class="form-control" name="p_date" >               
+                      </div>
+                    </div>
+
+                    <div class="form-group ">
+                           <div class="col-md-12 mb-3 ">
                         <label for="name" >ProgressNote</label>
 
                  <textarea  name="prg_note" rows="5" class="form-control" placeholder="ProgressNote"></textarea>                                        
                         </div>
                         
-                           <div class="col-md-6 mb-3 ">
+                          <!-- <div class="col-md-6 mb-3 ">
                         <label for="name" >Career</label>
 
-                 <textarea  name="career" rows="5" class="form-control" placeholder="Career"></textarea>                                       
-                        </div>
+                        <textarea  name="career" rows="5" class="form-control" placeholder="Career"></textarea>                                       
+                        </div>-->
                     </div>
                   <!--  <div class="form-group ">
                         <label for="name" >Company Id</label>
@@ -108,6 +137,42 @@ $('#resi_name').change(function(){
             }
         }
     });
+});
+</script>
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAclientDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#room').val(response.room_no);            
+                 $('#dob').val(response.dob);
+                $('#gender').val(response.gender);
+                  
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script type="text/javascript">
+    Date.prototype.toDateInputValue = (function() {
+    var local = new Date(this);
+    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+    return local.toJSON().slice(0,10);
+})
+    $(document).ready( function() {
+    $('#res_date').val(new Date().toDateInputValue());
 });
 </script>
 @include ('partials.bootstrap-table')

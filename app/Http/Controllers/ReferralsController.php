@@ -174,6 +174,7 @@ class ReferralsController extends Controller
         $referral2->med8 = request('med8') ?? '';  
         $referral2->med8_det = request('med8_det') ?? '';
         $referral2->med9 = request('med9') ?? '';
+        $referral2->med9_det = request('med9_det') ?? '';        
         $referral2->med10 = request('med10') ?? '';
         $referral2->med10_det = request('med10_det') ?? '';
         $referral2->med11 = request('med11') ?? '';
@@ -231,7 +232,8 @@ class ReferralsController extends Controller
         $referral2->rel_org = request('rel_org') ?? '';
         $referral2->rel_date = request('rel_date') ?? '';
         $referral2->user_id =  Auth::user()->id;
-       
+        $referral2->save();
+
       $activity = new ActivityLog();
 
       $activity->user = Auth::user()->first_name;
@@ -464,6 +466,19 @@ class ReferralsController extends Controller
         $activity->save();
         return redirect()->route('referrals.index')
                         ->with('success','deleted successfully');
+    }
+
+       public function referral_generate(){
+        $referals = Referral::all();     
+        return view('referrals/report_show',compact('referals'));
+    }
+
+    public function generateReferralReport(){
+      $res = request('res_name');
+      $referral = Referral::where('client_id', '=', $res)->firstOrFail();
+      $referral2 = Referral2::where('client_id', '=', $referral->id)->firstOrFail();
+
+      return view('referrals/report',compact('referral','referral2'));
     }
 
 }

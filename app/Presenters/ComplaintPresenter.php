@@ -34,12 +34,6 @@ class ComplaintPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Name of Person Commenting')
             ],[
-                "field" => "c_name",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Person Completing Form')
-            ],[
                 "field" => "com_details",
                 "searchable" => true,
                 "sortable" => true,

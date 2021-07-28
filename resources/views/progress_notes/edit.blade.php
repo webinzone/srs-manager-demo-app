@@ -35,7 +35,7 @@
                 <!-- box-body -->
                 <div class="box-body" style="padding-left: 40px;padding-right: 40px;">                          
                     <div class="form-group ">
-                      <div class="col-md-6 mb-3">
+                      <div class="col-md-4 mb-3">
                         <label>Resident Name</label>
                         <select class="form-control" required="" id="resi_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                           @foreach($residents as $resident)
@@ -43,23 +43,52 @@
                           @endforeach
                         </select>                
                       </div>
-                      <div class="col-md-6 mb-3">
+                       <div class="col-md-4 mb-3">
+                        <label for="name" >Given Name</label>
+                         <input type="text" value="{{ $progress_note->g_name}}" id="" placeholder="Given Name" class="form-control" name="g_name" >               
+                      </div>
+                      <div class="col-md-4 mb-3">
                         <label for="name" >Staff Name</label>
                          <input type="text" id="staff" placeholder="Staff" class="form-control" value="{{ $progress_note->staff}}" name="staff" readonly>               
                       </div>
+                        
+                                       
+                    </div>
+
+                    <div class="form-group ">
+
+                        <div class="col-md-4 mb-3">
+                        <label for="name" >DOB</label>
+                         <input type="text" value="{{ $progress_note->dob}}" id="dob" placeholder="DOB" class="form-control" name="dob" readonly>               
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <label for="name" >Gender</label>
+                         <input type="text" value="{{ $progress_note->gender}}" id="gender" placeholder="Gender" class="form-control" name="gender" readonly>               
+                      </div>
+
+                      <div class="col-md-2 mb-3">
+                        <label for="name" >Room No</label>
+                         <input type="text" value="{{ $progress_note->room}}" id="room" placeholder="Room No" class="form-control" name="room" readonly>               
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <label for="name" >Date</label>
+                         <input type="date" value="{{ $progress_note->p_date}}" id="res_date" placeholder="Date" class="form-control" name="p_date" >               
+                      </div>
                     </div>
                     <div class="form-group ">
-                           <div class="col-md-6 mb-3 ">
+                           <div class="col-md-12 mb-3 ">
                         <label for="name" >ProgressNote</label>
 
                  <textarea  name="prg_note" rows="5" class="form-control" placeholder="Progress Note">{{ $progress_note->prg_note}}</textarea>                                        
                         </div>
                         
-                           <div class="col-md-6 mb-3 ">
+                       <!--    <div class="col-md-6 mb-3 ">
                         <label for="name" >Career</label>
 
                  <textarea  name="career" rows="5" class="form-control" placeholder="Career">{{ $progress_note->career}}</textarea>                                       
-                        </div>
+                        </div>-->
                     </div>
                   <!--  <div class="form-group ">
                         <label for="name" >Company Id</label>

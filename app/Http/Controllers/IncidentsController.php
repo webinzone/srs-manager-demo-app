@@ -233,4 +233,15 @@ class IncidentsController extends Controller
         return view('incidents/search',compact('incidents'));
        }
 
+        public function incident_generate(){
+        $incidents = Incident::all();     
+        return view('incidents/report_show',compact('incidents'));
+    }
+
+    public function generateIncidentReport(){
+      $res = request('res_name');
+      $incident = Incident::where('client_id', '=', $res)->firstOrFail();
+      return view('incidents/report',compact('incident'));
+    }
+
 }

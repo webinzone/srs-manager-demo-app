@@ -104,6 +104,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('get/resAgreements/{id}','ResidentUiController@getRsa')->name('rsaDetails');
     Route::get('get/resRoomassets/{id}','ResidentUiController@getRoom')->name('roomDetails');
     Route::get('get/resTransfer/{id}','ResidentUiController@getTransfer')->name('transferDetails');
+
+
+    Route::get('/progress','ProgressNotesController@progress_generate');
+    Route::get('/generateProgressReport/', 'ProgressNotesController@generateProgressReport')->name('generateProgressReport');
+
+    Route::get('/incident','IncidentsController@incident_generate');
+    Route::get('/generateIncidentReport/', 'IncidentsController@generateIncidentReport')->name('generateIncidentReport');
+
+    Route::get('/referral','ReferralsController@referral_generate');
+    Route::get('/generateReferralReport/', 'ReferralsController@generateReferralReport')->name('generateReferralReport');
     
 
     /*

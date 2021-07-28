@@ -67,10 +67,10 @@
                       <div class="col-md-6 mb-3">
                         <label>Persons notified</label><br>
                             <label><input  type="checkbox" name="doctor" value="Doctor"> Doctor</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="freq_pay" value="NOK"> NOK</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="case_mgr" value="Case Manager"> Case Manager</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="dhhs" value="DHSS"> DHSS</label>&nbsp;&nbsp; 
-                                <label><input  type="checkbox" name="management" value="Management"> Management</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="doctor" value="NOK"> NOK</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="doctor" value="Case Manager"> Case Manager</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="doctor" value="DHSS"> DHSS</label>&nbsp;&nbsp; 
+                                <label><input  type="checkbox" name="doctor" value="Management"> Management</label>&nbsp;&nbsp;
                                   <br>                
                       </div>  
                     </div>
@@ -209,6 +209,11 @@ $('#resi_name').change(function(){
             }
         }
     });
+});
+</script>
+<script type="text/javascript">
+  $('input[type="checkbox"]').on('change', function() {
+    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
 </script>
 @include ('partials.bootstrap-table')

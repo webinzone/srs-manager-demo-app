@@ -69,10 +69,10 @@
                       <div class="col-md-6 mb-3">
                         <label>Persons notified</label><br>
                             <label><input {{ $incident->doctor == 'Doctor' ? 'checked' : ''  }}  type="checkbox" name="doctor" value="Doctor"> Doctor</label>&nbsp;&nbsp;
-                            <label><input {{ $incident->nok == 'NOK' ? 'checked' : ''  }}  type="checkbox" name="nok" value="NOK"> NOK</label>&nbsp;&nbsp;
-                            <label><input {{ $incident->case_mgr == 'Case Manager' ? 'checked' : ''  }}  type="checkbox" name="case_mgr" value="Case Manager"> Case Manager</label>&nbsp;&nbsp;
-                            <label><input {{ $incident->dhhs == 'DHSS' ? 'checked' : ''  }}  type="checkbox" name="dhhs" value="DHSS"> DHSS</label>&nbsp;&nbsp;
-                            <label><input {{ $incident->management == 'Management' ? 'checked' : ''  }}  type="checkbox" name="management" value="Management"> Management</label>&nbsp;&nbsp;  <br>                
+                            <label><input {{ $incident->doctor == 'NOK' ? 'checked' : ''  }}  type="checkbox" name="nok" value="NOK"> NOK</label>&nbsp;&nbsp;
+                            <label><input {{ $incident->doctor == 'Case Manager' ? 'checked' : ''  }}  type="checkbox" name="case_mgr" value="Case Manager"> Case Manager</label>&nbsp;&nbsp;
+                            <label><input {{ $incident->doctor == 'DHSS' ? 'checked' : ''  }}  type="checkbox" name="dhhs" value="DHSS"> DHSS</label>&nbsp;&nbsp;
+                            <label><input {{ $incident->doctor == 'Management' ? 'checked' : ''  }}  type="checkbox" name="management" value="Management"> Management</label>&nbsp;&nbsp;  <br>                
                       </div>  
                     </div>
                     <div class="form-group ">

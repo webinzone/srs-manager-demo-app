@@ -7,7 +7,7 @@
 @stop
 @section('header_right')
   
-      <a href="/generateAccountReport" style="background-color:#486467; right: 30px;" class="btn btn-primary pull-right"  target="_blank"> Accounts Report</a>
+      <!--<a href="/generateAccountReport" style="background-color:#486467; right: 30px;" class="btn btn-primary pull-right"  target="_blank"> Accounts Report</a>-->
 @stop
 
 {{-- Page content --}}
@@ -264,7 +264,7 @@
         <!-- Categories -->
         <div class="box box-default" style="background-color: #BDF5BD;">
             <div class="box-header with-border">
-                <h2 class="box-title">Bookings Report </h2>
+                <h2 class="box-title">Appointments </h2>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse">
                         <i class="fa fa-minus" aria-hidden="true"></i>

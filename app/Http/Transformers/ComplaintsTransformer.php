@@ -27,7 +27,6 @@ class ComplaintsTransformer
                 'id' => (int) $complaint->id,
                 'f_name' => e($complaint->f_name),
                 'user_name' => e($complaint->user_name),
-                'c_name' => e($complaint->c_name),
                 'com_details' => e($complaint->com_details),
                 'com_nature' => e($complaint->com_nature),
             

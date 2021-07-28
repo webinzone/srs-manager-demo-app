@@ -555,6 +555,30 @@ h4 {
                 
                 </ul>
               </li>
+              <li class="treeview">
+                <a href="#" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-money" aria-hidden="true"></i>
+
+                                  
+                  <span style="color: white;">Accounts</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
+                  <li>
+                      <a href="/generateAccountReport" target="_blank" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                       Accounts Report
+                    </a>
+                  </li>
+                  <li>
+                      <a href="{{ route('rent_details.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                          Rent Details
+                      </a>
+                  </li>
+                
+                </ul>
+              </li>
              <!--@can('view', \App\Models\Booking::class)
             <li{!! (Request::is('bookings*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('bookings.index') }}" style="background-color: #222d32;color: #b8c7ce;">
@@ -609,7 +633,7 @@ h4 {
             <li{!! (Request::is('transfer_records*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('transfer_records.index') }}" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  <span style="color: white;">Transffer Records</span>
+                  <span style="color: white;">Transfer Records</span>
                 </a>
             </li>
             @endcan
@@ -664,7 +688,7 @@ h4 {
                     </a>
                   </li>
                   <li>
-                      <a href="" style="color: #b8c7ce;">
+                      <a href="/referral" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Referal Reports
                     </a>
@@ -676,11 +700,24 @@ h4 {
                     </a>
                   </li>
                   <li>
+                      <a href="/progress" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Progress Reports
+                    </a>
+                  </li>
+                  <li>
+                      <a href="/incident" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Incident Reports
+                    </a>
+                  </li>
+                  <li>
                       <a href="/generatetransfer" style="color: #b8c7ce;" >
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Transfer Reports
                     </a>
                   </li>
+                  
                   <!--<li>
                       <a href="{{ route('handovers.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
@@ -718,14 +755,14 @@ h4 {
             </li>
             @endcan-->
            
-            @can('view', \App\Models\RentDetail::class)
+            <!--@can('view', \App\Models\RentDetail::class)
             <li{!! (Request::is('rent_details*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('rent_details.index') }}" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-file"></i>
                   <span style="color: white;">Rent Details</span>
                 </a>
             </li>
-            @endcan
+            @endcan-->
 
             @can('view', \App\Models\Complaint::class)
             <li{!! (Request::is('complaints*') ? ' class="active"' : '') !!}>
@@ -949,7 +986,7 @@ h4 {
     @section('moar_scripts')
     @show
 
-
+  
     <script nonce="{{ csrf_token() }}">
 
 
@@ -1008,6 +1045,12 @@ h4 {
          $("#tagSearch").focus();
     </script>
     @endif
+
+    <script type="text/javascript">
+  $('input[type="checkbox"]').on('change', function() {
+    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
+});
+</script>
 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
