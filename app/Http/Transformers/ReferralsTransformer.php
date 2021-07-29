@@ -25,8 +25,8 @@ class ReferralsTransformer
 
             $array = [
                 'id' => (int) $referral->id,
+                'cfname' => e($referral->cfname),
                 'con_name' => e($referral->con_name),
-                'refer_name' => e($referral->refer_name),
                 'rep_name' => e($referral->rep_name),
                 'relation' => e($referral->relation),
                 'created_at' => e(date('d-m-Y', strtotime($referral->created_at))),

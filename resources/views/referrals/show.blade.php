@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Residential care Manager
-    </title>
-    
+@extends('layouts/default')
+
+{{-- Page title --}}
+@section('title')
+
+@parent
+@stop
+
+@section('header_right')
+    @can('create', \App\Models\ResidentAgreement::class)
+        <a href="{{ route('referrals.index') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Back</a>
+    @endcan
+@stop
+
+{{-- Page content --}}
+@section('content')
 <style type="text/css">
 
   td {
     width: 200px;
+    padding: 5px;
   }
 
   table {
@@ -29,24 +38,22 @@
       }
   </style>
 
-
-
-
-
-  </head>
-
-  <body>
-
   <div id="webui">
-    <div class="row">
-      <input type="button" class="right" style="right: 30px; align-items: right;" onclick="printDiv('print-content1')" value="PRINT"/>&nbsp;&nbsp;&nbsp;<br><br>
-      <div id="print-content1">
-        <div class="container">
-    <center>
-      <h1 >MEADOWBROOK S R S</h1>
-    </center>
-    <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></p></center>
-    <h2><center>Referral Report </center></h2>
+    <div class="row" style="padding-left: 80px;padding-right: 80px;">
+        <!-- left column -->
+      <div class="col-md-7">
+        <form class="form-horizontal" method="" action="" autocomplete="off" style="width: 1000px; align-items: center;   background-color: #fff; padding-right: 100px;">
+          <div class="box box-default">
+            <div class="box-header with-border text-center">
+                 <h3><b>Referral Report</b></h3>
+                   
+                </div><!-- /.box-header -->
+
+            <div class="box-body" style="padding-left:80px;">
+
+                <!-- Asset name -->
+              
+
     <h3 style="font-family:Bedrock">PART A: for b client or client's representative (if applicable):</h3>
     <h5 style="font-size: 16px;"><b>CONSENT TO RELEASE OF INFORMATION</b></h5>
     <table style="border: 1px solid black;">
@@ -1033,40 +1040,15 @@
         <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($referral2->rel_date)) }}</td>
       </tr>
     </table><br>
-      
-         </div>
-   </div>
- </div>
- </div>
+    </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-<script type="text/javascript">
-    function printDiv(divName) {
-        var htmlToPrint = '' +
-        '<style type="text/css">' +
-        'table {' +
-        'border: 1px solid black;' +
-        '    width: 100%;' +
-        'border-collapse: collapse;' +
-        '}' +
-        'td {' +
-        'border: 1px solid black;' +
-        '    width: 200px;' +
-        'border-collapse: collapse;' +
-        '}' +
-         '.container{' +
-          'width: 1000px;' +
-          'padding: 10px;' +
-          'margin: auto;' +
-          'border: 1px solid black;' +
-          '}' +
-        '</style>';
+@stop
 
-        htmlToPrint += document.getElementById(divName).outerHTML;
-        w=window.open();
-        w.document.write(htmlToPrint);
-        w.print();
-        w.close();
-    }</script>
-
-  </body>
-</html>
+@section('moar_scripts')
+@include ('partials.bootstrap-table')
+@stop

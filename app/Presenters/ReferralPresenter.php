@@ -22,17 +22,17 @@ class ReferralPresenter extends Presenter
                 "title" => trans('id'),
                 "visible" => false
             ],[
+                "field" => "cfname",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Resident Name')
+            ],[
                 "field" => "con_name",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Name of person giving this consent')
-            ],[
-                "field" => "refer_name",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Name of person being referred')
             ],[
                 "field" => "rep_name",
                 "searchable" => true,
