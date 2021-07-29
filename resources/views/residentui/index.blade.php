@@ -80,7 +80,7 @@
                                <a href="{{ route("transferDetails", $client_detail->id) }}" >Transfer</a>
                            </li>
                            <li>
-                               <a href="" >Referal</a>
+                               <a href="{{ route("referralDetails", $client_detail->id) }}" >Referal</a>
                            </li>
                           
                            <li>

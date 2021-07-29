@@ -483,8 +483,20 @@ class ReferralsController extends Controller
         $activity->item = "Referral Report";
         $activity->save();
 
+        $val = request('val')  ?? '';
+        if($val == 'res')
+        {
+            return redirect()->route('referralDetails', $referral->client_id)
+                ->with('success','Updated successfully');
+        }
+        else
+        {
+
         return redirect()->route('referrals.index')
                         ->with('success','updated successfully');
+                    }
+
+        
     }
     /**
      * Remove the specified resource from storage.

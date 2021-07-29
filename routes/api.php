@@ -462,6 +462,17 @@ Route::resource('appointments', 'AppointmentsController',
             'parameters' => ['referrals' => 'referrals_id']
         ]
     );
+    Route::resource('rents', 'RentsController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.rents.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['rents' => 'rents_id']
+        ]
+    );
 
     Route::resource('echart', 'EchartController',
         [

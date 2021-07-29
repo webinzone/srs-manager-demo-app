@@ -17,6 +17,8 @@ use App\Models\ClientNextofkin;
 use App\Models\RoomDetail;
 use App\Models\CompanyMaster;
 use App\Models\TransferRecord;
+use App\Models\Referral;
+use App\Models\Referral2;
 
 
 
@@ -95,5 +97,26 @@ class ResidentUiController extends Controller
         $transfer_record = TransferRecord::where('client_id', '=', $id)->firstOrFail();
         $residents = ClientDetail::all();
         return view('residentui/transfer',compact('transfer_record','residents','r_id'));
+    }
+    public function getReferral($id)
+    {
+        $r_id = $id; 
+        $referral = Referral::where('client_id', '=', $id)->firstOrFail();
+        $referral2 = Referral2::where('client_id', '=', $referral->id)->firstOrFail();
+        
+
+        $drug = explode(',', $referral->medi_drugname);
+        $drug = array_filter($drug, 'strlen');
+
+        $dose = explode(',', $referral->medi_dose);   
+        $freq = explode(',', $referral->medi_freq);
+        $duration = explode(',', $referral->medi_duration);
+        $last = explode(',', $referral->medi_lasttaken);
+        $item_last= count($drug);
+        $num = (int)$item_last;
+
+        $residents = ClientDetail::all();
+        $emps = SrsStaff::all();
+        return view('residentui/referral',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num','r_id'));
     }
  }

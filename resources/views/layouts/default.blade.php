@@ -571,7 +571,7 @@ h4 {
                     </a>
                   </li>
                   <li>
-                      <a href="{{ route('rent_details.index') }}" style="color: #b8c7ce;">
+                      <a href="{{ route('rents.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                           Rent Details
                       </a>

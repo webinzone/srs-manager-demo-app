@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('referrals','ReferralsController');
     Route::resource('referrals2','Referrals2Controller');
     Route::resource('vaccates','VaccatesController');
+    Route::resource('rents','RentsController');
 
 
 
@@ -90,6 +91,7 @@ Route::group(['middleware' => 'auth'], function () {
       Route::get('get/resguadetails/{id}', 'ResidentAgreementsController@getGuaDetails')->name('getGuaDetails');
       Route::get('get/resnominidetails/{id}', 'ResidentAgreementsController@getNominiDetails')->name('getNominiDetails');
       
+      
     Route::get('/agreement','ResidentAgreementsController@agreement_generate');
     Route::get('/generateRSAReport/', 'ResidentAgreementsController@generateRSAReport')->name('generateRSAReport');
 
@@ -103,6 +105,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('get/residents/{id}','ResidentUiController@index')->name('residentDetails');
     Route::get('get/resAgreements/{id}','ResidentUiController@getRsa')->name('rsaDetails');
     Route::get('get/resRoomassets/{id}','ResidentUiController@getRoom')->name('roomDetails');
+    Route::get('get/resReferral/{id}','ResidentUiController@getReferral')->name('referralDetails');
+
     Route::get('get/resTransfer/{id}','ResidentUiController@getTransfer')->name('transferDetails');
 
 

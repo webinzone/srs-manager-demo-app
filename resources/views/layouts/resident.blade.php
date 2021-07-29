@@ -339,7 +339,7 @@ ul.asset-list {
     font-weight: bold;
 }
 .container-res{
-	height: 2000px;
+	height: auto;
 	background-color: #BDF5BD;
 	left: 200px;
 	width: 1200px;
