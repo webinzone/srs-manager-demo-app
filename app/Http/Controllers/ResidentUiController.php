@@ -19,6 +19,8 @@ use App\Models\CompanyMaster;
 use App\Models\TransferRecord;
 use App\Models\Referral;
 use App\Models\Referral2;
+use App\Models\SupportPlan;
+use App\Models\Incident;
 
 
 
@@ -119,4 +121,23 @@ class ResidentUiController extends Controller
         $emps = SrsStaff::all();
         return view('residentui/referral',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num','r_id'));
     }
+
+    public function getPlans($id)
+    {
+        $r_id = $id;
+        $support_plan = SupportPlan::where('client_id', '=', $id)->firstOrFail();
+        $residents = ClientDetail::all();        
+
+        return view('residentui/supportplans',compact('support_plan','residents','r_id'));
+    }
+
+    public function getIncidents($id)
+    {
+        $r_id = $id;
+        $incident = Incident::where('client_id', '=', $id)->firstOrFail();
+        $residents = ClientDetail::all();
+
+        return view('residentui/incident',compact('incident','residents','r_id'));
+    }
+
  }

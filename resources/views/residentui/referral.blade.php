@@ -20,20 +20,28 @@
  <div class="panel with-nav-tabs panel-default" style="padding-left:28px;padding-right: 32px;background-color: #BDF5BD;border-color: #BDF5BD;">
                        <div class="panel-heading single-project-nav">
                           <ul class="nav nav-tabs"> 
-                           <li >
-                              <a href="{{ route("residentDetails", $r_id) }}" >Account</a>
+                            <li >
+                              <a href="{{ route("residentDetails", $r_id) }}" ><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></a>
                            </li>
-                           <li class="active">
-                              <a href="{{ route("rsaDetails", $r_id) }}" >RSA</a>
+                           <li >
+                              <a href="{{ route("rsaDetails", $r_id) }}" >Resident Agreement</a>
                            </li>
                            <li>
-                              <a href="{{ route("roomDetails", $r_id) }}"" >Room Assets</a>
+                              <a href="{{ route("roomDetails", $r_id) }}" >Room Assets</a>
+                           </li>
+                           
+                           <li class="active">
+                               <a href="{{ route("referralDetails", $r_id) }}" >Referal</a>
+                           </li>
+                          
+                           <li>
+                               <a href="{{ route("plansDetails", $r_id) }}" >Support Plan</a>
+                           </li>
+                           <li >
+                               <a href="{{ route("incidentDetails", $r_id) }}" >Incident</a>
                            </li>
                            <li>
                                <a href="{{ route("transferDetails", $r_id) }}" >Transfer</a>
-                           </li>
-                           <li>
-                               <a href="" >Referal</a>
                            </li>
                            <li class="dropdown">
                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reports <span class="caret"></span></a>
@@ -44,9 +52,15 @@
                                  <li class="divider"></li>
                                  <li><a href="{{ route('generateRSAReport', ['res_name' => $r_id]) }}" target="_blank">RSA</a></li>
                                  <li class="divider"></li>
-                                 <li><a href="{{ route('generateTransferReport', ['res_name' => $r_id]) }}" target="_blank">Transfer</a></li>
+                                 <li><a href="{{ route('generateReferralReport', ['res_name' => $r_id]) }}" target="_blank">Referral</a></li>
                                  <li class="divider"></li>
-                                 <li><a href="#">Referral</a></li>
+                                 <li><a href="{{ route('generateRentReport', ['res_name' => $r_id]) }}"  target="_blank">Rent Details</a></li>
+                                  <li class="divider"></li>
+                                 <li><a href="{{ route('generateProgressReport', ['res_name' => $r_id]) }}"  target="_blank">Progress Report</a></li>
+                                 <li class="divider"></li>
+                                 <li><a href="{{ route('generateTransferReport', ['res_name' => $r_id]) }}" target="_blank">Transfer</a></li>
+                                 
+                                
                               </ul>
                           </li>
                        </ul>
@@ -999,8 +1013,8 @@
                         </div>
                     </div>-->
                     <div class="box-footer text-right" style="padding-right:50px;">
-                     <br><br>   <a class="btn btn-link text-left" href="{{ route('referrals.index') }}">Cancel</a>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
+                     <br><br>  
+                        <button style="width: 100px;" type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
                     </div>
 
                 </div> <!-- ./box-body -->

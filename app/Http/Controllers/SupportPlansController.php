@@ -158,8 +158,20 @@ class SupportPlansController extends Controller
       $activity->item = "Support Plans";
       $activity->save();
 
+      $val = request('val')  ?? '';
+        if($val == 'res')
+        {
+            return redirect()->route('plansDetails', $support_plan->client_id)
+                ->with('success','Updated successfully');
+        }
+        else
+        {
+
         return redirect()->route('support_plans.index')
                         ->with('success','updated successfully');
+                    }
+
+        
     }
     /**
      * Remove the specified resource from storage.

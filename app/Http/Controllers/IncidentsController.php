@@ -195,10 +195,21 @@ class IncidentsController extends Controller
         $activity->action = "Updated";
         $activity->item = "Incident Report";
         $activity->save();
-    
+        
+        $val = request('val')  ?? '';
+        if($val == 'res')
+        {
+            return redirect()->route('incidentDetails', $incident->client_id)
+                ->with('success','Updated successfully');
+        }
+        else
+        {
 
         return redirect()->route('incidents.index')
                         ->with('success','updated successfully');
+                    }
+
+        
     }
     /**
      * Remove the specified resource from storage.

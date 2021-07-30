@@ -308,6 +308,7 @@ $('#resname').change(function(){
              <td class="row-index text-center">
              <input type="text" name="res_comments[]"  >
              </td>
+             
               <td class="text-center">
                 
                   <button style="height:20px;background-color:white;color:red;"  class="remove btn "><i class="fa fa-trash icon-white"></i></button>

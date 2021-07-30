@@ -706,6 +706,12 @@ h4 {
                     </a>
                   </li>
                   <li>
+                      <a href="/rent" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Rent Reports
+                    </a>
+                  </li>
+                  <li>
                       <a href="/incident" style="color: #b8c7ce;" >
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Incident Reports

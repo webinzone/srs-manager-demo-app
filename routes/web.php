@@ -106,8 +106,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('get/resAgreements/{id}','ResidentUiController@getRsa')->name('rsaDetails');
     Route::get('get/resRoomassets/{id}','ResidentUiController@getRoom')->name('roomDetails');
     Route::get('get/resReferral/{id}','ResidentUiController@getReferral')->name('referralDetails');
-
     Route::get('get/resTransfer/{id}','ResidentUiController@getTransfer')->name('transferDetails');
+    Route::get('get/resSupportplans/{id}','ResidentUiController@getPlans')->name('plansDetails');
+    Route::get('get/resIncident/{id}','ResidentUiController@getIncidents')->name('incidentDetails');
 
 
     Route::get('/progress','ProgressNotesController@progress_generate');
@@ -118,6 +119,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/referral','ReferralsController@referral_generate');
     Route::get('/generateReferralReport/', 'ReferralsController@generateReferralReport')->name('generateReferralReport');
+
+    Route::get('/rent','RentsController@rent_generate');
+    Route::get('/generateRentReport/', 'RentsController@generateRentReport')->name('generateRentReport');
+
     
 
     /*

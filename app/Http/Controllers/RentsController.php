@@ -182,4 +182,21 @@ class RentsController extends Controller
                         ->with('success','deleted successfully');
     }
 
+    public function rent_generate(){
+        
+
+        $rents = Rent::get();
+
+         return view('rents/report_show',compact('rents'));
+    }
+
+    public function generateRentReport(){
+      $res = request('res_name');
+      $rents = Rent::where('client_id', '=', $res)->get();
+      $resi = Rent::where('client_id', '=', $res)->firstOrFail();
+
+      return view('rents/report',compact('rents','resi'));
+    }
+
+
 }

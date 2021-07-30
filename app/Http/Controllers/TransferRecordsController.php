@@ -6,6 +6,8 @@ use App\Http\Requests;
 use App\Models\TransferRecord;
 use App\Models\ActivityLog;
 use App\Models\ClientDetail;
+use App\Models\RoomDetail;
+
 
 
 use Illuminate\Support\Facades\Auth;
@@ -62,6 +64,7 @@ class TransferRecordsController extends Controller
         $id = request('user_name') ?? '';
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
         $name = $res->fname." ".$res->mname." ".$res->lname;
+        $rroom = $res->room_no;
         
         $transfer_record->user_name = $name;
         $transfer_record->client_id = $id;
@@ -113,6 +116,15 @@ class TransferRecordsController extends Controller
         $transfer_record->user_id =  Auth::user()->id;
         
         $transfer_record->save();
+
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
+        $roomdetails->status = "Free";
+      
+        $roomdetails->save();
+
+        $ress = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $ress->status = "Transfer";
+        $ress->save();
        
       $activity = new ActivityLog();
 
@@ -167,6 +179,7 @@ class TransferRecordsController extends Controller
         $id = request('user_name') ?? '';
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
         $name = $res->fname." ".$res->mname." ".$res->lname;
+        $rroom = $res->room_no;
         
         $transfer_record->user_name = $name;
         $transfer_record->client_id = $id;
@@ -218,6 +231,15 @@ class TransferRecordsController extends Controller
         $transfer_record->user_id =  Auth::user()->id;
         
         $transfer_record->save();
+
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
+        $roomdetails->status = "Free";
+      
+        $roomdetails->save();
+
+        $ress = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $ress->status = "Transfer";
+        $ress->save();
 
         $activity = new ActivityLog();
 

@@ -71,25 +71,25 @@
                               <a href="{{ route("residentDetails", $client_detail->id) }}" ><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></a>
                            </li>
                            <li >
-                              <a href="{{ route("rsaDetails", $client_detail->id) }}" >RSA</a>
+                              <a href="{{ route("rsaDetails", $client_detail->id) }}" >Resident Agreement</a>
                            </li>
                            <li>
                               <a href="{{ route("roomDetails", $client_detail->id) }}" >Room Assets</a>
                            </li>
-                           <li>
-                               <a href="{{ route("transferDetails", $client_detail->id) }}" >Transfer</a>
-                           </li>
+                           
                            <li>
                                <a href="{{ route("referralDetails", $client_detail->id) }}" >Referal</a>
                            </li>
                           
                            <li>
-                               <a href="" >Support Plan</a>
+                               <a href="{{ route("plansDetails", $client_detail->id) }}" >Support Plan</a>
                            </li>
                            <li>
-                               <a href="" >Rent details</a>
+                               <a href="{{ route("incidentDetails", $client_detail->id) }}" >Incident</a>
                            </li>
-
+                           <li>
+                               <a href="{{ route("transferDetails", $client_detail->id) }}" >Transfer</a>
+                           </li>
                            <li class="dropdown">
                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reports <span class="caret"></span></a>
                               <ul class="dropdown-menu" role="menu">
@@ -99,11 +99,15 @@
                                  <li class="divider"></li>
                                  <li><a href="{{ route('generateRSAReport', ['res_name' => $client_detail->id]) }}" target="_blank">RSA</a></li>
                                  <li class="divider"></li>
-                                 <li><a href="{{ route('generateTransferReport', ['res_name' => $client_detail->id]) }}" target="_blank">Transfer</a></li>
+                                 <li><a href="{{ route('generateReferralReport', ['res_name' => $client_detail->id]) }}" target="_blank">Referral</a></li>
                                  <li class="divider"></li>
-                                 <li><a href="#">Referral</a></li>
-                                 <li class="divider"></li>
+                                 <li><a href="{{ route('generateRentReport', ['res_name' => $client_detail->id]) }}"  target="_blank">Rent Details</a></li>
+                                  <li class="divider"></li>
                                  <li><a href="{{ route('generateProgressReport', ['res_name' => $client_detail->id]) }}"  target="_blank">Progress Report</a></li>
+                                 <li class="divider"></li>
+                                 <li><a href="{{ route('generateTransferReport', ['res_name' => $client_detail->id]) }}" target="_blank">Transfer</a></li>
+                                 
+                                
                               </ul>
                           </li>
 
@@ -994,8 +998,7 @@
                 </div>
              
                 <div class="box-footer text-right" style="padding-right:50px;">
-                  <a class="btn btn-link text-left" href="{{ route('clients.index') }}">Cancel</a>
-                  <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
+                  <button type="submit" style="width: 100px;" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
                 </div>
 
               </div>
