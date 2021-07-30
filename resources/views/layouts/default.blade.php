@@ -350,7 +350,7 @@ h4 {
                <!-- Tasks: style can be found in dropdown.less -->
                <?php $alert_items = \App\Helpers\Helper::checkLowInventory(); ?>
 
-               <li class="dropdown tasks-menu">
+              <!-- <li class="dropdown tasks-menu">
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;">
                    <i class="fa fa-flag-o" aria-hidden="true"></i>
                      <span class="sr-only">Alerts</span>
@@ -361,12 +361,11 @@ h4 {
                  <ul class="dropdown-menu">
                    <li class="header">You have {{ count($alert_items) }} items below or almost below minimum quantity levels</li>
                    <li>
-                     <!-- inner menu: contains the actual data -->
                      <ul class="menu">
 
                       @for($i = 0; count($alert_items) > $i; $i++)
 
-                        <li><!-- Task item -->
+                        <li>
                           <a href="{{route($alert_items[$i]['type'].'.show', $alert_items[$i]['id'])}}">
                             <h2>{{ $alert_items[$i]['name'] }}
                               <small class="pull-right">
@@ -380,15 +379,14 @@ h4 {
                             </div>
                           </a>
                         </li>
-                        <!-- end task item -->
                       @endfor
                      </ul>
-                   </li>
+                 </li>
                    {{-- <li class="footer">
                      <a href="#">View all tasks</a>
                    </li> --}}
                  </ul>
-               </li>
+               </li>-->
                @endcan
                @endif
 
