@@ -2,7 +2,6 @@
 
 {{-- Page title --}}
 @section('title')
-Staff Roasters
 @parent
 @stop
 
@@ -19,6 +18,11 @@ Staff Roasters
   <div class="col-md-12">
 
     <div class="box box-default">
+         <div class="box-header with-border text-center">
+                 <h3><b>Staff Roaster</b></h3>
+                   
+                </div><!-- /.box-header -->
+
       <div class="box-body">
         <div class="table-responsive">
 
@@ -54,5 +58,16 @@ Staff Roasters
 @stop
 
 @section('moar_scripts')
+<script type="text/javascript">
+var seen = {};
+$('table tr').each(function() {
+  var txt = $(this).find("td:not(:first)").text();
+  
+  if (seen[txt])
+    $(this).remove();
+  else
+    seen[txt] = true;
+});
+</script>
 @include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\StaffRoasterPresenter::dataTableLayout()])
 @stop

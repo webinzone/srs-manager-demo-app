@@ -58,20 +58,30 @@ class StaffRoastersController extends Controller
         $staff_roaster = new StaffRoaster();
 
         $staff_roaster->s_date = request('s_date')  ?? '';
-        $staff_roaster->s_name = request('s_name')  ?? '';
-        $staff_roaster->position = request('position')  ?? '';
-        $staff_roaster->mon = request('mon')  ?? '';
-        $staff_roaster->tues = request('tues')  ?? '';
-        $staff_roaster->wed = request('wed')  ?? '';
-        $staff_roaster->thurs = request('thurs')  ?? '';
-        $staff_roaster->fri = request('fri')  ?? '';
-        $staff_roaster->sat = request('sat')  ?? '';
-        $staff_roaster->sun = request('sun')  ?? '';
-        $staff_roaster->total_hrs = request('total_hrs')  ?? '';
-        $staff_roaster->total = request('total')  ?? '';
+
+        $staff_roaster->con_1 = request('con_1')  ?? '';
+        $staff_roaster->con_2 = request('con_2')  ?? '';
+        $staff_roaster->con_3 = request('con_3')  ?? '';
+        $staff_roaster->company_id = request('company_id')  ?? '';
+        $staff_roaster->location_id = request('location_id')  ?? '';
+        $staff_roaster->user_id =  Auth::user()->id;
+
+
+        $staff_roaster->s_name = implode(',', (array)  request('s_name'))  ?? '';
+        $staff_roaster->position = implode(',', (array)  request('position'))  ?? '';
+        $staff_roaster->mon = implode(',', (array)  request('mon'))  ?? '';
+        $staff_roaster->tues = implode(',', (array)  request('tues'))  ?? '';
+        $staff_roaster->wed = implode(',', (array)  request('wed'))  ?? '';
+        $staff_roaster->thurs = implode(',', (array)  request('thurs'))  ?? '';
+        $staff_roaster->fri = implode(',', (array)  request('fri'))  ?? '';
+        $staff_roaster->sat = implode(',', (array)  request('sat'))  ?? '';
+        $staff_roaster->sun = implode(',', (array)  request('sun'))  ?? '';
+        $staff_roaster->total_hrs = implode(',', (array)  request('total_hrs'))  ?? '';
+        $staff_roaster->total = implode(',', (array)  request('total'))  ?? '';
+        $staff_roaster->pr_time = implode(',', (array)  request('pr_time'))  ?? '';
+        $staff_roaster->init = implode(',', (array)  request('init'))  ?? '';       
 
         
-        $staff_roaster->user_id =  Auth::user()->id;
         
         $staff_roaster->save();
        
@@ -97,7 +107,23 @@ class StaffRoastersController extends Controller
     {
         $this->authorize('show',StaffRoaster::class);
         $staff_roaster = StaffRoaster::find($id);
-        return view('staff_roasters/show',compact('staff_roaster'));
+             $s_name = explode(',', $staff_roaster->s_name);
+          $position = explode(',', $staff_roaster->position);
+          $mon = explode(',', $staff_roaster->mon);
+          $tues = explode(',', $staff_roaster->tues);
+          $wed = explode(',', $staff_roaster->wed);
+          $thurs = explode(',', $staff_roaster->thurs);
+          $fri = explode(',', $staff_roaster->fri);
+          $sat = explode(',', $staff_roaster->sat);
+          $sun = explode(',', $staff_roaster->sun);
+          $total_hrs = explode(',', $staff_roaster->total_hrs);
+          $total = explode(',', $staff_roaster->total);
+          $pr_time = explode(',', $staff_roaster->pr_time);
+          $init = explode(',', $staff_roaster->init);
+
+          $num = count($s_name);
+
+        return view('staff_roasters/show',compact('staff_roaster','s_name','position','mon','tues','wed','thurs','fri','sat','sun','total_hrs','total','pr_time','init','num'));
     }
      /**
      * Show the form for editing the specified resource.
@@ -110,7 +136,22 @@ class StaffRoastersController extends Controller
     {
         $this->authorize('edit',StaffRoaster::class);
         $staff_roaster = StaffRoaster::find($id);
-        return view('staff_roasters/edit',compact('staff_roaster'));
+          $s_name = explode(',', $staff_roaster->s_name);
+          $position = explode(',', $staff_roaster->position);
+          $mon = explode(',', $staff_roaster->mon);
+          $tues = explode(',', $staff_roaster->tues);
+          $wed = explode(',', $staff_roaster->wed);
+          $thurs = explode(',', $staff_roaster->thurs);
+          $fri = explode(',', $staff_roaster->fri);
+          $sat = explode(',', $staff_roaster->sat);
+          $sun = explode(',', $staff_roaster->sun);
+          $total_hrs = explode(',', $staff_roaster->total_hrs);
+          $total = explode(',', $staff_roaster->total);
+          $pr_time = explode(',', $staff_roaster->pr_time);
+          $init = explode(',', $staff_roaster->init);
+           $num = count($s_name);
+
+        return view('staff_roasters/edit',compact('staff_roaster','s_name','position','mon','tues','wed','thurs','fri','sat','sun','total_hrs','total','pr_time','init','num'));
     }
     /**
      * Update the specified resource in storage.
@@ -124,19 +165,31 @@ class StaffRoastersController extends Controller
         $this->authorize('update', StaffRoaster::class);
         $staff_roaster = StaffRoaster::find($id);
 
-        $staff_roaster->s_date = request('s_date');
-        $staff_roaster->s_name = request('s_name');
-        $staff_roaster->position = request('position');
-        $staff_roaster->mon = request('mon');
-        $staff_roaster->tues = request('tues');
-        $staff_roaster->wed = request('wed');
-        $staff_roaster->thurs = request('thurs');
-        $staff_roaster->fri = request('fri');
-        $staff_roaster->sat = request('sat');
-        $staff_roaster->sun = request('sun');
-        $staff_roaster->total_hrs = request('total_hrs');
-        $staff_roaster->total = request('total');
+
+        $staff_roaster->s_date = request('s_date')  ?? '';
+
+        $staff_roaster->con_1 = request('con_1')  ?? '';
+        $staff_roaster->con_2 = request('con_2')  ?? '';
+        $staff_roaster->con_3 = request('con_3')  ?? '';
+        $staff_roaster->company_id = request('company_id')  ?? '';
+        $staff_roaster->location_id = request('location_id')  ?? '';
         $staff_roaster->user_id =  Auth::user()->id;
+
+
+        $staff_roaster->s_name = implode(',', (array)  request('s_name'))  ?? '';
+        $staff_roaster->position = implode(',', (array)  request('position'))  ?? '';
+        $staff_roaster->mon = implode(',', (array)  request('mon'))  ?? '';
+        $staff_roaster->tues = implode(',', (array)  request('tues'))  ?? '';
+        $staff_roaster->wed = implode(',', (array)  request('wed'))  ?? '';
+        $staff_roaster->thurs = implode(',', (array)  request('thurs'))  ?? '';
+        $staff_roaster->fri = implode(',', (array)  request('fri'))  ?? '';
+        $staff_roaster->sat = implode(',', (array)  request('sat'))  ?? '';
+        $staff_roaster->sun = implode(',', (array)  request('sun'))  ?? '';
+        $staff_roaster->total_hrs = implode(',', (array)  request('total_hrs'))  ?? '';
+        $staff_roaster->total = implode(',', (array)  request('total'))  ?? '';
+        $staff_roaster->pr_time = implode(',', (array)  request('pr_time'))  ?? '';
+        $staff_roaster->init = implode(',', (array)  request('init'))  ?? '';       
+
         
         $staff_roaster->save();
         $activity = new ActivityLog();
