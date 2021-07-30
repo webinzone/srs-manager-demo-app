@@ -148,7 +148,7 @@
                               id="addBtn" type="button">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                             </button><br>
-                              <table class="table table-bordered">
+                              <table class="table table-bordered" id="paper-table">
                                 <thead>
                                   <tr>
                                     <th width="65px;" class="text-center">No</th>
@@ -164,7 +164,7 @@
                                 <tbody id="tbodym">
                                     <tr id="R{$i}">
                                       <td class="row-index text-center">
-                                         <input type="text"  name="item_no[]" value="{{  $item_no[$i] }}" readonly>
+                                         <input type="text" name="item_no[]" value="{{  $item_no[$i] }}" >
                                          </td>
                                          <td class="row-index text-center">
                                          <input name="items[]" type="text" value="{{  $items[$i] }}">
@@ -188,8 +188,8 @@
                                           <input type="text" name="res_comments[]"  class="form-control" value="{{ $res_comments[$i] }}">                                      
                                          </td>
                                          <td>
-                                            <a style="height:20px;background-color:white;color:red;padding-left: 20px;"  class="btn " href="{{ route('getRow', [$condition_report->id, 'val' => $i]) }}"><i class="fa fa-trash icon-white"></i></a>
-                                             
+                                            <!--<a style="height:20px;background-color:white;color:red;padding-left: 20px;"  class="btn " href="{{ route('getRow', [$condition_report->id, 'val' => $i]) }}"><i class="fa fa-trash icon-white"></i></a>-->
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a style="height:20px;background-color:white;color:red;"  href="#" class="delete-row"><i class="fa fa-trash icon-white"></i></a>
                                          </td>
                                          
                                       <tr>                           
@@ -382,6 +382,16 @@ $('#resname').change(function(){
         rowIdx--;
       });
     });
+  </script>
+  <script type="text/javascript">
+     $('#paper-table').on('click', 'a', function() {
+  $(this).closest('tr').remove();
+
+  //check if no more rows and remove the table
+  if ($('#paper-table tbody tr').length == 0) {
+    $('#paper-table').remove();
+  }
+});
   </script>
 @include ('partials.bootstrap-table')
 @stop

@@ -300,11 +300,17 @@ class ConditionReportsController extends Controller
           $owned_by = explode(',', $condition_report->owned_by);
           $res_cond = explode(',', $condition_report->res_cond);
              
-        unset($item_no[$i]);
-        unset($res_comments[$i]);
-        unset($items[$i]);
-        unset($owned_by[$i]);
-        unset($res_cond[$i]);
+       // unset($item_no[$i]);
+       // unset($res_comments[$i]);
+       // unset($items[$i]);
+       // unset($owned_by[$i]);
+        //unset($res_cond[$i]);
+        $item_no[$i] = '';
+       $res_comments[$i] = '';
+       $items[$i] = '';
+       $owned_by[$i] = '';
+       $res_cond[$i] = '';
+
         $item_no = array_values($item_no);
         $res_comments = array_values($res_comments);
         $items = array_values($items);
