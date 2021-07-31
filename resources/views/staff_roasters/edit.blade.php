@@ -55,7 +55,7 @@
                               id="addBtn" type="button">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                             </button><br>
-                              <table >
+                              <table id="paper-table">
                                 <thead>
                                   <tr>
                                     <td colspan="10" align="center" style="padding-top: 5px;font-size: 16px;"><br><b>Meadowbrook- Roster</b></td>
@@ -80,7 +80,7 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                    @for ($i=0; $i < $num; $i++)
+                                    @for ($i = 0; $i <= $num; $i++)
                                     <tr>
                                     <td class="row-index text-center">
                                      <input value="{{ $staff_roaster->position[$i]}} name="position"  type="text" >

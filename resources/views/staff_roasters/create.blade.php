@@ -14,6 +14,9 @@
 {{-- Page content --}}
 @section('content')
 <style type="text/css">
+td{
+    width: 50px;
+}
       table, td, th {
     border: 1px solid black;
     padding: 10px;

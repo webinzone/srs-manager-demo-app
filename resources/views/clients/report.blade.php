@@ -87,7 +87,7 @@
       </tr>
       <tr>
         <td style="border: 1px solid black;">{{ $client_detail->medicard_no}}</td>
-        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->exp_date)) }}</td>
+        <td style="border: 1px solid black;">{{$client_detail->exp_date }}</td>
         <td style="border: 1px solid black;">{{ $client_detail->pension_no}}</td>
         <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->pen_exp)) }}</td>
         <td style="border: 1px solid black;">{{ $client_detail->ent_no}}</td>        

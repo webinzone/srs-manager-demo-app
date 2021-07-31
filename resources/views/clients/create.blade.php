@@ -168,21 +168,22 @@
                         <label for="res_email">Email</label>
                         <input type="email" class="form-control" id="res_email" placeholder="Email"  name="res_email"  v-on:change="page_one.res_email = $event.target.value">                
                       </div>
-                      <div class="col-md-3 mb-3">
+                      <!--<div class="col-md-3 mb-3">
                         <label for="res_fax">Fax</label>
                         <input type="text" class="form-control" id="Fax" placeholder="res_fax" name="res_fax" v-on:change="page_one.res_fax = $event.target.value">            
-                      </div>
+                      </div>-->
                         <div class="col-md-3 mb-3">
                         <label for="acc">Account to be addressed</label>
                         <input type="text" class="form-control" id="acc" placeholder="Account to be addressed" name="acc"  v-on:change="page_one.acc = $event.target.value">            
-                      </div>   
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
+                      </div> 
 
                       <div class="col-md-3 mb-3">
                         <label for="l_known">Languages Known</label>
                         <input type="text" class="form-control" id="l_known" placeholder="Languages Known"  name="l_known"  v-on:change="page_one.l_known = $event.target.value">          
-                      </div>
+                      </div>  
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+
 
                       <div class="col-md-3 mb-3">
                         <label for="pre_address">Previous Address</label>
@@ -195,9 +196,14 @@
                       
 
                       <div class="col-md-3 mb-3">
-                        <label for="expiry_date">Expiry date</label>
-                        <input type="date" class="form-control" id="expiry_date" placeholder="Expiry date"  name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
+                        <label for="expiry_date">Expiry Month & Year</label>
+                        <input type="month" class="form-control" id="expiry_date" placeholder="Expiry date" style="height:26px;"  name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
                       </div>
+                        <div class="col-md-3 mb-3">
+                        <label for="ent_no">Entitlement No</label>
+                        <input type="text" style="width:200px;" class="form-control" id="ent_no" placeholder="Entitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
+                      </div>
+                       
 
                     </div>&nbsp;&nbsp;&nbsp;
                     
@@ -269,11 +275,7 @@
                             <option value="Transfered" style="font-size: 14px;">Transfered</option>
                         </select>          
                       </div> 
-                      <div class="col-md-3 mb-3">
-                        <label for="ent_no">Entitlement No</label>
-                        <input type="text" style="width:200px;" class="form-control" id="ent_no" placeholder="Entitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
-                      </div>
-                       
+                    
                     
                        
                    
@@ -479,7 +481,7 @@
                                 <label><input  type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label><input  type="checkbox" name="income_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label><input  type="checkbox" name="income_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label><input id="other" type="checkbox" name="income_type" value="Other" onclick="addbox();"> Other</label><!--&nbsp;&nbsp;&nbsp;&nbsp;<label><input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;"></label>-->
+                                <label><input id="other" type="checkbox" name="income_type" value="Other" onclick="addbox();"> Other</label>&nbsp;&nbsp;<input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;">
                       </div>
                       </div>&nbsp;&nbsp;&nbsp;
                

@@ -122,6 +122,7 @@ class StaffRoastersController extends Controller
           $init = explode(',', $staff_roaster->init);
 
           $num = count($s_name);
+          $num = $num + 1;
 
         return view('staff_roasters/show',compact('staff_roaster','s_name','position','mon','tues','wed','thurs','fri','sat','sun','total_hrs','total','pr_time','init','num'));
     }
