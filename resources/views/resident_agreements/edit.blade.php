@@ -504,7 +504,7 @@ $('#resi_name').change(function(){
         dataType: 'json',
         success: function(response){
             if(response != null){
-                $('#staffm').val(response.stf_name);            
+                $('#staff1').val(response.stf_name);            
 
             }
             else{

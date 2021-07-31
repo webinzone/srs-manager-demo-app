@@ -10,32 +10,21 @@
     
    
   <style type="text/css">
-  p{
-    left: 10px;
-  }
+
   table, td, th {
     border: 1px solid black;
-  }
-  td{
-    width: auto;
-    padding: 5px;
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
-
   }
   .container{
-  width: 1100px;
+  width: 1000px;
   padding: 50px;
   margin: auto;
   border: 3px solid black;
-  padding-left: 10px;
 
-  }
-  .container-head{
-    padding-left: 10px;
   }
   input.right {
         float: right;
@@ -61,7 +50,6 @@
     </center>
     <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></p></center>
     <h3><center>RESIDENTIAL AND SERVICES AGREEMENT</center></h3><br>
-    <div class="container-head">
     <p><i>Type of service</i></p>
     <p>Our facility is a Supported Residential Service</p>
     <p><i>Philosophy</i></p>
@@ -73,97 +61,92 @@
       <li>To provide a warm and caring social environment.</li>
       <li>To ensure each resident receives Support based on his or her individual needs.</li>
       <li>To ensure each resident is able to participate in appropriate activities of his or her choice.</li>
-      <li>To ensure all services listed in the residential statement are available.</li><br>
-    </ul>
-      <table>
-        <tr>
-          <td>&nbsp;&nbsp;Proprietor: Pradeep Divukar: Telephone: 01283 I 5689</td>
-          <td>&nbsp;&nbsp;Manager: Pradeep D:  Telephone: 03-97 476999</td>
-        </tr>
-      </table><br>
+      <li>To ensure all services listed in the residential statement are available.</li>
+    </ul><br>
     <p>This is an agreement between a resident and the proprietor of this SRS regarding the terms and condition of your stay in the SRS. This SRS is regulated by the Department of Health. We deliver services in a way that is consistent with the principles and standards set out in the Supported Residential Services ACT 2010, and the private proprietor of new dimensions PTY LTD.</p><br>
     <table>
       <tr>
-        <td><b>RESIDENT DETAILS:</b></td>
-        <td><b>Name</b></td>
+        <td rowspan="2" style="width: 185px;align-items: center;">&nbsp;&nbsp;&nbsp;&nbsp;<b>RESIDENT DETAILS</b></td>
+        <td >Name</td>
         <td>{{ $resident_agreement->r_name}}</td>
         <td>Room No:  </td>
         <td>{{ $resident_agreement->room_no}}</td>
       </tr>
       <tr>
         <td width="290px;">Guide to resident and prospective resident:  {{ $resident_agreement->res_gp}}</td>
-        <td><b><a style="color:black;" href="http://www2.health.vic.gov.au">http://www2.health.vic.gov.au</a></b></td>
         <td width="200px;" >Need assistance  in reading ?</td>
-        <td width="100px;">(Yes/No){{ $resident_agreement->asistance_status}}</td>
+        <td width="100px;">{{ $resident_agreement->asistance_status}}</td>
         <td>Staff: {{ $resident_agreement->staff}}</td>
       </tr>
     </table>&nbsp;&nbsp;
     <table>
-  <tr>
-    <td><b>Resident's:</b> Guardian/Administrator</td>
-    <td>{{ $resident_agreement->guardian}}</td>
-    <td>Telephone {{ $resident_agreement->g_tel}}</td>
-    <td>Address (postal and/or email) {{ $resident_agreement->g_adress}}</td>
-  </tr>
-  <tr>
-    <td colspan="4" style="width: 185px;"><i>A resident may nominate a person to receive information about the resident 's accomadation and personal support received at the SRS</i></td>
-  </tr>
-  <tr>
-    <td><b>Person Nominated:</b></td>
-    <td>{{ $resident_agreement->p_nomini}}</td>
-    <td>Telephone {{ $resident_agreement->per_tel}}</td>
-    <td>Address (postal and/or email) {{ $resident_agreement->per_address}}</td>
-  </tr>
-  <tr>
-    <td><b>Emergency Contact:</b></td>
-    <td>{{ $resident_agreement->emg_contact}}</td>
-    <td>Telephone {{ $resident_agreement->emg_tel}}</td>
-    <td>Address (postal and/or email) {{ $resident_agreement->emg_address}}</td>
-  </tr>
-</table>&nbsp;&nbsp;
+      <tr>
+        <td>Relation</td>
+        <td>Name</td>
+        <td>Address</td>
+        <td>Phone</td>
+        <td>Email</td>
+
+      </tr>
+      <tr>
+        <td>Guardian</td>
+        <td>{{ $resident_agreement->guardian}}</td>
+        <td> {{ $resident_agreement->g_adress}}</td>
+        <td>  {{ $resident_agreement->g_tel}}</td>
+        <td> {{ $resident_agreement->g_email}}</td>
+      </tr>
+      <tr>
+        <td>Person Nominated</td>
+        <td>{{ $resident_agreement->p_nomini}}</td>
+        <td> {{ $resident_agreement->per_address}}</td>
+        <td>  {{ $resident_agreement->per_tel}}</td>
+        <td> {{ $resident_agreement->per_email}}</td>
+      </tr>
+       <tr>
+        <td>Emergency Contact</td>
+        <td>{{ $resident_agreement->emg_contact}}</td>
+        <td> {{ $resident_agreement->emg_address}}</td>
+        <td>  {{ $resident_agreement->emg_tel}}</td>
+        <td> {{ $resident_agreement->emg_email}}</td>
+      </tr>
+    </table>&nbsp;&nbsp;
     <table>
-  <tr>
-    <td colspan="5" ><center><b>DURATION OF STAY</b></td></center>
-  </tr>
-  <tr>
-    <td>Your stay is for a fixed period</td>
-    <td>Starting on : {{date('d-m-Y', strtotime($resident_agreement->f_period)) }}  and Ending on :{{date('d-m-Y', strtotime($resident_agreement->ending_on)) }}</td>
-  </tr>
-  <tr>
-    <td>Your stay is for an indefinite period</td>
-    <td>Starting on : @if($resident_agreement->respite == "Permanent") {{date('d-m-Y', strtotime($resident_agreement->i_period)) }} @endif</td>
-  </tr>
-</table>&nbsp;&nbsp;
+      <tr>
+        <td colspan="5" ><center><b>DURATION OF STAY</b>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $resident_agreement->admin}}</td></center>
+      </tr>
+      <tr>
+        @if($resident_agreement->admin =='Respite')
+
+        <td style="width:500px;">Fixed period stay from:  {{date('d-m-Y', strtotime($resident_agreement->f_period)) }}</td>
+        <td>Ending on:   {{date('d-m-Y', strtotime($resident_agreement->ending_on)) }}</td>
+
+        @else
+        
+        <td style="width:500px;">Admission Date</td>
+        <td>{{ $resident_agreement->adv_fee}}</td>
+        @endif
+
+      </tr>
+    </table>&nbsp;&nbsp;
     <table>
       <tr>
         <td colspan="5" ><center><b>FEES AND CHARGES</b></td></center>
       </tr>
       <tr>
         <td>Fee for accommodation and personal support:  </td>
-        <td>Amount:$  {{ $resident_agreement->acc_fee}}</td>
+        <td>Amount:  {{ $resident_agreement->acc_fee}}</td>
       </tr>
       <tr>
         <td>Frequency of payment: </td>
-        <td><label><input {{ $resident_agreement->freq_pay == 'Weekly' ? 'checked' : ''  }}  type="checkbox" name="freq_pay" value="Weekly"> Weekly</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->freq_pay == 'Fortnightly' ? 'checked' : ''  }}  type="checkbox" name="freq_pay" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->freq_pay == 'Every Calender Month' ? 'checked' : ''  }} type="checkbox" name="freq_pay" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->freq_pay == 'Other' ? 'checked' : ''  }} type="checkbox" name="freq_pay" value="Other"> Other</label>&nbsp;&nbsp;
-        </td>
+        <td>{{ $resident_agreement->freq_pay}}</td>
       </tr>
       <tr>
         <td>Any rent paid in advance: </td>
-        <td><label><input {{ $resident_agreement->any_rent_adv == 'Weekly' ? 'checked' : ''  }}  type="checkbox" name="any_rent_adv" value="Weekly"> Weekly</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->any_rent_adv == 'Fortnightly' ? 'checked' : ''  }}  type="checkbox" name="any_rent_adv" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->any_rent_adv == 'Every Calender Month' ? 'checked' : ''  }} type="checkbox" name="any_rent_adv" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->any_rent_adv == 'Other' ? 'checked' : ''  }} type="checkbox" name="any_rent_adv" value="Other"> Other</label>&nbsp;&nbsp;</td>
+        <td>{{ $resident_agreement->any_rent_adv}}</td>
       </tr>
       <tr>
         <td>How to pay: </td>
-        <td><label><input {{ $resident_agreement->pay_method == 'Direct Debit' ? 'checked' : ''  }}  type="checkbox" name="pay_method" value="Direct Debit"> Direct Debit</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->pay_method == 'Cash' ? 'checked' : ''  }}  type="checkbox" name="pay_method" value="Cash"> Cash</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->pay_method == 'State Trustees' ? 'checked' : ''  }} type="checkbox" name="pay_method" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->pay_method == 'Centerlink' ? 'checked' : ''  }} type="checkbox" name="pay_method" value="Centerlink"> Centerlink</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->pay_method == 'Other' ? 'checked' : ''  }} type="checkbox" name="pay_method" value="Other"> Other</label>&nbsp;&nbsp;</td>
+        <td>{{ $resident_agreement->pay_method}}</td>
       </tr>
     </table>&nbsp;&nbsp;
     <table>
@@ -171,60 +154,55 @@
         <td colspan="5" ><center><b>OTHER FEES AND CHARGES</b></td></center>
       </tr>
       <tr>
-        <td rowspan="2" width="300px;"><b>Security Deposit Charged: </b> <br>
-        <i>Terms and conditions of refund</i></td>
-        <td width="300px;"><input type="radio" {{ $resident_agreement->secu_depo == 'Yes' ? 'checked' : ''  }} id="secu_depo" onchange="findselected();" value="Yes" name="secu_depo">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" {{ $resident_agreement->secu_depo == 'No' ? 'checked' : ''  }} id="secu_depo" value="No" onchange="findselected();" name="secu_depo">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;<b> Amount Payable:$ </b>{{ $resident_agreement->amt_pay}}</td><br>
+        <td width="300px;">Security Deposit Charged:  </td>
+        <td width="300px;">{{ $resident_agreement->secu_depo }}</td>
       </tr>
       <tr>
-        <td><i>Will be refunded subject to all fees are paid in full and room in satisifactory condition</i></td>
-        </tr>
+        <td width="300px;">Amount Payable: </td>
+        <td width="300px;">{{ $resident_agreement->amt_pay}}</td>
+      </tr>
     </table>&nbsp;&nbsp;
     <table>
       <tr>
         <td colspan="5" ><center><b>OTHER FEES AND CHARGES</b></td></center>
       </tr>
       <tr>
-        <td width="300px;"><b>Condition report provided to the resident  </b></td>
-        <td width="300px;"><input type="radio" required=""  id="condition_rep" {{ $resident_agreement->condition_rep == 'Yes' ? 'checked' : ''  }}  value="Yes" name="condition_rep">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" required="" {{ $resident_agreement->condition_rep == 'No' ? 'checked' : ''  }} id="condition_rep" value="No" name="condition_rep">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;  If Yes,<i>Condition report must be provided as separate attachment</i>          </td>
+        <td width="300px;">Condition report provided to the resident?:  </td>
+        <td width="300px;">{{ $resident_agreement->condition_rep}}</td>
       </tr>
       <tr>
-        <td width="300px;"><b>Furniture in resident's room belonging to thr SRS</b>
-         </td>
-        <td width="300px;"><p>Attach or List items duly signed by staff and resident</p></td>
+        <td width="300px;">Furniture in resident's room belonging to thr SRS: </td>
+        <td width="300px;"><p>{{ $resident_agreement->pers_prop}}</p></td>
       </tr>
 </table><br><br>
       <table>
         <tr>
-        <td  width="300px;">Reservation fee charged:<i>Ref(terms/conditions)</i> </td>
-        <td colspan="5"  width="300px;"><input type="radio" onchange="findselected1();" {{ $resident_agreement->reserv_fee == 'Yes' ? 'checked' : ''  }} id="reserv_fee"  value="Yes" name="reserv_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-        <input type="radio" onchange="findselected1();" {{ $resident_agreement->reserv_fee == 'No' ? 'checked' : ''  }}  id="reserv_fee" value="No" name="reserv_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp; 
-         <b>Amount:$</b> {{ $resident_agreement->amt_res}} </td>
+        <td width="300px;">Reservation fee charged: </td>
+        <td width="300px;">{{ $resident_agreement->reserv_fee}} </td>
+        <td width="300px;"> Amount:</td>
+        <td width="300px;">{{ $resident_agreement->amt_res}}</td>
       </tr>
       <tr>
-        <td width="300px;">Establishment fee charged:<i>Ref(terms/conditions)</i> </td>
-        <td  colspan="5" width="300px;"><input type="radio" onchange="findselected2();" {{ $resident_agreement->est_fee == 'Yes' ? 'checked' : ''  }} id="est_fee"  value="Yes" name="est_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-        <input type="radio" onchange="findselected2();" {{ $resident_agreement->est_fee == 'No' ? 'checked' : ''  }}  id="est_fee" value="No" name="est_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
-        <b>Amount:$</b> {{ $resident_agreement->amt_est}}
-        </td>
+        <td width="300px;">Establishment fee charged: </td>
+        <td width="300px;">{{ $resident_agreement->est_fee}}</td>
+        <td width="300px;"> Amount:</td>
+        <td width="300px;">{{ $resident_agreement->amt_est}}</td>
       </tr>
       <tr>
-        <td width="300px;">Fee in advance charged (for other items/service provide by SRS):<i>Ref(terms/conditions)</i> </td>
-        <td colspan="5" width="300px;"><input {{ $resident_agreement->advnc_fee == 'Yes' ? 'checked' : ''  }} type="radio" onchange="findselected3();"  id="advnc_fee"  value="Yes" name="advnc_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input {{ $resident_agreement->advnc_fee == 'No' ? 'checked' : ''  }} type="radio" onchange="findselected3();"  id="advnc_fee" value="No" name="advnc_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
-                        <b>Amount:$</b> {{ $resident_agreement->amt_adv}} </td>
-      <tr>
-        <td> (Terms/Conditions):Fees of refund heldto be included</td>
-        <td  colspan="5"></td>
+        <td width="300px;">Fee in advance charged for other items/service provide by SRS: </td>
+        <td width="300px;">{{ $resident_agreement->advnc_fee}}</td>
+        <td width="300px;"> Amount:</td>
+        <td width="300px;">{{ $resident_agreement->amt_adv}}</td>
       </tr>
       <tr>
         <td width="300px;">Refund to resident: {{ $resident_agreement->refund}}</td>
-        <td colspan="1" width="500px;"><p><i>Refunds of money held in trust will be returned to the resident within 14 days of leaving the SRS. A resident can apply to the Victorian Civil and Administrative
+        <td width="500px;"><p>Refunds of money held in trust will be returned to the resident within 14 days of leaving the SRS. A resident can apply to the Victorian Civil and Administrative
 Tribunal (VCAT) for an order if the proprietor does not refund a security, fee in
 advance, reservation fee or establishment fee in accordance with the Act, must be
-included.</i></p>
+included.</p>
 </td>
+      <td width="300px;"> Amount:</td>
+        <td width="300px;">{{ $resident_agreement->refund}}</td>
       </tr>
     </table>&nbsp;&nbsp;
 
@@ -233,10 +211,10 @@ included.</i></p>
         <td colspan="5" ><center><b>MANAGEMENT OF RESIDENT’S MONEY</b></td></center>
       </tr>
       <tr>
-        <td width="300px;">Will the SRS assist the resident in managing their finances? <input type="radio" onchange="findselected4();" {{ $resident_agreement->srs_assist_status == 'Yes' ? 'checked' : ''  }} id="srs_assist_status"  value="Yes" name="srs_assist_status">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" onchange="findselected4();"  {{ $resident_agreement->srs_assist_status == 'No' ? 'checked' : ''  }} id="srs_assist_status" value="No" name="srs_assist_status">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
-                        Amount: {{ $resident_agreement->assist_amnt}} <br>
-                        <i>Note:The maximum amount of the resident's money that we can manage is the amount equivalent to one month's fees.</i></td>
+        <td width="300px;">Will the SRS assist the resident in managing their finances:  </td>
+        <td width="300px;">{{ $resident_agreement->srs_assist_status}}</td>
+        <td width="300px;"> Amount:</td>
+        <td width="300px;">{{ $resident_agreement->assist_amnt}}</td>
       </tr>
     </table><br>
 
@@ -250,7 +228,7 @@ included.</i></p>
         <p><b>Towards any extra services that need to be included may incur variations in your charge/week, payable by
 towards which will be notified to you after your Support plan assessment. Care and Support needs may change
 depending on your ongoing requirements and fees may change.</b></p><br>
-      <p><b>Personal and Special Support Services</b>(tick applicable boxes) </p><br>
+      <p>Personal and Special Support Services </p><br>
       <table style="border: 2px; border-width: 1px; border-color: black;">
       <tr>
         <th>Types of Support</th>
@@ -382,11 +360,11 @@ depending on your ongoing requirements and fees may change.</b></p><br>
         <td>{{ $resident_agreement->dressing_fee}}</td>
       </tr><br>
     </table>
-      <h7><p><i><b>Other Services</b></i></p></h7>
+      <h7><p><i>Other Services</i></p></h7>
         <p>Please note: Support plan review and updates happens on regular basis.</p>
-       <h7><p><i><b>Room maintenance</b></i></p></h7>
+       <h7><p><i>Room maintenance</i></p></h7>
         <p>Help with maintaining your room and making your bed is available daily when required.</p>
-       <h7><p><i><b>Personal Laundry</b></i></p></h7>
+       <h7><p><i>Personal Laundry</i></p></h7>
         <p>Assist with personal laundry is available once a week (Depends on individual circumstances). Current cost for this service is S0 All articles must be washing machine safe and clearly marked with the resident's name.</p><br>
     <table>
       <tr>
@@ -402,11 +380,12 @@ Residents Handbook for further details, setting out the minimum standards of Sup
   
     <center>
       <h2>HOUSE RULES</h2>
-      <i><b>Rights of Residents:</b></i>You have a right to:<br>
+      <i>Rights of Residents:</i>You have a right to:<br>
     </center>
     
      <table>
       <tr rowspan="5" style="width: 185px;align-items: center;">
+        <ul>
           <td>&nbsp;<li> Receive quality Support.</li>
           <li>Be treated with dignity and respect.</li>
           <li>Have your privacy respected.</li>
@@ -417,6 +396,7 @@ Residents Handbook for further details, setting out the minimum standards of Sup
           <li>Complain about things you are not happy about.</li>
           <li>Be kept informed about things that affect you</li>
           </td>
+        </ul>
       </tr>
     </table>&nbsp;&nbsp;
     <table>
@@ -446,9 +426,9 @@ Residents Handbook for further details, setting out the minimum standards of Sup
     <p> 3. Residents furniture that is lett after departure from the facility will incur storage fees.</p>
     <p> 4. Room Keys Each suite is lockable; the manager to use in the case of emergency keeps a spare key. The resident must replace locked keys.</p>
     <p> 5.All items owned by a resident and used in the SRS must be safety checked for electrical compliance. All Electrical Appliances bought by residents to be Test and Tagged.</p>
-    <p> <b>6. If any damage to property including fitting and fixtures will be my responsibility if occurred as a result of my behaviours.</b></p>
-    <p><b> 7. I declare that I have read and or Staff has read to me “The Guide for resident and Prospective residents in detail. | understand there is electronic copy on computer if needed.</b></p>
-    <p> <b>8. Tam happy with the room arrangements/partition surrounding Privacy matters of my room (applicable if 1 am living in shared room),</b></p>&nbsp;&nbsp;
+    <p> 6. If any damage to property including fitting and fixtures will be my responsibility if occurred as a result of my behaviours.</p>
+    <p> 7. I declare that I have read and or Staff has read to me “The Guide for resident and Prospective residents in detail. | understand there is electronic copy on computer if needed.</p>
+    <p> 8. Tam happy with the room arrangements/partition surrounding Privacy matters of my room (applicable if 1 am living in shared room),</p>&nbsp;&nbsp;
     <p><i><b>Television and Telephones</i></p></b>
     <p>Residents to use their own TV and other Electronic gadgets. Each room has a telephone socket and television plug. Residents are responsible for all expenses incurred for connection and calls, should a telephone be installed</p>
     <p><i><b>Furniture</i></p></b>
@@ -499,15 +479,15 @@ Residents Handbook for further details, setting out the minimum standards of Sup
              <p><i><b>Meals</b></i></p>
              <p>Breakfast from 8.00 am to 8:45am</p>
              <p>Available in dining room or may be served in own room if requested or if a resident is unwell</p>
-             <p>Morning Tea&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.00 am to 10.30 am</p>
-             <p> Lunch&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12.00 to 1.00 pm</p>
-             <p>Afternoon Tea&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.00 pm to 3.30 pm</p>
-             <p>Dinner&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.00 pm to 5:30 pm</p>
-             <p>Supper&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 Pm to 7:30 pm</p>
+             <p>Morning Tea 10.00 am to 10.30 am</p>
+             <p> Lunch 12.00 to 1.00 pm</p>
+             <p>Afternoon Tea 3.00 pm to 3.30 pm</p>
+             <p>Dinner 5.00 pm to 5:30 pm</p>
+             <p>Supper 7 Pm to 7:30 pm</p>
              <p>Wending Machine located in dining area is available at all times</p>
              <p>Morning/afternoon tea and supper include a variety of beverages and biscuits/cakes, Tea/coffee making facilities are available during all meal times.</p>
              <p><i><b>Cleaning</b></i></p>
-             <p>Cleaning is undertaken daily, between 9 a.m. and if.30am, and between 1.30 p.m. and 4 p.m depending on the roster. You may be asked to step out of your room during those times to enable cleaning to be done.</p><br>
+             <p>Cleaning is undertaken daily, between 9 a.m. and if.30am, and between 1.30 p.m. and 4 p.m depending on the roster. You may be asked to step out of your room during those times to enable cleaning to be done.</p>
              <p><i><b>Regular visitors</b></i></p>
              <p>Chaplain: Every fortnight</p>
              <p>Computer and Internet: we have free computer and Internet usage</p>
@@ -541,7 +521,7 @@ Residents Handbook for further details, setting out the minimum standards of Sup
            <div style="border:1px solid black;">
             <center><b>HOW THIS AGREEMENT CAN BE ENDED</b></center>
             </div>
-            <td><p>Example: 4 <i>A residential and services agreement may be ended:</i></p>
+            <td><p>Example: 4 residential and services agreement may be ended:</p>
             <ul>
               <li>when the resident and proprictor agree that it has terminated.</li>
               <li>when an order to vacate has been made by the Victorian Civil and Administrative Tribunal (VCAT).</li>
@@ -567,7 +547,6 @@ Residents Handbook for further details, setting out the minimum standards of Sup
           </td>
         </tr>
       </table>
-    </i></div>
 </div></div>
 
 </div></div>
