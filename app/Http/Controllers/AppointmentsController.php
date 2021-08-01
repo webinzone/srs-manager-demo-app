@@ -73,6 +73,9 @@ class AppointmentsController extends Controller
         $appointment->app_bookby = request('app_bookby')  ?? '';
         $appointment->app_note = request('app_note')  ?? '';
         $appointment->status = request('status')  ?? '';
+        
+        $appointment->a_email = request('a_email')  ?? '';
+        $appointment->a_ph = request('a_ph')  ?? '';
 
         $appointment->company_id = request('company_id')  ?? '';
         $appointment->location_id = request('location_id')  ?? '';
@@ -141,6 +144,10 @@ class AppointmentsController extends Controller
         $appointment->app_bookby = request('app_bookby')  ?? '';
         $appointment->app_note = request('app_note')  ?? '';
         $appointment->status = request('status')  ?? '';
+
+        
+        $appointment->a_email = request('a_email')  ?? '';
+        $appointment->a_ph = request('a_ph')  ?? '';
         
         $appointment->company_id = request('company_id')  ?? '';
         $appointment->location_id = request('location_id')  ?? '';

@@ -80,7 +80,7 @@
                       </div> 
                         
                        
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
                         <label for="app_note">Booked by</label>   
                         <select class="form-control" style="height: 26px;padding: 3px 10px;" id="mng_staff" name="app_bookby">
                             <option>--   Select Staff Name  --</option>
@@ -89,13 +89,23 @@
                           @endforeach
                         </select>            
                       </div>  
+                      <div class="col-md-3 mb-3">
+                        <label for="app_reason">Email</label>
+                        <input type="email" class="form-control"  placeholder="Email ID" id="a_email" name="a_email"  v-on:change="page_one.a_email = $event.target.value">                
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="app_reason">Phone</label>
+                        <input type="text" class="form-control"  placeholder="Phone" id="a_ph" name="a_ph"  v-on:change="page_one.a_ph = $event.target.value">                
+                      </div>   
                       
-                           <div class="col-md-5 mb-3">
-                        <label for="app_bookby">Note</label>
-                        <textarea class="form-control" placeholder="Note" id="app_bookby" name="app_note"  v-on:change="page_one.app_bookby = $event.target.value"></textarea>
-                    </div>            
                     </div>
                         
+                    <div class="form-group">
+                         <div class="col-md-6 mb-3">
+                        <label for="app_note">Note</label>
+                        <textarea class="form-control"placeholder="Note" id="app_note" name="app_note"  v-on:change="page_one.app_note = $event.target.value"></textarea>
+                      </div>       
+                    </div>  
                           
                     <div class="box-footer text-right">
                         <a class="btn btn-link text-left" href="{{ route('appointments.index') }}">Cancel</a>

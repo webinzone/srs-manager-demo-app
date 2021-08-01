@@ -78,20 +78,31 @@
                         </select>          
                       </div>     
                                      
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
                         <label for="app_bookby">Booked by</label>
                         <select class="form-control" style="height: 26px;padding: 3px 10px;" id="app_bookby" name="app_bookby">
                              @foreach($emps as $emp)
                           <option value="{{ $emp->name }}" {{ $appointment->app_bookby == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
                           @endforeach
                         </select>          
-                        </div>   
-                         <div class="col-md-5 mb-3">
+                        </div> 
+                        <div class="col-md-3 mb-3">
+                        <label for="app_reason">Email</label>
+                        <input type="email" class="form-control" value="{{ $appointment->a_email}}" placeholder="Email ID" id="a_email" name="a_email"  v-on:change="page_one.a_email = $event.target.value">                
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="app_reason">Phone</label>
+                        <input type="text" class="form-control" value="{{ $appointment->a_ph}}" placeholder="Phone" id="a_ph" name="a_ph"  v-on:change="page_one.a_ph = $event.target.value">                
+                      </div>   
+                      
+                    </div>
+                        
+                    <div class="form-group">
+                         <div class="col-md-6 mb-3">
                         <label for="app_note">Note</label>
                         <textarea class="form-control"placeholder="Note" id="app_note" name="app_note"  v-on:change="page_one.app_note = $event.target.value">{{ $appointment->app_note}}</textarea>
                       </div>       
                     </div>
-                        
                           
                     <div class="box-footer text-right">
                         <a class="btn btn-link text-left" href="{{ route('appointments.index') }}">Cancel</a>
