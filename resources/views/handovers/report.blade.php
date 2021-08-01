@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -88,6 +87,7 @@
             <tr style="align-items: center;">
               <p>No Shift scheduled</p>
             </tr>
+       @endif
         </tbody>
       </table>
 
@@ -128,7 +128,8 @@
         w.document.write(htmlToPrint);
         w.print();
         w.close();
-    }</script>
+    }
+  </script>
 
   </body>
 </html>

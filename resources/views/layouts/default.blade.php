@@ -722,6 +722,12 @@ h4 {
                     </a>
                   </li>
                   
+                  <li>
+                      <a href="/appointment" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Appointments 
+                    </a>
+                  </li>
                   <!--<li>
                       <a href="{{ route('handovers.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>

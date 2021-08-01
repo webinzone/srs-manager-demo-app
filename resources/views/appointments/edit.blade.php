@@ -44,11 +44,11 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="app_date">Date</label>
-                        <input type="text" class="form-control" value="{{ $appointment->app_date}}" placeholder="Date" id="app_date" name="app_date"  v-on:change="page_one.app_date = $event.target.value">                
+                        <input type="date" class="form-control" value="{{ $appointment->app_date}}" placeholder="Date" id="app_date" name="app_date"  v-on:change="page_one.app_date = $event.target.value">                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="app_time">Time</label>
-                        <input type="text" class="form-control" value="{{ $appointment->app_time}}" placeholder="Time" id="app_time" name="app_time"  v-on:change="page_one.app_time = $event.target.value">                
+                        <input type="time" class="form-control" value="{{ $appointment->app_time}}" placeholder="Time" id="app_time" name="app_time"  v-on:change="page_one.app_time = $event.target.value">                
                       </div>                        
                     </div>
                     <div class="form-group ">

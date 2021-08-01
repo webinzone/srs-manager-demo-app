@@ -123,7 +123,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/rent','RentsController@rent_generate');
     Route::get('/generateRentReport/', 'RentsController@generateRentReport')->name('generateRentReport');
 
-    
+    Route::get('/appointment','AppointmentsController@app_generate');
+    Route::get('/generateAppReport/', 'AppointmentsController@generateAppReport')->name('generateAppReport');    
 
     /*
     * Companies

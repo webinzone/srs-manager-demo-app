@@ -21,7 +21,7 @@
 	    <!-- col-md-8 -->
 	    <div class=" col" style="padding-left: 100px;">
 
-	      <form id="create-form" class="form-horizontal" method="post" action="{{ route('condition_reports.store') }}"  style="width: 1050px; align-items: center;   background-color: #fff; " autocomplete="off" role="form" >
+	      <form id="create-form" class="form-horizontal" method="post" action="{{ route('condition_reports.store') }}"  style="width: 1100px; align-items: center;   background-color: #fff; " autocomplete="off" role="form" >
                  {{ csrf_field() }}
 
 	        <!-- box -->

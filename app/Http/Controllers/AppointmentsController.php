@@ -178,4 +178,18 @@ class AppointmentsController extends Controller
                         ->with('success','deleted successfully');
     }
 
+    public function app_generate()
+    {
+        return view('appointments/report_show');
+
+    }
+
+    public function generateAppReport()
+    {
+         $sdate = request('sdate');
+         $appointments = Appointment::where('app_date', '=', $sdate)->get() ?? '';
+         return view('appointments/report',compact('appointments','sdate'));
+
+
+    }
 }

@@ -63,7 +63,6 @@ class SrsStaffsController extends Controller
         $srs_staff->ph = request('ph') ?? '';
         $srs_staff->dob = request('dob') ?? '';
         $srs_staff->email = request('email') ?? '';
-        $srs_staff->quali = request('quali') ?? '';
         $srs_staff->company_id = "null" ?? '';
         $srs_staff->location_id = "null" ?? '';
 
@@ -75,6 +74,15 @@ class SrsStaffsController extends Controller
         $srs_staff->fi_date = request('fi_date')  ?? '';
         $srs_staff->crime = request('crime')  ?? '';
         $srs_staff->w_child = request('w_child')  ?? '';
+
+        $srs_staff->item_no = implode(',', (array) request('item_no')) ?? '';
+        $srs_staff->quali = implode(',', (array) request('quali')) ?? '';
+        $srs_staff->qop_date = implode(',', (array) request('qop_date')) ?? '';
+        $srs_staff->certi_exp = implode(',', (array) request('certi_exp')) ?? '';
+        $srs_staff->emp_certi = implode(',', (array) request('emp_certi'));    
+
+        $certificate = implode(',', (array) request('emp_certi')->getClientOriginalName());
+         request()->implode(',', (array) request('emp_certi'))->move(public_path('certificates'), $certificate);  
       
         $srs_staff->user_id =  Auth::user()->id;
         
