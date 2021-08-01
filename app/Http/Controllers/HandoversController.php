@@ -193,4 +193,22 @@ class HandoversController extends Controller
         return view('handovers/report_show');
     }
 
+    public function generateHandoverEvngReport(){
+        $sdate = request('sdate');
+         $i = 1;         
+         
+         $mngs = Mngshift::where('mng_date', '=', $sdate)->get() ?? '';
+
+         $mngsss = Mngshift::where('mng_date', '=', $sdate)->firstOrFail() ?? '';
+         $mstaf = $mngsss->mng_staff ?? '';
+
+         $evngsss = Evngshift::where('eveng_date', '=', $sdate)->firstOrFail() ?? '';
+         $estaf = $evngsss->evng_staff ?? '';
+
+         $evngs = Evngshift::where('eveng_date', '=', $sdate)->get() ?? '';   
+
+         return view('handovers/evng_report',compact('mngs','i','mstaf','estaf','evngs','sdate'));
+
+    }
+
 }
