@@ -58,8 +58,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/viewPDF/{id}','ClientsController@viewPDF');
     Route::get('/clientss','ClientsController@clientss');
     Route::get('get/roomdetails/{id}', 'ClientsController@getRoomDetails')->name('getRoomDetails');
+    Route::get('/active','ClientsController@res_active');
+    Route::get('/vaccate','ClientsController@res_vaccate');
+    Route::get('/transfer','ClientsController@res_transfer');
 
-    Route::get('/accountsDetails', 'ClientsController@getaccountsDetails');
+
+    Route::get('/accountsDetails', 'ClientsController@getaccountsDetails'); 
     Route::get('/generateAccountReport/', 'ClientsController@generateAccountReport')->name('generateAccountReport');
 
      Route::get('/shiftreports','HandoversController@shiftreports');

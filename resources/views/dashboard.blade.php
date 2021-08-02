@@ -219,7 +219,7 @@
                         </div>
                     </div> <!-- /.col -->
                     <div class="col-md-12 text-center" style="padding-top: 10px;">
-                        <a href="{{ route('clients.index') }}" class="btn btn-primary btn-sm" style="width: 100%">view all</a>
+                        <a href="/active" class="btn btn-primary btn-sm" style="width: 100%">view all</a>
                     </div>
                 </div> <!-- /.row -->
 

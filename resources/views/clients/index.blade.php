@@ -7,6 +7,23 @@
 
 @section('header_right')
     @can('create', \App\Models\ClientDetail::class)
+
+        <button style="border-color: #23536f;background-color: #307095;height: 35px;width: 100px; color: white;padding: 5px;font-size: 14px;" class="dropdown">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color:white;">Residents <span class="caret"></span></a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="/active">Active</a>
+                                  <li class="divider"></li>
+                                <li><a href="/transfer">Transfered</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/vaccate">Vaccated</a> </li>
+                                
+                              </ul>
+                          </button>
+
+
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
         <a href="{{ route('clients.create') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Create New</a>
     @endcan
 @stop
@@ -58,6 +75,28 @@
 @stop
 
 @section('moar_scripts')
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
 @include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\ClientDetailPresenter::dataTableLayout()])
 @stop
 
