@@ -137,7 +137,7 @@
                                 <tbody id="tbodym">
                                     <tr id="R{$i}">
                                         <td class="row-index text-center" >
-                                             <input type="number" name="item_no[]" value="{{ $item_no[$i] }}" readonly>
+                                             <input type="number" name="item_no[]" value="{{ $item_no[$i] }}" >
                                              </td>
                                              <td class="row-index text-center">
                                              <input name="quali[]" value="{{ $quali[$i] }}" type="text" >
@@ -154,17 +154,14 @@
                                                 @if($emp_certi[$i])
                                                 <input value="{{ $emp_certi[$i] }}" id="file" type="file" name="emp_certi[]" accept="application/pdf"  style="display:none;" />
 
-                                                <label for="file">{{ $emp_certi[$i] }}&nbsp;&nbsp; &nbsp;<i class="fa fa-upload" aria-hidden="true"></i> </label>
+                                                <label for="file"><a href="{{route('getDownload', $emp_certi[$i])}}">{{ $emp_certi[$i] }}</a>&nbsp;&nbsp; &nbsp;<i class="fa fa-upload" aria-hidden="true"></i> </label>
                                                 @else
                                              <input value="{{ $emp_certi[$i] }}"  type="file" name="emp_certi[]" accept="application/pdf"  />
                                              @endif
                                              </td>
                                              
                                          <td>
-                                            &nbsp;&nbsp;
-
-                                            <a href="{{route('getDownload', $emp_certi[$i])}}"><i class="fa fa-download" aria-hidden="true"></i></a>
-                                            &nbsp;&nbsp; <a style="height:20px;background-color:white;color:red;"  href="#" class="delete-row"><i class="fa fa-trash icon-white"></i></a>
+                                            &nbsp;&nbsp;&nbsp;&nbsp; <a style="height:20px;background-color:white;color:red;"  href="#" class="delete-row"><i class="fa fa-trash icon-white"></i></a>
                                          </td>
                                          
                                       <tr>                           
@@ -231,7 +228,7 @@
         // Adding a row inside the tbody.
         $('#tbody').append(`<tr id="R${++rowIdx}">
              <td class="row-index text-center" >
-             <input type="number" name="item_no[]" value="${rowIdx}" readonly>
+             <input type="number" name="item_no[]" value="${rowIdx}" >
              </td>
              <td class="row-index text-center">
              <input name="quali[]" type="text" >
