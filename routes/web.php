@@ -24,6 +24,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('company_masters','CompanyMastersController');  
     Route::get('/search/', 'IncidentsController@search')->name('search');
     Route::get('downloadFile/{file_name}', 'RentDetailsController@downloadFile');
+
+    Route::get('getDownload/{file_name}', 'SrsStaffsController@getDownload')->name('getDownload');
+
    
    //Client Details
     Route::resource('clients','ClientsController');    

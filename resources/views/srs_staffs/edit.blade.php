@@ -11,14 +11,15 @@
 
 {{-- Page content --}}
 @section('content')
+
 <div id="webui">
   
     <div class="row">
         <!-- col-md-8 -->
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
+        <div class=" col" style="padding-left: 100px;">
 
           
-         <form id="create-form" class="form-horizontal" method="post" action = "{{ route ('srs_staffs.update', $srs_staff->id) }}" autocomplete="off" role="form" >
+         <form id="create-form" class="form-horizontal" method="post" action = "{{ route ('srs_staffs.update', $srs_staff->id) }}" autocomplete="off" role="form"  style="width: 1050px;" enctype="multipart/form-data" >
             @method('PATCH') 
 
                  {{ csrf_field() }}
@@ -66,20 +67,6 @@
                  <input type="email" name="email" class="form-control" value="{{ $srs_staff->email}}">                                        
                         </div>
                     </div>
-                    <div class="form-group ">
-                     
-                    <div class="col-md-6 mb-3 ">
-                             <label for="name" >Address</label>
-                              <textarea  name="address" class="form-control" >{{ $srs_staff->address}}</textarea>                                 
-                        </div>
-                       
-                        <div class="col-md-6 mb-3 ">
-                        <label for="name" >Qualification</label>
-                            <textarea name="quali" placeholder="Qualifications" class="form-control">{{ $srs_staff->quali }}</textarea>
-
-                           
-                        </div>
-                    </div>
                     
                      <div class="form-group ">
                          
@@ -103,7 +90,16 @@
                         
                     </div>
 
-                     <div class="form-group ">
+
+                        <div class="form-group ">
+                     
+                    <div class="col-md-4 mb-3 ">
+                             <label for="name" >Address</label>
+                              <textarea  name="address" class="form-control" >{{ $srs_staff->address}}</textarea>                                 
+                        </div>
+                       
+                
+
                          
                         <div class="col-md-4 mb-3 ">
                           <label for="name" >Super Company</label>
@@ -117,15 +113,73 @@
                              <input type="text" value="{{ $srs_staff->s_no}}" name="s_no" class="form-control" placeholder="Super number">                                        
                         </div>
                         
-                     <div class="col-md-4 mb-3 ">
-                        <label for="name" >First Aid & CPR </label>
-
-                        <input type="date" value="{{ $srs_staff->fi_date}}" name="fi_date" class="form-control" placeholder="First Aid & CPR (Issue date)">                                        
-                     </div>
                         
                     </div>
 
-                    <div class="form-group ">
+                        <div class="table-responsive">
+                                <button style="float: right;bottom: 50px; height: ; " class="btn  btn-primary text-right" 
+                              id="addBtn" type="button">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button><br>
+                              <table id="paper-table" class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th width="100px; class="text-center">No</th>
+                                    <th width="200px;" class="text-center">Qualification</th>
+                                    <th class="text-center">Optained Date</th>
+                                    <th class="text-center">Expiry date</th>
+                                    <th width="150px;" class="text-center">Certificate</th>
+                                    <th  class="text-center">Action</th>                                   
+                                  </tr>
+                                </thead>
+                                    @for ($i=0; $i < $num; $i++)
+
+                                <tbody id="tbodym">
+                                    <tr id="R{$i}">
+                                        <td class="row-index text-center" >
+                                             <input type="number" name="item_no[]" value="{{ $item_no[$i] }}" readonly>
+                                             </td>
+                                             <td class="row-index text-center">
+                                             <input name="quali[]" value="{{ $quali[$i] }}" type="text" >
+                                             </td>
+                                             <td class="row-index text-center">
+                                             <input name="qop_date[]" value="{{ $qop_date[$i] }}" type="date" >
+                                             
+                                             </td>
+                                             <td class="row-index text-center">
+                                             <input name="certi_exp[]" value="{{ $certi_exp[$i] }}" type="date" >
+                                             
+                                             </td>
+                                             <td class="row-index text-center">
+                                                @if($emp_certi[$i])
+                                                <input value="{{ $emp_certi[$i] }}" id="file" type="file" name="emp_certi[]" accept="application/pdf"  style="display:none;" />
+
+                                                <label for="file">{{ $emp_certi[$i] }}&nbsp;&nbsp; &nbsp;<i class="fa fa-upload" aria-hidden="true"></i> </label>
+                                                @else
+                                             <input value="{{ $emp_certi[$i] }}"  type="file" name="emp_certi[]" accept="application/pdf"  />
+                                             @endif
+                                             </td>
+                                             
+                                         <td>
+                                            &nbsp;&nbsp;
+
+                                            <a href="{{route('getDownload', $emp_certi[$i])}}"><i class="fa fa-download" aria-hidden="true"></i></a>
+                                            &nbsp;&nbsp; <a style="height:20px;background-color:white;color:red;"  href="#" class="delete-row"><i class="fa fa-trash icon-white"></i></a>
+                                         </td>
+                                         
+                                      <tr>                           
+                                </tbody>
+                                @endfor
+                                <tbody id="tbody">
+                                    
+                                </tbody>
+
+                              </table>
+                            </div>
+                            
+               
+
+                  <!--  <div class="form-group ">
                          
                         <div class="col-md-4 mb-3 ">
                           <label for="name" >Criminal check </label>
@@ -141,7 +195,7 @@
                         
                      
                         
-                    </div>
+                    </div>-->
 
                 <!-- ./box-body -->
                             <!-- col-md-8 -->
@@ -164,5 +218,88 @@
 @stop
 
 @section('moar_scripts')
+ <script>
+    $(document).ready(function () {
+  
+      // Denotes total number of rows
+      var rowIdx = {!! $num !!};
+      
+  
+      // jQuery button click event to add a row
+      $('#addBtn').on('click', function () {
+  
+        // Adding a row inside the tbody.
+        $('#tbody').append(`<tr id="R${++rowIdx}">
+             <td class="row-index text-center" >
+             <input type="number" name="item_no[]" value="${rowIdx}" readonly>
+             </td>
+             <td class="row-index text-center">
+             <input name="quali[]" type="text" >
+             </td>
+             <td class="row-index text-center">
+             <input name="qop_date[]" type="date" >
+             
+             </td>
+             <td class="row-index text-center">
+             <input name="certi_exp[]" type="date" >
+             
+             </td>
+             <td class="row-index text-center">
+             <input type="file" name="emp_certi[]" accept="application/pdf">
+             </td>
+             
+              <td class="text-center">
+                
+                  <button style="height:20px;background-color:white;color:red;"  class="remove btn "><i class="fa fa-trash icon-white"></i></button>
+                </td>
+              </tr>`);
+
+      });
+  
+      // jQuery button click event to remove a row.
+      $('#tbody').on('click', '.remove', function () {
+  
+        // Getting all the rows next to the row
+        // containing the clicked button
+        var child = $(this).closest('tr').nextAll();
+  
+        // Iterating across all the rows 
+        // obtained to change the index
+        child.each(function () {
+  
+          // Getting <tr> id.
+          var id = $(this).attr('id');
+  
+          // Getting the <p> inside the .row-index class.
+          var idx = $(this).children('.row-index').children('p');
+  
+          // Gets the row number from <tr> id.
+          var dig = parseInt(id.substring(1));
+  
+          // Modifying row index.
+          idx.html(`Row ${dig - 1}`);
+  
+          // Modifying row id.
+          $(this).attr('id', `R${dig - 1}`);
+        });
+  
+        // Removing the current row.
+        $(this).closest('tr').remove();
+  
+        // Decreasing total number of rows by 1.
+        rowIdx--;
+      });
+    });
+  </script>
+  <script type="text/javascript">
+     $('#paper-table').on('click', 'a', function() {
+  $(this).closest('tr').remove();
+
+  //check if no more rows and remove the table
+  if ($('#paper-table tbody tr').length == 0) {
+    $('#paper-table').remove();
+  }
+});
+  </script>
 @include ('partials.bootstrap-table')
 @stop

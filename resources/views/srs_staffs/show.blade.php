@@ -16,16 +16,16 @@
 @section('content')
 
   <div id="webui">
-    <div class="row" style="padding-left: 300px;">
+    <div class="row" style="padding-left: 100px;">
         <!-- left column -->
       <div class="col-md-7">
-        <form class="form-horizontal" method="" style="width:600px;" action="" autocomplete="off">
+        <form class="form-horizontal" method="" style="width:1000px;" action="" autocomplete="off">
           <div class="box box-default">
              <div class="box-header with-border text-center">
                  <h3><b>Employee</b></h3>
                    
                 </div><!-- /.box-header -->
-            <div class="box-body" style="padding-left:130px;">
+            <div class="box-body" style="padding-left:80px;">
 
                 <!-- Asset name -->
                 <div class="form-group">
@@ -58,14 +58,7 @@
                         <p class="form-control-static">{{ $srs_staff->email}}</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-6 control-label">Qualification:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $srs_staff->quali}}</p>
-                    </div>
-                </div>
-
-
+               
                 <div class="form-group">
                     <label class="col-sm-6 control-label">Position:</label>
                     <div class="col-md-6">
@@ -96,24 +89,29 @@
                         <p class="form-control-static">{{ $srs_staff->s_no}}</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-6 control-label">First Aid & CPR:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $srs_staff->fi_date}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-6 control-label">Super Criminal check:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $srs_staff->crime}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-6 control-label">Working With Children Check:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $srs_staff->w_child}}</p>
-                    </div>
-                </div>
+               
+
+               <table class="table table-bordered" style="border: 2px; border-width: 1px; border-color: black;">
+      <tr>
+         <th width="100px; class="text-center">No</th>
+        <th width="200px;" class="text-center">Qualification</th>
+        <th class="text-center">Optained Date</th>
+        <th class="text-center">Expiry date</th>
+        <th width="150px;" class="text-center">Certificate</th>
+
+      </tr>
+    @for ($i=0; $i < $num; $i++)
+      <tr class="blank_row">
+        <td > {{$item_no[$i] }}</td>
+        <td> {{$quali[$i] }}  </td>
+        <td>{{$qop_date[$i] }}</td>
+        <td>{{$certi_exp[$i] }}</td>
+        <td><a href="{{route('getDownload', $emp_certi[$i])}}">{{$emp_certi[$i] }}</a></td>
+        </tr>
+    @endfor
+     
+    </table><br>
+              
               
           
             </div>

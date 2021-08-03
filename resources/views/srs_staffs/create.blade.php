@@ -231,7 +231,7 @@
              
              </td>
              <td class="row-index text-center">
-             <input type="file" name="emp_certi[]" >
+             <input type="file" name="emp_certi[]" accept="application/pdf" >
              </td>
              
               <td class="text-center">

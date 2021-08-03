@@ -9,6 +9,7 @@ use App\Models\ActivityLog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Redirect;
+use Response;
 
 /** This controller handles all actions related to Accessories for
  * the Snipe-IT Asset Management application.
@@ -80,11 +81,7 @@ class SrsStaffsController extends Controller
         $srs_staff->qop_date = implode(',', (array) request('qop_date')) ?? '';
         $srs_staff->certi_exp = implode(',', (array) request('certi_exp')) ?? '';
 
-        //$certificate = implode(',', (array) request('emp_certi')->getClientOriginalName());
-         //request()->emp_certi->move(public_path('certificates'), $certificate);  
-
-
-
+        if (request('emp_certi')) {
             foreach(request('emp_certi') as $file)
             {
                 $name = time().'.'.$file->getClientOriginalName();
@@ -94,6 +91,8 @@ class SrsStaffsController extends Controller
 
         $srs_staff->emp_certi = json_encode($data);
 
+        }
+           
       
         $srs_staff->user_id =  Auth::user()->id;
         
@@ -121,8 +120,18 @@ class SrsStaffsController extends Controller
     {
         $this->authorize('show',SrsStaff::class);
         $srs_staff = SrsStaff::find($id);
+
+        $item_no = explode(',', $srs_staff->item_no);
+        $quali = explode(',', $srs_staff->quali);
+        $qop_date = explode(',', $srs_staff->qop_date);
+        $certi_exp = explode(',', $srs_staff->certi_exp);
+        $emp_certi = json_decode($srs_staff->emp_certi);
+
+        $item_last= last($item_no);
+        $num = (int)$item_last;
         
-        return view('srs_staffs/show',compact('srs_staff'));
+        
+        return view('srs_staffs/show',compact('srs_staff', 'item_no', 'quali', 'qop_date', 'certi_exp', 'emp_certi', 'num'));
     }
      /**
      * Show the form for editing the specified resource.
@@ -136,7 +145,17 @@ class SrsStaffsController extends Controller
         $this->authorize('edit',SrsStaff::class);
         $srs_staff = SrsStaff::find($id);
         $name = explode('.', $srs_staff->name);
-        return view('srs_staffs/edit',compact('srs_staff', 'name'));
+
+        $item_no = explode(',', $srs_staff->item_no);
+        $quali = explode(',', $srs_staff->quali);
+        $qop_date = explode(',', $srs_staff->qop_date);
+        $certi_exp = explode(',', $srs_staff->certi_exp);
+        $emp_certi = json_decode($srs_staff->emp_certi);
+
+        $item_last= last($item_no);
+        $num = (int)$item_last;
+        
+        return view('srs_staffs/edit',compact('srs_staff', 'name', 'item_no', 'quali', 'qop_date', 'certi_exp', 'emp_certi', 'num'));
     }
     /**
      * Update the specified resource in storage.
@@ -150,12 +169,12 @@ class SrsStaffsController extends Controller
         $this->authorize('update', SrsStaff::class);
         $srs_staff = SrsStaff::find($id);
 
+        
         $srs_staff->name = request('fname').". ".request('mname').". ".request('lname');
         $srs_staff->address = request('address') ?? '';
         $srs_staff->ph = request('ph') ?? '';
         $srs_staff->dob = request('dob') ?? '';
         $srs_staff->email = request('email') ?? '';
-        $srs_staff->quali = request('quali') ?? '';
         $srs_staff->company_id = "null" ?? '';
         $srs_staff->location_id = "null" ?? '';
 
@@ -166,7 +185,26 @@ class SrsStaffsController extends Controller
         $srs_staff->s_no = request('s_no')  ?? '';
         $srs_staff->fi_date = request('fi_date')  ?? '';
         $srs_staff->crime = request('crime')  ?? '';
-        $srs_staff->w_child = request('w_child')  ?? '';        $srs_staff->user_id =  Auth::user()->id;
+        $srs_staff->w_child = request('w_child')  ?? '';
+
+        $srs_staff->item_no = implode(',', (array) request('item_no')) ?? '';
+        $srs_staff->quali = implode(',', (array) request('quali')) ?? '';
+        $srs_staff->qop_date = implode(',', (array) request('qop_date')) ?? '';
+        $srs_staff->certi_exp = implode(',', (array) request('certi_exp')) ?? '';
+
+        if (request('emp_certi')) {
+            foreach(request('emp_certi') as $file)
+            {
+                $name = time().'.'.$file->getClientOriginalName();
+                $file->move(public_path().'/certificates/', $name);  
+                $data[] = $name;  
+            }
+
+        $srs_staff->emp_certi = json_encode($data) ?? '';
+
+        }
+        
+        $srs_staff->user_id =  Auth::user()->id;
         
         $srs_staff->save();
         $activity = new ActivityLog();
@@ -199,5 +237,13 @@ class SrsStaffsController extends Controller
         return redirect()->route('srs_staffs.index')
                         ->with('success','deleted successfully');
     }
+
+    public function getDownload($file_name){
+
+        $file = public_path().'/certificates/'.$file_name;
+        $headers = array('Content-Type: application/pdf',);
+        return Response::download($file,$file_name,$headers);
+    }
+
 
 }
