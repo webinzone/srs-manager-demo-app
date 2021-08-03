@@ -18,6 +18,7 @@
 <style type="text/css">
     td{
         width: auto;
+        text-align: center;
     }
 </style>
 <div id="webui">

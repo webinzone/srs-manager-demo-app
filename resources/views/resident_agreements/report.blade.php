@@ -95,7 +95,7 @@
         <td><b><a style="color:black;" href="http://www2.health.vic.gov.au">http://www2.health.vic.gov.au</a></b></td>
         <td width="200px;" >Need assistance  in reading ?</td>
         <td width="100px;">(Yes/No){{ $resident_agreement->asistance_status}}</td>
-        <td>Staff: {{ $resident_agreement->staff}}</td>
+        <td>Staff: {{ $resident_agreement->staff }}</td>
       </tr>
     </table>&nbsp;&nbsp;
     <table>

@@ -79,10 +79,21 @@ class SrsStaffsController extends Controller
         $srs_staff->quali = implode(',', (array) request('quali')) ?? '';
         $srs_staff->qop_date = implode(',', (array) request('qop_date')) ?? '';
         $srs_staff->certi_exp = implode(',', (array) request('certi_exp')) ?? '';
-        $srs_staff->emp_certi = implode(',', (array) request('emp_certi'));    
 
-        $certificate = implode(',', (array) request('emp_certi')->getClientOriginalName());
-         request()->implode(',', (array) request('emp_certi'))->move(public_path('certificates'), $certificate);  
+        //$certificate = implode(',', (array) request('emp_certi')->getClientOriginalName());
+         //request()->emp_certi->move(public_path('certificates'), $certificate);  
+
+
+
+            foreach(request('emp_certi') as $file)
+            {
+                $name = time().'.'.$file->getClientOriginalName();
+                $file->move(public_path().'/certificates/', $name);  
+                $data[] = $name;  
+            }
+
+        $srs_staff->emp_certi = json_encode($data);
+
       
         $srs_staff->user_id =  Auth::user()->id;
         

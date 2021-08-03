@@ -7,10 +7,12 @@
     </title>
     
 <style type="text/css">
-
-  td {
-    width: 200px;
+  td{
+    width: auto;
+    padding: 10px;
+    text-align: center;
   }
+
   table, td, th {
     border: 1px solid black;
   }
@@ -157,10 +159,11 @@
         <td style="border: 1px solid black;">Religion</td>
       </tr>
       <tr style="border: 1px solid black;">
-
-        <td style="border: 1px solid black;">{{ $referral->creligion}}</td>
         <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($referral->cdob)) }}</td>  
+
+
         <td style="border: 1px solid black;">{{ $referral->cgender}}</td>
+        <td style="border: 1px solid black;">{{ $referral->creligion}}</td>
       </tr>
     </table><br>
     
@@ -882,7 +885,7 @@
         <td style="border: 1px solid black;">{{ $referral2->a_comments}}</td>
       </tr>
     </table>
-    <h3 style="font-family:Bedrock">Community Livi ng Skills:</h3>
+    <h3 style="font-family:Bedrock">Community Living Skills:</h3>
     <table>
       <tr>
         <td style="border: 1px solid black;">Is the client able to access public transport?</td>

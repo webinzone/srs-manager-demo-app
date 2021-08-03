@@ -69,7 +69,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Staff</label>
-                        <input type="text" name="staff" id="staff1" value="{{ $resident_agreement->staff}}" class="form-control" readonly  placeholder="Staff">                                        
+                        <input type="text" name="staff" id="staff1" value="{{ $resident_agreement->staff }}" class="form-control" readonly  placeholder="Staff">                                        
                       </div>
                       
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
