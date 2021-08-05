@@ -94,19 +94,20 @@
                <table class="table table-bordered" style="border: 2px; border-width: 1px; border-color: black;">
       <tr>
          <th width="100px; class="text-center">No</th>
-        <th width="200px;" class="text-center">Qualification</th>
-        <th class="text-center">Optained Date</th>
+        <th width="200px;" class="text-center">Certificate Name</th>
+        <th class="text-center">Issue Date</th>
         <th class="text-center">Expiry date</th>
         <th width="150px;" class="text-center">Certificate</th>
 
       </tr>
-    @for ($i=0; $i < $num; $i++)
+      @for ($i=0; $i < $num; $i++)
+
       <tr class="blank_row">
         <td > {{$item_no[$i] }}</td>
         <td> {{$quali[$i] }}  </td>
         <td>{{$qop_date[$i] }}</td>
         <td>{{$certi_exp[$i] }}</td>
-        <td><a href="{{route('getDownload', $emp_certi[$i])}}">{{$emp_certi[$i] }}</a></td>
+        <td><a href="{{ route('getDownload',$emp_certi[$i]) }}">{{$emp_certi[$i] }}</a></td>
         </tr>
     @endfor
      

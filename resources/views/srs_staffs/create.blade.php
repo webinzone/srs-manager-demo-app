@@ -134,8 +134,8 @@
                                 <thead>
                                   <tr>
                                     <th width="100px; class="text-center">No</th>
-                                    <th width="200px;" class="text-center">Qualification</th>
-                                    <th class="text-center">Optained Date</th>
+                                    <th width="200px;" class="text-center">Certificate Name</th>
+                                    <th class="text-center">Issue Date</th>
                                     <th class="text-center">Expiry date</th>
                                     <th width="150px;" class="text-center">Certificate</th>
                                     <th  class="text-center">Action</th>                                   

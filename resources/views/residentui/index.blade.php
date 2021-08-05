@@ -214,22 +214,23 @@
                         <label for="res_email">Email</label>
                         <input type="email" value="{{ $client_detail->res_email}}" class="form-control" id="res_email" placeholder="Email"  name="res_email"  v-on:change="page_one.res_email = $event.target.value">
                       </div>
-                      <div class="col-md-3 mb-3">
+                     <!-- <div class="col-md-3 mb-3">
                         <label for="res_fax">Fax</label>
                         <input type="text" value="{{ $client_detail->res_fax}}" class="form-control" id="Fax" placeholder="res_fax" name="res_fax" v-on:change="page_one.res_fax = $event.target.value">            
-                      </div>
+                      </div>-->
                       <div class="col-md-3 mb-3">
                         <label for="acc">Account to be addressed</label>
                         <input type="text" value="{{ $client_detail->acc}}" class="form-control" id="acc" placeholder="Account to be addressed" name="acc"  v-on:change="page_one.acc = $event.target.value">            
                       </div>  
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
-
-                     
                       <div class="col-md-3 mb-3">
                         <label for="l_known">Languages Known</label>
                         <input type="text" value="{{ $client_detail->l_known}}" class="form-control" id="l_known" placeholder="Languages Known"  name="l_known"  v-on:change="page_one.l_known = $event.target.value">          
                       </div>
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+
+                     
+                      
 
                       <div class="col-md-3 mb-3">
                         <label for="pre_address">Previous Address</label>
@@ -241,8 +242,12 @@
                         </div>
                      
                       <div class="col-md-3 mb-3">
-                        <label for="expiry_date">Expiry date</label>
-                        <input type="date" value="{{ $client_detail->exp_date}}" class="form-control" id="expiry_date" placeholder="Expiry date"  name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
+                        <label for="expiry_date">Expiry Month & Year</label>
+                        <input type="month" value="{{ $client_detail->exp_date}}" class="form-control" style="height:26px;" id="expiry_date" placeholder="Expiry date"  name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="ent_no">Entitlement No</label>
+                        <input type="text" style="width: 200px;" value="{{ $client_detail->ent_no}}" class="form-control" placeholder="Entitlement No" id="ent_no" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
                     
@@ -327,14 +332,11 @@
                         <label for="ent_no">Status</label>
                           <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="Active" {{ $client_detail->status == 'Active' ? 'selected' : ''  }} style="font-size: 14px;">Active</option> 
-                            <option value="Vacate" {{ $client_detail->status == 'Vacate' ? 'selected' : ''  }} style="font-size: 14px;">Vacate</option> 
+                            <option value="Vaccate" {{ $client_detail->status == 'Vaccate' ? 'selected' : ''  }} style="font-size: 14px;">Vaccate</option> 
                             <option value="Transfered" {{ $client_detail->status == 'Transfered' ? 'selected' : ''  }} style="font-size: 14px;">Transfered</option>
                         </select>          
                       </div>     
-                      <div class="col-md-3 mb-3">
-                        <label for="ent_no">Entitlement No</label>
-                        <input type="text" style="width: 200px;" value="{{ $client_detail->ent_no}}" class="form-control" placeholder="Entitlement No" id="ent_no" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
-                      </div>  
+                        
                       </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                       
@@ -519,15 +521,21 @@
                       <h4 class="mb-3"><b>Income Details</b></h4><br>
                
                     <div class="form-row">
-                      <div class="col-md-12 mb-3">
+                       <div class="col-md-12 mb-3">
                         <label for="income_type">Type of Income : </label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label><input {{ $pension_detail->income_type == 'Direct Debit' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Direct Debit">Direct Debit</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label><input {{ $pension_detail->income_type == 'Cash' ? 'checked' : ''  }}  type="checkbox" name="income_type" value="Cash">Cash</label>&nbsp;&nbsp;&nbsp;&nbsp;                         
-                                <label><input {{ $pension_detail->income_type == 'Centre Link' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;
-                                <label><input {{ $pension_detail->income_type == 'Veterans Affairs' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;
-                                <label><input {{ $pension_detail->income_type == 'State Trustees' ? 'checked' : ''  }} type="checkbox" name="income_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
-                                <label><input {{ $pension_detail->income_type == 'Other' ? 'checked' : ''  }} id="other" onclick="addbox();" type="checkbox" name="income_type" value="Other"> Other</label><!--&nbsp;&nbsp;&nbsp;&nbsp;<label><input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;"></label>-->
+                                <label><input id="i1" {{ $pension_detail->income_type == 'Direct Debit' ? 'checked' : ''  }} type="checkbox" onclick="hidebox();" name="income_type" value="Direct Debit">Direct Debit</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input onclick="hidebox();" id="i2" {{ $pension_detail->income_type == 'Cash' ? 'checked' : ''  }}  type="checkbox" name="income_type" value="Cash">Cash</label>&nbsp;&nbsp;&nbsp;&nbsp;                         
+                                <label><input onclick="hidebox();" id="i3" {{ $pension_detail->income_type == 'Centre Link' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;
+                                <label><input onclick="hidebox();" id="i4" {{ $pension_detail->income_type == 'Veterans Affairs' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;
+                                <label><input onclick="hidebox();" id="i5" {{ $pension_detail->income_type == 'State Trustees' ? 'checked' : ''  }} type="checkbox" name="income_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
+                                <label><input {{ $pension_detail->income_type == 'Other' ? 'checked' : ''  }} id="other" onclick="addbox();" type="checkbox" name="income_type" value="Other"> Other</label>&nbsp;&nbsp;
+                                @if($pension_detail->income_type == 'Other')
+                                <input id="otherinc" type="text" value="{{ $client_detail->other_income}}" placeholder="Enter Income Details" name="other_income"  style="width: 200px;">                 
+                                                           
+                                @endif
+                                  <input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;">
                       </div>
+                     
                       </div>&nbsp;&nbsp;&nbsp;
                
                     <div class="form-row">
@@ -1263,10 +1271,16 @@ $(document).ready(function (e) {
   function addbox() {
     if (document.getElementById('other').checked) {
         document.getElementById('income').style.display = 'block';
-        document.getElementById('oi').style.display = 'none';
+        document.getElementById('otherinc').style.display = 'none';
     } else {
         document.getElementById('income').style.display = 'none';
     }
+}
+ function hidebox() {
+    if (document.getElementById('i1').checked) || (document.getElementById('i2').checked) || (document.getElementById('i3').checked) || (document.getElementById('i4').checked) || (document.getElementById('i5').checked){
+        document.getElementById('income').style.display = 'none';
+        document.getElementById('otherinc').style.display = 'none';
+    } 
 }
 
 </script>

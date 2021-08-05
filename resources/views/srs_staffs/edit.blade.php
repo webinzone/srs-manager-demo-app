@@ -125,8 +125,8 @@
                                 <thead>
                                   <tr>
                                     <th width="100px; class="text-center">No</th>
-                                    <th width="200px;" class="text-center">Qualification</th>
-                                    <th class="text-center">Optained Date</th>
+                                    <th width="200px;" class="text-center">Certificate Name</th>
+                                    <th class="text-center">Issue Date</th>
                                     <th class="text-center">Expiry date</th>
                                     <th width="150px;" class="text-center">Certificate</th>
                                     <th  class="text-center">Action</th>                                   
@@ -151,13 +151,15 @@
                                              
                                              </td>
                                              <td class="row-index text-center">
-                                                @if($emp_certi[$i])
-                                                <input value="{{ $emp_certi[$i] }}" id="file" type="file" name="emp_certi[]" accept="application/pdf"  style="display:none;" />
+                                               @if($emp_certi[$i])
+                                                <input value="{{url('')}}/certificates/{{ $emp_certi[$i] }}" class="form-control" type="file" name="emp_certi[]"   style="display:none;" />
 
-                                                <label for="file"><a href="{{route('getDownload', $emp_certi[$i])}}">{{ $emp_certi[$i] }}</a>&nbsp;&nbsp; &nbsp;<i class="fa fa-upload" aria-hidden="true"></i> </label>
+                                               <p> <a href="{{route('getDownload', $emp_certi[$i])}}">{{ $emp_certi[$i] }}</a></p><!--&nbsp;&nbsp; &nbsp;
+                                                <label for="file"><i class="fa fa-upload" aria-hidden="true"></i> </label>-->
                                                 @else
-                                             <input value="{{ $emp_certi[$i] }}"  type="file" name="emp_certi[]" accept="application/pdf"  />
+                                             <input  type="file" name="emp_certi[]" accept="application/pdf"  />
                                              @endif
+                                            <!-- <input  type="file" id="file" value="{{url('')}}/certificates/{{ $emp_certi[$i] }}" name="emp_certi[]" accept="application/pdf"  />&nbsp;&nbsp;<a href="{{route('getDownload', $emp_certi[$i])}}">{{ $emp_certi[$i] }}</a>-->
                                              </td>
                                              
                                          <td>
@@ -242,7 +244,7 @@
              
              </td>
              <td class="row-index text-center">
-             <input type="file" name="emp_certi[]" accept="application/pdf">
+             <input type="file" id="file" name="emp_certi[]" accept="application/pdf">
              </td>
              
               <td class="text-center">
@@ -298,5 +300,11 @@
   }
 });
   </script>
+
+  <script>
+function myFunction() {
+  document.getElementById("file").multiple = true;
+}
+</script>
 @include ('partials.bootstrap-table')
 @stop

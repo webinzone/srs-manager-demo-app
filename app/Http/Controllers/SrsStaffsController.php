@@ -89,7 +89,7 @@ class SrsStaffsController extends Controller
                 $data[] = $name;  
             }
 
-        $srs_staff->emp_certi = json_encode($data);
+        $srs_staff->emp_certi = implode(',', (array) $data);
 
         }
            
@@ -125,9 +125,9 @@ class SrsStaffsController extends Controller
         $quali = explode(',', $srs_staff->quali);
         $qop_date = explode(',', $srs_staff->qop_date);
         $certi_exp = explode(',', $srs_staff->certi_exp);
-        $emp_certi = json_decode($srs_staff->emp_certi);
+        $emp_certi = explode(',', $srs_staff->emp_certi);
 
-        $item_last= last($item_no);
+        $item_last= count($quali);
         $num = (int)$item_last;
         
         
@@ -150,9 +150,9 @@ class SrsStaffsController extends Controller
         $quali = explode(',', $srs_staff->quali);
         $qop_date = explode(',', $srs_staff->qop_date);
         $certi_exp = explode(',', $srs_staff->certi_exp);
-        $emp_certi = json_decode($srs_staff->emp_certi);
+        $emp_certi = explode(',', $srs_staff->emp_certi);
 
-        $item_last= last($item_no);
+        $item_last= count($quali);
         $num = (int)$item_last;
         
         return view('srs_staffs/edit',compact('srs_staff', 'name', 'item_no', 'quali', 'qop_date', 'certi_exp', 'emp_certi', 'num'));
@@ -192,17 +192,18 @@ class SrsStaffsController extends Controller
         $srs_staff->qop_date = implode(',', (array) request('qop_date')) ?? '';
         $srs_staff->certi_exp = implode(',', (array) request('certi_exp')) ?? '';
 
-        if (request('emp_certi')) {
             foreach(request('emp_certi') as $file)
             {
+                
                 $name = time().'.'.$file->getClientOriginalName();
                 $file->move(public_path().'/certificates/', $name);  
                 $data[] = $name;  
             }
+            
 
-        $srs_staff->emp_certi = json_encode($data) ?? '';
+        $srs_staff->emp_certi = implode(',', (array) $data) ?? '';
+    
 
-        }
         
         $srs_staff->user_id =  Auth::user()->id;
         
