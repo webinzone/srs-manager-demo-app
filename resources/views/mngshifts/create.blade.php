@@ -15,6 +15,25 @@
 
 {{-- Page content --}}
 @section('content')
+<style type="text/css">
+  td{
+    width: auto;
+    text-align: center;
+  }
+  table, td, th {
+    border: 1px solid black;
+    
+    padding: 10px;
+  }
+
+  table {
+    width: 600px;
+    left: 50px;
+    border-collapse: collapse;
+    align-items: center;
+    align-content: center;
+  }
+</style>
 <div id="webui">
   
 	<div class="row">
@@ -66,7 +85,7 @@
 
 					 </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                      
-                     <div class="form-row">
+                     <!--<div class="form-row">
 					  <div class="col-md-4 mb-6">
 					    <label for="name" >Resident Name</label>
 					    <select class="form-control" required="" id="resi_name" name="res_name" style="height: 26px;padding: 3px 10px;">
@@ -88,10 +107,31 @@
   	                    <textarea name="notes" style="width: 250px;" id="notes" class="form-control" ></textarea>					        	        
 					   </div>
 					   
-					</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</div> --> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				    
                     
+                    <div class="form-row">
 
+                        <table>
+                            <tr>
+                                <td>No</td>
+                                <td>Resident</td>
+                                <td width="50px;">Roon No</td>
+                                <td>Note</td>
+                            </tr>
+                            <tbody>
+                                @foreach($residents as $resident)
+                                <tr>
+                                 <td><input type="text" value="{{++$i }}" name="id"></td>   
+                                <td><input type="text"  name="res_name[]" value="{{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}"  class="form-control" readonly></td>
+                                <td><input type="text"  name="room[]" value="{{$resident->room_no}}"  class="form-control" readonly></td>
+                                <td><input type="text"  name="notes[]"  class="form-control" ></td>
+                               </tr>
+                               @endforeach
+                            </tbody>
+                        </table>
+                        
+                    </div>
 				                       
 				     <div class="box-footer text-right" style="padding-right:80px;">
 					    <br><br><a class="btn btn-link text-left" href="{{ route('mngshifts.index') }}">Cancel</a>

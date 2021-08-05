@@ -22,6 +22,12 @@ class MngshiftPresenter extends Presenter
                 "title" => trans('id'),
                 "visible" => false
             ],[
+                "field" => "mng_date",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Date')
+            ],[
                 "field" => "mng_staff",
                 "searchable" => true,
                 "sortable" => true,
@@ -33,18 +39,6 @@ class MngshiftPresenter extends Presenter
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Evening Staff')
-            ],[
-                "field" => "res_name",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Resident Name')
-            ],[
-                "field" => "room",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Room')
             ],[
                 "field" => "created_at",
                 "searchable" => true,

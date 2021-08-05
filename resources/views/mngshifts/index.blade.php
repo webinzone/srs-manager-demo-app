@@ -54,5 +54,16 @@
 @stop
 
 @section('moar_scripts')
+<script type="text/javascript">
+$('table').find('tr').each(function(){
+  const $row = $(this);
+  $row.nextAll('tr').each(function(){
+    const $next = $(this);
+    if($row.find('td:first').text() == $next.find('td:first').text()) {
+      $next.remove();
+    }
+  })
+});
+</script>
 @include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\MngshiftPresenter::dataTableLayout()])
 @stop
