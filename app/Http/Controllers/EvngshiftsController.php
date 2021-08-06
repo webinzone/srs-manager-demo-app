@@ -57,9 +57,10 @@ class EvngshiftsController extends Controller
 
         $es = $lastt->evng_staff ?? '';
 
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->get();
         $emps = SrsStaff::all();
-        return view('evngshifts/create',compact('residents','emps','ms','es'));
+        $i = 0;
+        return view('evngshifts/create',compact('residents','emps','ms','es','i'));
     }
 
 
@@ -78,13 +79,10 @@ class EvngshiftsController extends Controller
         $evngshift->mng_staff = request('mng_staff') ?? '';
         $evngshift->evng_staff = request('evng_staff') ?? '';
 
-        $id = request('res_name');
-        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $name = $res->fname." ".$res->mname." ".$res->lname;        
-        $evngshift->res_name = $name ?? '';
+        $evngshift->res_name = implode(',', (array) request('res_name')) ?? '';
+        $evngshift->room = implode(',', (array) request('room')) ?? '';        
+        $evngshift->notes = implode(',', (array) request('notes')) ?? '';
 
-        $evngshift->room = request('room') ?? '';
-        $evngshift->notes = request('notes') ?? '';
         $evngshift->eveng_date = request('eveng_date') ?? '';
         $evngshift->company_id = request('company_id') ?? '';
         $evngshift->location_id = request('location_id') ?? '';
@@ -127,9 +125,14 @@ class EvngshiftsController extends Controller
     {
         $this->authorize('edit',Evngshift::class);
         $evngshift = Evngshift::find($id);
-        $residents = ClientDetail::all();
+        $res_name = explode(',', $evngshift->res_name);
+        $room = explode(',', $evngshift->room);
+        $notes = explode(',', $evngshift->notes);        
+         $i = 0;
+        $item_last= count($res_name);
+        $num = (int)$item_last;
         $emps = SrsStaff::all();
-        return view('evngshifts/edit',compact('evngshift','residents','emps'));
+        return view('evngshifts/edit',compact('evngshift','emps','res_name','room','notes','num','i'));
     }
     /**
      * Update the specified resource in storage.
@@ -146,18 +149,15 @@ class EvngshiftsController extends Controller
         $evngshift->mng_staff = request('mng_staff') ?? '';
         $evngshift->evng_staff = request('evng_staff') ?? '';
 
-        $id = request('res_name');
-        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $name = $res->fname." ".$res->mname." ".$res->lname;        
-        $evngshift->res_name = $name ?? '';
+        $evngshift->res_name = implode(',', (array) request('res_name')) ?? '';
+        $evngshift->room = implode(',', (array) request('room')) ?? '';        
+        $evngshift->notes = implode(',', (array) request('notes')) ?? '';
 
-        $evngshift->room = request('room') ?? '';
-        $evngshift->notes = request('notes') ?? '';
         $evngshift->eveng_date = request('eveng_date') ?? '';
         $evngshift->company_id = request('company_id') ?? '';
         $evngshift->location_id = request('location_id') ?? '';
         $evngshift->user_id =  Auth::user()->id;
-        
+               
         $evngshift->save();
         $activity = new ActivityLog();
 

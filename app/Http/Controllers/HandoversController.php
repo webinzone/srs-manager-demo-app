@@ -175,17 +175,24 @@ class HandoversController extends Controller
          $sdate = request('sdate');
          $i = 1;         
          
-         $mngs = Mngshift::where('mng_date', '=', $sdate)->get() ?? '';
+         $mngshift = Mngshift::where('mng_date', '=', $sdate)->firstOrFail() ?? '';
 
-         $mngsss = Mngshift::where('mng_date', '=', $sdate)->firstOrFail() ?? '';
-         $mstaf = $mngsss->mng_staff ?? '';
+        $res_name = explode(',', $mngshift->res_name);
+        $room = explode(',', $mngshift->room);
+        $notes = explode(',', $mngshift->notes);        
+         $i = 0;
+        $item_last= count($res_name);
+        $num = (int)$item_last;
 
-         $evngsss = Evngshift::where('eveng_date', '=', $sdate)->firstOrFail() ?? '';
-         $estaf = $evngsss->evng_staff ?? '';
+        // $mngsss = Mngshift::where('mng_date', '=', $sdate)->firstOrFail() ?? '';
+        // $mstaf = $mngsss->mng_staff ?? '';
 
-         $evngs = Evngshift::where('eveng_date', '=', $sdate)->get() ?? '';   
+        // $evngsss = Evngshift::where('eveng_date', '=', $sdate)->firstOrFail() ?? '';
+        // $estaf = $evngsss->evng_staff ?? '';
 
-         return view('handovers/report',compact('mngs','i','mstaf','estaf','evngs','sdate'));
+        // $evngs = Evngshift::where('eveng_date', '=', $sdate)->get() ?? '';   
+
+         return view('handovers/report',compact('mngshift','i','res_name','room','notes','num'));
     }
 
     public function shiftreports()
@@ -195,19 +202,21 @@ class HandoversController extends Controller
 
     public function generateHandoverEvngReport(){
         $sdate = request('sdate');
-         $i = 1;         
          
-         $mngs = Mngshift::where('mng_date', '=', $sdate)->get() ?? '';
+        // $mngs = Mngshift::where('mng_date', '=', $sdate)->get() ?? '';
 
-         $mngsss = Mngshift::where('mng_date', '=', $sdate)->firstOrFail() ?? '';
-         $mstaf = $mngsss->mng_staff ?? '';
+         //$mngsss = Mngshift::where('mng_date', '=', $sdate)->firstOrFail() ?? '';
+         //$mstaf = $mngsss->mng_staff ?? '';
 
-         $evngsss = Evngshift::where('eveng_date', '=', $sdate)->firstOrFail() ?? '';
-         $estaf = $evngsss->evng_staff ?? '';
+         $evngshift = Evngshift::where('eveng_date', '=', $sdate)->firstOrFail() ?? '';
+         $res_name = explode(',', $evngshift->res_name);
+        $room = explode(',', $evngshift->room);
+        $notes = explode(',', $evngshift->notes);        
+         $i = 0;
+        $item_last= count($res_name);
+        $num = (int)$item_last;  
 
-         $evngs = Evngshift::where('eveng_date', '=', $sdate)->get() ?? '';   
-
-         return view('handovers/evng_report',compact('mngs','i','mstaf','estaf','evngs','sdate'));
+         return view('handovers/evng_report',compact('evngshift','i','res_name','room','notes','num'));
 
     }
 

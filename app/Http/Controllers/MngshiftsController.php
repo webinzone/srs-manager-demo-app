@@ -67,27 +67,13 @@ class MngshiftsController extends Controller
     public function store()
     {
         $this->authorize('create',Mngshift::class);
-
+        $mngshift = new Mngshift();
         $mstaff = request('mng_staff') ?? '';
         $estaff = request('evng_staff') ?? '';
         $mng_date = request('mng_date') ?? '';
         $company_id = request('company_id') ?? '';
         $location_id = request('location_id') ?? '';
         $user_id =  Auth::user()->id;
-       
-
-        $min = request('id') ?? '';
-        $min = (int)$min;
-        $data1 = request('res_name') ?? '';
-        $data2 = request('room') ?? '';
-        $data3 = request('notes') ?? '';       
-        $keysOne = array_keys($data1);
-        $keysTwo = array_keys($data2);
-        $keysThree = array_keys($data3);
-        
-        for($i = 0; $i < $min; $i++) {
-        $mngshift = new Mngshift();
-        
 
         $mngshift->mng_staff = $mstaff;
         $mngshift->evng_staff = $estaff;
@@ -96,16 +82,44 @@ class MngshiftsController extends Controller
         $mngshift->location_id = $location_id;
         $mngshift->user_id = $user_id;            
        
-        $mngshift->res_name = $data1[$keysOne[$i]];
-        $mngshift->room = $data2[$keysTwo[$i]];
+        $mngshift->res_name = implode(',', (array) request('res_name')) ?? '';
+        $mngshift->room = implode(',', (array) request('room')) ?? '';
         
-        $mngshift->notes = $data3[$keysThree[$i]];
+        $mngshift->notes = implode(',', (array) request('notes')) ?? '';
 
 
         $mngshift->save();
 
-
-        }
+        //$min = request('id') ?? '';
+        //$min = (int)$min;
+        //$data1 = request('res_name') ?? '';
+        //$data2 = request('room') ?? '';
+        //$data3 = request('notes') ?? '';       
+        //$keysOne = array_keys($data1);
+        //$keysTwo = array_keys($data2);
+        //$keysThree = array_keys($data3);
+//        
+        //for($i = 0; $i < $min; $i++) {
+        //$mngshift = new Mngshift();
+//        
+//
+        //$mngshift->mng_staff = $mstaff;
+        //$mngshift->evng_staff = $estaff;
+        //$mngshift->mng_date = $mng_date;
+        //$mngshift->company_id = $company_id;
+        //$mngshift->location_id = $location_id;
+        //$mngshift->user_id = $user_id;            
+//       
+        //$mngshift->res_name = $data1[$keysOne[$i]];
+        //$mngshift->room = $data2[$keysTwo[$i]];
+//        
+        //$mngshift->notes = $data3[$keysThree[$i]];
+//
+//
+        //$mngshift->save();
+//
+//
+        //}
 
         
        
@@ -131,7 +145,15 @@ class MngshiftsController extends Controller
     {
         $this->authorize('show',Mngshift::class);
         $mngshift = Mngshift::find($id);
-        return view('mngshifts/show',compact('mngshift'));
+        $res_name = explode(',', $mngshift->res_name);
+        $room = explode(',', $mngshift->room);
+        $notes = explode(',', $mngshift->notes);        
+         $i = 0;
+        $item_last= count($res_name);
+        $num = (int)$item_last;
+        $emps = SrsStaff::all();
+
+        return view('mngshifts/show',compact('mngshift','emps','i','num','res_name','room','notes'));
     }
      /**
      * Show the form for editing the specified resource.
@@ -144,16 +166,15 @@ class MngshiftsController extends Controller
     {
         $this->authorize('edit',Mngshift::class);
         $mngshift = Mngshift::find($id);
-
-        $sdate = $mngshift->mng_date;
-
-        $mngsss = Mngshift::where('mng_date', '=', $sdate)->get() ?? '';
-        
+        $res_name = explode(',', $mngshift->res_name);
+        $room = explode(',', $mngshift->room);
+        $notes = explode(',', $mngshift->notes);        
          $i = 0;
+        $item_last= count($res_name);
+        $num = (int)$item_last;
         $emps = SrsStaff::all();
-        $residents = ClientDetail::where('status', '=', 'Active')->get();
 
-        return view('mngshifts/edit',compact('mngshift','emps','mngsss','i','residents'));
+        return view('mngshifts/edit',compact('mngshift','emps','i','num','res_name','room','notes'));
     }
     /**
      * Update the specified resource in storage.
@@ -165,6 +186,7 @@ class MngshiftsController extends Controller
     public function update($id)
     {
         $this->authorize('update', Mngshift::class);
+        $mngshift = Mngshift::find($id);
         
         $mstaff = request('mng_staff') ?? '';
         $estaff = request('evng_staff') ?? '';
@@ -172,21 +194,6 @@ class MngshiftsController extends Controller
         $company_id = request('company_id') ?? '';
         $location_id = request('location_id') ?? '';
         $user_id =  Auth::user()->id;
-       
-
-         $min = request('id') ?? '';
-        $min = (int)$min;
-        $data1 = request('res_name') ?? '';
-        $data2 = request('room') ?? '';
-        $data3 = request('notes') ?? '';       
-        $keysOne = array_keys($data1);
-        $keysTwo = array_keys($data2);
-        $keysThree = array_keys($data3);
-        
-        for($i = 0; $i < $min; $i++) {
-            
-        $mngshift = Mngshift::find($id);
-        
 
         $mngshift->mng_staff = $mstaff;
         $mngshift->evng_staff = $estaff;
@@ -195,16 +202,52 @@ class MngshiftsController extends Controller
         $mngshift->location_id = $location_id;
         $mngshift->user_id = $user_id;            
        
-        $mngshift->res_name = $data1[$keysOne[$i]];
-        $mngshift->room = $data2[$keysTwo[$i]];
+        $mngshift->res_name = implode(',', (array) request('res_name')) ?? '';
+        $mngshift->room = implode(',', (array) request('room')) ?? '';
         
-        $mngshift->notes = $data3[$keysThree[$i]];
+        $mngshift->notes = implode(',', (array) request('notes')) ?? '';
 
 
         $mngshift->save();
 
+       
 
-        }
+         //$min = request('id') ?? '';
+        //$min = (int)$min;
+        //$data1 = request('res_name') ?? '';
+        //$data2 = request('room') ?? '';
+        //$data3 = request('notes') ?? ''; 
+        //$data4 = request('idd') ?? '';      
+        //$keysOne = array_keys($data1);
+        //$keysTwo = array_keys($data2);
+        //$keysThree = array_keys($data3);
+        //$keysFour = array_keys($data4);
+        //$id = $keysFour;  
+        //$id = (int)$id;  
+//        
+        //for($i = 0; $i < $min; $i++) {
+//            
+//        
+        //$mngshift = Mngshift::find($id);
+//        
+//
+        //$mngshift->mng_staff = $mstaff;
+        //$mngshift->evng_staff = $estaff;
+        //$mngshift->mng_date = $mng_date;
+        //$mngshift->company_id = $company_id;
+        //$mngshift->location_id = $location_id;
+        //$mngshift->user_id = $user_id;            
+//       
+        //$mngshift->res_name = $data1[$keysOne[$i]];
+        //$mngshift->room = $data2[$keysTwo[$i]];
+//        
+        //$mngshift->notes = $data3[$keysThree[$i]];
+//
+//
+        //$mngshift->save();
+//
+//
+        //}
 
         $activity = new ActivityLog();
 

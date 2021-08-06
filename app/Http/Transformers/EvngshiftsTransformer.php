@@ -25,11 +25,11 @@ class EvngshiftsTransformer
 
             $array = [
                 'id' => (int) $evngshift->id,
+                'eveng_date' => e(date('d-m-Y', strtotime($evngshift->eveng_date))),
+
                 'evng_staff' => e($evngshift->evng_staff),
                 'mng_staff' => e($evngshift->mng_staff),
                 
-                'res_name' => e($evngshift->res_name),
-                'room' => e($evngshift->room),
                 'created_at' => e(date('d-m-Y', strtotime($evngshift->created_at))),
                 'actions' => view('evngshifts/datatables_actions', compact('evngshift'))->render() 
                 

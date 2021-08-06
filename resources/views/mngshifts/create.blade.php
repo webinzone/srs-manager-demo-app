@@ -116,15 +116,15 @@
                             <tr>
                                 <td>No</td>
                                 <td>Resident</td>
-                                <td width="50px;">Roon No</td>
+                                <td >Room</td>
                                 <td>Note</td>
                             </tr>
                             <tbody>
                                 @foreach($residents as $resident)
                                 <tr>
-                                 <td><input type="text" value="{{++$i }}" name="id"></td>   
+                                 <td><input type="text" style="width:40px;" value="{{++$i }}" name="id"></td>   
                                 <td><input type="text"  name="res_name[]" value="{{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}"  class="form-control" readonly></td>
-                                <td><input type="text"  name="room[]" value="{{$resident->room_no}}"  class="form-control" readonly></td>
+                                <td><input type="text" style="width:70px;"  name="room[]" value="{{$resident->room_no}}"  class="form-control" readonly></td>
                                 <td><input type="text"  name="notes[]"  class="form-control" ></td>
                                </tr>
                                @endforeach

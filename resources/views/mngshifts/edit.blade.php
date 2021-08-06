@@ -88,18 +88,19 @@
                             <tr>
                                 <td>No</td>
                                 <td>Resident</td>
-                                <td width="50px;">Roon No</td>
+                                <td >Room</td>
                                 <td>Note</td>
                             </tr>
                             <tbody>
-                                @foreach($mngsss as $resident)
+                                   @for ($j=0; $j < $num; $j++)
                                 <tr>
-                                 <td><input type="text" value="{{++$i }}" name="id"></td>   
-                                <td><input type="text"  name="res_name[]" value="{{ $resident->res_name}}"  class="form-control" readonly></td>
-                                <td><input type="text"  name="room[]" value="{{$resident->room}}"  class="form-control" readonly></td>
-                                <td><input type="text"  name="notes[]" value="{{$resident->notes}}"  class="form-control" ></td>
+                                 <td><input type="text" style="width:40px;" value="{{++$i }}" name="id"></td>   
+                                <td><input type="text"  name="res_name[]" value="{{ $res_name[$j]}}"  class="form-control" readonly></td>
+                                <td><input type="text" style="width:70px;"  name="room[]" value="{{$room[$j]}}"  class="form-control" readonly></td>
+                                <td><input type="text"  name="notes[]" value="{{$notes[$j]}}"  class="form-control" ></td>
+                              
                                </tr>
-                               @endforeach
+                               @endfor
                             </tbody>
                         </table>
                         

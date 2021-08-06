@@ -15,6 +15,25 @@
 
 {{-- Page content --}}
 @section('content')
+<style type="text/css">
+  td{
+    width: auto;
+    text-align: center;
+  }
+  table, td, th {
+    border: 1px solid black;
+    
+    padding: 10px;
+  }
+
+  table {
+    width: 600px;
+    left: 50px;
+    border-collapse: collapse;
+    align-items: center;
+    align-content: center;
+  }
+</style>
 <div id="webui">
   
 	<div class="row">
@@ -65,32 +84,36 @@
 					  </div>
                       
 
-					 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     
-                     <div class="form-row" >
-					  <div class="col-md-4 mb-3">
-					    <label for="name" >Resident Name</label>
-					    <select class="form-control" required="" id="resi_name" name="res_name" style="height: 26px;padding: 3px 10px;">
-                            <option>--   Select Resident Name  --</option>
-                          @foreach($residents as $resident)
-                          <option value="{{ $resident->id}}"> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
-                          @endforeach
-                        </select>				        	        
-					   </div>
-					   <div class="col-md-8 mb-3">
-                        <label for="name" >Room No</label>
-                        <input type="text" style="width: 250px;" name="room" id="rooms" class="form-control" readonly>
-                      </div>
-				    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				    <div class="form-row" >
-					  <div class="col-md-12 mb-3">
-					  	<label for="name" >Note</label>
-  	                    <textarea name="notes" id="notes" style="width: 250px;" class="form-control" ></textarea>					        	        
-					   </div>
-					  				        	        
-					   </div>
-					</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					 </div>
+
+					 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				    
+                    
+                    <div class="form-row">
+
+                        <table>
+                            <tr>
+                                <td>No</td>
+                                <td>Resident</td>
+                                <td >Room</td>
+                                <td>Note</td>
+                            </tr>
+                            <tbody>
+                                @foreach($residents as $resident)
+                                <tr>
+                                 <td><input type="text" style="width:40px;" value="{{++$i }}" name="id"></td>   
+                                <td><input type="text"  name="res_name[]" value="{{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}"  class="form-control" readonly></td>
+                                <td><input type="text" style="width:70px;"  name="room[]" value="{{$resident->room_no}}"  class="form-control" readonly></td>
+                                <td><input type="text"  name="notes[]"  class="form-control" ></td>
+                               </tr>
+                               @endforeach
+                            </tbody>
+                        </table>
+                        
+                    </div>
+				                       
+                     
+                 
                     
 
 				                       

@@ -22,6 +22,12 @@ class EvngshiftPresenter extends Presenter
                 "title" => trans('id'),
                 "visible" => false
             ],[
+                "field" => "eveng_date",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Date')
+            ],[
                 "field" => "evng_staff",
                 "searchable" => true,
                 "sortable" => true,
@@ -33,18 +39,6 @@ class EvngshiftPresenter extends Presenter
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Morning Staff')
-            ],[
-                "field" => "res_name",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Resident Name')
-            ],[
-                "field" => "room",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Room')
             ],[
                 "field" => "created_at",
                 "searchable" => true,
