@@ -220,4 +220,30 @@ class HandoversController extends Controller
 
     }
 
+    public function generateHandoverfullReport(){
+
+
+          $sdate = request('sdate');
+         $i = 0;         
+         
+         $mngshift = Mngshift::where('mng_date', '=', $sdate)->firstOrFail() ?? '';
+
+        $res_name = explode(',', $mngshift->res_name);
+        $room = explode(',', $mngshift->room);
+        $notes = explode(',', $mngshift->notes);        
+
+        $item_last= count($res_name);
+        $num = (int)$item_last;
+         
+        
+
+         $evngshift = Evngshift::where('eveng_date', '=', $sdate)->firstOrFail() ?? '';
+         
+        $enotes = explode(',', $evngshift->notes);        
+        
+
+         return view('handovers/full_report',compact('evngshift','mngshift','i','res_name','room','notes','num','enotes'));
+
+    }
+
 }

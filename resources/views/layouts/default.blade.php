@@ -525,7 +525,7 @@ h4 {
             <li{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('condition_reports.index') }}" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-list" aria-hidden="true"></i>
-                  <span style="color: white;">Room Assets</span>
+                  <span style="color: white;">Condition Report</span>
                 </a>
             </li>
             @endcan

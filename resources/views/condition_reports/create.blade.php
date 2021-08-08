@@ -29,7 +29,7 @@
 	            <!-- box-header -->
 	           <!-- box-header -->
               <div class="box-header with-border text-center">
-                 <h3><b>Room Assets</b></h3>
+                 <h3><b>Condition Report</b></h3>
                    
                 </div><!-- /.box-header -->
 

@@ -45,7 +45,7 @@
           <div class="box box-default">
             <div class="box-header with-border">
                 <center>
-                <h2 class="box-title"> <b>Assets Details</h2></b></h2>                    
+                <h2 class="box-title"> <b>Condition Report</h2></b></h2>                    
                 </center>
             </div>
 

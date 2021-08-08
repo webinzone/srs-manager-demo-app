@@ -112,7 +112,14 @@ class EvngshiftsController extends Controller
     {
         $this->authorize('show',Evngshift::class);
         $evngshift = Evngshift::find($id);
-        return view('evngshifts/show',compact('evngshift'));
+        $res_name = explode(',', $evngshift->res_name);
+        $room = explode(',', $evngshift->room);
+        $notes = explode(',', $evngshift->notes);        
+         $i = 0;
+        $item_last= count($res_name);
+        $num = (int)$item_last;
+        $emps = SrsStaff::all();
+        return view('evngshifts/show',compact('evngshift','emps','res_name','room','notes','num','i'));
     }
      /**
      * Show the form for editing the specified resource.
