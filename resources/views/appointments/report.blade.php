@@ -81,6 +81,20 @@
 
       </tr>
       @endforeach
+      @foreach ($apps as $appointment)  
+
+      <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">{{ $appointment->res_name}}</td>
+        <td style="border: 1px solid black;">{{ $appointment->app_time}}</td>
+        <td style="border: 1px solid black;">{{ $appointment->app_address}}</td>       
+        <td style="border: 1px solid black;">{{ $appointment->app_with}}</td>
+        <td style="border: 1px solid black;">{{ $appointment->app_reason}}</td>
+         <td style="border: 1px solid black;">{{ $appointment->app_bookby}}</td>
+        <td style="border: 1px solid black;">{{ $appointment->app_note}}</td>
+        <td style="border: 1px solid black;">{{ $appointment->status}}</td>        
+
+      </tr>
+      @endforeach
     </table><br>
 
    

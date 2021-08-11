@@ -67,7 +67,7 @@
                      <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label for="fname">Select Date</label>
-                        <input type="date" name="sdate" id="res_date">
+                        <input type="date" name="sdate" id="res_date2">
                          
                        
                       </div>
@@ -103,7 +103,7 @@
                      <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label for="fname">Select Date</label>
-                        <input type="date" name="sdate" id="res_date">
+                        <input type="date" name="sdate" id="res_date3">
                          
                        
                       </div>
@@ -138,6 +138,26 @@
 })
     $(document).ready( function() {
     $('#res_date').val(new Date().toDateInputValue());
+});
+</script>
+<script type="text/javascript">
+    Date.prototype.toDateInputValue = (function() {
+    var local = new Date(this);
+    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+    return local.toJSON().slice(0,10);
+})
+    $(document).ready( function() {
+    $('#res_date2').val(new Date().toDateInputValue());
+});
+</script>
+<script type="text/javascript">
+    Date.prototype.toDateInputValue = (function() {
+    var local = new Date(this);
+    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+    return local.toJSON().slice(0,10);
+})
+    $(document).ready( function() {
+    $('#res_date3').val(new Date().toDateInputValue());
 });
 </script>
 @include ('partials.bootstrap-table')

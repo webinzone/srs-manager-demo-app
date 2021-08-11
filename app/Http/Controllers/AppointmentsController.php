@@ -73,6 +73,8 @@ class AppointmentsController extends Controller
         $appointment->app_bookby = request('app_bookby')  ?? '';
         $appointment->app_note = request('app_note')  ?? '';
         $appointment->status = request('status')  ?? '';
+        $appointment->resc_date = request('resc_date')  ?? '';
+        
         
         $appointment->a_email = request('a_email')  ?? '';
         $appointment->a_ph = request('a_ph')  ?? '';
@@ -145,7 +147,7 @@ class AppointmentsController extends Controller
         $appointment->app_note = request('app_note')  ?? '';
         $appointment->status = request('status')  ?? '';
 
-        
+        $appointment->resc_date = request('resc_date')  ?? '';
         $appointment->a_email = request('a_email')  ?? '';
         $appointment->a_ph = request('a_ph')  ?? '';
         
@@ -195,7 +197,8 @@ class AppointmentsController extends Controller
     {
          $sdate = request('sdate');
          $appointments = Appointment::where('app_date', '=', $sdate)->get() ?? '';
-         return view('appointments/report',compact('appointments','sdate'));
+         $apps = Appointment::where('resc_date', '=', $sdate)->get() ?? '';
+         return view('appointments/report',compact('appointments','sdate', 'apps'));
 
 
     }
