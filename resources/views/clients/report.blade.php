@@ -35,10 +35,12 @@
   </head>
 
   <body>
-
+  
   <div id="webui">
+
     <div class="row">
-      <input type="button" class="right" style="right: 30px; align-items: right;" onclick="printDiv('print-content1')" value="PRINT"/>&nbsp;&nbsp;&nbsp;<br><br>
+      
+      <input type="button" class="right" style="right: 90px; align-items: right;" onclick="printDiv('print-content1')" value="PRINT"/>&nbsp;&nbsp;&nbsp;<br><br>
       <div id="print-content1">
         <div class="container">
     <center>
@@ -211,10 +213,35 @@
     <h3 style="font-family:Bedrock"><u>Additional Information : <i>Medical history/diagnosis </i>: </u></h3><p style="border: 1px solid black; padding: 5px;">{{ $health_service->med_history}}</p><br><br>
      <label>Date Fixed to Pharmacy: ..............................................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature: ..............................................................</label>
          </div>
+        
+       </div>
    </div>
  </div>
- </div>
-
+ 
+<script type="text/javascript">
+  //function saveEdits() {
+//
+////get the editable element
+//var editElem = document.getElementById("edit");
+//
+////get the edited element content
+//var userVersion = editElem.innerHTML;
+//
+////save the content to local storage
+//localStorage.userEdits = userVersion;
+//
+////write a confirmation to the user
+//document.getElementById("update").innerHTML="";
+//
+//}
+//
+//function checkEdits() {
+//
+////find out if the user has previously saved edits
+//if(localStorage.userEdits!=null)
+//document.getElementById("edit").innerHTML = localStorage.userEdits;
+//}
+</script>
 <script type="text/javascript">
     function printDiv(divName) {
         var htmlToPrint = '' +

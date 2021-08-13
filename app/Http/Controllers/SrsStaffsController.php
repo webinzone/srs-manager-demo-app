@@ -59,7 +59,7 @@ class SrsStaffsController extends Controller
         $this->authorize('create',SrsStaff::class);
         $srs_staff = new SrsStaff();
 
-        $srs_staff->name = request('fname').". ".request('mname').". ".request('lname');
+        $srs_staff->name = request('fname')."  ".request('mname')."  ".request('lname');
         $srs_staff->address = request('address') ?? '';
         $srs_staff->ph = request('ph') ?? '';
         $srs_staff->dob = request('dob') ?? '';
