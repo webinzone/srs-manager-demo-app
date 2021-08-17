@@ -46,6 +46,12 @@ class AppointmentPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Appointment with')
             ],[
+                "field" => "status",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Status')
+            ],[
                 "field" => "created_at",
                 "searchable" => true,
                 "sortable" => true,

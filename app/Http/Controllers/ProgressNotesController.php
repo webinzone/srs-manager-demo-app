@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Models\ProgressNote;
 use App\Models\ActivityLog;
 use App\Models\ClientDetail;
+use App\Models\SrsStaff;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -43,7 +44,8 @@ class ProgressNotesController extends Controller
          // Show the page
         $this->authorize('create',ProgressNote::class);
         $residents = ClientDetail::all();
-        return view('progress_notes/create',compact('residents'));
+        $emps = SrsStaff::all();
+        return view('progress_notes/create',compact('residents','emps'));
     }
 
 
@@ -116,8 +118,8 @@ class ProgressNotesController extends Controller
         $this->authorize('edit',ProgressNote::class);
         $progress_note = ProgressNote::find($id);
         $residents = ClientDetail::all();
-
-        return view('progress_notes/edit',compact('progress_note','residents'));
+        $emps = SrsStaff::all();
+        return view('progress_notes/edit',compact('progress_note','residents','emps'));
     }
     /**
      * Update the specified resource in storage.

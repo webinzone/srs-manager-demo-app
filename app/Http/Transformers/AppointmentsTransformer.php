@@ -22,18 +22,34 @@ class AppointmentsTransformer
     public function transformAppointment (Appointment $appointment = null)
     {
         if ($appointment) {
+            if($appointment->status == 'Re-scheduled'){
 
+            $array = [
+                'id' => (int) $appointment->id,
+                'res_name' => e($appointment->res_name),
+                'app_date' => e(date('d-m-Y', strtotime($appointment->resc_date))),
+                'app_time' => e($appointment->app_time),
+                'app_with' => e($appointment->app_with),
+                'status' => e($appointment->status),
+                'created_at' => e(date('d-m-Y', strtotime($appointment->created_at))),
+               
+                'actions' => view('appointments/datatables_actions', compact('appointment'))->render() 
+                
+            ];
+           } else {
             $array = [
                 'id' => (int) $appointment->id,
                 'res_name' => e($appointment->res_name),
                 'app_date' => e(date('d-m-Y', strtotime($appointment->app_date))),
                 'app_time' => e($appointment->app_time),
                 'app_with' => e($appointment->app_with),
+                'status' => e($appointment->status),                
                 'created_at' => e(date('d-m-Y', strtotime($appointment->created_at))),
                
                 'actions' => view('appointments/datatables_actions', compact('appointment'))->render() 
                 
             ];
+           } 
 
 
             return $array;

@@ -34,7 +34,8 @@ class DashboardController extends Controller
             $asset_stats=null;
 
             $apps = Appointment::where('status', '=', 'Pending')->orderBy('created_at', 'desc')->get() ?? '';
-            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('created_at', 'desc')->get() ?? '';
+            $appois = Appointment::where('status', '=', 'Re-scheduled')->orderBy('created_at', 'desc')->get() ?? '';
+            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
             
 
             $counts['resident'] = \App\Models\ClientDetail::count();
@@ -46,7 +47,7 @@ class DashboardController extends Controller
                 \Artisan::call('migrate', ['--force' => true]);
                 \Artisan::call('passport:install');
             }
-            return view('dashboard')->with('asset_stats', $asset_stats)->with('counts', $counts)->with('apps', $apps)->with('residents', $residents);
+            return view('dashboard')->with('asset_stats', $asset_stats)->with('counts', $counts)->with('apps', $apps)->with('appois', $appois)->with('residents', $residents);
         } else {
         // Redirect to the profile page
             return redirect()->intended('account/view-assets');

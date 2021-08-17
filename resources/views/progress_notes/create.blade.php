@@ -43,35 +43,37 @@
                           @endforeach
                         </select>                
                       </div>
-                      <div class="col-md-4 mb-3">
-                        <label for="name" >Given Name</label>
-                         <input type="text" id="" placeholder="Given Name" class="form-control" name="g_name" >               
-                      </div>
-                      <div class="col-md-4 mb-3">
-                        <label for="name" >Staff Name</label>
-                         <input type="text" id="staff" placeholder="Staff" class="form-control" name="staff" readonly>               
-                      </div>
                       
-                    </div>
-
-                    <div class="form-group ">
-
                         <div class="col-md-4 mb-3">
                         <label for="name" >DOB</label>
                          <input type="text" id="dob" placeholder="DOB" class="form-control" name="dob" readonly>               
                       </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="name" >Staff Name</label>
+                        <select class="form-control" style="height: 26px;padding: 3px 10px;" id="mng_staff" name="staff">
+                            <option>--   Select Staff Name  --</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}" > {{ $emp->name }}</option>
+                          @endforeach
+                        </select>                                     
+                      </div>
+                       <input type="text" id="gname" placeholder="Given Name" class="form-control" name="g_name" hidden>  
+                    </div>
 
-                      <div class="col-md-3 mb-3">
+                    <div class="form-group ">
+
+
+                      <div class="col-md-4 mb-3">
                         <label for="name" >Gender</label>
                          <input type="text" id="gender" placeholder="Gender" class="form-control" name="gender" readonly>               
                       </div>
 
-                      <div class="col-md-2 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label for="name" >Room No</label>
                          <input type="text" id="room" placeholder="Room No" class="form-control" name="room" readonly>               
                       </div>
 
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-4 mb-3">
                         <label for="name" >Date</label>
                          <input type="date" id="res_date" placeholder="Date" class="form-control" name="p_date" >               
                       </div>
@@ -154,6 +156,7 @@ $('#resi_name').change(function(){
                 $('#room').val(response.room_no);            
                  $('#dob').val(response.dob);
                 $('#gender').val(response.gender);
+                $('#gname').val(response.fname);
                   
 
             }

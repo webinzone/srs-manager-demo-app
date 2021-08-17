@@ -43,36 +43,37 @@
                           @endforeach
                         </select>                
                       </div>
-                       <div class="col-md-4 mb-3">
-                        <label for="name" >Given Name</label>
-                         <input type="text" value="{{ $progress_note->g_name}}" id="" placeholder="Given Name" class="form-control" name="g_name" >               
+                     <div class="col-md-4 mb-3">
+                        <label for="name" >DOB</label>
+                         <input type="text" value="{{ $progress_note->dob}}" id="dob" placeholder="DOB" class="form-control" name="dob" readonly>               
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="name" >Staff Name</label>
-                         <input type="text" id="staff" placeholder="Staff" class="form-control" value="{{ $progress_note->staff}}" name="staff" readonly>               
+                         <select class="form-control" style="height: 26px;padding: 3px 10px;" id="app_bookby" name="staff">
+                             @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}" {{ $progress_note->staff == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
+                          @endforeach
+                        </select>                                       
                       </div>
-                        
+                       <input type="text" id="gname" value="{{ $progress_note->g_name }}" placeholder="Given Name" class="form-control" name="g_name" hidden> 
                                        
                     </div>
 
                     <div class="form-group ">
 
-                        <div class="col-md-4 mb-3">
-                        <label for="name" >DOB</label>
-                         <input type="text" value="{{ $progress_note->dob}}" id="dob" placeholder="DOB" class="form-control" name="dob" readonly>               
-                      </div>
+                       
 
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-4 mb-3">
                         <label for="name" >Gender</label>
                          <input type="text" value="{{ $progress_note->gender}}" id="gender" placeholder="Gender" class="form-control" name="gender" readonly>               
                       </div>
 
-                      <div class="col-md-2 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label for="name" >Room No</label>
                          <input type="text" value="{{ $progress_note->room}}" id="room" placeholder="Room No" class="form-control" name="room" readonly>               
                       </div>
 
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-4 mb-3">
                         <label for="name" >Date</label>
                          <input type="date" value="{{ $progress_note->p_date}}" id="res_date" placeholder="Date" class="form-control" name="p_date" >               
                       </div>
@@ -129,6 +130,34 @@ $('#resi_name').change(function(){
         success: function(response){
             if(response != null){
                 $('#staff').val(response.stf_name);            
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+
+<script>
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getRSAclientDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#room').val(response.room_no);            
+                 $('#dob').val(response.dob);
+                $('#gender').val(response.gender);
+                $('#gname').val(response.fname);
+                  
 
             }
             else{

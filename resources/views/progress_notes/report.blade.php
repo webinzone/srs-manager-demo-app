@@ -66,7 +66,7 @@
     <table style="border: 1px solid black;">
       <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">DOB/Age</td>
-        <td style="border: 1px solid black;">{{ $resi->dob}}</td>
+        <td style="border: 1px solid black;">{{ date('d-m-Y', strtotime($resi->dob))}}</td>
 
         <td style="border: 1px solid black;">Sex</td>
         <td style="border: 1px solid black;">{{ $resi->gender}}</td>
@@ -85,7 +85,7 @@
       </tr>
       @foreach($progress_note as $resident)
       <tr>
-        <td style="border: 1px solid black;" align="center">{{ $resident->p_date}}</td>
+        <td style="border: 1px solid black;" align="center">{{ date('d-m-Y', strtotime($resident->p_date))}}</td>
         <td style="border: 1px solid black;" align="center">{{ $resident->prg_note}}</td>
         <td style="border: 1px solid black;" align="center">{{ $resident->staff}}</td>
       </tr>

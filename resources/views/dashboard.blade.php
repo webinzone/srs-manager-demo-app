@@ -306,6 +306,14 @@
                                 <td>{{ $app->status}}</td>                           
                               </tr>
                             @endforeach
+                             @foreach ($appois as $app)
+                              <tr>
+                                <td>{{ $app->res_name}}</td>
+                                <td>{{ date('d-m-Y', strtotime($app->app_date))}} - {{ $app->app_time}}</td>
+                                <td>{{ $app->app_with}}</td>
+                                <td>{{ $app->status}}</td>                           
+                              </tr>
+                            @endforeach
                           </tbody>
                           
 
