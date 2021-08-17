@@ -27,7 +27,7 @@
                               <a href="{{ route("rsaDetails", $r_id) }}" >Resident Agreement</a>
                            </li>
                            <li>
-                              <a href="{{ route("roomDetails", $r_id) }}" >Room Assets</a>
+                              <a href="{{ route("roomDetails", $r_id) }}" >Conditions</a>
                            </li>
                            
                            <li class="active">
@@ -87,7 +87,7 @@
                 <!-- box-header -->
                
                 <div class="box-header with-border text-center">
-                       <h3><b>Referral Form</b></h3>
+                       <h3><b>Referral Report</b></h3>
                    
                 </div>
 

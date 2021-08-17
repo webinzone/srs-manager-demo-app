@@ -26,7 +26,7 @@
                               <a href="{{ route("rsaDetails", $r_id) }}" >Resident Agreement</a>
                            </li>
                            <li >
-                              <a href="{{ route("roomDetails", $r_id) }}" >Room Assets</a>
+                              <a href="{{ route("roomDetails", $r_id) }}" >Conditions</a>
                            </li>
                            
                            <li >

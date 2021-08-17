@@ -69,19 +69,29 @@ class ResidentUiController extends Controller
 
     public function getRsa($id)
     {
-        $r_id = $id;        
+        $r_id = $id;
+        $head = "Resident Agreement";        
         $residents = ClientDetail::all();
         $emps = SrsStaff::all();
+        $checker = ResidentAgreement::select('client_id')->where('client_id', '=', $id)->exists();
+        if($checker == true){
         $resident_agreement = ResidentAgreement::where('client_id', '=', $id)->firstOrFail();
         return view('residentui/rsa',compact('resident_agreement', 'residents', 'emps', 'r_id'));
+        }
+        else{
+            return view('residentui/nodata',compact('r_id','head'));
+        }
     }
     
     public function getRoom($id)
     {
            $r_id = $id; 
+           $head = "Condition Report";
             $residents = ClientDetail::all();
             $companies = CompanyMaster::all();
             $emps = SrsStaff::all();
+            $checker = ConditionReport::select('client_id')->where('client_id', '=', $id)->exists();
+        if($checker == true){
           $condition_report = ConditionReport::where('client_id', '=', $id)->firstOrFail();
          $item_no = explode(',', $condition_report->item_no);
           $res_comments = explode(',', $condition_report->res_comments);
@@ -91,18 +101,33 @@ class ResidentUiController extends Controller
           $item_last= last($item_no);
           $num = (int)$item_last;
         return view('residentui/room_assets',compact('condition_report','residents','companies','emps','item_no', 'res_comments', 'items', 'owned_by', 'res_cond', 'num', 'r_id'));
+        }
+        else{
+            return view('residentui/nodata',compact('r_id','head'));
+        }
     }
 
     public function getTransfer($id)
     {
         $r_id = $id; 
+        $head = "Transfer Record";
+        $checker = TransferRecord::select('client_id')->where('client_id', '=', $id)->exists();
+        if($checker == true){
         $transfer_record = TransferRecord::where('client_id', '=', $id)->firstOrFail();
         $residents = ClientDetail::all();
         return view('residentui/transfer',compact('transfer_record','residents','r_id'));
+        }
+        else{
+            return view('residentui/nodata',compact('r_id','head'));
+        }
     }
     public function getReferral($id)
     {
         $r_id = $id; 
+        $head = "Referal Report";
+        $checker = Referral::select('client_id')->where('client_id', '=', $id)->exists();
+        if($checker == true){
+        
         $referral = Referral::where('client_id', '=', $id)->firstOrFail();
         $referral2 = Referral2::where('client_id', '=', $referral->id)->firstOrFail();
         
@@ -120,24 +145,42 @@ class ResidentUiController extends Controller
         $residents = ClientDetail::all();
         $emps = SrsStaff::all();
         return view('residentui/referral',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num','r_id'));
+        }
+        else{
+            return view('residentui/nodata',compact('r_id','head'));
+        }
     }
 
     public function getPlans($id)
     {
         $r_id = $id;
+        $head = "Support Plans";
+        $checker = SupportPlan::select('client_id')->where('client_id', '=', $id)->exists();
+        if($checker == true){
         $support_plan = SupportPlan::where('client_id', '=', $id)->firstOrFail();
         $residents = ClientDetail::all();        
 
         return view('residentui/supportplans',compact('support_plan','residents','r_id'));
+        }
+        else{
+            return view('residentui/nodata',compact('r_id','head'));
+        }
     }
 
     public function getIncidents($id)
     {
         $r_id = $id;
+        $head = "Incident Report";
+        $checker = Incident::select('client_id')->where('client_id', '=', $id)->exists();
+        if($checker == true){
         $incident = Incident::where('client_id', '=', $id)->firstOrFail();
         $residents = ClientDetail::all();
 
         return view('residentui/incident',compact('incident','residents','r_id'));
+        }
+        else{
+            return view('residentui/nodata',compact('r_id','head'));
+        }
     }
 
  }
