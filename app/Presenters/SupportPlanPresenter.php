@@ -28,17 +28,17 @@ class SupportPlanPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Name')
             ],[
-                "field" => "hygiene",
+                "field" => "adm_date",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Personal Hygiene')
+                "title" => trans('Admission Date')
             ],[
-                "field" => "nutrition",
+                "field" => "cons",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Nutrition')
+                "title" => trans('Consult With')
             ],[
                 "field" => "created_at",
                 "searchable" => true,

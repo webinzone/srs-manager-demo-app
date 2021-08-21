@@ -124,6 +124,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/progress','ProgressNotesController@progress_generate');
     Route::get('/generateProgressReport/', 'ProgressNotesController@generateProgressReport')->name('generateProgressReport');
 
+    Route::get('/supportplan','SupportPlansController@plan_generate');
+    Route::get('/generatePlansReport/', 'SupportPlansController@generatePlansReport')->name('generatePlansReport');
+
     Route::get('/incident','IncidentsController@incident_generate');
     Route::get('/generateIncidentReport/', 'IncidentsController@generateIncidentReport')->name('generateIncidentReport');
 

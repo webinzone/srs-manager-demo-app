@@ -73,9 +73,30 @@ class SupportPlansController extends Controller
         $support_plan->social_contact = request('social_contact') ?? '';
         $support_plan->behaviour = request('behaviour') ?? '';
         $support_plan->goals = request('goals') ?? '';
+        $support_plan->cons = request('cons') ?? '';
+        $support_plan->adm_date = request('adm_date') ?? '';
+        $support_plan->gp_name = request('gp_name') ?? '';
+        $support_plan->other_gp = request('other_gp') ?? '';
+        $support_plan->nomini = request('nomini') ?? '';
+        $support_plan->gp_contact = request('gp_contact') ?? '';
+
+        $support_plan->s_date = request('s_date') ?? '';
+        $support_plan->review = implode(',', (array) request('review')) ?? '';
+        $support_plan->r_with = implode(',', (array) request('r_with')) ?? '';
+        $support_plan->r_notes = implode(',', (array) request('r_notes')) ?? '';       
+
+        $support_plan->mobility = request('mobility') ?? '';
+        $support_plan->f1 = request('f1') ?? '';
+        $support_plan->f2 = request('f2') ?? '';
+        $support_plan->f3 = request('f3') ?? '';
+        $support_plan->f4 = request('f4') ?? '';
+        $support_plan->f5 = request('f5') ?? '';
+        $support_plan->f6 = request('f6') ?? '';
+        $support_plan->f7 = request('f7') ?? '';
         $support_plan->company_id = request('company_id') ?? ' ';
         $support_plan->location_id = request('location_id') ?? ' ';
         $support_plan->user_id =  Auth::user()->id;
+        
         
         
         $support_plan->save();
@@ -114,9 +135,15 @@ class SupportPlansController extends Controller
     {
         $this->authorize('edit',SupportPlan::class);
         $support_plan = SupportPlan::find($id);
+        $review = explode(',', $support_plan->review);
+        $r_with = explode(',', $support_plan->r_with);
+        $r_notes = explode(',', $support_plan->r_notes);
+        $item_last= count($review);
+        $num = (int)$item_last;
+
         $residents = ClientDetail::all();        
 
-        return view('support_plans/edit',compact('support_plan','residents'));
+        return view('support_plans/edit',compact('support_plan','residents','review','r_with','r_notes','num'));
     }
     /**
      * Update the specified resource in storage.
@@ -144,6 +171,25 @@ class SupportPlansController extends Controller
         $support_plan->social_contact = request('social_contact') ?? '';
         $support_plan->behaviour = request('behaviour') ?? '';
         $support_plan->goals = request('goals') ?? '';
+        $support_plan->cons = request('cons') ?? '';
+        $support_plan->adm_date = request('adm_date') ?? '';
+        $support_plan->gp_name = request('gp_name') ?? '';
+        $support_plan->gp_contact = request('gp_contact') ?? '';
+        $support_plan->other_gp = request('other_gp') ?? '';
+        $support_plan->nomini = request('nomini') ?? '';
+        $support_plan->s_date = request('s_date') ?? '';
+        $support_plan->review = implode(',', (array) request('review')) ?? '';
+        $support_plan->r_with = implode(',', (array) request('r_with')) ?? '';
+        $support_plan->r_notes = implode(',', (array) request('r_notes')) ?? '';       
+
+        $support_plan->mobility = request('mobility') ?? '';
+        $support_plan->f1 = request('f1') ?? '';
+        $support_plan->f2 = request('f2') ?? '';
+        $support_plan->f3 = request('f3') ?? '';
+        $support_plan->f4 = request('f4') ?? '';
+        $support_plan->f5 = request('f5') ?? '';
+        $support_plan->f6 = request('f6') ?? '';
+        $support_plan->f7 = request('f7') ?? '';
         $support_plan->company_id = request('company_id') ?? ' ';
         $support_plan->location_id = request('location_id') ?? ' ';
         $support_plan->user_id =  Auth::user()->id;
@@ -195,5 +241,23 @@ class SupportPlansController extends Controller
         return redirect()->route('support_plans.index')
                         ->with('success','deleted successfully');
     }
+     public function plan_generate(){
+        $support_plan = SupportPlan::all();     
+        return view('support_plans/report_show',compact('support_plan'));
+    }
 
+    public function generatePlansReport(){
+      $res = request('res');
+      $support_plan = SupportPlan::where('client_id', '=', $res)->firstOrFail();
+      
+        $review = explode(',', $support_plan->review);
+        $r_with = explode(',', $support_plan->r_with);
+        $r_notes = explode(',', $support_plan->r_notes);
+        $item_last= count($review);
+        $num = (int)$item_last;
+
+        
+
+        return view('support_plans/report',compact('support_plan','review','r_with','r_notes','num'));
+    }
 }

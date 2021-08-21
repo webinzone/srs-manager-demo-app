@@ -26,8 +26,8 @@ class SupportPlansTransformer
             $array = [
                 'id' => (int) $support_plan->id,
                 'user_name' => e($support_plan->user_name),
-                'hygiene' => e($support_plan->hygiene),
-                'nutrition' => e($support_plan->nutrition),
+                'adm_date' => e(date('d-m-Y', strtotime($support_plan->adm_date))),
+                'cons' => e($support_plan->cons),
                 'created_at' => e(date('d-m-Y', strtotime($support_plan->created_at))),
                 'actions' => view('support_plans/datatables_actions', compact('support_plan'))->render() 
                 
