@@ -31,73 +31,9 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         $this->authorize('view', User::class);
+        $users = User::where('manager_id', '=', Auth::user()->id);
 
-        $users = User::select([
-            'users.activated',
-            'users.address',
-            'users.avatar',
-            'users.city',
-            'users.company_id',
-            'users.country',
-            'users.created_at',
-            'users.deleted_at',
-            'users.department_id',
-            'users.email',
-            'users.employee_num',
-            'users.first_name',
-            'users.id',
-            'users.jobtitle',
-            'users.last_login',
-            'users.last_name',
-            'users.locale',
-            'users.location_id',
-            'users.manager_id',
-            'users.notes',
-            'users.permissions',
-            'users.phone',
-            'users.state',
-            'users.two_factor_enrolled',
-            'users.two_factor_optin',
-            'users.updated_at',
-            'users.username',
-            'users.zip',
-            'users.ldap_import',
-
-        ])->with('manager', 'groups', 'userloc', 'company', 'department','assets','licenses','accessories','consumables')
-            ->withCount('assets as assets_count','licenses as licenses_count','accessories as accessories_count','consumables as consumables_count');
-        $users = Company::scopeCompanyables($users);
-
-
-        if (($request->filled('deleted')) && ($request->input('deleted')=='true')) {
-            $users = $users->onlyTrashed();
-        } elseif (($request->filled('all')) && ($request->input('all')=='true')) {
-            $users = $users->withTrashed();
-        }
-
-        if ($request->filled('company_id')) {
-            $users = $users->where('users.company_id', '=', $request->input('company_id'));
-        }
-
-        if ($request->filled('location_id')) {
-            $users = $users->where('users.location_id', '=', $request->input('location_id'));
-        }
-
-        if ($request->filled('email')) {
-            $users = $users->where('users.email', '=', $request->input('email'));
-        }
-
-        if ($request->filled('username')) {
-            $users = $users->where('users.username', '=', $request->input('username'));
-        }
-
-        if ($request->filled('group_id')) {
-            $users = $users->ByGroup($request->get('group_id'));
-        }
-
-        if ($request->filled('department_id')) {
-            $users = $users->where('users.department_id','=',$request->input('department_id'));
-        }
-
+       
         if ($request->filled('search')) {
             $users = $users->TextSearch($request->input('search'));
         }
@@ -113,35 +49,7 @@ class UsersController extends Controller
         ((config('app.max_results') >= $request->input('limit')) && ($request->filled('limit'))) ? $limit = $request->input('limit') : $limit = config('app.max_results');
 
 
-        switch ($request->input('sort')) {
-            case 'manager':
-                $users = $users->OrderManager($order);
-                break;
-            case 'location':
-                $users = $users->OrderLocation($order);
-                break;
-            case 'department':
-                $users = $users->OrderDepartment($order);
-                break;
-            case 'company':
-                $users = $users->OrderCompany($order);
-                break;
-            default:
-                $allowed_columns =
-                    [
-                        'last_name','first_name','email','jobtitle','username','employee_num',
-                        'assets','accessories', 'consumables','licenses','groups','activated','created_at',
-                        'two_factor_enrolled','two_factor_optin','last_login', 'assets_count', 'licenses_count',
-                        'consumables_count', 'accessories_count', 'phone', 'address', 'city', 'state',
-                        'country', 'zip', 'id', 'ldap_import'
-                    ];
-
-                $sort = in_array($request->get('sort'), $allowed_columns) ? $request->get('sort') : 'first_name';
-                $users = $users->orderBy($sort, $order);
-                break;
-        }
-
-
+      
         $total = $users->count();
         $users = $users->skip($offset)->take($limit)->get();
         return (new UsersTransformer)->transformUsers($users, $total);

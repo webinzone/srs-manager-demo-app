@@ -122,7 +122,15 @@ class SupportPlansController extends Controller
     {
         $this->authorize('show',SupportPlan::class);
         $support_plan = SupportPlan::find($id);
-        return view('support_plans/show',compact('support_plan'));
+        $review = explode(',', $support_plan->review);
+        $r_with = explode(',', $support_plan->r_with);
+        $r_notes = explode(',', $support_plan->r_notes);
+        $item_last= count($review);
+        $num = (int)$item_last;
+
+        
+
+        return view('support_plans/show',compact('support_plan','review','r_with','r_notes','num'));
     }
      /**
      * Show the form for editing the specified resource.
