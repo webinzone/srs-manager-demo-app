@@ -686,21 +686,21 @@ class ClientsController extends Controller
     }
 
     public function res_active(){
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('created_at', 'desc')->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
 
         return view('clients/active_clients',compact('residents')); 
         
     }
 
     public function res_vaccate(){
-            $residents = ClientDetail::where('status', '=', 'Vaccate')->orderBy('created_at', 'desc')->get() ?? '';
+            $residents = ClientDetail::where('status', '=', 'Vaccate')->orderBy('fname')->get() ?? '';
         return view('clients/vaccate_clients',compact('residents')); 
             
 
     }
 
     public function res_transfer(){
-            $residents = ClientDetail::where('status', '=', 'Transfered')->orderBy('created_at', 'desc')->get() ?? '';
+            $residents = ClientDetail::where('status', '=', 'Transfered')->orderBy('fname')->get() ?? '';
         
         return view('clients/transfer_clients',compact('residents')); 
             

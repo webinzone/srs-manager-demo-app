@@ -42,7 +42,7 @@ class SupportPlansController extends Controller
     {
          // Show the page
         $this->authorize('create',SupportPlan::class);
-        $residents = ClientDetail::all();        
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';        
         return view('support_plans/create',compact('residents'));
     }
 
@@ -149,7 +149,7 @@ class SupportPlansController extends Controller
         $item_last= count($review);
         $num = (int)$item_last;
 
-        $residents = ClientDetail::all();        
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';        
 
         return view('support_plans/edit',compact('support_plan','residents','review','r_with','r_notes','num'));
     }

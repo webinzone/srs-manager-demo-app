@@ -44,7 +44,7 @@ class VaccatesController extends Controller
     {
          // Show the page
         $this->authorize('create',Vaccate::class);
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         return view('vaccates/create',compact('residents'));
     }
 
@@ -129,7 +129,7 @@ class VaccatesController extends Controller
     {
         $this->authorize('edit',Vaccate::class);
         $vaccate = Vaccate::find($id);
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         return view('vaccates/edit',compact('vaccate','residents'));
     }
     /**

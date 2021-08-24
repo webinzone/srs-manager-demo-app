@@ -54,7 +54,7 @@ class ResidentAgreementsController extends Controller
     {
          // Show the page
         $this->authorize('create',ResidentAgreement::class);
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         $emps = SrsStaff::all();
         return view('resident_agreements/create',compact('residents', 'emps'));
     }
@@ -272,7 +272,7 @@ class ResidentAgreementsController extends Controller
      public function edit($id)
     {
         $this->authorize('edit',ResidentAgreement::class);
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         $emps = SrsStaff::all();
         $resident_agreement = ResidentAgreement::find($id);
         return view('resident_agreements/edit',compact('resident_agreement', 'residents', 'emps'));

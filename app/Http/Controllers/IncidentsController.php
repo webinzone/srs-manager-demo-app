@@ -43,7 +43,7 @@ class IncidentsController extends Controller
     {
          // Show the page
         $this->authorize('create',Incident::class);
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         return view('incidents/create',compact('residents'));
     }
 
@@ -133,7 +133,7 @@ class IncidentsController extends Controller
     {
         $this->authorize('edit',Incident::class);
         $incident = Incident::find($id);
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
 
         return view('incidents/edit',compact('incident','residents'));
     }

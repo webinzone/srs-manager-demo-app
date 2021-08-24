@@ -24,7 +24,7 @@ class ClientDetailsController extends Controller
     {
         $this->authorize('index', ClientDetail::class);
        
-        $client_details = ClientDetail::where('user_id', '=', Auth::user()->id);
+        $client_details = ClientDetail::where('user_id', '=', Auth::user()->id)->orderBy('fname');
        
 
         if ($request->filled('search')) {

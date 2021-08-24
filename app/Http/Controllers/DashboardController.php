@@ -33,8 +33,8 @@ class DashboardController extends Controller
             
             $asset_stats=null;
 
-            $apps = Appointment::where('status', '=', 'Pending')->orderBy('created_at', 'desc')->get() ?? '';
-            $appois = Appointment::where('status', '=', 'Re-scheduled')->orderBy('created_at', 'desc')->get() ?? '';
+            $apps = Appointment::where('status', '=', 'Pending')->orderBy('app_date', 'desc')->get() ?? '';
+            $appois = Appointment::where('status', '=', 'Re-scheduled')->orderBy('resc_date', 'desc')->get() ?? '';
             $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
             
 

@@ -51,7 +51,7 @@ class ReferralsController extends Controller
     {
          // Show the page
         $this->authorize('create',Referral::class);
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         $emps = SrsStaff::all();
         return view('referrals/create',compact('residents','emps'));
     }
@@ -295,7 +295,7 @@ class ReferralsController extends Controller
         $item_last= count($drug);
         $num = (int)$item_last;
 
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         $emps = SrsStaff::all();
         return view('referrals/edit',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num'));
     }

@@ -12,6 +12,8 @@ use App\Models\Group;
 use App\Models\Ldap;
 use App\Models\Setting;
 use App\Models\User;
+use App\Models\CompanyMaster;
+
 use App\Notifications\WelcomeNotification;
 use Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -76,8 +78,9 @@ class UsersController extends Controller
 
         $user = new User;
         $user->activated = 1;
+        $companies = CompanyMaster::all();
 
-        return view('users/edit', compact('groups', 'userGroups', 'permissions', 'userPermissions'))
+        return view('users/edit', compact('groups', 'userGroups', 'permissions', 'userPermissions','companies'))
             ->with('user', $user);
     }
 
@@ -95,28 +98,41 @@ class UsersController extends Controller
         $this->authorize('create', User::class);
         $user = new User;
         //Username, email, and password need to be handled specially because the need to respect config values on an edit.
-        $user->email =  e($request->input('email'));
+        $user->email =  e($request->input('email', null));
         $user->username = e($request->input('username'));
         if ($request->filled('password')) {
             $user->password = bcrypt($request->input('password'));
         }
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
-        $user->locale = $request->input('locale');
-        $user->employee_num = $request->input('employee_num');
+        $user->locale = $request->input('locale', null);
+        $user->employee_num = $request->input('employee_num', null);
         $user->activated = $request->input('activated', 0);
-        $user->jobtitle = $request->input('jobtitle');
-        $user->phone = $request->input('phone');
+        $user->jobtitle = $request->input('jobtitle', null);
+        $user->phone = $request->input('phone', null);
         $user->location_id = $request->input('location_id', null);
         $user->department_id = $request->input('department_id', null);
         $user->company_id = Company::getIdForUser($request->input('company_id', null));
         $user->manager_id = $request->input('manager_id', null);
-        $user->notes = $request->input('notes');
+        $user->notes = $request->input('notes', null);
         $user->address = $request->input('address', null);
         $user->city = $request->input('city', null);
         $user->state = $request->input('state', null);
         $user->country = $request->input('country', null);
         $user->zip = $request->input('zip', null);
+        //$user->companyid = $request->input('companyid');
+        //$user->locationid = $request->input('locationid');
+        $user->u_id =  Auth::user()->id;
+        if (Auth::user()->s_role == "super_admin") {
+            $user->s_role = "c_admin";
+        }
+        else if(Auth::user()->s_role == "c_admin") {
+            $user->s_role = "c_users";
+        }
+        else{
+            $user->s_role = "";
+        }
+
 
         // Strip out the superuser permission if the user isn't a superadmin
         $permissions_array = $request->input('permission');
@@ -188,8 +204,9 @@ class UsersController extends Controller
             $user->permissions = $user->decodePermissions();
             $userPermissions = Helper::selectedPermissionsArray($permissions, $user->permissions);
             $permissions = $this->filterDisplayable($permissions);
+            $companies = CompanyMaster::all();
 
-            return view('users/edit', compact('user', 'groups', 'userGroups', 'permissions', 'userPermissions'))->with('item', $user);
+            return view('users/edit', compact('user', 'groups', 'userGroups', 'permissions', 'userPermissions', 'companies'))->with('item', $user);
         }
 
         $error = trans('admin/users/message.user_not_found', compact('id'));

@@ -488,6 +488,7 @@ h4 {
                   <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
+                  @if(Auth::user()->s_role == "super_admin")
                   <li>
                       <a href="{{ route('company_masters.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
@@ -500,6 +501,7 @@ h4 {
                         Location Master
                     </a>
                   </li>
+                  @endif
                   <li>
                       <a href="{{ route('room_details.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
@@ -935,28 +937,24 @@ h4 {
         <div class="pull-right hidden-xs">
           @if ($snipeSettings->version_footer!='off')
               @if (($snipeSettings->version_footer=='on') || (($snipeSettings->version_footer=='admin') && (Auth::user()->isSuperUser()=='1')))
-                &nbsp; <strong>Version</strong> {{ config('version.app_version') }} - build {{ config('version.build_version') }} ({{ config('version.branch') }})
+                &nbsp; <strong></strong> 
               @endif
           @endif
 
           @if ($snipeSettings->support_footer!='off')
               @if (($snipeSettings->support_footer=='on') || (($snipeSettings->support_footer=='admin') && (Auth::user()->isSuperUser()=='1')))
-                <a target="_blank" class="btn btn-default btn-xs" href="https://snipe-it.readme.io/docs/overview" rel="noopener">User's Manual</a>
-                <a target="_blank" class="btn btn-default btn-xs" href="https://snipeitapp.com/support/" rel="noopener">Report a Bug</a>
+                <a target="_blank" class="btn btn-default btn-xs" href="https://snipe-it.readme.io/docs/overview" rel="noopener"></a>
+                <a target="_blank" class="btn btn-default btn-xs" href="https://snipeitapp.com/support/" rel="noopener"></a>
                  @endif
           @endif
 
         @if ($snipeSettings->privacy_policy_link!='')
-            <a target="_blank" class="btn btn-default btn-xs" rel="noopener" href="{{  $snipeSettings->privacy_policy_link }}" target="_new">{{ trans('admin/settings/general.privacy_policy') }}</a>
+            <a target="_blank" class="btn btn-default btn-xs" rel="noopener" href="{{  $snipeSettings->privacy_policy_link }}" target="_new"></a>
         @endif
 
 
         </div>
-          @if ($snipeSettings->footer_text!='')
-              <div class="pull-right">
-                  {!!  Parsedown::instance()->text(e($snipeSettings->footer_text))  !!}
-              </div>
-          @endif
+
           
 
           <a target="_blank" href="" rel="noopener">Residential Care Manager</a>  <i class="fa fa-heart" style="color: #a94442; font-size: 10px" aria-hidden="true"></i><span class="sr-only"></span>© 2020 Copyright

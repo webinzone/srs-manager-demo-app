@@ -77,7 +77,7 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab_1" data-toggle="tab">Information</a></li>
-          <li><a href="#tab_2" data-toggle="tab">Permissions</a></li>
+          <!--<li><a href="#tab_2" data-toggle="tab">Permissions</a></li>-->
         </ul>
 
         <div class="tab-content">
@@ -268,9 +268,29 @@
                   @endif
 
                 <!-- Company -->
-                @if (\App\Models\Company::canManageUsersCompanies())
-                    @include ('partials.forms.edit.company-select', ['translated_name' => trans('general.select_company'), 'fieldname' => 'company_id'])
-                @endif
+                <div class="form-group" >
+                 <div class="col-md-4 mb-3">
+                  <label for="name" >Company Id</label>
+                </div>
+                     <div class="col-md-4 mb-3">
+                         <select class="form-control" style="height: 26px;padding: 3px 10px;" required="" name="companyid" id="company_id">
+                            <option>--Select Company ID --</option>
+                          @foreach($companies as $company)
+                          <option value="{{ $company->company_id }}" >{{ $company->company_id }}</option>
+                          @endforeach
+                        </select>                         
+                 </div>
+               </div>
+               <div class="form-group" >
+                 <div class="col-md-4 mb-3">
+              <label for="name" >Location Id</label>
+               </div>
+                     <div class="col-md-4 mb-3">
+              <select class="form-control" style="height: 26px;padding: 3px 10px;" required="" name="locationid" id="location_id">
+                <option>--Select Location Id --</option>
+              </select>
+            </div>
+          </div>
 
 
               <!-- Image -->
@@ -484,6 +504,39 @@
 @stop
 
 @section('moar_scripts')
+<script type="text/javascript">
+  $('#company_id').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getLocation", ":id") }}';
+    url = url.replace(':id', id);
+    output = [];
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        sync: false,
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+              // $('#location_id').val(response.location_id);
+                 //response.location_id.forEach(location =>
+                    //$('#location_id').append(`<option value="${location.location_id}">${location.//location_id}</option>`)
+                //)
+                 //alert("success");
+                response.locations.forEach(location =>
+                  output.push(`<option lue="${location.location_id}">${location.location_id}</option>`)
+                  )
+//$('#location_id').append(`<option lue="${location.location_id}">${location.location_id}</option>`)
+//                
+              $('#location_id').html(output.join(''));
+            }
+            else{
+              alert("error");
+            }
+        }
+    });
+});
+</script>
 
 <script nonce="{{ csrf_token() }}">
 $(document).ready(function() {

@@ -71,7 +71,7 @@ class ResidentUiController extends Controller
     {
         $r_id = $id;
         $head = "Resident Agreement";        
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         $emps = SrsStaff::all();
         $checker = ResidentAgreement::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
@@ -87,7 +87,7 @@ class ResidentUiController extends Controller
     {
            $r_id = $id; 
            $head = "Condition Report";
-            $residents = ClientDetail::all();
+            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
             $companies = CompanyMaster::all();
             $emps = SrsStaff::all();
             $checker = ConditionReport::select('client_id')->where('client_id', '=', $id)->exists();
@@ -114,7 +114,7 @@ class ResidentUiController extends Controller
         $checker = TransferRecord::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
         $transfer_record = TransferRecord::where('client_id', '=', $id)->firstOrFail();
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         return view('residentui/transfer',compact('transfer_record','residents','r_id'));
         }
         else{
@@ -142,7 +142,7 @@ class ResidentUiController extends Controller
         $item_last= count($drug);
         $num = (int)$item_last;
 
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         $emps = SrsStaff::all();
         return view('residentui/referral',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num','r_id'));
         }
@@ -158,7 +158,7 @@ class ResidentUiController extends Controller
         $checker = SupportPlan::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
         $support_plan = SupportPlan::where('client_id', '=', $id)->firstOrFail();
-        $residents = ClientDetail::all();        
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';        
 
         return view('residentui/supportplans',compact('support_plan','residents','r_id'));
         }
@@ -174,7 +174,7 @@ class ResidentUiController extends Controller
         $checker = Incident::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
         $incident = Incident::where('client_id', '=', $id)->firstOrFail();
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
 
         return view('residentui/incident',compact('incident','residents','r_id'));
         }

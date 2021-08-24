@@ -31,7 +31,7 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         $this->authorize('view', User::class);
-        $users = User::where('manager_id', '=', Auth::user()->id);
+        $users = User::where('u_id', '=', Auth::user()->id);
 
        
         if ($request->filled('search')) {

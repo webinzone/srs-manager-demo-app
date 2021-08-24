@@ -124,7 +124,7 @@
                               <table id="paper-table" class="table table-bordered">
                                 <thead>
                                   <tr>
-                                    <th width="100px; class="text-center">No</th>
+                                    <th width="100px;" class="text-center">No</th>
                                     <th width="200px;" class="text-center">Certificate Name</th>
                                     <th class="text-center">Issue Date</th>
                                     <th class="text-center">Expiry date</th>
@@ -150,15 +150,16 @@
                                              <input name="certi_exp[]" value="{{ $certi_exp[$i] }}" type="date" >
                                              
                                              </td>
-                                             <td class="row-index text-center">
+                                             <td>{{ $emp_certi[$i] }}</td>
+                                             <!--<td class="row-index text-center">
                                                @if($emp_certi[$i])
                                                 <input value="{{url('')}}/certificates/{{ $emp_certi[$i] }}" class="form-control" type="file" name="emp_certi[]"   style="display:none;" />
 
                                                <p> <a href="{{route('getDownload', $emp_certi[$i])}}">{{ $emp_certi[$i] }}</a></p><!--&nbsp;&nbsp; &nbsp;
-                                                <label for="file"><i class="fa fa-upload" aria-hidden="true"></i> </label>-->
+                                                <label for="file"><i class="fa fa-upload" aria-hidden="true"></i> </label>
                                                 @else
                                              <input  type="file" name="emp_certi[]" accept="application/pdf"  />
-                                             @endif
+                                             @endif-->
                                             <!-- <input  type="file" id="file" value="{{url('')}}/certificates/{{ $emp_certi[$i] }}" name="emp_certi[]" accept="application/pdf"  />&nbsp;&nbsp;<a href="{{route('getDownload', $emp_certi[$i])}}">{{ $emp_certi[$i] }}</a>-->
                                              </td>
                                              

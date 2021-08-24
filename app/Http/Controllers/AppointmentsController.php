@@ -44,7 +44,7 @@ class AppointmentsController extends Controller
     {
          // Show the page
         $this->authorize('create',Appointment::class);
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         $emps = SrsStaff::all();
         return view('appointments/create',compact('residents','emps'));
     }
@@ -120,7 +120,7 @@ class AppointmentsController extends Controller
     {
         $this->authorize('edit',Appointment::class);
         $appointment = Appointment::find($id);
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         $emps = SrsStaff::all();
 
         return view('appointments/edit',compact('appointment','residents','emps'));
@@ -196,8 +196,8 @@ class AppointmentsController extends Controller
     public function generateAppReport()
     {
          $sdate = request('sdate');
-         $appointments = Appointment::where('app_date', '=', $sdate)->get() ?? '';
-         $apps = Appointment::where('resc_date', '=', $sdate)->get() ?? '';
+         $appointments = Appointment::where('app_date', '=', $sdate)->orderBy('app_date', 'desc')->get() ?? '';
+         $apps = Appointment::where('resc_date', '=', $sdate)->orderBy('resc_date', 'desc')->get() ?? '';
          return view('appointments/report',compact('appointments','sdate', 'apps'));
 
 

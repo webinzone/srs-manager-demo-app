@@ -51,7 +51,7 @@ class MngshiftsController extends Controller
         $es = $last->evng_staff ?? '';
         $i = 0;
 
-        $residents = ClientDetail::where('status', '=', 'Active')->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         $emps = SrsStaff::all();
         return view('mngshifts/create',compact('residents','emps','es','ms','date','i'));
     }

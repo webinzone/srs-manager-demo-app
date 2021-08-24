@@ -152,7 +152,7 @@ class SrsStaffsController extends Controller
         $certi_exp = explode(',', $srs_staff->certi_exp);
         $emp_certi = explode(',', $srs_staff->emp_certi);
 
-        $item_last= count($quali);
+        $item_last= last($item_no);
         $num = (int)$item_last;
         
         return view('srs_staffs/edit',compact('srs_staff', 'name', 'item_no', 'quali', 'qop_date', 'certi_exp', 'emp_certi', 'num'));
@@ -192,16 +192,16 @@ class SrsStaffsController extends Controller
         $srs_staff->qop_date = implode(',', (array) request('qop_date')) ?? '';
         $srs_staff->certi_exp = implode(',', (array) request('certi_exp')) ?? '';
 
-            foreach(request('emp_certi') as $file)
-            {
-                
-                $name = time().'.'.$file->getClientOriginalName();
-                $file->move(public_path().'/certificates/', $name);  
-                $data[] = $name;  
-            }
+            //foreach(request('emp_certi') as $file)
+            //{
+               
+                //$name = time().'.'.$file->getClientOriginalName();
+                //$file->move(public_path().'/certificates/', $name);  
+                //$data[] = $name;  
+            //}
             
 
-        $srs_staff->emp_certi = implode(',', (array) $data) ?? '';
+        //$srs_staff->emp_certi = implode(',', (array) $data) ?? '';
     
 
         
