@@ -289,6 +289,16 @@ class ConditionReportsController extends Controller
 
     }
 
+    public function getCompanyName($id){
+        $data = CompanyMaster::where('company_id', '=', $id)->firstOrFail();
+        return response()->json($data);
+    }
+
+    public function getLocationName($id){
+        $data = LocationMaster::where('location_id', '=', $id)->firstOrFail();
+        return response()->json($data);
+    }
+
     public function getRow($id){
 
         $condition_report = ConditionReport::where('id', '=', $id)->firstOrFail(); 

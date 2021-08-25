@@ -44,7 +44,7 @@ class AppointmentsController extends Controller
     {
          // Show the page
         $this->authorize('create',Appointment::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->companyname)->get() ?? '';
         $emps = SrsStaff::orderBy('name')->get();
         return view('appointments/create',compact('residents','emps'));
     }
@@ -79,8 +79,8 @@ class AppointmentsController extends Controller
         $appointment->a_email = request('a_email')  ?? '';
         $appointment->a_ph = request('a_ph')  ?? '';
 
-        $appointment->company_id = request('company_id')  ?? '';
-        $appointment->location_id = request('location_id')  ?? '';
+        $appointment->company_id = Auth::user()->companyname  ?? '';
+        $appointment->location_id = Auth::user()->locationname  ?? '';
         $appointment->user_id =  Auth::user()->id;
         
         $appointment->save();

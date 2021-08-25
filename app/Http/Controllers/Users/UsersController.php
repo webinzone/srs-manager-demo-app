@@ -120,8 +120,15 @@ class UsersController extends Controller
         $user->state = $request->input('state', null);
         $user->country = $request->input('country', null);
         $user->zip = $request->input('zip', null);
-        $user->companyid = $request->input('companyid');
-        $user->locationid = $request->input('locationid');
+        $companyid = $request->input('companyid');
+        $locationid = $request->input('locationid');
+        $cname = $request->input('companyname');
+        $lname = $request->input('locationname');
+        $user->c_id = $companyid;
+        $user->l_id = $locationid;
+        $user->companyname = $cname;
+        $user->locationname = $lname;        
+
         $user->u_id =  Auth::user()->id;
         if (Auth::user()->s_role == "super_admin") {
             $user->s_role = "c_admin";
@@ -135,7 +142,7 @@ class UsersController extends Controller
 
 
         // Strip out the superuser permission if the user isn't a superadmin
-        $permissions_array = $request->input('permission');
+        $permissions_array = array("superuser" => "1","admin" => "1","import" => "1","reports.view" => "1") ; 
 
         if (!Auth::user()->isSuperUser()) {
             unset($permissions_array['superuser']);

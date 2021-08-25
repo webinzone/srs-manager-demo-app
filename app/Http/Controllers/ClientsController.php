@@ -132,8 +132,8 @@ class ClientsController extends Controller
  
          $client_detail->allergy_det = request('allergy_det')  ?? ''; 
          $client_detail->status = request('status')  ?? ''; 
-         $client_detail->company_id = request('company_id')  ?? ''; 
-         $client_detail->location_id = request('location_id')  ?? ''; 
+         $client_detail->company_id = Auth::user()->companyname  ?? ''; 
+         $client_detail->location_id = Auth::user()->locationname  ?? '';
 
         $client_detail->user_id =  Auth::user()->id;
         $client_detail->save(); 

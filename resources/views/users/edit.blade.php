@@ -77,7 +77,7 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#tab_1" data-toggle="tab">Information</a></li>
-          <li><a href="#tab_2" data-toggle="tab">Permissions</a></li>
+          <!--<li><a href="#tab_2" data-toggle="tab">Permissions</a></li>-->
         </ul>
 
         <div class="tab-content">
@@ -273,23 +273,30 @@
                   <label for="name" >Company Id</label>
                 </div>
                      <div class="col-md-4 mb-3">
-                         <select class="form-control" style="height: 26px;padding: 3px 10px;" required="" name="companyid" id="company_id">
+                         <select class="form-control" style="height: 26px;padding: 3px 10px;"  name="companyid" id="company_id">
                             <option>--Select Company ID --</option>
                           @foreach($companies as $company)
                           <option value="{{ $company->company_id }}" >{{ $company->company_id }}</option>
                           @endforeach
                         </select>                         
                  </div>
+                 <div class="col-md-4 mb-3">
+                    <input type="text" name="companyname" id="comp" placeholder="Company" readonly>                        
+                 </div>
+                 
                </div>
                <div class="form-group" >
                  <div class="col-md-4 mb-3">
               <label for="name" >Location Id</label>
                </div>
                      <div class="col-md-4 mb-3">
-              <select class="form-control" style="height: 26px;padding: 3px 10px;" required="" name="locationid" id="location_id">
+              <select class="form-control" style="height: 26px;padding: 3px 10px;"  name="locationid" id="location_id">
                 <option>--Select Location Id --</option>
               </select>
             </div>
+            <div class="col-md-4 mb-3">
+                    <input type="text" name="locationname" id="loccc" placeholder="Location" readonly>                        
+                 </div>
           </div>
 
 
@@ -504,7 +511,53 @@
 @stop
 
 @section('moar_scripts')
-<script type="text/javascript">
+<script>
+$('#company_id').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getCompanyName", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#comp').val(response.company_name);            
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
+$('#location_id').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getLocationName", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#loccc').val(response.address);            
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script nonce="{{ csrf_token() }}">
   $('#company_id').change(function(){
     var id = $(this).val();
     var url = '{{ route("getLocation", ":id") }}';

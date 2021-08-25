@@ -502,12 +502,14 @@ h4 {
                     </a>
                   </li>
                   @endif
+                  @if(Auth::user()->s_role == "c_admin")
                   <li>
                       <a href="{{ route('room_details.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Room Master
                     </a>
                   </li>
+                  @endif
                  
                 </ul>
               </li>
