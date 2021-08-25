@@ -144,7 +144,7 @@ class SrsStaffsController extends Controller
     {
         $this->authorize('edit',SrsStaff::class);
         $srs_staff = SrsStaff::find($id);
-        $name = explode('.', $srs_staff->name);
+        $name = explode(' ', $srs_staff->name);
 
         $item_no = explode(',', $srs_staff->item_no);
         $quali = explode(',', $srs_staff->quali);
@@ -171,7 +171,7 @@ class SrsStaffsController extends Controller
         $srs_staff = SrsStaff::find($id);
 
         
-        $srs_staff->name = request('fname').". ".request('mname').". ".request('lname');
+        $srs_staff->name = request('fname')."  ".request('mname')."  ".request('lname');
         $srs_staff->address = request('address') ?? '';
         $srs_staff->ph = request('ph') ?? '';
         $srs_staff->dob = request('dob') ?? '';
@@ -192,19 +192,21 @@ class SrsStaffsController extends Controller
         $srs_staff->quali = implode(',', (array) request('quali')) ?? '';
         $srs_staff->qop_date = implode(',', (array) request('qop_date')) ?? '';
         $srs_staff->certi_exp = implode(',', (array) request('certi_exp')) ?? '';
-
-            //foreach(request('emp_certi') as $file)
-            //{
-               
-                //$name = time().'.'.$file->getClientOriginalName();
-                //$file->move(public_path().'/certificates/', $name);  
-                //$data[] = $name;  
-            //}
-            
-
-        //$srs_staff->emp_certi = implode(',', (array) $data) ?? '';
-    
-
+        $srs_staff->emp_certi = implode(',', (array) request('certifile')) ?? '';
+        $data1[] = implode(',', (array) request('certifile')) ?? '';
+        if(request('emp_certi'))
+          {
+            foreach(request('emp_certi') as $file)
+            {
+             
+                $name = time().'.'.$file->getClientOriginalName();
+                $file->move(public_path().'/certificates/', $name);  
+                $data2[] = $name;  
+            }
+          $result = array_merge_recursive($data1, $data2);  
+          
+          $srs_staff->emp_certi = implode(',', (array) $result) ?? '';
+        }  
         
         $srs_staff->user_id =  Auth::user()->id;
         

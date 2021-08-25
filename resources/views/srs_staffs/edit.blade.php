@@ -132,6 +132,53 @@
                                     <th  class="text-center">Action</th>                                   
                                   </tr>
                                 </thead>
+                                     @for ($i=0; $i < $num; $i++)
+
+                                <tbody id="tbodym">
+                                    <tr id="R{$i}">
+                                        <td class="row-index text-center" >
+                                             <input type="number" name="item_no[]" value="{{ $item_no[$i] }}" >
+                                             </td>
+                                             <td class="row-index text-center">
+                                             <input name="quali[]" value="{{ $quali[$i] }}" type="text" >
+                                             </td>
+                                             <td class="row-index text-center">
+                                             <input name="qop_date[]" value="{{ $qop_date[$i] }}" type="date" >
+                                             
+                                             </td>
+                                             <td class="row-index text-center">
+                                             <input name="certi_exp[]" value="{{ $certi_exp[$i] }}" type="date" >
+                                             
+                                             </td>
+                                             <td>
+                                                <embed id="certifile" src="{{url('')}}/certificates/{{ $emp_certi[$i]}}" name="emp_certi[]" hidden />
+                                             @if($emp_certi[$i])
+                                             <input name="certifile[]" value="{{ $emp_certi[$i]}}" type="text"  readonly>
+                                             
+                                             @else
+                                             
+                                             <input name="emp_certi[]" id="certi" type="file" >
+                                             @endif
+                                             </td>
+                                             <!--<td class="row-index text-center">
+                                               @if($emp_certi[$i])
+                                                <input value="{{url('')}}/certificates/{{ $emp_certi[$i] }}" class="form-control" type="file" name="emp_certi[]"   style="display:none;" />
+
+                                               <p> <a href="{{route('getDownload', $emp_certi[$i])}}">{{ $emp_certi[$i] }}</a></p>&nbsp;&nbsp; &nbsp;
+                                                <label for="file"><i class="fa fa-upload" aria-hidden="true"></i> </label>
+                                                @else
+                                             <input  type="file" name="emp_certi[]" accept="application/pdf"  />
+                                             @endif-->
+                                            <!-- <input  type="file" id="file" value="{{url('')}}/certificates/{{ $emp_certi[$i] }}" name="emp_certi[]" accept="application/pdf"  />&nbsp;&nbsp;<a href="{{route('getDownload', $emp_certi[$i])}}">{{ $emp_certi[$i] }}</a>
+                                             </td>-->
+                                             
+                                         <td>
+                                            &nbsp;&nbsp;&nbsp;&nbsp; <a style="height:20px;background-color:white;color:red;"  href="#" class="delete-row"><i class="fa fa-trash icon-white"></i></a>
+                                         </td>
+                                         
+                                      <tr>                           
+                                </tbody>
+                                @endfor
                              
                                 <tbody id="tbody">
                                     
@@ -262,6 +309,26 @@
   if ($('#paper-table tbody tr').length == 0) {
     $('#paper-table').remove();
   }
+});
+  </script>
+
+  <script type="text/javascript">
+      $(document).ready(function (e) {
+ 
+   
+   $('#certi').change(function(){
+            
+    let reader = new FileReader();
+ 
+    reader.onload = (e) => { 
+ 
+      $('#certifile').attr('src', e.target.result); 
+    }
+ 
+    reader.readAsDataURL(this.files[0]); 
+   
+   });
+   
 });
   </script>
 
