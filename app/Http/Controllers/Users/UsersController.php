@@ -120,8 +120,8 @@ class UsersController extends Controller
         $user->state = $request->input('state', null);
         $user->country = $request->input('country', null);
         $user->zip = $request->input('zip', null);
-        //$user->companyid = $request->input('companyid');
-        //$user->locationid = $request->input('locationid');
+        $user->companyid = $request->input('companyid');
+        $user->locationid = $request->input('locationid');
         $user->u_id =  Auth::user()->id;
         if (Auth::user()->s_role == "super_admin") {
             $user->s_role = "c_admin";

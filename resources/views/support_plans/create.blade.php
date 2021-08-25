@@ -94,22 +94,22 @@
                             <th>Notes</th>
                         </tr>
                         <tr>
-                            <td><input type="text" name="review[]"></td>
+                            <td><input type="date" name="review[]"></td>
                             <td><input type="text" name="r_with[]"></td>
                             <td><input type="text" name="r_notes[]"></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="review[]"></td>
+                            <td><input type="date" name="review[]"></td>
                             <td><input type="text" name="r_with[]"></td>
                             <td><input type="text" name="r_notes[]"></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="review[]"></td>
+                            <td><input type="date" name="review[]"></td>
                             <td><input type="text" name="r_with[]"></td>
                             <td><input type="text" name="r_notes[]"></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="review[]"></td>
+                            <td><input type="date" name="review[]"></td>
                             <td><input type="text" name="r_with[]"></td>
                             <td><input type="text" name="r_notes[]"></td>
                         </tr>

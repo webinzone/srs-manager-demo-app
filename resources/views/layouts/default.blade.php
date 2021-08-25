@@ -253,7 +253,7 @@ h4 {
 
                   @can('index', \App\Models\RentDetail::class)
                   <li aria-hidden="true"{!! (Request::is('rent_details*') ? ' class="active"' : '') !!} tabindex="-1">
-                      <a href="{{ route('rent_details.index') }}" tabindex="-1" style="color: white;">
+                      <a href="{{ route('rents.index') }}" tabindex="-1" style="color: white;">
                           <i class="fa fa-file"></i>
                           <span class="sr-only">Rent Details</span>
                       </a>

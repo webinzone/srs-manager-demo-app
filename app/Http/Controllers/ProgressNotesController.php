@@ -44,7 +44,7 @@ class ProgressNotesController extends Controller
          // Show the page
         $this->authorize('create',ProgressNote::class);
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::all();
+        $emps = SrsStaff::orderBy('name')->get();
         return view('progress_notes/create',compact('residents','emps'));
     }
 
@@ -118,7 +118,7 @@ class ProgressNotesController extends Controller
         $this->authorize('edit',ProgressNote::class);
         $progress_note = ProgressNote::find($id);
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::all();
+        $emps = SrsStaff::orderBy('name')->get();
         return view('progress_notes/edit',compact('progress_note','residents','emps'));
     }
     /**

@@ -72,7 +72,7 @@ class ResidentUiController extends Controller
         $r_id = $id;
         $head = "Resident Agreement";        
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::all();
+        $emps = SrsStaff::orderBy('name')->get();
         $checker = ResidentAgreement::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
         $resident_agreement = ResidentAgreement::where('client_id', '=', $id)->firstOrFail();
@@ -89,7 +89,7 @@ class ResidentUiController extends Controller
            $head = "Condition Report";
             $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
             $companies = CompanyMaster::all();
-            $emps = SrsStaff::all();
+            $emps = SrsStaff::orderBy('name')->get();
             $checker = ConditionReport::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
           $condition_report = ConditionReport::where('client_id', '=', $id)->firstOrFail();
@@ -143,7 +143,7 @@ class ResidentUiController extends Controller
         $num = (int)$item_last;
 
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::all();
+        $emps = SrsStaff::orderBy('name')->get();
         return view('residentui/referral',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num','r_id'));
         }
         else{

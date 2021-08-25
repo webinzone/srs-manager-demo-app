@@ -97,14 +97,14 @@
                         </tr>
                         @for ($i=0; $i < $num; $i++)
                           <tr>
-                          <td><input type="text" value="{{ $review[$i] }}"  name="review[]"></td>
+                          <td><input type="date" value="{{ $review[$i] }}"  name="review[]"></td>
                           <td><input type="text" value="{{ $r_with[$i] }}" name="r_with[]"></td>
                           <td><input type="text" value="{{ $r_notes[$i] }}" name="r_notes[]"></td>
                           
                         </tr>
                         @endfor
                         <tr>
-                            <td><input type="text" name="review[]"></td>
+                            <td><input type="date" name="review[]"></td>
                             <td><input type="text" name="r_with[]"></td>
                             <td><input type="text" name="r_notes[]"></td>
                         </tr>

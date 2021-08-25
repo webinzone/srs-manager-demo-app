@@ -47,9 +47,9 @@ class ConditionReportsController extends Controller
     public function create()
     {
         $this->authorize('create',ConditionReport::class);
-        $residents = ClientDetail::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
         $companies = CompanyMaster::all();
-        $emps = SrsStaff::all();
+        $emps = SrsStaff::orderBy('name')->get();
         return view('condition_reports/create',compact('residents','companies','emps'));
     }
 
@@ -137,7 +137,7 @@ class ConditionReportsController extends Controller
         $this->authorize('edit',ConditionReport::class);
             $residents = ClientDetail::all();
             $companies = CompanyMaster::all();
-            $emps = SrsStaff::all();
+            $emps = SrsStaff::orderBy('name')->get();
           $condition_report = ConditionReport::find($id);
          $item_no = explode(',', $condition_report->item_no);
           $res_comments = explode(',', $condition_report->res_comments);

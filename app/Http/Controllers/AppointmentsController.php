@@ -45,7 +45,7 @@ class AppointmentsController extends Controller
          // Show the page
         $this->authorize('create',Appointment::class);
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::all();
+        $emps = SrsStaff::orderBy('name')->get();
         return view('appointments/create',compact('residents','emps'));
     }
 

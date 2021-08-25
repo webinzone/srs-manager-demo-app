@@ -57,8 +57,8 @@ class EvngshiftsController extends Controller
 
         $es = $lastt->evng_staff ?? '';
 
-        $residents = ClientDetail::where('status', '=', 'Active')->get();
-        $emps = SrsStaff::all();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
+        $emps = SrsStaff::orderBy('name')->get();
         $i = 0;
         return view('evngshifts/create',compact('residents','emps','ms','es','i'));
     }
@@ -118,7 +118,7 @@ class EvngshiftsController extends Controller
          $i = 0;
         $item_last= count($res_name);
         $num = (int)$item_last;
-        $emps = SrsStaff::all();
+        $emps = SrsStaff::orderBy('name')->get();
         return view('evngshifts/show',compact('evngshift','emps','res_name','room','notes','num','i'));
     }
      /**
@@ -138,7 +138,7 @@ class EvngshiftsController extends Controller
          $i = 0;
         $item_last= count($res_name);
         $num = (int)$item_last;
-        $emps = SrsStaff::all();
+        $emps = SrsStaff::orderBy('name')->get();
         return view('evngshifts/edit',compact('evngshift','emps','res_name','room','notes','num','i'));
     }
     /**
