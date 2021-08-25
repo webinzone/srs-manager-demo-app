@@ -237,11 +237,12 @@
 
 <div class="row">
     <div class="col-md-6">
+        <!-- Categories -->
         <div class="box box-default" style="background-color: #BDF5BD;">
             <div class="box-header with-border">
-                <h2 class="box-title">Reports by Status</h2>
+                <h2 class="box-title">Rent Details </h2>
                 <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" aria-hidden="true">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
                         <i class="fa fa-minus" aria-hidden="true"></i>
                         <span class="sr-only">Collapse</span>
                     </button>
@@ -251,11 +252,50 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="chart-responsive">
-                            <canvas id="statusPieChart" height="216"></canvas>
-                        </div> <!-- ./chart-responsive -->
+                        <div class="table-responsive">
+                        <table
+                                data-columns=""
+                                data-cookie-id-table="dashCategorySummary"
+                                data-height="400"
+                                data-pagination="true"
+                                data-side-pagination="server"
+                                data-sort-order="desc"
+                                data-sort-field="assets_count"
+                                id="dashCategorySummary"
+                                class="table table-striped snipe-table"
+                                data-url="">
+
+                          <thead>
+                            <tr>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Resident Name </th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Rent Payment</th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Due date</th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Status </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($rents as $rent)
+                              <tr>
+                                <td>{{ $rent->res_name}}</td>
+                                <td>{{ $rent->rent_pay}}</td>
+                                <td>{{ date('d-m-Y', strtotime($rent->nextpay_date))}}</td>
+                                <td>{{ $rent->status}}</td>                           
+                              </tr>
+                            @endforeach
+                            
+                          </tbody>
+                          
+
+
+                            
+                        </table>
+                        </div>
                     </div> <!-- /.col -->
+                    <div class="col-md-12 text-center" style="padding-top: 10px;">
+                        <a href="{{ route('rents.index') }}" class="btn btn-primary btn-sm" style="width: 100%">view all</a>
+                    </div>
                 </div> <!-- /.row -->
+
             </div><!-- /.box-body -->
         </div> <!-- /.box -->
     </div>
@@ -330,7 +370,109 @@
             </div><!-- /.box-body -->
         </div> <!-- /.box -->
     </div>
+    
 </div>
+
+<!--<div class="row">
+    <div class="col-md-6">
+        <div class="box box-default" style="background-color: #BDF5BD;">
+            <div class="box-header with-border">
+                <h2 class="box-title">Reports by Status</h2>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" aria-hidden="true">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                        <span class="sr-only">Collapse</span>
+                    </button>
+                </div>
+            </div>
+           
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="chart-responsive">
+                            <canvas id="statusPieChart" height="216"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <div class="col-md-6">
+
+     
+        <div class="box box-default" style="background-color: #BDF5BD;">
+            <div class="box-header with-border">
+                <h2 class="box-title">Appointments </h2>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                        <span class="sr-only">Collapse</span>
+                    </button>
+                </div>
+            </div>
+     
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                        <table
+                                data-columns=""
+                                data-cookie-id-table="dashCategorySummary"
+                                data-height="400"
+                                data-pagination="true"
+                                data-side-pagination="server"
+                                data-sort-order="desc"
+                                data-sort-field="assets_count"
+                                id="dashCategorySummary"
+                                class="table table-striped snipe-table"
+                                data-url="">
+
+                          <thead>
+                            <tr>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Resident Name </th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Date & Time </th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Appointment With </th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Status </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($apps as $app)
+                              <tr>
+                                <td>{{ $app->res_name}}</td>
+                                <td>{{ date('d-m-Y', strtotime($app->app_date))}} - {{ $app->app_time}}</td>
+                                <td>{{ $app->app_with}}</td>
+                                <td>{{ $app->status}}</td>                           
+                              </tr>
+                            @endforeach
+                             @foreach ($appois as $app)
+                              <tr>
+                                <td>{{ $app->res_name}}</td>
+                                <td>{{ date('d-m-Y', strtotime($app->app_date))}} - {{ $app->app_time}}</td>
+                                <td>{{ $app->app_with}}</td>
+                                <td>{{ $app->status}}</td>                           
+                              </tr>
+                            @endforeach
+                          </tbody>
+                          
+
+
+                            
+                        </table>
+                        </div>
+                    </div> 
+                    <div class="col-md-12 text-center" style="padding-top: 10px;">
+                        <a href="{{ route('appointments.index') }}" class="btn btn-primary btn-sm" style="width: 100%">view all</a>
+                    </div>
+                </div> 
+
+            </div>
+        </div> 
+    </div>
+    
+</div>-->
+
+
+
  <!--/row-->
 
 

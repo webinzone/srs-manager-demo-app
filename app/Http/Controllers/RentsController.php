@@ -71,7 +71,7 @@ class RentsController extends Controller
         $rent->pay_date = request('pay_date') ?? '';
         $rent->nextpay_date = request('nextpay_date') ?? '';
         $rent->adv_pay = request('adv_pay') ?? '';
-        $rent->status = request('status') ?? '';
+        $rent->status = request('status') ?? 'Unpaid';
         $rent->roomno = request('roomno') ?? '';
         $rent->room_type = request('room_type') ?? '';
         $rent->company_id = request('company_id') ?? '';
