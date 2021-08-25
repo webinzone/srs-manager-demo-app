@@ -514,7 +514,7 @@ h4 {
                 </ul>
               </li>
 
-
+            @if(Auth::user()->s_role == "c_admin")
             @can('view', \App\Models\User::class)
             <li{!! (Request::is('users*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('clients.index') }}" style="background-color: #222d32;color: #b8c7ce;">
@@ -862,7 +862,7 @@ h4 {
                 </a>
             </li>
             @endcan
-
+            @endif
             
 
           </ul>
