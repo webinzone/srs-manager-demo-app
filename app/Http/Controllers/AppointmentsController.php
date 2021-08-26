@@ -44,7 +44,7 @@ class AppointmentsController extends Controller
     {
          // Show the page
         $this->authorize('create',Appointment::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->companyname)->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         $emps = SrsStaff::orderBy('name')->get();
         return view('appointments/create',compact('residents','emps'));
     }
@@ -79,8 +79,8 @@ class AppointmentsController extends Controller
         $appointment->a_email = request('a_email')  ?? '';
         $appointment->a_ph = request('a_ph')  ?? '';
 
-        $appointment->company_id = Auth::user()->companyname  ?? '';
-        $appointment->location_id = Auth::user()->locationname  ?? '';
+        $appointment->company_id = Auth::user()->c_id  ?? '';
+        $appointment->location_id = Auth::user()->l_id  ?? '';
         $appointment->user_id =  Auth::user()->id;
         
         $appointment->save();
@@ -151,8 +151,8 @@ class AppointmentsController extends Controller
         $appointment->a_email = request('a_email')  ?? '';
         $appointment->a_ph = request('a_ph')  ?? '';
         
-        $appointment->company_id = request('company_id')  ?? '';
-        $appointment->location_id = request('location_id')  ?? '';
+        $appointment->company_id = Auth::user()->c_id  ?? '';
+        $appointment->location_id = Auth::user()->l_id  ?? '';
         $appointment->user_id =  Auth::user()->id;
         
         $appointment->save();
@@ -196,8 +196,8 @@ class AppointmentsController extends Controller
     public function generateAppReport()
     {
          $sdate = request('sdate');
-         $appointments = Appointment::where('app_date', '=', $sdate)->orderBy('app_date', 'desc')->get() ?? '';
-         $apps = Appointment::where('resc_date', '=', $sdate)->orderBy('resc_date', 'desc')->get() ?? '';
+         $appointments = Appointment::where('app_date', '=', $sdate)->orderBy('app_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+         $apps = Appointment::where('resc_date', '=', $sdate)->orderBy('resc_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
          return view('appointments/report',compact('appointments','sdate', 'apps'));
 
 

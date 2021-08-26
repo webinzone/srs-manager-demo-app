@@ -47,9 +47,9 @@ class ConditionReportsController extends Controller
     public function create()
     {
         $this->authorize('create',ConditionReport::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         $companies = CompanyMaster::all();
-        $emps = SrsStaff::orderBy('name')->get();
+        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
         return view('condition_reports/create',compact('residents','companies','emps'));
     }
 
@@ -84,8 +84,8 @@ class ConditionReportsController extends Controller
         $condition_report->res_cond = implode(',', (array) request('res_cond')) ?? ' ';
         $condition_report->res_sign = "" ?? ' ';
         $condition_report->st_sign = "" ?? ' ';
-        $condition_report->company_id = " " ?? ' ';
-        $condition_report->location_id = " " ?? ' ';
+        $condition_report->company_id = Auth::user()->c_id  ?? '';
+        $condition_report->location_id = Auth::user()->l_id  ?? '';
         $condition_report->user_id =  Auth::user()->id;
         
         $condition_report->save();
@@ -135,9 +135,9 @@ class ConditionReportsController extends Controller
      public function edit($id)
     {
         $this->authorize('edit',ConditionReport::class);
-            $residents = ClientDetail::all();
+            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
             $companies = CompanyMaster::all();
-            $emps = SrsStaff::orderBy('name')->get();
+            $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
           $condition_report = ConditionReport::find($id);
          $item_no = explode(',', $condition_report->item_no);
           $res_comments = explode(',', $condition_report->res_comments);
@@ -178,8 +178,8 @@ class ConditionReportsController extends Controller
         $condition_report->res_cond = implode(',', (array) request('res_cond')) ?? ' ';
         $condition_report->res_sign = "" ?? ' ';
         $condition_report->st_sign = "" ?? ' ';
-        $condition_report->company_id = " " ?? ' ';
-        $condition_report->location_id = " " ?? ' ';
+        $condition_report->company_id = Auth::user()->c_id  ?? '';
+        $condition_report->location_id = Auth::user()->l_id  ?? '';
         $condition_report->user_id =  Auth::user()->id;
         
         $condition_report->save();
@@ -207,7 +207,7 @@ class ConditionReportsController extends Controller
 
     public function condition_reports()
     {   
-        $condition_reports = ConditionReport::all();
+        $condition_reports = ConditionReport::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('condition_reports/report_show',compact('condition_reports'));
     
     }

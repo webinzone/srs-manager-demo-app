@@ -132,8 +132,8 @@ class ClientsController extends Controller
  
          $client_detail->allergy_det = request('allergy_det')  ?? ''; 
          $client_detail->status = request('status')  ?? ''; 
-         $client_detail->company_id = Auth::user()->companyname  ?? ''; 
-         $client_detail->location_id = Auth::user()->locationname  ?? '';
+         $client_detail->company_id = Auth::user()->c_id  ?? ''; 
+         $client_detail->location_id = Auth::user()->l_id  ?? '';
 
         $client_detail->user_id =  Auth::user()->id;
         $client_detail->save(); 
@@ -409,8 +409,8 @@ class ClientsController extends Controller
         
         $client_detail->allergy_det = request('allergy_det')  ?? ''; 
          $client_detail->status = request('status')  ?? ''; 
-         $client_detail->company_id = request('company_id')  ?? ''; 
-         $client_detail->location_id = request('location_id')  ?? '';
+         $client_detail->company_id = Auth::user()->c_id  ?? ''; 
+         $client_detail->location_id = Auth::user()->l_id  ?? '';
          
         $client_detail->user_id =  Auth::user()->id;
         $client_detail->save(); 
@@ -612,7 +612,7 @@ class ClientsController extends Controller
     public function reports()
     {   
         $id = Auth::user()->id;
-        $client_details = ClientDetail::all();
+        $client_details = ClientDetail::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('clients/report_show',compact('client_details'));
     
     }
@@ -655,7 +655,7 @@ class ClientsController extends Controller
     }
     
     public function getRoomDetails($id){
-        $data = RoomDetail::where('id', '=', $id)->firstOrFail();
+        $data = RoomDetail::where('id', '=', $id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
         return response()->json($data);
     }
 
@@ -666,7 +666,7 @@ class ClientsController extends Controller
 
     public function getaccountsDetails()
     {
-        $client_details = ClientDetail::all();
+        $client_details = ClientDetail::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('clients/accounts',compact('client_details')); 
     }
 
@@ -674,7 +674,7 @@ class ClientsController extends Controller
     {
         //$id = request('res');
          $i = 1;
-         $client_details = ClientDetail::all(); 
+         $client_details = ClientDetail::where('location_id', '=', Auth::user()->l_id)->get() ?? ''; 
          
          $pension_details = PensionDetail::all();
 
@@ -686,21 +686,21 @@ class ClientsController extends Controller
     }
 
     public function res_active(){
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
 
         return view('clients/active_clients',compact('residents')); 
         
     }
 
     public function res_vaccate(){
-            $residents = ClientDetail::where('status', '=', 'Vaccate')->orderBy('fname')->get() ?? '';
+            $residents = ClientDetail::where('status', '=', 'Vaccate')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('clients/vaccate_clients',compact('residents')); 
             
 
     }
 
     public function res_transfer(){
-            $residents = ClientDetail::where('status', '=', 'Transfered')->orderBy('fname')->get() ?? '';
+            $residents = ClientDetail::where('status', '=', 'Transfered')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         
         return view('clients/transfer_clients',compact('residents')); 
             

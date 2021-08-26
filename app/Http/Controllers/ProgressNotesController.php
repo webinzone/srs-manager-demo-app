@@ -43,8 +43,8 @@ class ProgressNotesController extends Controller
     {
          // Show the page
         $this->authorize('create',ProgressNote::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
         return view('progress_notes/create',compact('residents','emps'));
     }
 
@@ -78,8 +78,8 @@ class ProgressNotesController extends Controller
         $progress_notes->g_name = request('g_name') ?? '';
 
 
-        $progress_notes->company_id = request('company_id') ?? ' ';
-        $progress_notes->location_id = request('location_id') ?? ' ';
+        $progress_notes->company_id = Auth::user()->c_id  ?? '';
+        $progress_notes->location_id = Auth::user()->l_id  ?? '';
         $progress_notes->user_id =  Auth::user()->id;
         
         $progress_notes->save();
@@ -117,8 +117,8 @@ class ProgressNotesController extends Controller
     {
         $this->authorize('edit',ProgressNote::class);
         $progress_note = ProgressNote::find($id);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
         return view('progress_notes/edit',compact('progress_note','residents','emps'));
     }
     /**
@@ -150,8 +150,8 @@ class ProgressNotesController extends Controller
         $progress_notes->room = request('room') ?? '';
         $progress_notes->g_name = request('g_name') ?? '';
 
-        $progress_notes->company_id = request('company_id') ?? ' ';
-        $progress_notes->location_id = request('location_id') ?? ' ';
+        $progress_notes->company_id = Auth::user()->c_id  ?? '';
+        $progress_notes->location_id = Auth::user()->l_id  ?? '';
         $progress_notes->user_id =  Auth::user()->id;
         
      
@@ -190,7 +190,7 @@ class ProgressNotesController extends Controller
     public function progress_generate(){
         
 
-        $users = ProgressNote::get();
+        $users = ProgressNote::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         $progress = $users->unique();
 
 

@@ -51,8 +51,8 @@ class ReferralsController extends Controller
     {
          // Show the page
         $this->authorize('create',Referral::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
         return view('referrals/create',compact('residents','emps'));
     }
 
@@ -152,7 +152,9 @@ class ReferralsController extends Controller
         $referral->behav_details = request('behav_details') ?? '';
         $referral->triger = request('triger') ?? '';
         $referral->user_id =  Auth::user()->id;
-        
+        $referral->company_id = Auth::user()->c_id  ?? '';
+        $referral->location_id = Auth::user()->l_id  ?? '';
+
         $referral->save();
         $ref_id = $referral->id;
 
@@ -295,8 +297,8 @@ class ReferralsController extends Controller
         $item_last= count($drug);
         $num = (int)$item_last;
 
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->get() ?? '';
+        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
         return view('referrals/edit',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num'));
     }
     /**
@@ -394,6 +396,8 @@ class ReferralsController extends Controller
         $referral->behav_details = request('behav_details') ?? '';
         $referral->triger = request('triger') ?? '';
         $referral->user_id =  Auth::user()->id;
+        $referral->company_id = Auth::user()->c_id  ?? '';
+        $referral->location_id = Auth::user()->l_id  ?? '';
         
         $referral->save();
 
@@ -520,7 +524,7 @@ class ReferralsController extends Controller
     }
 
        public function referral_generate(){
-        $referals = Referral::all();     
+        $referals = Referral::where('location_id', '=', Auth::user()->l_id)->get() ?? '';  
         return view('referrals/report_show',compact('referals'));
     }
 

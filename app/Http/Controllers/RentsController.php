@@ -42,7 +42,7 @@ class RentsController extends Controller
     {
          // Show the page
         $this->authorize('create',Rent::class);
-         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
+         $residents = ClientDetail::where('status', '=', 'Active')->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->get() ?? '';
         return view('rents/create',compact('residents'));
     }
 
@@ -74,8 +74,8 @@ class RentsController extends Controller
         $rent->status = request('status') ?? 'Unpaid';
         $rent->roomno = request('roomno') ?? '';
         $rent->room_type = request('room_type') ?? '';
-        $rent->company_id = request('company_id') ?? '';
-        $rent->location_id = request('location_id') ?? '';
+        $rent->company_id = Auth::user()->c_id  ?? '';
+        $rent->location_id = Auth::user()->l_id  ?? '';
         $rent->user_id =  Auth::user()->id;
         
         $rent->save();
@@ -115,7 +115,7 @@ class RentsController extends Controller
     {
         $this->authorize('edit',Rent::class);
         $rent = Rent::find($id);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->get() ?? '';
         return view('rents/edit',compact('rent','residents'));
     }
     /**
@@ -146,8 +146,8 @@ class RentsController extends Controller
         $rent->status = request('status') ?? '';
         $rent->roomno = request('roomno') ?? '';
         $rent->room_type = request('room_type') ?? '';
-        $rent->company_id = request('company_id') ?? '';
-        $rent->location_id = request('location_id') ?? '';
+        $rent->company_id = Auth::user()->c_id  ?? '';
+        $rent->location_id = Auth::user()->l_id  ?? '';
         $rent->user_id =  Auth::user()->id;
         
         $rent->save();

@@ -89,7 +89,7 @@
       <a href="{{ route('bookings.index') }}">
     <div class="small-box bg-orange">
       <div class="inner">
-        <h3> {{ number_format($counts['bookings']) }}</h3>
+        <h3>&nbsp;&nbsp;</h3>
           <p>Infection Control</p>
       </div>
       <div class="icon" aria-hidden="true">

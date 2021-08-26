@@ -54,8 +54,8 @@ class ResidentAgreementsController extends Controller
     {
          // Show the page
         $this->authorize('create',ResidentAgreement::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
         return view('resident_agreements/create',compact('residents', 'emps'));
     }
 
@@ -139,7 +139,7 @@ class ResidentAgreementsController extends Controller
 
    public function agreement_generate()
    {
-      $agreements = ResidentAgreement::all();     
+      $agreements = ResidentAgreement::where('location_id', '=', Auth::user()->l_id)->get() ?? '';   
       return view('resident_agreements/report_show',compact('agreements'));
 
    }
@@ -201,8 +201,8 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->refund = request('refund') ?? '';
         $resident_agreement->srs_assist_status = request('srs_assist_status') ?? '';
         $resident_agreement->assist_amnt = request('assist_amnt') ?? '';
-        $resident_agreement->location_id = "" ?? '';
-        $resident_agreement->company_id = "" ?? '';
+        $resident_agreement->location_id = Auth::user()->l_id  ?? '';
+        $resident_agreement->company_id = Auth::user()->c_id  ?? '';
 
         $resident_agreement->amt_pay = request('amt_pay') ?? '';
         $resident_agreement->amt_res = request('amt_res') ?? '';
@@ -272,8 +272,8 @@ class ResidentAgreementsController extends Controller
      public function edit($id)
     {
         $this->authorize('edit',ResidentAgreement::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
         $resident_agreement = ResidentAgreement::find($id);
         return view('resident_agreements/edit',compact('resident_agreement', 'residents', 'emps'));
     }
@@ -334,8 +334,8 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->refund = request('refund') ?? '';
         $resident_agreement->srs_assist_status = request('srs_assist_status') ?? '';
         $resident_agreement->assist_amnt = request('assist_amnt') ?? '';
-        $resident_agreement->location_id = "" ?? '';
-        $resident_agreement->company_id = "" ?? '';
+        $resident_agreement->location_id = Auth::user()->l_id  ?? '';
+        $resident_agreement->company_id = Auth::user()->c_id  ?? '';
         
         $resident_agreement->bath = request('bath') ?? '';
         $resident_agreement->bath_fee = request('bath_fee') ?? '';

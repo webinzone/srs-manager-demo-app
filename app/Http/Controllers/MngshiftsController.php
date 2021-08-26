@@ -46,12 +46,12 @@ class MngshiftsController extends Controller
         $this->authorize('create',Mngshift::class);
         $date = Carbon::now();
         $date = $date->toDateString();
-        $last        =   Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->first();
+        $last        =   Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->where('location_id', '=', Auth::user()->l_id)->first();
         $ms = $last->mng_staff ?? '';
         $es = $last->evng_staff ?? '';
         $i = 0;
 
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         $emps = SrsStaff::orderBy('name')->get();
         return view('mngshifts/create',compact('residents','emps','es','ms','date','i'));
     }
@@ -71,8 +71,8 @@ class MngshiftsController extends Controller
         $mstaff = request('mng_staff') ?? '';
         $estaff = request('evng_staff') ?? '';
         $mng_date = request('mng_date') ?? '';
-        $company_id = request('company_id') ?? '';
-        $location_id = request('location_id') ?? '';
+        $company_id = Auth::user()->c_id  ?? '';
+        $location_id = Auth::user()->l_id  ?? '';
         $user_id =  Auth::user()->id;
 
         $mngshift->mng_staff = $mstaff;
@@ -191,8 +191,8 @@ class MngshiftsController extends Controller
         $mstaff = request('mng_staff') ?? '';
         $estaff = request('evng_staff') ?? '';
         $mng_date = request('mng_date') ?? '';
-        $company_id = request('company_id') ?? '';
-        $location_id = request('location_id') ?? '';
+        $company_id = Auth::user()->c_id  ?? '';
+        $location_id = Auth::user()->l_id  ?? '';
         $user_id =  Auth::user()->id;
 
         $mngshift->mng_staff = $mstaff;
@@ -282,7 +282,7 @@ class MngshiftsController extends Controller
 
     public function getshiftdate($id)
     {
-        $data = Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->first();
+        $data = Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->where('location_id', '=', Auth::user()->l_id)->first();
         return response()->json($data);
     }
 

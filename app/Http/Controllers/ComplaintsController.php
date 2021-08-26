@@ -44,8 +44,8 @@ class ComplaintsController extends Controller
     {
          // Show the page
         $this->authorize('create',Complaint::class);
-        $residents = ClientDetail::all();
-        $emps = SrsStaff::all();
+        $residents = ClientDetail::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('complaints/create',compact('residents','emps'));
     }
 
@@ -73,8 +73,8 @@ class ComplaintsController extends Controller
         $complaint->action_date = request('action_date') ?? '';
         $complaint->action_taken = request('action_taken') ?? '';
         $complaint->outcome = request('outcome') ?? '';
-        $complaint->company_id = request('company_id') ?? ' ';
-        $complaint->location_id = request('location_id') ?? ' ';
+        $complaint->company_id = Auth::user()->c_id  ?? '';
+        $complaint->location_id = Auth::user()->l_id  ?? '';
         $complaint->user_id =  Auth::user()->id;   
 
         $complaint->save(); 
@@ -115,7 +115,7 @@ class ComplaintsController extends Controller
     {
         $this->authorize('edit',Complaint::class);
         $complaint = Complaint::find($id);
-         $emps = SrsStaff::all();
+         $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('complaints/edit',compact('complaint','emps'));
     }
     /**
@@ -141,8 +141,8 @@ class ComplaintsController extends Controller
         $complaint->action_date = request('action_date') ?? '';
         $complaint->action_taken = request('action_taken') ?? '';
         $complaint->outcome = request('outcome') ?? '';
-        $complaint->company_id = request('company_id') ?? ' ';
-        $complaint->location_id = request('location_id') ?? ' ';
+        $complaint->company_id = Auth::user()->c_id  ?? '';
+        $complaint->location_id = Auth::user()->l_id  ?? '';
         $complaint->user_id =  Auth::user()->id;   
 
         

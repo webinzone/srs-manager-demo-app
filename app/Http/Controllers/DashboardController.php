@@ -35,15 +35,15 @@ class DashboardController extends Controller
             
             $asset_stats=null;
 
-            $apps = Appointment::where('status', '=', 'Pending')->orderBy('app_date', 'desc')->get() ?? '';
-            $appois = Appointment::where('status', '=', 'Re-scheduled')->orderBy('resc_date', 'desc')->get() ?? '';
-            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-            $rents = Rent::where('status', '=', 'Unpaid')->orderBy('nextpay_date', 'desc')->get() ?? '';
+            $apps = Appointment::where('status', '=', 'Pending')->orderBy('app_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+            $appois = Appointment::where('status', '=', 'Re-scheduled')->orderBy('resc_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+            $rents = Rent::where('status', '=', 'Unpaid')->orderBy('nextpay_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
             
-            $counts['resident'] = \App\Models\ClientDetail::count();
-            $counts['appointments'] = Appointment::count();
+            $counts['resident'] = \App\Models\ClientDetail::where('location_id', '=', Auth::user()->l_id)->count();
+            $counts['appointments'] = Appointment::where('location_id', '=', Auth::user()->l_id)->count();
             $counts['bookings'] = \App\Models\Booking::count();
-            $counts['staff_roaster'] = \App\Models\StaffRoaster::count();
+            $counts['staff_roaster'] = \App\Models\StaffRoaster::where('location_id', '=', Auth::user()->l_id)->count();
             
             if ((!file_exists(storage_path().'/oauth-private.key')) || (!file_exists(storage_path().'/oauth-public.key'))) {
                 \Artisan::call('migrate', ['--force' => true]);

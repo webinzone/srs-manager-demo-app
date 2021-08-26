@@ -49,16 +49,16 @@ class EvngshiftsController extends Controller
         
         $date = Carbon::now();
         $date = $date->toDateString();
-        $last        =   Evngshift::where('eveng_date', '=', $date)->orderBy('created_at', 'desc')->first();
+        $last        =   Evngshift::where('eveng_date', '=', $date)->orderBy('created_at', 'desc')->where('location_id', '=', Auth::user()->l_id)->first();
 
         $ms = $last->mng_staff ?? '';
 
-        $lastt        =   Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->first();
+        $lastt        =   Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->where('location_id', '=', Auth::user()->l_id)->first();
 
         $es = $lastt->evng_staff ?? '';
 
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
         $i = 0;
         return view('evngshifts/create',compact('residents','emps','ms','es','i'));
     }
@@ -84,8 +84,8 @@ class EvngshiftsController extends Controller
         $evngshift->notes = implode(',', (array) request('notes')) ?? '';
 
         $evngshift->eveng_date = request('eveng_date') ?? '';
-        $evngshift->company_id = request('company_id') ?? '';
-        $evngshift->location_id = request('location_id') ?? '';
+        $evngshift->company_id = Auth::user()->c_id  ?? '';
+        $evngshift->location_id = Auth::user()->l_id  ?? '';
         $evngshift->user_id =  Auth::user()->id;
         
         $evngshift->save();
@@ -161,8 +161,8 @@ class EvngshiftsController extends Controller
         $evngshift->notes = implode(',', (array) request('notes')) ?? '';
 
         $evngshift->eveng_date = request('eveng_date') ?? '';
-        $evngshift->company_id = request('company_id') ?? '';
-        $evngshift->location_id = request('location_id') ?? '';
+        $evngshift->company_id = Auth::user()->c_id  ?? '';
+        $evngshift->location_id = Auth::user()->l_id  ?? '';
         $evngshift->user_id =  Auth::user()->id;
                
         $evngshift->save();

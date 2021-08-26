@@ -64,8 +64,8 @@ class SrsStaffsController extends Controller
         $srs_staff->ph = request('ph') ?? '';
         $srs_staff->dob = request('dob') ?? '';
         $srs_staff->email = request('email') ?? '';
-        $srs_staff->company_id = "null" ?? '';
-        $srs_staff->location_id = "null" ?? '';
+        $srs_staff->company_id = Auth::user()->c_id  ?? '';
+        $srs_staff->location_id = Auth::user()->l_id  ?? '';
 
         $srs_staff->posi = request('posi')  ?? '';
         $srs_staff->tfn = request('tfn')  ?? '';
@@ -176,8 +176,8 @@ class SrsStaffsController extends Controller
         $srs_staff->ph = request('ph') ?? '';
         $srs_staff->dob = request('dob') ?? '';
         $srs_staff->email = request('email') ?? '';
-        $srs_staff->company_id = "null" ?? '';
-        $srs_staff->location_id = "null" ?? '';
+        $srs_staff->company_id = Auth::user()->c_id  ?? '';
+        $srs_staff->location_id = Auth::user()->l_id  ?? '';
 
         $srs_staff->posi = request('posi')  ?? '';
         $srs_staff->tfn = request('tfn')  ?? '';
