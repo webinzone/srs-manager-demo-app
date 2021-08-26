@@ -327,6 +327,7 @@ h4 {
                   </li>
 
                   @can('admin')
+                  @if(Auth::user()->s_role !== "c_users")
                   <li class="dropdown" aria-hidden="true">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" tabindex="-1" style="color: white;">
                       {{ trans('general.create') }}
@@ -342,8 +343,10 @@ h4 {
                                  </a>
                              </li>
                          @endcan
+                    
                    </ul>
                 </li>
+                @endif
                @endcan
 
                @can('admin')
