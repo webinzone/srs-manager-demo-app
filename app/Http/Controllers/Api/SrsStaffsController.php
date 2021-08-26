@@ -24,7 +24,7 @@ class SrsStaffsController extends Controller
     {
         $this->authorize('index', SrsStaff::class);
         /**$complaints = Complaint::select(['id', 'f_name', 'user_name', 'c_name', 'com_details', 'com_nature', 'phone', 'suggestions', 'sign', 'action_date', 'action_taken', 'outcome']); */
-        $srs_staffs = SrsStaff::where('user_id', '=', Auth::user()->id);
+        $srs_staffs = SrsStaff::where('location_id', '=', Auth::user()->l_id);
        
 
         if ($request->filled('search')) {

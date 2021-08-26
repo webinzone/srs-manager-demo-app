@@ -24,7 +24,7 @@ class IncidentsController extends Controller
     {
         $this->authorize('index', Incident::class);
        
-        $incidents = Incident::where('user_id', '=', Auth::user()->id);
+        $incidents = Incident::where('location_id', '=', Auth::user()->l_id);
        
 
         if ($request->filled('search')) {

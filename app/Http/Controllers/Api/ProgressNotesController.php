@@ -23,7 +23,7 @@ class ProgressNotesController extends Controller
     public function index(Request $request)
     {
         $this->authorize('index', ProgressNote::class);
-        $progress_notes = ProgressNote::where('user_id', '=', Auth::user()->id);
+        $progress_notes = ProgressNote::where('location_id', '=', Auth::user()->l_id);
        
 
         if ($request->filled('search')) {

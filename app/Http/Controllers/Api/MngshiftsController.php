@@ -24,7 +24,7 @@ class MngshiftsController extends Controller
     {
         $this->authorize('index', Mngshift::class);
         /**$complaints = Complaint::select(['id', 'f_name', 'user_name', 'c_name', 'com_details', 'com_nature', 'phone', 'suggestions', 'sign', 'action_date', 'action_taken', 'outcome']); */
-        $mngshifts = Mngshift::where('user_id', '=', Auth::user()->id);
+        $mngshifts = Mngshift::where('location_id', '=', Auth::user()->l_id);
        
 
         if ($request->filled('search')) {

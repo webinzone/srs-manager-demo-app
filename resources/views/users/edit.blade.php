@@ -248,7 +248,7 @@
 
 
                   <!-- Email user -->
-                  @if (!$user->id)
+                 <!-- @if (!$user->id)
                       <div class="form-group" id="email_user_row">
                           <div class="col-sm-3">
                           </div>
@@ -264,8 +264,8 @@
 
 
                           </div>
-                      </div> <!--/form-group-->
-                  @endif
+                      </div> 
+                  @endif-->
 
                 <!-- Company -->
                 <div class="form-group" >
@@ -342,7 +342,7 @@
 
 
                 <!-- Jobtitle -->
-                <div class="form-group {{ $errors->has('jobtitle') ? 'has-error' : '' }}">
+               <!-- <div class="form-group {{ $errors->has('jobtitle') ? 'has-error' : '' }}">
                   <label class="col-md-3 control-label" for="jobtitle">{{ trans('admin/users/table.title') }}</label>
                   <div class="col-md-6">
                     <input
@@ -354,7 +354,7 @@
                     />
                     {!! $errors->first('jobtitle', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
                   </div>
-                </div>
+                </div>-->
 
 
                

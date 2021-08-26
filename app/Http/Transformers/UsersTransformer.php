@@ -46,10 +46,7 @@ class UsersTransformer
                     'id' => (int) $user->department->id,
                     'name'=> e($user->department->name)
                 ]  : null,
-                'location' => ($user->userloc) ? [
-                    'id' => (int) $user->userloc->id,
-                    'name'=> e($user->userloc->name)
-                ]  : null,
+                'location' => e($user->locationname),
                 'notes'=> e($user->notes),
                 'permissions' => $user->decodePermissions(),
                 'activated' => ($user->activated =='1') ? true : false,

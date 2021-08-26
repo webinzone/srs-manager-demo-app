@@ -35,24 +35,7 @@ class UserPresenter extends Presenter
                 "title" => trans('general.id'),
                 "visible" => false
             ],
-            [
-                "field" => "avatar",
-                "searchable" => false,
-                "sortable" => false,
-                "switchable" => true,
-                "title" => 'Avatar',
-                "visible" => false,
-                "formatter" => "imageFormatter"
-            ],
-            [
-                "field" => "company",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('admin/companies/table.title'),
-                "visible" => false,
-                "formatter" => "companiesLinkObjFormatter"
-            ],
+            
             [
                 "field" => "name",
                 "searchable" => true,
@@ -61,73 +44,7 @@ class UserPresenter extends Presenter
                 "visible" => true,
                 "formatter" => "usersLinkFormatter"
             ],
-            [
-                "field" => "jobtitle",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('admin/users/table.title'),
-                "visible" => true,
-                "formatter" => "usersLinkFormatter"
-            ],
-            [
-                "field" => "email",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('admin/users/table.email'),
-                "visible" => true,
-                "formatter" => "emailFormatter"
-            ],
-            [
-                "field" => "phone",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('admin/users/table.phone'),
-                "visible" => true,
-                "formatter"    => "phoneFormatter",
-            ],
-            [
-                "field" => "address",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('general.address'),
-                "visible" => false,
-            ],
-            [
-                "field" => "city",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('general.city'),
-                "visible" => false,
-            ],
-            [
-                "field" => "state",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('general.state'),
-                "visible" => false,
-            ],
-            [
-                "field" => "country",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('general.country'),
-                "visible" => false,
-            ],
-            [
-                "field" => "zip",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('general.zip'),
-                "visible" => false,
-            ],
+          
             [
                 "field" => "username",
                 "searchable" => true,
@@ -137,41 +54,16 @@ class UserPresenter extends Presenter
                 "visible" => true,
                 "formatter" => "usersLinkFormatter"
             ],
-            [
-                "field" => "employee_num",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('admin/users/table.employee_num'),
-                "visible" => false
-            ],
-            [
-                "field" => "department",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('general.department'),
-                "visible" => true,
-                "formatter" => "departmentsLinkObjFormatter"
-            ],
+           
             [
                 "field" => "location",
                 "searchable" => true,
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('admin/users/table.location'),
-                "visible" => true,
-                "formatter" => "locationsLinkObjFormatter"
+                "visible" => true
             ],            
-            [
-                "field" => "notes",
-                "searchable" => true,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('general.notes'),
-                "visible" => true,
-            ],
-          
+           
             [
                 "field" => "ldap_import",
                 "searchable" => false,
@@ -181,24 +73,7 @@ class UserPresenter extends Presenter
                 "visible" => false,
                 'formatter' => 'trueFalseFormatter'
             ],
-            [
-                "field" => "two_factor_enrolled",
-                "searchable" => false,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('admin/users/general.two_factor_enrolled'),
-                "visible" => false,
-                'formatter' => 'trueFalseFormatter'
-            ],
-            [
-                "field" => "two_factor_activated",
-                "searchable" => false,
-                "sortable" => false,
-                "switchable" => true,
-                "title" => trans('admin/users/general.two_factor_active'),
-                "visible" => false,
-                'formatter' => 'trueFalseFormatter'
-            ],
+           
             [
                 "field" => "activated",
                 "searchable" => false,
@@ -217,15 +92,7 @@ class UserPresenter extends Presenter
                 "visible" => false,
                 'formatter' => 'dateDisplayFormatter'
             ],
-            [
-                "field" => "last_login",
-                "searchable" => false,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('general.last_login'),
-                "visible" => false,
-                'formatter' => 'dateDisplayFormatter'
-            ],
+           
             [
                 "field" => "actions",
                 "searchable" => false,

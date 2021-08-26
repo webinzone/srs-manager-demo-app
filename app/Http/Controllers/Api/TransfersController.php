@@ -24,7 +24,7 @@ class TransfersController extends Controller
     {
          $this->authorize('index', Booking::class);
         
-        $bookings = Booking::where('user_id', '=', Auth::user()->id);
+        $bookings = Booking::where('location_id', '=', Auth::user()->l_id);
        
 
         $total = $bookings->count();

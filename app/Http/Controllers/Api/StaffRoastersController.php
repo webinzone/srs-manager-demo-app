@@ -24,7 +24,7 @@ class StaffRoastersController extends Controller
     {
         $this->authorize('index', StaffRoaster::class);
        
-        $staff_roasters = StaffRoaster::where('user_id', '=', Auth::user()->id)->distinct();
+        $staff_roasters = StaffRoaster::where('location_id', '=', Auth::user()->l_id)->distinct();
        
 
         if ($request->filled('search')) {

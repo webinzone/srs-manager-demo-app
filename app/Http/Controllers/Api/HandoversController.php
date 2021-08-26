@@ -24,7 +24,7 @@ class HandoversController extends Controller
     {
         $this->authorize('index', Handover::class);
         /**$complaints = Complaint::select(['id', 'f_name', 'user_name', 'c_name', 'com_details', 'com_nature', 'phone', 'suggestions', 'sign', 'action_date', 'action_taken', 'outcome']); */
-        $handovers = Handover::where('user_id', '=', Auth::user()->id);
+        $handovers = Handover::where('location_id', '=', Auth::user()->l_id);
        
 
         if ($request->filled('search')) {
