@@ -45,7 +45,7 @@ class TransferRecordsController extends Controller
     {
          // Show the page
         $this->authorize('create',TransferRecord::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('transfer_records/create',compact('residents'));
     }
 
@@ -161,7 +161,7 @@ class TransferRecordsController extends Controller
     {
         $this->authorize('edit',TransferRecord::class);
         $transfer_record = TransferRecord::find($id);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('transfer_records/edit',compact('transfer_record','residents'));
     }
     /**
@@ -286,7 +286,7 @@ class TransferRecordsController extends Controller
 
     public function generatetransfer()
     {
-        $residents = TransferRecord::all();
+        $residents = TransferRecord::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('transfer_records/report_show',compact('residents'));
     }
 

@@ -42,7 +42,7 @@ class RoomDetailsController extends Controller
     {
          // Show the page
         $this->authorize('create',RoomDetail::class);
-        $last_roomid        =   RoomDetail::orderBy('created_at', 'desc')->first();
+        $last_roomid        =   RoomDetail::orderBy('created_at', 'desc')->where('location_id', '=', Auth::user()->l_id)->first();
         if ($last_roomid) {
             $str = $last_roomid->room_no;
         }
@@ -75,8 +75,8 @@ class RoomDetailsController extends Controller
         $room_detail->client_id = request('client_id') ?? ' ';
         $room_detail->status = request('status') ?? 'Free';
         $room_detail->beds_no = request('beds_no') ?? ' ';
-        $room_detail->company_id = request('company_id') ?? ' ';
-        $room_detail->location_id = request('location_id') ?? ' ';
+        $room_detail->company_id = Auth::user()->c_id  ?? '';
+        $room_detail->location_id = Auth::user()->l_id  ?? '';
         $room_detail->user_id =  Auth::user()->id;
         
         $room_detail->save();
@@ -137,8 +137,8 @@ class RoomDetailsController extends Controller
         $room_detail->client_id = request('client_id') ?? ' ';
         $room_detail->status = request('status') ?? 'Free';
         $room_detail->beds_no = request('beds_no') ?? ' ';
-        $room_detail->company_id = request('company_id') ?? ' ';
-        $room_detail->location_id = request('location_id') ?? ' ';
+        $room_detail->company_id = Auth::user()->c_id  ?? '';
+        $room_detail->location_id = Auth::user()->l_id  ?? '';
         $room_detail->user_id =  Auth::user()->id;
         $room_detail->save();
         

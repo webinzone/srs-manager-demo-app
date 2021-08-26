@@ -62,8 +62,8 @@ class StaffRoastersController extends Controller
         $staff_roaster->con_1 = request('con_1')  ?? '';
         $staff_roaster->con_2 = request('con_2')  ?? '';
         $staff_roaster->con_3 = request('con_3')  ?? '';
-        $staff_roaster->company_id = request('company_id')  ?? '';
-        $staff_roaster->location_id = request('location_id')  ?? '';
+        $staff_roaster->company_id = Auth::user()->c_id  ?? '';
+        $staff_roaster->location_id = Auth::user()->l_id  ?? '';
         $staff_roaster->user_id =  Auth::user()->id;
 
 
@@ -172,8 +172,8 @@ class StaffRoastersController extends Controller
         $staff_roaster->con_1 = request('con_1')  ?? '';
         $staff_roaster->con_2 = request('con_2')  ?? '';
         $staff_roaster->con_3 = request('con_3')  ?? '';
-        $staff_roaster->company_id = request('company_id')  ?? '';
-        $staff_roaster->location_id = request('location_id')  ?? '';
+        $staff_roaster->company_id = Auth::user()->c_id  ?? '';
+        $staff_roaster->location_id = Auth::user()->l_id  ?? '';
         $staff_roaster->user_id =  Auth::user()->id;
 
 

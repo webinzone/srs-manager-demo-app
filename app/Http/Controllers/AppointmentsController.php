@@ -45,7 +45,7 @@ class AppointmentsController extends Controller
          // Show the page
         $this->authorize('create',Appointment::class);
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->get();
+        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
         return view('appointments/create',compact('residents','emps'));
     }
 
@@ -121,7 +121,7 @@ class AppointmentsController extends Controller
         $this->authorize('edit',Appointment::class);
         $appointment = Appointment::find($id);
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
-        $emps = SrsStaff::all();
+        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
 
         return view('appointments/edit',compact('appointment','residents','emps'));
     }

@@ -44,7 +44,7 @@ class VaccatesController extends Controller
     {
          // Show the page
         $this->authorize('create',Vaccate::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('vaccates/create',compact('residents'));
     }
 
@@ -79,8 +79,8 @@ class VaccatesController extends Controller
         $vaccate->f_addr = request('f_addr') ?? '';
         $vaccate->pay_status = request('pay_status') ?? '';
         $vaccate->pay_amt = request('pay_amt') ?? '';
-        $vaccate->company_id = request('company_id') ?? '';
-        $vaccate->location_id = request('location_id') ?? '';
+        $vaccate->company_id = Auth::user()->c_id  ?? '';
+        $vaccate->location_id = Auth::user()->l_id  ?? '';
         $vaccate->user_id =  Auth::user()->id;
         
         $vaccate->save();
@@ -129,7 +129,7 @@ class VaccatesController extends Controller
     {
         $this->authorize('edit',Vaccate::class);
         $vaccate = Vaccate::find($id);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('vaccates/edit',compact('vaccate','residents'));
     }
     /**
@@ -162,8 +162,8 @@ class VaccatesController extends Controller
         $vaccate->f_addr = request('f_addr') ?? '';
         $vaccate->pay_status = request('pay_status') ?? '';
         $vaccate->pay_amt = request('pay_amt') ?? '';
-        $vaccate->company_id = request('company_id') ?? '';
-        $vaccate->location_id = request('location_id') ?? '';
+        $vaccate->company_id = Auth::user()->c_id  ?? '';
+        $vaccate->location_id = Auth::user()->l_id  ?? '';
         $vaccate->user_id =  Auth::user()->id;
         
         $vaccate->save();

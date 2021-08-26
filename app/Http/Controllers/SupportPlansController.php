@@ -42,7 +42,7 @@ class SupportPlansController extends Controller
     {
          // Show the page
         $this->authorize('create',SupportPlan::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';        
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';        
         return view('support_plans/create',compact('residents'));
     }
 
@@ -93,8 +93,8 @@ class SupportPlansController extends Controller
         $support_plan->f5 = request('f5') ?? '';
         $support_plan->f6 = request('f6') ?? '';
         $support_plan->f7 = request('f7') ?? '';
-        $support_plan->company_id = request('company_id') ?? ' ';
-        $support_plan->location_id = request('location_id') ?? ' ';
+        $support_plan->company_id = Auth::user()->c_id  ?? '';
+        $support_plan->location_id = Auth::user()->l_id  ?? '';
         $support_plan->user_id =  Auth::user()->id;
         
         
@@ -149,7 +149,7 @@ class SupportPlansController extends Controller
         $item_last= count($review);
         $num = (int)$item_last;
 
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->get() ?? '';        
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';        
 
         return view('support_plans/edit',compact('support_plan','residents','review','r_with','r_notes','num'));
     }
@@ -198,8 +198,8 @@ class SupportPlansController extends Controller
         $support_plan->f5 = request('f5') ?? '';
         $support_plan->f6 = request('f6') ?? '';
         $support_plan->f7 = request('f7') ?? '';
-        $support_plan->company_id = request('company_id') ?? ' ';
-        $support_plan->location_id = request('location_id') ?? ' ';
+        $support_plan->company_id = Auth::user()->c_id  ?? '';
+        $support_plan->location_id = Auth::user()->l_id  ?? '';
         $support_plan->user_id =  Auth::user()->id;
         
         
@@ -250,7 +250,7 @@ class SupportPlansController extends Controller
                         ->with('success','deleted successfully');
     }
      public function plan_generate(){
-        $support_plan = SupportPlan::all();     
+        $support_plan = SupportPlan::where('location_id', '=', Auth::user()->l_id)->get() ?? ''; 
         return view('support_plans/report_show',compact('support_plan'));
     }
 
