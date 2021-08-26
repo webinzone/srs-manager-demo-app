@@ -229,6 +229,7 @@ h4 {
 
 
         <!-- Header Navbar: style can be found in header.less -->
+
         <nav class="navbar navbar-static-top" role="navigation" style="background-color: #3c8dbc;color: white;">
           <!-- Sidebar toggle button above the compact sidenav -->
           <a href="#" style="color: white; background-color: #3c8dbc" class="sidebar-toggle btn btn-white" data-toggle="push-menu" role="button">
@@ -250,7 +251,7 @@ h4 {
             <div class="navbar-custom-menu" >
               <ul class="nav navbar-nav">
                   
-
+                @if(Auth::user()->s_role == "c_admin")
                   @can('index', \App\Models\RentDetail::class)
                   <li aria-hidden="true"{!! (Request::is('rent_details*') ? ' class="active"' : '') !!} tabindex="-1">
                       <a href="{{ route('rents.index') }}" tabindex="-1" style="color: white;">
@@ -306,7 +307,7 @@ h4 {
                   </li>
                   @endcan
 
-               
+                @endif
 
                   <li>
                   <form class="navbar-form navbar-left form-horizontal" role="search" action="{{ route('search') }}" method="get" >
@@ -502,7 +503,7 @@ h4 {
                     </a>
                   </li>
                   @endif
-                  @if(Auth::user()->s_role == "c_admin")
+                  @if(Auth::user()->s_role == "c_admin" || Auth::user()->s_role == "c_users")
                   <li>
                       <a href="{{ route('room_details.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
@@ -514,7 +515,7 @@ h4 {
                 </ul>
               </li>
 
-            @if(Auth::user()->s_role == "c_admin")
+            @if(Auth::user()->s_role == "c_admin" || Auth::user()->s_role == "c_users")
             @can('view', \App\Models\User::class)
             <li{!! (Request::is('users*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('clients.index') }}" style="background-color: #222d32;color: #b8c7ce;">

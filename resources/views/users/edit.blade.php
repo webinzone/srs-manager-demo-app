@@ -2,12 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-	@if ($user->id)
-		{{ trans('admin/users/table.updateuser') }}
-		{{ $user->present()->fullName() }}
-	@else
-		{{ trans('admin/users/table.createuser') }}
-	@endif
+	
 
 @parent
 @stop
@@ -64,10 +59,13 @@
     }
 
 </style>
+<div id="webui">
+  
+    <div class="row">
+        <!-- col-md-8 -->
+         <div class=" col" style="padding-left: 170px;">
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <form class="form-horizontal" method="post" autocomplete="off" action="{{ (isset($user->id)) ? route('users.update', ['user' => $user->id]) : route('users.store') }}" enctype="multipart/form-data" id="userForm">
+    <form class="form-horizontal" method="post" autocomplete="off" action="{{ (isset($user->id)) ? route('users.update', ['user' => $user->id]) : route('users.store') }}" enctype="multipart/form-data" id="userForm" style="width: 900px;">
       {{csrf_field()}}
 
       @if($user->id)
@@ -75,11 +73,20 @@
       @endif
         <!-- Custom Tabs -->
       <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs">
+        <!--<ul class="nav nav-tabs">
           <li class="active"><a href="#tab_1" data-toggle="tab">Information</a></li>
-          <!--<li><a href="#tab_2" data-toggle="tab">Permissions</a></li>-->
-        </ul>
-
+          <li><a href="#tab_2" data-toggle="tab">Permissions</a></li>
+        </ul>-->
+         <div class="box box-default">
+        <div class="box-header with-border text-center">
+                   <h3><b>@if(Auth::user()->s_role == "super_admin")
+                      Admin Users
+                     @else
+                       Users
+                     @endif</b></h3>
+                   
+                </div>
+        <div class="box-body" style="padding-left: 40px;padding-right: 40px;">
         <div class="tab-content">
           <div class="tab-pane active" id="tab_1">
             <div class="row">
@@ -143,7 +150,7 @@
                         name="password"
                         class="form-control"
                         id="password"
-                        value=""
+                        value="{{ Request::old('password', $user->password) }}"
                         autocomplete="off"
                         readonly
                         onfocus="this.removeAttribute('readonly');"
@@ -173,7 +180,7 @@
                     name="password_confirmation"
                     id="password_confirm"
                     class="form-control"
-                    value=""
+                    value="{{ Request::old('password', $user->password) }}"
                     autocomplete="off"
                     aria-label="password_confirmation"
                     readonly
@@ -269,33 +276,48 @@
 
                 <!-- Company -->
                 <div class="form-group" >
-                 <div class="col-md-4 mb-3">
+                 <div class="col-md-3 mb-3">
                   <label for="name" >Company Id</label>
                 </div>
                      <div class="col-md-4 mb-3">
+                      @if($user->id)
+                        <select class="form-control" style="height: 26px;padding: 3px 10px;"  name="companyid" id="company_id">
+                            <option>--Select Company ID --</option>
+                          @foreach($companies as $company)
+                          <option value="{{ $company->company_id }}" {{ $user->c_id == $company->company_id ? 'selected' : ''  }}>{{ $company->company_id }}</option>
+                          @endforeach
+                        </select>   
+                      @else
                          <select class="form-control" style="height: 26px;padding: 3px 10px;"  name="companyid" id="company_id">
                             <option>--Select Company ID --</option>
                           @foreach($companies as $company)
                           <option value="{{ $company->company_id }}" >{{ $company->company_id }}</option>
                           @endforeach
-                        </select>                         
+                        </select> 
+                      @endif                        
                  </div>
                  <div class="col-md-4 mb-3">
-                    <input type="text" name="companyname" id="comp" placeholder="Company" readonly>                        
+                    <input type="text" name="companyname" value="{{ $user->companyname }}" id="comp" placeholder="Company" readonly>                        
                  </div>
                  
                </div>
                <div class="form-group" >
-                 <div class="col-md-4 mb-3">
+                 <div class="col-md-3 mb-3">
               <label for="name" >Location Id</label>
                </div>
-                     <div class="col-md-4 mb-3">
-              <select class="form-control" style="height: 26px;padding: 3px 10px;"  name="locationid" id="location_id">
-                <option>--Select Location Id --</option>
-              </select>
+                <div class="col-md-4 mb-3">
+                      @if($user->id)
+                        <select class="form-control" style="height: 26px;padding: 3px 10px;"  name="locationid" id="location_id">
+                          <option value="{{ $user->l_id }}" >{{ $user->l_id }}</option>
+                        </select>
+                       @else
+                         <select class="form-control" style="height: 26px;padding: 3px 10px;"  name="locationid" id="location_id">
+                          <option>--Select Location Id --</option>
+                         </select>
+                      @endif        
             </div>
             <div class="col-md-4 mb-3">
-                    <input type="text" name="locationname" id="loccc" placeholder="Location" readonly>                        
+                    <input type="text" name="locationname"  value="{{ $user->locationname }}" id="loccc" placeholder="Location" readonly>                        
                  </div>
           </div>
 
@@ -369,13 +391,13 @@
                 </div>
 
                   <!-- Website URL -->
-                  <div class="form-group {{ $errors->has('website') ? ' has-error' : '' }}">
+                 <!-- <div class="form-group {{ $errors->has('website') ? ' has-error' : '' }}">
                       <label for="website" class="col-md-3 control-label">{{ trans('general.website') }}</label>
                       <div class="col-md-6">
                           <input class="form-control" type="text" name="website" id="website" value="{{ old('website', $user->website) }}" />
                           {!! $errors->first('website', '<span class="alert-msg" aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i> :message</span>') !!}
                       </div>
-                  </div>
+                  </div>-->
 
                   <!-- Address -->
                   <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
@@ -479,7 +501,8 @@
 
               </div> <!--/col-md-12-->
             </div>
-          </div><!-- /.tab-pane -->
+          </div>
+          <!-- /.tab-pane -->
 
           <div class="tab-pane" id="tab_2">
             <div class="col-md-12">
@@ -504,8 +527,12 @@
         <div class="box-footer text-right">
           <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> {{ trans('general.save') }}</button>
         </div>
-      </div><!-- nav-tabs-custom -->
+      </div>
+    </div>
+  <!-- nav-tabs-custom -->
     </form>
+  </div>
+  </div>
   </div> <!--/col-md-8-->
 </div><!--/row-->
 @stop
@@ -577,7 +604,7 @@ $('#location_id').change(function(){
                 //)
                  //alert("success");
                 response.locations.forEach(location =>
-                  output.push(`<option lue="${location.location_id}">${location.location_id}</option>`)
+                  output.push(`<option value="${location.location_id}" >${location.location_id}</option>`)
                   )
 //$('#location_id').append(`<option lue="${location.location_id}">${location.location_id}</option>`)
 //                

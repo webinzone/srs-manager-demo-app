@@ -64,15 +64,7 @@ class UserPresenter extends Presenter
                 "visible" => true
             ],            
            
-            [
-                "field" => "ldap_import",
-                "searchable" => false,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('admin/settings/general.ldap_enabled'),
-                "visible" => false,
-                'formatter' => 'trueFalseFormatter'
-            ],
+            
            
             [
                 "field" => "activated",

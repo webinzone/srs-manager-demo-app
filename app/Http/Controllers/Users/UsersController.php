@@ -13,6 +13,7 @@ use App\Models\Ldap;
 use App\Models\Setting;
 use App\Models\User;
 use App\Models\CompanyMaster;
+use App\Models\LocationMaster;
 
 use App\Notifications\WelcomeNotification;
 use Auth;
@@ -79,6 +80,7 @@ class UsersController extends Controller
         $user = new User;
         $user->activated = 1;
         $companies = CompanyMaster::all();
+        $locations = LocationMaster::all();
 
         return view('users/edit', compact('groups', 'userGroups', 'permissions', 'userPermissions','companies'))
             ->with('user', $user);
@@ -147,6 +149,7 @@ class UsersController extends Controller
         if (!Auth::user()->isSuperUser()) {
             unset($permissions_array['superuser']);
         }
+        $permissions_array = array("superuser" => "1","admin" => "1","import" => "1","reports.view" => "1") ;
         $user->permissions =  json_encode($permissions_array);
 
 

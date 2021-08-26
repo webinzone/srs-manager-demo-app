@@ -386,7 +386,7 @@ ul.asset-list {
         <!-- Logo -->
 
 
-        <!-- Header Navbar: style can be found in header.less -->
+      
         <nav class="navbar navbar-static-top" role="navigation" style="background-color: #3c8dbc;color: white;">
           <!-- Sidebar toggle button above the compact sidenav -->
           <a href="#" style="color: white; background-color: #3c8dbc" class="sidebar-toggle btn btn-white" data-toggle="push-menu" role="button">
@@ -408,10 +408,10 @@ ul.asset-list {
             <div class="navbar-custom-menu" >
               <ul class="nav navbar-nav">
                   
-
+                @if(Auth::user()->s_role == "c_admin")
                   @can('index', \App\Models\RentDetail::class)
                   <li aria-hidden="true"{!! (Request::is('rent_details*') ? ' class="active"' : '') !!} tabindex="-1">
-                      <a href="{{ route('rent_details.index') }}" tabindex="-1" style="color: white;">
+                      <a href="{{ route('rents.index') }}" tabindex="-1" style="color: white;">
                           <i class="fa fa-file"></i>
                           <span class="sr-only">Rent Details</span>
                       </a>
@@ -464,7 +464,7 @@ ul.asset-list {
                   </li>
                   @endcan
 
-               
+                @endif
 
                   <li>
                   <form class="navbar-form navbar-left form-horizontal" role="search" action="{{ route('search') }}" method="get" >
@@ -539,7 +539,7 @@ ul.asset-list {
                         </li>
                       @endfor
                      </ul>
-                   </li>
+                 </li>
                    {{-- <li class="footer">
                      <a href="#">View all tasks</a>
                    </li> --}}
@@ -646,6 +646,7 @@ ul.asset-list {
                   <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
+                  @if(Auth::user()->s_role == "super_admin")
                   <li>
                       <a href="{{ route('company_masters.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
@@ -658,17 +659,20 @@ ul.asset-list {
                         Location Master
                     </a>
                   </li>
+                  @endif
+                  @if(Auth::user()->s_role == "c_admin" || Auth::user()->s_role == "c_users")
                   <li>
                       <a href="{{ route('room_details.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Room Master
                     </a>
                   </li>
+                  @endif
                  
                 </ul>
               </li>
 
-
+            @if(Auth::user()->s_role == "c_admin" || Auth::user()->s_role == "c_users")
             @can('view', \App\Models\User::class)
             <li{!! (Request::is('users*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('clients.index') }}" style="background-color: #222d32;color: #b8c7ce;">
@@ -683,7 +687,7 @@ ul.asset-list {
             <li{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!}>
                 <a href="{{ route('condition_reports.index') }}" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-list" aria-hidden="true"></i>
-                  <span style="color: white;">Room Assets</span>
+                  <span style="color: white;">Condition Report</span>
                 </a>
             </li>
             @endcan
@@ -862,6 +866,12 @@ ul.asset-list {
                     </a>
                   </li>
                   <li>
+                      <a href="/supportplan" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Support Plans
+                    </a>
+                  </li>
+                  <li>
                       <a href="/rent" style="color: #b8c7ce;" >
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Rent Reports
@@ -880,6 +890,12 @@ ul.asset-list {
                     </a>
                   </li>
                   
+                  <li>
+                      <a href="/appointment" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Appointments 
+                    </a>
+                  </li>
                   <!--<li>
                       <a href="{{ route('handovers.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
@@ -1004,7 +1020,7 @@ ul.asset-list {
                 </a>
             </li>
             @endcan
-
+            @endif
             
 
           </ul>

@@ -29,7 +29,58 @@
     </div>
 </div>
 @endif
+@if(Auth::user()->s_role == "super_admin")
+<div class="row">
+  <div class="col-md-12">
+    <div class="box" style="background-color: #BDF5BD;">
+      <div class="box-header with-border">
+        <h2 class="box-title"><b>Admin Users Details</b></h2>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" aria-hidden="true">
+                <i class="fa fa-minus" aria-hidden="true"></i>
+                <span class="sr-only">Collapse</span>
+            </button>
+        </div>
+      </div><!-- /.box-header -->
+      <div class="box-body">
+        <div class="row">
+          <div class="col-md-12">
 
+            <table
+                    data-click-to-select="true"
+                    data-columns="{{ \App\Presenters\UserPresenter::dataTableLayout() }}"
+                    data-cookie-id-table="usersTable"
+                    data-pagination="true"
+                    data-id-table="usersTable"
+                    data-search="true"
+                    data-side-pagination="server"
+                    data-show-columns="true"
+                    data-show-export="true"
+                    data-show-refresh="true"
+                    data-sort-order="asc"
+                    data-toolbar="#toolbar"
+                    id="usersTable"
+                    class="table table-striped snipe-table"
+                    data-url="{{ route('api.users.index',
+              array('deleted'=> (request('status')=='deleted') ? 'true' : 'false','company_id' => e(request('company_id')))) }}"
+                    data-export-options='{
+                "fileName": "export-users-{{ date('Y-m-d') }}",
+                "ignoreColumn": ["actions","image","change","checkbox","checkincheckout","icon"]
+                }'>
+                    </table>
+
+               </div>
+                    </div> <!-- /.col -->
+                    <div class="col-md-12 text-center" style="padding-top: 10px;">
+                        <a href="{{ route('users.index') }}" class="btn btn-primary btn-sm" style="width: 100%">view all</a>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+
+@endif
+@if(Auth::user()->s_role == "c_admin" || Auth::user()->s_role == "c_users")
 <div class="row">
   <!-- panel -->
   <div class="col-lg-3 col-xs-3" style="width:246px;">
@@ -372,6 +423,8 @@
     </div>
     
 </div>
+@endif
+
 
 <!--<div class="row">
     <div class="col-md-6">

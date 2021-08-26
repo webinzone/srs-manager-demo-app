@@ -2,13 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-
-    @if (request('status')=='deleted')
-        {{ trans('general.deleted') }}
-    @else
-        {{ trans('general.current') }}
-    @endif
-    {{ trans('general.users') }}
+   
     @parent
 
 @stop
@@ -22,11 +16,7 @@
         <a href="{{ route('users.create') }}" class="btn btn-primary pull-right" style="margin-right: 5px;">  {{ trans('general.create') }}</a>
     @endcan
 
-    @if (request('status')=='deleted')
-        <a class="btn btn-default pull-right" href="{{ route('users.index') }}" style="margin-right: 5px;">{{ trans('admin/users/table.show_current') }}</a>
-    @else
-        <a class="btn btn-default pull-right" href="{{ route('users.index', ['status' => 'deleted']) }}" style="margin-right: 5px;">{{ trans('admin/users/table.show_deleted') }}</a>
-    @endif
+   
     @can('view', \App\Models\User::class)
         <a class="btn btn-default pull-right" href="{{ route('users.export') }}" style="margin-right: 5px;">Export</a>
     @endcan
@@ -38,6 +28,16 @@
 <div class="row">
   <div class="col-md-12">
     <div class="box box-default">
+        <div class="box-header with-border text-center">
+                 <h3><b>
+                     @if(Auth::user()->s_role == "super_admin")
+                      Admin Users
+                     @else
+                       Users
+                     @endif
+                 </b></h3>
+                   
+                </div><!-- /.box-header -->
         <div class="box-body">
           {{ Form::open([
                'method' => 'POST',
