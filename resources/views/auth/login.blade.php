@@ -108,7 +108,7 @@
 <!-- Notifications -->
      @include('notifications')<br>
     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label style="font-size:15px;" for="tab-1" class="tab">Sign In</label>
-    <input id="tab-2" type="radio" name="tab" class="sign-up"><label style="font-size:15px;" for="tab-2" class="tab">Sign Up</label>
+    <input id="tab-2" type="radio" name="tab" class="sign-up"><label style="font-size:15px;" for="tab-2" class="tab"></label>
     <div class="login-form">
      <br> <div class="sign-in-htm">
         <form id="login" action="{{ url('/login') }}" method="POST">
