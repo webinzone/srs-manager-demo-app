@@ -443,13 +443,7 @@ h4 {
 
 
 
-                     @can('self.api')
-                     <li>
-                         <a href="{{ route('user.api') }}">
-                             <i class="fa fa-user-secret fa-fw" aria-hidden="true"></i> Manage API Keys
-                         </a>
-                     </li>
-                     @endcan
+                     
                      <li class="divider"></li>
                      <li>
                          <a href="{{ url('/logout') }}">
