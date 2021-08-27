@@ -15,9 +15,8 @@ $factory->define(Actionlog::class, function (Faker\Generator $faker) {
 
 
 $factory->defineAs(App\Models\Actionlog::class, 'asset-upload', function ($faker) {
-    $asset = factory(App\Models\Asset::class)->create();
+    
     return [
-        'item_type' => get_class($asset),
         'item_id' => 1,
         'user_id' => 1,
         'filename' => $faker->word,
@@ -28,9 +27,9 @@ $factory->defineAs(App\Models\Actionlog::class, 'asset-upload', function ($faker
 
 $factory->defineAs(Actionlog::class, 'asset-checkout-user', function (Faker\Generator $faker) {
     $target = User::inRandomOrder()->first();
-    $item = Asset::inRandomOrder()->RTD()->first();
+    
     $user_id = rand(1,2); // keep it simple - make it one of the two superadmins
-    $asset = App\Models\Asset::where('id', $item->id)
+    
         ->update(
             [
                 'assigned_to' => $target->id,
@@ -44,8 +43,8 @@ $factory->defineAs(Actionlog::class, 'asset-checkout-user', function (Faker\Gene
         'user_id' => $user_id,
         'action_type' => 'checkout',
         'item_id' => $item->id,
-        'item_type'  => App\Models\Asset::class,
-        'target_id' => $target->id,
+        
+        
         'target_type' => get_class($target),
 
 
@@ -54,9 +53,9 @@ $factory->defineAs(Actionlog::class, 'asset-checkout-user', function (Faker\Gene
 
 $factory->defineAs(Actionlog::class, 'asset-checkout-location', function (Faker\Generator $faker) {
     $target = Location::inRandomOrder()->first();
-    $item = Asset::inRandomOrder()->RTD()->first();
+    
     $user_id = rand(1,2); // keep it simple - make it one of the two superadmins
-    $asset = App\Models\Asset::where('id', $item->id)
+    
         ->update(
             [
                 'assigned_to' => $target->id,
@@ -70,15 +69,14 @@ $factory->defineAs(Actionlog::class, 'asset-checkout-location', function (Faker\
         'user_id' => $user_id,
         'action_type' => 'checkout',
         'item_id' => $item->id,
-        'item_type'  => App\Models\Asset::class,
-        'target_id' => $target->id,
+        
+        
         'target_type' => get_class($target),
     ];
 });
 
 // This doesn't work - we need to assign a seat
 $factory->defineAs(Actionlog::class, 'license-checkout-asset', function (Faker\Generator $faker) {
-    $target = Asset::inRandomOrder()->RTD()->first();
     $item = License::inRandomOrder()->first();
     $user_id = rand(1,2); // keep it simple - make it one of the two superadmins
 
@@ -87,7 +85,6 @@ $factory->defineAs(Actionlog::class, 'license-checkout-asset', function (Faker\G
         'action_type' => 'checkout',
         'item_id' => $item->id,
         'item_type'  => get_class($item),
-        'target_id' => $target->id,
         'target_type' => get_class($target),
         'created_at'  => $faker->dateTime(),
         'note' => $faker->sentence
@@ -96,7 +93,7 @@ $factory->defineAs(Actionlog::class, 'license-checkout-asset', function (Faker\G
 
 
 $factory->defineAs(Actionlog::class, 'accessory-checkout', function (Faker\Generator $faker) {
-    $target = Asset::inRandomOrder()->RTD()->first();
+    
     $item = Accessory::inRandomOrder()->first();
     $user_id = rand(1,2); // keep it simple - make it one of the two superadmins
 
@@ -105,7 +102,7 @@ $factory->defineAs(Actionlog::class, 'accessory-checkout', function (Faker\Gener
         'action_type' => 'checkout',
         'item_id' => $item->id,
         'item_type'  => get_class($item),
-        'target_id' => $target->id,
+        
         'target_type' => get_class($target),
         'created_at'  => $faker->dateTime(),
         'note' => $faker->sentence
@@ -123,7 +120,7 @@ $factory->defineAs(Actionlog::class, 'consumable-checkout', function (Faker\Gene
         'action_type' => 'checkout',
         'item_id' => $item->id,
         'item_type'  => get_class($item),
-        'target_id' => $target->id,
+        
         'target_type' => get_class($target),
         'created_at'  => $faker->dateTime(),
         'note' => $faker->sentence,
@@ -142,7 +139,7 @@ $factory->defineAs(Actionlog::class, 'component-checkout', function (Faker\Gener
         'action_type' => 'checkout',
         'item_id' => $item->id,
         'item_type'  => get_class($item),
-        'target_id' => $target->id,
+        
         'target_type' => get_class($target),
         'created_at'  => $faker->dateTime(),
         'note' => $faker->sentence,
