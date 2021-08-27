@@ -170,7 +170,7 @@ $factory->state(App\Models\AssetModel::class, 'optiplex-model', function ($faker
 $factory->state(App\Models\AssetModel::class, 'polycom-model', function ($faker) {
     return [
         'name' => 'SoundStation 2',
-        'category_id' => 6,
+        
         
         'eol' => '12',
         'depreciation_id' => 1,
@@ -181,7 +181,7 @@ $factory->state(App\Models\AssetModel::class, 'polycom-model', function ($faker)
 $factory->state(App\Models\AssetModel::class, 'polycomcx-model', function ($faker) {
     return [
         'name' => 'Polycom CX3000 IP Conference Phone',
-        'category_id' => 6,
+        
         
         'eol' => '12',
         'depreciation_id' => 1,
@@ -199,7 +199,7 @@ $factory->state(App\Models\AssetModel::class, 'polycomcx-model', function ($fake
 $factory->state(App\Models\AssetModel::class, 'ipad-model', function ($faker) {
     return [
         'name' => 'iPad Pro',
-        'category_id' => 3,
+        
         
         'eol' => '12',
         'depreciation_id' => 1,
@@ -211,7 +211,7 @@ $factory->state(App\Models\AssetModel::class, 'ipad-model', function ($faker) {
 $factory->state(App\Models\AssetModel::class, 'tab3-model', function ($faker) {
     return [
         'name' => 'Tab3',
-        'category_id' => 3,
+        
         
         'eol' => '12',
         'depreciation_id' => 1,
@@ -229,7 +229,7 @@ $factory->state(App\Models\AssetModel::class, 'tab3-model', function ($faker) {
 $factory->state(App\Models\AssetModel::class, 'iphone6s-model', function ($faker) {
     return [
         'name' => 'iPhone 6s',
-        'category_id' => 4,
+        
         
         'eol' => '12',
         'depreciation_id' => 3,
@@ -241,7 +241,7 @@ $factory->state(App\Models\AssetModel::class, 'iphone6s-model', function ($faker
 $factory->state(App\Models\AssetModel::class, 'iphone7-model', function ($faker) {
     return [
         'name' => 'iPhone 7',
-        'category_id' => 4,
+        
         
         'eol' => '12',
         'depreciation_id' => 1,
@@ -259,7 +259,7 @@ $factory->state(App\Models\AssetModel::class, 'iphone7-model', function ($faker)
 $factory->state(App\Models\AssetModel::class, 'ultrafine', function ($faker) {
     return [
         'name' => 'Ultrafine 4k',
-        'category_id' => 5,
+        
         
         'eol' => '12',
         'depreciation_id' => 2,
@@ -270,7 +270,7 @@ $factory->state(App\Models\AssetModel::class, 'ultrafine', function ($faker) {
 $factory->state(App\Models\AssetModel::class, 'ultrasharp', function ($faker) {
     return [
         'name' => 'Ultrasharp U2415',
-        'category_id' => 5,
+        
         
         'eol' => '12',
         'depreciation_id' => 2,
