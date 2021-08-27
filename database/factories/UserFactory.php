@@ -18,7 +18,6 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) use (
         'jobtitle' => $faker->jobTitle,
         'last_name' => $faker->lastName,
         'locale' => $faker->locale,
-        'location_id' => rand(1,5),
         'notes' => 'Created by DB seeder',
         'password' => $password,
         'permissions' => '{"user":"0"}',
