@@ -7,7 +7,7 @@ class LocationSeeder extends Seeder
 {
     public function run()
     {
-        Location::truncate();
+       // Location::truncate();
         factory(Location::class, 10)->create();
 
         $src = public_path('/img/demo/locations/');
