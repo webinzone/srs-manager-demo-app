@@ -9,7 +9,6 @@ $factory->define(Statuslabel::class, function (Faker\Generator $faker) {
         'updated_at' => $faker->dateTime(),
         'user_id' => 1,
         'deleted_at' => null,
-        'deployable' => 0,
         'pending' => 0,
         'archived' => 0,
         'notes' => ''
@@ -18,7 +17,6 @@ $factory->define(Statuslabel::class, function (Faker\Generator $faker) {
 $factory->state(Statuslabel::class, 'rtd', function (Faker\Generator $faker) {
     return [
         'notes' => $faker->sentence,
-        'deployable' => 1,
         'default_label' => 1,
     ];
 });
