@@ -28,7 +28,7 @@ $factory->define(App\Models\AssetModel::class, function (Faker\Generator $faker)
 $factory->state(App\Models\AssetModel::class, 'mbp-13-model', function ($faker) {
     return [
         'name' => 'Macbook Pro 13"',
-        'category_id' => 1,
+        
         'manufacturer_id' => 1,
         'eol' => '36',
         'depreciation_id' => 1,
@@ -41,7 +41,7 @@ $factory->state(App\Models\AssetModel::class, 'mbp-13-model', function ($faker) 
 $factory->state(App\Models\AssetModel::class, 'mbp-air-model', function ($faker) {
     return [
         'name' => 'Macbook Air',
-        'category_id' => 1,
+        
         'manufacturer_id' => 1,
         'eol' => '36',
         'depreciation_id' => 1,
@@ -54,7 +54,7 @@ $factory->state(App\Models\AssetModel::class, 'mbp-air-model', function ($faker)
 $factory->state(App\Models\AssetModel::class, 'surface-model', function ($faker) {
     return [
         'name' => 'Surface',
-        'category_id' => 1,
+        
         'manufacturer_id' => 2,
         'eol' => '36',
         'depreciation_id' => 1,
@@ -67,7 +67,7 @@ $factory->state(App\Models\AssetModel::class, 'surface-model', function ($faker)
 $factory->state(App\Models\AssetModel::class, 'xps13-model', function ($faker) {
     return [
         'name' => 'XPS 13',
-        'category_id' => 1,
+        
         'manufacturer_id' => 3,
         'eol' => '36',
         'depreciation_id' => 1,
@@ -80,7 +80,7 @@ $factory->state(App\Models\AssetModel::class, 'xps13-model', function ($faker) {
 $factory->state(App\Models\AssetModel::class, 'zenbook-model', function ($faker) {
     return [
         'name' => 'ZenBook UX310',
-        'category_id' => 1,
+        
         'manufacturer_id' => 4,
         'eol' => '36',
         'depreciation_id' => 1,
@@ -93,7 +93,7 @@ $factory->state(App\Models\AssetModel::class, 'zenbook-model', function ($faker)
 $factory->state(App\Models\AssetModel::class, 'spectre-model', function ($faker) {
     return [
         'name' => 'Spectre',
-        'category_id' => 1,
+        
         'manufacturer_id' => 5,
         'eol' => '36',
         'depreciation_id' => 1,
@@ -106,7 +106,7 @@ $factory->state(App\Models\AssetModel::class, 'spectre-model', function ($faker)
 $factory->state(App\Models\AssetModel::class, 'yoga-model', function ($faker) {
     return [
         'name' => 'Yoga 910',
-        'category_id' => 1,
+        
         'manufacturer_id' => 6,
         'eol' => '36',
         'depreciation_id' => 1,
@@ -125,7 +125,7 @@ $factory->state(App\Models\AssetModel::class, 'yoga-model', function ($faker) {
 $factory->state(App\Models\AssetModel::class, 'macpro-model', function ($faker) {
     return [
         'name' => 'iMac Pro',
-        'category_id' => 2,
+        
         'manufacturer_id' => 1,
         'eol' => '24',
         'depreciation_id' => 1,
@@ -137,7 +137,7 @@ $factory->state(App\Models\AssetModel::class, 'macpro-model', function ($faker) 
 $factory->state(App\Models\AssetModel::class, 'lenovo-i5-model', function ($faker) {
     return [
         'name' => 'Lenovo Intel Core i5',
-        'category_id' => 2,
+        
         'manufacturer_id' => 6,
         'eol' => '24',
         'depreciation_id' => 1,
@@ -149,7 +149,7 @@ $factory->state(App\Models\AssetModel::class, 'lenovo-i5-model', function ($fake
 $factory->state(App\Models\AssetModel::class, 'optiplex-model', function ($faker) {
     return [
         'name' => 'OptiPlex',
-        'category_id' => 2,
+        
         'manufacturer_id' => 3,
         'model_number' => '5040 (MRR81)',
         'eol' => '24',
