@@ -21,7 +21,7 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col-md-12">
-                       
+                     
                     </div>
                 </div>
             </div>
@@ -29,6 +29,7 @@
     </div>
 </div>
 @endif
+<h4 style="color:white;">{{ Auth::user()->s_role }}</h4>
 @if(Auth::user()->s_role == "super_admin")
 <div class="row">
   <div class="col-md-12">
