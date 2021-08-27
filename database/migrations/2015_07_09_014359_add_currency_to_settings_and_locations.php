@@ -20,7 +20,13 @@ class AddCurrencyToSettingsAndLocations extends Migration {
 
         DB::table('settings')->update(['default_currency' => trans('general.currency')]);
 
-		
+		Schema::table('locations', function(Blueprint $table)
+		{
+			$table->string('currency',10)->nullable()->default(NULL);
+		});
+
+        DB::table('locations')->update(['currency' => trans('general.currency')]);
+
 
 
 	}
@@ -39,7 +45,11 @@ class AddCurrencyToSettingsAndLocations extends Migration {
 			$table->dropColumn('default_currency');
 		});
 
-	
+		Schema::table('locations', function(Blueprint $table)
+		{
+			//
+			$table->dropColumn('currency');
+		});
 
 	}
 

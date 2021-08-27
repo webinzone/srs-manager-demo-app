@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterTableStatusLabel extends Migration
+class WidenLicenseSerialField extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class AlterTableStatusLabel extends Migration
      */
     public function up()
     {
-       Schema::table('status_labels', function (Blueprint $table) {
-            $table->boolean('c_id')->nullable();
-          
-       });
+        Schema::table('licenses', function (Blueprint $table) {
+            $table->text('serial')->nullable()->default(null)->change();
+        });
     }
 
     /**
@@ -26,9 +25,8 @@ class AlterTableStatusLabel extends Migration
      */
     public function down()
     {
-        Schema::table('status_labels', function (Blueprint $table) {
-            $table->dropColumn('c_id')->nullable();
-          
-       });
+        Schema::table('licenses', function (Blueprint $table) {
+            $table->string('serial', 2048)->nullable()->default(null)->change();
+        });
     }
 }
