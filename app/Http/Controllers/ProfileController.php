@@ -46,7 +46,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         $user->first_name = $request->input('first_name');
         $user->last_name  = $request->input('last_name');
-        $user->website    = $request->input('website');
+        $user->website    = $request->input('website', null);
         $user->gravatar   = $request->input('gravatar');
         $user->skin   = $request->input('skin');
         $user->phone   = $request->input('phone');
@@ -60,7 +60,7 @@ class ProfileController extends Controller
         }
 
         if (Gate::allows('self.edit_location')  && (!config('app.lock_passwords'))) {
-            $user->location_id    = $request->input('location_id');
+            $user->location_id    = $request->input('location_id', null);
         }
 
 

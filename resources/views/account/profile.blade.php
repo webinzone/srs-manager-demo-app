@@ -2,7 +2,6 @@
 
 {{-- Page title --}}
 @section('title')
-{{ trans('general.editprofile') }}
 @stop
 
 {{-- Account page content --}}
@@ -14,6 +13,10 @@
   <!-- CSRF Token -->
     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
     <div class="box box-default">
+      <div class="box-header with-border text-center">
+                 <h3><b>My Profile</b></h3>
+                   
+                </div>
       <div class="box-body">
         <!-- First Name -->
         <div class="form-group {{ $errors->has('first_name') ? ' has-error' : '' }}">
@@ -37,16 +40,11 @@
         </div>
 
 
-        @can('self.edit_location')
-        <!-- Location -->
-        @include ('partials.forms.edit.location-profile-select', ['translated_name' => trans('general.location')])
-        @endcan
-
-
+     
         <!-- Language -->
         <div class="form-group {{ $errors->has('locale') ? 'has-error' : '' }}">
           <label class="col-md-3 control-label" for="locale">{{ trans('general.language') }}</label>
-          <div class="col-md-9">
+          <div class="col-md-8">
 
             @if (!config('app.lock_passwords'))
               {!! Form::locales('locale', old('locale', $user->locale), 'select2') !!}
@@ -79,15 +77,15 @@
         </div>
 
         <!-- Website URL -->
-        <div class="form-group {{ $errors->has('website') ? ' has-error' : '' }}">
+        <!--<div class="form-group {{ $errors->has('website') ? ' has-error' : '' }}">
           <label for="website" class="col-md-3 control-label">{{ trans('general.website') }}</label>
           <div class="col-md-8">
             <input class="form-control" type="text" name="website" id="website" value="{{ old('website', $user->website) }}" />
             {!! $errors->first('website', '<span class="alert-msg" aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i> :message</span>') !!}
           </div>
-        </div>
+        </div>-->
 
-        <!-- Gravatar Email -->
+        <!-- Gravatar Email --
         <div class="form-group {{ $errors->has('gravatar') ? ' has-error' : '' }}">
           <label for="gravatar" class="col-md-3 control-label">{{ trans('general.gravatar_email') }}
             <small>(Private)</small>
@@ -100,7 +98,7 @@
               <a href="http://gravatar.com"><small>Change your avatar at Gravatar.com</small></a>.
             </p>
           </div>
-        </div>
+        </div>-->
 
         <!-- Avatar -->
 

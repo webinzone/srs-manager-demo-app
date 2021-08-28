@@ -337,7 +337,7 @@ h4 {
                    
                          @can('create', \App\Models\User::class)
                              <li {!! (Request::is('users/create') ? 'class="active"' : '') !!}>
-                                 <a href="{{ route('users.index') }}" tabindex="-1">
+                                 <a href="{{ route('users.create') }}" tabindex="-1">
                                      <i class="fa fa-user fa-fw" aria-hidden="true"></i>
                                      Add Users
                                  </a>
