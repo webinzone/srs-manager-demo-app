@@ -274,7 +274,7 @@
                       </div> 
                   @endif-->
 
-                <!-- Company -->
+                <!-- Company --> 
                 <div class="form-group" >
                  <div class="col-md-3 mb-3">
                   <label for="name" >Company Id</label>
