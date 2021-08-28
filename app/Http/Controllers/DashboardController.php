@@ -34,6 +34,7 @@ class DashboardController extends Controller
         if (Auth::user()->hasAccess('admin')) {
             
             $asset_stats=null;
+            $staffs = SrsStaff::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
 
             $apps = Appointment::where('status', '=', 'Pending')->orderBy('app_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
             $appois = Appointment::where('status', '=', 'Re-scheduled')->orderBy('resc_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
