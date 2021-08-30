@@ -52,6 +52,52 @@
 
                 <h5 style="color:#980000;font-size: 16px;left: 90px;"><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PART A: for client or client's representative (if applicable)</i></b></h5>
                 <div class="box-body" style="padding-left: 50px;">    
+                     <h5 style="color:#980000;font-size: 16px;"><b>Client  Details</b></h5>
+
+                <div class="form-row">
+                      <div class="col-md-3 mb-3">
+                        <label>Rsident Name</label>                        
+                        <select class="form-control" required="" id="resi_name" name="cfname" style="height: 26px;padding: 3px 10px;">
+                            <option>--   Select Resident Name  --</option>
+                          @foreach($residents as $resident)
+                            <option value="{{ $resident->id }}" {{ $referral->cfname == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
+                          @endforeach
+                        </select>                                      
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Surname:</label>
+                        <input type="text" name="csurname" class="form-control" value="{{ $referral->csurname}}" placeholder="Surname:">                                        
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <label>Date of Birth</label>
+                        <input type="date" name="cdob" id="dob" class="form-control" value="{{ $referral->cdob}}" placeholder="Date of Birth" readonly>                                       
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="cgender">Gender</label>&nbsp;&nbsp;&nbsp;
+                          <input type="text" id="gender" name="cgender" class="form-control" value="{{ $referral->gender}}" placeholder="Gender" readonly>
+                       
+                      </div>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-row">
+                      <div class="col-md-3 mb-3">
+                        <label>Religion</label>
+                        <input type="text" name="creligion" id="rel" class="form-control" value="{{ $referral->creligion}}" placeholder="Religion" readonly>                                        
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Mobile</label>
+                        <input type="tel" name="cph" class="form-control"value="{{ $referral->cph}}" id="ph1" placeholder=" Mobile" readonly>                                        
+                      </div>
+                       <div class="col-md-3 mb-3">
+                        <label>Email ID</label>
+                        <input type="email" name="cemail" id="em1" class="form-control" value="{{ $referral->cemail}}" placeholder="Email ID" readonly>                                       
+                      </div>
+                     
+                      <div class="col-md-3 mb-3">
+                        <label>Current Address</label>
+                        <textarea name="caddress" id="adr" class="form-control" placeholder="Current Address" readonly>{{ $referral->gender}} </textarea>
+                      </div>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>CONSENT TO RELEASE OF INFORMATION</b></h5>
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
@@ -126,52 +172,7 @@
                         <input type="tel" name="ref_ph" class="form-control" value="{{ $referral->ref_ph}}" placeholder="Phone">
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <h5 style="color:#980000;font-size: 16px;"><b>Client  Details</b></h5>
-
-                <div class="form-row">
-                      <div class="col-md-3 mb-3">
-                        <label>Rsident Name</label>                        
-                        <select class="form-control" required="" id="resi_name" name="cfname" style="height: 26px;padding: 3px 10px;">
-                            <option>--   Select Resident Name  --</option>
-                          @foreach($residents as $resident)
-                            <option value="{{ $resident->id }}" {{ $referral->cfname == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
-                          @endforeach
-                        </select>                                      
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label>Surname:</label>
-                        <input type="text" name="csurname" class="form-control" value="{{ $referral->csurname}}" placeholder="Surname:">                                        
-                      </div>
-
-                      <div class="col-md-3 mb-3">
-                        <label>Date of Birth</label>
-                        <input type="date" name="cdob" id="dob" class="form-control" value="{{ $referral->cdob}}" placeholder="Date of Birth" readonly>                                       
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="cgender">Gender</label>&nbsp;&nbsp;&nbsp;
-                          <input type="text" id="gender" name="cgender" class="form-control" value="{{ $referral->gender}}" placeholder="Gender" readonly>
-                       
-                      </div>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="form-row">
-                      <div class="col-md-3 mb-3">
-                        <label>Religion</label>
-                        <input type="text" name="creligion" id="rel" class="form-control" value="{{ $referral->creligion}}" placeholder="Religion" readonly>                                        
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label>Mobile</label>
-                        <input type="tel" name="cph" class="form-control"value="{{ $referral->cph}}" id="ph1" placeholder=" Mobile" readonly>                                        
-                      </div>
-                       <div class="col-md-3 mb-3">
-                        <label>Email ID</label>
-                        <input type="email" name="cemail" id="em1" class="form-control" value="{{ $referral->cemail}}" placeholder="Email ID" readonly>                                       
-                      </div>
-                     
-                      <div class="col-md-3 mb-3">
-                        <label>Current Address</label>
-                        <textarea name="caddress" id="adr" class="form-control" placeholder="Current Address" readonly>{{ $referral->gender}} </textarea>
-                      </div>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             
               <h5 style="color:#980000;font-size: 16px;">[If client is residing in another SRS]</h5>
                 <div class="form-row">
                       <div class="col-md-6 mb-3">

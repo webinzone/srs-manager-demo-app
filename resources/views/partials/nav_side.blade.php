@@ -396,6 +396,12 @@
                           Rent Details
                       </a>
                   </li>
+                  <li>
+                      <a href="/rent" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Rent Reports
+                    </a>
+                  </li>
                 
                 </ul>
               </li>
@@ -409,13 +415,31 @@
             @endcan -->
 
             @can('view', \App\Models\ResidentAgreement::class)
-            <li{!! (Request::is('appointments*') ? ' class="active"' : '') !!}>
-                <a href="{{ route('appointments.index') }}" style="background-color: #222d32;color: #b8c7ce;">
+              <li class="treeview">
+                <a href="#" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-calendar" aria-hidden="true"></i>
-
                   <span style="color: white;">Appointments</span>
+                  <i class="fa fa-angle-left pull-right"></i>
                 </a>
-            </li>
+                <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
+                  <li>
+                      <a href="{{ route('appointments.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Appointments
+                    </a>
+                  </li>
+                  <li>
+                      <a href="/appointment" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Schedule Reports
+                    </a>
+                  </li>
+                
+                 
+                </ul>
+              </li>
+
+        
             @endcan
 
              <li class="treeview">
@@ -437,7 +461,12 @@
                         Evening - Morning
                     </a>
                   </li>
-                  
+                  <li>
+                      <a href="/shiftreports" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Handover Reports
+                    </a>
+                  </li>
                  
                 </ul>
               </li>
@@ -498,8 +527,69 @@
                 </a>
             </li>
             @endcan
-            
             <li class="treeview">
+                <a href="#" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-files-o" aria-hidden="true"></i>
+                  <span style="color: white;">Reports</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
+                  <li>
+                      <a href="/reports" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Resident Reports
+                    </a>
+                  </li>
+                  <li>
+                      <a href="/agreement" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        RSA Reports
+                    </a>
+                  </li>
+                  <li>
+                      <a href="/condition" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Condition Reports
+                    </a>
+                  </li>
+                
+                  <li>
+                      <a href="/referral" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Referal Reports
+                    </a>
+                  </li>
+                
+                  <li>
+                      <a href="/progress" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Progresses
+                    </a>
+                  </li>
+                  <li>
+                      <a href="/supportplan" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Support Plans
+                    </a>
+                  </li>
+                   <li>
+                      <a href="/incident" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Incident Reports
+                    </a>
+                  </li>
+                  <li>
+                      <a href="/generatetransfer" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Transfer Reports
+                    </a>
+                  </li>
+                  
+                 
+                </ul>
+              </li>
+            
+            <!--<li class="treeview">
                 <a href="#" style="background-color: #222d32;color: #b8c7ce;">
                   <i class="fa fa-files-o"></i>                  
                   <span style="color: white;">Reports</span>
@@ -524,12 +614,7 @@
                         Condition Reports
                     </a>
                   </li>
-                  <li>
-                      <a href="/generateAccountReport" style="color: #b8c7ce;" target="_blank">
-                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                        Accounts Reports
-                    </a>
-                  </li>
+                  
                   <li>
                       <a href="/referral" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
@@ -545,7 +630,7 @@
                   <li>
                       <a href="/progress" style="color: #b8c7ce;" >
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                        Progress Reports
+                        Progresses
                     </a>
                   </li>
                   <li>
@@ -579,33 +664,10 @@
                         Appointments 
                     </a>
                   </li>
-                  <!--<li>
-                      <a href="{{ route('handovers.index') }}" style="color: #b8c7ce;">
-                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                        Handover Reports
-                    </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('progresses.index') }}" style="color: #b8c7ce;">
-                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                        Progresses Reports
-                    </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('incidents.index') }}" style="color: #b8c7ce;">
-                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                        Incident Reports
-                    </a>
-                  </li>
-                  <li>
-                      <a href="{{ route('files.index') }}" style="color: #b8c7ce;">
-                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                        File Reports
-                    </a>
-                  </li>-->
+                
                 </ul>
 
-              </li>
+              </li>-->
 
             <!--@can('view', \App\Models\RentDetail::class)
             <li{!! (Request::is('handovers*') ? ' class="active"' : '') !!}>
