@@ -41,8 +41,8 @@ class UserPresenter extends Presenter
                 "searchable" => true,
                 "sortable" => true,
                 "title" => trans('admin/users/table.name'),
-                "visible" => true,
-                "formatter" => "usersLinkFormatter"
+                "visible" => true
+                
             ],
           
             [
@@ -51,8 +51,8 @@ class UserPresenter extends Presenter
                 "sortable" => true,
                 "switchable" => true,
                 "title" => trans('admin/users/table.username'),
-                "visible" => true,
-                "formatter" => "usersLinkFormatter"
+                "visible" => true
+                
             ],
            
             [
