@@ -117,7 +117,7 @@ class TransferRecordsController extends Controller
         
         $transfer_record->save();
 
-        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
         $roomdetails->status = "Free";
       
         $roomdetails->save();

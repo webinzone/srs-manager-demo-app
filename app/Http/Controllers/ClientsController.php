@@ -140,7 +140,7 @@ class ClientsController extends Controller
 
         $clientid = $client_detail->id;
         //$room = $client_detail->room_no;
-        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
         $roomdetails->status = "Booked";
         $roomdetails->client_id = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
         $roomdetails->save();
