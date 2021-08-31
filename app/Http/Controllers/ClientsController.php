@@ -50,7 +50,7 @@ class ClientsController extends Controller
          
         $this->authorize('create');
         $status = "Free";
-        $rooms = RoomDetail::where('status', '=', $status)->get();
+        $rooms = RoomDetail::where('status', '=', $status)->where('location_id', '=', Auth::user()->l_id)->get();
 
         return view('clients/create',compact('rooms'));
     }
