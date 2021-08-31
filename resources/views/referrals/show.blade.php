@@ -162,9 +162,9 @@
       </tr>
       <tr style="border: 1px solid black;">
 
+        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($referral->cdob)) }}</td>
+        <td style="border: 1px solid black;">{{ $referral->cgender}}</td>  
         <td style="border: 1px solid black;">{{ $referral->creligion}}</td>
-        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($referral->cdob)) }}</td>  
-        <td style="border: 1px solid black;">{{ $referral->cgender}}</td>
       </tr>
     </table><br>
     

@@ -47,10 +47,12 @@ class ConditionReportsController extends Controller
     public function create()
     {
         $this->authorize('create',ConditionReport::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+       
+        $residents = ClientDetail::where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
+        //$residents = $resid->where('status', '=', 'Active');
         $companies = CompanyMaster::all();
         $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
-        return view('condition_reports/create',compact('residents','companies','emps'));
+        return view('condition_reports/create',compact('residents','companies','emps','a'));
     }
 
 

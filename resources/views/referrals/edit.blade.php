@@ -75,7 +75,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="cgender">Gender</label>&nbsp;&nbsp;&nbsp;
-                          <input type="text" id="gender" name="cgender" class="form-control" value="{{ $referral->gender}}" placeholder="Gender" readonly>
+                          <input type="text" id="gender" name="cgender" class="form-control" value="{{ $referral->cgender}}" placeholder="Gender" readonly>
                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

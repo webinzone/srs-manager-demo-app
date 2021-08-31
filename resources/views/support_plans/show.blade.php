@@ -55,7 +55,7 @@
       </tr>
       <tr>
         <td>General practitioner Name and contact details</td>
-        <td>{{ $support_plan->gp_name}} &nbsb;&nbsb; {{ $support_plan->gp_contact}}</td>
+        <td>{{ $support_plan->gp_name}} - {{ $support_plan->gp_contact}}</td>
         <td>Other Health Practitioners</td>
         <td>{{ $support_plan->other_gp}}</td>
         <td>Nominated person contact details</td>

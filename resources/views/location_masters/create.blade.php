@@ -52,7 +52,7 @@
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Suburb</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="suburb" class="form-control"  placeholder="Location Id">                                        
+                 <input type="text" name="suburb" class="form-control"  placeholder="Suburb">                                        
                         </div>
                     </div>
                      <div class="form-group ">

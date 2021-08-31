@@ -72,7 +72,7 @@
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Name of person giving this consent) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Name of person being referred)</p>
     <p>connsent for the information collected on the attached SRS Referral Form to be released to the SRS provider who will be providing accommodation and care to:</p>
     <p>Signed............................................................................................................................................
-    <input type="text" name="r_date" id="r_date" class="border-class"  style="width:300px" value="Date:&nbsp;&nbsp;&nbsp; {{ $referral->r_date}}" readonly></p>
+    <input type="text" name="r_date" id="r_date" class="border-class"  style="width:300px" value="Date:&nbsp;&nbsp;&nbsp; {{ date('d-m-Y', strtotime($referral->r_date))}}" readonly></p>
       
 
     <table>
@@ -96,7 +96,7 @@
       <textarea name="appr_becoz" class="border-class" style="width:900px" readonly>{{ $referral->appr_becoz}}</textarea><br>
       <p>Signed............................................................................................................................&nbsp;&nbsp;&nbsp;&nbsp;
         <label>Date</label>&nbsp;&nbsp;
-    <input type="text" name="ref_date" id="ref_date" class="border-class"  style="width:300px" value=" {{ $referral->ref_date}}" readonly></p><br>
+    <input type="text" name="ref_date" id="ref_date" class="border-class"  style="width:300px" value=" {{ date('d-m-Y', strtotime($referral->ref_date))}}" readonly></p><br>
     <label>Position</label>&nbsp;&nbsp;
     <input type="text" name="ref_posi" id="ref_posi" class="border-class"  style="width:300px" value=" {{ $referral->ref_posi}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <label>Agency</label>&nbsp;&nbsp;
@@ -111,7 +111,7 @@
     <h3 style="font-family:Bedrock"><i>Client  Details:</i></h3>
       <input type="text" name="cfname" id="cfname" class="border-class" style="width:400px"  value="First Name:&nbsp;&nbsp;&nbsp;{{ $referral->cfname}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="text" name="csurname" id="csurname" class="border-class" style="width:400px"  value="Surname:&nbsp;&nbsp;&nbsp; {{ $referral->csurname}}" readonly><br><br>
-    <input type="text" name="cdob" id="cdob" class="border-class" style="width:320px"  value="Date of Birth:&nbsp;&nbsp;&nbsp; {{ $referral->cdob}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Gender:</label>&nbsp;&nbsp;&nbsp;{{ $referral->cgender}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="cdob" id="cdob" class="border-class" style="width:320px"  value="Date of Birth:&nbsp;&nbsp;&nbsp; {{ date('d-m-Y', strtotime($referral->cdob))}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Gender:</label>&nbsp;&nbsp;&nbsp;{{ $referral->cgender}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="text" name="creligion" id="creligion" class="border-class" style="width:310px"  value="Religion:&nbsp;&nbsp;&nbsp; {{ $referral->creligion}}" readonly><br><br>
     <input type="text" name="cph" id="cph" class="border-class" style="width:910px"  value="Client Contact details: Mobile:&nbsp;&nbsp;&nbsp;{{ $referral->cph}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email ID: &nbsp;&nbsp;&nbsp;{{ $referral->cemail}}" readonly><br><br>
     <input type="text" name="caddress" id="caddress" class="border-class" style="width:910px"  value="Current Address:&nbsp;&nbsp;&nbsp;{{ $referral->caddress}}" readonly>
@@ -169,9 +169,9 @@
                                 <label><input disabled {{ $referral->pen_type == 'Other' ? 'checked' : ''  }} type="checkbox" name="pen_type" value="Other" readonly> Other</label>&nbsp;&nbsp;</p><br><br>
     <input type="text" name="pen_refno" id="pen_refno" class="border-class" style="width:910px"  value="Client Ref Number:&nbsp;&nbsp;&nbsp;{{ $referral->pen_refno}}" readonly><br><br>
     <input type="text" name="pen_medino" id="pen_medino" class="border-class"  style="width:510px" value="Medicare Number&nbsp;&nbsp;&nbsp; {{ $referral->pen_medino}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="pen_mediexp" id="pen_mediexp" class="border-class"  style="width:300px" value=" Expiry Date &nbsp;&nbsp;&nbsp;{{$referral->pen_mediexp}}" readonly><br><br>
+    <input type="text" name="pen_mediexp" id="pen_mediexp" class="border-class"  style="width:300px" value=" Expiry Date &nbsp;&nbsp;&nbsp;{{date('d-m-Y', strtotime($referral->pen_mediexp))}}" readonly><br><br>
     <input type="text" name="pen_taxi" id="pen_taxi" class="border-class"  style="width:510px" value="Taxi Card Concession Number&nbsp;&nbsp;&nbsp; {{ $referral->pen_taxi}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="pen_taxiexp" id="pen_taxiexp" class="border-class"  style="width:300px" value=" Expiry Date &nbsp;&nbsp;&nbsp;{{$referral->pen_taxiexp}}" readonly><br><br>
+    <input type="text" name="pen_taxiexp" id="pen_taxiexp" class="border-class"  style="width:300px" value=" Expiry Date &nbsp;&nbsp;&nbsp;{{date('d-m-Y', strtotime($referral->pen_taxiexp))}}" readonly><br><br>
     </div><br><br>
 
 
@@ -636,7 +636,7 @@
     <input type="text" name="rel_name" id="rel_name" class="border-class" style="width:270px"  value="Name:&nbsp;&nbsp;&nbsp;{{$referral->rel_name}}" readonly>
     <input type="text" name="rel_pos" id="rel_pos" class="border-class" style="width:270px"  value="Position&nbsp;&nbsp;&nbsp;{{$referral->rel_pos}}" readonly>
     <input type="text" name="rel_org" id="rel_org" class="border-class" style="width:270px"  value="Organisation&nbsp;&nbsp;&nbsp;{{$referral->rel_org}}" readonly><br><br>
-    <p>Signature:.............................................................................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="rel_date" id="rel_date" class="border-class" style="width:340px"  value="Date:&nbsp;&nbsp;&nbsp;{{$referral->rel_date}}" readonly ></p>
+    <p>Signature:.............................................................................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="rel_date" id="rel_date" class="border-class" style="width:340px"  value="Date:&nbsp;&nbsp;&nbsp;{{date('d-m-Y', strtotime($referral->rel_date))}}" readonly ></p>
   </div>
 
 

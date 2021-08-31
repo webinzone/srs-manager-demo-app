@@ -54,7 +54,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
-                        <input type="text" class="form-control" name="gender" id="gender" readonly>             
+                        <input type="text" class="form-control" name="gender" placeholder="gender" id="gender" readonly>             
                         </div>                        
                     </div>
                     <div class="form-group ">
