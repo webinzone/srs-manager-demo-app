@@ -5,6 +5,7 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\RoomDetail;
 use App\Models\ActivityLog;
+use App\Models\Bed;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -78,8 +79,26 @@ class RoomDetailsController extends Controller
         $room_detail->company_id = Auth::user()->c_id  ?? '';
         $room_detail->location_id = Auth::user()->l_id  ?? '';
         $room_detail->user_id =  Auth::user()->id;
-        
+        $bedno = request('beds_no');
+        $num = (int)$bedno;
         $room_detail->save();
+
+        if ($num) {
+           $bed = 'A';
+           for ($i=0; $i < $num ; $i++) { 
+                $bed_detail = new Bed();
+                $bed_detail->room_id = $room_detail->id ?? ' ';
+                $bed_detail->room_no = $room_detail->room_no ?? ' ';
+                $bed_detail->bed_no = $bed ?? ' ';
+                $bed_detail->status = 'Free';
+                $bed_detail->res_name = $room_detail->client_id ?? ' ';
+                $bed_detail->company_id = Auth::user()->c_id  ?? '';
+                $bed_detail->location_id = Auth::user()->l_id  ?? '';
+                $bed_detail->user_id = Auth::user()->id;
+                $bed_detail->save();
+                $bed = ++$bed;
+           }
+        }
        
       $activity = new ActivityLog();
 
@@ -103,7 +122,8 @@ class RoomDetailsController extends Controller
     {
         $this->authorize('show',RoomDetail::class);
         $room_detail = RoomDetail::find($id);
-        return view('room_details/show',compact('room_detail'));
+        $bed_details = Bed::where('room_id', '=', $id)->get();
+        return view('room_details/show',compact('room_detail','bed_details'));
     }
      /**
      * Show the form for editing the specified resource.
@@ -140,7 +160,28 @@ class RoomDetailsController extends Controller
         $room_detail->company_id = Auth::user()->c_id  ?? '';
         $room_detail->location_id = Auth::user()->l_id  ?? '';
         $room_detail->user_id =  Auth::user()->id;
+        $bedno = request('beds_no');
+        $num = (int)$bedno;
         $room_detail->save();
+
+        Bed::where('room_id', '=', $id)->delete();
+
+        if ($num) {
+           $bed = 'A';
+           for ($i=0; $i < $num ; $i++) { 
+                $bed_detail = new Bed();
+                $bed_detail->room_id = $room_detail->id ?? ' ';
+                $bed_detail->room_no = $room_detail->room_no ?? ' ';
+                $bed_detail->bed_no = $bed ?? ' ';
+                $bed_detail->status = 'Free';
+                $bed_detail->res_name = $room_detail->client_id ?? ' ';
+                $bed_detail->company_id = Auth::user()->c_id  ?? '';
+                $bed_detail->location_id = Auth::user()->l_id  ?? '';
+                $bed_detail->user_id = Auth::user()->id;
+                $bed_detail->save();
+                $bed = ++$bed;
+           }
+        }
         
         $activity = new ActivityLog();
 
@@ -163,6 +204,7 @@ class RoomDetailsController extends Controller
     {
         $this->authorize('destroy', RoomDetail::class);
         RoomDetail::destroy($id);
+        Bed::where('room_id', '=', $id)->delete();
         $activity = new ActivityLog();
 
         $activity->user = Auth::user()->first_name;
@@ -172,5 +214,13 @@ class RoomDetailsController extends Controller
         return redirect()->route('room_details.index')
                         ->with('success','deleted successfully');
     }
+
+    public function getBed($id){
+      
+         $st = "Free";
+         return response()->json([
+            'beds' => Bed::where('room_id', '=', $id)->where('status', '=', $st)->get()
+        ]);
+     }
 
 }

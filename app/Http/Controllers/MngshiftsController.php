@@ -52,7 +52,7 @@ class MngshiftsController extends Controller
         $i = 0;
 
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->get();
+        $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
         return view('mngshifts/create',compact('residents','emps','es','ms','date','i'));
     }
 
@@ -65,6 +65,7 @@ class MngshiftsController extends Controller
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function store()
+
     {
         $this->authorize('create',Mngshift::class);
         $mngshift = new Mngshift();
@@ -151,7 +152,7 @@ class MngshiftsController extends Controller
          $i = 0;
         $item_last= count($res_name);
         $num = (int)$item_last;
-        $emps = SrsStaff::orderBy('name')->get();
+        $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
 
         return view('mngshifts/show',compact('mngshift','emps','i','num','res_name','room','notes'));
     }
@@ -172,7 +173,7 @@ class MngshiftsController extends Controller
          $i = 0;
         $item_last= count($res_name);
         $num = (int)$item_last;
-        $emps = SrsStaff::orderBy('name')->get();
+        $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
 
         return view('mngshifts/edit',compact('mngshift','emps','i','num','res_name','room','notes'));
     }

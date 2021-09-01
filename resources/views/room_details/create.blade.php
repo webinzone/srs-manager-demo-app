@@ -44,7 +44,7 @@
 
 					  <div class="col-md-3 mb-3" >
 					    <label for="name" >Room Type</label>
-					    <select class="form-control" style="width: 200px;"  id="type" name="type" style="height: 20px;padding: 3px 10px;">
+					    <select class="form-control" style="width: 200px;"  id="roomtypes" name="type" style="height: 20px;padding: 3px 10px;">
                             <option>--   Select Room Type  --</option>
                          
                           <option value="Single with Ensuite"> Single with Ensuite</option>
@@ -79,7 +79,7 @@
                        
 					    <div class="col-md-3 mb-3 " >
                           <label for="name"  >Room Status</label>
-                        <select name="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                        <select name="status"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="" style="font-size: 14px;">---  Select Status  ---</option> 
                             <option value="Booked" style="font-size: 14px;">Booked</option> 
                             <option value="Free" style="font-size: 14px;">Free</option> 
@@ -87,7 +87,7 @@
                           </div>
                       <div class="col-md-2 mb-3" style="width: 100px;">
 					    <label for="name" >Beds No</label>
-  	                    <input type="text"  name="beds_no" class="form-control" placeholder="No">					        	        
+  	                    <input type="text" id="bed" name="beds_no" class="form-control" placeholder="No" >					        	        
                      </div>&nbsp;&nbsp;
                       <br>
              
@@ -112,6 +112,26 @@
 @stop
 
 @section('moar_scripts')
+<script type="text/javascript">  
+
+$('#roomtypes').change(function () {
+    if ($(this).find('option:selected').text() == 'Sharing Room' || $(this).find('option:selected').text() == 'Sharing Room With Ensuite'){
+      
+         $('#bed').prop('disabled', false);
+        $('#bed').val(" ");
+        
+       
+            
+    } else {
+       
+        $('#bed').prop('disabled', true);
+         $('#bed').val("1");
+    }
+
+});
+
+</script>
+
 @include ('partials.bootstrap-table')
 @stop
 

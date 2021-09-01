@@ -18,6 +18,7 @@ use App\Models\ActivityLog;
 use App\Models\RoomDetail;
 use App\Models\ResidentAgreement;
 
+use App\Models\Bed;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -136,14 +137,36 @@ class ClientsController extends Controller
          $client_detail->location_id = Auth::user()->l_id  ?? '';
 
         $client_detail->user_id =  Auth::user()->id;
+        $bed = request('bed')  ?? ''; 
+        $client_detail->bed_no = $bed;
         $client_detail->save(); 
 
         $clientid = $client_detail->id;
         //$room = $client_detail->room_no;
         $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
-        $roomdetails->status = "Booked";
-        $roomdetails->client_id = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
+        $rrrid = $roomdetails->id;
+        $r_beds = $roomdetails->beds_no;
+
+         $roomdetails->client_id = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
         $roomdetails->save();
+
+        $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $bed)->firstOrFail();
+        $bed_details->status = "Booked";
+        $bed_details->res_name = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
+        $bed_details->save();
+        $booked = "Booked";
+        $bed_det = Bed::where('room_id', '=', $rrrid)->where('status', '=', $booked)->get();
+        $b_count = count($bed_det);
+        $r_count = (int)$r_beds;
+
+        if($b_count == $r_count){
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta->status = "Booked";
+            $roomdeta->save();
+        }
+
+        //$roomdetails->status = "Booked";
+       
 
         //$client_family = new ClientFamily();   
         //$client_family->client_id = $clientid;

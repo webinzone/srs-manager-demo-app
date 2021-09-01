@@ -246,6 +246,15 @@
                       </div>
                       <div class="col-md-3 mb-3">
 
+                        <label for="ref_by">Bed no</label>
+                        
+                         <select class="form-control" required  id="bednos" name="bed" style="height: 26px;padding: 3px 10px;">
+                            <option value="">--Select Bed--</option>
+                            
+                        </select>          
+                      </div>
+                      <div class="col-md-3 mb-3">
+
                         <label for="ref_by">Room Structure</label>
                         <input type="text"  class="form-control" placeholder="Room Type" id="roomtype" name="room_type"   readonly>            
                       </div> 
@@ -254,11 +263,7 @@
                         <input type="text" class="form-control" id="roommmrent" placeholder="Room Rent" name="room_rent"  readonly>            
                       </div>   
                       
-                      <div class="col-md-3 mb-3">
-
-                        <label for="ref_by">Ref By</label>
-                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
-                      </div>
+                      
                         </div>&nbsp;&nbsp;&nbsp;
                         <div class="form-row">                        
                        <div class="col-md-6 mb-3">
@@ -273,10 +278,15 @@
                             <option value="Active" style="font-size: 14px;">Active</option> 
                             <option value="Vaccate" style="font-size: 14px;">Vaccate</option> 
                             <option value="Transfered" style="font-size: 14px;">Transfered</option>
-                        </select>          
+                        </select>    
+
                       </div> 
                     
-                    
+                    <div class="col-md-3 mb-3">
+
+                        <label for="ref_by">Ref By</label>
+                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
+                      </div>
                        
                    
                      
@@ -1267,7 +1277,34 @@ $('#room_no').change(function(){
     });
 });
 </script>
+<script>
+  $('#room_no').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getBed", ":id") }}';
+    url = url.replace(':id', id);
+    output = [];
 
+    $.ajax({
+        url: url,
+        type: 'get',
+        sync: false,
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+          
+                response.beds.forEach(bed =>
+                  output.push(`<option value="${bed.bed_no}" >${bed.bed_no}</option>`)
+                  )
+               
+              $('#bednos').html(output.join(''));
+            }
+            else{
+              alert("error");
+            }
+        }
+    });
+});
+</script>
 
 @include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\BookingPresenter::dataTableLayout()])
 @stop

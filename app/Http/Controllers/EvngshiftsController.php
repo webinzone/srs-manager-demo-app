@@ -138,7 +138,7 @@ class EvngshiftsController extends Controller
          $i = 0;
         $item_last= count($res_name);
         $num = (int)$item_last;
-        $emps = SrsStaff::orderBy('name')->get();
+        $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
         return view('evngshifts/edit',compact('evngshift','emps','res_name','room','notes','num','i'));
     }
     /**

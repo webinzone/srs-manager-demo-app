@@ -29,51 +29,48 @@
 
                 <!-- Asset name -->
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Room No:</label>
+                    <label class="col-sm-5 control-label">Room No:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $room_detail->room_no}}</p>
                     </div>
                 </div>
                <div class="form-group">
-                    <label class="col-sm-3 control-label">Room Type:</label>
+                    <label class="col-sm-5 control-label">Room Type:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $room_detail->type}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Room Rent / Week:</label>
+                    <label class="col-sm-5 control-label">Room Rent / Week:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $room_detail->room_rent}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Client Name:</label>
+                    <label class="col-sm-5 control-label">Client Name:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $room_detail->client_id}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Status:</label>
+                    <label class="col-sm-5 control-label">Status:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $room_detail->status}}</p>
                     </div>
                 </div>
+                <h4>Bed Details</h4>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Bed No:</label>
+                    <label class="col-sm-5 control-label">Bed Nos:</label>
                     <div class="col-md-6">
                         <p class="form-control-static">{{ $room_detail->beds_no}}</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Company Id:</label>
+                    <label class="col-sm-5 control-label">Bed Name & status:</label>
                     <div class="col-md-6">
-                        <p class="form-control-static">{{ $room_detail->company_id}}</p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">Location Id:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $room_detail->location_id}}</p>
+                        @foreach ($bed_details as $bed)
+                        <p class="form-control-static">{{ $bed->bed_no }} - {{ $bed->status}} - {{ $bed->res_name}}</p>
+                        @endforeach
                     </div>
                 </div>
           
