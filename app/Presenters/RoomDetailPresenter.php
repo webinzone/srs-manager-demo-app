@@ -40,12 +40,6 @@ class RoomDetailPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Room Rent / Week')
             ],[
-                "field" => "client_id",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Client Name')
-            ],[
                 "field" => "status",
                 "searchable" => true,
                 "sortable" => true,

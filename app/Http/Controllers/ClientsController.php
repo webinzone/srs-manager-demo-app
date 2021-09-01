@@ -332,6 +332,7 @@ class ClientsController extends Controller
     {
         $client_detail = ClientDetail::find($id);
         $roomid = $client_detail->room_no;
+        $bedno = $client_detail->bed_no;
         $r_no = RoomDetail::where('room_no', '=', $roomid)->firstOrFail();
         $rrid = $r_no->id;
         //$client_family = ClientFamily::where('client_id', '=', $id);
@@ -345,8 +346,8 @@ class ClientsController extends Controller
         $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
         $income = explode(',', $pension_detail->income_type);
         $status = "Free";
-        $rooms = RoomDetail::where('status', '=', $status)->get();
-        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid'));
+        $rooms = RoomDetail::where('status', '=', $status)->where('location_id', '=', Auth::user()->l_id)->get();
+        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid', 'bedno'));
     }
     /**
      * Update the specified resource in storage.
@@ -436,14 +437,33 @@ class ClientsController extends Controller
          $client_detail->location_id = Auth::user()->l_id  ?? '';
          
         $client_detail->user_id =  Auth::user()->id;
+        $bed = request('bed')  ?? ''; 
+        $client_detail->bed_no = $bed;
         $client_detail->save(); 
 
         $clientid = $client_detail->id;
         //$room = $client_detail->room_no;
-        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
-        $roomdetails->status = "Booked";
-        $roomdetails->client_id = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $rrrid = $roomdetails->id;
+        $r_beds = $roomdetails->beds_no;
+
+         $roomdetails->client_id = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
         $roomdetails->save();
+
+        $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $bed)->firstOrFail();
+        $bed_details->status = "Booked";
+        $bed_details->res_name = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
+        $bed_details->save();
+        $booked = "Booked";
+        $bed_det = Bed::where('room_id', '=', $rrrid)->where('status', '=', $booked)->get();
+        $b_count = count($bed_det);
+        $r_count = (int)$r_beds;
+
+        if($b_count == $r_count){
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta->status = "Booked";
+            $roomdeta->save();
+        }
 
         //$client_family = new ClientFamily();   
         //$client_family->client_id = $clientid;

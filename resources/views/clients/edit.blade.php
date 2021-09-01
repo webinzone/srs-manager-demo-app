@@ -241,6 +241,16 @@
                           @endforeach
                         </select>
                       </div> 
+                      <div class="col-md-3 mb-3">
+
+                        <label for="ref_by">Bed no</label>
+                        
+                         <select class="form-control" required  id="bednos" name="bed" style="height: 26px;padding: 3px 10px;">
+                           <option value="{{$bedno}}">{{$bedno}}</option>
+                            <option value="">--Select Bed--</option>
+                            
+                        </select>          
+                      </div>
 
                       <div class="col-md-3 mb-3">
 
@@ -255,11 +265,7 @@
 
 
                       
-                       <div class="col-md-3 mb-3">
-
-                        <label for="ref_by">Ref By</label>
-                        <input type="text" value="{{ $client_detail->ref_by}}" class="form-control" placeholder="Ref By" id="ref_by" name="ref_by"  v-on:change="page_one.ref_by = $event.target.value" >            
-                      </div>  
+                       
                    
                      
                       <!--<div class="col-md-4 mb-3">
@@ -290,7 +296,11 @@
                             <option value="Transfered" {{ $client_detail->status == 'Transfered' ? 'selected' : ''  }} style="font-size: 14px;">Transfered</option>
                         </select>          
                       </div>     
-                        
+                         <div class="col-md-3 mb-3">
+
+                        <label for="ref_by">Ref By</label>
+                        <input type="text" value="{{ $client_detail->ref_by}}" class="form-control" placeholder="Ref By" id="ref_by" name="ref_by"  v-on:change="page_one.ref_by = $event.target.value" >            
+                      </div> 
                       </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                       
@@ -1274,6 +1284,34 @@ $('#room_no').change(function(){
             else{
               alert("error");
  
+            }
+        }
+    });
+});
+</script>
+<script>
+  $('#room_no').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getBed", ":id") }}';
+    url = url.replace(':id', id);
+    output = [];
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        sync: false,
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+          
+                response.beds.forEach(bed =>
+                  output.push(`<option value="${bed.bed_no}" >${bed.bed_no}</option>`)
+                  )
+               
+              $('#bednos').html(output.join(''));
+            }
+            else{
+              alert("error");
             }
         }
     });

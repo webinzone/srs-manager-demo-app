@@ -28,7 +28,6 @@ class RoomDetailsTransformer
                 'room_no' => e($room_detail->room_no),
                 'type' => e($room_detail->type),
                 'room_rent' => e($room_detail->room_rent),
-                'client_id' => e($room_detail->client_id),
                 'status' => e($room_detail->status),
                 'beds_no' => e($room_detail->beds_no),
                 'created_at' => e(date('d-m-Y', strtotime($room_detail->created_at))),
