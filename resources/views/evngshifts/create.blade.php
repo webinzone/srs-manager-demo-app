@@ -103,7 +103,7 @@
                                 <tr>
                                  <td><input type="text" style="width:40px;" value="{{++$i }}" name="id"></td>   
                                 <td><input type="text"  name="res_name[]" value="{{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}"  class="form-control" readonly></td>
-                                <td><input type="text" style="width:70px;"  name="room[]" value="{{$resident->room_no}}"  class="form-control" readonly></td>
+                                <td><input type="text" style="width:70px;"  name="room[]" value="{{$resident->room_no." ".$resident->bed_no}}"  class="form-control" readonly></td>
                                 <td><input type="text"  name="notes[]"  class="form-control" ></td>
                                </tr>
                                @endforeach
