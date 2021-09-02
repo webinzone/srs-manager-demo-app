@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Models\Vaccate;
 use App\Models\ClientDetail;
 use App\Models\RoomDetail;
+use App\Models\Bed;
 
 use App\Models\ActivityLog;
 
@@ -66,6 +67,7 @@ class VaccatesController extends Controller
         $vaccate->res_name  = $name;
         $vaccate->client_id = $id;
         $rroom = request('roomno') ?? '';
+        $bed = $res->bed_no;
         $vaccate->v_date = request('v_date') ?? '';
         $vaccate->address = request('address') ?? '';
         $vaccate->gender = request('gender') ?? '';
@@ -85,10 +87,28 @@ class VaccatesController extends Controller
         
         $vaccate->save();
 
-        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
-        $roomdetails->status = "Free";
-      
-        $roomdetails->save();
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $rrrid = $roomdetails->id;
+        $r_beds = $roomdetails->beds_no;
+
+        $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $bed)->firstOrFail();
+        $bed_details->status = "Free";
+        $bed_details->res_name = " ";
+        $bed_details->save();
+        $booked = "Booked";
+        $bed_det = Bed::where('room_id', '=', $rrrid)->where('status', '=', $booked)->get();
+        $b_count = count($bed_det);
+        $r_count = (int)$r_beds;
+
+        if($b_count == $r_count){
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta->status = "Booked";
+            $roomdeta->save();
+        }else{
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta->status = "Free";
+            $roomdeta->save();
+        }
 
         $ress = ClientDetail::where('id', '=', $id)->firstOrFail();
         $ress->status = "Vaccate";
@@ -148,6 +168,7 @@ class VaccatesController extends Controller
         $name = $res->fname." ".$res->mname." ".$res->lname;
         $vaccate->res_name  = $name;
         $vaccate->client_id = $id;
+        $bed = $res->bed_no;
         $rroom = request('roomno') ?? '';
         $vaccate->v_date = request('v_date') ?? '';
         $vaccate->address = request('address') ?? '';
@@ -168,10 +189,28 @@ class VaccatesController extends Controller
         
         $vaccate->save();
 
-        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->firstOrFail();
-        $roomdetails->status = "Free";
-      
-        $roomdetails->save();
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $rrrid = $roomdetails->id;
+        $r_beds = $roomdetails->beds_no;
+
+        $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $bed)->firstOrFail();
+        $bed_details->status = "Free";
+        $bed_details->res_name = " ";
+        $bed_details->save();
+        $booked = "Booked";
+        $bed_det = Bed::where('room_id', '=', $rrrid)->where('status', '=', $booked)->get();
+        $b_count = count($bed_det);
+        $r_count = (int)$r_beds;
+
+        if($b_count == $r_count){
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta->status = "Booked";
+            $roomdeta->save();
+        }else{
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta->status = "Free";
+            $roomdeta->save();
+        }
 
         $ress = ClientDetail::where('id', '=', $id)->firstOrFail();
         $ress->status = "Vaccate";

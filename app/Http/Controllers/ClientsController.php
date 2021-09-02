@@ -623,6 +623,33 @@ class ClientsController extends Controller
         HealthService::where('client_id', '=', $id)->delete();
         PensionDetail::where('client_id', '=', $id)->delete();
 
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $rroom = $res->room_no;
+        $bed = $res->bed_no;
+
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $rrrid = $roomdetails->id;
+        $r_beds = $roomdetails->beds_no;
+
+        $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $bed)->firstOrFail();
+        $bed_details->status = "Free";
+        $bed_details->res_name = " ";
+        $bed_details->save();
+        $booked = "Booked";
+        $bed_det = Bed::where('room_id', '=', $rrrid)->where('status', '=', $booked)->get();
+        $b_count = count($bed_det);
+        $r_count = (int)$r_beds;
+
+        if($b_count == $r_count){
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta->status = "Booked";
+            $roomdeta->save();
+        }else{
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta->status = "Free";
+            $roomdeta->save();
+        }
+
         $activity = new ActivityLog();
         $activity->user = Auth::user()->first_name;
         $activity->action = "Deleted";
