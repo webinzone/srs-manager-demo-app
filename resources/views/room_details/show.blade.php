@@ -46,12 +46,7 @@
                         <p class="form-control-static">{{ $room_detail->room_rent}}</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-5 control-label">Client Name:</label>
-                    <div class="col-md-6">
-                        <p class="form-control-static">{{ $room_detail->client_id}}</p>
-                    </div>
-                </div>
+                
                 <div class="form-group">
                     <label class="col-sm-5 control-label">Status:</label>
                     <div class="col-md-6">

@@ -611,17 +611,6 @@ class ClientsController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy', ClientDetail::class);
-        ClientDetail::destroy($id);
-        //ClientAllergy::where('client_id', '=', $id)->delete();
-        //ClientFamily::where('client_id', '=', $id)->delete();->delete();
-        //ClientPowerofatony::where('client_id', '=', $id)->delete();->delete();
-        ClientAllergy::where('client_id', '=', $id)->delete();
-        ClientVisitor::where('client_id', '=', $id)->delete();
-        ClientGpdetail::where('client_id', '=', $id)->delete();
-        ClientNextofkin::where('client_id', '=', $id)->delete();
-        GuardianDetail::where('client_id', '=', $id)->delete();
-        HealthService::where('client_id', '=', $id)->delete();
-        PensionDetail::where('client_id', '=', $id)->delete();
 
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
         $rroom = $res->room_no;
@@ -649,6 +638,20 @@ class ClientsController extends Controller
             $roomdeta->status = "Free";
             $roomdeta->save();
         }
+        
+        ClientDetail::destroy($id);
+        //ClientAllergy::where('client_id', '=', $id)->delete();
+        //ClientFamily::where('client_id', '=', $id)->delete();->delete();
+        //ClientPowerofatony::where('client_id', '=', $id)->delete();->delete();
+        ClientAllergy::where('client_id', '=', $id)->delete();
+        ClientVisitor::where('client_id', '=', $id)->delete();
+        ClientGpdetail::where('client_id', '=', $id)->delete();
+        ClientNextofkin::where('client_id', '=', $id)->delete();
+        GuardianDetail::where('client_id', '=', $id)->delete();
+        HealthService::where('client_id', '=', $id)->delete();
+        PensionDetail::where('client_id', '=', $id)->delete();
+
+        
 
         $activity = new ActivityLog();
         $activity->user = Auth::user()->first_name;
