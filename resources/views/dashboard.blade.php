@@ -430,7 +430,7 @@
         <!-- Categories -->
         <div class="box box-default" style="background-color: #BDF5BD;">
             <div class="box-header with-border">
-                <h2 class="box-title">Expired certificates Details </h2>
+                <h2 class="box-title">Expired certificates </h2>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse">
                         <i class="fa fa-minus" aria-hidden="true"></i>

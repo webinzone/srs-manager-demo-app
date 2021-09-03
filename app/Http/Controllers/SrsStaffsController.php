@@ -98,20 +98,21 @@ class SrsStaffsController extends Controller
 
         }
            
-      
+        
         $srs_staff->user_id =  Auth::user()->id;
         
         $srs_staff->save();
 
         $keysOne = array_keys($data1);
         $keysTwo = array_keys($data2);
+        $sid = $srs_staff->id;
 
         $min = min(count($data1), count($data2));
 
         for($i = 0; $i < $min; $i++) {
             $certi = new Certificate();
             $certi->res_name = $srs_staff->name;
-            $certi->res_id = $srs_staff->id;
+            $certi->res_id = $sid;
             $certi->certi_name = $data1[$keysOne[$i]];
             $certi->certi_exp = $data2[$keysTwo[$i]];          
             
@@ -251,7 +252,7 @@ class SrsStaffsController extends Controller
 
             $certi = new Certificate();
             $certi->res_name = $srs_staff->name;
-            $certi->res_id = $srs_staff->id;
+            $certi->res_id = $id;
             $certi->certi_name = $data1[$keysOne[$i]];
             $certi->certi_exp = $data2[$keysTwo[$i]];          
             
