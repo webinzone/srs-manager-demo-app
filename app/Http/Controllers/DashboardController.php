@@ -34,7 +34,7 @@ class DashboardController extends Controller
         if (Auth::user()->hasAccess('admin')) {
             
             $asset_stats=null;
-            $certis = Certificate::where('certi_exp', '<', Carbon::now())->get() ?? '';
+            $certis = Certificate::where('location_id', '=', Auth::user()->l_id)->where('certi_exp', '<', Carbon::now())->get() ?? '';
 
             $apps = Appointment::where('status', '=', 'Pending')->orderBy('app_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
             $appois = Appointment::where('status', '=', 'Re-scheduled')->orderBy('resc_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
