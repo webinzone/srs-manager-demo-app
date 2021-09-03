@@ -52,7 +52,7 @@ class ConditionReportsController extends Controller
         //$residents = $resid->where('status', '=', 'Active');
         $companies = CompanyMaster::all();
         $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
-        return view('condition_reports/create',compact('residents','companies','emps','a'));
+        return view('condition_reports/create',compact('residents','companies','emps'));
     }
 
 
