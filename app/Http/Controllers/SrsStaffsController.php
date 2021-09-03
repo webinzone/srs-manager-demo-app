@@ -5,6 +5,8 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\SrsStaff;
 use App\Models\ActivityLog;
+use App\Models\Certificate;
+use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -75,6 +77,9 @@ class SrsStaffsController extends Controller
         $srs_staff->fi_date = request('fi_date')  ?? '';
         $srs_staff->crime = request('crime')  ?? '';
         $srs_staff->w_child = request('w_child')  ?? '';
+        
+        $data1[] = implode(',', (array) request('quali')) ?? '';
+        $data2[] = implode(',', (array) request('certi_exp')) ?? '';
 
         $srs_staff->item_no = implode(',', (array) request('item_no')) ?? '';
         $srs_staff->quali = implode(',', (array) request('quali')) ?? '';
@@ -97,6 +102,26 @@ class SrsStaffsController extends Controller
         $srs_staff->user_id =  Auth::user()->id;
         
         $srs_staff->save();
+
+        $keysOne = array_keys($data1);
+        $keysTwo = array_keys($data2);
+
+        $min = min(count($data1), count($data2));
+
+        for($i = 0; $i < $min; $i++) {
+            $certi = new Certificate();
+            $certi->res_name = $srs_staff->name;
+            $certi->res_id = $srs_staff->id;
+            $certi->certi_name = $data1[$keysOne[$i]];
+            $certi->certi_exp = $data2[$keysTwo[$i]];          
+            
+            $certi->user_id =  Auth::user()->id;
+            $certi->company_id = Auth::user()->c_id  ?? '';
+            $certi->location_id = Auth::user()->l_id  ?? '';
+
+             $certi->save();
+
+        }
        
       $activity = new ActivityLog();
 
@@ -188,6 +213,9 @@ class SrsStaffsController extends Controller
         $srs_staff->crime = request('crime')  ?? '';
         $srs_staff->w_child = request('w_child')  ?? '';
 
+        $data1[] = implode(',', (array) request('quali')) ?? '';
+        $data2[] = implode(',', (array) request('certi_exp')) ?? '';
+
         $srs_staff->item_no = implode(',', (array) request('item_no')) ?? '';
         $srs_staff->quali = implode(',', (array) request('quali')) ?? '';
         $srs_staff->qop_date = implode(',', (array) request('qop_date')) ?? '';
@@ -211,6 +239,30 @@ class SrsStaffsController extends Controller
         $srs_staff->user_id =  Auth::user()->id;
         
         $srs_staff->save();
+
+        Certificate::where('res_id', '=', $id)->delete();
+
+        $keysOne = array_keys($data1);
+        $keysTwo = array_keys($data2);
+
+        $min = min(count($data1), count($data2));
+
+        for($i = 0; $i < $min; $i++) {
+
+            $certi = new Certificate();
+            $certi->res_name = $srs_staff->name;
+            $certi->res_id = $srs_staff->id;
+            $certi->certi_name = $data1[$keysOne[$i]];
+            $certi->certi_exp = $data2[$keysTwo[$i]];          
+            
+            $certi->user_id =  Auth::user()->id;
+            $certi->company_id = Auth::user()->c_id  ?? '';
+            $certi->location_id = Auth::user()->l_id  ?? '';
+
+             $certi->save();
+
+        }
+
         $activity = new ActivityLog();
 
         $activity->user = Auth::user()->first_name;
@@ -231,6 +283,8 @@ class SrsStaffsController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy', SrsStaff::class);
+        Certificate::where('res_id', '=', $id)->delete();
+
         SrsStaff::destroy($id);
         $activity = new ActivityLog();
 
@@ -247,6 +301,12 @@ class SrsStaffsController extends Controller
         $file = public_path().'/certificates/'.$file_name;
         $headers = array('Content-Type: application/pdf',);
         return Response::download($file,$file_name,$headers);
+    }
+
+    public function certiExp(){
+
+        $certis = Certificate::where('location_id', '=', Auth::user()->l_id)->where('certi_exp', '<', Carbon::now())->get() ?? '';
+        return view('srs_staffs/certi_exp',compact('certis'));
     }
 
 

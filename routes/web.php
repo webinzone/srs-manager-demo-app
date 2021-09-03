@@ -23,6 +23,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('location_masters','LocationMastersController'); 
     Route::resource('company_masters','CompanyMastersController');  
     Route::resource('beds','BedsController'); 
+    Route::resource('certificates','CertificatesController'); 
+
     Route::get('get/bed/{id}', 'RoomDetailsController@getBed')->name('getBed');   
 
     Route::get('/search/', 'IncidentsController@search')->name('search');
@@ -54,7 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('vaccates','VaccatesController');
     Route::resource('rents','RentsController');
 
-
+    Route::get('/expired','SrsStaffsController@certiExp');
 
     Route::post('formSubmit','ClientsController@store');
     //Route::get('generate-pdf','ClientsController@generatePDF');

@@ -424,6 +424,72 @@
     </div>
     
 </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- Categories -->
+        <div class="box box-default" style="background-color: #BDF5BD;">
+            <div class="box-header with-border">
+                <h2 class="box-title">Expired certificates Details </h2>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                        <span class="sr-only">Collapse</span>
+                    </button>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                        <table
+                                data-columns=""
+                                data-cookie-id-table="dashCategorySummary"
+                                data-height="400"
+                                data-pagination="true"
+                                data-side-pagination="server"
+                                data-sort-order="desc"
+                                data-sort-field="assets_count"
+                                id="dashCategorySummary"
+                                class="table table-striped snipe-table"
+                                data-url="">
+
+                          <thead>
+                            <tr>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Staff Name </th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Certificate Name</th>
+                                <th class="col-sm-3" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Expired date</th>
+                            
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($certis as $certi)
+                              <tr>
+                                <td>{{ $certi->res_name}}</td>
+                                <td>{{ $certi->certi_name}}</td>
+                                <td>{{ date('d-m-Y', strtotime($certi->certi_exp))}}</td>
+                              </tr>
+                            @endforeach
+                            
+                          </tbody>
+                          
+
+
+                            
+                        </table>
+                        </div>
+                    </div> <!-- /.col -->
+                    <div class="col-md-12 text-center" style="padding-top: 10px;">
+                        <a href="/expired" class="btn btn-primary btn-sm" style="width: 100%">view all</a>
+                    </div>
+                </div> <!-- /.row -->
+
+            </div><!-- /.box-body -->
+        </div> <!-- /.box -->
+    </div>
+       
+</div>
 @endif
 
 
