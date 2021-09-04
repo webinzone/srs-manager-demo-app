@@ -484,8 +484,8 @@
                 <div class="form-row">
                       <div class="col-md-12 mb-3">
                         <label>Behaviour List any behaviour Self-harm</label><br>
-                            <label><input  type="checkbox" name="behav_harm" value="Smoking"> Smoking</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="behav_harm" value="Self-Motivation"> Self-Motivation</label>&nbsp;&nbsp;
+                            <label><input  type="checkbox"  name="behav_harm" value="Smoking"> Smoking</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox"  name="behav_harm" value="Self-Motivation"> Self-Motivation</label>&nbsp;&nbsp;
                                 <label><input  type="checkbox" name="behav_harm" value="Capacity for cooperation"> Capacity for cooperation</label>&nbsp;&nbsp;
                                 <label><input  type="checkbox" name="behav_harm" value="Physical aggression"> Physical aggression</label>&nbsp;&nbsp;  
                                 <label><input  type="checkbox" name="behav_harm" value="Wandering"> Wandering</label>&nbsp;&nbsp;
@@ -528,163 +528,163 @@
                   <td>1</td>
                   <td>Have you been told by a doctor or other health professional that you have a health condition (eg breathing problems, a cancer, heart problems, chronic kidney disease, diabetes, high biood pressure, arthritis, osteoporosis or other condition)?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med1" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med1" onclick="findselected11();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med1" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med1_det" style="height:70px;"></td>
+                    <input type="radio" name="med1"  onclick="findselected11();" value="NO" /></td>
+                  <td><input type="text" id="f1" name="med1_det" style="height:70px;"></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Have you recently had problems with your teeth, mouth, gums or dentures?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med2" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med2" onclick="findselected12();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med2" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med2_det"></td>
+                    <input type="radio" name="med2" onclick="findselected12();" value="NO" /></td>
+                  <td><input type="text" id="f2" name="med2_det"></td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>Are you concerned about your medications?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med3" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med3" onclick="findselected13();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med3" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med3_det"></td>
+                    <input type="radio" name="med3" onclick="findselected13();" value="NO" /></td>
+                  <td><input type="text" id="f33" name="med3_det"></td>
                 </tr>
                 <tr>
                   <td>4</td>
                   <td>Are you concerned about your lack of physical activity?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med4" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med4" onclick="findselected14();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med4" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med4_det"></td>
+                    <input type="radio" name="med4" onclick="findselected14();" value="NO" /></td>
+                  <td><input type="text" id="f4" name="med4_det"></td>
                 </tr>
                 <tr>
                   <td>5</td>
                   <td>Are you concerned about your weight?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med5" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med5" onclick="findselected15();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med5" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med5_det"></td>
+                    <input type="radio" name="med5" onclick="findselected15();" value="NO" /></td>
+                  <td><input type="text" id="f5" name="med5_det"></td>
                 </tr>
                 <tr>
                   <td>6</td>
                   <td>Have you recently lost weight without trying?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med6" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med6" onclick="findselected16();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med6" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med6_det"></td>
+                    <input type="radio" name="med6" onclick="findselected16();" value="NO" /></td>
+                  <td><input type="text" id="f66" name="med6_det"></td>
                 </tr>
                 <tr>
                   <td>7</td>
                   <td>Do currently smoke tobacco?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med7" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med7" onclick="findselected17();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med7" onclick="findselected5();" value="NO" /></td>
+                    <input type="radio" name="med7" onclick="findselected17();" value="NO" /></td>
                   <td><input type="text" id="f7" name="med7_det"></td>
                 </tr>
                 <tr>
                   <td>8</td>
                   <td>Have you quit smoking tobacco in the last 5 years?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med8" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med8" onclick="findselected18();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med8" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med8_det"></td>
+                    <input type="radio" name="med8" onclick="findselected18();" value="NO" /></td>
+                  <td><input type="text" id="f8" name="med8_det"></td>
                 </tr>
                 <tr>
                   <td>9</td>
                   <td>Are you concerned about how much alcohol you drink?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med9" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med9" onclick="findselected19();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med9" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med9_det"></td>
+                    <input type="radio" name="med9" onclick="findselected19();" value="NO" /></td>
+                  <td><input type="text" id="f9" name="med9_det"></td>
                 </tr>
                 <tr>
                   <td>10</td>
                   <td>Are you concerned about your use of drugs?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med10" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med10" onclick="findselected20();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med10" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med10_det"></td>
+                    <input type="radio" name="med10" onclick="findselected20();" value="NO" /></td>
+                  <td><input type="text" id="f10" name="med10_det"></td>
                 </tr>
                 <tr>
                   <td>11</td>
                   <td>Are you concerned about your gambling?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med11" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med11" onclick="findselected21();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med11" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med11_det"></td>
+                    <input type="radio" name="med11" onclick="findselected21();" value="NO" /></td>
+                  <td><input type="text" id="f11" name="med11_det"></td>
                 </tr>
                 <tr>
                   <td>12</td>
                   <td>Is your financial situation very difficult?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med12" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med12" onclick="findselected22();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med12" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med12_det"></td>
+                    <input type="radio" name="med12" onclick="findselected22();" value="NO" /></td>
+                  <td><input type="text" id="f12" name="med12_det"></td>
                 </tr>
                 <tr>
                   <td>13</td>
                   <td>Do you often feel sad or depressed?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med13" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med13" onclick="findselected23();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med13" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med13_det"></td>
+                    <input type="radio" name="med13" onclick="findselected23();" value="NO" /></td>
+                  <td><input type="text" id="f13" name="med13_det"></td>
                 </tr>
                 <tr>
                   <td>14</td>
                   <td>Do you often feel nervous or anxious?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med14" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med14" onclick="findselected24();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med14" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med14_det"></td>
+                    <input type="radio" name="med14" onclick="findselected24();" value="NO" /></td>
+                  <td><input type="text" id="f14" name="med14_det"></td>
                 </tr>
                 <tr>
                   <td>15</td>
                   <td>Have you felt afraid of someone who controls or hurts you?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med15" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med15" onclick="findselected25();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med15" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med315det"></td>
+                    <input type="radio" name="med15" onclick="findselected25();" value="NO" /></td>
+                  <td><input type="text" id="f15" name="med315det"></td>
                 </tr>
                 <tr>
                   <td>16</td>
                   <td>Are you homeless or at risk of homelessness?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med16" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med16" onclick="findselected26();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med16" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med16_det"></td>
+                    <input type="radio" name="med16" onclick="findselected26();" value="NO" /></td>
+                  <td><input type="text" id="f16" name="med16_det"></td>
                 </tr>
                 <tr>
                   <td>17</td>
                   <td>Would you rate your health as poor?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med17" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med17" onclick="findselected27();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med17" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med17_det"></td>
+                    <input type="radio" name="med17" onclick="findselected27();" value="NO" /></td>
+                  <td><input type="text" id="f17" name="med17_det"></td>
                 </tr>
                 <tr>
                   <td>18</td>
                   <td>Would you rate your life circumstances as poor?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med18" onclick="findselected5();" value="YES" /> </td>
+                    <input type="radio" name="med18" onclick="findselected28();" value="YES" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="med18" onclick="findselected5();" value="NO" /></td>
-                  <td><input type="text" id="f7" name="med18_det"></td>
+                    <input type="radio" name="med18" onclick="findselected28();" value="NO" /></td>
+                  <td><input type="text" id="f18" name="med18_det"></td>
                 </tr>
                 </table>
               </div>
@@ -703,92 +703,92 @@
                   <tr>
                   <td>Eating/d rinking/diet</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p1" onclick="findselected5();" value="No Assistance" /> </td>
+                    <input type="radio" name="p1" onclick="findselected5();" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p1" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p1" onclick="findselected5();" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p1" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p1" onclick="findselected5();" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Mobility</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p2" onclick="findselected5();" value="No Assistance" /> </td>
+                    <input type="radio" name="p2" onclick="findselected5();" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p2" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p2" onclick="findselected5();" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p2" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p2" onclick="findselected5();" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Showering/bathing</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p3" onclick="findselected5();" value="No Assistance" /> </td>
+                    <input type="radio" name="p3" onclick="findselected5();" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p3" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p3" onclick="findselected5();" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p3" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p3" onclick="findselected5();" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Shaving/grooming</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p4" onclick="findselected5();" value="No Assistance" /> </td>
+                    <input type="radio" name="p4" onclick="findselected5();" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p4" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p4" onclick="findselected5();" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p4" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p4" onclick="findselected5();" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Dressing</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="5" onclick="findselected5();" value="No Assistance" /> </td>
+                    <input type="radio" name="5" onclick="findselected5();" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="5" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="5" onclick="findselected5();" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="5" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="5" onclick="findselected5();" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Dental hygiene</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p6" onclick="findselected5();" value="No Assistance" /> </td>
+                    <input type="radio" name="p6" onclick="findselected5();" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p6" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p6" onclick="findselected5();" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p6" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p6" onclick="findselected5();" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Toileting</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p7" onclick="findselected5();" value="No Assistance" /> </td>
+                    <input type="radio" name="p7" onclick="findselected5();" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p7" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p7" onclick="findselected5();" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p7" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p7" onclick="findselected5();" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Foot care/nail care</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p8" onclick="findselected5();" value="No Assistance" /> </td>
+                    <input type="radio" name="p8" onclick="findselected5();" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p8" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p8" onclick="findselected5();" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p8" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p8" onclick="findselected5();" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Laundry</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p9" onclick="findselected5();" value="No Assistance" /> </td>
+                    <input type="radio" name="p9" onclick="findselected5();" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p9" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p9" onclick="findselected5();" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p9" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p9" onclick="findselected5();" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Housekeeping</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p10" onclick="findselected5();" value="No Assistance" /> </td>
+                    <input type="radio" name="p10" onclick="findselected5();" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p10" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p10" onclick="findselected5();" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" name="p10" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p10" onclick="findselected5();" value="Active Assistance" /></td>
                 </tr>
                 </table>
               </div>
@@ -800,22 +800,22 @@
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label>Mobility</label><br>
-                            <label><input  type="checkbox" name="a1" value="Stick"> Stick</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="a1" value="Frame"> Frame</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="a1" value="Wheelchair"> Wheelchair</label><br>
-                                <label><input  type="checkbox" name="a1" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
+                            <label><input  type="radio" name="a1" value="Stick"> Stick</label>&nbsp;&nbsp;
+                                <label><input  type="radio" name="a1" value="Frame"> Frame</label>&nbsp;&nbsp;
+                                <label><input  type="radio" name="a1" value="Wheelchair"> Wheelchair</label><br>
+                                <label><input  type="radio" name="a1" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Communication</label><br>
-                            <label><input  type="checkbox" name="a2" value="Glasses"> Glasses</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="a2" value="Hearing Aid"> Hearing Aid</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="a2" value="Interpreter"> Interpreter</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="a2" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
+                            <label><input  type="radio" name="a2" value="Glasses"> Glasses</label>&nbsp;&nbsp;
+                                <label><input  type="radio" name="a2" value="Hearing Aid"> Hearing Aid</label>&nbsp;&nbsp;
+                                <label><input  type="radio" name="a2" value="Interpreter"> Interpreter</label>&nbsp;&nbsp;
+                                <label><input  type="radio" name="a2" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
                       </div>
                        <div class="col-md-4 mb-3">
                         <label>Other</label><br>
-                        <label><input type="checkbox"  name="a3" value="Dentures" />&nbsp;&nbsp;Dentures</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" name="a3" value="Continence aids" />&nbsp;&nbsp;Continence aids</label>
+                        <label><input type="radio"  name="a3" value="Dentures" />&nbsp;&nbsp;Dentures</label>&nbsp;&nbsp;
+                            <label><input type="radio" name="a3" value="Continence aids" />&nbsp;&nbsp;Continence aids</label>
                        </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
@@ -831,13 +831,13 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Is the client able to access public transport?</label><br>
-                            <label><input  type="checkbox" name="public_trans" value="Yes"> Yes</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="public_trans" value="No"> No</label>&nbsp;&nbsp;
+                            <label><input  type="radio" name="public_trans" value="Yes"> Yes</label>&nbsp;&nbsp;
+                                <label><input  type="radio" name="public_trans" value="No"> No</label>&nbsp;&nbsp;
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Is the client able to make and keep appointments?</label><br>
-                            <label><input  type="checkbox" name="app_keep" value="Yes"> Yes</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="app_keep" value="No"> No</label>&nbsp;&nbsp;
+                            <label><input  type="radio" name="app_keep" value="Yes"> Yes</label>&nbsp;&nbsp;
+                                <label><input  type="radio" name="app_keep" value="No"> No</label>&nbsp;&nbsp;
                       </div>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1234,19 +1234,213 @@ $('#resi_name').change(function(){
     });
 });
 </script>
+
+
 <script type="text/javascript">
-  function onlyOne(checkbox) {
-    var checkboxes = document.getElementsByName('bath')
-    checkboxes.forEach((item) => {
-        if (item !== checkbox) item.checked = false
-    })
+  function findselected11() { 
+
+    var result = document.querySelector('input[name="med1"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f1").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f1").removeAttribute('disabled', false);
+    }
+}
+function findselected12() { 
+
+    var result = document.querySelector('input[name="med2"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f2").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f2").removeAttribute('disabled', false);
+    }
+}
+function findselected13() { 
+
+    var result = document.querySelector('input[name="med3"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f33").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f33").removeAttribute('disabled', false);
+    }
+}
+function findselected14() { 
+
+    var result = document.querySelector('input[name="med4"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f4").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f4").removeAttribute('disabled', false);
+    }
+}
+function findselected15() { 
+
+    var result = document.querySelector('input[name="med5"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f5").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f5").removeAttribute('disabled', false);
+    }
+}
+function findselected16() { 
+
+    var result = document.querySelector('input[name="med6"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f66").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f66").removeAttribute('disabled', false);
+    }
+}
+function findselected17() { 
+
+    var result = document.querySelector('input[name="med7"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f7").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f7").removeAttribute('disabled', false);
+    }
+}
+function findselected18() { 
+
+    var result = document.querySelector('input[name="med8"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f8").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f8").removeAttribute('disabled', false);
+    }
+}
+function findselected19() { 
+
+    var result = document.querySelector('input[name="med9"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f9").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f9").removeAttribute('disabled', false);
+    }
+}
+function findselected20() { 
+
+    var result = document.querySelector('input[name="med10"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f10").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f10").removeAttribute('disabled', false);
+    }
+}
+function findselected21() { 
+
+    var result = document.querySelector('input[name="med11"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f11").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f11").removeAttribute('disabled', false);
+    }
+}
+function findselected22() { 
+
+    var result = document.querySelector('input[name="med12"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f12").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f12").removeAttribute('disabled', false);
+    }
+}
+function findselected23() { 
+
+    var result = document.querySelector('input[name="med13"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f13").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f13").removeAttribute('disabled', false);
+    }
+}
+function findselected24() { 
+
+    var result = document.querySelector('input[name="med14"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f14").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f14").removeAttribute('disabled', false);
+    }
+}
+function findselected25() { 
+
+    var result = document.querySelector('input[name="med15"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f15").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f15").removeAttribute('disabled', false);
+    }
+}
+function findselected26() { 
+
+    var result = document.querySelector('input[name="med16"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f16").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f16").removeAttribute('disabled', false);
+    }
+}
+function findselected27() { 
+
+    var result = document.querySelector('input[name="med17"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f17").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f17").removeAttribute('disabled', false);
+    }
+}
+function findselected28() { 
+
+    var result = document.querySelector('input[name="med18"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f18").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f18").removeAttribute('disabled', false);
+    }
 }
 </script>
+
 <script type="text/javascript">
   $('input[type="checkbox"]').on('change', function() {
     $('input[name="' + this.name + '"]').not(this).prop('checked', false);
 });
 </script>
-
 @include ('partials.bootstrap-table')
 @stop

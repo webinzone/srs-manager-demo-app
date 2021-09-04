@@ -224,11 +224,11 @@
             </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <div class="abc">
     <label>Does client have the medication with her/him?</label>
-                        <input type="radio" disabled  {{ $referral->c_medi == 'Y' ? 'checked' : ''  }} id="c_medi" onchange="findselected();" value="Y" name="c_medi" readonly>&nbsp;&nbsp;&nbsp;Y&nbsp;&nbsp;&nbsp;
-                        <input type="radio" disabled {{ $referral->c_medi == 'N' ? 'checked' : ''  }} id="c_medi" value="N" onchange="findselected();" name="c_medi" readonly>&nbsp;&nbsp;&nbsp;N&nbsp;&nbsp;&nbsp;<br><br>
+                        <input type="radio" disabled  {{ $referral->c_medi == 'Yes' ? 'checked' : ''  }} id="c_medi" onchange="findselected();" value="Yes" name="c_medi" readonly>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" disabled {{ $referral->c_medi == 'No' ? 'checked' : ''  }} id="c_medi" value="No" onchange="findselected();" name="c_medi" readonly>&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;<br><br>
     <label>Is the client able to administer own medication?</label>
-                      <input type="radio" disabled {{ $referral->c_ownmedi == 'Y' ? 'checked' : ''  }} id="c_ownmedi" onchange="findselected();" value="Y" name="c_ownmedi" readonly>&nbsp;&nbsp;&nbsp;Y&nbsp;&nbsp;&nbsp;
-                        <input type="radio" disabled {{ $referral->c_ownmedi == 'N' ? 'checked' : ''  }} id="c_ownmedi" value="N" onchange="findselected();" name="c_ownmedi" readonly>&nbsp;&nbsp;&nbsp;N&nbsp;&nbsp;&nbsp;<br><br>
+                      <input type="radio" disabled {{ $referral->c_ownmedi == 'Yes' ? 'checked' : ''  }} id="c_ownmedi" onchange="findselected();" value="Yes" name="c_ownmedi" readonly>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" disabled {{ $referral->c_ownmedi == 'No' ? 'checked' : ''  }} id="c_ownmedi" value="No" onchange="findselected();" name="c_ownmedi" readonly>&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;<br><br>
     <p>Please specify any anticipated side effects of medication:</p>
     <textarea name="c_medisideeffect" class="border-class" style="width:900px" readonly>{{ $referral->c_medisideeffect}}</textarea><br>
   </div><br>
@@ -585,7 +585,7 @@
                         <label>Other</label>&nbsp;&nbsp;&nbsp;
                         <label><input type="checkbox" disabled onchange="findselected5();" {{ $referral2->a3 == 'Dentures' ? 'checked' : ''  }} name="a3" value="Dentures" readonly/>&nbsp;&nbsp;Dentures</label>&nbsp;&nbsp;
                             <label><input type="checkbox" disabled onchange="findselected5();" {{ $referral2->a3 == 'Continence aids' ? 'checked' : ''  }} name="a3" value="Continence aids" readonly/>&nbsp;&nbsp;Continence aids</label>&nbsp;&nbsp;<br><br>     
-    <textarea name="a_comments" class="border-class" style="width:900px">Comments&nbsp;&nbsp;{{ $referral->a_comments}}</textarea><br><br>                
+    <textarea name="a_comments" class="border-class" style="width:900px" readonly>Comments&nbsp;&nbsp;{{ $referral2->a_comments}}</textarea><br><br>                
    </div><br><br>
    <div class="abc">
     <p><i>Community Living Skills</i><br>
@@ -598,34 +598,34 @@
   </p>
   <label><i>Recreation/ Socialization</i><br>
   If the client attends any community based social activities, please provide details:</label><br><br>
-  <textarea name="social_activity" class="border-class" style="width:900px" readonly>{{ $referral->social_activity}}</textarea><br><br>                
+  <textarea name="social_activity" class="border-class" style="width:900px" readonly>{{ $referral2->social_activity}}</textarea><br><br>                
  </div>
  <div class="abc">
  <p>If the client has interests or hobbies, please provide details:</p>
- <textarea name="hobbies" class="border-class" style="width:900px" readonly>{{ $referral->hobbies}}</textarea><br><br> 
+ <textarea name="hobbies" class="border-class" style="width:900px" readonly>{{ $referral2->hobbies}}</textarea><br><br> 
 </div><br><br>
 <div class="abc">
    <p><i>Relevant Health and Community Services:</i></p>
    <label>If the client has a case manager:</label><br>
-    <input type="text" name="case_name" id="case_name" class="border-class" style="width:420px"  value="Name:&nbsp;&nbsp;&nbsp;{{$referral->case_name}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="case_org" id="case_org" class="border-class" style="width:420px"  value="Organisation: &nbsp;&nbsp;&nbsp;{{ $referral->case_org}}"  readonly><br><br>
-    <input type="text" name="case_email" id="case_email" class="border-class"  style="width:560px" value="Email ID:&nbsp;&nbsp;&nbsp; {{ $referral->case_email}}"  readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="case_ph" id="case_ph" class="border-class"  style="width:290px" value=" Phone:&nbsp;&nbsp;&nbsp; {{$referral->case_ph}}" readonly><br><br>
-    <input type="text" name="case_addr" id="case_addr" class="border-class" style="width:905px"  value="Address:&nbsp;&nbsp;&nbsp;{{ $referral->case_addr}}" readonly><br><br><br><br>
+    <input type="text" name="case_name" id="case_name" class="border-class" style="width:420px"  value="Name:&nbsp;&nbsp;&nbsp;{{$referral2->case_name}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="case_org" id="case_org" class="border-class" style="width:420px"  value="Organisation: &nbsp;&nbsp;&nbsp;{{ $referral2->case_org}}"  readonly><br><br>
+    <input type="text" name="case_email" id="case_email" class="border-class"  style="width:560px" value="Email ID:&nbsp;&nbsp;&nbsp; {{ $referral2->case_email}}"  readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="case_ph" id="case_ph" class="border-class"  style="width:290px" value=" Phone:&nbsp;&nbsp;&nbsp; {{$referral2->case_ph}}" readonly><br><br>
+    <input type="text" name="case_addr" id="case_addr" class="border-class" style="width:905px"  value="Address:&nbsp;&nbsp;&nbsp;{{ $referral2->case_addr}}" readonly><br><br><br><br>
 
    <label>If the client currently accesses other services, please provide details:</label><br>
-    <input type="text" name="serv_per" id="serv_per" class="border-class" style="width:420px"  value="Contact person:&nbsp;&nbsp;&nbsp;{{$referral->serv_per}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="serv_org" id="serv_org" class="border-class" style="width:420px"  value="Organisation: &nbsp;&nbsp;&nbsp;{{ $referral->serv_org}}" readonly><br><br>
-    <input type="text" name="serv_adr" id="serv_adr" class="border-class" style="width:905px"  value="Address:&nbsp;&nbsp;&nbsp;{{ $referral->serv_adr}}" readonly><br><br>
-    <input type="text" name="serv_email" id="serv_email" class="border-class"  style="width:560px" value="Email ID: &nbsp;&nbsp;&nbsp;{{ $referral->serv_email}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="serv_ph" id="serv_ph" class="border-class"  style="width:290px" value=" Phone:&nbsp;&nbsp;&nbsp; {{$referral->serv_ph}}" readonly><br><br><br><br>
+    <input type="text" name="serv_per" id="serv_per" class="border-class" style="width:420px"  value="Contact person:&nbsp;&nbsp;&nbsp;{{$referral2->serv_per}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="serv_org" id="serv_org" class="border-class" style="width:420px"  value="Organisation: &nbsp;&nbsp;&nbsp;{{ $referral2->serv_org}}" readonly><br><br>
+    <input type="text" name="serv_adr" id="serv_adr" class="border-class" style="width:905px"  value="Address:&nbsp;&nbsp;&nbsp;{{ $referral2->serv_adr}}" readonly><br><br>
+    <input type="text" name="serv_email" id="serv_email" class="border-class"  style="width:560px" value="Email ID: &nbsp;&nbsp;&nbsp;{{ $referral2->serv_email}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="serv_ph" id="serv_ph" class="border-class"  style="width:290px" value=" Phone:&nbsp;&nbsp;&nbsp; {{$referral2->serv_ph}}" readonly><br><br><br><br>
 
     <label>If the client has been referred to additional services, please provide details:</label><br>
-    <input type="text" name="addserv_per" id="addserv_per" class="border-class" style="width:420px"  value="Contact person:&nbsp;&nbsp;&nbsp;{{$referral->addserv_per}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="addserv_org" id="addserv_org" class="border-class" style="width:420px"  value="Organisation:&nbsp;&nbsp;&nbsp; {{ $referral->addserv_org}}" readonly><br><br>
-    <input type="text" name="addserv_adr" id="addserv_adr" class="border-class" style="width:905px"  value="Address:&nbsp;&nbsp;&nbsp;{{ $referral->addserv_adr}}" readonly><br><br>
-    <input type="text" name="addserv_email" id="addserv_email" class="border-class"  style="width:560px" value="Email ID:&nbsp;&nbsp;&nbsp; {{ $referral->addserv_email}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="addserv_ph" id="addserv_ph" class="border-class"  style="width:290px" value=" Phone:&nbsp;&nbsp;&nbsp; {{$referral->addserv_ph}}" readonly><br><br>
+    <input type="text" name="addserv_per" id="addserv_per" class="border-class" style="width:420px"  value="Contact person:&nbsp;&nbsp;&nbsp;{{$referral2->addserv_per}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="addserv_org" id="addserv_org" class="border-class" style="width:420px"  value="Organisation:&nbsp;&nbsp;&nbsp; {{ $referral2->addserv_org}}" readonly><br><br>
+    <input type="text" name="addserv_adr" id="addserv_adr" class="border-class" style="width:905px"  value="Address:&nbsp;&nbsp;&nbsp;{{ $referral2->addserv_adr}}" readonly><br><br>
+    <input type="text" name="addserv_email" id="addserv_email" class="border-class"  style="width:560px" value="Email ID:&nbsp;&nbsp;&nbsp; {{ $referral2->addserv_email}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="addserv_ph" id="addserv_ph" class="border-class"  style="width:290px" value=" Phone:&nbsp;&nbsp;&nbsp; {{$referral2->addserv_ph}}" readonly><br><br>
     
 
   </div><br><br>
@@ -633,10 +633,10 @@
     <label><i>Other relevant information/additional details</i></label><br>
     <p class="myDIV">{{ $referral2->other_relev}}</p>
     <br><br>
-    <input type="text" name="rel_name" id="rel_name" class="border-class" style="width:270px"  value="Name:&nbsp;&nbsp;&nbsp;{{$referral->rel_name}}" readonly>
-    <input type="text" name="rel_pos" id="rel_pos" class="border-class" style="width:270px"  value="Position&nbsp;&nbsp;&nbsp;{{$referral->rel_pos}}" readonly>
-    <input type="text" name="rel_org" id="rel_org" class="border-class" style="width:270px"  value="Organisation&nbsp;&nbsp;&nbsp;{{$referral->rel_org}}" readonly><br><br>
-    <p>Signature:.............................................................................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="rel_date" id="rel_date" class="border-class" style="width:340px"  value="Date:&nbsp;&nbsp;&nbsp;{{date('d-m-Y', strtotime($referral->rel_date))}}" readonly ></p>
+    <input type="text" name="rel_name" id="rel_name" class="border-class" style="width:270px"  value="Name:&nbsp;&nbsp;&nbsp;{{$referral2->rel_name}}" readonly>
+    <input type="text" name="rel_pos" id="rel_pos" class="border-class" style="width:270px"  value="Position&nbsp;&nbsp;&nbsp;{{$referral2->rel_pos}}" readonly>
+    <input type="text" name="rel_org" id="rel_org" class="border-class" style="width:270px"  value="Organisation&nbsp;&nbsp;&nbsp;{{$referral2->rel_org}}" readonly><br><br>
+    <p>Signature:.............................................................................................&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="rel_date" id="rel_date" class="border-class" style="width:340px"  value="Date:&nbsp;&nbsp;&nbsp;{{date('d-m-Y', strtotime($referral2->rel_date))}}" readonly ></p>
   </div>
 
 
