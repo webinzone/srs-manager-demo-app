@@ -473,16 +473,16 @@
                 <div class="form-row">
                       <div class="col-md-12 mb-3">
                         <label>Behaviour List any behaviour Self-harm</label><br>
-                            <label><input  {{ $referral->behav_harm == 'Smoking' ? 'checked' : ''  }}  type="checkbox" name="behav_harm" value="Smoking"> Smoking</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Self-Motivation' ? 'checked' : ''  }}  type="checkbox" name="behav_harm" value="Self-Motivation"> Self-Motivation</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Capacity for cooperation' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Capacity for cooperation"> Capacity for cooperation</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Wandering' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Wandering"> Wandering</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Capacity to share' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Capacity to share"> Capacity to share</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Capacity to socialise' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Capacity to socialise"> Capacity to socialise</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Verbal aggression' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Verbal aggression"> Verbal aggression</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Drug/alcohol' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Drug/alcohol"> Drug/alcohol</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Impulse control' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Impulse control"> Impulse control</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Other' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Other"> Other</label>&nbsp;&nbsp;      
+                            <label><input  {{ $ch1 == 'true' ? 'checked' : ''  }}  type="checkbox" name="behav_harm[]" value="Smoking"> Smoking</label>&nbsp;&nbsp;
+                                <label><input {{ $ch2 == 'true' ? 'checked' : ''  }}  type="checkbox" name="behav_harm[]" value="Self-Motivation"> Self-Motivation</label>&nbsp;&nbsp;
+                                <label><input {{ $ch3 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity for cooperation"> Capacity for cooperation</label>&nbsp;&nbsp;
+                                <label><input {{ $ch4 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Wandering"> Wandering</label>&nbsp;&nbsp;
+                                <label><input {{ $ch5 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity to share"> Capacity to share</label>&nbsp;&nbsp;
+                                <label><input {{ $ch6 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity to socialise"> Capacity to socialise</label>&nbsp;&nbsp;
+                                <label><input {{ $ch7 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Verbal aggression"> Verbal aggression</label>&nbsp;&nbsp;
+                                <label><input {{ $ch8 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Drug/alcohol"> Drug/alcohol</label>&nbsp;&nbsp;
+                                <label><input {{ $ch9 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Impulse control"> Impulse control</label>&nbsp;&nbsp;
+                                <label><input {{ $ch10 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Other"> Other</label>&nbsp;&nbsp;      
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -791,22 +791,22 @@
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label>Mobility</label><br>
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a1 == 'Stick' ? 'checked' : ''  }} name="a1" value="Stick" />&nbsp;&nbsp;Stick</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a1 == 'Frame' ? 'checked' : ''  }} name="a1" value="Frame" />&nbsp;&nbsp;Frame</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a1 == 'Wheelchair' ? 'checked' : ''  }} name="a1" value="Wheelchair" />&nbsp;&nbsp;Wheelchair</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a1 == 'Other' ? 'checked' : ''  }} name="a1" value="Other" />&nbsp;&nbsp;Other</label>&nbsp;&nbsp;<br>       
+                            <label><input type="checkbox"  {{ $a1_ch1 == 'true' ? 'checked' : ''  }} name="a1[]" value="Stick" />&nbsp;&nbsp;Stick</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a2_ch2 == 'true' ? 'checked' : ''  }} name="a1[]" value="Frame" />&nbsp;&nbsp;Frame</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a3_ch3 == 'true' ? 'checked' : ''  }} name="a1[]" value="Wheelchair" />&nbsp;&nbsp;Wheelchair</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a4_ch4 == 'true' ? 'checked' : ''  }} name="a1[]" value="Other" />&nbsp;&nbsp;Other</label>&nbsp;&nbsp;<br>       
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Communication</label><br>
-                        <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a2 == 'Glasses' ? 'checked' : ''  }} name="a2" value="Glasses" />&nbsp;&nbsp;Glasses</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a2 == 'Hearing Aid' ? 'checked' : ''  }} name="a2" value="Hearing Aid" />&nbsp;&nbsp;Hearing Aid</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a2 == 'Interpreter' ? 'checked' : ''  }} name="a2" value="Interpreter" />&nbsp;&nbsp;Interpreter</label>
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a2 == 'Other' ? 'checked' : ''  }} name="a2" value="Other" />&nbsp;&nbsp;Other</label>
+                        <label><input type="checkbox"  {{ $a2_ch1 == 'true' ? 'checked' : ''  }} name="a2[]" value="Glasses" />&nbsp;&nbsp;Glasses</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a2_ch2 == 'true' ? 'checked' : ''  }} name="a2[]" value="Hearing Aid" />&nbsp;&nbsp;Hearing Aid</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a2_ch3 == 'true' ? 'checked' : ''  }} name="a2[]" value="Interpreter" />&nbsp;&nbsp;Interpreter</label>
+                            <label><input type="checkbox"  {{ $a2_ch4 == 'true' ? 'checked' : ''  }} name="a2[]" value="Other" />&nbsp;&nbsp;Other</label>
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Other</label><br>
-                        <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a3 == 'Dentures' ? 'checked' : ''  }} name="a3" value="Dentures" />&nbsp;&nbsp;Dentures</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a3 == 'Continence aids' ? 'checked' : ''  }} name="a3" value="Continence aids" />&nbsp;&nbsp;Continence aids</label>&nbsp;&nbsp;                      </div>
+                        <label><input type="checkbox"  {{ $a3_ch1 == 'true' ? 'checked' : ''  }} name="a3[]" value="Dentures" />&nbsp;&nbsp;Dentures</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a3_ch2 == 'true' ? 'checked' : ''  }} name="a3[]" value="Continence aids" />&nbsp;&nbsp;Continence aids</label>&nbsp;&nbsp;                      </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                
                 <div class="form-row">
@@ -1430,10 +1430,6 @@ function findselected28() {
     }
 }
 </script>
-<script type="text/javascript">
-  $('input[type="checkbox"]').on('change', function() {
-    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-});
-</script>
+
 @include ('partials.bootstrap-table')
 @stop

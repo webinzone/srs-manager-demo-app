@@ -484,17 +484,17 @@
                 <div class="form-row">
                       <div class="col-md-12 mb-3">
                         <label>Behaviour List any behaviour Self-harm</label><br>
-                            <label><input  type="checkbox"  name="behav_harm" value="Smoking"> Smoking</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox"  name="behav_harm" value="Self-Motivation"> Self-Motivation</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="behav_harm" value="Capacity for cooperation"> Capacity for cooperation</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="behav_harm" value="Physical aggression"> Physical aggression</label>&nbsp;&nbsp;  
-                                <label><input  type="checkbox" name="behav_harm" value="Wandering"> Wandering</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="behav_harm" value="Capacity to share"> Capacity to share</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="behav_harm" value="Capacity to socialise"> Capacity to socialise</label>&nbsp;&nbsp; 
-                                <label><input  type="checkbox" name="behav_harm" value="Verbal aggression"> Verbal aggression</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="behav_harm" value="Drug/alcohol"> Drug/alcohol</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="behav_harm" value="Impulse control"> Impulse control</label>&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="behav_harm" value="Other"> Other</label>&nbsp;&nbsp;<br>       
+                            <label><input  type="checkbox"  name="behav_harm[]" value="Smoking"> Smoking</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox"  name="behav_harm[]" value="Self-Motivation"> Self-Motivation</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="behav_harm[]" value="Capacity for cooperation"> Capacity for cooperation</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="behav_harm[]" value="Physical aggression"> Physical aggression</label>&nbsp;&nbsp;  
+                                <label><input  type="checkbox" name="behav_harm[]" value="Wandering"> Wandering</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="behav_harm[]" value="Capacity to share"> Capacity to share</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="behav_harm[]" value="Capacity to socialise"> Capacity to socialise</label>&nbsp;&nbsp; 
+                                <label><input  type="checkbox" name="behav_harm[]" value="Verbal aggression"> Verbal aggression</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="behav_harm[]" value="Drug/alcohol"> Drug/alcohol</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="behav_harm[]" value="Impulse control"> Impulse control</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="behav_harm[]" value="Other"> Other</label>&nbsp;&nbsp;<br>       
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -800,22 +800,22 @@
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label>Mobility</label><br>
-                            <label><input  type="radio" name="a1" value="Stick"> Stick</label>&nbsp;&nbsp;
-                                <label><input  type="radio" name="a1" value="Frame"> Frame</label>&nbsp;&nbsp;
-                                <label><input  type="radio" name="a1" value="Wheelchair"> Wheelchair</label><br>
-                                <label><input  type="radio" name="a1" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
+                            <label><input  type="checkbox" name="a1[]" value="Stick"> Stick</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="a1[]" value="Frame"> Frame</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="a1[]" value="Wheelchair"> Wheelchair</label><br>
+                                <label><input  type="checkbox" name="a1[]" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Communication</label><br>
-                            <label><input  type="radio" name="a2" value="Glasses"> Glasses</label>&nbsp;&nbsp;
-                                <label><input  type="radio" name="a2" value="Hearing Aid"> Hearing Aid</label>&nbsp;&nbsp;
-                                <label><input  type="radio" name="a2" value="Interpreter"> Interpreter</label>&nbsp;&nbsp;
-                                <label><input  type="radio" name="a2" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
+                            <label><input  type="checkbox" name="a2[]" value="Glasses"> Glasses</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="a2[]" value="Hearing Aid"> Hearing Aid</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="a2[]" value="Interpreter"> Interpreter</label>&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="a2[]" value="Other"> Other</label>&nbsp;&nbsp;   <br>       
                       </div>
                        <div class="col-md-4 mb-3">
                         <label>Other</label><br>
-                        <label><input type="radio"  name="a3" value="Dentures" />&nbsp;&nbsp;Dentures</label>&nbsp;&nbsp;
-                            <label><input type="radio" name="a3" value="Continence aids" />&nbsp;&nbsp;Continence aids</label>
+                        <label><input type="checkbox"  name="a3[]" value="Dentures" />&nbsp;&nbsp;Dentures</label>&nbsp;&nbsp;
+                            <label><input type="checkbox" name="a3[]" value="Continence aids" />&nbsp;&nbsp;Continence aids</label>
                        </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
@@ -1437,10 +1437,6 @@ function findselected28() {
 }
 </script>
 
-<script type="text/javascript">
-  $('input[type="checkbox"]').on('change', function() {
-    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-});
-</script>
+
 @include ('partials.bootstrap-table')
 @stop

@@ -148,7 +148,7 @@ class ReferralsController extends Controller
         $referral->ment_org = request('ment_org') ?? '';
         $referral->ment_email = request('ment_email') ?? '';
         $referral->ment_ph = request('ment_ph') ?? '';
-        $referral->behav_harm = request('behav_harm') ?? '';
+        $referral->behav_harm = implode(',', (array) request('behav_harm')) ?? '';
         $referral->behav_details = request('behav_details') ?? '';
         $referral->triger = request('triger') ?? '';
         $referral->user_id =  Auth::user()->id;
@@ -206,9 +206,9 @@ class ReferralsController extends Controller
         $referral2->p8 = request('p8') ?? '';
         $referral2->p9 = request('p9') ?? '';
         $referral2->p10 = request('p10') ?? '';
-        $referral2->a1 = request('a1') ?? '';
-        $referral2->a2 = request('a2') ?? '';
-        $referral2->a3 = request('a3') ?? '';
+        $referral2->a1 = implode(',', (array) request('a1')) ?? '';
+        $referral2->a2 = implode(',', (array) request('a2')) ?? '';
+        $referral2->a3 = implode(',', (array) request('a3')) ?? '';
         $referral2->a_comments = request('a_comments') ?? '';
         $referral2->public_trans = request('public_trans') ?? '';
         $referral2->app_keep = request('app_keep') ?? '';
@@ -297,9 +297,129 @@ class ReferralsController extends Controller
         $item_last= count($drug);
         $num = (int)$item_last;
 
+        $behav = explode(',', $referral->behav_harm);
+        $beh= count($behav);
+        $n = (int)$beh;
+
+        $ch1 = ' ';
+        $ch2 = ' ';
+        $ch3 = ' ';
+        $ch4 = ' ';
+        $ch5 = ' ';
+        $ch6 = ' ';
+        $ch7 = ' ';
+        $ch8 = ' ';
+        $ch9 = ' ';
+        $ch10 = ' ';
+
+        for ($i=0; $i < $n; $i++) { 
+            if ($behav[$i] == "Smoking") {
+                $ch1 = 'true';
+            }
+            else if ($behav[$i] == "Self-Motivation") {
+                $ch2 = 'true';
+            }
+            else if ($behav[$i] == "Capacity for cooperation") {
+                $ch3 = 'true';
+            }
+            else if ($behav[$i] == "Wandering") {
+                $ch4 = 'true';
+            }
+            else if ($behav[$i] == "Capacity to share") {
+                $ch5 = 'true';
+            }
+            else if ($behav[$i] == "Capacity to socialise") {
+                $ch6 = 'true';
+            }
+            else if ($behav[$i] == "Verbal aggression") {
+                $ch7 = 'true';
+            }
+            else if ($behav[$i] == "Drug/alcohol") {
+                $ch8 = 'true';
+            }
+            else if ($behav[$i] == "Impulse control") {
+                $ch9 = 'true';
+            }
+            else if ($behav[$i] == "Other") {
+                $ch10 = 'true';
+            }
+        }
+
+        $a11 = explode(',', $referral2->a1);
+        $a1_count= count($a11);
+        $a1_n = (int)$a1_count;
+
+        $a1_ch1 = ' ';
+        $a2_ch2 = ' ';
+        $a3_ch3 = ' ';
+        $a4_ch4 = ' ';
+
+
+        for ($i=0; $i < $a1_n; $i++) { 
+            if ($a11[$i] == "Stick") {
+                $a1_ch1 = 'true';
+            }
+            else if ($a11[$i] == "Frame") {
+                $a2_ch2 = 'true';
+            }
+            else if ($a11[$i] == "Wheelchair") {
+                $a3_ch3 = 'true';
+            }
+            else if ($a11[$i] == "Other") {
+                $a4_ch4 = 'true';
+            }
+            
+        }
+
+        $a12 = explode(',', $referral2->a2);
+        $a2_count= count($a12);
+        $a2_n = (int)$a2_count;
+
+        $a2_ch1 = ' ';
+        $a2_ch2 = ' ';
+        $a2_ch3 = ' ';
+        $a2_ch4 = ' ';
+
+
+        for ($i=0; $i < $a2_n; $i++) { 
+            if ($a12[$i] == "Glasses") {
+                $a2_ch1 = 'true';
+            }
+            else if ($a12[$i] == "Hearing Aid") {
+                $a2_ch2 = 'true';
+            }
+            else if ($a12[$i] == "Interpreter") {
+                $a2_ch3 = 'true';
+            }
+            else if ($a12[$i] == "Other") {
+                $a2_ch4 = 'true';
+            }
+            
+        }
+
+        $a13 = explode(',', $referral2->a3);
+        $a3_count= count($a13);
+        $a3_n = (int)$a3_count;
+
+        $a3_ch1 = ' ';
+        $a3_ch2 = ' ';
+       
+
+
+        for ($i=0; $i < $a3_n; $i++) { 
+            if ($a13[$i] == "Dentures") {
+                $a3_ch1 = 'true';
+            }
+            else if ($a13[$i] == "Continence aids") {
+                $a3_ch2 = 'true';
+            }
+            
+        }
+
+
         $residents = ClientDetail::where('status', '=', 'Active')->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->get() ?? '';
         $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
-        return view('referrals/edit',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num'));
+        return view('referrals/edit',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num','ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10','a1_ch1','a2_ch2','a3_ch3','a4_ch4','a2_ch1','a2_ch2','a2_ch3','a2_ch4','a3_ch1','a3_ch2'));
     }
     /**
      * Update the specified resource in storage.
@@ -392,7 +512,7 @@ class ReferralsController extends Controller
         $referral->ment_org = request('ment_org') ?? '';
         $referral->ment_email = request('ment_email') ?? '';
         $referral->ment_ph = request('ment_ph') ?? '';
-        $referral->behav_harm = request('behav_harm') ?? '';
+        $referral->behav_harm = implode(',', (array) request('behav_harm')) ?? '';
         $referral->behav_details = request('behav_details') ?? '';
         $referral->triger = request('triger') ?? '';
         $referral->user_id =  Auth::user()->id;
@@ -449,9 +569,9 @@ class ReferralsController extends Controller
         $referral2->p8 = request('p8') ?? '';
         $referral2->p9 = request('p9') ?? '';
         $referral2->p10 = request('p10') ?? '';
-        $referral2->a1 = request('a1') ?? '';
-        $referral2->a2 = request('a2') ?? '';
-        $referral2->a3 = request('a3') ?? '';
+        $referral2->a1 = implode(',', (array) request('a1')) ?? '';
+        $referral2->a2 = implode(',', (array) request('a2')) ?? '';
+        $referral2->a3 = implode(',', (array) request('a3')) ?? '';
         $referral2->a_comments = request('a_comments') ?? '';
         $referral2->public_trans = request('public_trans') ?? '';
         $referral2->app_keep = request('app_keep') ?? '';
