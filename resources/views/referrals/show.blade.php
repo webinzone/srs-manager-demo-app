@@ -15,15 +15,20 @@
 {{-- Page content --}}
 @section('content')
 <style type="text/css">
+tr{
+  border: 1px solid black;
+}
 
   td {
     width: 200px;
     padding: 5px;
+     border: 1px solid black;
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
+    border: 1px solid black;
   }
   .container{
   width: 1000px;
@@ -35,6 +40,9 @@
   input.right {
         float: right;
         right: 30px;
+      }
+      th{
+        border: 1px solid black;
       }
   </style>
 
@@ -515,13 +523,13 @@
       </tr>
     </table><br>
 
-    <table style="border: 2px; border-width: 1px; border-color: black; padding-left: 8px;left: 50px;">
-                  <tr style="padding:5px;">
-                    <th>S.NO</th>
-                    <th>If you answer "Yes" pl provide further information.</th>
-                    <th>YES</th>
-                    <th>NO</th>
-                    <th>Details(If you answer "Yes" pl provide further information)</th>
+    <table style="border: 1px solid black; border-width: 1px; border-color: black; padding-left: 8px;left: 50px;">
+                  <tr style="padding:5px; border: 1px solid black;">
+                    <th width="50px;" style="border:1px solid black;">S.NO</th>
+                    <th style="border:1px solid black;">If you answer "Yes" pl provide further information.</th>
+                    <th style="border:1px solid black;">YES</th>
+                    <th style="border:1px solid black;">NO</th>
+                    <th style="border:1px solid black;">Details(If you answer "Yes" pl provide further information)</th>
                   </tr>
                   <tr>
                   <td>1</td>
