@@ -163,10 +163,14 @@
   <div class="abc">
     <p><b><i>Pension Details</i></b><br>
     Type of Income
-    <input disabled {{ $referral->pen_type == 'Centrelink' ? 'checked' : ''  }}  type="radio" name="pen_type" value="Centrelink" > Centrelink</label>&nbsp;&nbsp;
-                                <label><input disabled {{ $referral->pen_type == 'Veterans Affairs' ? 'checked' : ''  }}  type="radio" name="pen_type" value="Veterans Affairs" readonly> Veterans Affairs</label>&nbsp;&nbsp;
-                                <label><input disabled {{ $referral->pen_type == 'Overseas Pension' ? 'checked' : ''  }} type="radio" name="pen_type" value="Overseas Pension" readonly> Overseas Pension</label>&nbsp;&nbsp;
-                                <label><input disabled {{ $referral->pen_type == 'Other' ? 'checked' : ''  }} type="radio" name="pen_type" value="Other" readonly> Other</label>&nbsp;&nbsp;</p><br><br>
+       <label><input disabled id="i1" {{ $referral->pen_type == 'Direct Debit' ? 'checked' : ''  }} type="checkbox" onclick="hidebox();" name="income_type" value="Direct Debit">Direct Debit</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input disabled onclick="hidebox();" id="i2" {{ $referral->pen_type == 'Cash' ? 'checked' : ''  }}  type="checkbox" name="income_type" value="Cash">Cash</label>&nbsp;&nbsp;&nbsp;&nbsp;                         
+                                <label><input disabled onclick="hidebox();" id="i3" {{ $referral->pen_type == 'Centre Link' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;
+                                <label><input disabled onclick="hidebox();" id="i4" {{ $referral->pen_type == 'Veterans Affairs' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;
+                                <label><input disabled onclick="hidebox();" id="i5" {{ $referral->pen_type == 'State Trustees' ? 'checked' : ''  }} type="checkbox" name="income_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
+                                <label><input disabled {{ $referral->pen_type == 'Other' ? 'checked' : ''  }} id="other" onclick="addbox();" type="checkbox" name="income_type" value="Other"> Other</label>&nbsp;&nbsp;
+                                
+                                  <br><br>
     <input type="text" name="pen_refno" id="pen_refno" class="border-class" style="width:910px"  value="Client Ref Number:&nbsp;&nbsp;&nbsp;{{ $referral->pen_refno}}" readonly><br><br>
     <input type="text" name="pen_medino" id="pen_medino" class="border-class"  style="width:510px" value="Medicare Number&nbsp;&nbsp;&nbsp; {{ $referral->pen_medino}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="text" name="pen_mediexp" id="pen_mediexp" class="border-class"  style="width:300px" value=" Expiry Date &nbsp;&nbsp;&nbsp;{{date('d-m-Y', strtotime($referral->pen_mediexp))}}" readonly><br><br>
@@ -181,11 +185,11 @@
                 <table id="drugss" style="border: 2px; border-width: 1px; border-color: black; padding-left: 8px;left: 50px; padding: 10px;">
                   <tr style="padding:5px;">Medication.This information to be provided by client's health provider. </tr>
                   <tr style="padding:5px;">
-                    <th>Drug name</th>
-                    <th>Dose</th>
-                    <th>Frequency</th>
-                    <th>Duration</th>
-                    <th>Last Taken</th>
+                    <th style="border: 1px solid black;">Drug name</th>
+                    <th style="border: 1px solid black;">Dose</th>
+                    <th style="border: 1px solid black;">Frequency</th>
+                    <th style="border: 1px solid black;">Duration</th>
+                    <th style="border: 1px solid black;">Last Taken</th>
                   </tr>
                 @for ($i=0; $i < $num; $i++)
                   <tr>
@@ -265,16 +269,16 @@
   <div class="abc">
     <label><i>Behaviour</i><br>
     List any behaviour </label>
-                            <br><label><input  {{ $ch1 == 'true' ? 'checked' : ''  }}  type="checkbox" name="behav_harm[]" value="Smoking"> Smoking</label>&nbsp;&nbsp;
-                                <label><input {{ $ch2 == 'true' ? 'checked' : ''  }}  type="checkbox" name="behav_harm[]" value="Self-Motivation"> Self-Motivation</label>&nbsp;&nbsp;
-                                <label><input {{ $ch3 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity for cooperation"> Capacity for cooperation</label>&nbsp;&nbsp;
-                                <label><input {{ $ch4 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Wandering"> Wandering</label>&nbsp;&nbsp;
-                                <label><input {{ $ch5 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity to share"> Capacity to share</label>&nbsp;&nbsp;
-                                <label><input {{ $ch6 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity to socialise"> Capacity to socialise</label>&nbsp;&nbsp;
-                                <label><input {{ $ch7 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Verbal aggression"> Verbal aggression</label>&nbsp;&nbsp;
-                                <label><input {{ $ch8 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Drug/alcohol"> Drug/alcohol</label>&nbsp;&nbsp;
-                                <label><input {{ $ch9 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Impulse control"> Impulse control</label>&nbsp;&nbsp;
-                                <label><input {{ $ch10 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Other"> Other</label>&nbsp;&nbsp;    <br><br>     
+                            <br><label><input disabled  {{ $ch1 == 'true' ? 'checked' : ''  }}  type="checkbox" name="behav_harm[]" value="Smoking"> Smoking</label>&nbsp;&nbsp;
+                                <label><input disabled {{ $ch2 == 'true' ? 'checked' : ''  }}  type="checkbox" name="behav_harm[]" value="Self-Motivation"> Self-Motivation</label>&nbsp;&nbsp;
+                                <label><input disabled {{ $ch3 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity for cooperation"> Capacity for cooperation</label>&nbsp;&nbsp;
+                                <label><input disabled {{ $ch4 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Wandering"> Wandering</label>&nbsp;&nbsp;
+                                <label><input disabled {{ $ch5 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity to share"> Capacity to share</label>&nbsp;&nbsp;
+                                <label><input disabled {{ $ch6 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity to socialise"> Capacity to socialise</label>&nbsp;&nbsp;
+                                <label><input disabled {{ $ch7 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Verbal aggression"> Verbal aggression</label>&nbsp;&nbsp;
+                                <label><input disabled {{ $ch8 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Drug/alcohol"> Drug/alcohol</label>&nbsp;&nbsp;
+                                <label><input disabled {{ $ch9 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Impulse control"> Impulse control</label>&nbsp;&nbsp;
+                                <label><input disabled {{ $ch10 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Other"> Other</label>&nbsp;&nbsp;    <br><br>     
     <textarea name="behav_details" class="border-class" style="width:900px" readonly>Details:&nbsp;&nbsp;&nbsp;{{ $referral->behav_details}}</textarea><br><br>
     <textarea name="triger" class="border-class" style="width:900px" readonly>List any known "triggers" for problem behaviour :&nbsp;&nbsp;&nbsp;{{ $referral->triger}}</textarea><br>
   </div><br><br>
@@ -572,28 +576,28 @@
     <p><i>Aids and Appliances</i></p>
     <label>Does client use any aids or appliances?</label><br>
         <label>Mobility</label>&nbsp;&nbsp;&nbsp;
-                            <label><input type="checkbox"  {{ $a1_ch1 == 'true' ? 'checked' : ''  }} name="a1[]" value="Stick" />&nbsp;&nbsp;Stick</label>&nbsp;&nbsp;
-                            <label><input type="checkbox"  {{ $a2_ch2 == 'true' ? 'checked' : ''  }} name="a1[]" value="Frame" />&nbsp;&nbsp;Frame</label>&nbsp;&nbsp;
-                            <label><input type="checkbox"  {{ $a3_ch3 == 'true' ? 'checked' : ''  }} name="a1[]" value="Wheelchair" />&nbsp;&nbsp;Wheelchair</label>&nbsp;&nbsp;
-                            <label><input type="checkbox"  {{ $a4_ch4 == 'true' ? 'checked' : ''  }} name="a1[]" value="Other" />&nbsp;&nbsp;Other</label>&nbsp;&nbsp;<br>   
+                            <label><input disabled type="checkbox"  {{ $a1_ch1 == 'true' ? 'checked' : ''  }} name="a1[]" value="Stick" />&nbsp;&nbsp;Stick</label>&nbsp;&nbsp;
+                            <label><input disabled type="checkbox"  {{ $a2_ch2 == 'true' ? 'checked' : ''  }} name="a1[]" value="Frame" />&nbsp;&nbsp;Frame</label>&nbsp;&nbsp;
+                            <label><input disabled type="checkbox"  {{ $a3_ch3 == 'true' ? 'checked' : ''  }} name="a1[]" value="Wheelchair" />&nbsp;&nbsp;Wheelchair</label>&nbsp;&nbsp;
+                            <label><input disabled type="checkbox"  {{ $a4_ch4 == 'true' ? 'checked' : ''  }} name="a1[]" value="Other" />&nbsp;&nbsp;Other</label>&nbsp;&nbsp;<br>   
                         <label>Communication</label>&nbsp;&nbsp;&nbsp;
-                        <label><input type="checkbox"  {{ $a2_ch1 == 'true' ? 'checked' : ''  }} name="a2[]" value="Glasses" />&nbsp;&nbsp;Glasses</label>&nbsp;&nbsp;
-                            <label><input type="checkbox"  {{ $a2_ch2 == 'true' ? 'checked' : ''  }} name="a2[]" value="Hearing Aid" />&nbsp;&nbsp;Hearing Aid</label>&nbsp;&nbsp;
-                            <label><input type="checkbox"  {{ $a2_ch3 == 'true' ? 'checked' : ''  }} name="a2[]" value="Interpreter" />&nbsp;&nbsp;Interpreter</label>
-                            <label><input type="checkbox"  {{ $a2_ch4 == 'true' ? 'checked' : ''  }} name="a2[]" value="Other" />&nbsp;&nbsp;Other</label><br>
+                        <label><input disabled type="checkbox"  {{ $a2_ch1 == 'true' ? 'checked' : ''  }} name="a2[]" value="Glasses" />&nbsp;&nbsp;Glasses</label>&nbsp;&nbsp;
+                            <label><input disabled type="checkbox"  {{ $a2_ch2 == 'true' ? 'checked' : ''  }} name="a2[]" value="Hearing Aid" />&nbsp;&nbsp;Hearing Aid</label>&nbsp;&nbsp;
+                            <label><input disabled type="checkbox"  {{ $a2_ch3 == 'true' ? 'checked' : ''  }} name="a2[]" value="Interpreter" />&nbsp;&nbsp;Interpreter</label>
+                            <label><input disabled type="checkbox"  {{ $a2_ch4 == 'true' ? 'checked' : ''  }} name="a2[]" value="Other" />&nbsp;&nbsp;Other</label><br>
                         <label>Other</label>&nbsp;&nbsp;&nbsp;
-                         <label><input type="checkbox"  {{ $a3_ch1 == 'true' ? 'checked' : ''  }} name="a3[]" value="Dentures" />&nbsp;&nbsp;Dentures</label>&nbsp;&nbsp;
-                            <label><input type="checkbox"  {{ $a3_ch2 == 'true' ? 'checked' : ''  }} name="a3[]" value="Continence aids" />&nbsp;&nbsp;Continence aids</label>&nbsp;&nbsp;  <br><br>     
+                         <label><input disabled type="checkbox"  {{ $a3_ch1 == 'true' ? 'checked' : ''  }} name="a3[]" value="Dentures" />&nbsp;&nbsp;Dentures</label>&nbsp;&nbsp;
+                            <label><input disabled type="checkbox"  {{ $a3_ch2 == 'true' ? 'checked' : ''  }} name="a3[]" value="Continence aids" />&nbsp;&nbsp;Continence aids</label>&nbsp;&nbsp;  <br><br>     
     <textarea name="a_comments" class="border-class" style="width:900px" readonly>Comments&nbsp;&nbsp;{{ $referral2->a_comments}}</textarea><br><br>                
    </div><br><br>
    <div class="abc">
     <p><i>Community Living Skills</i><br>
       <label>Is the client able to access public transport?</label>
-                            <label><input type="checkbox" disabled onchange="findselected5();" {{ $referral2->public_trans == 'Yes' ? 'checked' : ''  }} name="public_trans" value="Yes" readonly/>&nbsp;&nbsp;Yes</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" disabled onchange="findselected5();" {{ $referral2->public_trans == 'No' ? 'checked' : ''  }} name="public_trans" value="No" readonly/>&nbsp;&nbsp;No</label>&nbsp;&nbsp;<br><br>
+                            <label><input disabled type="checkbox" disabled onchange="findselected5();" {{ $referral2->public_trans == 'Yes' ? 'checked' : ''  }} name="public_trans" value="Yes" readonly/>&nbsp;&nbsp;Yes</label>&nbsp;&nbsp;
+                            <label><input disabled type="checkbox" disabled onchange="findselected5();" {{ $referral2->public_trans == 'No' ? 'checked' : ''  }} name="public_trans" value="No" readonly/>&nbsp;&nbsp;No</label>&nbsp;&nbsp;<br><br>
       <label>Is the client able to make and keep appointments?</label>
-                            <label><input type="checkbox" disabled onchange="findselected5();" {{ $referral2->app_keep == 'Yes' ? 'checked' : ''  }} name="app_keep" value="Yes" readonly/>&nbsp;&nbsp;Yes</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" disabled onchange="findselected5();" {{ $referral2->app_keep == 'No' ? 'checked' : ''  }} name="app_keep" value="No" readonly/>&nbsp;&nbsp;No</label>&nbsp;&nbsp;
+                            <label><input disabled type="checkbox" disabled onchange="findselected5();" {{ $referral2->app_keep == 'Yes' ? 'checked' : ''  }} name="app_keep" value="Yes" readonly/>&nbsp;&nbsp;Yes</label>&nbsp;&nbsp;
+                            <label><input disabled type="checkbox" disabled onchange="findselected5();" {{ $referral2->app_keep == 'No' ? 'checked' : ''  }} name="app_keep" value="No" readonly/>&nbsp;&nbsp;No</label>&nbsp;&nbsp;
   </p>
   <label><i>Recreation/ Socialization</i><br>
   If the client attends any community based social activities, please provide details:</label><br><br>

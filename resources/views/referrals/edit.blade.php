@@ -320,7 +320,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Expiry Date</label>
-                        <input type="date" name="pen_mediexp" id="mediexp" class="form-control" value="{{ $referral->pen_mediexp}}" placeholder="Expiry Date" readonly>                                        
+                        <input type="month" name="pen_mediexp" id="mediexp" class="form-control" value="{{ $referral->pen_mediexp}}" placeholder="Expiry Date" readonly>                                        
                       </div>
                       
                       <div class="col-md-3 mb-3">
