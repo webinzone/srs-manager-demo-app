@@ -24,7 +24,7 @@ class AppointmentsController extends Controller
     {
         $this->authorize('index', Appointment::class);
         /**$complaints = Complaint::select(['id', 'f_name', 'user_name', 'c_name', 'com_details', 'com_nature', 'phone', 'suggestions', 'sign', 'action_date', 'action_taken', 'outcome']); */
-        $appointments = Appointment::where('location_id', '=', Auth::user()->l_id)->orderBy('app_date', 'desc');
+        $appointments = Appointment::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('app_date', 'desc');
        
 
         if ($request->filled('search')) {

@@ -24,7 +24,7 @@ class ComplaintsController extends Controller
     {
         $this->authorize('index', Complaint::class);
         /**$complaints = Complaint::select(['id', 'f_name', 'user_name', 'c_name', 'com_details', 'com_nature', 'phone', 'suggestions', 'sign', 'action_date', 'action_taken', 'outcome']); */
-        $complaints = Complaint::where('location_id', '=', Auth::user()->l_id);
+        $complaints = Complaint::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id);
        
 
         if ($request->filled('search')) {

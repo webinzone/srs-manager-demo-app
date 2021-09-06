@@ -24,7 +24,7 @@ class ProgressesController extends Controller
     {
         $this->authorize('index', Progress::class);
         /**$progresses = Complaint::select(['id', 'f_name', 'user_name', 'c_name', 'com_details', 'com_nature', 'phone', 'suggestions', 'sign', 'action_date', 'action_taken', 'outcome']); */
-        $progresses = Progress::where('location_id', '=', Auth::user()->l_id);
+        $progresses = Progress::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id);
        
 
         if ($request->filled('search')) {
