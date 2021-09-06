@@ -96,7 +96,7 @@
                      
                       <div class="col-md-3 mb-3">
                         <label>Current Address</label>
-                        <textarea name="caddress" id="adr" class="form-control" placeholder="Current Address" readonly></textarea>
+                        <textarea name="caddress" id="addrr" class="form-control" placeholder="Current Address" readonly></textarea>
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
                 <h5 style="color:#980000;font-size: 16px;"><b>CONSENT TO RELEASE OF INFORMATION</b></h5>
@@ -1040,7 +1040,7 @@ $('#resi_name').change(function(){
                 $('#ph1').val(response.ph);            
                 $('#em1').val(response.res_email);           
                  
-                $('#adr').val(response.pre_address);           
+                $('#addrr').val(response.pre_address);           
                 $('#medi1').val(response.medicard_no);           
                 $('#mediexp').val(response.exp_date);           
                    

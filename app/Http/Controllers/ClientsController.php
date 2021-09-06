@@ -95,7 +95,6 @@ class ClientsController extends Controller
         $client_detail->res_fax = request('res_fax')  ?? '';
         $client_detail->res_email = request('res_email')  ?? ''; 
         $client_detail->ref_by = request('ref_by')  ?? '';        
-        $client_detail->pre_address = request('pre_address')  ?? '';        
         $client_detail->ent_no = request('ent_no')  ?? ''; 
         $client_detail->nationality = request('nationality')  ?? '';        
         $client_detail->adm_date = request('adm_date')  ?? ''; 
