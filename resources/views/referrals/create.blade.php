@@ -321,7 +321,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Expiry Date</label>
-                        <input type="date" name="pen_mediexp" id="mediexp" class="form-control" placeholder="Expiry Date" readonly>                                        
+                        <input type="month" style="height: 26px;" name="pen_mediexp" id="mediexp" class="form-control" placeholder="Expiry Date" readonly>                                        
                       </div>
                       
                       <div class="col-md-3 mb-3">

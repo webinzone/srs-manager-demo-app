@@ -95,7 +95,7 @@
                      
                       <div class="col-md-3 mb-3">
                         <label>Current Address</label>
-                        <textarea name="caddress" id="adr" class="form-control" placeholder="Current Address" readonly>{{ $referral->gender}} </textarea>
+                        <textarea name="caddress" id="adr" class="form-control" placeholder="Current Address" readonly>{{ $referral->caddress}} </textarea>
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>CONSENT TO RELEASE OF INFORMATION</b></h5>

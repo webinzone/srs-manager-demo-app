@@ -538,7 +538,7 @@ tr{
                  {!! $referral2->med1 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med1 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med1 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med1_det}}</td>
                </tr>
@@ -549,7 +549,7 @@ tr{
                  {!! $referral2->med2 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med2 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med2 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med2_det}}</td>
                </tr>
@@ -560,7 +560,7 @@ tr{
                  {!! $referral2->med3 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med3 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med3 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med3_det}}</td>
                </tr>
@@ -571,7 +571,7 @@ tr{
                  {!! $referral2->med4 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med4 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med4 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med4_det}}</td>
                </tr>
@@ -582,7 +582,7 @@ tr{
                  {!! $referral2->med5 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med5 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med5 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med5_det}}</td>
                </tr>
@@ -593,7 +593,7 @@ tr{
                  {!! $referral2->med6 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med6 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med6 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med6_det}}</td>
                </tr>
@@ -604,7 +604,7 @@ tr{
                  {!! $referral2->med7 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med7 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med7 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med7_det}}</td>
                </tr>
@@ -615,7 +615,7 @@ tr{
                  {!! $referral2->med8 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med8 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med8 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med8_det}}</td>
                </tr>
@@ -626,7 +626,7 @@ tr{
                  {!! $referral2->med9 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med9 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med9 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med9_det}}</td>
                </tr>
@@ -637,7 +637,7 @@ tr{
                  {!! $referral2->med10 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med10 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med10 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med10_det}}</td>
                </tr>
@@ -648,7 +648,7 @@ tr{
                  {!! $referral2->med11 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med11 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med11 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med11_det}}</td>
                </tr>
@@ -659,7 +659,7 @@ tr{
                  {!! $referral2->med12 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med12 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med12 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med12_det}}</td>
                </tr>
@@ -670,7 +670,7 @@ tr{
                  {!! $referral2->med13 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med13 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med13 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med13_det}}</td>
                </tr>
@@ -681,7 +681,7 @@ tr{
                  {!! $referral2->med14 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med14 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med14 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med14_det}}</td>
                </tr>
@@ -692,7 +692,7 @@ tr{
                  {!! $referral2->med15 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med15 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med15 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med15_det}}</td>
                </tr>
@@ -703,7 +703,7 @@ tr{
                  {!! $referral2->med16 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med16 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med16 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med16_det}}</td>
                </tr>
@@ -714,7 +714,7 @@ tr{
                  {!! $referral2->med17 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med17 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med17 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med17_det}}</td>
                </tr>
@@ -725,7 +725,7 @@ tr{
                  {!! $referral2->med18 == 'Yes' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}   
                  </form></td>
                  <td><form action="">    
-                 {!! $referral2->med18 == 'No' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
+                 {!! $referral2->med18 == 'NO' ? '<center><i class="fa fa-check" aria-hidden="true"></i></center>' : ''  !!}    
                  </form></td>
                <td>{{ $referral2->med18_det}}</td>
                </tr>

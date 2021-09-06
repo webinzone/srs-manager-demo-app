@@ -29,8 +29,9 @@
     </div>
 </div>
 @endif
-<!--<h4 style="color:white;">{{ Auth::user()->s_role }}</h4>-->
+
 @if(Auth::user()->s_role == "super_admin")
+
 <div class="row">
   <div class="col-md-12">
     <div class="box" style="background-color: #BDF5BD;">
@@ -430,7 +431,7 @@
         <!-- Categories -->
         <div class="box box-default" style="background-color: #BDF5BD;">
             <div class="box-header with-border">
-                <h2 class="box-title">Expired certificates </h2>
+                <h2 class="box-title">Alerts </h2>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse">
                         <i class="fa fa-minus" aria-hidden="true"></i>

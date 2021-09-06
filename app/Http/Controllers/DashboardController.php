@@ -34,17 +34,17 @@ class DashboardController extends Controller
         if (Auth::user()->hasAccess('admin')) {
             
             $asset_stats=null;
-            $certis = Certificate::where('location_id', '=', Auth::user()->l_id)->where('certi_exp', '<', Carbon::now())->get() ?? '';
+            $certis = Certificate::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->where('certi_exp', '<', Carbon::now())->get() ?? '';
 
-            $apps = Appointment::where('status', '=', 'Pending')->orderBy('app_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-            $appois = Appointment::where('status', '=', 'Re-scheduled')->orderBy('resc_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-            $rents = Rent::where('status', '=', 'Unpaid')->orderBy('nextpay_date', 'desc')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+            $apps = Appointment::where('status', '=', 'Pending')->orderBy('app_date', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+            $appois = Appointment::where('status', '=', 'Re-scheduled')->orderBy('resc_date', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+            $rents = Rent::where('status', '=', 'Unpaid')->orderBy('nextpay_date', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
             
-            $counts['resident'] = \App\Models\ClientDetail::where('location_id', '=', Auth::user()->l_id)->count();
-            $counts['appointments'] = Appointment::where('location_id', '=', Auth::user()->l_id)->count();
+            $counts['resident'] = \App\Models\ClientDetail::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->count();
+            $counts['appointments'] = Appointment::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->count();
             $counts['bookings'] = \App\Models\Booking::count();
-            $counts['staff_roaster'] = \App\Models\StaffRoaster::where('location_id', '=', Auth::user()->l_id)->count();
+            $counts['staff_roaster'] = \App\Models\StaffRoaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->count();
             
             if ((!file_exists(storage_path().'/oauth-private.key')) || (!file_exists(storage_path().'/oauth-public.key'))) {
                 \Artisan::call('migrate', ['--force' => true]);
