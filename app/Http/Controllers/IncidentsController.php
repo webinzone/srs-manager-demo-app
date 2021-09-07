@@ -43,7 +43,7 @@ class IncidentsController extends Controller
     {
          // Show the page
         $this->authorize('create',Incident::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('incidents/create',compact('residents'));
     }
 
@@ -133,7 +133,7 @@ class IncidentsController extends Controller
     {
         $this->authorize('edit',Incident::class);
         $incident = Incident::find($id);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
 
         return view('incidents/edit',compact('incident','residents'));
     }
@@ -245,13 +245,13 @@ class IncidentsController extends Controller
        }
 
         public function incident_generate(){
-        $incidents = Incident::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $incidents = Incident::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('incidents/report_show',compact('incidents'));
     }
 
     public function generateIncidentReport(){
       $res = request('res_name');
-      $incident = Incident::where('client_id', '=', $res)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+      $incident = Incident::where('client_id', '=', $res)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
       return view('incidents/report',compact('incident'));
     }
 

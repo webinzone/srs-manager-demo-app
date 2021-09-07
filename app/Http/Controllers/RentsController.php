@@ -42,7 +42,7 @@ class RentsController extends Controller
     {
          // Show the page
         $this->authorize('create',Rent::class);
-         $residents = ClientDetail::where('status', '=', 'Active')->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->get() ?? '';
+         $residents = ClientDetail::where('status', '=', 'Active')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->get() ?? '';
         return view('rents/create',compact('residents'));
     }
 
@@ -115,7 +115,7 @@ class RentsController extends Controller
     {
         $this->authorize('edit',Rent::class);
         $rent = Rent::find($id);
-        $residents = ClientDetail::where('status', '=', 'Active')->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->get() ?? '';
         return view('rents/edit',compact('rent','residents'));
     }
     /**

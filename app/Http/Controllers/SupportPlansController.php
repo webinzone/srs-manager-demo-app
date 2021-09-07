@@ -42,7 +42,7 @@ class SupportPlansController extends Controller
     {
          // Show the page
         $this->authorize('create',SupportPlan::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';        
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';        
         return view('support_plans/create',compact('residents'));
     }
 
@@ -149,7 +149,7 @@ class SupportPlansController extends Controller
         $item_last= count($review);
         $num = (int)$item_last;
 
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';        
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';        
 
         return view('support_plans/edit',compact('support_plan','residents','review','r_with','r_notes','num'));
     }
@@ -250,7 +250,7 @@ class SupportPlansController extends Controller
                         ->with('success','deleted successfully');
     }
      public function plan_generate(){
-        $support_plan = SupportPlan::where('location_id', '=', Auth::user()->l_id)->get() ?? ''; 
+        $support_plan = SupportPlan::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? ''; 
         return view('support_plans/report_show',compact('support_plan'));
     }
 

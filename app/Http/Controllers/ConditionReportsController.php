@@ -48,10 +48,10 @@ class ConditionReportsController extends Controller
     {
         $this->authorize('create',ConditionReport::class);
        
-        $residents = ClientDetail::where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
+        $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
         //$residents = $resid->where('status', '=', 'Active');
         $companies = CompanyMaster::all();
-        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
         return view('condition_reports/create',compact('residents','companies','emps'));
     }
 
@@ -137,9 +137,9 @@ class ConditionReportsController extends Controller
      public function edit($id)
     {
         $this->authorize('edit',ConditionReport::class);
-            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
             $companies = CompanyMaster::all();
-            $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
+            $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
           $condition_report = ConditionReport::find($id);
          $item_no = explode(',', $condition_report->item_no);
           $res_comments = explode(',', $condition_report->res_comments);
@@ -209,7 +209,7 @@ class ConditionReportsController extends Controller
 
     public function condition_reports()
     {   
-        $condition_reports = ConditionReport::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $condition_reports = ConditionReport::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('condition_reports/report_show',compact('condition_reports'));
     
     }

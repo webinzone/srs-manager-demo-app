@@ -306,7 +306,7 @@ class SrsStaffsController extends Controller
 
     public function certiExp(){
 
-        $certis = Certificate::where('location_id', '=', Auth::user()->l_id)->where('certi_exp', '<', Carbon::now())->get() ?? '';
+        $certis = Certificate::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->where('certi_exp', '<', Carbon::now())->get() ?? '';
         return view('srs_staffs/certi_exp',compact('certis'));
     }
 

@@ -45,7 +45,7 @@ class VaccatesController extends Controller
     {
          // Show the page
         $this->authorize('create',Vaccate::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('vaccates/create',compact('residents'));
     }
 
@@ -87,7 +87,7 @@ class VaccatesController extends Controller
         
         $vaccate->save();
 
-        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
         $rrrid = $roomdetails->id;
         $r_beds = $roomdetails->beds_no;
 
@@ -101,11 +101,11 @@ class VaccatesController extends Controller
         $r_count = (int)$r_beds;
 
         if($b_count == $r_count){
-            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
             $roomdeta->status = "Booked";
             $roomdeta->save();
         }else{
-            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
             $roomdeta->status = "Free";
             $roomdeta->save();
         }
@@ -149,7 +149,7 @@ class VaccatesController extends Controller
     {
         $this->authorize('edit',Vaccate::class);
         $vaccate = Vaccate::find($id);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('vaccates/edit',compact('vaccate','residents'));
     }
     /**
@@ -189,7 +189,7 @@ class VaccatesController extends Controller
         
         $vaccate->save();
 
-        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
         $rrrid = $roomdetails->id;
         $r_beds = $roomdetails->beds_no;
 
@@ -203,11 +203,11 @@ class VaccatesController extends Controller
         $r_count = (int)$r_beds;
 
         if($b_count == $r_count){
-            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
             $roomdeta->status = "Booked";
             $roomdeta->save();
         }else{
-            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
             $roomdeta->status = "Free";
             $roomdeta->save();
         }

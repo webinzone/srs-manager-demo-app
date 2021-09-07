@@ -96,7 +96,7 @@
                          <br><br>-->       
 
                 <!-- box-body -->
-                               <div class="box-body" style="padding-left: 50px;">    
+           <div class="box-body" style="padding-left: 50px;">    
                   <div class="page" v-show="step === 1">
                     <div class="form-row ">
                       <div class="outer pull-right">

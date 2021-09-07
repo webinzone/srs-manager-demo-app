@@ -142,7 +142,7 @@
                          <br><br>-->       
 
                 <!-- box-body -->
-                               <div class="box-body" style="padding-left: 50px;">    
+             <div class="box-body" style="padding-left: 50px;">    
                   <div class="page" v-show="step === 1">
                     <div class="form-row ">
                       <div class="outer pull-right">
@@ -287,6 +287,16 @@
                           @endforeach
                         </select>
                       </div> 
+                      <div class="col-md-3 mb-3">
+
+                        <label for="ref_by">Bed no</label>
+                        
+                         <select class="form-control" required  id="bednos" name="bed" style="height: 26px;padding: 3px 10px;">
+                           <option value="{{$bedno}}">{{$bedno}}</option>
+                            <option value="">--Select Bed--</option>
+                            
+                        </select>          
+                      </div>
 
                       <div class="col-md-3 mb-3">
 
@@ -301,11 +311,7 @@
 
 
                       
-                       <div class="col-md-3 mb-3">
-
-                        <label for="ref_by">Ref By</label>
-                        <input type="text" value="{{ $client_detail->ref_by}}" class="form-control" placeholder="Ref By" id="ref_by" name="ref_by"  v-on:change="page_one.ref_by = $event.target.value" >            
-                      </div>  
+                       
                    
                      
                       <!--<div class="col-md-4 mb-3">
@@ -336,7 +342,11 @@
                             <option value="Transfered" {{ $client_detail->status == 'Transfered' ? 'selected' : ''  }} style="font-size: 14px;">Transfered</option>
                         </select>          
                       </div>     
-                        
+                         <div class="col-md-3 mb-3">
+
+                        <label for="ref_by">Ref By</label>
+                        <input type="text" value="{{ $client_detail->ref_by}}" class="form-control" placeholder="Ref By" id="ref_by" name="ref_by"  v-on:change="page_one.ref_by = $event.target.value" >            
+                      </div> 
                       </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                       
@@ -521,7 +531,7 @@
                       <h4 class="mb-3"><b>Income Details</b></h4><br>
                
                     <div class="form-row">
-                       <div class="col-md-12 mb-3">
+                      <div class="col-md-12 mb-3">
                         <label for="income_type">Type of Income : </label>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label><input id="i1" {{ $pension_detail->income_type == 'Direct Debit' ? 'checked' : ''  }} type="checkbox" onclick="hidebox();" name="income_type" value="Direct Debit">Direct Debit</label>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label><input onclick="hidebox();" id="i2" {{ $pension_detail->income_type == 'Cash' ? 'checked' : ''  }}  type="checkbox" name="income_type" value="Cash">Cash</label>&nbsp;&nbsp;&nbsp;&nbsp;                         
@@ -535,7 +545,6 @@
                                 @endif
                                   <input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;">
                       </div>
-                     
                       </div>&nbsp;&nbsp;&nbsp;
                
                     <div class="form-row">
@@ -1006,7 +1015,8 @@
                 </div>
              
                 <div class="box-footer text-right" style="padding-right:50px;">
-                  <button type="submit" style="width: 100px;" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
+                  <a class="btn btn-link text-left" href="{{ route('clients.index') }}">Cancel</a>
+                  <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
                 </div>
 
               </div>
@@ -1325,6 +1335,33 @@ $('#room_no').change(function(){
     });
 });
 </script>
+<script>
+  $('#room_no').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getBed", ":id") }}';
+    url = url.replace(':id', id);
+    output = [];
 
+    $.ajax({
+        url: url,
+        type: 'get',
+        sync: false,
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+          
+                response.beds.forEach(bed =>
+                  output.push(`<option value="${bed.bed_no}" >${bed.bed_no}</option>`)
+                  )
+               
+              $('#bednos').html(output.join(''));
+            }
+            else{
+              alert("error");
+            }
+        }
+    });
+});
+</script>
 @include ('partials.bootstrap-table', ['search' => true, 'showFooter' => true, 'columns' => \App\Presenters\BookingPresenter::dataTableLayout()])
 @stop

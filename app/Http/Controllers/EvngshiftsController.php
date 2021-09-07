@@ -49,16 +49,16 @@ class EvngshiftsController extends Controller
         
         $date = Carbon::now();
         $date = $date->toDateString();
-        $last        =   Evngshift::where('eveng_date', '=', $date)->orderBy('created_at', 'desc')->where('location_id', '=', Auth::user()->l_id)->first();
+        $last        =   Evngshift::where('eveng_date', '=', $date)->orderBy('created_at', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->first();
 
         $ms = $last->mng_staff ?? '';
 
-        $lastt        =   Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->where('location_id', '=', Auth::user()->l_id)->first();
+        $lastt        =   Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->first();
 
         $es = $lastt->evng_staff ?? '';
 
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
         $i = 0;
         return view('evngshifts/create',compact('residents','emps','ms','es','i'));
     }
@@ -138,7 +138,7 @@ class EvngshiftsController extends Controller
          $i = 0;
         $item_last= count($res_name);
         $num = (int)$item_last;
-        $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
+        $emps = SrsStaff::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
         return view('evngshifts/edit',compact('evngshift','emps','res_name','room','notes','num','i'));
     }
     /**

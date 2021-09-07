@@ -46,7 +46,7 @@ class TransferRecordsController extends Controller
     {
          // Show the page
         $this->authorize('create',TransferRecord::class);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('transfer_records/create',compact('residents'));
     }
 
@@ -121,7 +121,7 @@ class TransferRecordsController extends Controller
         
         $transfer_record->save();
 
-        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
         $rrrid = $roomdetails->id;
         $r_beds = $roomdetails->beds_no;
 
@@ -135,11 +135,11 @@ class TransferRecordsController extends Controller
         $r_count = (int)$r_beds;
 
         if($b_count == $r_count){
-            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
             $roomdeta->status = "Booked";
             $roomdeta->save();
         }else{
-            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
             $roomdeta->status = "Free";
             $roomdeta->save();
         }
@@ -183,7 +183,7 @@ class TransferRecordsController extends Controller
     {
         $this->authorize('edit',TransferRecord::class);
         $transfer_record = TransferRecord::find($id);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('transfer_records/edit',compact('transfer_record','residents'));
     }
     /**
@@ -257,7 +257,7 @@ class TransferRecordsController extends Controller
         
         $transfer_record->save();
 
-        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
         $rrrid = $roomdetails->id;
         $r_beds = $roomdetails->beds_no;
 
@@ -271,11 +271,11 @@ class TransferRecordsController extends Controller
         $r_count = (int)$r_beds;
 
         if($b_count == $r_count){
-            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
             $roomdeta->status = "Booked";
             $roomdeta->save();
         }else{
-            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
             $roomdeta->status = "Free";
             $roomdeta->save();
         }
@@ -329,7 +329,7 @@ class TransferRecordsController extends Controller
 
     public function generatetransfer()
     {
-        $residents = TransferRecord::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = TransferRecord::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('transfer_records/report_show',compact('residents'));
     }
 

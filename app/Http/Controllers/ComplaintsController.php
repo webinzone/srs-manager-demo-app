@@ -44,8 +44,8 @@ class ComplaintsController extends Controller
     {
          // Show the page
         $this->authorize('create',Complaint::class);
-        $residents = ClientDetail::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-        $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('complaints/create',compact('residents','emps'));
     }
 
@@ -115,7 +115,7 @@ class ComplaintsController extends Controller
     {
         $this->authorize('edit',Complaint::class);
         $complaint = Complaint::find($id);
-         $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+         $emps = SrsStaff::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('complaints/edit',compact('complaint','emps'));
     }
     /**

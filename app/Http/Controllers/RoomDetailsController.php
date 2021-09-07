@@ -43,7 +43,7 @@ class RoomDetailsController extends Controller
     {
          // Show the page
         $this->authorize('create',RoomDetail::class);
-        $last_roomid        =   RoomDetail::orderBy('created_at', 'desc')->where('location_id', '=', Auth::user()->l_id)->first();
+        $last_roomid        =   RoomDetail::orderBy('created_at', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->first();
         if ($last_roomid) {
             $str = $last_roomid->room_no;
         }

@@ -175,7 +175,7 @@ class HandoversController extends Controller
          $sdate = request('sdate');
          $i = 1;         
          
-         $mngshift = Mngshift::where('mng_date', '=', $sdate)->where('location_id', '=', Auth::user()->l_id)->firstOrFail() ?? '';
+         $mngshift = Mngshift::where('mng_date', '=', $sdate)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail() ?? '';
 
         $res_name = explode(',', $mngshift->res_name);
         $room = explode(',', $mngshift->room);
@@ -208,7 +208,7 @@ class HandoversController extends Controller
          //$mngsss = Mngshift::where('mng_date', '=', $sdate)->firstOrFail() ?? '';
          //$mstaf = $mngsss->mng_staff ?? '';
 
-         $evngshift = Evngshift::where('eveng_date', '=', $sdate)->where('location_id', '=', Auth::user()->l_id)->firstOrFail() ?? '';
+         $evngshift = Evngshift::where('eveng_date', '=', $sdate)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail() ?? '';
          $res_name = explode(',', $evngshift->res_name);
         $room = explode(',', $evngshift->room);
         $notes = explode(',', $evngshift->notes);        
@@ -226,7 +226,7 @@ class HandoversController extends Controller
           $sdate = request('sdate');
          $i = 0;         
          
-         $mngshift = Mngshift::where('mng_date', '=', $sdate)->where('location_id', '=', Auth::user()->l_id)->firstOrFail() ?? '';
+         $mngshift = Mngshift::where('mng_date', '=', $sdate)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail() ?? '';
 
         $res_name = explode(',', $mngshift->res_name);
         $room = explode(',', $mngshift->room);
@@ -237,7 +237,7 @@ class HandoversController extends Controller
          
         
 
-         $evngshift = Evngshift::where('eveng_date', '=', $sdate)->where('location_id', '=', Auth::user()->l_id)->firstOrFail() ?? '';
+         $evngshift = Evngshift::where('eveng_date', '=', $sdate)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail() ?? '';
          
         $enotes = explode(',', $evngshift->notes);        
         

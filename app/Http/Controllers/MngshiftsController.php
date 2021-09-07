@@ -46,13 +46,13 @@ class MngshiftsController extends Controller
         $this->authorize('create',Mngshift::class);
         $date = Carbon::now();
         $date = $date->toDateString();
-        $last        =   Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->where('location_id', '=', Auth::user()->l_id)->first();
+        $last        =   Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->first();
         $ms = $last->mng_staff ?? '';
         $es = $last->evng_staff ?? '';
         $i = 0;
 
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-        $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
         return view('mngshifts/create',compact('residents','emps','es','ms','date','i'));
     }
 
@@ -152,7 +152,7 @@ class MngshiftsController extends Controller
          $i = 0;
         $item_last= count($res_name);
         $num = (int)$item_last;
-        $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
+        $emps = SrsStaff::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
 
         return view('mngshifts/show',compact('mngshift','emps','i','num','res_name','room','notes'));
     }
@@ -173,7 +173,7 @@ class MngshiftsController extends Controller
          $i = 0;
         $item_last= count($res_name);
         $num = (int)$item_last;
-        $emps = SrsStaff::where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
+        $emps = SrsStaff::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('name')->get();
 
         return view('mngshifts/edit',compact('mngshift','emps','i','num','res_name','room','notes'));
     }
@@ -283,7 +283,7 @@ class MngshiftsController extends Controller
 
     public function getshiftdate($id)
     {
-        $data = Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->where('location_id', '=', Auth::user()->l_id)->first();
+        $data = Mngshift::where('mng_date', '=', $date)->orderBy('created_at', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->first();
         return response()->json($data);
     }
 

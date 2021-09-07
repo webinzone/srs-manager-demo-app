@@ -49,7 +49,8 @@ class ResidentUiController extends Controller
         $r_id = $id;
         $client_detail = ClientDetail::find($id);
         $roomid = $client_detail->room_no;
-        $r_no = RoomDetail::where('room_no', '=', $roomid)->firstOrFail();
+        $bedno = $client_detail->bed_no;
+        $r_no = RoomDetail::where('room_no', '=', $roomid)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
         $rrid = $r_no->id;
         //$client_family = ClientFamily::where('client_id', '=', $id);
         //$power_of_atony = ClientPowerofatony::where('client_id', '=', $id);
@@ -62,8 +63,8 @@ class ResidentUiController extends Controller
         $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
         $income = explode(',', $pension_detail->income_type);
         $status = "Free";
-        $rooms = RoomDetail::where('status', '=', $status)->get();
-        return view('residentui/index')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid','r_id'));
+        $rooms = RoomDetail::where('status', '=', $status)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+        return view('residentui/index')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid','r_id','bedno'));
         
     }
 
@@ -71,8 +72,8 @@ class ResidentUiController extends Controller
     {
         $r_id = $id;
         $head = "Resident Agreement";        
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
         $checker = ResidentAgreement::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
         $resident_agreement = ResidentAgreement::where('client_id', '=', $id)->firstOrFail();
@@ -87,9 +88,9 @@ class ResidentUiController extends Controller
     {
            $r_id = $id; 
            $head = "Condition Report";
-            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+            $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
             $companies = CompanyMaster::all();
-            $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
+            $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
             $checker = ConditionReport::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
           $condition_report = ConditionReport::where('client_id', '=', $id)->firstOrFail();
@@ -114,7 +115,7 @@ class ResidentUiController extends Controller
         $checker = TransferRecord::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
         $transfer_record = TransferRecord::where('client_id', '=', $id)->firstOrFail();
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('residentui/transfer',compact('transfer_record','residents','r_id'));
         }
         else{
@@ -142,8 +143,8 @@ class ResidentUiController extends Controller
         $item_last= count($drug);
         $num = (int)$item_last;
 
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-        $emps = SrsStaff::orderBy('name')->where('location_id', '=', Auth::user()->l_id)->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
         return view('residentui/referral',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num','r_id'));
         }
         else{
@@ -158,9 +159,14 @@ class ResidentUiController extends Controller
         $checker = SupportPlan::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
         $support_plan = SupportPlan::where('client_id', '=', $id)->firstOrFail();
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';        
+        $review = explode(',', $support_plan->review);
+        $r_with = explode(',', $support_plan->r_with);
+        $r_notes = explode(',', $support_plan->r_notes);
+        $item_last= count($review);
+        $num = (int)$item_last;
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';        
 
-        return view('residentui/supportplans',compact('support_plan','residents','r_id'));
+        return view('residentui/supportplans',compact('support_plan','residents','r_id','review','r_with','r_notes','num'));
         }
         else{
             return view('residentui/nodata',compact('r_id','head'));
@@ -174,7 +180,7 @@ class ResidentUiController extends Controller
         $checker = Incident::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
         $incident = Incident::where('client_id', '=', $id)->firstOrFail();
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
 
         return view('residentui/incident',compact('incident','residents','r_id'));
         }
