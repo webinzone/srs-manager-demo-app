@@ -75,11 +75,11 @@ class RoomDetailsController extends Controller
         $room_detail->client_type = request('client_type') ?? ' ';;
         $room_detail->client_id = request('client_id') ?? ' ';
         $room_detail->status = request('status') ?? 'Free';
-        $room_detail->beds_no = request('beds_no') ?? ' ';
+        $room_detail->beds_no = request('beds_no') ?? '1';
         $room_detail->company_id = Auth::user()->c_id  ?? '';
         $room_detail->location_id = Auth::user()->l_id  ?? '';
         $room_detail->user_id =  Auth::user()->id;
-        $bedno = request('beds_no');
+        $bedno = request('beds_no') ?? '1';
         $num = (int)$bedno;
         $room_detail->save();
 

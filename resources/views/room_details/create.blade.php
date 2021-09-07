@@ -87,7 +87,7 @@
                           </div>
                       <div class="col-md-2 mb-3" style="width: 100px;">
 					    <label for="name" >Beds No</label>
-  	                    <input type="text" id="bed" name="beds_no" class="form-control" placeholder="No" >					        	        
+  	                    <input type="number" id="bed" name="beds_no" class="form-control" placeholder="No" >					        	        
                      </div>&nbsp;&nbsp;
                       <br>
              
@@ -118,14 +118,14 @@ $('#roomtypes').change(function () {
     if ($(this).find('option:selected').text() == 'Sharing Room' || $(this).find('option:selected').text() == 'Sharing Room With Ensuite'){
       
          $('#bed').prop('disabled', false);
-        $('#bed').val(" ");
+        $('#bed').val();
         
        
             
     } else {
        
-        $('#bed').prop('disabled', true);
-         $('#bed').val("1");
+                $('#bed').val(1);
+                 $('#bed').prop('disabled', true);
     }
 
 });
