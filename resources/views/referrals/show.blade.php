@@ -894,7 +894,7 @@ tr{
         <td style="border: 1px solid black;">{{ $referral2->a_comments}}</td>
       </tr>
     </table>
-    <h3 style="font-family:Bedrock">Community Livi ng Skills:</h3>
+    <h3 style="font-family:Bedrock">Community Living Skills:</h3>
     <table>
       <tr>
         <td style="border: 1px solid black;">Is the client able to access public transport?</td>

@@ -91,8 +91,54 @@
                    
                 </div>
 
-                <h5 style="color:#980000;font-size: 16px;left: 90px;"><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PART A: for client or client's representative (if applicable)</i></b></h5>
+               <h5 style="color:#980000;font-size: 16px;left: 90px;"><b><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PART A: for client or client's representative (if applicable)</i></b></h5>
                 <div class="box-body" style="padding-left: 50px;">    
+                     <h5 style="color:#980000;font-size: 16px;"><b>Client  Details</b></h5>
+
+                <div class="form-row">
+                      <div class="col-md-3 mb-3">
+                        <label>Rsident Name</label>                        
+                        <select class="form-control" required="" id="resi_name" name="cfname" style="height: 26px;padding: 3px 10px;">
+                            <option>--   Select Resident Name  --</option>
+                          @foreach($residents as $resident)
+                            <option value="{{ $resident->id }}" {{ $referral->cfname == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
+                          @endforeach
+                        </select>                                      
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Surname:</label>
+                        <input type="text" name="csurname" class="form-control" value="{{ $referral->csurname}}" placeholder="Surname:">                                        
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <label>Date of Birth</label>
+                        <input type="date" name="cdob" id="dob" class="form-control" value="{{ $referral->cdob}}" placeholder="Date of Birth" readonly>                                       
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="cgender">Gender</label>&nbsp;&nbsp;&nbsp;
+                          <input type="text" id="gender" name="cgender" class="form-control" value="{{ $referral->cgender}}" placeholder="Gender" readonly>
+                       
+                      </div>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-row">
+                      <div class="col-md-3 mb-3">
+                        <label>Religion</label>
+                        <input type="text" name="creligion" id="rel" class="form-control" value="{{ $referral->creligion}}" placeholder="Religion" readonly>                                        
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Mobile</label>
+                        <input type="tel" name="cph" class="form-control"value="{{ $referral->cph}}" id="ph1" placeholder=" Mobile" readonly>                                        
+                      </div>
+                       <div class="col-md-3 mb-3">
+                        <label>Email ID</label>
+                        <input type="email" name="cemail" id="em1" class="form-control" value="{{ $referral->cemail}}" placeholder="Email ID" readonly>                                       
+                      </div>
+                     
+                      <div class="col-md-3 mb-3">
+                        <label>Current Address</label>
+                        <textarea name="caddress" id="adr" class="form-control" placeholder="Current Address" readonly>{{ $referral->caddress}} </textarea>
+                      </div>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>CONSENT TO RELEASE OF INFORMATION</b></h5>
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
@@ -167,52 +213,7 @@
                         <input type="tel" name="ref_ph" class="form-control" value="{{ $referral->ref_ph}}" placeholder="Phone">
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <h5 style="color:#980000;font-size: 16px;"><b>Client  Details</b></h5>
-
-                <div class="form-row">
-                      <div class="col-md-3 mb-3">
-                        <label>Rsident Name</label>                        
-                        <select class="form-control" required="" id="resi_name" name="cfname" style="height: 26px;padding: 3px 10px;">
-                            <option>--   Select Resident Name  --</option>
-                          @foreach($residents as $resident)
-                            <option value="{{ $resident->id }}" {{ $referral->cfname == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
-                          @endforeach
-                        </select>                                      
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label>Surname:</label>
-                        <input type="text" name="csurname" class="form-control" value="{{ $referral->csurname}}" placeholder="Surname:">                                        
-                      </div>
-
-                      <div class="col-md-3 mb-3">
-                        <label>Date of Birth</label>
-                        <input type="date" name="cdob" id="dob" class="form-control" value="{{ $referral->cdob}}" placeholder="Date of Birth" readonly>                                       
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="cgender">Gender</label>&nbsp;&nbsp;&nbsp;
-                          <input type="text" id="gender" name="cgender" class="form-control" value="{{ $referral->gender}}" placeholder="Gender" readonly>
-                       
-                      </div>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="form-row">
-                      <div class="col-md-3 mb-3">
-                        <label>Religion</label>
-                        <input type="text" name="creligion" id="rel" class="form-control" value="{{ $referral->creligion}}" placeholder="Religion" readonly>                                        
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label>Mobile</label>
-                        <input type="tel" name="cph" class="form-control"value="{{ $referral->cph}}" id="ph1" placeholder=" Mobile" readonly>                                        
-                      </div>
-                       <div class="col-md-3 mb-3">
-                        <label>Email ID</label>
-                        <input type="email" name="cemail" id="em1" class="form-control" value="{{ $referral->cemail}}" placeholder="Email ID" readonly>                                       
-                      </div>
-                     
-                      <div class="col-md-3 mb-3">
-                        <label>Current Address</label>
-                        <textarea name="caddress" id="adr" class="form-control" placeholder="Current Address" readonly>{{ $referral->gender}} </textarea>
-                      </div>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             
               <h5 style="color:#980000;font-size: 16px;">[If client is residing in another SRS]</h5>
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
@@ -360,7 +361,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Expiry Date</label>
-                        <input type="date" name="pen_mediexp" id="mediexp" class="form-control" value="{{ $referral->pen_mediexp}}" placeholder="Expiry Date" readonly>                                        
+                        <input type="month" name="pen_mediexp" id="mediexp" class="form-control" value="{{ $referral->pen_mediexp}}" placeholder="Expiry Date" readonly>                                        
                       </div>
                       
                       <div class="col-md-3 mb-3">
@@ -513,16 +514,16 @@
                 <div class="form-row">
                       <div class="col-md-12 mb-3">
                         <label>Behaviour List any behaviour Self-harm</label><br>
-                            <label><input  {{ $referral->behav_harm == 'Smoking' ? 'checked' : ''  }}  type="checkbox" name="behav_harm" value="Smoking"> Smoking</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Self-Motivation' ? 'checked' : ''  }}  type="checkbox" name="behav_harm" value="Self-Motivation"> Self-Motivation</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Capacity for cooperation' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Capacity for cooperation"> Capacity for cooperation</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Wandering' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Wandering"> Wandering</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Capacity to share' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Capacity to share"> Capacity to share</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Capacity to socialise' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Capacity to socialise"> Capacity to socialise</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Verbal aggression' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Verbal aggression"> Verbal aggression</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Drug/alcohol' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Drug/alcohol"> Drug/alcohol</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Impulse control' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Impulse control"> Impulse control</label>&nbsp;&nbsp;
-                                <label><input {{ $referral->behav_harm == 'Other' ? 'checked' : ''  }} type="checkbox" name="behav_harm" value="Other"> Other</label>&nbsp;&nbsp;      
+                            <label><input  {{ $ch1 == 'true' ? 'checked' : ''  }}  type="checkbox" name="behav_harm[]" value="Smoking"> Smoking</label>&nbsp;&nbsp;
+                                <label><input {{ $ch2 == 'true' ? 'checked' : ''  }}  type="checkbox" name="behav_harm[]" value="Self-Motivation"> Self-Motivation</label>&nbsp;&nbsp;
+                                <label><input {{ $ch3 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity for cooperation"> Capacity for cooperation</label>&nbsp;&nbsp;
+                                <label><input {{ $ch4 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Wandering"> Wandering</label>&nbsp;&nbsp;
+                                <label><input {{ $ch5 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity to share"> Capacity to share</label>&nbsp;&nbsp;
+                                <label><input {{ $ch6 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Capacity to socialise"> Capacity to socialise</label>&nbsp;&nbsp;
+                                <label><input {{ $ch7 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Verbal aggression"> Verbal aggression</label>&nbsp;&nbsp;
+                                <label><input {{ $ch8 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Drug/alcohol"> Drug/alcohol</label>&nbsp;&nbsp;
+                                <label><input {{ $ch9 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Impulse control"> Impulse control</label>&nbsp;&nbsp;
+                                <label><input {{ $ch10 == 'true' ? 'checked' : ''  }} type="checkbox" name="behav_harm[]" value="Other"> Other</label>&nbsp;&nbsp;      
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -556,166 +557,166 @@
                   <td>1</td>
                   <td>Have you been told by a doctor or other health professional that you have a health condition (eg breathing problems, a cancer, heart problems, chronic kidney disease, diabetes, high biood pressure, arthritis, osteoporosis or other condition)?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med1 == 'Yes' ? 'checked' : ''  }} name="med1" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected11();" {{ $referral2->med1 == 'Yes' ? 'checked' : ''  }} name="med1" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med1 == 'NO' ? 'checked' : ''  }} name="med1" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med1_det" style="height:70px;" value="{{ $referral2->med1_det}}"></td>
+                    <input type="radio" onchange="findselected11();" {{ $referral2->med1 == 'NO' ? 'checked' : ''  }} name="med1" value="NO" /> </td>
+                  <td><input type="text" id="f1" name="med1_det" style="height:70px;" value="{{ $referral2->med1_det}}"></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>Have you recently had problems with your teeth, mouth, gums or dentures?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med2 == 'Yes' ? 'checked' : ''  }} name="med2" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected12();" {{ $referral2->med2 == 'Yes' ? 'checked' : ''  }} name="med2" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med2 == 'NO' ? 'checked' : ''  }} name="med2" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med2_det" style="height:70px;" value="{{ $referral2->med2_det}}"></td>
+                    <input type="radio" onchange="findselected12();" {{ $referral2->med2 == 'NO' ? 'checked' : ''  }} name="med2" value="NO" /> </td>
+                  <td><input type="text" id="f2" name="med2_det" style="height:70px;" value="{{ $referral2->med2_det}}"></td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>Are you concerned about your medications?</td>
 
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med3 == 'Yes' ? 'checked' : ''  }} name="med3" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected13();" {{ $referral2->med3 == 'Yes' ? 'checked' : ''  }} name="med3" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med3 == 'NO' ? 'checked' : ''  }} name="med3" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med3_det" style="height:70px;" value="{{ $referral2->med3_det}}"></td>
+                    <input type="radio" onchange="findselected13();" {{ $referral2->med3 == 'NO' ? 'checked' : ''  }} name="med3" value="NO" /> </td>
+                  <td><input type="text" id="f33" name="med3_det" style="height:70px;" value="{{ $referral2->med3_det}}"></td>
                 </tr>
                 <tr>
                   <td>4</td>
                   <td>Are you concerned about your lack of physical activity?</td>
 
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med4 == 'Yes' ? 'checked' : ''  }} name="med4" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected14();" {{ $referral2->med4 == 'Yes' ? 'checked' : ''  }} name="med4" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med4 == 'NO' ? 'checked' : ''  }} name="med4" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med4_det" style="height:70px;" value="{{ $referral2->med4_det}}"></td>
+                    <input type="radio" onchange="findselected14();" {{ $referral2->med4 == 'NO' ? 'checked' : ''  }} name="med4" value="NO" /> </td>
+                  <td><input type="text" id="f4" name="med4_det" style="height:70px;" value="{{ $referral2->med4_det}}"></td>
                 </tr>
                 <tr>
                   <td>5</td>
                   <td>Are you concerned about your weight?</td>
 
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med5 == 'Yes' ? 'checked' : ''  }} name="med5" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected15();" {{ $referral2->med5 == 'Yes' ? 'checked' : ''  }} name="med5" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med5 == 'NO' ? 'checked' : ''  }} name="med5" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med5_det" style="height:70px;" value="{{ $referral2->med5_det}}"></td>
+                    <input type="radio" onchange="findselected15();" {{ $referral2->med5 == 'NO' ? 'checked' : ''  }} name="med5" value="NO" /> </td>
+                  <td><input type="text" id="f5" name="med5_det" style="height:70px;" value="{{ $referral2->med5_det}}"></td>
                 </tr>
                 <tr>
                   <td>6</td>
                   <td>Have you recently lost weight without trying?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med6 == 'Yes' ? 'checked' : ''  }} name="med6" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected16();" {{ $referral2->med6 == 'Yes' ? 'checked' : ''  }} name="med6" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med6 == 'NO' ? 'checked' : ''  }} name="med6" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med6_det" style="height:70px;" value="{{ $referral2->med6_det}}"></td>
+                    <input type="radio" onchange="findselected16();" {{ $referral2->med6 == 'NO' ? 'checked' : ''  }} name="med6" value="NO" /> </td>
+                  <td><input type="text" id="f66" name="med6_det" style="height:70px;" value="{{ $referral2->med6_det}}"></td>
                 </tr>
                 <tr>
                   <td>7</td>
                   <td>Do currently smoke tobacco?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med7 == 'Yes' ? 'checked' : ''  }} name="med7" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected17();" {{ $referral2->med7 == 'Yes' ? 'checked' : ''  }} name="med7" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med7 == 'NO' ? 'checked' : ''  }} name="med7" value="NO" /> </td>
+                    <input type="radio" onchange="findselected17();" {{ $referral2->med7 == 'NO' ? 'checked' : ''  }} name="med7" value="NO" /> </td>
                   <td><input type="text" id="f7" name="med7_det" style="height:70px;" value="{{ $referral2->med7_det}}"></td>
                 </tr>
                 <tr>
                   <td>8</td>
                   <td>Have you quit smoking tobacco in the last 5 years?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med8 == 'Yes' ? 'checked' : ''  }} name="med8" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected18();" {{ $referral2->med8 == 'Yes' ? 'checked' : ''  }} name="med8" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med8 == 'NO' ? 'checked' : ''  }} name="med8" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med8_det" style="height:70px;" value="{{ $referral2->med8_det}}"></td>
+                    <input type="radio" onchange="findselected18();" {{ $referral2->med8 == 'NO' ? 'checked' : ''  }} name="med8" value="NO" /> </td>
+                  <td><input type="text" id="f8" name="med8_det" style="height:70px;" value="{{ $referral2->med8_det}}"></td>
                 </tr>
                 <tr>
                   <td>9</td>
                   <td>Are you concerned about how much alcohol you drink?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med9 == 'Yes' ? 'checked' : ''  }} name="med9" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected19();" {{ $referral2->med9 == 'Yes' ? 'checked' : ''  }} name="med9" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med9 == 'NO' ? 'checked' : ''  }} name="med9" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med9_det" style="height:70px;" value="{{ $referral2->med9_det}}"></td>
+                    <input type="radio" onchange="findselected19();" {{ $referral2->med9 == 'NO' ? 'checked' : ''  }} name="med9" value="NO" /> </td>
+                  <td><input type="text" id="f9" name="med9_det" style="height:70px;" value="{{ $referral2->med9_det}}"></td>
                 </tr>
                 <tr>
                   <td>10</td>
                   <td>Are you concerned about your use of drugs?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med10 == 'Yes' ? 'checked' : ''  }} name="med10" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected20();" {{ $referral2->med10 == 'Yes' ? 'checked' : ''  }} name="med10" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med10 == 'NO' ? 'checked' : ''  }} name="med10" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med10_det" style="height:70px;" value="{{ $referral2->med10_det}}"></td>
+                    <input type="radio" onchange="findselected20();" {{ $referral2->med10 == 'NO' ? 'checked' : ''  }} name="med10" value="NO" /> </td>
+                  <td><input type="text" id="f10" name="med10_det" style="height:70px;" value="{{ $referral2->med10_det}}"></td>
                 </tr>
                 <tr>
                   <td>11</td>
                   <td>Are you concerned about your gambling?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med11 == 'Yes' ? 'checked' : ''  }} name="med11" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected11();" {{ $referral2->med11 == 'Yes' ? 'checked' : ''  }} name="med11" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med11 == 'NO' ? 'checked' : ''  }} name="med11" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med11_det" style="height:70px;" value="{{ $referral2->med11_det}}"></td>
+                    <input type="radio" onchange="findselected11();" {{ $referral2->med11 == 'NO' ? 'checked' : ''  }} name="med11" value="NO" /> </td>
+                  <td><input type="text" id="f11" name="med11_det" style="height:70px;" value="{{ $referral2->med11_det}}"></td>
                 </tr>
                 <tr>
                   <td>12</td>
                   <td>Is your financial situation very difficult?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med12 == 'Yes' ? 'checked' : ''  }} name="med12" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected12();" {{ $referral2->med12 == 'Yes' ? 'checked' : ''  }} name="med12" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med12 == 'NO' ? 'checked' : ''  }} name="med12" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med12_det" style="height:70px;" value="{{ $referral2->med12_det}}"></td>
+                    <input type="radio" onchange="findselected12();" {{ $referral2->med12 == 'NO' ? 'checked' : ''  }} name="med12" value="NO" /> </td>
+                  <td><input type="text" id="f12" name="med12_det" style="height:70px;" value="{{ $referral2->med12_det}}"></td>
                 </tr>
                 <tr>
                   <td>13</td>
                   <td>Do you often feel sad or depressed?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med13 == 'Yes' ? 'checked' : ''  }} name="med13" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected13();" {{ $referral2->med13 == 'Yes' ? 'checked' : ''  }} name="med13" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med13 == 'NO' ? 'checked' : ''  }} name="med13" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med13_det" style="height:70px;" value="{{ $referral2->med13_det}}"></td>
+                    <input type="radio" onchange="findselected13();" {{ $referral2->med13 == 'NO' ? 'checked' : ''  }} name="med13" value="NO" /> </td>
+                  <td><input type="text" id="f13" name="med13_det" style="height:70px;" value="{{ $referral2->med13_det}}"></td>
                 </tr>
                 <tr>
                   <td>14</td>
                   <td>Do you often feel nervous or anxious?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med14 == 'Yes' ? 'checked' : ''  }} name="med14" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected14();" {{ $referral2->med14 == 'Yes' ? 'checked' : ''  }} name="med14" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med14 == 'NO' ? 'checked' : ''  }} name="med14" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med14_det" style="height:70px;" value="{{ $referral2->med14_det}}"></td>
+                    <input type="radio" onchange="findselected14();" {{ $referral2->med14 == 'NO' ? 'checked' : ''  }} name="med14" value="NO" /> </td>
+                  <td><input type="text" id="f14" name="med14_det" style="height:70px;" value="{{ $referral2->med14_det}}"></td>
                 </tr>
                 <tr>
                   <td>15</td>
                   <td>Have you felt afraid of someone who controls or hurts you?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med15 == 'Yes' ? 'checked' : ''  }} name="med15" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected15();" {{ $referral2->med15 == 'Yes' ? 'checked' : ''  }} name="med15" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med15 == 'NO' ? 'checked' : ''  }} name="med15" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med15_det" style="height:70px;" value="{{ $referral2->med15_det}}"></td>
+                    <input type="radio" onchange="findselected15();" {{ $referral2->med15 == 'NO' ? 'checked' : ''  }} name="med15" value="NO" /> </td>
+                  <td><input type="text" id="f15" name="med15_det" style="height:70px;" value="{{ $referral2->med15_det}}"></td>
                 </tr>
                 <tr>
                   <td>16</td>
                   <td>Are you homeless or at risk of homelessness?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med16 == 'Yes' ? 'checked' : ''  }} name="med16" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected16();" {{ $referral2->med16 == 'Yes' ? 'checked' : ''  }} name="med16" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med16 == 'NO' ? 'checked' : ''  }} name="med16" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med16_det" style="height:70px;" value="{{ $referral2->med16_det}}"></td>
+                    <input type="radio" onchange="findselected16();" {{ $referral2->med16 == 'NO' ? 'checked' : ''  }} name="med16" value="NO" /> </td>
+                  <td><input type="text" id="f16" name="med16_det" style="height:70px;" value="{{ $referral2->med16_det}}"></td>
                 </tr>
                 <tr>
                   <td>17</td>
                   <td>Would you rate your health as poor?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med17 == 'Yes' ? 'checked' : ''  }} name="med17" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected17();" {{ $referral2->med17 == 'Yes' ? 'checked' : ''  }} name="med17" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med17 == 'NO' ? 'checked' : ''  }} name="med17" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med17_det" style="height:70px;" value="{{ $referral2->med17_det}}"></td>
+                    <input type="radio" onchange="findselected17();" {{ $referral2->med17 == 'NO' ? 'checked' : ''  }} name="med17" value="NO" /> </td>
+                  <td><input type="text" id="f17" name="med17_det" style="height:70px;" value="{{ $referral2->med17_det}}"></td>
                 </tr>
                 <tr>
                   <td>18</td>
                   <td>Would you rate your life circumstances as poor?</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med18 == 'Yes' ? 'checked' : ''  }} name="med18" value="Yes" /> </td>
+                    <input type="radio" onchange="findselected18();" {{ $referral2->med18 == 'Yes' ? 'checked' : ''  }} name="med18" value="Yes" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->med18 == 'NO' ? 'checked' : ''  }} name="med18" value="NO" /> </td>
-                  <td><input type="text" id="f7" name="med18_det" style="height:70px;" value="{{ $referral2->med18_det}}"></td>
+                    <input type="radio" onchange="findselected18();" {{ $referral2->med18 == 'NO' ? 'checked' : ''  }} name="med18" value="NO" /> </td>
+                  <td><input type="text" id="f18" name="med18_det" style="height:70px;" value="{{ $referral2->med18_det}}"></td>
                 </tr>
                 </table>
               </div>
@@ -734,92 +735,92 @@
                   <tr>
                   <td>Eating/d rinking/diet</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p1 == 'No Assistance' ? 'checked' : ''  }} name="p1" value="No Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p1 == 'No Assistance' ? 'checked' : ''  }} name="p1" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p1 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p1" value="Prompting/Supervision" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p1 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p1" value="Prompting/Supervision" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p1 == 'Active Assistance' ? 'checked' : ''  }} name="p1" value="Active Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p1 == 'Active Assistance' ? 'checked' : ''  }} name="p1" value="Active Assistance" /> </td>
                 </tr>
                 <tr>
                   <td>Mobility</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p2 == 'No Assistance' ? 'checked' : ''  }} name="p2" value="No Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p2 == 'No Assistance' ? 'checked' : ''  }} name="p2" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p2 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p2" value="Prompting/Supervision" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p2 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p2" value="Prompting/Supervision" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p2 == 'Active Assistance' ? 'checked' : ''  }} name="p2" value="Active Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p2 == 'Active Assistance' ? 'checked' : ''  }} name="p2" value="Active Assistance" /> </td>
                 </tr>
                 <tr>
                   <td>Showering/bathing</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p3 == 'No Assistance' ? 'checked' : ''  }} name="p3" value="No Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p3 == 'No Assistance' ? 'checked' : ''  }} name="p3" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p3 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p3" value="Prompting/Supervision" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p3 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p3" value="Prompting/Supervision" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p3 == 'Active Assistance' ? 'checked' : ''  }} name="p3" value="Active Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p3 == 'Active Assistance' ? 'checked' : ''  }} name="p3" value="Active Assistance" /> </td>
                 </tr>
                 <tr>
                   <td>Shaving/grooming</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p4 == 'No Assistance' ? 'checked' : ''  }} name="p4" value="No Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p4 == 'No Assistance' ? 'checked' : ''  }} name="p4" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p4 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p4" value="Prompting/Supervision" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p4 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p4" value="Prompting/Supervision" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p4 == 'Active Assistance' ? 'checked' : ''  }} name="p4" value="Active Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p4 == 'Active Assistance' ? 'checked' : ''  }} name="p4" value="Active Assistance" /> </td>
                 </tr>
                 <tr>
                   <td>Dressing</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p5 == 'No Assistance' ? 'checked' : ''  }} name="p5" value="No Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p5 == 'No Assistance' ? 'checked' : ''  }} name="p5" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p5 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p5" value="Prompting/Supervision" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p5 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p5" value="Prompting/Supervision" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p5 == 'Active Assistance' ? 'checked' : ''  }} name="p5" value="Active Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p5 == 'Active Assistance' ? 'checked' : ''  }} name="p5" value="Active Assistance" /> </td>
                 </tr>
                 <tr>
                   <td>Dental hygiene</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p6 == 'No Assistance' ? 'checked' : ''  }} name="p6" value="No Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p6 == 'No Assistance' ? 'checked' : ''  }} name="p6" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p6 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p6" value="Prompting/Supervision" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p6 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p6" value="Prompting/Supervision" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p6 == 'Active Assistance' ? 'checked' : ''  }} name="p6" value="Active Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p6 == 'Active Assistance' ? 'checked' : ''  }} name="p6" value="Active Assistance" /> </td>
                 </tr>
                 <tr>
                   <td>Toileting</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p7 == 'No Assistance' ? 'checked' : ''  }} name="p7" value="No Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p7 == 'No Assistance' ? 'checked' : ''  }} name="p7" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p7 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p7" value="Prompting/Supervision" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p7 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p7" value="Prompting/Supervision" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p7 == 'Active Assistance' ? 'checked' : ''  }} name="p7" value="Active Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p7 == 'Active Assistance' ? 'checked' : ''  }} name="p7" value="Active Assistance" /> </td>
                 </tr>
                 <tr>
                   <td>Foot care/nail care</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p8 == 'No Assistance' ? 'checked' : ''  }} name="p8" value="No Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p8 == 'No Assistance' ? 'checked' : ''  }} name="p8" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p8 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p8" value="Prompting/Supervision" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p8 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p8" value="Prompting/Supervision" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p8 == 'Active Assistance' ? 'checked' : ''  }} name="p8" value="Active Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p8 == 'Active Assistance' ? 'checked' : ''  }} name="p8" value="Active Assistance" /> </td>
                 </tr>
                 <tr>
                   <td>Laundry</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p9 == 'No Assistance' ? 'checked' : ''  }} name="p9" value="No Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p9 == 'No Assistance' ? 'checked' : ''  }} name="p9" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p9 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p9" value="Prompting/Supervision" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p9 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p9" value="Prompting/Supervision" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p9 == 'Active Assistance' ? 'checked' : ''  }} name="p9" value="Active Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p9 == 'Active Assistance' ? 'checked' : ''  }} name="p9" value="Active Assistance" /> </td>
                 </tr>
                 <tr>
                   <td>Housekeeping</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p10 == 'No Assistance' ? 'checked' : ''  }} name="p10" value="No Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p10 == 'No Assistance' ? 'checked' : ''  }} name="p10" value="No Assistance" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p10 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p10" value="Prompting/Supervision" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p10 == 'Prompting/Supervision' ? 'checked' : ''  }} name="p10" value="Prompting/Supervision" /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" onchange="findselected5();" {{ $referral2->p10 == 'Active Assistance' ? 'checked' : ''  }} name="p10" value="Active Assistance" /> </td>
+                    <input type="radio" onchange="findselected5();" {{ $referral2->p10 == 'Active Assistance' ? 'checked' : ''  }} name="p10" value="Active Assistance" /> </td>
                 </tr>
                 </table>
               </div>
@@ -831,22 +832,22 @@
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label>Mobility</label><br>
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a1 == 'Stick' ? 'checked' : ''  }} name="a1" value="Stick" />&nbsp;&nbsp;Stick</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a1 == 'Frame' ? 'checked' : ''  }} name="a1" value="Frame" />&nbsp;&nbsp;Frame</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a1 == 'Wheelchair' ? 'checked' : ''  }} name="a1" value="Wheelchair" />&nbsp;&nbsp;Wheelchair</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a1 == 'Other' ? 'checked' : ''  }} name="a1" value="Other" />&nbsp;&nbsp;Other</label>&nbsp;&nbsp;<br>       
+                            <label><input type="checkbox"  {{ $a1_ch1 == 'true' ? 'checked' : ''  }} name="a1[]" value="Stick" />&nbsp;&nbsp;Stick</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a2_ch2 == 'true' ? 'checked' : ''  }} name="a1[]" value="Frame" />&nbsp;&nbsp;Frame</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a3_ch3 == 'true' ? 'checked' : ''  }} name="a1[]" value="Wheelchair" />&nbsp;&nbsp;Wheelchair</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a4_ch4 == 'true' ? 'checked' : ''  }} name="a1[]" value="Other" />&nbsp;&nbsp;Other</label>&nbsp;&nbsp;<br>       
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Communication</label><br>
-                        <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a2 == 'Glasses' ? 'checked' : ''  }} name="a2" value="Glasses" />&nbsp;&nbsp;Glasses</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a2 == 'Hearing Aid' ? 'checked' : ''  }} name="a2" value="Hearing Aid" />&nbsp;&nbsp;Hearing Aid</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a2 == 'Interpreter' ? 'checked' : ''  }} name="a2" value="Interpreter" />&nbsp;&nbsp;Interpreter</label>
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a2 == 'Other' ? 'checked' : ''  }} name="a2" value="Other" />&nbsp;&nbsp;Other</label>
+                        <label><input type="checkbox"  {{ $a2_ch1 == 'true' ? 'checked' : ''  }} name="a2[]" value="Glasses" />&nbsp;&nbsp;Glasses</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a2_ch2 == 'true' ? 'checked' : ''  }} name="a2[]" value="Hearing Aid" />&nbsp;&nbsp;Hearing Aid</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a2_ch3 == 'true' ? 'checked' : ''  }} name="a2[]" value="Interpreter" />&nbsp;&nbsp;Interpreter</label>
+                            <label><input type="checkbox"  {{ $a2_ch4 == 'true' ? 'checked' : ''  }} name="a2[]" value="Other" />&nbsp;&nbsp;Other</label>
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Other</label><br>
-                        <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a3 == 'Dentures' ? 'checked' : ''  }} name="a3" value="Dentures" />&nbsp;&nbsp;Dentures</label>&nbsp;&nbsp;
-                            <label><input type="checkbox" onchange="findselected5();" {{ $referral2->a3 == 'Continence aids' ? 'checked' : ''  }} name="a3" value="Continence aids" />&nbsp;&nbsp;Continence aids</label>&nbsp;&nbsp;                      </div>
+                        <label><input type="checkbox"  {{ $a3_ch1 == 'true' ? 'checked' : ''  }} name="a3[]" value="Dentures" />&nbsp;&nbsp;Dentures</label>&nbsp;&nbsp;
+                            <label><input type="checkbox"  {{ $a3_ch2 == 'true' ? 'checked' : ''  }} name="a3[]" value="Continence aids" />&nbsp;&nbsp;Continence aids</label>&nbsp;&nbsp;                      </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                
                 <div class="form-row">
@@ -1005,13 +1006,6 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <br><br>
-                    
-                    <!--<div class="form-group ">
-                        <label>Upload Profile Photo</label>
-                        <div class="col-md-7 col-sm-12 required">
-                            <input type="file" name="profile_pic">                                       
-                        </div>
-                    </div>-->
                     <div class="box-footer text-right" style="padding-right:50px;">
                      <br><br>  
                         <button style="width: 100px;" type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
@@ -1271,18 +1265,204 @@ $('#resi_name').change(function(){
 });
 </script>
 <script type="text/javascript">
-  function onlyOne(checkbox) {
-    var checkboxes = document.getElementsByName('bath')
-    checkboxes.forEach((item) => {
-        if (item !== checkbox) item.checked = false
-    })
+  function findselected11() { 
+
+    var result = document.querySelector('input[name="med1"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f1").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f1").removeAttribute('disabled', false);
+    }
+}
+function findselected12() { 
+
+    var result = document.querySelector('input[name="med2"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f2").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f2").removeAttribute('disabled', false);
+    }
+}
+function findselected13() { 
+
+    var result = document.querySelector('input[name="med3"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f33").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f33").removeAttribute('disabled', false);
+    }
+}
+function findselected14() { 
+
+    var result = document.querySelector('input[name="med4"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f4").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f4").removeAttribute('disabled', false);
+    }
+}
+function findselected15() { 
+
+    var result = document.querySelector('input[name="med5"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f5").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f5").removeAttribute('disabled', false);
+    }
+}
+function findselected16() { 
+
+    var result = document.querySelector('input[name="med6"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f66").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f66").removeAttribute('disabled', false);
+    }
+}
+function findselected17() { 
+
+    var result = document.querySelector('input[name="med7"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f7").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f7").removeAttribute('disabled', false);
+    }
+}
+function findselected18() { 
+
+    var result = document.querySelector('input[name="med8"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f8").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f8").removeAttribute('disabled', false);
+    }
+}
+function findselected19() { 
+
+    var result = document.querySelector('input[name="med9"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f9").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f9").removeAttribute('disabled', false);
+    }
+}
+function findselected20() { 
+
+    var result = document.querySelector('input[name="med10"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f10").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f10").removeAttribute('disabled', false);
+    }
+}
+function findselected21() { 
+
+    var result = document.querySelector('input[name="med11"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f11").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f11").removeAttribute('disabled', false);
+    }
+}
+function findselected22() { 
+
+    var result = document.querySelector('input[name="med12"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f12").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f12").removeAttribute('disabled', false);
+    }
+}
+function findselected23() { 
+
+    var result = document.querySelector('input[name="med13"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f13").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f13").removeAttribute('disabled', false);
+    }
+}
+function findselected24() { 
+
+    var result = document.querySelector('input[name="med14"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f14").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f14").removeAttribute('disabled', false);
+    }
+}
+function findselected25() { 
+
+    var result = document.querySelector('input[name="med15"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f15").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f15").removeAttribute('disabled', false);
+    }
+}
+function findselected26() { 
+
+    var result = document.querySelector('input[name="med16"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f16").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f16").removeAttribute('disabled', false);
+    }
+}
+function findselected27() { 
+
+    var result = document.querySelector('input[name="med17"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f17").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f17").removeAttribute('disabled', false);
+    }
+}
+function findselected28() { 
+
+    var result = document.querySelector('input[name="med18"]:checked').value;
+    if(result=="NO"){
+
+        document.getElementById("f18").setAttribute('disabled', true);
+    }
+    else{
+        document.getElementById("f18").removeAttribute('disabled', false);
+    }
 }
 </script>
-<script type="text/javascript">
-  $('input[type="checkbox"]').on('change', function() {
-    $('input[name="' + this.name + '"]').not(this).prop('checked', false);
-});
-</script>
-
 @include ('partials.bootstrap-table')
 @stop
