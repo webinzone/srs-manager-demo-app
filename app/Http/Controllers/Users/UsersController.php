@@ -124,10 +124,13 @@ class UsersController extends Controller
         $user->zip = $request->input('zip', null);
         $companyid = $request->input('companyid');
         $locationid = $request->input('locationid');
+
+        $l_data = LocationMaster::where('id', '=', $locationid)->firstOrFail();
+
         $cname = $request->input('companyname');
         $lname = $request->input('locationname');
         $user->c_id = $companyid;
-        $user->l_id = $locationid;
+        $user->l_id = $l_data->location_id;
         $user->companyname = $cname;
         $user->locationname = $lname;        
 
@@ -296,8 +299,8 @@ class UsersController extends Controller
         $user->country = $request->input('country', null);
         $user->activated = $request->input('activated', 0);
         $user->zip = $request->input('zip', null);
-
-
+        
+        
         // Update the location of any assets checked out to this user
         Asset::where('assigned_type', User::class)
             ->where('assigned_to', $user->id)
