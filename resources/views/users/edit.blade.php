@@ -604,7 +604,7 @@ $('#location_id').change(function(){
                 //)
                  //alert("success");
                 response.locations.forEach(location =>
-                  output.push(`<option value="${location.location_id}" >${location.location_id}</option>`)
+                  output.push(`<option value="${location.id}" >${location.location_id}</option>`)
                   )
 //$('#location_id').append(`<option lue="${location.location_id}">${location.location_id}</option>`)
 //                

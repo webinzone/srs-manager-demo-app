@@ -297,7 +297,7 @@ class ConditionReportsController extends Controller
     }
 
     public function getLocationName($id){
-        $data = LocationMaster::where('location_id', '=', $id)->firstOrFail();
+        $data = LocationMaster::where('id', '=', $id)->firstOrFail();
         return response()->json($data);
     }
 
