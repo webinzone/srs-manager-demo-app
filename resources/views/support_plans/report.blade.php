@@ -65,7 +65,7 @@
       </tr>
       <tr>
         <td>General practitioner Name and contact details</td>
-        <td>{{ $support_plan->gp_name}} &nbsb;&nbsb; {{ $support_plan->gp_contact}}</td>
+        <td>{{ $support_plan->gp_name}} - {{ $support_plan->gp_contact}}</td>
         <td>Other Health Practitioners</td>
         <td>{{ $support_plan->other_gp}}</td>
         <td>Nominated person contact details</td>
@@ -112,7 +112,7 @@
       </tr>
       @for ($i=0; $i < $num; $i++)
        <tr>
-        <td>{{ $review[$i] }}</td>
+        <td>{{ date('d-m-Y', strtotime($review[$i])) }}</td>
         <td>{{ $r_with[$i] }}</td>
         <td>{{ $r_notes[$i] }}</td>
         

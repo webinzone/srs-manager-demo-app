@@ -143,26 +143,26 @@ table, td, th {
       </tr>
       <tr>
         <td>Frequency of payment: </td>
-        <td><label><input {{ $resident_agreement->freq_pay == 'Weekly' ? 'checked' : ''  }}  type="checkbox" name="freq_pay" value="Weekly"> Weekly</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->freq_pay == 'Fortnightly' ? 'checked' : ''  }}  type="checkbox" name="freq_pay" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->freq_pay == 'Every Calender Month' ? 'checked' : ''  }} type="checkbox" name="freq_pay" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->freq_pay == 'Other' ? 'checked' : ''  }} type="checkbox" name="freq_pay" value="Other"> Other</label>&nbsp;&nbsp;
+        <td><label><input {{ $resident_agreement->freq_pay == 'Weekly' ? 'checked' : ''  }}  type="checkbox" disabled name="freq_pay" value="Weekly"> Weekly</label>&nbsp;&nbsp;
+                                <label><input {{ $resident_agreement->freq_pay == 'Fortnightly' ? 'checked' : ''  }}  type="checkbox" disabled name="freq_pay" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
+                                <label><input {{ $resident_agreement->freq_pay == 'Every Calender Month' ? 'checked' : ''  }} type="checkbox" disabled name="freq_pay" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
+                                <label><input {{ $resident_agreement->freq_pay == 'Other' ? 'checked' : ''  }} type="checkbox" disabled name="freq_pay" value="Other"> Other</label>&nbsp;&nbsp;
         </td>
       </tr>
       <tr>
         <td>Any rent paid in advance: </td>
-        <td><label><input {{ $resident_agreement->any_rent_adv == 'Weekly' ? 'checked' : ''  }}  type="checkbox" name="any_rent_adv" value="Weekly"> Weekly</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->any_rent_adv == 'Fortnightly' ? 'checked' : ''  }}  type="checkbox" name="any_rent_adv" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->any_rent_adv == 'Every Calender Month' ? 'checked' : ''  }} type="checkbox" name="any_rent_adv" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->any_rent_adv == 'Other' ? 'checked' : ''  }} type="checkbox" name="any_rent_adv" value="Other"> Other</label>&nbsp;&nbsp;</td>
+        <td><label><input {{ $resident_agreement->any_rent_adv == 'Weekly' ? 'checked' : ''  }}  type="checkbox" disabled name="any_rent_adv" value="Weekly"> Weekly</label>&nbsp;&nbsp;
+                                <label><input {{ $resident_agreement->any_rent_adv == 'Fortnightly' ? 'checked' : ''  }}  type="checkbox" disabled name="any_rent_adv" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
+                                <label><input {{ $resident_agreement->any_rent_adv == 'Every Calender Month' ? 'checked' : ''  }} type="checkbox" disabled name="any_rent_adv" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
+                                <label><input {{ $resident_agreement->any_rent_adv == 'Other' ? 'checked' : ''  }} type="checkbox" disabled name="any_rent_adv" value="Other"> Other</label>&nbsp;&nbsp;</td>
       </tr>
       <tr>
         <td>How to pay: </td>
-        <td><label><input {{ $resident_agreement->pay_method == 'Direct Debit' ? 'checked' : ''  }}  type="checkbox" name="pay_method" value="Direct Debit"> Direct Debit</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->pay_method == 'Cash' ? 'checked' : ''  }}  type="checkbox" name="pay_method" value="Cash"> Cash</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->pay_method == 'State Trustees' ? 'checked' : ''  }} type="checkbox" name="pay_method" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->pay_method == 'Centerlink' ? 'checked' : ''  }} type="checkbox" name="pay_method" value="Centerlink"> Centerlink</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->pay_method == 'Other' ? 'checked' : ''  }} type="checkbox" name="pay_method" value="Other"> Other</label>&nbsp;&nbsp;</td>
+        <td><label><input {{ $resident_agreement->pay_method == 'Direct Debit' ? 'checked' : ''  }}  type="checkbox" disabled name="pay_method" value="Direct Debit"> Direct Debit</label>&nbsp;&nbsp;
+                                <label><input {{ $resident_agreement->pay_method == 'Cash' ? 'checked' : ''  }}  type="checkbox" disabled name="pay_method" value="Cash"> Cash</label>&nbsp;&nbsp;
+                                <label><input {{ $resident_agreement->pay_method == 'State Trustees' ? 'checked' : ''  }} type="checkbox" disabled name="pay_method" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
+                                <label><input {{ $resident_agreement->pay_method == 'Centerlink' ? 'checked' : ''  }} type="checkbox" disabled name="pay_method" value="Centerlink"> Centerlink</label>&nbsp;&nbsp;
+                                <label><input {{ $resident_agreement->pay_method == 'Other' ? 'checked' : ''  }} type="checkbox" disabled name="pay_method" value="Other"> Other</label>&nbsp;&nbsp;</td>
       </tr>
     </table>&nbsp;&nbsp;
     <table>
