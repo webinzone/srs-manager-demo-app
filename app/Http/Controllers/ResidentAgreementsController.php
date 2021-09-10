@@ -14,6 +14,7 @@ use App\Models\PensionDetail;
 use App\Models\HealthService;
 use App\Models\ClientGpdetail;
 use App\Models\ClientNextofkin;
+use App\Models\LocationMaster;
 
 
 
@@ -133,7 +134,9 @@ class ResidentAgreementsController extends Controller
     {
       $res = request('res_name');
       $resident_agreement = ResidentAgreement::where('client_id', '=', $res)->firstOrFail();
-      return view('resident_agreements/report',compact('resident_agreement'));
+      $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+
+      return view('resident_agreements/report',compact('resident_agreement','locations'));
      
     }
 

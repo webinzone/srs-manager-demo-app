@@ -44,9 +44,9 @@
       <div id="print-content1">
         <div class="container">
     <center>
-      <h1 >MEADOWBROOK S R S</h1>
+      <h1 >{{ $locations->master_name}}</h1>
     </center>
-    <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></p></center>
+    <p style="font-size: 15px;"><center><b>{{ $locations->address}} Ph: {{ $locations->ph}} Fax: {{ $locations->fax}} Email: {{ $locations->email}}</b></p></center>
     <h2><center>New Resident Admission Form</center></h2>
     <h3 style="font-family:Bedrock">Personal Details:</h3>
     <table style="border: 1px solid black;">

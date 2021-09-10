@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Models\Incident;
 use App\Models\ActivityLog;
 use App\Models\ClientDetail;
+use App\Models\LocationMaster;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -252,7 +253,9 @@ class IncidentsController extends Controller
     public function generateIncidentReport(){
       $res = request('res_name');
       $incident = Incident::where('client_id', '=', $res)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
-      return view('incidents/report',compact('incident'));
+      $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+
+      return view('incidents/report',compact('incident','locations'));
     }
 
 }

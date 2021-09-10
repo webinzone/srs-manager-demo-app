@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Models\SupportPlan;
 use App\Models\ActivityLog;
 use App\Models\ClientDetail;
+use App\Models\LocationMaster;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -264,8 +265,9 @@ class SupportPlansController extends Controller
         $item_last= count($review);
         $num = (int)$item_last;
 
+         $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
         
 
-        return view('support_plans/report',compact('support_plan','review','r_with','r_notes','num'));
+        return view('support_plans/report',compact('support_plan','review','r_with','r_notes','num','locations'));
     }
 }

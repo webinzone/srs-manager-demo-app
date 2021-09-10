@@ -78,17 +78,17 @@ class LocationMastersController extends Controller
 
         $location_master->location_id = ++$str;
 
-        $location_master->master_name = request('master_name');
-        $location_master->address = request('address');
-        $location_master->email = request('email');
-        $location_master->ph = request('ph');
-        $location_master->fax = request('fax');
-        $location_master->web_id = request('web_id');
-        $location_master->user_id =  Auth::user()->id;
-        $location_master->suburb = request('suburb');
-        $location_master->post_code = request('post_code');
-        $location_master->state = request('state');
-        $location_master->company_id = request('company_id');
+        $location_master->master_name = request('master_name')  ?? '';
+        $location_master->address = request('address')  ?? '';
+        $location_master->email = request('email')  ?? '';
+        $location_master->ph = request('ph')  ?? '';
+        $location_master->fax = request('fax')  ?? '';
+        $location_master->web_id = request('web_id')  ?? '';
+        $location_master->user_id =  Auth::user()->id  ?? '';
+        $location_master->suburb = request('suburb')  ?? '';
+        $location_master->post_code = request('post_code')  ?? '';
+        $location_master->state = request('state')  ?? '';
+        $location_master->company_id = request('company_id')  ?? '';
         $location_master->save();
        
       $activity = new ActivityLog();
@@ -141,19 +141,19 @@ class LocationMastersController extends Controller
 
         $location_master = LocationMaster::find($id);
 
-        $location_master->location_id = request('location_id');
-        $location_master->master_name = request('master_name');
-        $location_master->address = request('address');
-        $location_master->email = request('email');
-        $location_master->ph = request('ph');
-        $location_master->fax = request('fax');
-        $location_master->web_id = request('web_id');
-        $location_master->user_id =  Auth::user()->id;
-        $location_master->suburb = request('suburb');
-        $location_master->post_code = request('post_code');
-        $location_master->state = request('state');
+        $location_master->location_id = request('location_id')  ?? '';
+        $location_master->master_name = request('master_name')  ?? '';
+        $location_master->address = request('address')  ?? '';
+        $location_master->email = request('email')  ?? '';
+        $location_master->ph = request('ph')  ?? '';
+        $location_master->fax = request('fax')  ?? '';
+        $location_master->web_id = request('web_id')  ?? '';
+        $location_master->user_id =  Auth::user()->id  ?? '';
+        $location_master->suburb = request('suburb')  ?? '';
+        $location_master->post_code = request('post_code')  ?? '';
+        $location_master->state = request('state')  ?? '';
 
-        $location_master->company_id = request('company_id');
+        $location_master->company_id = request('company_id')  ?? '';
         
         $location_master->save();
         $activity = new ActivityLog();

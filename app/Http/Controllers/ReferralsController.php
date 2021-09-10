@@ -15,6 +15,8 @@ use App\Models\HealthService;
 use App\Models\ClientGpdetail;
 use App\Models\ClientNextofkin;
 use App\Models\ActivityLog;
+use App\Models\LocationMaster;
+
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -900,8 +902,10 @@ class ReferralsController extends Controller
             }
             
         }
+         $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
 
-      return view('referrals/report',compact('referral','referral2','drug','dose','freq','duration','last','num','ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10','a1_ch1','a2_ch2','a3_ch3','a4_ch4','a2_ch1','a2_ch2','a2_ch3','a2_ch4','a3_ch1','a3_ch2'));
+
+      return view('referrals/report',compact('referral','referral2','drug','dose','freq','duration','last','num','ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10','a1_ch1','a2_ch2','a3_ch3','a4_ch4','a2_ch1','a2_ch2','a2_ch3','a2_ch4','a3_ch1','a3_ch2','locations'));
     }
 
 }

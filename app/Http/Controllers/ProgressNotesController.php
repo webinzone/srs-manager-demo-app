@@ -7,6 +7,7 @@ use App\Models\ProgressNote;
 use App\Models\ActivityLog;
 use App\Models\ClientDetail;
 use App\Models\SrsStaff;
+use App\Models\LocationMaster;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -202,7 +203,10 @@ class ProgressNotesController extends Controller
       $progress_note = ProgressNote::where('client_id', '=', $res)->get();
       $resi = ProgressNote::where('client_id', '=', $res)->firstOrFail();
 
-      return view('progress_notes/report',compact('progress_note','resi'));
+      $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+
+
+      return view('progress_notes/report',compact('progress_note','resi','locations'));
     }
 
 }

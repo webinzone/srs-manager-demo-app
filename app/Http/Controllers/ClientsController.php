@@ -17,6 +17,7 @@ use App\Models\PensionDetail;
 use App\Models\ActivityLog;
 use App\Models\RoomDetail;
 use App\Models\ResidentAgreement;
+use App\Models\LocationMaster;
 
 use App\Models\Bed;
 
@@ -692,6 +693,7 @@ class ClientsController extends Controller
     public function generateResReport(){
          $id = request('res');
          
+         
          $client_detail = ClientDetail::find($id); 
          $status = $client_detail->respite;
          if ($status == "Respite") {
@@ -709,7 +711,9 @@ class ClientsController extends Controller
          $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
          $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
 
-         return view('clients/report')->with(compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail','duration','weeks'));
+         $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+
+         return view('clients/report')->with(compact('client_detail','gpdetail','next_of_kin','guardian_detail','health_service','pension_detail','duration','weeks','locations'));
 
     }
 

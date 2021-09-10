@@ -7,6 +7,7 @@ use App\Models\Appointment;
 use App\Models\ActivityLog;
 use App\Models\ClientDetail;
 use App\Models\SrsStaff;
+use App\Models\LocationMaster;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -198,7 +199,9 @@ class AppointmentsController extends Controller
          $sdate = request('sdate');
          $appointments = Appointment::where('app_date', '=', $sdate)->orderBy('app_date', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
          $apps = Appointment::where('resc_date', '=', $sdate)->orderBy('resc_date', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-         return view('appointments/report',compact('appointments','sdate', 'apps'));
+         $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+
+         return view('appointments/report',compact('appointments','sdate', 'apps','locations'));
 
 
     }

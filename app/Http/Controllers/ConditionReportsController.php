@@ -252,8 +252,9 @@ class ConditionReportsController extends Controller
       $res_cond = explode(',', $condition_report->res_cond);
       $item_last= last($item_no);
       $num = (int)$item_last;
+      $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
 
-      return view('condition_reports/report', compact('condition_report', 'item_no', 'res_comments', 'items', 'owned_by', 'res_cond', 'num'));
+      return view('condition_reports/report', compact('condition_report', 'item_no', 'res_comments', 'items', 'owned_by', 'res_cond', 'num','locations'));
       
      }
     /**

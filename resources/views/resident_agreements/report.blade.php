@@ -55,10 +55,10 @@ table, td, th {
     <div id="edit2" contenteditable="true">
     <div class="container">
 
-    <center>
-      <h1 >MEADOWBROOK</h1>
+     <center>
+      <h1 >{{ $locations->master_name}}</h1>
     </center>
-    <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></p></center>
+    <p style="font-size: 15px;"><center><b>{{ $locations->address}} Ph: {{ $locations->ph}} Fax: {{ $locations->fax}} Email: {{ $locations->email}}</b></p></center>
     <h3><center>RESIDENTIAL AND SERVICES AGREEMENT</center></h3><br>
     <div class="container-head">
     <p><i>Type of service</i></p>
@@ -172,8 +172,8 @@ table, td, th {
       <tr>
         <td rowspan="2" width="300px;"><b>Security Deposit Charged: </b> <br>
         <i>Terms and conditions of refund</i></td>
-        <td width="300px;"><input type="radio" {{ $resident_agreement->secu_depo == 'Yes' ? 'checked' : ''  }} id="secu_depo" onchange="findselected();" value="Yes" name="secu_depo">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" {{ $resident_agreement->secu_depo == 'No' ? 'checked' : ''  }} id="secu_depo" value="No" onchange="findselected();" name="secu_depo">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;<b> Amount Payable:$ </b>{{ $resident_agreement->amt_pay}}</td><br>
+        <td width="300px;"><input type="radio" disabled {{ $resident_agreement->secu_depo == 'Yes' ? 'checked' : ''  }} id="secu_depo" onchange="findselected();" value="Yes" name="secu_depo">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" disabled {{ $resident_agreement->secu_depo == 'No' ? 'checked' : ''  }} id="secu_depo" value="No" onchange="findselected();" name="secu_depo">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;<b> Amount Payable:$ </b>{{ $resident_agreement->amt_pay}}</td><br>
       </tr>
       <tr>
         <td><i>Will be refunded subject to all fees are paid in full and room in satisifactory condition</i></td>
@@ -185,8 +185,8 @@ table, td, th {
       </tr>
       <tr>
         <td width="300px;"><b>Condition report provided to the resident  </b></td>
-        <td width="300px;"><input type="radio" required=""  id="condition_rep" {{ $resident_agreement->condition_rep == 'Yes' ? 'checked' : ''  }}  value="Yes" name="condition_rep">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" required="" {{ $resident_agreement->condition_rep == 'No' ? 'checked' : ''  }} id="condition_rep" value="No" name="condition_rep">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;  If Yes,<i>Condition report must be provided as separate attachment</i>          </td>
+        <td width="300px;"><input type="radio" disabled required=""  id="condition_rep" {{ $resident_agreement->condition_rep == 'Yes' ? 'checked' : ''  }}  value="Yes" name="condition_rep">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" disabled required="" {{ $resident_agreement->condition_rep == 'No' ? 'checked' : ''  }} id="condition_rep" value="No" name="condition_rep">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;  If Yes,<i>Condition report must be provided as separate attachment</i>          </td>
       </tr>
       <tr>
         <td width="300px;"><b>Furniture in resident's room belonging to thr SRS</b>
@@ -197,21 +197,21 @@ table, td, th {
       <table>
         <tr>
         <td  width="300px;">Reservation fee charged:<i>Ref(terms/conditions)</i> </td>
-        <td colspan="5"  width="300px;"><input type="radio" onchange="findselected1();" {{ $resident_agreement->reserv_fee == 'Yes' ? 'checked' : ''  }} id="reserv_fee"  value="Yes" name="reserv_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-        <input type="radio" onchange="findselected1();" {{ $resident_agreement->reserv_fee == 'No' ? 'checked' : ''  }}  id="reserv_fee" value="No" name="reserv_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp; 
+        <td colspan="5"  width="300px;"><input type="radio" disabled onchange="findselected1();" {{ $resident_agreement->reserv_fee == 'Yes' ? 'checked' : ''  }} id="reserv_fee"  value="Yes" name="reserv_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+        <input type="radio" disabled onchange="findselected1();" {{ $resident_agreement->reserv_fee == 'No' ? 'checked' : ''  }}  id="reserv_fee" value="No" name="reserv_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp; 
          <b>Amount:$</b> {{ $resident_agreement->amt_res}} </td>
       </tr>
       <tr>
         <td width="300px;">Establishment fee charged:<i>Ref(terms/conditions)</i> </td>
-        <td  colspan="5" width="300px;"><input type="radio" onchange="findselected2();" {{ $resident_agreement->est_fee == 'Yes' ? 'checked' : ''  }} id="est_fee"  value="Yes" name="est_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-        <input type="radio" onchange="findselected2();" {{ $resident_agreement->est_fee == 'No' ? 'checked' : ''  }}  id="est_fee" value="No" name="est_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+        <td  colspan="5" width="300px;"><input type="radio" disabled onchange="findselected2();" {{ $resident_agreement->est_fee == 'Yes' ? 'checked' : ''  }} id="est_fee"  value="Yes" name="est_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+        <input type="radio" disabled onchange="findselected2();" {{ $resident_agreement->est_fee == 'No' ? 'checked' : ''  }}  id="est_fee" value="No" name="est_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
         <b>Amount:$</b> {{ $resident_agreement->amt_est}}
         </td>
       </tr>
       <tr>
         <td width="300px;">Fee in advance charged (for other items/service provide by SRS):<i>Ref(terms/conditions)</i> </td>
-        <td colspan="5" width="300px;"><input {{ $resident_agreement->advnc_fee == 'Yes' ? 'checked' : ''  }} type="radio" onchange="findselected3();"  id="advnc_fee"  value="Yes" name="advnc_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input {{ $resident_agreement->advnc_fee == 'No' ? 'checked' : ''  }} type="radio" onchange="findselected3();"  id="advnc_fee" value="No" name="advnc_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+        <td colspan="5" width="300px;"><input {{ $resident_agreement->advnc_fee == 'Yes' ? 'checked' : ''  }} type="radio" disabled onchange="findselected3();"  id="advnc_fee"  value="Yes" name="advnc_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input {{ $resident_agreement->advnc_fee == 'No' ? 'checked' : ''  }} type="radio" disabled onchange="findselected3();"  id="advnc_fee" value="No" name="advnc_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                         <b>Amount:$</b> {{ $resident_agreement->amt_adv}} </td>
       <tr>
         <td> (Terms/Conditions):Fees of refund heldto be included</td>
@@ -232,8 +232,8 @@ included.</i></p>
         <td colspan="5" ><center><b>MANAGEMENT OF RESIDENT’S MONEY</b></td></center>
       </tr>
       <tr>
-        <td width="300px;">Will the SRS assist the resident in managing their finances? <input type="radio" onchange="findselected4();" {{ $resident_agreement->srs_assist_status == 'Yes' ? 'checked' : ''  }} id="srs_assist_status"  value="Yes" name="srs_assist_status">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" onchange="findselected4();"  {{ $resident_agreement->srs_assist_status == 'No' ? 'checked' : ''  }} id="srs_assist_status" value="No" name="srs_assist_status">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+        <td width="300px;">Will the SRS assist the resident in managing their finances? <input type="radio" disabled onchange="findselected4();" {{ $resident_agreement->srs_assist_status == 'Yes' ? 'checked' : ''  }} id="srs_assist_status"  value="Yes" name="srs_assist_status">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" disabled onchange="findselected4();"  {{ $resident_agreement->srs_assist_status == 'No' ? 'checked' : ''  }} id="srs_assist_status" value="No" name="srs_assist_status">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                         Amount: {{ $resident_agreement->assist_amnt}} <br>
                         <i>Note:The maximum amount of the resident's money that we can manage is the amount equivalent to one month's fees.</i></td>
       </tr>
@@ -603,28 +603,28 @@ Residents Handbook for further details, setting out the minimum standards of Sup
 </script>
 
 <script type="text/javascript">
-  function saveEdits() {
-
-//get the editable element
-var editElem = document.getElementById("edit2");
-
-//get the edited element content
-var userVersion = editElem.innerHTML;
-
-//save the content to local storage
-localStorage.userEdits = userVersion;
-
-//write a confirmation to the user
-document.getElementById("update").innerHTML="";
-
-}
-
-function checkEdits() {
-
-//find out if the user has previously saved edits
-if(localStorage.userEdits!=null)
-document.getElementById("edit2").innerHTML = localStorage.userEdits;
-}
+  //function saveEdits() {
+//
+////get the editable element
+//var editElem = document.getElementById("edit2");
+//
+////get the edited element content
+//var userVersion = editElem.innerHTML;
+//
+////save the content to local storage
+//localStorage.userEdits = userVersion;
+//
+////write a confirmation to the user
+//document.getElementById("update").innerHTML="";
+//
+//}
+//
+//function checkEdits() {
+//
+////find out if the user has previously saved edits
+//if(localStorage.userEdits!=null)
+//document.getElementById("edit2").innerHTML = localStorage.userEdits;
+//}
 </script>
 
 

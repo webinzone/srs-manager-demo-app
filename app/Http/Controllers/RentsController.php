@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Models\Rent;
 use App\Models\ActivityLog;
 use App\Models\ClientDetail;
+use App\Models\LocationMaster;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -194,8 +195,10 @@ class RentsController extends Controller
       $res = request('res_name');
       $rents = Rent::where('client_id', '=', $res)->get();
       $resi = Rent::where('client_id', '=', $res)->firstOrFail();
+      $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
 
-      return view('rents/report',compact('rents','resi'));
+
+      return view('rents/report',compact('rents','resi','locations'));
     }
 
 

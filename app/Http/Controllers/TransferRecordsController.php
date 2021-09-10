@@ -8,6 +8,7 @@ use App\Models\ActivityLog;
 use App\Models\ClientDetail;
 use App\Models\RoomDetail;
 use App\Models\Bed;
+use App\Models\LocationMaster;
 
 
 
@@ -337,7 +338,9 @@ class TransferRecordsController extends Controller
       
       $name = request('res_name');
       $transfer_record = TransferRecord::where('client_id', '=', $name)->firstOrFail();
-      return view('transfer_records/report',compact('transfer_record'));
+      $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+
+      return view('transfer_records/report',compact('transfer_record','locations'));
     }
 
 }

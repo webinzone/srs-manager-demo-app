@@ -9,6 +9,7 @@ use App\Models\SrsStaff;
 use App\Models\ClientDetail;
 use App\Models\Mngshift;
 use App\Models\Evngshift;
+use App\Models\LocationMaster;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -183,6 +184,7 @@ class HandoversController extends Controller
          $i = 0;
         $item_last= count($res_name);
         $num = (int)$item_last;
+        $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
 
         // $mngsss = Mngshift::where('mng_date', '=', $sdate)->firstOrFail() ?? '';
         // $mstaf = $mngsss->mng_staff ?? '';
@@ -192,7 +194,7 @@ class HandoversController extends Controller
 
         // $evngs = Evngshift::where('eveng_date', '=', $sdate)->get() ?? '';   
 
-         return view('handovers/report',compact('mngshift','i','res_name','room','notes','num'));
+         return view('handovers/report',compact('mngshift','i','res_name','room','notes','num','locations'));
     }
 
     public function shiftreports()
@@ -215,8 +217,9 @@ class HandoversController extends Controller
          $i = 0;
         $item_last= count($res_name);
         $num = (int)$item_last;  
+        $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
 
-         return view('handovers/evng_report',compact('evngshift','i','res_name','room','notes','num'));
+         return view('handovers/evng_report',compact('evngshift','i','res_name','room','notes','num','locations'));
 
     }
 
@@ -240,9 +243,9 @@ class HandoversController extends Controller
          $evngshift = Evngshift::where('eveng_date', '=', $sdate)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail() ?? '';
          
         $enotes = explode(',', $evngshift->notes);        
-        
+        $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
 
-         return view('handovers/full_report',compact('evngshift','mngshift','i','res_name','room','notes','num','enotes'));
+         return view('handovers/full_report',compact('evngshift','mngshift','i','res_name','room','notes','num','enotes','locations'));
 
     }
 

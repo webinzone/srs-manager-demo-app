@@ -43,10 +43,10 @@
       <div id="print-content">
         <div class="container">
 
-    <center>
-      <h1 >MEADOWBROOK</h1>
+     <center>
+      <h1 >{{ $locations->master_name}}</h1>
     </center>
-    <p style="font-size: 15px;"><center><b>2-10 Brid Rd Melton South Vic: 3338 Ph: 03-97476999 Fax: 03-97460344 Email: info@meadowbrook.com.au</b></center></p>
+    <p style="font-size: 15px;"><center><b>{{ $locations->address}} Ph: {{ $locations->ph}} Fax: {{ $locations->fax}} Email: {{ $locations->email}}</b></p></center>
     <table>
       <tr>
         <td rowspan="2" style="width: 200px;align-items: center;">&nbsp;&nbsp;&nbsp;&nbsp;<b>CONDITION &nbsp;&nbsp; REPORT</b></td>
