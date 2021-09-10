@@ -756,8 +756,9 @@ class ClientsController extends Controller
 
          //$res = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
          $resident_agreements = ResidentAgreement::all();
+           $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
 
-         return view('clients/accounts_report')->with(compact('client_details','pension_details','i','resident_agreements'));
+         return view('clients/accounts_report')->with(compact('client_details','pension_details','i','resident_agreements','locations'));
 
     }
 
