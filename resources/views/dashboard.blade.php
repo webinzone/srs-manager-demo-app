@@ -156,7 +156,7 @@
 
   <div class="col-lg-3 col-xs-6" style="width:246px;">
     <!-- small box -->
-      <a href="{{ route('bookings.index') }}">
+      <a href="https://www.vic.gov.au/sites/default/files/2019-11/Supported-Residential-Services-Private-Proprietors-Regulations-2011-RIS.pdf" target="_blank" >
     <div class="small-box bg-red">
       <div class="inner">
         <h3 >&nbsp;&nbsp;</h3>
