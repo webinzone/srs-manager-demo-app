@@ -9,8 +9,6 @@ use App\Models\Appointment;
 use App\Models\Rent;
 use App\Models\SrsStaff;
 use App\Models\Certificate;
-use App\Models\LocationMaster;
-
 use Carbon\Carbon;
 use Auth;
 use View;
@@ -42,7 +40,6 @@ class DashboardController extends Controller
             $appois = Appointment::where('status', '=', 'Re-scheduled')->orderBy('resc_date', 'asc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
             $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
             $rents = Rent::where('status', '=', 'Unpaid')->orderBy('nextpay_date', 'asc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-            $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
             
             $counts['resident'] = \App\Models\ClientDetail::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->count();
             $counts['appointments'] = Appointment::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->count();
@@ -53,7 +50,7 @@ class DashboardController extends Controller
                 \Artisan::call('migrate', ['--force' => true]);
                 \Artisan::call('passport:install');
             }
-            return view('dashboard')->with('asset_stats', $asset_stats)->with('counts', $counts)->with('apps', $apps)->with('appois', $appois)->with('certis', $certis)->with('rents', $rents)->with('residents', $residents)->with('locations', $locations);
+            return view('dashboard')->with('asset_stats', $asset_stats)->with('counts', $counts)->with('apps', $apps)->with('appois', $appois)->with('certis', $certis)->with('rents', $rents)->with('residents', $residents);
         } else {
         // Redirect to the profile page
             return redirect()->intended('account/view-assets');

@@ -235,7 +235,7 @@ h4 {
       <!-- Content Wrapper. Contains page content -->
 
       <div class="content-wrapper"  role="main">
-       
+
           @if ($debug_in_production)
               <div class="row" style="margin-bottom: 0px; background-color: red; color: white; font-size: 15px;">
                   <div class="col-md-12" style="margin-bottom: 0px; background-color: #b50408 ; color: white; padding: 10px 20px 10px 30px; font-size: 16px;">
@@ -248,10 +248,9 @@ h4 {
         <!-- Content Header (Page header) -->
         <section class="content-header" style="padding-bottom: 30px;">
           <h1 class="pull-left" style="color:white;">
-           
             @yield('title')
 
-            
+
           </h1>
 
             @if (isset($helpText))
