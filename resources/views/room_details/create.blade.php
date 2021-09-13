@@ -85,9 +85,9 @@
                             <option value="Free" style="font-size: 14px;">Free</option> 
                         </select>                           
                           </div>
-                      <div class="col-md-2 mb-3" style="width: 100px;">
-					    <label for="name" >Beds No</label>
-  	                    <input type="number" id="bed" name="beds_no" class="form-control" placeholder="No" >					        	        
+                      <div class="col-md-3 mb-3" >
+					    <label for="name" >No. Of Beds</label>
+  	                    <input type="number" id="bed" name="beds_no" style="width: 80px;" class="form-control" placeholder="No" >					        	        
                      </div>&nbsp;&nbsp;
                       <br>
              

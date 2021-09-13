@@ -47,7 +47,7 @@
 
                       <div class="col-md-3 mb-3" >
                         <label for="name" >Room Type</label>
-                        <select class="form-control" style="width: 200px;"  id="type" name="type" style="height: 20px;padding: 3px 10px;">
+                        <select class="form-control" style="width: 200px;"  id="roomtype" name="type" style="height: 20px;padding: 3px 10px;">
                             <option>--   Select Room Type  --</option>
                             <option  {{ $room_detail->type == "Single with Ensuite" ? 'selected' : ''  }} value="Single with Ensuite"> Single with Ensuite</option>
                           <option  {{ $room_detail->type == "Single Room with Sharing Ensuite" ? 'selected' : ''  }} value="Single Room with Sharing Ensuite">Single Room with Sharing Ensuite</option>
@@ -87,9 +87,9 @@
                             <option value="Free" {{ $room_detail->status == "Free" ? 'selected' : ''  }} style="font-size: 14px;">Free</option> 
                         </select>                           
                           </div>
-                      <div class="col-md-2 mb-3" style="width: 100px;">
-                        <label for="name" >Beds No</label>
-                        <input type="text" value="{{ $room_detail->beds_no}}" name="beds_no" class="form-control" placeholder="No">                                       
+                      <div class="col-md-3 mb-3" >
+                        <label for="name" >No. Of Beds</label>
+                        <input type="number" style="width: 80px;" value="{{ $room_detail->beds_no}}" id="bbd" name="beds_no" class="form-control" placeholder="No">                                       
                      </div>&nbsp;&nbsp;
                       <br>
              
@@ -114,6 +114,25 @@
 @stop
 
 @section('moar_scripts')
+<script type="text/javascript">  
+
+$('#roomtype').change(function () {
+    if ($(this).find('option:selected').text() == 'Sharing Room' || $(this).find('option:selected').text() == 'Sharing Room With Ensuite'){
+      
+         $('#bbd').prop('disabled', false);
+        $('#bbd').val();
+        
+       
+            
+    } else {
+       
+                $('#bbd').val(1);
+                 $('#bbd').prop('disabled', true);
+    }
+
+});
+
+</script>
 @include ('partials.bootstrap-table')
 @stop
 
