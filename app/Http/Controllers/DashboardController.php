@@ -9,6 +9,7 @@ use App\Models\Appointment;
 use App\Models\Rent;
 use App\Models\SrsStaff;
 use App\Models\Certificate;
+use App\Models\LocationMaster;
 use Carbon\Carbon;
 use Auth;
 use View;
@@ -34,6 +35,8 @@ class DashboardController extends Controller
         if (Auth::user()->hasAccess('admin')) {
             
             $asset_stats=null;
+            $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            
             $certis = Certificate::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->where('certi_exp', '<', Carbon::now())->get() ?? '';
 
             $apps = Appointment::where('status', '=', 'Pending')->orderBy('app_date', 'asc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
@@ -50,7 +53,7 @@ class DashboardController extends Controller
                 \Artisan::call('migrate', ['--force' => true]);
                 \Artisan::call('passport:install');
             }
-            return view('dashboard')->with('asset_stats', $asset_stats)->with('counts', $counts)->with('apps', $apps)->with('appois', $appois)->with('certis', $certis)->with('rents', $rents)->with('residents', $residents);
+            return view('dashboard')->with('asset_stats', $asset_stats)->with('counts', $counts)->with('apps', $apps)->with('appois', $appois)->with('certis', $certis)->with('rents', $rents)->with('residents', $residents)->with('locations', $locations);
         } else {
         // Redirect to the profile page
             return redirect()->intended('account/view-assets');

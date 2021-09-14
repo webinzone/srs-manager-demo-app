@@ -54,23 +54,34 @@
                       </div>                        
                     </div>
                     <div class="form-group ">
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
                         <label for="app_address">Address</label>
                         <input type="text" class="form-control" placeholder="Address" id="app_address" name="app_address"  v-on:change="page_one.app_address = $event.target.value">          
                         </div>
 
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
                         <label for="app_with">Appointment with</label>
                         <input type="text" class="form-control" placeholder="Appointment with" id="app_with" name="app_with"  v-on:change="page_one.app_with = $event.target.value">                
-                      </div>                        
+                      </div>    
 
-                    <div class="col-md-4 mb-3">
-                        <label for="app_reason">Reason </label>
-                        <input type="text" class="form-control" placeholder="Reason of the booked appointment" id="app_reason" name="app_reason"  v-on:change="page_one.app_reason = $event.target.value">                
-                      </div>                        
+                      <div class="col-md-3 mb-3">
+                        <label for="app_reason">Email</label>
+                        <input type="email" class="form-control"  placeholder="Email ID" id="a_email" name="a_email"  v-on:change="page_one.a_email = $event.target.value">                
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="app_reason">Phone</label>
+                        <input type="text" class="form-control"  placeholder="Phone" id="a_ph" name="a_ph"  v-on:change="page_one.a_ph = $event.target.value">                
+                      </div>   
+                                          
+
+                                            
                     </div>
                     <div class="form-group ">
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-4 mb-3">
+                        <label for="app_reason">Reason </label>
+                        <input type="text" class="form-control" placeholder="Reason of the booked appointment" id="app_reason" name="app_reason"  v-on:change="page_one.app_reason = $event.target.value">                
+                      </div>
+                        <div class="col-md-4 mb-3">
                         <label for="ent_no">Status</label>
                           <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="Pending" style="font-size: 14px;">Pending</option> 
@@ -80,7 +91,7 @@
                       </div> 
                         
                        
-                        <div class="col-md-3 mb-3">
+                        <div class="col-md-4 mb-3">
                         <label for="app_note">Booked by</label>   
                         <select class="form-control" style="height: 26px;padding: 3px 10px;" id="mng_staff" name="app_bookby">
                             <option>--   Select Staff Name  --</option>
@@ -89,14 +100,6 @@
                           @endforeach
                         </select>            
                       </div>  
-                      <div class="col-md-3 mb-3">
-                        <label for="app_reason">Email</label>
-                        <input type="email" class="form-control"  placeholder="Email ID" id="a_email" name="a_email"  v-on:change="page_one.a_email = $event.target.value">                
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="app_reason">Phone</label>
-                        <input type="text" class="form-control"  placeholder="Phone" id="a_ph" name="a_ph"  v-on:change="page_one.a_ph = $event.target.value">                
-                      </div>   
                       
                     </div>
                         

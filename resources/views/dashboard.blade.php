@@ -6,7 +6,9 @@
 @parent
 @stop
 @section('header_right')
-  
+  @if(Auth::user()->s_role == "c_admin" || Auth::user()->s_role == "c_users")
+    <p style="color: white;">{{ $locations->master_name}}</p>
+  @endif  
       <!--<a href="/generateAccountReport" style="background-color:#486467; right: 30px;" class="btn btn-primary pull-right"  target="_blank"> Accounts Report</a>-->
 @stop
 
