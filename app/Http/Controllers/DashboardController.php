@@ -35,7 +35,12 @@ class DashboardController extends Controller
         if (Auth::user()->hasAccess('admin')) {
             
             $asset_stats=null;
-            $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            if(Auth::user()->s_role == "c_admin" || Auth::user()->s_role == "c_users") {
+                $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail() ?? '';    
+            }
+            else {
+                $locations = " ";
+            }
             
             $certis = Certificate::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->where('certi_exp', '<', Carbon::now())->get() ?? '';
 
