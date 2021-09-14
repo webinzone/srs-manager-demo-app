@@ -193,7 +193,7 @@ table, td, th {
          </td>
         <td width="300px;"><p>Attach or List items duly signed by staff and resident</p></td>
       </tr>
-</table><br><br>
+</table><br>
       <table>
         <tr>
         <td  width="300px;">Reservation fee charged:<i>Ref(terms/conditions)</i> </td>
@@ -439,6 +439,7 @@ Residents Handbook for further details, setting out the minimum standards of Sup
         </ul>
       </tr>
     </table>&nbsp;&nbsp;
+    <br><br><br><br><br><br>
     <p> 1. Smoking/Hlegal drug usage</p>
     <p>The policy of the facility is that there is no smoking in individual rooms. Management does not allow smoking or use of any illegal substance use in the facility. Areas are available outdoors. If caught, will be notified to the police.</p>
     <p> 2. Notification of your intention (o be away overnight or during the day is required. If possible a contact phone number would be appreciated.</p>
@@ -448,8 +449,12 @@ Residents Handbook for further details, setting out the minimum standards of Sup
     <p> <b>6. If any damage to property including fitting and fixtures will be my responsibility if occurred as a result of my behaviours.</b></p>
     <p><b> 7. I declare that I have read and or Staff has read to me “The Guide for resident and Prospective residents in detail. | understand there is electronic copy on computer if needed.</b></p>
     <p> <b>8. Tam happy with the room arrangements/partition surrounding Privacy matters of my room (applicable if 1 am living in shared room),</b></p>&nbsp;&nbsp;
+    <br><br><br>
+
     <p><i><b>Television and Telephones</i></p></b>
     <p>Residents to use their own TV and other Electronic gadgets. Each room has a telephone socket and television plug. Residents are responsible for all expenses incurred for connection and calls, should a telephone be installed</p>
+    <br><br>
+
     <p><i><b>Furniture</i></p></b>
     <p>We provide the following basic bedroom furniture. A Wardrobe</p>
     <p>Single Bed</p>
@@ -457,6 +462,8 @@ Residents Handbook for further details, setting out the minimum standards of Sup
     <p>We try to encourage residents to fill the room with their own treasure and furniture from home to make more comfortable for them.</p>
     <p><i><b>Hairdressing</i></p></b>
     <p>In-house hairdressing service is available once a month. Charges paid directly to the Hairdresser.</p>
+    <br><br><br>
+    
     <p><i><h3>Health and Community Services available in the vicinity</h3></i></p>
     <p>General</p>
     <ul>
@@ -470,6 +477,7 @@ Residents Handbook for further details, setting out the minimum standards of Sup
       <li>Melton Community Centre</li>
     </ul>
       <br>
+    <br><br><br>
 
 
           <table>
@@ -488,6 +496,9 @@ Residents Handbook for further details, setting out the minimum standards of Sup
         </td>
       </tr>
     </table><br>
+    <br><br><br>
+    <br><br><br>
+
     <table>
       <tr>
             <div style="border:1px solid black;">

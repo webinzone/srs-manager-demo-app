@@ -562,6 +562,29 @@ $('#company_id').change(function(){
 });
 </script>
 <script>
+$('#company_id').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getLname", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#loccc').val(response.address);            
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+</script>
+<script>
 $('#location_id').change(function(){
     var id = $(this).val();
     var url = '{{ route("getLocationName", ":id") }}';

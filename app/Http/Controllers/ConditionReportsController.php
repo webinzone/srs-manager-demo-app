@@ -301,6 +301,13 @@ class ConditionReportsController extends Controller
         $data = LocationMaster::where('id', '=', $id)->firstOrFail();
         return response()->json($data);
     }
+    public function getLname($id){
+        $data1 = CompanyMaster::where('company_id', '=', $id)->firstOrFail();
+        $c_id = $data1->company_id;
+        $l_id = 'L001';
+        $data = LocationMaster::where('company_id', '=', $c_id)->where('location_id', '=', $l_id)->firstOrFail();
+        return response()->json($data);
+    }
 
     public function getRow($id){
 

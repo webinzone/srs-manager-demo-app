@@ -92,6 +92,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('get/details/{id}', 'ConditionReportsController@getDetails')->name('getDetails');
     Route::get('get/location/{id}', 'ConditionReportsController@getLocation')->name('getLocation');
     Route::get('get/cname/{id}', 'ConditionReportsController@getCompanyName')->name('getCompanyName');
+    Route::get('get/firstlname/{id}', 'ConditionReportsController@getLname')->name('getLname');
     Route::get('get/lname/{id}', 'ConditionReportsController@getLocationName')->name('getLocationName');
     Route::get('client/{id}', 'ConditionReportsController@getRow')->name('getRow');
     

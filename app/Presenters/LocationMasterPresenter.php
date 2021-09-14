@@ -38,7 +38,7 @@ class LocationMasterPresenter extends Presenter
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Master Name')
+                "title" => trans('Location Name')
             ],[
                 "field" => "address",
                 "searchable" => true,

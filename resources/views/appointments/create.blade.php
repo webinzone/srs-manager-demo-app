@@ -37,7 +37,7 @@
                     <div class="form-group ">
                       <div class="col-md-4 mb-3">
                         <label>Name of the resident</label>
-                        <select class="form-control" required="" id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
+                        <select class="form-control" required id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Resident Name  --</option>
                           @foreach($residents as $resident)
                           <option value="{{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}"> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
