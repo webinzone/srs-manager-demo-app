@@ -1,14 +1,17 @@
 @extends('layouts/default')
 
 {{-- Page title --}}
+
 @section('title')
-{{ trans('general.dashboard') }}
+  @if(Auth::user()->s_role == "c_admin" || Auth::user()->s_role == "c_users")
+    {{ $locations->master_name}}
+  @else
+    Dashboard
+  @endif  
 @parent
 @stop
 @section('header_right')
-  @if(Auth::user()->s_role == "c_admin" || Auth::user()->s_role == "c_users")
-    <p style="color: white;">{{ $locations->master_name}}</p>
-  @endif  
+  
       <!--<a href="/generateAccountReport" style="background-color:#486467; right: 30px;" class="btn btn-primary pull-right"  target="_blank"> Accounts Report</a>-->
 @stop
 
@@ -150,7 +153,7 @@
       <div class="icon" aria-hidden="true">
         <i class="fa fa-list-alt" ></i>
       </div>
-      <a href="{{ route('bookings.index') }}" class="small-box-footer">{{ trans('general.moreinfo') }} <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+      <a href="/development" class="small-box-footer">{{ trans('general.moreinfo') }} <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
     </div>
       </a>
   </div><!-- ./col -->
@@ -168,7 +171,7 @@
         <i class="fa fa-gavel" aria-hidden="true"></i>
      
       </div>
-      <a href="{{ route('bookings.index') }}" class="small-box-footer">{{ trans('general.moreinfo') }} <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+      <a href="/development" class="small-box-footer">{{ trans('general.moreinfo') }} <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
     </div>
       </a>
   </div><!-- ./col -->

@@ -64,4 +64,8 @@ class DashboardController extends Controller
             return redirect()->intended('account/view-assets');
         }
     }
+
+    public function development(){
+        return view('development');
+    }
 }

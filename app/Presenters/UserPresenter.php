@@ -54,6 +54,25 @@ class UserPresenter extends Presenter
                 "visible" => true
                 
             ],
+            [
+                "field" => "companyname",
+                "searchable" => true,
+                "sortable" => true,
+                "switchable" => true,
+                "title" => trans('Company'),
+                "visible" => true
+                
+            ],
+            [
+                "field" => "c_id",
+                "searchable" => true,
+                "sortable" => true,
+                "switchable" => true,
+                "title" => trans('Company Id'),
+                "visible" => true
+                
+            ],
+
            
             [
                 "field" => "location",
@@ -62,7 +81,16 @@ class UserPresenter extends Presenter
                 "switchable" => true,
                 "title" => trans('admin/users/table.location'),
                 "visible" => true
-            ],            
+            ],   
+            [
+                "field" => "l_id",
+                "searchable" => true,
+                "sortable" => true,
+                "switchable" => true,
+                "title" => trans('Location Id'),
+                "visible" => true
+                
+            ],         
            
             
            

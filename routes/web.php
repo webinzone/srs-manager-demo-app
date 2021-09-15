@@ -25,6 +25,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('beds','BedsController'); 
     Route::resource('certificates','CertificatesController'); 
 
+    Route::get('development', 'DashboardController@development')->name('development');   
+
     Route::get('get/bed/{id}', 'RoomDetailsController@getBed')->name('getBed');   
 
     Route::get('/search/', 'IncidentsController@search')->name('search');
