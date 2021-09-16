@@ -122,15 +122,24 @@ class UsersController extends Controller
         $user->state = $request->input('state', null);
         $user->country = $request->input('country', null);
         $user->zip = $request->input('zip', null);
-        $companyid = $request->input('companyid');
-        $locationid = $request->input('locationid');
-
-        $l_data = LocationMaster::where('id', '=', $locationid)->firstOrFail();
+        if(Auth::user()->s_role == "c_admin"){
+            $companyid = Auth::user()->c_id;
+            $locationid = Auth::user()->l_id;
+            $user->l_id = $locationid;
+        }
+        else{
+            $companyid = $request->input('companyid');
+            $locationid = $request->input('locationid');
+            $l_data = LocationMaster::where('id', '=', $locationid)->firstOrFail();
+            $user->l_id = $l_data->location_id;
+        }
+        
+        
 
         $cname = $request->input('companyname');
         $lname = $request->input('locationname');
         $user->c_id = $companyid;
-        $user->l_id = $l_data->location_id;
+      //  $user->l_id = $l_data->location_id;
         $user->companyname = $cname;
         $user->locationname = $lname;        
 
