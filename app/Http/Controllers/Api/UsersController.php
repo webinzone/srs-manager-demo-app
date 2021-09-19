@@ -75,7 +75,7 @@ class UsersController extends Controller
                 'users.first_name',
                 'users.last_name',
                 'users.gravatar',
-                'users.avatar',
+                'users.avatar', 
                 'users.email',
             ]
             )->where('show_in_list', '=', '1');
@@ -388,5 +388,32 @@ class UsersController extends Controller
     public function getCurrentUserInfo(Request $request)
     {
         return (new UsersTransformer)->transformUser($request->user());
+    }
+
+    public function view_users(Request $request)
+    {
+        $this->authorize('view', User::class);
+        $users = User::where('u_id', '=', Auth::user()->id);
+
+       
+        if ($request->filled('search')) {
+            $users = $users->TextSearch($request->input('search'));
+        }
+
+        $order = $request->input('order') === 'asc' ? 'asc' : 'desc';
+        $offset = (($users) && (request('offset') > $users->count())) ? 0 : request('offset', 0);
+
+        // Set the offset to the API call's offset, unless the offset is higher than the actual count of items in which
+        // case we override with the actual count, so we should return 0 items.
+        $offset = (($users) && ($request->get('offset') > $users->count())) ? $users->count() : $request->get('offset', 0);
+
+        // Check to make sure the limit is not higher than the max allowed
+        ((config('app.max_results') >= $request->input('limit')) && ($request->filled('limit'))) ? $limit = $request->input('limit') : $limit = config('app.max_results');
+
+
+      
+        $total = $users->count();
+        $users = $users->skip($offset)->take($limit)->get();
+        return (new UsersTransformer)->transformUsers($users, $total);
     }
 }

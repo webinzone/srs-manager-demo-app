@@ -10,6 +10,9 @@ use App\Models\Rent;
 use App\Models\SrsStaff;
 use App\Models\Certificate;
 use App\Models\LocationMaster;
+use App\Models\CompanyMaster;
+use App\Models\User;
+
 use Carbon\Carbon;
 use Auth;
 use View;
@@ -67,5 +70,18 @@ class DashboardController extends Controller
 
     public function development(){
         return view('development');
+    }
+
+    public function cusers(){
+        $companies = CompanyMaster::all();
+        $locations = LocationMaster::all();
+        return view('normal_users',compact('companies','locations'));
+    }
+    public function vw_users(){
+       $cid = request('companyid');
+       $lid =  request('locationid');
+       $ctype =  "c_users";
+       $vwusers = User::where('c_id', '=', $cid)->where('l_id', '=', $lid)->where('s_role', '=', $ctype)->get() ?? '';
+       return view('viewusers',compact('vwusers'));
     }
 }

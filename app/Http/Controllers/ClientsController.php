@@ -18,6 +18,14 @@ use App\Models\ActivityLog;
 use App\Models\RoomDetail;
 use App\Models\ResidentAgreement;
 use App\Models\LocationMaster;
+use App\Models\ConditionReport;
+use App\Models\Incident;
+use App\Models\TransferRecord;
+use App\Models\Vaccate;
+use App\Models\Rent;
+use App\Models\ProgressNote;
+use App\Models\Referral;
+use App\Models\SupportPlan;
 
 use App\Models\Bed;
 
@@ -612,6 +620,46 @@ class ClientsController extends Controller
     {
         $this->authorize('destroy', ClientDetail::class);
 
+        $checker1 = ConditionReport::select('client_id')->where('client_id', '=', $id)->exists();
+        $checker2 = ResidentAgreement::select('client_id')->where('client_id', '=', $id)->exists();
+        $checker3 = Referral::select('client_id')->where('client_id', '=', $id)->exists();
+        $checker4 = SupportPlan::select('client_id')->where('client_id', '=', $id)->exists();
+        $checker5 = TransferRecord::select('client_id')->where('client_id', '=', $id)->exists();
+        $checker6 = Incident::select('client_id')->where('client_id', '=', $id)->exists();
+        $checker7 = Vaccate::select('client_id')->where('client_id', '=', $id)->exists();
+        $checker8 = Rent::select('client_id')->where('client_id', '=', $id)->exists();
+        $checker9 = ProgressNote::select('client_id')->where('client_id', '=', $id)->exists();
+
+        if ($checker1 == true) {
+            return redirect()->route('clients.index')
+                    ->with('error', 'Please delete Resident Condition Report First !');
+        }elseif ($checker2 == true) {
+            return redirect()->route('clients.index')
+                    ->with('error', 'Please delete Resident Resident Agreement  First !');
+        }elseif ($checker3 == true) {
+            return redirect()->route('clients.index')
+                    ->with('error', 'Please delete Resident Referral Report First !');
+        }elseif ($checker4 == true) {
+            return redirect()->route('clients.index')
+                    ->with('error', 'Please delete Resident Support Plan First !');
+        }elseif ($checker5 == true) {
+            return redirect()->route('clients.index')
+                    ->with('error', 'Please delete Resident Transfer Report First !');
+        }elseif ($checker6 == true) {
+            return redirect()->route('clients.index')
+                    ->with('error', 'Please delete Resident Incident Report First !');
+        }elseif ($checker7 == true) {
+            return redirect()->route('clients.index')
+                    ->with('error', 'Please delete Resident Vaccate Report First !');
+        }elseif ($checker8 == true) {
+            return redirect()->route('clients.index')
+                    ->with('error', 'Please delete Resident Rent Details First !');
+        }elseif ($checker9 == true) {
+            return redirect()->route('clients.index')
+                    ->with('error', 'Please delete Resident Progress Report First !');
+        }else {
+
+
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
         $rroom = $res->room_no;
         $bed = $res->bed_no;
@@ -660,6 +708,7 @@ class ClientsController extends Controller
         $activity->save();
         return redirect()->route('clients.index')
                         ->with('success','deleted successfully');
+        }
     }
      public function generatePDF($id)
      {

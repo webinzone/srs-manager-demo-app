@@ -268,6 +268,7 @@
                     </a>
                   </li>
                   @endif
+
                   @if(Auth::user()->s_role == "c_admin" || Auth::user()->s_role == "c_users")
                   <li>
                       <a href="{{ route('room_details.index') }}" style="color: #b8c7ce;">
@@ -276,9 +277,36 @@
                     </a>
                   </li>
                   @endif
+
                  
                 </ul>
               </li>
+              @if(Auth::user()->s_role == "super_admin")
+              <li class="treeview">
+                <a href="#" style="background-color: #222d32;color: #b8c7ce;">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                  <span style="color: white;">Users</span>
+                  <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
+                 
+                  <li>
+                      <a href="{{ route('users.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Administrators
+                    </a>
+                  </li>
+                  <li>
+                      <a href="/cusers" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Users
+                    </a>
+                  </li>
+                </ul>
+              </li>
+                  
+              @endif
+
                @if(Auth::user()->s_role == "c_admin" || Auth::user()->s_role == "c_users")
               <li class="treeview">
                 <a href="#" style="background-color: #222d32;color: #b8c7ce;">
