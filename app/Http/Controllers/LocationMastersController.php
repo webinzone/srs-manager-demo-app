@@ -7,6 +7,8 @@ use App\Models\LocationMaster;
 use App\Models\CompanyMaster;
 use App\Models\ActivityLog;
 use Carbon\Carbon;
+use App\Models\ClientDetail;
+use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -176,6 +178,21 @@ class LocationMastersController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy', LocationMaster::class);
+
+        $location_master = LocationMaster::find($id);
+        $l_id = $location_master->location_id; 
+
+        $checker1 = User::select('l_id')->where('l_id', '=', $l_id)->exists();
+        $checker2 = ClientDetail::select('location_id')->where('location_id', '=', $l_id)->exists();
+
+        if ($checker1 == true) {
+            return redirect()->route('location_masters.index')
+                    ->with('error', 'Please delete  users associated with this company First !');
+        } elseif ($checker2 == true) {
+            return redirect()->route('location_masters.index')
+                    ->with('error', 'Please delete  residents associated with this company First !');
+        }
+        else {
         LocationMaster::destroy($id);
         $activity = new ActivityLog();
 
@@ -185,6 +202,7 @@ class LocationMastersController extends Controller
         $activity->save();
         return redirect()->route('location_masters.index')
                         ->with('success','deleted successfully');
+        }
     }
 
 }

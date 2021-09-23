@@ -5,6 +5,7 @@ use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\CompanyMaster;
 use App\Models\ActivityLog;
+use App\Models\LocationMaster;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -175,6 +176,15 @@ class CompanyMastersController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy', CompanyMaster::class);
+        $company_master = CompanyMaster::find($id);
+        $c_id = $company_master->company_id; 
+        $checker = LocationMaster::select('company_id')->where('company_id', '=', $c_id)->exists();
+        if ($checker == true) {
+            return redirect()->route('company_masters.index')
+                    ->with('error', 'Please delete Locations and users associated with this company First !');
+        }
+        else {
+
         CompanyMaster::destroy($id);
         $activity = new ActivityLog();
 
@@ -184,6 +194,7 @@ class CompanyMastersController extends Controller
         $activity->save();
         return redirect()->route('company_masters.index')
                         ->with('success','deleted successfully');
+        }
     }
 
 }
