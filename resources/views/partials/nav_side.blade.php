@@ -49,7 +49,7 @@
 
                    @can('index', \App\Models\StaffRoaster::class)
                   <li aria-hidden="true"{!! (Request::is('staff_roasters*') ? ' class="active"' : '') !!} tabindex="-1">
-                      <a href="{{ route('staff_roasters.index') }}" tabindex="-1" style="color: white;">
+                      <a href="/development" tabindex="-1" style="color: white;">
                           <i class="fa fa-users" aria-hidden="true"></i>                      
                           <span class="sr-only">Staff Roaster</span>
                       </a>
@@ -395,7 +395,7 @@
                     </a>
                   </li>
                   <li>
-                      <a href="{{ route('staff_roasters.index') }}" style="color: #b8c7ce;">
+                      <a href="/development" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                           Staff Roaster
                       </a>

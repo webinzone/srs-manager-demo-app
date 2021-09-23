@@ -128,7 +128,7 @@
   <div class="col-lg-3 col-xs-6" style="width:246px;">
     <!-- small box -->
 
-      <a href="{{ route('staff_roasters.index') }}" style="width:246px;">
+      <a href="/development" style="width:246px;">
     <div class="small-box bg-purple">
       <div class="inner">
         <h3> {{ number_format($counts['staff_roaster']) }}</h3>
@@ -137,7 +137,7 @@
       <div class="icon" aria-hidden="true">
         <i class="fa fa-users"></i>
       </div>
-      <a href="{{ route('staff_roasters.index') }}" class="small-box-footer">{{ trans('general.moreinfo') }} <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+      <a href="/development" class="small-box-footer">{{ trans('general.moreinfo') }} <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
     </div>
   </div><!-- ./col -->
 
