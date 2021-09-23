@@ -181,9 +181,10 @@ class LocationMastersController extends Controller
 
         $location_master = LocationMaster::find($id);
         $l_id = $location_master->location_id; 
+        $c_id = $location_master->company_id; 
 
-        $checker1 = User::select('l_id')->where('l_id', '=', $l_id)->exists();
-        $checker2 = ClientDetail::select('location_id')->where('location_id', '=', $l_id)->exists();
+        $checker1 = User::select('l_id')->where('l_id', '=', $l_id)->where('c_id', '=', $c_id)->exists();
+        $checker2 = ClientDetail::select('location_id')->where('location_id', '=', $l_id)->where('company_id', '=', $c_id)->exists();
 
         if ($checker1 == true) {
             return redirect()->route('location_masters.index')
