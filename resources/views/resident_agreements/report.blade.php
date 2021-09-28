@@ -58,7 +58,7 @@ table, td, th {
      <center>
       <h1 >{{ $locations->master_name}}</h1>
     </center>
-    <p style="font-size: 15px;"><center><b>{{ $locations->address}} Ph: {{ $locations->ph}} Fax: {{ $locations->fax}} Email: {{ $locations->email}}</b></p></center>
+    <p style="font-size: 15px;"><center><b>{{ $locations->address}} Ph: {{ $locations->ph}} Fax: {{ $locations->fax}} Email: {{ $locations->email}}</b></p></center></p>
     <h3><center>RESIDENTIAL AND SERVICES AGREEMENT</center></h3><br>
     <div class="container-head">
     <p><i>Type of service</i></p>
@@ -614,28 +614,28 @@ Residents Handbook for further details, setting out the minimum standards of Sup
 </script>
 
 <script type="text/javascript">
-  //function saveEdits() {
-//
-////get the editable element
-//var editElem = document.getElementById("edit2");
-//
-////get the edited element content
-//var userVersion = editElem.innerHTML;
-//
-////save the content to local storage
-//localStorage.userEdits = userVersion;
-//
-////write a confirmation to the user
-//document.getElementById("update").innerHTML="";
-//
-//}
-//
-//function checkEdits() {
-//
-////find out if the user has previously saved edits
-//if(localStorage.userEdits!=null)
-//document.getElementById("edit2").innerHTML = localStorage.userEdits;
-//}
+  function saveEdits() {
+
+//get the editable element
+var editElem = document.getElementById("edit2");
+
+//get the edited element content
+var userVersion = editElem.innerHTML;
+
+//save the content to local storage
+localStorage.userEdits = userVersion;
+
+//write a confirmation to the user
+document.getElementById("update").innerHTML="";
+
+}
+
+function checkEdits() {
+
+//find out if the user has previously saved edits
+if(localStorage.userEdits!=null)
+document.getElementById("edit2").innerHTML = localStorage.userEdits;
+}
 </script>
 
 
