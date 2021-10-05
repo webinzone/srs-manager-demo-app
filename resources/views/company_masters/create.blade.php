@@ -65,7 +65,7 @@
                     </div>
                       <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">State</label>
-                        <div class="col-md-7 col-sm-12 ">
+                        <div class="col-md-7 col-sm-12 " required="">
                             <select name="state"  class="form-control" > 
                             <option value="" style="font-size: 14px;">---Select State--</option> 
                             <option value="Victoria" style="font-size: 14px;">Victoria</option> 
@@ -84,38 +84,38 @@
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Post Code</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="post_code" class="form-control"  placeholder="Post Code">                                        
+                 <input type="text" name="post_code" class="form-control" required=""  placeholder="Post Code">                                        
                         </div>
                     </div>
                   
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Phone Number</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="ph" class="form-control"  placeholder="Phone Number">                                       
+                 <input type="text" name="ph" class="form-control" required=""  placeholder="Phone Number">                                       
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Email</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="email" class="form-control"  placeholder="Email">                                        
+                 <input type="email" name="email" class="form-control" required="" placeholder="Email">                                        
                         </div>
                     </div>
                     
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Fax</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="fax" class="form-control" placeholder="Fax">                                     
+                 <input type="text" name="fax" class="form-control" required="" placeholder="Fax">                                     
                         </div>
                     </div>
                     <div class="form-group ">
                         <label for="name" class="col-md-3 control-label">Web</label>
                         <div class="col-md-7 col-sm-12 ">
-                 <input type="text" name="web" class="form-control"  placeholder="Web ID">                                       
+                 <input type="text" name="web" class="form-control" required="" placeholder="Web ID">                                       
                         </div>
                     </div>
                     <div class="box-footer text-right" style="padding-right:110px;">
                         <a class="btn btn-link text-left" href="{{ route('company_masters.index') }}">Cancel</a>
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true"></i> Save</button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-check icon-white" aria-hidden="true" ></i> Save</button>
                     </div>
 
                 </div> <!-- ./box-body -->

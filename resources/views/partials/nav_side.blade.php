@@ -75,7 +75,7 @@
                   </li>
                   @endcan
 
-                @endif
+                
 
                   <li>
                   <form class="navbar-form navbar-left form-horizontal" role="search" action="{{ route('search') }}" method="get" >
@@ -93,7 +93,7 @@
                       </div>
                   </form>
                   </li>
-
+                  @endif
                   @can('admin')
                   @if(Auth::user()->s_role !== "c_users")
                   <li class="dropdown" aria-hidden="true">
