@@ -30,7 +30,7 @@
             <div class="box box-default">
                 <!-- box-header -->
                 <div class="box-header with-border text-center">
-                   <h3><b>Vaccate Form</b></h3>
+                   <h3><b>Notice to Vacate</b></h3>
                    
                 </div><!-- /.box-header -->
 

@@ -74,7 +74,7 @@ class RoomDetailsController extends Controller
         $room_detail->room_rent = request('room_rent') ?? ' ';
         $room_detail->client_type = request('client_type') ?? ' ';;
         $room_detail->client_id = request('client_id') ?? ' ';
-        $room_detail->status = request('status') ?? 'Free';
+        $room_detail->status = request('status') ?? 'Vacant';
         $room_detail->beds_no = request('beds_no') ?? '1';
         $room_detail->company_id = Auth::user()->c_id  ?? '';
         $room_detail->location_id = Auth::user()->l_id  ?? '';
@@ -90,7 +90,7 @@ class RoomDetailsController extends Controller
                 $bed_detail->room_id = $room_detail->id ?? ' ';
                 $bed_detail->room_no = $room_detail->room_no ?? ' ';
                 $bed_detail->bed_no = $bed ?? ' ';
-                $bed_detail->status = 'Free';
+                $bed_detail->status = 'Vacant';
                 $bed_detail->res_name = $room_detail->client_id ?? ' ';
                 $bed_detail->company_id = Auth::user()->c_id  ?? '';
                 $bed_detail->location_id = Auth::user()->l_id  ?? '';
@@ -155,7 +155,7 @@ class RoomDetailsController extends Controller
         $room_detail->room_rent = request('room_rent') ?? ' ';
         $room_detail->client_type = request('client_type') ?? ' ';;
         $room_detail->client_id = request('client_id') ?? ' ';
-        $room_detail->status = request('status') ?? 'Free';
+        $room_detail->status = request('status') ?? 'Vacant';
         $room_detail->beds_no = request('beds_no') ?? ' ';
         $room_detail->company_id = Auth::user()->c_id  ?? '';
         $room_detail->location_id = Auth::user()->l_id  ?? '';
@@ -173,7 +173,7 @@ class RoomDetailsController extends Controller
                 $bed_detail->room_id = $room_detail->id ?? ' ';
                 $bed_detail->room_no = $room_detail->room_no ?? ' ';
                 $bed_detail->bed_no = $bed ?? ' ';
-                $bed_detail->status = 'Free';
+                $bed_detail->status = 'Vacant';
                 $bed_detail->res_name = $room_detail->client_id ?? ' ';
                 $bed_detail->company_id = Auth::user()->c_id  ?? '';
                 $bed_detail->location_id = Auth::user()->l_id  ?? '';
@@ -217,7 +217,7 @@ class RoomDetailsController extends Controller
 
     public function getBed($id){
       
-         $st = "Free";
+         $st = "Vacant";
          return response()->json([
             'beds' => Bed::where('room_id', '=', $id)->where('status', '=', $st)->get()
         ]);

@@ -369,7 +369,7 @@
                   <li>
                       <a href="{{ route('vaccates.index') }}" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                         Vaccate Records
+                         Notice to Vacate 
                     </a>
                   </li>
                 

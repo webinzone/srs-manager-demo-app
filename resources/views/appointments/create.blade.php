@@ -77,11 +77,16 @@
                                             
                     </div>
                     <div class="form-group ">
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-3 mb-3">
                         <label for="app_reason">Reason </label>
                         <input type="text" class="form-control" placeholder="Reason of the booked appointment" id="app_reason" name="app_reason"  v-on:change="page_one.app_reason = $event.target.value">                
                       </div>
-                        <div class="col-md-4 mb-3">
+                       <div class="col-md-3 mb-3" style="width: 140px;">
+                        <label>Fasting ?</label>
+                        <br><input type="radio"  id="fasting"  value="Yes" name="fasting">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="fasting" value="No" name="fasting">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
+                      </div>
+                        <div class="col-md-3 mb-3">
                         <label for="ent_no">Status</label>
                           <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="Pending" style="font-size: 14px;">Pending</option> 
@@ -91,7 +96,7 @@
                       </div> 
                         
                        
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-4 mb-3" style="width: 220px;">
                         <label for="app_note">Booked by</label>   
                         <select class="form-control" style="height: 26px;padding: 3px 10px;" id="mng_staff" name="app_bookby">
                             <option>--   Select Staff Name  --</option>
@@ -105,8 +110,8 @@
                         
                     <div class="form-group">
                          <div class="col-md-6 mb-3">
-                        <label for="app_note">Note</label>
-                        <textarea class="form-control"placeholder="Note" id="app_note" name="app_note"  v-on:change="page_one.app_note = $event.target.value"></textarea>
+                        <label for="app_note">Additional Information</label>
+                        <textarea class="form-control"placeholder="Additional Information" id="app_note" name="app_note"  v-on:change="page_one.app_note = $event.target.value"></textarea>
                       </div>       
                     </div>  
                           

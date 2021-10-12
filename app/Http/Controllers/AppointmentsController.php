@@ -75,7 +75,7 @@ class AppointmentsController extends Controller
         $appointment->app_note = request('app_note')  ?? '';
         $appointment->status = request('status')  ?? '';
         $appointment->resc_date = request('resc_date')  ?? '';
-        
+        $appointment->fasting = request('fasting')  ?? '';
         
         $appointment->a_email = request('a_email')  ?? '';
         $appointment->a_ph = request('a_ph')  ?? '';
@@ -147,7 +147,8 @@ class AppointmentsController extends Controller
         $appointment->app_bookby = request('app_bookby')  ?? '';
         $appointment->app_note = request('app_note')  ?? '';
         $appointment->status = request('status')  ?? '';
-
+        $appointment->fasting = request('fasting')  ?? '';
+        
         $appointment->resc_date = request('resc_date')  ?? '';
         $appointment->a_email = request('a_email')  ?? '';
         $appointment->a_ph = request('a_ph')  ?? '';

@@ -82,7 +82,7 @@
                         <select name="status"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="" style="font-size: 14px;">---  Select Status  ---</option> 
                             <option value="Booked" style="font-size: 14px;">Booked</option> 
-                            <option value="Free" style="font-size: 14px;">Free</option> 
+                            <option value="Vacant" style="font-size: 14px;">Vacant</option> 
                         </select>                           
                           </div>
                       <div class="col-md-3 mb-3" >

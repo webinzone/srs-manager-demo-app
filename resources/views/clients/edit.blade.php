@@ -486,7 +486,7 @@
                
                     <div class="form-row">
                       <div class="col-md-12 mb-3">
-                        <label for="income_type">Type of Income : </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="income_type">Payment Type : </label>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label><input id="i1" {{ $pension_detail->income_type == 'Direct Debit' ? 'checked' : ''  }} type="checkbox" onclick="hidebox();" name="income_type" value="Direct Debit">Direct Debit</label>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label><input onclick="hidebox();" id="i2" {{ $pension_detail->income_type == 'Cash' ? 'checked' : ''  }}  type="checkbox" name="income_type" value="Cash">Cash</label>&nbsp;&nbsp;&nbsp;&nbsp;                         
                                 <label><input onclick="hidebox();" id="i3" {{ $pension_detail->income_type == 'Centre Link' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;

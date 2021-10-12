@@ -62,7 +62,7 @@
         <td style="border: 1px solid black;">Appointment with</td>
         <td style="border: 1px solid black;">Reason </td>
         <td style="border: 1px solid black;">Booked By</td>
-        <td style="border: 1px solid black;">Note</td>
+        <td style="border: 1px solid black;">Additional Information</td>
         <td style="border: 1px solid black;">Status</td>
 
       

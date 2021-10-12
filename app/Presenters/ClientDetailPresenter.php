@@ -15,13 +15,6 @@ class ClientDetailPresenter extends Presenter
     {
         $layout = [
             [
-                "field" => "id",
-                "searchable" => false,
-                "sortable" => true,
-                "switchable" => true,
-                "title" => trans('id'),
-                "visible" => false
-            ],[
                 "field" => "fname",
                 "searchable" => true,
                 "sortable" => true,
@@ -46,6 +39,12 @@ class ClientDetailPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Phone number')
             ],[
+                "field" => "cob",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Payment Type')
+            ],[
                 "field" => "created_at",
                 "searchable" => true,
                 "sortable" => true,
@@ -57,7 +56,7 @@ class ClientDetailPresenter extends Presenter
                 "sortable" => false,
                 "title" => trans('table.actions'),
                 "visible" => true
-            ]
+            ],
                 
         ];
 

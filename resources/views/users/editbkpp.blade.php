@@ -346,7 +346,183 @@
           </div>
 
 
-         
+              <!-- Image -->
+                  @if ($user->avatar)
+                      <div class="form-group {{ $errors->has('image_delete') ? 'has-error' : '' }}">
+                          <label class="col-md-3 control-label" for="image_delete">{{ trans('general.image_delete') }}</label>
+                          <div class="col-md-5">
+                              {{ Form::checkbox('image_delete') }}
+                              <img src="{{ Storage::disk('public')->url(app('users_upload_path').e($user->avatar)) }}" class="img-responsive" />
+                              {!! $errors->first('image_delete', '<span class="alert-msg"><br>:message</span>') !!}
+                          </div>
+                      </div>
+                  @endif
+
+                  @include ('partials.forms.edit.image-upload', ['fieldname' => 'avatar'])
+
+
+                <!-- language -->
+                <div class="form-group {{ $errors->has('locale') ? 'has-error' : '' }}">
+                  <label class="col-md-3 control-label" for="locale">{{ trans('general.language') }}</label>
+                  <div class="col-md-6">
+                    {!! Form::locales('locale', old('locale', $user->locale), 'select2') !!}
+                    {!! $errors->first('locale', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
+                  </div>
+                </div>
+
+                <!-- Employee Number -->
+                <div class="form-group {{ $errors->has('employee_num') ? 'has-error' : '' }}">
+                  <label class="col-md-3 control-label" for="employee_num">{{ trans('admin/users/table.employee_num') }}</label>
+                  <div class="col-md-6">
+                    <input
+                      class="form-control"
+                      type="text"
+                      aria-label="employee_num"
+                      name="employee_num"
+                      id="employee_num"
+                      value="{{ Request::old('employee_num', $user->employee_num) }}"
+                    />
+                    {!! $errors->first('employee_num', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
+                  </div>
+                </div>
+
+
+                <!-- Jobtitle -->
+               <!-- <div class="form-group {{ $errors->has('jobtitle') ? 'has-error' : '' }}">
+                  <label class="col-md-3 control-label" for="jobtitle">{{ trans('admin/users/table.title') }}</label>
+                  <div class="col-md-6">
+                    <input
+                      class="form-control"
+                      type="text"
+                      name="jobtitle"
+                      id="jobtitle"
+                      value="{{ Request::old('jobtitle', $user->jobtitle) }}"
+                    />
+                    {!! $errors->first('jobtitle', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
+                  </div>
+                </div>-->
+
+
+               
+
+                <!-- Phone -->
+                <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+                  <label class="col-md-3 control-label" for="phone">{{ trans('admin/users/table.phone') }}</label>
+                  <div class="col-md-6">
+                    <input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone', $user->phone) }}" />
+                    {!! $errors->first('phone', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
+                  </div>
+                </div>
+
+                  <!-- Website URL -->
+                 <!-- <div class="form-group {{ $errors->has('website') ? ' has-error' : '' }}">
+                      <label for="website" class="col-md-3 control-label">{{ trans('general.website') }}</label>
+                      <div class="col-md-6">
+                          <input class="form-control" type="text" name="website" id="website" value="{{ old('website', $user->website) }}" />
+                          {!! $errors->first('website', '<span class="alert-msg" aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i> :message</span>') !!}
+                      </div>
+                  </div>-->
+
+                  <!-- Address -->
+                  <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                      <label class="col-md-3 control-label" for="address">{{ trans('general.address') }}</label>
+                      <div class="col-md-6">
+                          <input class="form-control" type="text" name="address" id="address" value="{{ old('address', $user->address) }}" />
+                          {!! $errors->first('address', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
+                      </div>
+                  </div>
+
+                  <!-- City -->
+                  <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+                      <label class="col-md-3 control-label" for="city">{{ trans('general.city') }}</label>
+                      <div class="col-md-6">
+                          <input class="form-control" type="text" name="city" id="city" aria-label="city" value="{{ old('city', $user->city) }}" />
+                          {!! $errors->first('city', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
+                      </div>
+                  </div>
+
+                  <!-- State -->
+                  <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                      <label class="col-md-3 control-label" for="state">{{ trans('general.state') }}</label>
+                      <div class="col-md-6">
+                          <input class="form-control" type="text" name="state" id="state" value="{{ old('state', $user->state) }}" maxlength="3" />
+                          {!! $errors->first('state', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
+                      </div>
+                  </div>
+
+                  <!-- Country -->
+                  <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
+                      <label class="col-md-3 control-label" for="country">{{ trans('general.country') }}</label>
+                      <div class="col-md-6">
+                          {!! Form::countries('country', old('country', $user->country), 'col-md-6 select2') !!}
+                          {!! $errors->first('country', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
+                      </div>
+                  </div>
+
+                  <!-- Zip -->
+                  <div class="form-group{{ $errors->has('zip') ? ' has-error' : '' }}">
+                      <label class="col-md-3 control-label" for="zip">{{ trans('general.zip') }}</label>
+                      <div class="col-md-3">
+                          <input class="form-control" type="text" name="zip" id="zip" value="{{ old('zip', $user->zip) }}" maxlength="10" />
+                          {!! $errors->first('zip', '<span class="alert-msg" aria-hidden="true">:message</span>') !!}
+                      </div>
+                  </div>
+
+
+
+
+
+                @if ($snipeSettings->two_factor_enabled!='')
+                  @if ($snipeSettings->two_factor_enabled=='1')
+                  <div class="form-group">
+                    <div class="col-md-3 control-label">
+                      {{ Form::label('two_factor_optin', trans('admin/settings/general.two_factor')) }}
+                    </div>
+                    <div class="col-md-9">
+                        @if (config('app.lock_passwords'))
+                            <div class="icheckbox disabled">
+                            {{ Form::checkbox('two_factor_optin', '1', Request::old('two_factor_optin', $user->two_factor_optin),['class' => 'minimal', 'disabled'=>'disabled']) }} {{ trans('admin/settings/general.two_factor_enabled_text') }}
+                                <p class="help-block">{{ trans('general.feature_disabled') }}</p>
+                            </div>
+                        @else
+                            {{ Form::checkbox('two_factor_optin', '1', Request::old('two_factor_optin', $user->two_factor_optin),['class' => 'minimal']) }} {{ trans('admin/settings/general.two_factor_enabled_text') }}
+                            <p class="help-block">{{ trans('admin/users/general.two_factor_admin_optin_help') }}</p>
+
+                        @endif
+
+                    </div>
+                  </div>
+                  @endif
+
+                  <!-- Reset Two Factor -->
+                  <div class="form-group">
+                    <div class="col-md-8 col-md-offset-3 two_factor_resetrow">
+                      <a class="btn btn-default btn-sm pull-left" id="two_factor_reset" style="margin-right: 10px;"> {{ trans('admin/settings/general.two_factor_reset') }}</a>
+                      <span id="two_factor_reseticon">
+                      </span>
+                      <span id="two_factor_resetresult">
+                      </span>
+                      <span id="two_factor_resetstatus">
+                      </span>
+                    </div>
+                    <div class="col-md-8 col-md-offset-3 two_factor_resetrow">
+                      <p class="help-block">{{ trans('admin/settings/general.two_factor_reset_help') }}</p>
+                    </div>
+                  </div>
+                @endif
+
+                <!-- Notes -->
+                <div class="form-group{!! $errors->has('notes') ? ' has-error' : '' !!}">
+                  <label for="notes" class="col-md-3 control-label">{{ trans('admin/users/table.notes') }}</label>
+                  <div class="col-md-6">
+                    <textarea class="form-control" rows="5" id="notes" name="notes">{{ old('notes', $user->notes) }}</textarea>
+                    {!! $errors->first('notes', '<span class="alert-msg" aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i> :message</span>') !!}
+                  </div>
+                </div>
+
+                 
+
+
               </div> <!--/col-md-12-->
             </div>
           </div>

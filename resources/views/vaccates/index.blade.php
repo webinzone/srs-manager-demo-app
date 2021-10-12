@@ -19,7 +19,7 @@
 
     <div class="box box-default">
         <div class="box-header with-border text-center">
-                 <h3><b>Vaccate</b></h3>
+                 <h3><b>Notice to Vacate </b></h3>
                    
                 </div><!-- /.box-header -->
       <div class="box-body">

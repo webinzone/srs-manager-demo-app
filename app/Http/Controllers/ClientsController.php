@@ -59,7 +59,7 @@ class ClientsController extends Controller
     {
          
         $this->authorize('create');
-        $status = "Free";
+        $status = "Vacant";
         $rooms = RoomDetail::where('status', '=', $status)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
 
         return view('clients/create',compact('rooms'));
@@ -74,7 +74,7 @@ class ClientsController extends Controller
         $client_detail->lname = request('lname');
         $client_detail->address = ""  ?? '';
         $client_detail->dob = request('dob')  ?? '';
-        $client_detail->cob = ""  ?? '';
+        $client_detail->cob = request('income_type')  ?? '';
         $client_detail->age = ""  ?? '';
         $client_detail->gender = request('gender')  ?? '';
         $client_detail->religion = request('religion')  ?? '';
@@ -353,7 +353,7 @@ class ClientsController extends Controller
         $health_service = HealthService::where('client_id', '=', $id)->firstOrFail();
         $pension_detail = PensionDetail::where('client_id', '=', $id)->firstOrFail();
         $income = explode(',', $pension_detail->income_type);
-        $status = "Free";
+        $status = "Vacant";
         $rooms = RoomDetail::where('status', '=', $status)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
         return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid', 'bedno'));
     }
@@ -373,7 +373,7 @@ class ClientsController extends Controller
         $client_detail->lname = request('lname');
         $client_detail->address = ""  ?? '';
         $client_detail->dob = request('dob')  ?? '';
-        $client_detail->cob = ""  ?? '';
+        $client_detail->cob = request('income_type')  ?? '';
         $client_detail->age = ""  ?? '';
         $client_detail->gender = request('gender')  ?? '';
         $client_detail->religion = request('religion')  ?? '';
@@ -669,7 +669,7 @@ class ClientsController extends Controller
         $r_beds = $roomdetails->beds_no;
 
         $bed_details = Bed::where('room_id', '=', $rrrid)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->where('bed_no', '=', $bed)->firstOrFail();
-        $bed_details->status = "Free";
+        $bed_details->status = "Vacant";
         $bed_details->res_name = " ";
         $bed_details->save();
         $booked = "Booked";
@@ -683,7 +683,7 @@ class ClientsController extends Controller
             $roomdeta->save();
         }else{
             $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
-            $roomdeta->status = "Free";
+            $roomdeta->status = "Vacant";
             $roomdeta->save();
         }
         

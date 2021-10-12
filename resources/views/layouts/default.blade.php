@@ -26,7 +26,7 @@
 
      {{-- stylesheets --}}
     <link rel="stylesheet" href="{{ url(mix('css/dist/all.css')) }}">
-    
+    <link rel="stylesheet" href="{{ url(mix('css/style.scss')) }}">
     {{-- page level css --}}
     @stack('css')
 
@@ -215,6 +215,11 @@ h4 {
 
  background-color: #9F2B68;
 }
+
+
+
+
+
 </style>
 
   </head>

@@ -485,7 +485,7 @@
                
                     <div class="form-row">
                       <div class="col-md-12 mb-3">
-                        <label for="income_type">Type of Income : </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label for="income_type">Payment Type : </label>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label><input  type="checkbox" name="income_type" value="Direct Debit"> Direct Debit</label>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <label><input  type="checkbox" name="income_type" value="Cash"> Cash</label>&nbsp;&nbsp;&nbsp;&nbsp;                         
                                 <label><input  type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;&nbsp;&nbsp;

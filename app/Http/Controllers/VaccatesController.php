@@ -92,7 +92,7 @@ class VaccatesController extends Controller
         $r_beds = $roomdetails->beds_no;
 
         $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $bed)->firstOrFail();
-        $bed_details->status = "Free";
+        $bed_details->status = "Vacant";
         $bed_details->res_name = " ";
         $bed_details->save();
         $booked = "Booked";
@@ -106,7 +106,7 @@ class VaccatesController extends Controller
             $roomdeta->save();
         }else{
             $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
-            $roomdeta->status = "Free";
+            $roomdeta->status = "Vacant";
             $roomdeta->save();
         }
 
@@ -194,7 +194,7 @@ class VaccatesController extends Controller
         $r_beds = $roomdetails->beds_no;
 
         $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $bed)->firstOrFail();
-        $bed_details->status = "Free";
+        $bed_details->status = "Vacant";
         $bed_details->res_name = " ";
         $bed_details->save();
         $booked = "Booked";
@@ -208,7 +208,7 @@ class VaccatesController extends Controller
             $roomdeta->save();
         }else{
             $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
-            $roomdeta->status = "Free";
+            $roomdeta->status = "Vacant";
             $roomdeta->save();
         }
 
