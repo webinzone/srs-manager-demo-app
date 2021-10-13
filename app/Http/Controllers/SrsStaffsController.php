@@ -45,7 +45,16 @@ class SrsStaffsController extends Controller
     {
          // Show the page
         $this->authorize('create',SrsStaff::class);
-        return view('srs_staffs/create');
+        $lastCompanyid        =   SrsStaff::orderBy('created_at', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->first();
+        if ($lastCompanyid) {
+            $str = $lastCompanyid->em_id;
+        }
+        else
+        {
+            $str = 'E000';
+        }
+        $empid = ++$str;
+        return view('srs_staffs/create',compact('empid'));
     }
 
 
@@ -77,6 +86,14 @@ class SrsStaffsController extends Controller
         $srs_staff->fi_date = request('fi_date')  ?? '';
         $srs_staff->crime = request('crime')  ?? '';
         $srs_staff->w_child = request('w_child')  ?? '';
+        $srs_staff->em_id = request('em_id')  ?? '';
+        $srs_staff->empdate = request('empdate')  ?? '';
+
+        if(request('empsign') != ''){ 
+        $srs_staff->empsign = request('empsign')->getClientOriginalName()  ?? '';
+        $imageName = request('empsign')->getClientOriginalName() ?? '';
+        request()->empsign->move(public_path('images/sign'), $imageName);
+        }  
         
         $data1[] = implode(',', (array) request('quali')) ?? '';
         $data2[] = implode(',', (array) request('certi_exp')) ?? '';
@@ -213,6 +230,14 @@ class SrsStaffsController extends Controller
         $srs_staff->fi_date = request('fi_date')  ?? '';
         $srs_staff->crime = request('crime')  ?? '';
         $srs_staff->w_child = request('w_child')  ?? '';
+        $srs_staff->em_id = request('em_id')  ?? '';
+        $srs_staff->empdate = request('empdate')  ?? '';
+
+        if(request('empsign') != ''){ 
+                $srs_staff->empsign = request('empsign')->getClientOriginalName()  ?? '';
+                $imageName = request('empsign')->getClientOriginalName() ?? '';
+                request()->empsign->move(public_path('images/sign'), $imageName);
+                } 
 
         $data1[] = implode(',', (array) request('quali')) ?? '';
         $data2[] = implode(',', (array) request('certi_exp')) ?? '';

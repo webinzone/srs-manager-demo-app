@@ -29,7 +29,7 @@
                 <!-- box-header -->
 
                           <div class="box-header with-border text-center">
-                 <h3><b>Employee</b></h3>
+                 <h3><b>Employee - {{$srs_staff->em_id}} </b></h3> <input  type="text" style="width: 50px;" name="em_id" width="100px;"  required="" value="{{$srs_staff->em_id}}" readonly="" hidden="">
                    
                 </div><!-- /.box-header -->
 
@@ -50,21 +50,26 @@
                       </div>                        
                     </div>
                     <div class="form-group ">
-                           <div class="col-md-4 mb-3 ">
+                           <div class="col-md-3 mb-3 ">
                         <label for="name" >Date of Birth</label>
 
                  <input type="date" name="dob" class="form-control" value="{{ $srs_staff->dob}}">                                        
                         </div>
                         
-                           <div class="col-md-4 mb-3 ">
+                           <div class="col-md-3 mb-3 ">
                         <label for="name" >Phone Number</label>
 
                  <input type="text" name="ph" class="form-control" value="{{ $srs_staff->ph}}">                                       
                         </div>
-                          <div class="col-md-4 mb-3 ">
+                          <div class="col-md-3 mb-3 ">
                         <label for="name" >Email</label>
 
                  <input type="email" name="email" class="form-control" value="{{ $srs_staff->email}}">                                        
+                        </div>
+                         <div class="col-md-3 mb-3 ">
+                        <label for="name" >Employment Date</label>
+
+                 <input type="date" name="empdate" value="{{ $srs_staff->empdate}}" class="form-control" >                                        
                         </div>
                     </div>
                     
@@ -112,9 +117,18 @@
 
                              <input type="text" value="{{ $srs_staff->s_no}}" name="s_no" class="form-control" placeholder="Super number">                                        
                         </div>
-                        
-                        
                     </div>
+                        <div class="form-group ">
+                            <div class="col-md-2 mb-3 " style="width: 200px;">
+                             <label for="name" >Upload Signature</label>
+                              <input type="file" name="empsign" class="inputfile" id="sign">
+                            </div>
+
+                              <img id="preview-sign-before-upload" style="width: 100px;height: 50px;" src="{{url('')}}/images/sign/{{    $srs_staff->empsign}}"  alt="" onerror="if (this.src != 'error.jpg') this.src = '{{url('')}}/images/sign/default1.jpg';" class="outer" />                                 
+                      </div>
+                            
+                        
+                        
 
                         <div class="table-responsive">
                                 <button style="float: right;bottom: 50px; height: ; " class="btn  btn-primary text-right" 
@@ -336,6 +350,27 @@
 function myFunction() {
   document.getElementById("file").multiple = true;
 }
+</script>
+<script type="text/javascript">
+      
+$(document).ready(function (e) {
+ 
+   
+   $('#sign').change(function(){
+            
+    let reader = new FileReader();
+ 
+    reader.onload = (e) => { 
+ 
+      $('#preview-sign-before-upload').attr('src', e.target.result); 
+    }
+ 
+    reader.readAsDataURL(this.files[0]); 
+   
+   });
+   
+});
+ 
 </script>
 @include ('partials.bootstrap-table')
 @stop

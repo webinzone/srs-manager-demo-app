@@ -35,7 +35,7 @@
             <div class="box box-default">
                 <!-- box-header -->
                 <div class="box-header with-border text-center">
-                   <h3><b>Employees</b></h3>
+                   <h3><b>Employee - {{$empid}} </b></h3> <input  type="text" style="width: 50px;" name="em_id" width="100px;"  required="" value="{{$empid}}" readonly="" hidden="">
                    
                 </div><!-- /.box-header -->
 
@@ -56,21 +56,26 @@
                       </div>                        
                     </div>
                     <div class="form-group ">
-                           <div class="col-md-4 mb-3 ">
+                           <div class="col-md-3 mb-3 ">
                         <label for="name" >Date of Birth</label>
 
                  <input type="date" name="dob" class="form-control" placeholder="Date of Birth">                                        
                         </div>
                         
-                           <div class="col-md-4 mb-3 ">
+                           <div class="col-md-3 mb-3 ">
                         <label for="name" >Phone Number</label>
 
                  <input type="text" name="ph" class="form-control" placeholder="Phone Number">                                       
                         </div>
-                        <div class="col-md-4 mb-3 ">
+                        <div class="col-md-3 mb-3 ">
                         <label for="name" >Email</label>
 
                  <input type="email" name="email" class="form-control" placeholder="Email">                                        
+                        </div>
+                        <div class="col-md-3 mb-3 ">
+                        <label for="name" >Employment Date</label>
+
+                 <input type="date" name="empdate" class="form-control" >                                        
                         </div>
                     </div>
                     <div class="form-group ">
@@ -94,7 +99,7 @@
                      </div>
                         
                     </div>
-
+                     
                     <div class="form-group ">
                      
 
@@ -114,6 +119,15 @@
 
                              <input type="text" name="s_no" class="form-control" placeholder="Super number">                                        
                         </div>
+                    </div>
+                         <div class="form-group ">
+                            <div class="col-md-2 mb-3 " style="width: 200px;">
+                             <label for="name" >Upload Signature</label>
+                              <input type="file" name="empsign" class="inputfile" id="sign">
+                            </div>
+
+                              <img id="preview-sign-before-upload" style="width: 100px;height: 50px;" src="" alt="" onerror="if (this.src != 'error.jpg') this.src = '{{url('')}}/images/sign/default1.jpg';" class="outer" />                                 
+                      </div>
                                            
                         <!--<div class="col-md-6 mb-3 ">
                         <label for="name" >Qualification</label>
@@ -277,7 +291,27 @@
       });
     });
   </script>
-
+<script type="text/javascript">
+      
+$(document).ready(function (e) {
+ 
+   
+   $('#sign').change(function(){
+            
+    let reader = new FileReader();
+ 
+    reader.onload = (e) => { 
+ 
+      $('#preview-sign-before-upload').attr('src', e.target.result); 
+    }
+ 
+    reader.readAsDataURL(this.files[0]); 
+   
+   });
+   
+});
+ 
+</script>
 @include ('partials.bootstrap-table')
 @stop
 

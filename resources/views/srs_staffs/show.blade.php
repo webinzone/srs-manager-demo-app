@@ -58,7 +58,12 @@
                         <p class="form-control-static">{{ $srs_staff->email}}</p>
                     </div>
                 </div>
-               
+               <div class="form-group">
+                    <label class="col-sm-6 control-label">Employment Date:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">{{ $srs_staff->empdate}}</p>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label class="col-sm-6 control-label">Position:</label>
                     <div class="col-md-6">
@@ -89,7 +94,12 @@
                         <p class="form-control-static">{{ $srs_staff->s_no}}</p>
                     </div>
                 </div>
-               
+               <div class="form-group">
+                    <label class="col-sm-6 control-label">Signature:</label>
+                    <div class="col-md-6">
+                         <img id="preview-sign-before-upload" style="width: 100px;height: 50px;" src="{{url('')}}/images/sign/{{    $srs_staff->empsign}}"  alt="" onerror="if (this.src != 'error.jpg') this.src = '{{url('')}}/images/sign/default1.jpg';" class="outer" />
+                    </div>
+                </div>
 
                <table class="table table-bordered" style="border: 2px; border-width: 1px; border-color: black;">
       <tr>

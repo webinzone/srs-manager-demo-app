@@ -61,6 +61,7 @@
         <td style="border: 1px solid black;">Address</td>
         <td style="border: 1px solid black;">Appointment with</td>
         <td style="border: 1px solid black;">Reason </td>
+        <td style="border: 1px solid black;">Fasting </td>
         <td style="border: 1px solid black;">Booked By</td>
         <td style="border: 1px solid black;">Additional Information</td>
         <td style="border: 1px solid black;">Status</td>
@@ -75,6 +76,7 @@
         <td style="border: 1px solid black;">{{ $appointment->app_address}}</td>       
         <td style="border: 1px solid black;">{{ $appointment->app_with}}</td>
         <td style="border: 1px solid black;">{{ $appointment->app_reason}}</td>
+        <td style="border: 1px solid black;">{{ $appointment->fasting}}</td>        
          <td style="border: 1px solid black;">{{ $appointment->app_bookby}}</td>
         <td style="border: 1px solid black;">{{ $appointment->app_note}}</td>
         <td style="border: 1px solid black;">{{ $appointment->status}}</td>        
