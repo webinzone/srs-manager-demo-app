@@ -161,7 +161,7 @@
 
   <div class="col-lg-3 col-xs-6" style="width:246px;">
     <!-- small box -->
-      <a href="https://www.vic.gov.au/sites/default/files/2019-11/Supported-Residential-Services-Private-Proprietors-Regulations-2011-RIS.pdf" target="_blank" >
+      <a href="https://content.legislation.vic.gov.au/sites/default/files/2020-02/10-49aa009%20authorised.pdf" target="_blank" >
     <div class="small-box bg-red">
       <div class="inner">
         <h3 >&nbsp;&nbsp;</h3>
@@ -171,7 +171,7 @@
         <i class="fa fa-gavel" aria-hidden="true"></i>
      
       </div>
-      <a href="https://www.vic.gov.au/sites/default/files/2019-11/Supported-Residential-Services-Private-Proprietors-Regulations-2011-RIS.pdf" target="_blank" class="small-box-footer">{{ trans('general.moreinfo') }} <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+      <a href="https://content.legislation.vic.gov.au/sites/default/files/2020-02/10-49aa009%20authorised.pdf" target="_blank" class="small-box-footer">{{ trans('general.moreinfo') }} <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
     </div>
       </a>
   </div><!-- ./col -->

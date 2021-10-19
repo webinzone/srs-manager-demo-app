@@ -124,7 +124,7 @@
                               <input type="file" name="empsign" class="inputfile" id="sign">
                             </div>
 
-                              <img id="preview-sign-before-upload" style="width: 100px;height: 50px;" src="{{url('')}}/images/sign/{{    $srs_staff->empsign}}"  alt="" onerror="if (this.src != 'error.jpg') this.src = '{{url('')}}/images/sign/default1.jpg';" class="outer" />                                 
+                              <img id="preview-sign-before-upload" style="width: 100px;height: 50px;" src="{{url('')}}/images/sign/{{$srs_staff->empsign}}"  alt="" onerror="if (this.src != 'error.jpg') this.src = '{{url('')}}/images/sign/default1.jpg';" class="outer" />                                 
                       </div>
                             
                         

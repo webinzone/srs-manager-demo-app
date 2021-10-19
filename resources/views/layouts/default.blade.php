@@ -15,7 +15,7 @@
       <link rel="apple-touch-icon" href="">
       <link rel="apple-touch-startup-image" href="">
       <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <meta name="baseUrl" content="{{ url('/') }}/">

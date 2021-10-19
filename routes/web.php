@@ -83,6 +83,10 @@ Route::group(['middleware' => 'auth'], function () {
 
      Route::get('get/shiftdate/{id}', 'MngshiftsController@getshiftdate')->name('getshiftdate');
     
+     Route::get('/regulations', 'ClientsController@regulations')->name('regulations');
+     Route::get('/chart', 'ClientsController@chart')->name('chart');
+     Route::get('/policy', 'ClientsController@policy')->name('policy');
+
 
     Route::get('/condition','ConditionReportsController@condition_reports');
     Route::get('/viewreport/{id}','ConditionReportsController@viewreport');

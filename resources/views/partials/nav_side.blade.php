@@ -22,21 +22,13 @@
                 @if(Auth::user()->s_role == "c_admin")
                   @can('index', \App\Models\RentDetail::class)
                   <li aria-hidden="true"{!! (Request::is('rent_details*') ? ' class="active"' : '') !!} tabindex="-1">
-                      <a href="{{ route('rents.index') }}" tabindex="-1" style="color: white;">
-                          <i class="fa fa-file"></i>
-                          <span class="sr-only">Rent Details</span>
+                      <a href="{{ route('appointments.index') }}" title="Appointments" tabindex="-1" style="color: white;">
+                          <i class="fa fa-calendar"></i>
+                          <span class="sr-only"></span>
                       </a>
                   </li>
                   @endcan
 
-                  @can('index', \App\Models\Complaint::class)
-                  <li aria-hidden="true"{!! (Request::is('complaints*') ? ' class="active"' : '') !!} tabindex="-1">
-                      <a href="{{ route('complaints.index') }}" tabindex="-1" style="color: white;">
-                          <i class="fa fa-comments"></i>
-                          <span class="sr-only">Complaints</span>
-                      </a>
-                  </li>
-                  @endcan
 
                   <!--@can('index', \App\Models\Booking::class)
                   <li aria-hidden="true"{!! (Request::is('bookings*') ? ' class="active"' : '') !!} tabindex="-1">
@@ -47,18 +39,10 @@
                   </li>
                   @endcan -->
 
-                   @can('index', \App\Models\StaffRoaster::class)
-                  <li aria-hidden="true"{!! (Request::is('staff_roasters*') ? ' class="active"' : '') !!} tabindex="-1">
-                      <a href="/development" tabindex="-1" style="color: white;">
-                          <i class="fa fa-users" aria-hidden="true"></i>                      
-                          <span class="sr-only">Staff Roaster</span>
-                      </a>
-                  </li>
-                  @endcan
-
+                 
                   @can('index', \App\Models\ResidentialAgreement::class)
                   <li aria-hidden="true"{!! (Request::is('resident_agreements*') ? ' class="active"' : '') !!} tabindex="-1">
-                      <a href="{{ route('resident_agreements.index') }}" tabindex="-1" style="color: white;">
+                      <a href="{{ route('resident_agreements.index') }}" title="RSA" tabindex="-1" style="color: white;">
                           <i class="fa fa-id-card" aria-hidden="true"></i>                        
                           <span class="sr-only">RSA</span>
                       </a>
@@ -68,13 +52,52 @@
 
                   @can('index', \App\Models\ConditionReport::class)
                   <li aria-hidden="true"{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!} tabindex="-1">
-                      <a href="{{ route('condition_reports.index') }}" tabindex="-1" style="color: white;">
+                      <a href="{{ route('condition_reports.index') }}" title="Condition Reports" tabindex="-1" style="color: white;">
                           <i class="fa fa-list" aria-hidden="true"></i>                         
                           <span class="sr-only">Room Assets</span>
                       </a>
                   </li>
                   @endcan
 
+
+
+                  @can('index', \App\Models\ConditionReport::class)
+                  <li aria-hidden="true"{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!} tabindex="-1">
+                      <a href="{{ route('mngshifts.index') }}" title="Morning to Evening Handover" tabindex="-1" style="color: white;">
+                          <i class="fa fa-hand-o-right" aria-hidden="true"></i>                         
+                          <span class="sr-only">Handovers</span>
+                      </a>
+                  </li>
+                  @endcan
+
+                  @can('index', \App\Models\ConditionReport::class)
+                  <li aria-hidden="true"{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!} tabindex="-1">
+                      <a href="{{ route('evngshifts.index') }}" title="Evening to Morning Handover" tabindex="-1" style="color: white;">
+                          <i class="fa fa-hand-o-left" aria-hidden="true"></i>                         
+                          <span class="sr-only">Handovers</span>
+                      </a>
+                  </li>
+                  @endcan
+
+
+                  @can('index', \App\Models\ConditionReport::class)
+                  <li aria-hidden="true"{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!} tabindex="-1">
+                      <a href="/policy" title="Policies & Procedures" tabindex="-1" style="color: white;">
+                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                    
+                          <span class="sr-only">Policies & Procedures</span>
+                      </a>
+                  </li>
+                  @endcan
+
+                  @can('index', \App\Models\ConditionReport::class)
+                  <li aria-hidden="true"{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!} tabindex="-1">
+                      <a href="/chart" title="Organizational Chart" tabindex="-1" target="_blank" style="color: white;">
+                          <i class="fa fa-bar-chart" aria-hidden="true"></i>                       
+                          <span class="sr-only">Organizational Chart</span>
+                      </a>
+                  </li>
+                  @endcan
                 
 
                   <li>

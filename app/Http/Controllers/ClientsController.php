@@ -29,6 +29,7 @@ use App\Models\SupportPlan;
 
 use App\Models\Bed;
 
+use Response;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -830,6 +831,26 @@ class ClientsController extends Controller
         
         return view('clients/transfer_clients',compact('residents')); 
             
+    }
+
+    public function regulations(){
+        //return view('clients/regulations'); 
+
+        $filename = 'test.pdf';
+        $path = storage_path($filename);
+
+        return Response::make(file_get_contents($path), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="'.$filename.'"'
+        ]);
+    }
+
+    public function chart(){
+        return view('clients/chart'); 
+    }
+
+    public function policy(){
+        return view('clients/policy'); 
     }
 
 
