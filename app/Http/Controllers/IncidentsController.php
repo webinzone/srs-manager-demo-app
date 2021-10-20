@@ -237,12 +237,52 @@ class IncidentsController extends Controller
     public function search(){
 
         $search = request('search');
-        $incidents = Incident::query()
-                    ->where('i_date', 'LIKE', "%{$search}%")
-                    ->orWhere('s_name', 'LIKE', "%{$search}%")
-                    ->get();
-            
-        return view('incidents/search',compact('incidents'));
+        if($search == "incidents")
+        {
+            return view('incidents/index');
+        }
+        else if($search == "residents")
+        {
+            return view('clients/index');
+        }
+        else if($search == "condition")
+        {
+            return view('condition_reports/index');
+        }else if($search == "rsa")
+        {
+            return view('resident_agreements/index');
+        }else if($search == "referrals")
+        {
+            return view('referrals/index');
+        }else if($search == "support")
+        {
+            return view('support_plans/index');
+        }else if($search == "transfer")
+        {
+            return view('transfer_records/index');
+        }else if($search == "vaccates")
+        {
+            return view('vaccates/index');
+        }else if($search == "appointments")
+        {
+            return view('appointments/index');
+        }else if($search == "complaints")
+        {
+            return view('complaints/index');
+        }else if($search == "rooms")
+        {
+            return view('room_details/index');
+        }else 
+        {
+            return view('incidents/default');
+        }
+
+        //$incidents = Incident::query()
+                    //->where('i_date', 'LIKE', "%{$search}%")
+                    //->orWhere('s_name', 'LIKE', "%{$search}%")
+                    //->get();
+          
+        //return view('incidents/index',compact('incidents'));
        }
 
         public function incident_generate(){

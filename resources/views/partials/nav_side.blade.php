@@ -105,7 +105,7 @@
                       <div class="col-xs-12 col-md-12">
                           <div class="col-xs-12 form-group">
                               <label class="sr-only" for="tagSearch">Search Incidents</label>
-                              <input type="text" class="form-control" id="search" name="search" placeholder="Search Incidents" style="height: 34px;">
+                              <input type="text" class="form-control" id="search" name="search" placeholder="Search ..." style="height: 34px;">
                           </div>
                           <div class="col-xs-1">
                               <button type="submit" class="btn btn-primary pull-right" style="background-color: #307095;border-color: #122b40;">
