@@ -32,7 +32,7 @@
         <form class="form-horizontal" method="" action="" autocomplete="off" style="width: 1000px; align-items: center;   background-color: #fff; padding-right: 100px;">
           <div class="box box-default">
               <div class="box-header with-border text-center">
-                 <h3><b>Rsident Details</b></h3>
+                 <h3><b>Resident Details</b></h3>
                    
                 </div><!-- /.box-header -->
            

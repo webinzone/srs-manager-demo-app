@@ -58,12 +58,7 @@
                        </div>
                            <div class="col-md-3 mb-3">
                         <label for="name" >Staff Name</label>
-                         <select class="form-control" style="height: 26px;padding: 3px 10px;" id="res_name" name="stf_name">
-                            <option>--   Select Staff Name  --</option>
-                          @foreach($emps as $emp)
-                          <option value="{{ $emp->name }}" {{ $condition_report->stf_name == $emp->name ? 'selected' : ''  }}> {{ $emp->name }}</option>
-                          @endforeach
-                        </select>
+                         <input type="text" name="stf_name" id="stf11" placeholder="Staff Name" class="form-control" readonly>
                       </div>
                     </div>
 
@@ -245,6 +240,7 @@ $('#resname').change(function(){
         success: function(response){
             if(response != null){
                 $('#room').val(response.room_no);
+                $('#stf11').val(response.nok_st);
             }
             else{
                 alert("error");
