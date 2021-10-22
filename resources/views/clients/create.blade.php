@@ -481,6 +481,22 @@
                         <input type="text" class="form-control" id="con_card" placeholder="Taxi Concession details" name="con_card" v-on:change="page_one.con_card = $event.target.value">  
                       </div>  
                     </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+                     <div class="col-md-4 mb-3">
+                        <label for="nok_taxi">Taxi Concession Card</label>
+                        <input type="text" class="form-control" id="nok_taxi" placeholder="Taxi Concession Card" name="nok_taxi"  v-on:change="page_one.nok_taxi = $event.target.value">            
+                      </div> 
+
+                      <div class="col-md-4 mb-3">
+                        <label for="nok_exp">Expiry Month & Year</label>
+                        <input type="month" class="form-control" id="nok_exp" placeholder="Expiry date" style="height:26px;"  name="exp_date" onChange="compareDate();" v-on:change="page_one.nok_exp = $event.target.value">         
+                      </div>
+                      <div class="col-md-4 mb-3" >
+                        <label for="nok_other">Other</label>
+                        <input type="text" class="form-control" id="nok_other" placeholder="Other" name="nok_other"  v-on:change="page_one.nok_other = $event.target.value">
+                        </div>
+                    </div>&nbsp;&nbsp;&nbsp;
+
                       <h4 class="mb-3"><b>Income Details</b></h4><br>
                
                     <div class="form-row">
@@ -501,15 +517,50 @@
                         <input type="text" class="form-control" id="inc_sname" placeholder="Finance Admin Name" name="inc_sname" v-on:change="page_one.inc_sname = $event.target.value">              
                       </div>
                       <div class="col-md-3 mb-3">
+                        <label for="nok_adr">Address</label>
+                        <input type="text" class="form-control" id="nok_adr" placeholder="Address" name="nok_adr" v-on:change="page_one.nok_adr = $event.target.value">              
+                      </div>
+                      <div class="col-md-3 mb-3">
                         <label for="con_card">Phone No.</label>
                         <input type="text" class="form-control" id="inc_phone" placeholder="Phone" name="inc_phone" v-on:change="page_one.inc_phone = $event.target.value">  
                       </div> 
                        <div class="col-md-3 mb-3">
                         <label for="inc_email">Email</label>
                         <input type="email" class="form-control" id="inc_email" placeholder="Email" name="inc_email" v-on:change="page_one.inc_email = $event.target.value">  
-                      </div>   
-                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      <br>                                          
-                  </div>  <br>
+                      </div>  
+                       
+                     </div>                                            
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+
+                   <div class="form-row">
+                      <div class="col-md-6 mb-3">
+                        <label>Has this form is uploaded and notified to Accounts:</label>
+                        <br><input type="radio"  id="nok_up"  value="Yes" name="nok_up">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="nok_up" value="No" name="nok_up">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
+                      </div> 
+                      <div class="col-md-6 mb-3">
+                        <label>Has this Admission been notified to Pharmacy:</label>
+                        <br><input type="radio"  id="nok_noti"  value="Yes" name="nok_noti">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  id="nok_noti" value="No" name="nok_noti">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
+                      </div>  
+                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                                                
+
+                  <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="nok_st">Staff Name:</label>
+                        <select class="form-control" style="height: 26px;padding: 3px 10px;" id="nok_st" name="nok_st">
+                            <option>--   Select Staff Name  --</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
+                          @endforeach
+                        </select>
+                                    
+                      </div>
+                      <div class="col-md-8 mb-3" style="width:250px;">
+                        <label for="nok_dt">Date:</label>
+                        <input type="date" class="form-control" id="nok_dt" placeholder="Date" name="nok_dt" v-on:change="page_one.nok_dt = $event.target.value">  
+                      </div>
+                    </div>
                                                
                   <!--<div class="page" v-show="step === 2">              
                     
@@ -958,7 +1009,7 @@
                       
                     </div> 
                   </div>-->
-     
+                </div>
                 </div>
              
                 <div class="box-footer text-right" style="padding-right:50px;">

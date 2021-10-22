@@ -26,6 +26,7 @@ use App\Models\Rent;
 use App\Models\ProgressNote;
 use App\Models\Referral;
 use App\Models\SupportPlan;
+use App\Models\SrsStaff;
 
 use App\Models\Bed;
 
@@ -62,8 +63,8 @@ class ClientsController extends Controller
         $this->authorize('create');
         $status = "Vacant";
         $rooms = RoomDetail::where('status', '=', $status)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
-
-        return view('clients/create',compact('rooms'));
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+        return view('clients/create',compact('rooms', 'emps'));
     }
 
     public function store()
@@ -97,7 +98,16 @@ class ClientsController extends Controller
         $client_detail->ent_no = request('ent_no')  ?? '';
         $client_detail->pen_exp = request('pen_exp')  ?? '';
         $client_detail->respite = request('respite')  ?? '';
-        
+     
+        $client_detail->nok_taxi = request('nok_taxi')  ?? '';
+        $client_detail->nok_exp = request('nok_exp')  ?? '';
+        $client_detail->nok_other = request('nok_other')  ?? '';
+        $client_detail->nok_adr = request('nok_adr')  ?? '';
+        $client_detail->nok_up = request('nok_up')  ?? '';
+        $client_detail->nok_noti = request('nok_noti')  ?? '';
+        $client_detail->nok_em = request('nok_em')  ?? '';
+        $client_detail->nok_st = request('nok_st')  ?? '';
+        $client_detail->nok_dt = request('nok_dt')  ?? '';        
 
 
         $client_detail->acc = request('acc')  ?? '';
@@ -356,7 +366,9 @@ class ClientsController extends Controller
         $income = explode(',', $pension_detail->income_type);
         $status = "Vacant";
         $rooms = RoomDetail::where('status', '=', $status)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
-        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid', 'bedno'));
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+
+        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid', 'bedno', 'emps'));
     }
     /**
      * Update the specified resource in storage.
@@ -396,7 +408,16 @@ class ClientsController extends Controller
         $client_detail->ent_no = request('ent_no')  ?? '';
         $client_detail->pen_exp = request('pen_exp')  ?? '';
         $client_detail->respite = request('respite')  ?? '';
-        
+      
+        $client_detail->nok_taxi = request('nok_taxi')  ?? '';
+        $client_detail->nok_exp = request('nok_exp')  ?? '';
+        $client_detail->nok_other = request('nok_other')  ?? '';
+        $client_detail->nok_adr = request('nok_adr')  ?? '';
+        $client_detail->nok_up = request('nok_up')  ?? '';
+        $client_detail->nok_noti = request('nok_noti')  ?? '';
+        $client_detail->nok_em = request('nok_em')  ?? '';
+        $client_detail->nok_st = request('nok_st')  ?? '';
+        $client_detail->nok_dt = request('nok_dt')  ?? '';        
 
 
         $client_detail->acc = request('acc')  ?? '';
