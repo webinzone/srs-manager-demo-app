@@ -7,6 +7,7 @@ use App\Models\Vaccate;
 use App\Models\ClientDetail;
 use App\Models\RoomDetail;
 use App\Models\Bed;
+use App\Models\LocationMaster;
 
 use App\Models\ActivityLog;
 
@@ -81,9 +82,28 @@ class VaccatesController extends Controller
         $vaccate->f_addr = request('f_addr') ?? '';
         $vaccate->pay_status = request('pay_status') ?? '';
         $vaccate->pay_amt = request('pay_amt') ?? '';
+        $vaccate->p_nomini = request('p_nomini') ?? '';
+        $vaccate->srs_name = request('srs_name') ?? '';
+        $vaccate->srs_addr = request('srs_addr') ?? '';
+        $vaccate->pr_name = request('pr_name') ?? '';
+        $vaccate->pr_noti = request('pr_noti') ?? '';
+        $vaccate->pr_posi = request('pr_posi') ?? '';
+        $vaccate->pr_ph = request('pr_ph') ?? '';
+        $vaccate->pr_adr = request('pr_adr') ?? '';
+        $vaccate->ter_sec = request('ter_sec') ?? '';
+        $vaccate->ter_sup = request('ter_sup') ?? '';
+        $vaccate->ter_days = request('ter_days') ?? '';
+        $vaccate->ter_date = request('ter_date') ?? '';
+        $vaccate->act_date = request('act_date') ?? '';
+        $vaccate->del_by = request('del_by') ?? '';
+        $vaccate->ress_date = request('ress_date') ?? '';
+        $vaccate->nomini_by = request('nomini_by') ?? '';
+        $vaccate->nom_date = request('nom_date') ?? '';
+        $vaccate->del_date = request('del_date') ?? '';
         $vaccate->company_id = Auth::user()->c_id  ?? '';
         $vaccate->location_id = Auth::user()->l_id  ?? '';
         $vaccate->user_id =  Auth::user()->id;
+
         
         $vaccate->save();
 
@@ -183,39 +203,31 @@ class VaccatesController extends Controller
         $vaccate->f_addr = request('f_addr') ?? '';
         $vaccate->pay_status = request('pay_status') ?? '';
         $vaccate->pay_amt = request('pay_amt') ?? '';
+        $vaccate->p_nomini = request('p_nomini') ?? '';
+        $vaccate->srs_name = request('srs_name') ?? '';
+        $vaccate->srs_addr = request('srs_addr') ?? '';
+        $vaccate->pr_name = request('pr_name') ?? '';
+        $vaccate->pr_noti = request('pr_noti') ?? '';
+        $vaccate->pr_posi = request('pr_posi') ?? '';
+        $vaccate->pr_ph = request('pr_ph') ?? '';
+        $vaccate->pr_adr = request('pr_adr') ?? '';
+        $vaccate->ter_sec = request('ter_sec') ?? '';
+        $vaccate->ter_sup = request('ter_sup') ?? '';
+        $vaccate->ter_days = request('ter_days') ?? '';
+        $vaccate->ter_date = request('ter_date') ?? '';
+        $vaccate->act_date = request('act_date') ?? '';
+        $vaccate->del_by = request('del_by') ?? '';
+        $vaccate->ress_date = request('ress_date') ?? '';
+        $vaccate->nomini_by = request('nomini_by') ?? '';
+        $vaccate->nom_date = request('nom_date') ?? '';
+        $vaccate->del_date = request('del_date') ?? '';
         $vaccate->company_id = Auth::user()->c_id  ?? '';
         $vaccate->location_id = Auth::user()->l_id  ?? '';
         $vaccate->user_id =  Auth::user()->id;
         
         $vaccate->save();
 
-        $roomdetails = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
-        $rrrid = $roomdetails->id;
-        $r_beds = $roomdetails->beds_no;
-
-        $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $bed)->firstOrFail();
-        $bed_details->status = "Vacant";
-        $bed_details->res_name = " ";
-        $bed_details->save();
-        $booked = "Booked";
-        $bed_det = Bed::where('room_id', '=', $rrrid)->where('status', '=', $booked)->get();
-        $b_count = count($bed_det);
-        $r_count = (int)$r_beds;
-
-        if($b_count == $r_count){
-            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
-            $roomdeta->status = "Booked";
-            $roomdeta->save();
-        }else{
-            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
-            $roomdeta->status = "Vacant";
-            $roomdeta->save();
-        }
-
-        $ress = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $ress->status = "Vaccate";
-        $ress->save();
-
+      
         
         $activity = new ActivityLog();
 
@@ -246,6 +258,21 @@ class VaccatesController extends Controller
         $activity->save();
         return redirect()->route('vaccates.index')
                         ->with('success','deleted successfully');
+    }
+
+    public function generatevaccate()
+    {
+        $residents = Vaccate::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        return view('vaccates/report_show',compact('residents'));
+    }
+
+    public function generateVaccateReport(){
+      
+      $name = request('res_name');
+      $vaccate = Vaccate::where('client_id', '=', $name)->firstOrFail();
+      $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+
+      return view('vaccates/report',compact('vaccate','locations'));
     }
 
 }

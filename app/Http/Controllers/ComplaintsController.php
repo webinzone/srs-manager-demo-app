@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Models\Complaint;
 use App\Models\ClientDetail;
 use App\Models\SrsStaff;
+use App\Models\LocationMaster;
 
 use App\Models\ActivityLog;
 use Illuminate\Support\Facades\Auth;
@@ -73,6 +74,13 @@ class ComplaintsController extends Controller
         $complaint->action_date = request('action_date') ?? '';
         $complaint->action_taken = request('action_taken') ?? '';
         $complaint->outcome = request('outcome') ?? '';
+        $complaint->c_date = request('c_date') ?? '';
+        $complaint->p_comp = request('p_comp') ?? '';
+        $complaint->p_nomini = request('p_nomini') ?? '';
+        $complaint->noti_date = request('noti_date') ?? '';
+        $complaint->noti_time = request('noti_time') ?? '';
+
+
         $complaint->company_id = Auth::user()->c_id  ?? '';
         $complaint->location_id = Auth::user()->l_id  ?? '';
         $complaint->user_id =  Auth::user()->id;   
@@ -141,6 +149,12 @@ class ComplaintsController extends Controller
         $complaint->action_date = request('action_date') ?? '';
         $complaint->action_taken = request('action_taken') ?? '';
         $complaint->outcome = request('outcome') ?? '';
+        $complaint->c_date = request('c_date') ?? '';
+        $complaint->p_comp = request('p_comp') ?? '';
+        $complaint->p_nomini = request('p_nomini') ?? '';
+        $complaint->noti_date = request('noti_date') ?? '';
+        $complaint->noti_time = request('noti_time') ?? '';
+        
         $complaint->company_id = Auth::user()->c_id  ?? '';
         $complaint->location_id = Auth::user()->l_id  ?? '';
         $complaint->user_id =  Auth::user()->id;   
@@ -180,5 +194,21 @@ class ComplaintsController extends Controller
         return redirect()->route('complaints.index')
                         ->with('success','deleted successfully');
     }
+
+        public function generatecomplaint()
+    {
+        $staffs = Complaint::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        return view('complaints/report_show',compact('staffs'));
+    }
+
+    public function generateComplaintReport(){
+      
+      $sid = request('res_name');
+      $complaint = Complaint::where('id', '=', $sid)->firstOrFail();
+      $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+
+      return view('complaints/report',compact('complaint','locations'));
+    }
+
 
 }

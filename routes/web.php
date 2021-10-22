@@ -128,6 +128,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/generatetransfer', 'TransferRecordsController@generatetransfer');
     Route::get('/generateTransferReport/', 'TransferRecordsController@generateTransferReport')->name('generateTransferReport');
 
+    Route::get('/generatevaccate', 'VaccatesController@generatevaccate');
+    Route::get('/generateVaccateReport/', 'VaccatesController@generateVaccateReport')->name('generateVaccateReport');
+
+    Route::get('/generatecomplaint', 'ComplaintsController@generatecomplaint');
+    Route::get('/generateComplaintReport/', 'ComplaintsController@generateComplaintReport')->name('generateComplaintReport');
+
     Route::get('get/residents/{id}','ResidentUiController@index')->name('residentDetails');
     Route::get('get/resAgreements/{id}','ResidentUiController@getRsa')->name('rsaDetails');
     Route::get('get/resRoomassets/{id}','ResidentUiController@getRoom')->name('roomDetails');

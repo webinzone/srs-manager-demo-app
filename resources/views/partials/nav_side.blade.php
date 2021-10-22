@@ -635,7 +635,18 @@
                         Transfer Reports
                     </a>
                   </li>
-                  
+                  <li>
+                      <a href="/generatevaccate" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Notice to Vaccate
+                    </a>
+                  </li>
+                  <li>
+                      <a href="/generatecomplaint" style="color: #b8c7ce;" >
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        Complaints
+                    </a>
+                  </li>
                  
                 </ul>
               </li>

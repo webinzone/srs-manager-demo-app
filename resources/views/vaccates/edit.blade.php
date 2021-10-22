@@ -1,4 +1,3 @@
-
 @extends('layouts/default')
 
 {{-- Page title --}}
@@ -35,9 +34,12 @@
                 </div><!-- /.box-header -->
 
                 <!-- box-body -->
-                <div class="box-body" style="padding-left: 40px;padding-right: 40px;">                          
+                                <div class="box-body" style="padding-left: 40px;padding-right: 40px;">     
+                    <h4>RESIDENT/ROOM DETAILS</h4>
+                    <p>Details of person(s) receiving the notice: </p>
+                                           
                     <div class="form-group ">
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-6 mb-3">
                         <label>Resident Name</label>
                         <select class="form-control" required="" id="resi_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                             @foreach($residents as $resident)
@@ -45,65 +47,113 @@
                           @endforeach
                         </select>                
                       </div>
-                      <div class="col-md-3 mb-3">
-                        <label>Room No</label>
-                        <input type="text" name="roomno" id="roomno" class="form-control" value="{{ $vaccate->roomno}}" placeholder="Room No" readonly>                
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="name">Date</label>
-                        <input type="date" name="v_date" id="v_date" class="form-control" value="{{ $vaccate->v_date}}" placeholder="Date">               
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="gender">Gender</label>
-                        <input type="date" name="gender" id="gender" class="form-control" value="{{ $vaccate->gender}}" placeholder="Gender" readonly>   
-                                    
-                        </div>                        
-                    </div>
-                    <div class="form-group ">
-                        <div class="col-md-4 mb-3">
-                        <label>Address</label>
-                        <textarea  name="address" class="form-control" id="adr"  placeholder="Address" readonly>{{ $vaccate->address}}</textarea>                
-                      </div>
-                      <div class="col-md-4 mb-3">
-                        <label>Phone Number</label>
-                        <input type="tel" name="ph" id="ph" class="form-control" value="{{ $vaccate->ph}}" placeholder="Phone Number" readonly>                
-                      </div>
-                      <div class="col-md-4 mb-3">
-                        <label>Email</label>
-                        <input type="email" name="email" id="email" class="form-control" value="{{ $vaccate->email}}" placeholder="Room No" readonly>                
+                      <div class="col-md-6 mb-3">
+                        <label>Name of Resident's person nominated</label>
+                        <input type="text" name="p_nomini" id="p_nomini" class="form-control" value="{{ $vaccate->p_nomini}}"  placeholder="Name of Resident's person nominated">                
                       </div>
                     </div>
-                    <div class="form-group ">
-                     <div class="col-md-4 mb-3">
-                        <label>Reason for moving</label>
-                        <textarea  name="reason" class="form-control" placeholder="Reason for moving">{{ $vaccate->reason}}</textarea>                
-                      </div>
-                      <div class="col-md-4 mb-3">
-                        <label>Expected move-out Date</label>
-                        <input type="date" name="ex_date" id="ex_date" class="form-control" value="{{ $vaccate->ex_date}}" placeholder="Expected move-out Date">                
-                      </div>
-                      <div class="col-md-4 mb-3">
-                        <label>Has all resident moving?</label>
-                        <br><input type="radio"  {{ $vaccate->al_res == 'Yes' ? 'checked' : ''  }} id="al_res"  value="Yes" name="al_res">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio"  {{ $vaccate->al_res == 'No' ? 'checked' : ''  }}  id="al_res" value="No" name="al_res">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;               
-                      </div>
-                    </div>
-                    <div class="form-group ">
-                     <div class="col-md-4 mb-3">
-                        <label>Forwarding Address</label>
-                        <textarea  name="f_addr" class="form-control" placeholder="Forwarding Address">{{ $vaccate->f_addr}}</textarea>                
-                      </div>
-                      <div class="col-md-4 mb-3">
-                        <label>Has all amount paid?</label>
-                        <br><input type="radio" {{ $vaccate->pay_status == 'Yes' ? 'checked' : ''  }} id="pay_status"  value="Yes" name="pay_status">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" {{ $vaccate->pay_status == 'No' ? 'checked' : ''  }}  id="pay_status" value="No" name="pay_status">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                 
-                      </div>
+                      <p>Details of resident’s occupancy at the SRS</p>
                       <div class="form-group ">
-                     <div class="col-md-4 mb-3">
-                        <label>Paid Amount</label>
-                        <input type="text" name="pay_amt" id="pay_amt" class="form-control" value="{{ $vaccate->pay_amt}}" placeholder="Paid Amount">                
+                      <div class="col-md-4 mb-3">
+                        <label>Room No</label>
+                        <input type="text" name="roomno" id="roomno" class="form-control" value="{{ $vaccate->roomno}}"  placeholder="Room No" readonly>                
                       </div>
-                  </div>
+                      <div class="col-md-4 mb-3">
+                        <label>SRS Name</label>
+                        <input type="text" name="srs_name" id="srs_name" class="form-control"value="{{ $vaccate->srs_name}}"  placeholder="SRS Name">                
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label>SRS Address</label>
+                        <input type="text" name="srs_addr" id="srs_addr" class="form-control" value="{{ $vaccate->srs_addr}}"  placeholder="SRS Address">                
+                      </div>
+                    </div>
+                    <h4>PROPRIETOR/MANAGER DETAILS</h4>
+                    <p>Details of proprietor and person giving the notice:</p>
+                    <div class="form-group ">
+                      <div class="col-md-3 mb-3">
+                        <label>Proprietor Name</label>
+                        <input type="text" name="pr_name" id="pr_name" class="form-control" value="{{ $vaccate->pr_name}}"  placeholder="Proprietor Name">                
+                      </div>
+                       <div class="col-md-3 mb-3">
+                        <label>Person giving Notice</label>
+                        <input type="text" name="pr_noti" id="pr_noti" class="form-control" value="{{ $vaccate->pr_noti}}"  placeholder="Person giving Notice">                
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Position in SRS</label>
+                        <input type="text" name="pr_posi" id="pr_posi" class="form-control" value="{{ $vaccate->pr_posi}}"  placeholder="Position in SRS">                
+                      </div>
+                       <div class="col-md-3 mb-3">
+                        <label>Phone Number</label>
+                        <input type="tel" name="ph" id="ph" class="form-control" value="{{ $vaccate->ph}}"  placeholder="Phone Number">                
+                      </div>
+                    </div>
+                    <p>Address for serving documents:</p>
+                    <div class="form-group ">
+                        <div class="col-md-12 mb-3">
+                        <label>Address</label>
+                        <textarea  name="address" id="adr" class="form-control"  placeholder="Address">{{ $vaccate->address}}</textarea>                
+                      </div>
+                    </div>
+                    <h4>TERMINATION DETAILS</h4>
+                    <p>Termination reason:</p>
+                    <div class="form-group ">
+                      <div class="col-md-4 mb-3">
+                        <label>Section</label>
+                        <input type="text" name="ter_sec" id="ter_sec" class="form-control" value="{{ $vaccate->ter_sec}}"  placeholder="Section">
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label>Reason</label>
+                        <textarea  name="reason" class="form-control" placeholder="Reason">{{ $vaccate->reason}}</textarea> 
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label>Supporting Information</label>
+                        <input type="text" name="ter_sup" id="ter_sup" class="form-control" value="{{ $vaccate->ter_sup}}"  placeholder="Supporting Information">
+                      </div>
+                    </div>
+                    <p>Termination date:</p>
+                    <div class="form-group ">
+                      <div class="col-md-4 mb-3">
+                        <label>Minimum days notice to vaccate</label>
+                        <input type="text" name="ter_days" id="ter_days" class="form-control" value="{{ $vaccate->ter_days}}" placeholder="Minimum days notice to vaccate">
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="name">Requested date to leave the SRS</label>
+                        <input type="date" name="v_date" id="res_date" class="form-control" value="{{ $vaccate->v_date}}" placeholder="Date Resident is requested to leave the SRS">               
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label>Actual days notice to vaccate</label>
+                        <input type="text" name="act_date" id="act_date" class="form-control" value="{{ $vaccate->act_date}}" placeholder="Actual days notice to vaccate">
+                      </div>                        
+                    </div>
+                    <h4>DELIVERY OF NOTICE</h4>
+                    <div class="form-group ">
+                    <div class="col-md-6 mb-3">
+                        <label>This notice was given to the resident:</label>
+                        <br><input type="radio"  {{ $vaccate->del_by == 'By Hand' ? 'checked' : ''  }} id="del_by"  value="By Hand" name="del_by">&nbsp;&nbsp;&nbsp;By Hand&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  {{ $vaccate->del_by == 'By Post' ? 'checked' : ''  }}  id="del_by" value="By Post" name="del_by">&nbsp;&nbsp;&nbsp;By Post&nbsp;&nbsp;&nbsp;;               
+                      </div>
+                      <div class="col-md-6 mb-3" style="width:250px;">
+                        <label for="name">Dated</label>
+                        <input type="date" name="ress_date" id="ress_date" class="form-control" value="{{ $vaccate->ress_date}}" placeholder="Dated">               
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <div class="col-md-6 mb-3">
+                        <label>This notice was given to resident’s person nominated:</label>
+                        <br><input type="radio"  {{ $vaccate->nomini_by == 'By Hand' ? 'checked' : ''  }} id="nomini_by"  value="By Hand" name="nomini_by">&nbsp;&nbsp;&nbsp;By Hand&nbsp;&nbsp;&nbsp;
+                        <input type="radio"  {{ $vaccate->nomini_by == 'By Post' ? 'checked' : ''  }}  id="nomini_by" value="By Post" name="nomini_by">&nbsp;&nbsp;&nbsp;By Post&nbsp;&nbsp;&nbsp;               
+                      </div>
+                      <div class="col-md-6 mb-3" style="width:250px;">
+                        <label for="name">Dated</label>
+                        <input type="date" name="nom_date" id="nom_date" class="form-control" value="{{ $vaccate->nom_date}}" placeholder="Dated">               
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                    <div class="col-md-12 mb-3" style="width:250px;">
+                        <label for="name">Date</label>
+                        <input type="date" name="del_date" id="del_date" class="form-control" value="{{ $vaccate->del_date}}" placeholder="Date">               
+                      </div>
+                    </div>
                   <!--  <div class="form-group ">
                         <label for="name" >Company Id</label>
                         <div class="col-md-7 col-sm-12 ">
@@ -171,4 +221,3 @@ $('#resi_name').change(function(){
 </script>
 @include ('partials.bootstrap-table')
 @stop
-

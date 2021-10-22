@@ -43,51 +43,85 @@
                           @endforeach
                         </select>              
                       </div>
+                      <div class="col-md-4 mb-3 ">
+                        <label for="name" >Date</label>
+
+                 <input type="date" name="c_date" class="form-control" placeholder="Date">                                        
+                        </div>
                       <div class="col-md-4 mb-3">
                         <label for="name">Person Commenting</label>
                         <input type="text" name="user_name" class="form-control" placeholder="Name of Person Commenting">               
                       </div>
-                      <div class="col-md-4 mb-3">
-                        <label for="name">Complaint Details</label>
-                        <textarea name="com_details" class="form-control" placeholder="Complaint Details"></textarea>               
-                      </div>                        
                     </div>
+                     
                     <div class="form-group ">
                            <div class="col-md-4 mb-3 ">
                         <label for="name" >Nature of Complaint</label>
 
                  <input type="text" name="com_nature" class="form-control" placeholder="Nature of Complaint">                                        
                         </div>
-                        
-                           <div class="col-md-4 mb-3 ">
+                         <div class="col-md-4 mb-3 ">
+                        <label for="name" >Person completing form</label>
+
+                 <input type="text" name="p_comp" class="form-control" placeholder="Person completing form">                                       
+                        </div>
+                         <div class="col-md-4 mb-3 ">
                         <label for="name" >Contact Number</label>
 
                  <input type="text" name="phone" class="form-control" placeholder="Contact Number">                                       
                         </div>
+                        
+                       
+                    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <div class="form-group ">
+                           <div class="col-md-4 mb-3 ">
+                        <label for="name" >Person Nominated</label>
+
+                 <input type="text" name="p_nomini" class="form-control" placeholder="Person Nominated">                                        
+                        </div>
                          <div class="col-md-4 mb-3 ">
+                        <label for="name" >Date & Time Notified</label>
+
+                 <input type="date" name="noti_date" class="form-control" placeholder="Date & Time Notified">&nbsp;&nbsp;&nbsp;
+             </div>
+             <div class="col-md-4 mb-3 ">
+                <label>&nbsp;&nbsp;&nbsp;</label>
+                 <input type="time" name="noti_time" class="form-control" placeholder="Date & Time Notified">                                       
+                        </div>
+                    </div>
+                    <div class="form-group "> 
+
+                     <div class="col-md-3 mb-3 ">
                         <label for="name" >Action Date</label>
 
                  <input type="date" name="action_date" class="form-control" placeholder="Action Date">                                        
                         </div>
+                         <div class="col-md-4 mb-3 ">
+                        <label for="name">Complaint Details</label>
+                        <textarea name="com_details" class="form-control" placeholder="Complaint Details"></textarea>                                       
+                        </div>
+                        
                        
-                    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="form-group ">
-                     
-                     <div class="col-md-4 mb-3 ">
+
+                    
+                      <div class="col-md-5 mb-3 ">
                         <label for="name" >Suggestions for improvement</label>
 
                  <textarea name="suggestions" class="form-control" placeholder="Suggestions for improvement"></textarea>                                        
                         </div>
-                        
-                        <div class="col-md-4 mb-3 ">
+                      
+                    </div>
+                    <div class="form-group ">
+                        <div class="col-md-6 mb-3 ">
                         <label for="name" >Action Taken</label>
 
                  <textarea name="action_taken" class="form-control" placeholder="Action Taken"></textarea>
                         </div>
-                        <div class="col-md-4 mb-3 ">
-                        <label for="name" >Method of Communication</label>
+                        <div class="col-md-6 mb-3 ">
+                        <label for="name" >Outcome/Method of Communication</label>
 
-                 <textarea name="outcome" class="form-control" placeholder="Outcome or Method of Communication"></textarea>
+                 <textarea name="outcome" class="form-control" placeholder="Outcome/Method of Communication"></textarea>
                         </div>
                     </div>
                     
