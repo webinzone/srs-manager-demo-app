@@ -15,6 +15,7 @@ use App\Models\HealthService;
 use App\Models\ClientGpdetail;
 use App\Models\ClientNextofkin;
 use App\Models\LocationMaster;
+use App\Models\Rsa;
 
 
 
@@ -135,8 +136,9 @@ class ResidentAgreementsController extends Controller
       $res = request('res_name');
       $resident_agreement = ResidentAgreement::where('client_id', '=', $res)->firstOrFail();
       $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
-
-      return view('resident_agreements/report',compact('resident_agreement','locations'));
+      $id = $resident_agreement->id;
+      $rsa = Rsa::where('rsa_id', '=', $id)->firstOrFail();
+      return view('resident_agreements/report',compact('resident_agreement','locations','rsa'));
      
     }
 
@@ -229,7 +231,19 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->bed_make = request('bed_make') ?? '';
         $resident_agreement->bed_make_fee = request('bed_make_fee') ?? '';
         $resident_agreement->dressing = request('dressing') ?? '';
-        $resident_agreement->dressing_fee = request('dressing_fee') ?? '';       
+        $resident_agreement->dressing_fee = request('dressing_fee') ?? '';  
+        $resident_agreement->adm_name = request('adm_name') ?? '';
+        $resident_agreement->adm_ph = request('adm_ph') ?? '';
+        $resident_agreement->adm_em = request('adm_em') ?? '';
+        $resident_agreement->adm_adr = request('adm_adr') ?? '';
+        $resident_agreement->nok_det = request('nok_det') ?? '';
+        $resident_agreement->st_typ = request('st_typ') ?? '';
+        $resident_agreement->crn_no = request('crn_no') ?? '';
+        $resident_agreement->oth_dt = request('oth_dt') ?? '';
+        $resident_agreement->typ_sup = request('typ_sup') ?? '';
+        $resident_agreement->pr_name = request('pr_name') ?? '';
+        $resident_agreement->pr_wit = request('pr_wit') ?? '';
+        $resident_agreement->pr_date = request('pr_date') ?? '';     
 
 
 
@@ -240,7 +254,43 @@ class ResidentAgreementsController extends Controller
 
         
         $resident_agreement->save();
-       
+
+
+        $rsa = new Rsa();
+        $rsa->rsa_id = $resident_agreement->id;
+        $rsa->re_name = request('re_name') ?? '';
+        $rsa->re_wt = request('re_wt') ?? '';
+        $rsa->re_date = request('re_date') ?? '';
+        $rsa->week_pay = request('week_pay') ?? '';
+        $rsa->sty_perd = request('sty_perd') ?? '';
+        $rsa->nomini = request('nomini') ?? '';
+        $rsa->st_dt = request('st_dt') ?? '';
+        $rsa->ed_dt = request('ed_dt') ?? '';
+        $rsa->not_acc = request('not_acc') ?? '';
+        $rsa->condi = request('condi') ?? '';
+        $rsa->bednoo = request('bednoo') ?? '';
+        $rsa->room_cl = request('room_cl') ?? '';
+        $rsa->room_det = request('room_det') ?? '';
+        $rsa->tr_assi = request('tr_assi') ?? '';
+        $rsa->tr_det = request('tr_det') ?? '';
+        $rsa->eating = request('eating') ?? '';
+        $rsa->eat_det = request('eat_det') ?? '';
+        $rsa->laundry = request('laundry') ?? '';
+        $rsa->laundry_det = request('laundry_det') ?? '';
+        $rsa->other = request('other') ?? '';
+        $rsa->other_det = request('other_det') ?? '';
+        $rsa->st_sdt = request('st_sdt') ?? '';
+        $rsa->st_edt = request('st_edt') ?? '';
+        
+       // $rsa->profile_pic = request('profile_pic')->getClientOriginalName();
+        //$imageName = request('profile_pic')->getClientOriginalName();
+        //request()->profile_pic->move(public_path('images/profile_pics'), $imageName);  
+
+        
+        $rsa->save();
+
+
+
       $activity = new ActivityLog();
 
       $activity->user = Auth::user()->first_name;
@@ -263,7 +313,8 @@ class ResidentAgreementsController extends Controller
     {
         $this->authorize('show',ResidentAgreement::class);
         $resident_agreement = ResidentAgreement::find($id);
-        return view('resident_agreements/show',compact('resident_agreement'));
+        $rsa = Rsa::where('rsa_id', '=', $id)->firstOrFail();
+        return view('resident_agreements/show',compact('resident_agreement', 'rsa'));
     }
      /**
      * Show the form for editing the specified resource.
@@ -278,7 +329,8 @@ class ResidentAgreementsController extends Controller
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
         $resident_agreement = ResidentAgreement::find($id);
-        return view('resident_agreements/edit',compact('resident_agreement', 'residents', 'emps'));
+        $rsa = Rsa::where('rsa_id', '=', $id)->firstOrFail();
+        return view('resident_agreements/edit',compact('resident_agreement', 'residents', 'emps', 'rsa'));
     }
     /**
      * Update the specified resource in storage.
@@ -358,6 +410,18 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->bed_make_fee = request('bed_make_fee') ?? '';
         $resident_agreement->dressing = request('dressing') ?? '';
         $resident_agreement->dressing_fee = request('dressing_fee') ?? '';
+        $resident_agreement->adm_name = request('adm_name') ?? '';
+        $resident_agreement->adm_ph = request('adm_ph') ?? '';
+        $resident_agreement->adm_em = request('adm_em') ?? '';
+        $resident_agreement->adm_adr = request('adm_adr') ?? '';
+        $resident_agreement->nok_det = request('nok_det') ?? '';
+        $resident_agreement->st_typ = request('st_typ') ?? '';
+        $resident_agreement->crn_no = request('crn_no') ?? '';
+        $resident_agreement->oth_dt = request('oth_dt') ?? '';
+        $resident_agreement->typ_sup = request('typ_sup') ?? '';
+        $resident_agreement->pr_name = request('pr_name') ?? '';
+        $resident_agreement->pr_wit = request('pr_wit') ?? '';
+        $resident_agreement->pr_date = request('pr_date') ?? ''; 
 
         $resident_agreement->amt_pay = request('amt_pay') ?? '';
         $resident_agreement->amt_res = request('amt_res') ?? '';
@@ -366,6 +430,41 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->user_id =  Auth::user()->id;
         
         $resident_agreement->save();
+
+        $rsa = Rsa::where('rsa_id', '=', $id)->firstOrFail();
+        $rsa->rsa_id = request('rsa_id') ?? '';
+        $rsa->re_name = request('re_name') ?? '';
+        $rsa->re_wt = request('re_wt') ?? '';
+        $rsa->re_date = request('re_date') ?? '';
+        $rsa->week_pay = request('week_pay') ?? '';
+        $rsa->sty_perd = request('sty_perd') ?? '';
+        $rsa->nomini = request('nomini') ?? '';
+        $rsa->st_dt = request('st_dt') ?? '';
+        $rsa->ed_dt = request('ed_dt') ?? '';
+        $rsa->not_acc = request('not_acc') ?? '';
+        $rsa->condi = request('condi') ?? '';
+        $rsa->bednoo = request('bednoo') ?? '';
+        $rsa->room_cl = request('room_cl') ?? '';
+        $rsa->room_det = request('room_det') ?? '';
+        $rsa->tr_assi = request('tr_assi') ?? '';
+        $rsa->tr_det = request('tr_det') ?? '';
+        $rsa->eating = request('eating') ?? '';
+        $rsa->eat_det = request('eat_det') ?? '';
+        $rsa->laundry = request('laundry') ?? '';
+        $rsa->laundry_det = request('laundry_det') ?? '';
+        $rsa->other = request('other') ?? '';
+        $rsa->other_det = request('other_det') ?? '';
+        $rsa->st_sdt = request('st_sdt') ?? '';
+        $rsa->st_edt = request('st_edt') ?? '';
+        
+        $rsa->user_id =  Auth::user()->id;
+       // $rsa->profile_pic = request('profile_pic')->getClientOriginalName();
+        //$imageName = request('profile_pic')->getClientOriginalName();
+        //request()->profile_pic->move(public_path('images/profile_pics'), $imageName);  
+
+        
+        $rsa->save();
+
         $activity = new ActivityLog();
 
         $activity->user = Auth::user()->first_name;

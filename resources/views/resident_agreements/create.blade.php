@@ -96,7 +96,7 @@
                                                               
                       </div>
                 </div>
-                <h5 style="color:#980000;font-size: 16px;"><b>Nomini Details</b></h5>
+                <h5 style="color:#980000;font-size: 16px;"><b>NOK/Nomini Details</b></h5>
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Person Nominated</label>
@@ -138,6 +138,26 @@
                        
                       </div>
                 </div>
+                <h5 style="color:#980000;font-size: 16px;"><b>Finance Administrator/State Trustees</b></h5>
+                <div class="form-row">
+                      <div class="col-md-3 mb-3">
+                        <label>Name</label>
+                        <input type="text" name="adm_name" class="form-control" placeholder="Name">                                        
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Email</label>
+                        <input type="email" name="adm_em" class="form-control" placeholder="Email">                                        
+                      </div>
+                       <div class="col-md-3 mb-3">
+                        <label>Phone No.</label>
+                        <input type="tel" name="adm_ph" class="form-control" placeholder="Phone No.">                                        
+                      </div>
+                     
+                      <div class="col-md-3 mb-3">
+                        <label>Address</label>
+                        <textarea name="adm_adr" class="form-control" placeholder="Address"></textarea>
+                      </div>
+                </div>
                <h5 style="color:#980000;font-size: 16px;"><b>Duration Of Stay</b></h5>
 
                 <div class="form-row">
@@ -157,6 +177,23 @@
                       <div class="col-md-6 mb-3">
                         <label>Admission Date</label>
                         <input type="date" style="width: 200px;" name="adm_date" readonly id="adm_date" class="form-control" placeholder="Ending on">                                       
+                      </div>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-row">
+                   <div class="col-md-3 mb-3">
+                       <label for="st_typ">Respite/permanent</label>
+                       <select name="st_typ" id="st_typ" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                            <option value="Respite" style="font-size: 14px;">Respite</option> 
+                            <option value="Permanent" style="font-size: 14px;">Permanent</option> 
+                        </select>                                        
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Start Date</label>
+                        <input type="date" style="width: 200px;" name="st_sdt"  readonly id="st_sdt" class="form-control" placeholder="Start Date">                                       
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label>End Date</label>
+                        <input type="date" style="width: 200px;" name="st_edt" readonly id="st_edt" class="form-control" placeholder="End Date">                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Fee And Charges</b></h5>
@@ -408,8 +445,127 @@
                      <input type="checkbox" name="dressing" onclick="findselected13();" value="None" />    
                     </td>
                     <td><input type="text" id="f9" name="dressing_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Room Cleaning</td>
+                    <td>  &nbsp;&nbsp;&nbsp;     
+                     <input type="checkbox" name="room_cl" onclick="findselected14();" value="Full" />    
+                    </td>
+                     <td>  &nbsp;&nbsp;&nbsp;     
+                     <input type="checkbox" name="room_cl" onclick="findselected14();" value="Part" />    
+                    </td>
+                    <td>  &nbsp;&nbsp;&nbsp;     
+                     <input type="checkbox" name="room_cl" onclick="findselected14();" value="None" />    
+                    </td>
+                    <td><input type="text" id="f10" name="room_det"></td>
+                  </tr>
+                  <tr>
+                    <td>Transport Assistance-Details</td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="tr_assi" onclick="findselected15();" value="Full" />    
+                    </td>
+                     <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="tr_assi" onclick="findselected15();" value="Part" />    
+                    </td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="tr_assi" onclick="findselected15();" value="None" />    
+                    </td>
+                    <td><input type="text" id="f11" name="tr_det"></td>
+                  </tr>
+                  <tr>
+                    <td>Eating</td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="eating" onclick="findselected16();" value="Full" />    
+                    </td>
+                     <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="eating" onclick="findselected16();" value="Part" />    
+                    </td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="eating" onclick="findselected16();" value="None" />    
+                    </td>
+                    <td><input type="text" id="f12" name="eat_det"></td>
+                  </tr>
+                  <tr>
+                    <td>Laundry</td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="laundry" onclick="findselected17();" value="Full" />    
+                    </td>
+                     <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="laundry" onclick="findselected17();" value="Part" />    
+                    </td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="laundry" onclick="findselected17();" value="None" />    
+                    </td>
+                    <td><input type="text" id="f13" name="laundry_det"></td>
+                  </tr>
+                  <tr>
+                    <td>Other services required</td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="other" onclick="findselected18();" value="Full" />    
+                    </td>
+                     <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="other" onclick="findselected18();" value="Part" />    
+                    </td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" name="other" onclick="findselected18();" value="None" />    
+                    </td>
+                    <td><input type="text" id="f14" name="other_det"></td>
                   </tr><br>
                 </table>
+
+                <h5 style="color:#980000;font-size: 16px;"><b>Proprietor/ Manager</b></h5>
+
+                <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label>Name</label>
+                        <input type="text" name="pr_name" id="pr_name" class="form-control" placeholder="Name" >                                       
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label>Witness</label>
+                        <input type="text" name="pr_wit" id="pr_wit" class="form-control" placeholder="Witness" >                                        
+                      </div>
+                      
+                      <div class="col-md-4 mb-3">
+                        <label>Date</label>
+                        <input type="date" name="pr_date" id="pr_date" class="form-control" placeholder="Date" >                                       
+                      </div>
+                </div>
+                <h5 style="color:#980000;font-size: 16px;"><b>Resident</b></h5>
+
+                <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label>Name</label>
+                        <input type="text" name="re_name" id="re_name" class="form-control" placeholder="Name" >                                       
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label>Witness</label>
+                        <input type="text" name="re_wt" id="re_wt" class="form-control" placeholder="Witness" >                                        
+                      </div>
+                      
+                      <div class="col-md-4 mb-3">
+                        <label>Date</label>
+                        <input type="date" name="re_date" id="re_date" class="form-control" placeholder="Date" >                                       
+                      </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br><br>
+                <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label>This agreement starts on</label>
+                        <input type="date" name="st_dt" id="st_dt" class="form-control" placeholder="This agreement starts on" >                                       
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label>This agreement ends on</label>
+                        <input type="date" name="ed_dt" id="ed_dt" class="form-control" placeholder="This agreement ends on" >                                       
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label>PL check if notified to Accounts?</label>
+                        <br><input type="radio"  id="not_acc"  value="Yes" name="not_acc">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" id="not_acc" value="No" name="not_acc">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+                      </div>
+                </div>
+                
+
               </div>
             </div>
 
@@ -722,6 +878,65 @@ function findselected13() {
     }
     else{
         document.getElementById("f9").removeAttribute('disabled', true);
+    }
+}
+
+
+
+
+function findselected14() { 
+
+    var result = document.querySelector('input[name="room_cl"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f10").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f10").removeAttribute('disabled', true);
+    }
+}
+function findselected15() { 
+
+    var result = document.querySelector('input[name="tr_assi"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f11").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f11").removeAttribute('disabled', true);
+    }
+}
+function findselected16() { 
+
+    var result = document.querySelector('input[name="eating"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f12").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f12").removeAttribute('disabled', true);
+    }
+}
+function findselected17() { 
+
+    var result = document.querySelector('input[name="laundry"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f13").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f13").removeAttribute('disabled', true);
+    }
+}
+function findselected18() { 
+
+    var result = document.querySelector('input[name="other"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f14").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f14").removeAttribute('disabled', true);
     }
 }
 </script>
