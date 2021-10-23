@@ -785,9 +785,9 @@ Our staff can also help you make contact with the CVs</td>
         </table>
         <p><b>Residential and Services Agreement - Summary for resident</b></p>
         <ul>
-          <li>Your fee to stay here will be $_____________ per week</li>
+          <li>Your fee to stay here will be $ <u>{{ $client->week_rent}} </u> per week</li>
           <li>You will pay your fee weekly/fortnightly</li>
-          <li>The length of your stay here is ____________</li>
+          <li>The length of your stay here is <u>{{ $client->weeks}} weeks</u> </li>
           <li>Meal times: As per RSA Agreement. Unless Meal time variations are requested..</li>
           <li>You are not allowed to smoke or use illicit drugs inside your room or the SRS</li>
           <li>You have nominated {{ $resident_agreement->p_nomini}}  to receive information about your personal support and accommodation</li>

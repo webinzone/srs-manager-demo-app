@@ -138,7 +138,8 @@ class ResidentAgreementsController extends Controller
       $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
       $id = $resident_agreement->id;
       $rsa = Rsa::where('rsa_id', '=', $id)->firstOrFail();
-      return view('resident_agreements/report',compact('resident_agreement','locations','rsa'));
+      $client = ClientDetail::where('id', '=', $res)->firstOrFail();
+      return view('resident_agreements/report',compact('resident_agreement','locations','rsa','client'));
      
     }
 
