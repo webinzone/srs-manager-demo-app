@@ -90,7 +90,7 @@
                    
                 </div>
                                 <div class="box-body" style="padding-left: 50px;">    
-                <h5 style="color:#980000;font-size: 16px;"><b>Resident Details</b></h5>
+            <h5 style="color:#980000;font-size: 16px;"><b>Resident Details</b></h5>
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label>Resident Name</label>
@@ -104,7 +104,7 @@
                                                             
                       <div class="col-md-2 mb-3">
                         <label>Room No</label>
-                        <input type="text" name="room_no" id="room1" class="form-control"  value="{{ $resident_agreement->room_no}}"   placeholder="Room No" readonly>                                        
+                        <input type="text" name="room_no" id="roomm" class="form-control" value="{{ $resident_agreement->room_no}}" placeholder="Room No" readonly>                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Need assistance  in reading ?</label>
@@ -113,7 +113,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Staff</label>
-                        <input type="text" name="staff" id="staff1" value="{{ $resident_agreement->staff}}" class="form-control" readonly  placeholder="Staff">                                        
+                        <input type="text" name="staff" id="staffm" class="form-control" value="{{ $resident_agreement->staff }}" placeholder="Staff" readonly>                                        
                       </div>
                       
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -122,25 +122,24 @@
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Guardian</label>
-                        <input type="text" value="{{ $resident_agreement->guardian}}" name="guardian"  class="form-control" id="guardianm"  placeholder="Guardian" readonly>                                       
+                        <input type="text" name="guardian" id="guardianm" class="form-control" value="{{ $resident_agreement->guardian}}" placeholder="Guardian" readonly>                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Phone No.</label>
-                        <input type="tel" name="g_tel" class="form-control" value="{{ $resident_agreement->g_tel}}" id="gtel" placeholder="Phone" readonly>                                        
+                        <input type="tel" name="g_tel" id="gtel" class="form-control" value="{{ $resident_agreement->g_tel}}" placeholder="Phone No." readonly>                                        
                       </div>
                       
                       <div class="col-md-3 mb-3">
                         <label>Email</label>
-                        <input type="email"  name="g_email" class="form-control" value="{{ $resident_agreement->g_email}}" id="gemail" placeholder="Email" readonly>                                       
+                        <input type="email" name="g_email" id="gemail" class="form-control" value="{{ $resident_agreement->g_email}}" placeholder="Email" readonly>                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Address</label>
-
                         <textarea name="g_adress"  readonly class="form-control" id="gadress" placeholder="Address">{{ $resident_agreement->g_adress}}</textarea>
                                                               
                       </div>
                 </div>
-                <h5 style="color:#980000;font-size: 16px;"><b>Nomini Details</b></h5>
+                <h5 style="color:#980000;font-size: 16px;"><b>NOK/Nomini Details</b></h5>
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Person Nominated</label>
@@ -148,7 +147,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Phone No.</label>
-                        <input type="tel" name="per_tel" class="form-control" value="{{ $resident_agreement->per_tel}}" placeholder="Telephone">                                        
+                        <input type="tel" name="per_tel" class="form-control" value="{{ $resident_agreement->per_tel}}"  placeholder="Phone No.">                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Email</label>
@@ -169,7 +168,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Phone No.</label>
-                        <input type="tel" name="emg_tel" class="form-control" value="{{ $resident_agreement->emg_tel}}" placeholder="Telephone">                                        
+                        <input type="tel" name="emg_tel" class="form-control" value="{{ $resident_agreement->emg_tel}}" placeholder="Phone No.">                                        
                       </div>
 
                       <div class="col-md-3 mb-3">
@@ -182,6 +181,26 @@
                        
                       </div>
                 </div>
+                <h5 style="color:#980000;font-size: 16px;"><b>Finance Administrator/State Trustees</b></h5>
+                <div class="form-row">
+                      <div class="col-md-3 mb-3">
+                        <label>Name</label>
+                        <input type="text" name="adm_name" class="form-control" value="{{ $resident_agreement->adm_name}}" placeholder="Name">                                        
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Email</label>
+                        <input type="email" name="adm_em" class="form-control" value="{{ $resident_agreement->adm_em}}"  placeholder="Email">                                        
+                      </div>
+                       <div class="col-md-3 mb-3">
+                        <label>Phone No.</label>
+                        <input type="tel" name="adm_ph" class="form-control" value="{{ $resident_agreement->adm_ph}}"  placeholder="Phone No.">                                        
+                      </div>
+                     
+                      <div class="col-md-3 mb-3">
+                        <label>Address</label>
+                        <textarea name="adm_adr" class="form-control" placeholder="Address">{{ $resident_agreement->adm_adr}} </textarea>
+                      </div>
+                </div>
                <h5 style="color:#980000;font-size: 16px;"><b>Duration Of Stay</b></h5>
 
                 <div class="form-row">
@@ -192,15 +211,33 @@
                       
                       <div class="col-md-3 mb-3">
                         <label>Fixed period stay from</label>
-                        <input type="date" style="width: 200px;" name="f_period" class="form-control" value="{{ $resident_agreement->f_period}}" id="fperiod" placeholder="Fixed period stay form" readonly>                                        
+                        <input type="date" style="width: 200px;" name="f_period" readonly id="fperiod" class="form-control" value="{{ $resident_agreement->f_period}}" placeholder="Fixed period stay form">                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Ending on</label>
-                        <input type="date" style="width: 200px;" name="ending_on" class="form-control" value="{{ $resident_agreement->ending_on}}" id="endperiod" placeholder="Ending on" readonly>                                       
+                        <input type="date" style="width: 200px;" name="ending_on"  readonly id="endperiod" class="form-control" value="{{ $resident_agreement->ending_on}}" placeholder="Ending on">                                       
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Admission Date</label>
-                        <input type="date" style="width: 200px;" name="adm_date" readonly id="adm_datem" class="form-control" value="{{ $resident_agreement->adm_date}}" placeholder="Ending on">                                       
+                        <input type="date" style="width: 200px;" name="adm_date" readonly id="adm_date" class="form-control" value="{{ $resident_agreement->adm_date}}" placeholder="Ending on">                                       
+                      </div>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-row">
+                   <div class="col-md-3 mb-3">
+                      <label for="st_typ">Respite/permanent</label>&nbsp;&nbsp;&nbsp;
+                        <select name="st_typ"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                            <option value="" style="font-size: 14px;">---Select--</option> 
+                            <option value="Respite" {{ $resident_agreement->st_typ == 'Respite' ? 'selected' : ''  }} style="font-size: 14px;">Respite</option> 
+                            <option value="Permanent" {{ $resident_agreement->st_typ == 'Permanent' ? 'selected' : ''  }} style="font-size: 14px;">Permanent</option> 
+                        </select>                                        
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label>Start Date</label>
+                        <input type="date" style="width: 200px;" name="st_sdt"  readonly id="st_sdt" class="form-control" value="{{ $rsa->st_sdt}}" placeholder="Start Date">                                       
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label>End Date</label>
+                        <input type="date" style="width: 200px;" name="st_edt" readonly id="st_edt" class="form-control" value="{{ $rsa->st_sdt}}" placeholder="End Date">                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Fee And Charges</b></h5>
@@ -208,14 +245,14 @@
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Accommodation & personal support Fee</label>
-                        <input type="text" name="acc_fee" class="form-control" value="{{ $resident_agreement->acc_fee}}" placeholder="Fee for accommodation and personal support">                                        
+                        <input type="text" name="acc_fee" class="form-control" placeholder="Fee for accommodation and personal support">                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Frequency of payment</label><br>
                             <label><input {{ $resident_agreement->freq_pay == 'Weekly' ? 'checked' : ''  }}  type="checkbox" name="freq_pay" value="Weekly"> Weekly</label>&nbsp;&nbsp;
                                 <label><input {{ $resident_agreement->freq_pay == 'Fortnightly' ? 'checked' : ''  }}  type="checkbox" name="freq_pay" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
                                 <label><input {{ $resident_agreement->freq_pay == 'Every Calender Month' ? 'checked' : ''  }} type="checkbox" name="freq_pay" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->freq_pay == 'Other' ? 'checked' : ''  }} type="checkbox" name="freq_pay" value="Other"> Other</label>&nbsp;&nbsp;          
+                                <label><input {{ $resident_agreement->freq_pay == 'Other' ? 'checked' : ''  }} type="checkbox" name="freq_pay" value="Other"> Other</label>&nbsp;&nbsp;  >       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Any rent paid in advance</label><br>
@@ -224,23 +261,23 @@
                             <label><input {{ $resident_agreement->any_rent_adv == 'Weekly' ? 'checked' : ''  }}  type="checkbox" name="any_rent_adv" value="Weekly"> Weekly</label>&nbsp;&nbsp;
                                 <label><input {{ $resident_agreement->any_rent_adv == 'Fortnightly' ? 'checked' : ''  }}  type="checkbox" name="any_rent_adv" value="Fortnightly"> Fortnightly</label>&nbsp;&nbsp;
                                 <label><input {{ $resident_agreement->any_rent_adv == 'Every Calender Month' ? 'checked' : ''  }} type="checkbox" name="any_rent_adv" value="Every Calender Month"> Every Calender Month</label>&nbsp;&nbsp;
-                                <label><input {{ $resident_agreement->any_rent_adv == 'Other' ? 'checked' : ''  }} type="checkbox" name="any_rent_adv" value="Other"> Other</label>&nbsp;&nbsp;                                          
+                                <label><input {{ $resident_agreement->any_rent_adv == 'Other' ? 'checked' : ''  }} type="checkbox" name="any_rent_adv" value="Other"> Other</label>&nbsp;&nbsp;<br>                                          
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>How to pay</label>
-                        <input type="text" name="pay_method" value="{{ $resident_agreement->pay_method}}" class="form-control" placeholder="Payment Method" id="pay_meth" readonly>
+                        <input type="text" name="pay_method" class="form-control" value="{{ $resident_agreement->pay_method}}"  placeholder="Payment Method" id="pay_meth" readonly>
                                                                
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                <h5 style="color:#980000;font-size: 16px;"><b>Other Fee & Charges</b></h5>
+                <br><h5 style="color:#980000;font-size: 16px;"><b>Other Fee & Charges</b></h5>
  
                 
-                <div class="form-row">
+                <div class="form-row" style="top: 10px;">
                       <div class="col-md-4 mb-3">
                         <label>Security deposite charged ?</label>
                         <br><input type="radio" {{ $resident_agreement->secu_depo == 'Yes' ? 'checked' : ''  }} id="secu_depo" onchange="findselected();" value="Yes" name="secu_depo">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input type="radio" {{ $resident_agreement->secu_depo == 'No' ? 'checked' : ''  }} id="secu_depo" value="No" onchange="findselected();" name="secu_depo">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;  
+                        <input type="radio" {{ $resident_agreement->secu_depo == 'No' ? 'checked' : ''  }} id="secu_depo" value="No" onchange="findselected();" name="secu_depo">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Amount Payable</label>
@@ -251,7 +288,7 @@
                         <br><input type="radio" required=""  id="condition_rep" {{ $resident_agreement->condition_rep == 'Yes' ? 'checked' : ''  }}  value="Yes" name="condition_rep">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio" required="" {{ $resident_agreement->condition_rep == 'No' ? 'checked' : ''  }} id="condition_rep" value="No" name="condition_rep">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
                       </div>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                     <div class="col-md-12 mb-3">
                         <label>Furniture in resident's room belonging to the SRS</label>
@@ -292,12 +329,12 @@
 
                         <label>Fee in advance charged for other items/service provide by SRS ?</label>
                         <br><input {{ $resident_agreement->advnc_fee == 'Yes' ? 'checked' : ''  }} type="radio" onchange="findselected3();"  id="advnc_fee"  value="Yes" name="advnc_fee">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
-                        <input {{ $resident_agreement->advnc_fee == 'No' ? 'checked' : ''  }} type="radio" onchange="findselected3();"  id="advnc_fee" value="No" name="advnc_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                      
+                        <input {{ $resident_agreement->advnc_fee == 'No' ? 'checked' : ''  }} type="radio" onchange="findselected3();"  id="advnc_fee" value="No" name="advnc_fee">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                     
                       </div>
                         <div class="col-md-3 mb-3">
 
                         <label>Advance Amount</label>
-                        <input type="text" name="amt_adv" id="a2" class="form-control" value="{{ $resident_agreement->amt_adv}}" {{ $resident_agreement->advnc_fee == 'No' ? 'disabled' : ''  }} placeholder="Amount">                                       
+                        <input type="text" name="amt_adv" id="a2" class="form-control" value="{{ $resident_agreement->amt_adv}}" {{ $resident_agreement->advnc_fee == 'No' ? 'disabled' : ''  }} placeholder="Amount">                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Refund to resident</label>
@@ -452,8 +489,126 @@
                      <input type="checkbox" onchange="findselected13();" {{ $resident_agreement->dressing == 'None' ? 'checked' : ''  }} name="dressing" value="None" />    
                     </td>
                     <td><input type="text" {{ $resident_agreement->dressing == 'None' ? 'disabled' : ''  }} id="f9" value="{{ $resident_agreement->dressing_fee}}" name="dressing_fee"></td>
+                  </tr>
+                  <tr>
+                    <td>Room Cleaning</td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" onchange="findselected14();" {{ $rsa->room_cl == 'Full' ? 'checked' : ''  }}  name="room_cl" value="Full" />    
+                    </td>
+                     <td>   &nbsp;&nbsp;&nbsp;    
+                    <input type="checkbox" onchange="findselected14();" {{ $rsa->room_cl == 'Part' ? 'checked' : ''  }} name="room_cl" value="Part" />    
+                    </td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" onchange="findselected14();" {{ $rsa->room_cl == 'None' ? 'checked' : ''  }} name="room_cl" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $rsa->room_cl == 'None' ? 'disabled' : ''  }} id="f10" value="{{ $rsa->room_det}}" name="room_det"></td>
+                  </tr>
+                  <tr>
+                    <td>Transport Assistance-Details</td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" onchange="findselected15();" {{ $rsa->tr_assi == 'Full' ? 'checked' : ''  }}  name="tr_assi" value="Full" />    
+                    </td>
+                     <td>   &nbsp;&nbsp;&nbsp;    
+                    <input type="checkbox" onchange="findselected15();" {{ $rsa->tr_assi == 'Part' ? 'checked' : ''  }} name="tr_assi" value="Part" />    
+                    </td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" onchange="findselected15();" {{ $rsa->tr_assi == 'None' ? 'checked' : ''  }} name="tr_assi" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $rsa->tr_assi == 'None' ? 'disabled' : ''  }} id="f11" value="{{ $rsa->tr_det}}" name="tr_det"></td>
+                  </tr>
+                  <tr>
+                    <td>Eating</td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" onchange="findselected16();" {{ $rsa->eating == 'Full' ? 'checked' : ''  }}  name="eating" value="Full" />    
+                    </td>
+                     <td>   &nbsp;&nbsp;&nbsp;    
+                    <input type="checkbox" onchange="findselected16();" {{ $rsa->eating == 'Part' ? 'checked' : ''  }} name="eating" value="Part" />    
+                    </td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" onchange="findselected16();" {{ $rsa->eating == 'None' ? 'checked' : ''  }} name="eating" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $rsa->eating == 'None' ? 'disabled' : ''  }} id="f12" value="{{ $rsa->eat_det}}" name="eat_det"></td>
+                  </tr>
+                  <tr>
+                    <td>Laundry</td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" onchange="findselected16();" {{ $rsa->laundry == 'Full' ? 'checked' : ''  }}  name="laundry" value="Full" />    
+                    </td>
+                     <td>   &nbsp;&nbsp;&nbsp;    
+                    <input type="checkbox" onchange="findselected16();" {{ $rsa->laundry == 'Part' ? 'checked' : ''  }} name="laundry" value="Part" />    
+                    </td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" onchange="findselected16();" {{ $rsa->laundry == 'None' ? 'checked' : ''  }} name="laundry" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $rsa->laundry == 'None' ? 'disabled' : ''  }} id="f13" value="{{ $rsa->laundry_det}}" name="laundry_det"></td>
+                  </tr>
+                  <tr>
+                    <td>Other services required</td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" onchange="findselected17();" {{ $rsa->other == 'Full' ? 'checked' : ''  }}  name="other" value="Full" />    
+                    </td>
+                     <td>   &nbsp;&nbsp;&nbsp;    
+                    <input type="checkbox" onchange="findselected17();" {{ $rsa->other == 'Part' ? 'checked' : ''  }} name="other" value="Part" />    
+                    </td>
+                    <td>   &nbsp;&nbsp;&nbsp;    
+                     <input type="checkbox" onchange="findselected17();" {{ $rsa->other == 'None' ? 'checked' : ''  }} name="other" value="None" />    
+                    </td>
+                    <td><input type="text" {{ $rsa->other == 'None' ? 'disabled' : ''  }} id="f14" value="{{ $rsa->other_det}}" name="other_det"></td>
                   </tr><br>
                 </table>
+
+                <h5 style="color:#980000;font-size: 16px;"><b>Proprietor/ Manager</b></h5>
+
+                <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label>Name</label>
+                        <input type="text" name="pr_name" id="pr_name" class="form-control" value="{{ $resident_agreement->pr_name}}" placeholder="Name" >                                       
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label>Witness</label>
+                        <input type="text" name="pr_wit" id="pr_wit" class="form-control" value="{{ $resident_agreement->pr_wit}}" placeholder="Witness" >                                        
+                      </div>
+                      
+                      <div class="col-md-4 mb-3">
+                        <label>Date</label>
+                        <input type="date" name="pr_date" id="pr_date" class="form-control" value="{{ $resident_agreement->pr_date}}" placeholder="Date" >                                       
+                      </div>
+                </div>
+                <h5 style="color:#980000;font-size: 16px;"><b>Resident</b></h5>
+
+                <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label>Name</label>
+                        <input type="text" name="re_name" id="re_name" class="form-control" value="{{ $rsa->re_name}}" placeholder="Name" >                                       
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label>Witness</label>
+                        <input type="text" name="re_wt" id="re_wt" class="form-control" value="{{ $rsa->re_wt}}" placeholder="Witness" >                                        
+                      </div>
+                      
+                      <div class="col-md-4 mb-3">
+                        <label>Date</label>
+                        <input type="date" name="re_date" id="re_date" class="form-control" value="{{ $rsa->re_date}}" placeholder="Date" >                                       
+                      </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <br><br>
+                <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label>This agreement starts on</label>
+                        <input type="date" name="st_dt" id="st_dt" class="form-control" value="{{ $rsa->st_dt}}"  placeholder="This agreement starts on" >                                       
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label>This agreement ends on</label>
+                        <input type="date" name="ed_dt" id="ed_dt" class="form-control" value="{{ $rsa->ed_dt}}"  placeholder="This agreement ends on" >                                       
+                      </div>
+                      <div class="col-md-4 mb-3">                        <label>PL check if notified to Accounts?</label>
+                        <br><input type="radio"  id="not_acc" {{ $rsa->not_acc == 'Yes' ? 'checked' : ''  }} value="Yes" name="not_acc">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
+                        <input type="radio" {{ $rsa->not_acc == 'No' ? 'checked' : ''  }}  id="not_acc" value="No" name="not_acc">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
+                      </div>
+                </div>
+                
+
               </div>
             </div>
 
@@ -548,7 +703,7 @@ $('#resi_name').change(function(){
         dataType: 'json',
         success: function(response){
             if(response != null){
-                $('#staffm').val(response.stf_name);            
+                $('#staff1').val(response.stf_name);            
 
             }
             else{
@@ -765,6 +920,62 @@ function findselected13() {
     }
     else{
         document.getElementById("f9").removeAttribute('disabled', true);
+    }
+}
+
+function findselected14() { 
+
+    var result = document.querySelector('input[name="room_cl"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f10").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f10").removeAttribute('disabled', true);
+    }
+}
+function findselected15() { 
+
+    var result = document.querySelector('input[name="tr_assi"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f11").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f11").removeAttribute('disabled', true);
+    }
+}
+function findselected16() { 
+
+    var result = document.querySelector('input[name="eating"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f12").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f12").removeAttribute('disabled', true);
+    }
+}
+function findselected17() { 
+
+    var result = document.querySelector('input[name="laundry"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f13").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f13").removeAttribute('disabled', true);
+    }
+}
+function findselected18() { 
+
+    var result = document.querySelector('input[name="other"]:checked').value;
+    if(result=="None"){
+
+        document.getElementById("f14").setAttribute('disabled', false);
+    }
+    else{
+        document.getElementById("f14").removeAttribute('disabled', true);
     }
 }
 </script>

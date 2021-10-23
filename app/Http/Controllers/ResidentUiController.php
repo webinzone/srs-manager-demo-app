@@ -21,6 +21,7 @@ use App\Models\Referral;
 use App\Models\Referral2;
 use App\Models\SupportPlan;
 use App\Models\Incident;
+use App\Models\Rsa;
 
 
 
@@ -64,7 +65,8 @@ class ResidentUiController extends Controller
         $income = explode(',', $pension_detail->income_type);
         $status = "Free";
         $rooms = RoomDetail::where('status', '=', $status)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
-        return view('residentui/index')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid','r_id','bedno'));
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+        return view('residentui/index')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid','r_id','bedno','emps'));
         
     }
 
@@ -74,10 +76,14 @@ class ResidentUiController extends Controller
         $head = "Resident Agreement";        
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+
         $checker = ResidentAgreement::select('client_id')->where('client_id', '=', $id)->exists();
         if($checker == true){
         $resident_agreement = ResidentAgreement::where('client_id', '=', $id)->firstOrFail();
-        return view('residentui/rsa',compact('resident_agreement', 'residents', 'emps', 'r_id'));
+        $rsa_id = $resident_agreement->id;
+        $rsa = Rsa::where('rsa_id', '=', $rsa_id)->firstOrFail();
+
+        return view('residentui/rsa',compact('resident_agreement', 'residents', 'emps', 'r_id', 'rsa'));
         }
         else{
             return view('residentui/nodata',compact('r_id','head'));
