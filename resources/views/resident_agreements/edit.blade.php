@@ -164,7 +164,11 @@
                         <label>Indefinite period of stay from</label>
                         <input type="date" name="i_period" class="form-control" placeholder="Indefinite period of stay form">                                        
                       </div>-->
-                      
+                      <div class="col-md-3 mb-3">
+                       <label for="st_typ">Respite/permanent</label>
+                        
+                        <input type="text" name="st_typ" id="st_typ" class="form-control" readonly placeholder="type of stay" value="{{ $resident_agreement->st_typ}}">                                     
+                      </div>
                       <div class="col-md-3 mb-3">
                         <label>Fixed period stay from</label>
                         <input type="date" style="width: 200px;" name="f_period" readonly id="fperiod" class="form-control" value="{{ $resident_agreement->f_period}}" placeholder="Fixed period stay form">                                        
@@ -173,13 +177,13 @@
                         <label>Ending on</label>
                         <input type="date" style="width: 200px;" name="ending_on"  readonly id="endperiod" class="form-control" value="{{ $resident_agreement->ending_on}}" placeholder="Ending on">                                       
                       </div>
-                      <div class="col-md-6 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label>Admission Date</label>
                         <input type="date" style="width: 200px;" name="adm_date" readonly id="adm_date" class="form-control" value="{{ $resident_agreement->adm_date}}" placeholder="Ending on">                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
-                   <div class="col-md-3 mb-3">
+                   <!--<div class="col-md-3 mb-3">
                       <label for="st_typ">Respite/permanent</label>&nbsp;&nbsp;&nbsp;
                         <select name="st_typ"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="" style="font-size: 14px;">---Select--</option> 
@@ -194,7 +198,7 @@
                       <div class="col-md-6 mb-3">
                         <label>End Date</label>
                         <input type="date" style="width: 200px;" name="st_edt" readonly id="st_edt" class="form-control" value="{{ $rsa->st_sdt}}" placeholder="End Date">                                       
-                      </div>
+                      </div>-->
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Fee And Charges</b></h5>
 
@@ -636,7 +640,8 @@ $('#resi_name').change(function(){
                 $('#roomm').val(response.room_no);            
                  $('#fperiod').val(response.start_period);
                 $('#endperiod').val(response.end_period);
-                $('#adm_datem').val(response.adm_date);           
+                $('#adm_datem').val(response.adm_date); 
+                $('#st_typ').val(response.respite);                             
 
             }
             else{

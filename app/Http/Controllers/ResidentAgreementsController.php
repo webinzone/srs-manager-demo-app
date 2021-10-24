@@ -256,9 +256,9 @@ class ResidentAgreementsController extends Controller
         
         $resident_agreement->save();
 
-
+        $r_idd = $resident_agreement->id;
         $rsa = new Rsa();
-        $rsa->rsa_id = $resident_agreement->id;
+        $rsa->rsa_id = $r_idd;
         $rsa->re_name = request('re_name') ?? '';
         $rsa->re_wt = request('re_wt') ?? '';
         $rsa->re_date = request('re_date') ?? '';
@@ -314,8 +314,10 @@ class ResidentAgreementsController extends Controller
     {
         $this->authorize('show',ResidentAgreement::class);
         $resident_agreement = ResidentAgreement::find($id);
+        $res = $resident_agreement->client_id;
         $rsa = Rsa::where('rsa_id', '=', $id)->firstOrFail();
-        return view('resident_agreements/show',compact('resident_agreement', 'rsa'));
+        $client = ClientDetail::where('id', '=', $res)->firstOrFail();
+        return view('resident_agreements/show',compact('resident_agreement', 'rsa', 'client'));
     }
      /**
      * Show the form for editing the specified resource.
@@ -431,9 +433,11 @@ class ResidentAgreementsController extends Controller
         $resident_agreement->user_id =  Auth::user()->id;
         
         $resident_agreement->save();
+        
+        $r_idd = $resident_agreement->id;  
 
-        $rsa = Rsa::where('rsa_id', '=', $id)->firstOrFail();
-        $rsa->rsa_id = request('rsa_id') ?? '';
+        $rsa = Rsa::where('rsa_id', '=', $r_idd)->firstOrFail();
+        $rsa->rsa_id = $r_idd;
         $rsa->re_name = request('re_name') ?? '';
         $rsa->re_wt = request('re_wt') ?? '';
         $rsa->re_date = request('re_date') ?? '';
@@ -458,11 +462,6 @@ class ResidentAgreementsController extends Controller
         $rsa->st_sdt = request('st_sdt') ?? '';
         $rsa->st_edt = request('st_edt') ?? '';
         
-        $rsa->user_id =  Auth::user()->id;
-       // $rsa->profile_pic = request('profile_pic')->getClientOriginalName();
-        //$imageName = request('profile_pic')->getClientOriginalName();
-        //request()->profile_pic->move(public_path('images/profile_pics'), $imageName);  
-
         
         $rsa->save();
 

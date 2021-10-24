@@ -67,7 +67,7 @@
         <td style="border: 1px solid black;">Other</td>
       </tr>
       <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">{{ $client_detail->fname }}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->fname }} {{ $client_detail->mname }} {{ $client_detail->lname }}</td>
         <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->dob)) }}</td>
         <td style="border: 1px solid black;">{{ $client_detail->nationality}}</td>
         <td style="border: 1px solid black;">{{ $client_detail->religion}}</td>
@@ -82,11 +82,16 @@
         <td style="border: 1px solid black;" colspan="3">{{ $client_detail->ref_by}}</td>
         <td style="border: 1px solid black;">Admission Date</td>
         <td style="border: 1px solid black;">Room No</td>
+        <td style="border: 1px solid black;">Expiry</td>
+        <td style="border: 1px solid black;">Expiry</td>
       </tr>
       <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;" colspan="4">Previous Address &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp; {{ $client_detail->pre_address}}</td>
         <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($client_detail->adm_date)) }}</td>
         <td style="border: 1px solid black;">{{ $client_detail->room_no}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->exp_date}}</td>
+        <td style="border: 1px solid black;">{{ $client_detail->nok_exp}}</td>
+
       </tr>   
       
     </table><br>
@@ -162,20 +167,20 @@
       <table style="border: 1px solid black;">
          <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">Has this form is uploaded and notified to Accounts:
-         <input type="radio"   {{ $client_detail->nok_up == 'No' ? 'checked' : ''  }} id="nok_up"  value="No" name="nok_up" disabled/>&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
-                        <input type="radio"   {{ $client_detail->nok_up == 'Yes' ? 'checked' : ''  }}  id="nok_up" value="Yes" name="nok_up" disabled/>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;; <br>
+         <br><input type="radio"   {{ $client_detail->nok_up == 'No' ? 'checked' : ''  }} id="nok_up"  value="No" name="nok_up" disabled/>&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+                        <input type="radio"   {{ $client_detail->nok_up == 'Yes' ? 'checked' : ''  }}  id="nok_up" value="Yes" name="nok_up" disabled/>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp; <br>
         Has this Admission been notified to Pharmacy:
-         <input type="radio"   {{ $client_detail->nok_noti == 'No' ? 'checked' : ''  }} id="nok_noti"  value="No" name="nok_noti" disabled/>&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
-                        <input type="radio"   {{ $client_detail->nok_noti == 'Yes' ? 'checked' : ''  }}  id="nok_noti" value="Yes" name="nok_noti" disabled/>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;; <br>
+         <br><input type="radio"   {{ $client_detail->nok_noti == 'No' ? 'checked' : ''  }} id="nok_noti"  value="No" name="nok_noti" disabled/>&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;
+                        <input type="radio"   {{ $client_detail->nok_noti == 'Yes' ? 'checked' : ''  }}  id="nok_noti" value="Yes" name="nok_noti" disabled/>&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp; <br>
         
 
       </td>
-        <td style="border: 1px solid black;">Email to Accounts: <a href="url">accounts@gracemanor.com.au </a>[Include: Rent/wk, payment details, etc]<br>
+        <td style="border: 1px solid black;"><i>Email to Accounts: <a href="url">accounts@gracemanor.com.au </a>[Include: Rent/wk, payment details, etc]<br>
         <table>
          <tr style="border: 1px solid black;"> <td style="border: 1px solid black;">Staff Name:{{ $client_detail->nok_st}}</td>
           <td style="border: 1px solid black;">Staff Sign:&nbsp;&nbsp;&nbsp;</td>
           <td style="border: 1px solid black;">Date:{{ $client_detail->nok_dt}}</td>
-        </td>
+        </tr></td>
         </tr>
       </table>
       </tr>
@@ -252,7 +257,7 @@ var editElem3 = document.getElementById("edit3");
 var userVersion3 = editElem3.innerHTML;
 
 //save the content to local storage
-localStorage.userEdits4 = userVersion3;
+localStorage.userEdits44 = userVersion3;
 
 //write a confirmation to the user
 document.getElementById("update").innerHTML="";
@@ -262,8 +267,8 @@ document.getElementById("update").innerHTML="";
 function checkEdits() {
 
 //find out if the user has previously saved edits
-if(localStorage.userEdits4!=null)
-document.getElementById("edit3").innerHTML = localStorage.userEdits4;
+if(localStorage.userEdits44!=null)
+document.getElementById("edit3").innerHTML = localStorage.userEdits44;
 }
 </script>
 

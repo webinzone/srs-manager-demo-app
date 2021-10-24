@@ -81,8 +81,7 @@
       </tr>
       <tr>
         <td style="border: 1px solid black;height: 70px;">Suggestion for improvements</td>
-        <td style="border: 1px solid black;height: 70px;" colspan="2">{{ $complaint->suggestions}}</td>
-        <td style="border: 1px solid black;">sign:</td>       
+        <td style="border: 1px solid black;height: 70px;" colspan="3">{{ $complaint->suggestions}}</td>
       </tr>
       <tr>
         <td style="border: 1px solid black;"  colspan="5">To complete by Complaints Officer after investigating the complaint &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action Date:&nbsp;&nbsp;{{date('d-m-Y', strtotime($complaint->action_date)) }}</td>

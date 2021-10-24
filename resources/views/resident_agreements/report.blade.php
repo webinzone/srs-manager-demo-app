@@ -801,8 +801,8 @@ Our staff can also help you make contact with the CVs</td>
             <li>Community Visitors: 1300 309 337</li>
           </ul>
         </li>
-          <li>This agreement starts on {{ $rsa->st_sdt}}</li>
-          <li>This agreement ends on {{ $rsa->st_edt}} (if known)</li>
+          <li>This agreement starts on <u> {{ $rsa->st_dt}} </u></li>
+          <li>This agreement ends on <u> {{ $rsa->ed_dt}} </u>(if known)</li>
         </ul>
         <table style="border: 2px; border-width: 1px; border-color: black;">
           <tr>

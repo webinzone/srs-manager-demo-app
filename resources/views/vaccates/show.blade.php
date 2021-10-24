@@ -52,7 +52,22 @@
                 </div><!-- /.box-header -->
             <div class="box-body" style="padding-left:50px;padding-right: 50px;">
 
-                <table style="border: 1px solid black;">
+             <table style="border: 1px solid black;">
+      <tr style="background-color:grey;color:white;padding:5px;">
+        <td style="border: 1px solid black;" colspan="2"><center>RESIDENT/ROOM DETAILS</center></td>
+      </tr>
+      <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Details of person(s) receiving the <br>notice:</td>
+        <td style="border: 1px solid black;">NAME OF RESIDENT:&nbsp;{{ $vaccate->res_name}} <br>NAME OF RESIDENT’S PERSON NOMINATED:  &nbsp;{{ $vaccate->p_nomini}}</td>
+      </tr>
+       <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Details of resident’s occupancy at the <br>SRS</td>
+        <td style="border: 1px solid black;">ROOM NUMBER:&nbsp;{{ $vaccate->roomno}}<br>
+          SRS NAME:  &nbsp;{{ $vaccate->srs_name}}<br>
+        SRS ADDRESS: &nbsp;{{ $vaccate->srs_addr}}</td>
+      </tr>
+    </table><br><br>
+    <table style="border: 1px solid black;">
       <tr style="background-color:grey;color:white;padding:5px;">
         <td style="border: 1px solid black;" colspan="2"><center>PROPRIETOR/MANAGER DETAILS</center></td>
       </tr>
@@ -107,6 +122,7 @@
         </td>
       </tr>
     </table><br><br>
+     <br><br>
      
                     
           

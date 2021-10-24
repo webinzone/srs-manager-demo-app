@@ -57,7 +57,7 @@
     <h2><center>Complaint/Suggestion Form (Resident/relative/Visitor)</center></h2>
     <table style="border: 1px solid black;">
       <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black;">Staff Name</td>
+        <td style="border: 1px solid black;">Facility Name</td>
         <td style="border: 1px solid black;">{{ $complaint->f_name }}</td>
         <td style="border: 1px solid black;">Date</td>
         <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($complaint->c_date)) }}</td>       
@@ -75,10 +75,10 @@
         <td style="border: 1px solid black;">{{ $complaint->phone}}</td>
       </tr>
       <tr>
-        <td style="border: 1px solid black;">Person Nominated</td>
-        <td style="border: 1px solid black;">{{ $complaint->p_nomini}}</td>
-        <td style="border: 1px solid black;">Date & Time Notified</td>
-        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($complaint->noti_date)) }}&nbsp;&nbsp;&nbsp;&nbsp;{{ $complaint->noti_time}}</td>        
+        <td style="border: 1px solid black;"><i>Person Nominated</i></td>
+        <td style="border: 1px solid black;"><i>{{ $complaint->p_nomini}}</i></td>
+        <td style="border: 1px solid black;"><i>Date & Time Notified</i></td>
+        <td style="border: 1px solid black;"><i>{{date('d-m-Y', strtotime($complaint->noti_date)) }}&nbsp;&nbsp;&nbsp;&nbsp;{{ $complaint->noti_time}}</i></td>        
       </tr>
       <tr>
         <td style="border: 1px solid black;">Complaint Details</td>
@@ -90,7 +90,7 @@
         <td style="border: 1px solid black;">sign:</td>       
       </tr>
       <tr>
-        <td style="border: 1px solid black;"  colspan="5">To complete by Complaints Officer after investigating the complaint &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action Date:&nbsp;&nbsp;{{date('d-m-Y', strtotime($complaint->action_date)) }}</td>
+        <td style="border: 1px solid black;"  colspan="5"><i>To complete by Complaints Officer after investigating the complaint &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action Date:&nbsp;&nbsp;{{date('d-m-Y', strtotime($complaint->action_date)) }}</i></td>
       </tr>
       <tr>
         <td style="border: 1px solid black;height: 70px;">Action Taken</td>
@@ -98,13 +98,14 @@
       </tr>
       <tr>
         <td style="border: 1px solid black;height: 70px;">Outcome/Method of Communication: Email, Ph, verbal, etc</td>
-        <td style="border: 1px solid black;height: 70px;" colspan="3">{{ $complaint->outcome}}</td>     
+        <td style="border: 1px solid black;height: 70px;" colspan="3">Email is sent to people who trespassed in property to address the issue. <br>
+          {{ $complaint->outcome}}</td>     
       </tr>
       <tr>
         <td style="border: 1px solid black;" colspan="5">Note:</td>
       </tr>
       <tr>
-        <td style="border: 1px solid black;" colspan="5">Please note: Management will consider the issues rose in due course and action will commence within 2 working days to address areas of concern where appropriate. All complaints are confidential in nature.</td>
+        <td style="border: 1px solid black;" colspan="5"><i>Please note: Management will consider the issues rose in due course and action will commence within 2 working days to address areas of concern where appropriate. All complaints are confidential in nature.</i></td>
       </tr>
       <tr>
         <td style="border: 1px solid black;height: 20px;" colspan="5"></td>
