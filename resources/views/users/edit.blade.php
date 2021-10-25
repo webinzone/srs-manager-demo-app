@@ -422,7 +422,7 @@ $('#company_id').change(function(){
         dataType: 'json',
         success: function(response){
             if(response != null){
-                $('#loccc').val(response.address);            
+                $('#loccc').val(response.master_name);            
 
             }
             else{
@@ -445,7 +445,7 @@ $('#location_id').change(function(){
         dataType: 'json',
         success: function(response){
             if(response != null){
-                $('#loccc').val(response.address);            
+                $('#loccc').val(response.master_name);            
 
             }
             else{
