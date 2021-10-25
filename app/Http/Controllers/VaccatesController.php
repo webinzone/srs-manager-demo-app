@@ -47,7 +47,8 @@ class VaccatesController extends Controller
          // Show the page
         $this->authorize('create',Vaccate::class);
         $residents = ClientDetail::where('status', '=', 'Active')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-        return view('vaccates/create',compact('residents'));
+         $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        return view('vaccates/create',compact('residents', 'locations'));
     }
 
 

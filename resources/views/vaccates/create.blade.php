@@ -48,7 +48,7 @@
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Name of Resident's person nominated</label>
-                        <input type="text" name="p_nomini" id="p_nomini" class="form-control" placeholder="Name of Resident's person nominated">                
+                        <input type="text" name="p_nomini" id="p_nomini" class="form-control" placeholder="Name of Resident's person nominated" readonly>                
                       </div>
                     </div>
                       <p>Details of resident’s occupancy at the SRS</p>
@@ -59,11 +59,11 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>SRS Name</label>
-                        <input type="text" name="srs_name" id="srs_name" class="form-control" placeholder="SRS Name">                
+                        <input type="text" name="srs_name" id="srs_name" value="{{ $locations->master_name}}" class="form-control" placeholder="SRS Name" readonly>                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>SRS Address</label>
-                        <input type="text" name="srs_addr" id="srs_addr" class="form-control" placeholder="SRS Address">                
+                        <input type="text" name="srs_addr" id="srs_addr" class="form-control" placeholder="SRS Address" value="{{ $locations->address}}" readonly>                
                       </div>
                     </div>
                     <h4>PROPRIETOR/MANAGER DETAILS</h4>
@@ -196,6 +196,30 @@ $('#resi_name').change(function(){
                 $('#gender').val(response.gender);
                 $('#email').val(response.res_email);
                 $('#adr').val(response.pre_address);           
+
+                   
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
+
+$('#resi_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getNominiDetails", ":id") }}';
+    url = url.replace(':id', id);
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#p_nomini').val(response.p_nomini);                  
 
                    
 
