@@ -91,7 +91,7 @@ class ClientsController extends Controller
         $client_detail->dislikes = ""  ?? '';
         $client_detail->hobies = ""  ?? '';
         $client_detail->exp_date = request('exp_date')  ?? '';
-        $client_detail->reference_source = ""  ?? '';
+        $client_detail->reference_source = request('inc_ref')  ?? '';
         $client_detail->funding_source = ""  ?? '';
         $client_detail->ref_by = request('ref_by')  ?? '';
         $client_detail->pre_address = request('pre_address')  ?? '';
@@ -261,7 +261,7 @@ class ClientsController extends Controller
         $client_nextofkin->allowed_status = ""  ?? '';
         $client_nextofkin->name = request('nok_name')  ?? '';
         $client_nextofkin->gender = ""  ?? '';
-        $client_nextofkin->relation = ""  ?? '';
+        $client_nextofkin->relation = request('nok_relation')  ?? '';
         $client_nextofkin->address = request('nok_address')  ?? '';        
         $client_nextofkin->ph = request('nok_ph')  ?? '';
         $client_nextofkin->id_no = ""  ?? '';
@@ -401,7 +401,7 @@ class ClientsController extends Controller
         $client_detail->dislikes = ""  ?? '';
         $client_detail->hobies = ""  ?? '';
         $client_detail->exp_date = request('exp_date')  ?? '';
-        $client_detail->reference_source = ""  ?? '';
+        $client_detail->reference_source = request('inc_ref')  ?? '';
         $client_detail->funding_source = ""  ?? '';
         $client_detail->ref_by = request('ref_by')  ?? '';
         $client_detail->pre_address = request('pre_address')  ?? '';
@@ -569,7 +569,7 @@ class ClientsController extends Controller
         $client_nextofkin->allowed_status = "" ?? '';
         $client_nextofkin->name = request('nok_name') ?? '';
         $client_nextofkin->gender = "" ?? '';
-        $client_nextofkin->relation = "" ?? '';
+        $client_nextofkin->relation = request('nok_relation')  ?? '';
         $client_nextofkin->address = request('nok_address') ?? '';        
         $client_nextofkin->ph = request('nok_ph') ?? '';
         $client_nextofkin->id_no = "" ?? '';

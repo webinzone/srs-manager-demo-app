@@ -170,7 +170,7 @@ class VaccatesController extends Controller
     {
         $this->authorize('edit',Vaccate::class);
         $vaccate = Vaccate::find($id);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = ClientDetail::where('status', '=', 'Vaccate')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('vaccates/edit',compact('vaccate','residents'));
     }
     /**

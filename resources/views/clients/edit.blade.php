@@ -330,7 +330,7 @@
                       </div>
                     </div>-->
                     
-                    <h4 class="mb-3"><b>Next of kin</b></h4><br>
+                    <h4 class="mb-3"><b>Nominated Person</b></h4><br>
                
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
@@ -355,9 +355,13 @@
                         <label for="nok_nok">Email</label>
                         <input type="email" class="form-control" id="nok_email" placeholder="Email" name="nok_email"  value="{{ $client_nextofkin->nok_email}}"v-on:change="page_one.nok_email = $event.target.value">  
                       </div>
-                      <div class="col-md-4 mb-3">
+                      <!--<div class="col-md-4 mb-3">
                         <label for="nok_fax">Fax</label>
                         <input type="text" class="form-control" id="nok_fax" placeholder="Fax" name="nok_fax" value="{{ $client_nextofkin->nok_fax}}" v-on:change="page_one.nok_fax = $event.target.value">  
+                      </div>-->
+                      <div class="col-md-4 mb-3">
+                        <label for="nok_relation">Relationship</label>
+                        <input type="text" class="form-control" id="nok_relation" placeholder="Relationship" value="{{ $client_nextofkin->relation}}" name="nok_relation" v-on:change="page_one.nok_relation = $event.target.value">  
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;                   
 
@@ -521,7 +525,7 @@
                
                     <div class="form-row">
                       <div class="col-md-3 mb-3">
-                        <label for="client_refno">Finance Admin Name</label>
+                        <label for="client_refno">Financial Administrator</label>
                         <input type="text" class="form-control" id="inc_sname" placeholder="Finance Admin Name" name="inc_sname" value="{{ $client_detail->inc_sname}}"  v-on:change="page_one.inc_sname = $event.target.value">              
                       </div>
                       <div class="col-md-3 mb-3">
@@ -541,12 +545,16 @@
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
 
                    <div class="form-row">
-                      <div class="col-md-6 mb-3">
+                      <div class="col-md-2 mb-3">
+                        <label for="inc_ref">Reference No.</label>
+                        <input type="text" class="form-control" id="inc_ref" placeholder="Reference No." name="inc_ref" value="{{ $client_detail->reference_source}}" v-on:change="page_one.inc_ref = $event.target.value">              
+                      </div>
+                      <div class="col-md-5 mb-3">
                         <label>Has this form is uploaded and notified to Accounts:</label>
                         <br><input type="radio"  {{ $client_detail->nok_up == 'Yes' ? 'checked' : ''  }} id="nok_up"  value="Yes" name="nok_up">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio"  {{ $client_detail->nok_up == 'No' ? 'checked' : ''  }}  id="nok_up" value="No" name="nok_up">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;;                                        
                       </div> 
-                      <div class="col-md-6 mb-3">
+                      <div class="col-md-5 mb-3">
                         <label>Has this Admission been notified to Pharmacy:</label>
                         <br><input type="radio"  {{ $client_detail->nok_noti == 'Yes' ? 'checked' : ''  }} id="nok_noti"  value="Yes" name="nok_noti">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio"  {{ $client_detail->nok_noti == 'No' ? 'checked' : ''  }}  id="nok_noti" value="No" name="nok_noti">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;;                                      

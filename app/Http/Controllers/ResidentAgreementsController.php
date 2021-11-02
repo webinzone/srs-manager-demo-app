@@ -495,7 +495,10 @@ class ResidentAgreementsController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy', ResidentAgreement::class);
+        Rsa::where('rsa_id', '=', $id)->delete();
+
         ResidentAgreement::destroy($id);
+
         $activity = new ActivityLog();
 
         $activity->user = Auth::user()->first_name;
