@@ -94,7 +94,10 @@ class EvngshiftsController extends Controller
 
       $activity->user = Auth::user()->first_name;
       $activity->action = "Created";
-      $activity->item = "Evngshift Report";
+      $activity->item = "Evening shift Report";
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
       $activity->save();
 
       return redirect()->route('evngshifts.create')
@@ -170,7 +173,10 @@ class EvngshiftsController extends Controller
 
         $activity->user = Auth::user()->first_name;
         $activity->action = "Updated";
-        $activity->item = "Evngshift Report";
+        $activity->item = "Evening shift Report";
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
 
         return redirect()->route('evngshifts.index')
@@ -191,7 +197,10 @@ class EvngshiftsController extends Controller
 
         $activity->user = Auth::user()->first_name;
         $activity->action = "Deleted";
-        $activity->item = "Evngshift Report";
+        $activity->item = "Evening shift Report";
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
         return redirect()->route('evngshifts.index')
                         ->with('success','deleted successfully');

@@ -154,6 +154,9 @@ class TransferRecordsController extends Controller
       $activity->user = Auth::user()->first_name;
       $activity->action = "Created";
       $activity->item = "Transfer Report";
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
       $activity->save();
 
       return redirect()->route('transfer_records.index')
@@ -290,6 +293,9 @@ class TransferRecordsController extends Controller
         $activity->user = Auth::user()->first_name;
         $activity->action = "Updated";
         $activity->item = "Transfer Report";
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
 
          $val = request('val')  ?? '';
@@ -323,6 +329,9 @@ class TransferRecordsController extends Controller
         $activity->user = Auth::user()->first_name;
         $activity->action = "Deleted";
         $activity->item = "Transfer Report";
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
         return redirect()->route('transfer_records.index')
                         ->with('success','deleted successfully');

@@ -90,7 +90,11 @@ class AppointmentsController extends Controller
 
       $activity->user = Auth::user()->first_name;
       $activity->action = "Created";
-      $activity->item = "Appointment Report";
+      $activity->item = "Appointments";
+      $activity->company_id = Auth::user()->c_id  ?? '';
+      $activity->location_id = Auth::user()->l_id  ?? '';
+      $activity->user_id = Auth::user()->id;
+
       $activity->save();
 
       return redirect()->route('appointments.index')
@@ -162,7 +166,10 @@ class AppointmentsController extends Controller
 
         $activity->user = Auth::user()->first_name;
         $activity->action = "Updated";
-        $activity->item = "Appointment Report";
+        $activity->item = "Appointment";
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
 
         return redirect()->route('appointments.index')
@@ -183,7 +190,10 @@ class AppointmentsController extends Controller
 
         $activity->user = Auth::user()->first_name;
         $activity->action = "Deleted";
-        $activity->item = "Appointment Report";
+        $activity->item = "Appointment";
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
         return redirect()->route('appointments.index')
                         ->with('success','deleted successfully');

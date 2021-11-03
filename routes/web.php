@@ -121,6 +121,8 @@ Route::group(['middleware' => 'auth'], function () {
 
      Route::get('/cusers','DashboardController@cusers');
      Route::get('/vusers','DashboardController@vw_users')->name('vusers');
+     Route::get('/logs','DashboardController@logs');
+
 
      Route::get('get/resident/{id}', 'BookingsController@getbookDetails')->name('getbookDetails');
 

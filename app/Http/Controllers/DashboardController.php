@@ -84,4 +84,7 @@ class DashboardController extends Controller
        $vwusers = User::where('c_id', '=', $cid)->where('l_id', '=', $lid)->where('s_role', '=', $ctype)->get() ?? '';
        return view('viewusers',compact('vwusers'));
     }
+    public function logs(){
+        return view('logs');
+    }
 }

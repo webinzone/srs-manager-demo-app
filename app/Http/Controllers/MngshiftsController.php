@@ -128,7 +128,11 @@ class MngshiftsController extends Controller
 
       $activity->user = Auth::user()->first_name;
       $activity->action = "Created";
-      $activity->item = "Mngshift Report";
+      $activity->item = "Morning shift Report";
+
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
       $activity->save();
 
       return redirect()->route('mngshifts.create')
@@ -254,7 +258,11 @@ class MngshiftsController extends Controller
 
         $activity->user = Auth::user()->first_name;
         $activity->action = "Updated";
-        $activity->item = "Mngshift Report";
+        $activity->item = "Morning shift Report";
+
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
 
         return redirect()->route('mngshifts.index')
@@ -275,7 +283,11 @@ class MngshiftsController extends Controller
 
         $activity->user = Auth::user()->first_name;
         $activity->action = "Deleted";
-        $activity->item = "Mngshift Report";
+        $activity->item = "Morning shift Report";
+
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
         return redirect()->route('mngshifts.index')
                         ->with('success','deleted successfully');

@@ -306,7 +306,11 @@ class ClientsController extends Controller
         $activity = new ActivityLog();
         $activity->user = Auth::user()->first_name;
         $activity->action = "Added";
-        $activity->item = "Client";
+        $activity->item = "Resident";
+        
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
     
      
@@ -614,7 +618,11 @@ class ClientsController extends Controller
         $activity = new ActivityLog();
         $activity->user = Auth::user()->first_name;
         $activity->action = "Updated";
-        $activity->item = "Client";
+        $activity->item = "Resident";
+        
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
         
         $val = request('val')  ?? '';
@@ -726,7 +734,11 @@ class ClientsController extends Controller
         $activity = new ActivityLog();
         $activity->user = Auth::user()->first_name;
         $activity->action = "Deleted";
-        $activity->item = "Client";
+        $activity->item = "Resident";
+        
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
         return redirect()->route('clients.index')
                         ->with('success','deleted successfully');

@@ -297,6 +297,9 @@ class ResidentAgreementsController extends Controller
       $activity->user = Auth::user()->first_name;
       $activity->action = "Created";
       $activity->item = "Resident Agreement Report";
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
       $activity->save();
 
       return redirect()->route('resident_agreements.index')
@@ -470,6 +473,9 @@ class ResidentAgreementsController extends Controller
         $activity->user = Auth::user()->first_name;
         $activity->action = "Updated";
         $activity->item = "Resident Agreement Report";
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
 
         $val = request('val')  ?? '';
@@ -504,6 +510,9 @@ class ResidentAgreementsController extends Controller
         $activity->user = Auth::user()->first_name;
         $activity->action = "Deleted";
         $activity->item = "Resident Agreement Report";
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
         return redirect()->route('resident_agreements.index')
                         ->with('success','deleted successfully');

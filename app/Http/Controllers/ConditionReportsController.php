@@ -97,6 +97,10 @@ class ConditionReportsController extends Controller
       $activity->user = Auth::user()->first_name;
       $activity->action = "Created";
       $activity->item = "Condition Report";
+      
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
       $activity->save();
 
       return redirect()->route('condition_reports.index')
@@ -190,6 +194,10 @@ class ConditionReportsController extends Controller
         $activity->user = Auth::user()->first_name;
         $activity->action = "Updated";
         $activity->item = "Condition Report";
+        
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
 
         $val = request('val')  ?? '';
@@ -273,6 +281,10 @@ class ConditionReportsController extends Controller
         $activity->user = Auth::user()->first_name;
         $activity->action = "Deleted";
         $activity->item = "Condition Report";
+        
+        $activity->company_id = Auth::user()->c_id  ?? '';
+        $activity->location_id = Auth::user()->l_id  ?? '';
+        $activity->user_id = Auth::user()->id;
         $activity->save();
         return redirect()->route('condition_reports.index')
                         ->with('success','deleted successfully');
