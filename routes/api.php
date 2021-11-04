@@ -474,6 +474,18 @@ Route::resource('appointments', 'AppointmentsController',
         ]
     );
 
+    Route::resource('gp_details', 'GpDetailsController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.gp_details.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['gp_details' => 'gp_details_id']
+        ]
+    );
+
     Route::resource('echart', 'EchartController',
         [
             'names' =>

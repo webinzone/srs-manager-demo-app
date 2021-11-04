@@ -300,6 +300,12 @@
                     </a>
                   </li>
                   <li>
+                      <a href="{{ route('gp_details.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                        GP Details
+                    </a>
+                  </li>
+                  <li>
                       <a href="/logs" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
                         Activity Logs

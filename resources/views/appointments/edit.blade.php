@@ -74,16 +74,16 @@
 
                     <div class="form-group ">
                       
-                          <div class="col-md-3 mb-3">
-                        <label for="app_reason">Reason</label>
-                        <input type="text" class="form-control" value="{{ $appointment->app_reason}}" placeholder="Reason of the booked appointment" id="app_reason" name="app_reason"  v-on:change="page_one.app_reason = $event.target.value">                
+                          <div class="col-md-4 mb-3">
+                        <label for="app_reason">Purpose of the Appointment</label>
+                        <input type="text" class="form-control" value="{{ $appointment->app_reason}}" placeholder="Purpose" id="app_reason" name="app_reason"  v-on:change="page_one.app_reason = $event.target.value">                
                       </div>     
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-4 mb-3">
                         <label>Fasting ?</label>
                         <br><input type="radio"  id="fasting" {{ $appointment->fasting == 'Yes' ? 'checked' : ''  }}  value="Yes" name="fasting">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;
                         <input type="radio"  id="fasting" {{ $appointment->fasting == 'No' ? 'checked' : ''  }} value="No" name="fasting">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;                                        
                       </div>    
-                       <div class="col-md-3 mb-3">
+                       <div class="col-md-4 mb-3">
                         <label for="ent_no">Status</label>
                           <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
                             <option value="Pending" {{ $appointment->status == 'Pending' ? 'selected' : ''  }} style="font-size: 14px;">Pending</option> 
@@ -92,7 +92,14 @@
                             
                         </select>          
                       </div>     
-                        <div class="col-md-3 mb-3">
+                        
+                       
+                      
+                    </div>
+                        
+                    <div class="form-group">
+
+                       <div class="col-md-4 mb-3">
                         <label for="app_bookby">Booked by</label>
                         <select class="form-control" style="height: 26px;padding: 3px 10px;" id="app_bookby" name="app_bookby">
                              @foreach($emps as $emp)
@@ -100,22 +107,15 @@
                           @endforeach
                         </select>          
                         </div> 
-                       
-                      
-                    </div>
-                        
-                    <div class="form-group">
-
-                     
-    
+                       <div class="col-md-3 mb-3">
+                        <label >Re-scheduled Date</label>
+                        <input type="date" class="form-control" name="resc_date" value="{{ $appointment->resc_date}}" id="resc_date" {{ $appointment->status !== 'Re-scheduled' ? 'disabled' : ''  }} >          
+                        </div>      
                          <div class="col-md-5 mb-3">
                         <label for="app_note">Additional Information</label>
                         <textarea class="form-control"placeholder="Additional Information" id="app_note" name="app_note"  v-on:change="page_one.app_note = $event.target.value">{{ $appointment->app_note}}</textarea>
                       </div> 
-                          <div class="col-md-4 mb-3">
-                        <label >Re-scheduled Date</label>
-                        <input type="date" class="form-control" name="resc_date" value="{{ $appointment->resc_date}}" id="resc_date" {{ $appointment->status !== 'Re-scheduled' ? 'disabled' : ''  }} >          
-                      </div>      
+                          
                     </div>
                           
                     <div class="box-footer text-right">
