@@ -516,28 +516,45 @@
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label>Name</label>
-                        <input type="text" name="pr_name" id="pr_name" class="form-control" placeholder="Name" >                                       
+                        
+                        <select class="form-control" style="height: 26px;padding: 3px 10px;" id="nok_st" name="pr_name">
+                            <option>--   Select Staff Name  --</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
+                          @endforeach
+                        </select>                                   
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Witness</label>
-                        <input type="text" name="pr_wit" id="pr_wit" class="form-control" placeholder="Witness" >                                        
+                        <select class="form-control" style="height: 26px;padding: 3px 10px;" id="nok_st" name="pr_wit">
+                            <option>--   Select Staff Name  --</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
+                          @endforeach
+                        </select>                                      
                       </div>
                       
                       <div class="col-md-4 mb-3">
                         <label>Date</label>
                         <input type="date" name="pr_date" id="pr_date" class="form-control" placeholder="Date" >                                       
                       </div>
-                </div>
+                </div>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Resident</b></h5>
 
                 <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label>Name</label>
-                        <input type="text" name="re_name" id="re_name" class="form-control" placeholder="Name" >                                       
+                        <input type="text" name="re_name" id="re_name" class="form-control" placeholder="Name" readonly>                                       
                       </div>
                       <div class="col-md-4 mb-3">
                         <label>Witness</label>
-                        <input type="text" name="re_wt" id="re_wt" class="form-control" placeholder="Witness" >                                        
+                      
+                        <select class="form-control" style="height: 26px;padding: 3px 10px;" id="nok_st" name="re_wt">
+                            <option>--   Select Staff Name  --</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
+                          @endforeach
+                        </select>                                         
                       </div>
                       
                       <div class="col-md-4 mb-3">
@@ -637,7 +654,7 @@ $('#resi_name').change(function(){
                 $('#endperiod').val(response.end_period);
                 $('#adm_date').val(response.adm_date);           
                 $('#st_typ').val(response.respite);                   
-
+                $('#re_name').val(response.fname+' '+response.mname+' '+response.lname); 
             }
             else{
               alert("error");
@@ -716,6 +733,9 @@ $('#resi_name').change(function(){
     });
 });
 </script>
+
+
+
 <script type="text/javascript">
   function onlyOne(checkbox) {
     var checkboxes = document.getElementsByName('bath')
