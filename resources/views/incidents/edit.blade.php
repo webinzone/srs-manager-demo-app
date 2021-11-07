@@ -29,8 +29,7 @@
             <div class="box box-default">
                 <!-- box-header -->
                 <div class="box-header with-border text-center">
-                   <h3><b>Incident</b></h3>
-                   
+                   <h3><b>Incident Report - {{ $incident->icode }} </b></h3> <input  type="text" style="width: 50px;" name="icode" width="100px;"  required="" value="{{$incident->icode}}" readonly="" hidden="">
                 </div><!-- /.box-header -->
 
                 <!-- box-body -->

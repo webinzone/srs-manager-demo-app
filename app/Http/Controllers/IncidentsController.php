@@ -47,7 +47,7 @@ class IncidentsController extends Controller
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
         $l_n = $locations->master_name;
-        //$lname = substr($l_n, 2);
+        $lname = substr($l_n, 0, 2);
 
         $last_roomid        =   Incident::orderBy('created_at', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->first();
         if ($last_roomid) {
@@ -55,7 +55,7 @@ class IncidentsController extends Controller
         }
         else
         {
-            $str = 'NRI000';
+            $str = 'NRI'.$lname.'000';
         }
             //$item_no = ++$str;
             //$str = 'NRI - '+$lname+'000';
@@ -86,7 +86,7 @@ class IncidentsController extends Controller
         $val = request('val')  ?? 'non_reportable';
         $incident->category = $val;
         $incident->icode = request('icode') ?? ' ';
-        
+
         $incident->i_date = request('i_date') ?? ' ';
         $incident->i_time = request('i_time') ?? ' ';
         $incident->s_name = request('s_name') ?? ' ';
@@ -178,7 +178,7 @@ class IncidentsController extends Controller
         $incident->p_name = $name;
         $incident->client_id = $id;
         $incident->icode = request('icode') ?? ' ';
-        
+
         $incident->i_date = request('i_date') ?? ' ';
         $incident->i_time = request('i_time') ?? ' ';
         $incident->s_name = request('s_name') ?? ' ';
