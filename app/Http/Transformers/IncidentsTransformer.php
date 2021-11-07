@@ -25,9 +25,10 @@ class IncidentsTransformer
 
             $array = [
                 'id' => (int) $incident->id,
+                'category' => e($incident->category),
+
                 'i_date' => e(date('d-m-Y', strtotime($incident->i_date))),
                 'i_time' => e($incident->i_time),
-                's_name' => e($incident->s_name),
                 'p_name' => e($incident->p_name),
                 
                 'created_at' => e(date('d-m-Y', strtotime($incident->created_at))),

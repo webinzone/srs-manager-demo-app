@@ -9,6 +9,7 @@ use App\Models\ClientDetail;
 use App\Models\SrsStaff;
 use App\Models\CompanyMaster;
 use App\Models\LocationMaster;
+use App\Models\RoomItem;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -52,7 +53,8 @@ class ConditionReportsController extends Controller
         //$residents = $resid->where('status', '=', 'Active');
         $companies = CompanyMaster::all();
         $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
-        return view('condition_reports/create',compact('residents','companies','emps'));
+        $roomitems = RoomItem::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+        return view('condition_reports/create',compact('residents','companies','emps','roomitems'));
     }
 
 
@@ -152,7 +154,8 @@ class ConditionReportsController extends Controller
           $res_cond = explode(',', $condition_report->res_cond);
           $item_last= last($item_no);
           $num = (int)$item_last;
-        return view('condition_reports/edit',compact('condition_report','residents','companies','emps','item_no', 'res_comments', 'items', 'owned_by', 'res_cond', 'num'));
+          $roomitems = RoomItem::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+        return view('condition_reports/edit',compact('condition_report','residents','companies','emps','item_no', 'res_comments', 'items', 'owned_by', 'res_cond', 'num','roomitems'));
     }
     /**
      * Update the specified resource in storage.

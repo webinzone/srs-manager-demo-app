@@ -5,7 +5,7 @@ namespace App\Presenters;
  * Class AccessoryPresenter
  * @package App\Presenters
  */
-class IncidentPresenter extends Presenter
+class RoomItemPresenter extends Presenter
 {
     /**
      * Json Column Layout for bootstrap table
@@ -22,29 +22,17 @@ class IncidentPresenter extends Presenter
                 "title" => trans('id'),
                 "visible" => false
             ],[
-                "field" => "category",
+                "field" => "icode",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Incident Category')
+                "title" => trans('Item Code')
             ],[
-                "field" => "i_date",
+                "field" => "iname",
                 "searchable" => true,
                 "sortable" => true,
                 "visible" => true,
-                "title" => trans('Incident Date')
-            ],[
-                "field" => "i_time",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Incident Time')
-            ],[
-                "field" => "p_name",
-                "searchable" => true,
-                "sortable" => true,
-                "visible" => true,
-                "title" => trans('Person effected in incident')
+                "title" => trans('Item Name')
             ],[
                 "field" => "created_at",
                 "searchable" => true,
@@ -52,7 +40,7 @@ class IncidentPresenter extends Presenter
                 "visible" => true,
                 "title" => trans('Created Date')
             ],[
-                "field" => "actions_taken",
+                "field" => "actions",
                 "searchable" => false,
                 "sortable" => false,
                 "title" => trans('table.actions'),
@@ -71,7 +59,7 @@ class IncidentPresenter extends Presenter
      */
     public function nameUrl()
     {
-        return (string) link_to_route('incidents.show', $this->f_name, $this->id);
+        return (string) link_to_route('room_items.show', $this->room, $this->id);
     }
 
     /**
@@ -80,11 +68,11 @@ class IncidentPresenter extends Presenter
      */
     public function viewUrl()
     {
-        return route('incidents.show', $this->id);
+        return route('room_items.show', $this->id);
     }
 
     public function name()
     {
-        return $this->model->f_name;
+        return $this->model->room;
     }
 }

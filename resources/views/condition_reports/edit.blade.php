@@ -160,9 +160,14 @@
                                     <tr id="R{$i}">
                                       <td class="row-index text-center">
                                          <input type="text" name="item_no[]" value="{{  $item_no[$i] }}" >
-                                         </td>
+                                         </td>                                         
                                          <td class="row-index text-center">
-                                         <input name="items[]" type="text" value="{{  $items[$i] }}">
+                                             <select name="items[]" class="form-control" style="height: 26px;padding: 3px 10px;">
+                                                <option>--Select Item--</option>
+                                              @foreach($roomitems as $item)
+                                              <option value="{{ $item->iname }}" {{ $items[$i] == $item->iname ? 'selected' : ''  }}> {{ $item->iname}} </option>
+                                              @endforeach
+                                            </select>
                                          </td>
                                          <td class="row-index text-center">
                                             <select name="owned_by[]" class="form-control" style="height: 26px;padding: 3px 10px;"> 
@@ -283,8 +288,13 @@ $('#resname').change(function(){
              <input type="text" name="item_no[]" value="${rowIdx}" readonly>
              </td>
              <td class="row-index text-center">
-             <input name="items[]" type="text" >
-             </td>
+             <select name="items[]" class="form-control" style="height: 26px;padding: 3px 10px;">
+                <option>--Select Item--</option>
+              @foreach($roomitems as $item)
+              <option value="{{ $item->iname }}"> {{ $item->iname}} </option>
+              @endforeach
+            </select>
+            </td>
              <td class="row-index text-center">
              <select name="owned_by[]" class="form-control" style="height: 26px;padding: 3px 10px;"> 
                 <option value="" style="font-size: 14px;">---Select--</option> 

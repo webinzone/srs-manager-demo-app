@@ -7,6 +7,21 @@
 
 @section('header_right')
     @can('create', \App\Models\Incident::class)
+     <button style="border-color: #23536f;background-color: #307095;height: 35px;width: 100px; color: white;padding: 5px;font-size: 14px;" class="dropdown">
+                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color:white;">Incidents <span class="caret"></span></a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="/reportable">Reportable</a>
+                                  <li class="divider"></li>
+                                <li><a href="/non_reportable">Non Reportable</a></li>
+                                <li class="divider"></li>
+                            
+                              </ul>
+                          </button>
+
+
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
         <a href="{{ route('incidents.create') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Create New</a>
     @endcan
 @stop

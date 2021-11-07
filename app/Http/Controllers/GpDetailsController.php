@@ -32,7 +32,7 @@ class GpDetailsController extends Controller
     public function index()
     {
         $this->authorize('index', GpDetail::class);
-        $gp_details = GpDetail::all();
+        $gp_details = GpDetail::orderBy('created_at', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
         return view('gp_details/index',compact('gp_details'));
     }
 

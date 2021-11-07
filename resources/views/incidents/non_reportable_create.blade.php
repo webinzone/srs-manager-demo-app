@@ -20,14 +20,14 @@
         <!-- col-md-8 -->
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0">
 
-          <form id="create-form" class="form-horizontal" method="post" action="{{ route('incidents.store',['val' => 'reportable']) }}" autocomplete="off" role="form" style="width: 800px;">
+          <form id="create-form" class="form-horizontal" method="post" action="{{ route('incidents.store') }}" autocomplete="off" role="form" style="width: 800px;">
                  {{ csrf_field() }}
 
             <!-- box -->
             <div class="box box-default">
                 <!-- box-header -->
                 <div class="box-header with-border text-center">
-                   <h3><b>Reportable Incident - {{ $icode }}</b></h3> <input  type="text" style="width: 50px;" name="em_id" width="100px;"  required="" value="{{$icode}}" readonly="" hidden="">
+                   <h3><b>Reportable Incident</b></h3>
                    
                 </div><!-- /.box-header -->
 

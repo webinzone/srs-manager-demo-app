@@ -232,6 +232,18 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'auth:api']
         ]
     ); 
 
+    Route::resource('room_items', 'RoomItemsController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.room_items.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['room_items' => 'room_items_id']
+        ]
+    );
+
      Route::resource('support_plans', 'SupportPlansController',
         [
             'names' =>

@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('beds','BedsController'); 
     Route::resource('certificates','CertificatesController'); 
     Route::resource('gp_details','GpDetailsController'); 
+    Route::resource('room_items','RoomItemsController'); 
 
     Route::get('development', 'DashboardController@development')->name('development');   
 
@@ -124,6 +125,9 @@ Route::group(['middleware' => 'auth'], function () {
      Route::get('/vusers','DashboardController@vw_users')->name('vusers');
      Route::get('/logs','DashboardController@logs');
 
+     Route::get('/non_reportable_create','IncidentsController@non_reportable_create');
+     Route::get('/reportable','IncidentsController@reportable');
+     Route::get('/non_reportable','IncidentsController@non_reportable');
 
      Route::get('get/resident/{id}', 'BookingsController@getbookDetails')->name('getbookDetails');
 

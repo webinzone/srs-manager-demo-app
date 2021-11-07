@@ -45,7 +45,23 @@ class IncidentsController extends Controller
          // Show the page
         $this->authorize('create',Incident::class);
         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
-        return view('incidents/create',compact('residents'));
+        $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $l_n = $locations->master_name;
+        //$lname = substr($l_n, 2);
+
+        $last_roomid        =   Incident::orderBy('created_at', 'desc')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->first();
+        if ($last_roomid) {
+            $str = $last_roomid->icode;
+        }
+        else
+        {
+            $str = 'NRI000';
+        }
+            //$item_no = ++$str;
+            //$str = 'NRI - '+$lname+'000';
+        
+        $icode = ++$str;
+        return view('incidents/create',compact('residents','icode'));
     }
 
 
@@ -66,13 +82,16 @@ class IncidentsController extends Controller
         $name = $res->fname." ".$res->mname." ".$res->lname;
         $incident->p_name = $name;
         $incident->client_id = $id;
-
+        
+        $val = request('val')  ?? 'non_reportable';
+        $incident->category = $val;
+        $incident->icode = request('icode') ?? ' ';
+        
         $incident->i_date = request('i_date') ?? ' ';
         $incident->i_time = request('i_time') ?? ' ';
         $incident->s_name = request('s_name') ?? ' ';
         $incident->s_sign = request('s_sign') ?? ' ';
         
-
         $incident->place = request('place') ?? ' ';
         $incident->doctor = request('doctor') ?? ' ';
         $incident->nok = request('nok') ?? ' ';
@@ -158,7 +177,8 @@ class IncidentsController extends Controller
         $name = $res->fname." ".$res->mname." ".$res->lname;
         $incident->p_name = $name;
         $incident->client_id = $id;
-
+        $incident->icode = request('icode') ?? ' ';
+        
         $incident->i_date = request('i_date') ?? ' ';
         $incident->i_time = request('i_time') ?? ' ';
         $incident->s_name = request('s_name') ?? ' ';
@@ -305,6 +325,25 @@ class IncidentsController extends Controller
       $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
 
       return view('incidents/report',compact('incident','locations'));
+    }
+
+    public function non_reportable_create(){
+         $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        return view('incidents/non_reportable_create',compact('residents'));   
+    }
+
+    public function reportable(){
+        $incidents = Incident::where('category', '=', 'reportable')->orderBy('created_at')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+         $i = 0;
+        
+        return view('incidents/reportable',compact('incidents','i'));
+    }
+
+    public function non_reportable(){
+        $incidents = Incident::where('category', '=', 'non_reportable')->orderBy('created_at')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+         $i = 0;
+
+        return view('incidents/non_reportable',compact('incidents','i'));
     }
 
 }
