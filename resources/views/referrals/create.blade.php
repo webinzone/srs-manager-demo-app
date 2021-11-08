@@ -55,48 +55,53 @@
                 <div class="box-body" style="padding-left: 50px;">
                    <h5 style="color:#980000;font-size: 16px;"><b>Client  Details</b></h5>
 
-                <div class="form-row">
+                <div class="form-row">                      
                       <div class="col-md-3 mb-3">
-                        <label>Rsident Name</label>                        
-                        <select class="form-control" required="" id="resi_name" name="cfname" style="height: 26px;padding: 3px 10px;">
-                            <option>--   Select Resident Name  --</option>
-                          @foreach($residents as $resident)
-                          <option value="{{ $resident->id }}"> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
-                          @endforeach
-                        </select>                                      
+                        <label for="fname">First name</label>
+                        <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" >                
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="mname">Middle name</label>
+                        <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value">                
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="lname">Last name</label>
+                        <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname"  v-on:change="page_one.lname = $event.target.value">                
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Surname:</label>
                         <input type="text" name="csurname" class="form-control" placeholder="Surname:">                                        
                       </div>
-
-                      <div class="col-md-3 mb-3">
+                    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-row">
+                    <div class="col-md-3 mb-3">
                         <label>Date of Birth</label>
-                        <input type="date" name="cdob" id="dob" class="form-control" placeholder="Date of Birth" readonly>                                       
+                        <input type="date" name="cdob" id="dob" class="form-control" placeholder="Date of Birth" >                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="cgender">Gender</label>&nbsp;&nbsp;&nbsp;
-                          <input type="text" id="gender" name="cgender" class="form-control" placeholder="Gender" readonly>
+                          <input type="text" id="gender" name="cgender" class="form-control" placeholder="Gender" >
                        
                       </div>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Religion</label>
-                        <input type="text" name="creligion" id="rel" class="form-control" placeholder="Religion" readonly>                                        
+                        <input type="text" name="creligion" id="rel" class="form-control" placeholder="Religion" >                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Mobile</label>
-                        <input type="tel" name="cph" class="form-control" id="ph1" placeholder=" Mobile" readonly>                                        
+                        <input type="tel" name="cph" class="form-control" id="ph1" placeholder=" Mobile" >                                        
                       </div>
+                    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-row">
+                
                        <div class="col-md-3 mb-3">
                         <label>Email ID</label>
-                        <input type="email" name="cemail" id="em1" class="form-control" placeholder="Email ID" readonly>                                       
+                        <input type="email" name="cemail" id="em1" class="form-control" placeholder="Email ID" >                                       
                       </div>
                      
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-9 mb-3" >
                         <label>Current Address</label>
-                        <textarea name="caddress" id="addrr" class="form-control" placeholder="Current Address" readonly></textarea>
+                        <textarea name="caddress" id="addrr" style="width: 300px;" class="form-control" placeholder="Current Address" ></textarea>
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
                 <h5 style="color:#980000;font-size: 16px;"><b>CONSENT TO RELEASE OF INFORMATION</b></h5>
@@ -203,7 +208,7 @@
                <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Name</label>
-                        <input type="text" name="nok_name" id="nname" class="form-control" placeholder="Name" readonly>                                        
+                        <input type="text" name="nok_name" id="nname" class="form-control" placeholder="Name" >                                        
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Relation</label>
@@ -213,15 +218,15 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Address</label>
-                        <textarea name="nok_address" id="nadr" class="form-control" placeholder="Address" readonly></textarea>                                        
+                        <textarea name="nok_address" id="nadr" class="form-control" placeholder="Address" ></textarea>                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Email</label>
-                        <input type="email" id="nemail" name="nok_email" class="form-control" placeholder="Email" readonly>                                        
+                        <input type="email" id="nemail" name="nok_email" class="form-control" placeholder="Email" >                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Phone</label>
-                        <input type="tel" name="nok_ph" id="nph" class="form-control" placeholder="Phone" readonly>                                       
+                        <input type="tel" name="nok_ph" id="nph" class="form-control" placeholder="Phone" >                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Medical Practitioner</b></h5>
@@ -229,25 +234,25 @@
                <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Name</label>
-                        <input type="text" name="gp_name" id="gpname" class="form-control" placeholder="Name" readonly>                                        
+                        <input type="text" name="gp_name" id="gpname" class="form-control" placeholder="Name" >                                        
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Address</label>
-                        <textarea name="gp_address" id="gpadr" class="form-control" placeholder="Address" readonly></textarea>                                        
+                        <textarea name="gp_address" id="gpadr" class="form-control" placeholder="Address" ></textarea>                                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Phone</label>
-                        <input type="tel" id="gpph" name="gp_ph" class="form-control" placeholder="Phone" readonly>                                        
+                        <input type="tel" id="gpph" name="gp_ph" class="form-control" placeholder="Phone" >                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Fax</label>
-                        <input type="text" id="gpfax" name="gp_fax" class="form-control" placeholder="Fax" readonly>                                        
+                        <input type="text" id="gpfax" name="gp_fax" class="form-control" placeholder="Fax" >                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Email</label>
-                        <input type="email" id="gpemail" name="gp_email" class="form-control" placeholder="Email" readonly>                                       
+                        <input type="email" id="gpemail" name="gp_email" class="form-control" placeholder="Email" >                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Guardian Details (if the client has guardian)</b></h5>
@@ -259,21 +264,21 @@
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Name</label>
-                        <input type="text" id="gname" name="gua_name" class="form-control" placeholder="Name" readonly>                                        
+                        <input type="text" id="gname" name="gua_name" class="form-control" placeholder="Name" >                                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Address</label>
-                        <textarea name="gua_addr" id="gadr" class="form-control" placeholder="Address" readonly></textarea>                                        
+                        <textarea name="gua_addr" id="gadr" class="form-control" placeholder="Address" ></textarea>                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Email ID</label>
-                        <input type="email" id="gemail" name="gua_email" class="form-control" placeholder="Email ID" readonly>                                        
+                        <input type="email" id="gemail" name="gua_email" class="form-control" placeholder="Email ID" >                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Phone</label>
-                        <input type="tel" name="gua_ph" id="gph" class="form-control" placeholder="Phone" readonly>                                       
+                        <input type="tel" name="gua_ph" id="gph" class="form-control" placeholder="Phone" >                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;">[If the client has an administrator]</h5>
@@ -307,26 +312,26 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Type of Income</label>
-                        <input type="text" class="form-control" id="tof" name="pen_type" placeholder="Type of Income" readonly>
+                        <input type="text" class="form-control" id="tof" name="pen_type" placeholder="Type of Income" >
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Client Ref Number</label>
-                        <input type="text" name="pen_refno" id="ref" class="form-control" placeholder="Client Ref Number" readonly>                                          
+                        <input type="text" name="pen_refno" id="ref" class="form-control" placeholder="Client Ref Number" >                                          
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Medicare Number</label>
-                        <input type="text" name="pen_medino" id="medi1" class="form-control" placeholder="Medicare Number" readonly >                                       
+                        <input type="text" name="pen_medino" id="medi1" class="form-control" placeholder="Medicare Number"  >                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Expiry Date</label>
-                        <input type="month" style="height: 26px;" name="pen_mediexp" id="mediexp" class="form-control" placeholder="Expiry Date" readonly>                                        
+                        <input type="month" style="height: 26px;" name="pen_mediexp" id="mediexp" class="form-control" placeholder="Expiry Date" >                                        
                       </div>
                       
                       <div class="col-md-3 mb-3">
                         <label>Taxi Card Concession Number</label>
-                        <input type="text" name="pen_taxi" id="taxi" class="form-control" placeholder="Taxi Card Concession Number" readonly>                                       
+                        <input type="text" name="pen_taxi" id="taxi" class="form-control" placeholder="Taxi Card Concession Number" >                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Expiry Date</label>

@@ -86,11 +86,11 @@ class ReferralsController extends Controller
         $referral->ref_email = request('ref_email') ?? '';
         $referral->ref_ph = request('ref_ph') ?? '';
 
-        $id = request('cfname') ?? '';
-        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $name = $res->fname." ".$res->mname." ".$res->lname;
+        //$id = request('cfname') ?? '';
+        //$res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        //$name = $res->fname." ".$res->mname." ".$res->lname;
 
-        $referral->cfname = $name ?? '';
+        $referral->cfname = request('fname')."  ".request('mname')."  ".request('lname');
         $referral->client_id = $id ?? '';
 
         $referral->csurname = request('csurname') ?? '';  
@@ -410,7 +410,7 @@ class ReferralsController extends Controller
         $this->authorize('edit',Referral::class);
         $referral = Referral::find($id);
         $referral2 = Referral2::where('client_id', '=', $referral->id)->firstOrFail();
-        
+        $name = explode("  ", $referral->cfname);
 
         $drug = explode(',', $referral->medi_drugname);
         $drug = array_filter($drug, 'strlen');
@@ -544,7 +544,7 @@ class ReferralsController extends Controller
 
         $residents = ClientDetail::where('status', '=', 'Active')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('fname')->get() ?? '';
         $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
-        return view('referrals/edit',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num','ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10','a1_ch1','a2_ch2','a3_ch3','a4_ch4','a2_ch1','a2_ch2','a2_ch3','a2_ch4','a3_ch1','a3_ch2'));
+        return view('referrals/edit',compact('referral','residents','emps','referral2','drug','dose','freq','duration','last','num','ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8','ch9','ch10','a1_ch1','a2_ch2','a3_ch3','a4_ch4','a2_ch1','a2_ch2','a2_ch3','a2_ch4','a3_ch1','a3_ch2','name'));
     }
     /**
      * Update the specified resource in storage.
@@ -573,11 +573,11 @@ class ReferralsController extends Controller
         $referral->ref_email = request('ref_email') ?? '';
         $referral->ref_ph = request('ref_ph') ?? '';
 
-        $id = request('cfname') ?? '';
-        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $name = $res->fname." ".$res->mname." ".$res->lname;
+        //$id = request('cfname') ?? '';
+        //$res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        //$name = $res->fname." ".$res->mname." ".$res->lname;
 
-        $referral->cfname = $name ?? '';
+        $referral->cfname = request('fname')."  ".request('mname')."  ".request('lname');
         $referral->client_id = $id ?? '';
 
         $referral->csurname = request('csurname') ?? '';  

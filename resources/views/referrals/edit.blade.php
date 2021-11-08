@@ -56,46 +56,53 @@
 
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
-                        <label>Rsident Name</label>                        
-                        <select class="form-control" required="" id="resi_name" name="cfname" style="height: 26px;padding: 3px 10px;">
-                            <option>--   Select Resident Name  --</option>
-                          @foreach($residents as $resident)
-                            <option value="{{ $resident->id }}" {{ $referral->cfname == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
-                          @endforeach
-                        </select>                                      
+                        <label for="fname">First name</label>
+                        <input type="text" class="form-control" value="{{ $name[0]}}" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" >                
                       </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="mname">Middle name</label>
+                        <input type="text" class="form-control" value="{{ $name[1]}}" placeholder="Middle Name" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value">                
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <label for="lname">Last name</label>
+                        <input type="text" class="form-control" value="{{ $name[2]}}" placeholder="Last Name" id="lname" name="lname"  v-on:change="page_one.lname = $event.target.value">                
+                      </div>
+
                       <div class="col-md-3 mb-3">
                         <label>Surname:</label>
                         <input type="text" name="csurname" class="form-control" value="{{ $referral->csurname}}" placeholder="Surname:">                                        
                       </div>
-
+                  </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="form-row">
+                
                       <div class="col-md-3 mb-3">
                         <label>Date of Birth</label>
-                        <input type="date" name="cdob" id="dob" class="form-control" value="{{ $referral->cdob}}" placeholder="Date of Birth" readonly>                                       
+                        <input type="date" name="cdob" id="dob" class="form-control" value="{{ $referral->cdob}}" placeholder="Date of Birth" >                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="cgender">Gender</label>&nbsp;&nbsp;&nbsp;
-                          <input type="text" id="gender" name="cgender" class="form-control" value="{{ $referral->cgender}}" placeholder="Gender" readonly>
+                          <input type="text" id="gender" name="cgender" class="form-control" value="{{ $referral->cgender}}" placeholder="Gender" >
                        
                       </div>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Religion</label>
-                        <input type="text" name="creligion" id="rel" class="form-control" value="{{ $referral->creligion}}" placeholder="Religion" readonly>                                        
+                        <input type="text" name="creligion" id="rel" class="form-control" value="{{ $referral->creligion}}" placeholder="Religion" >                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Mobile</label>
-                        <input type="tel" name="cph" class="form-control"value="{{ $referral->cph}}" id="ph1" placeholder=" Mobile" readonly>                                        
+                        <input type="tel" name="cph" class="form-control"value="{{ $referral->cph}}" id="ph1" placeholder=" Mobile" >                                        
                       </div>
+                      </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-row">
+                
                        <div class="col-md-3 mb-3">
                         <label>Email ID</label>
-                        <input type="email" name="cemail" id="em1" class="form-control" value="{{ $referral->cemail}}" placeholder="Email ID" readonly>                                       
+                        <input type="email" name="cemail" id="em1" class="form-control" value="{{ $referral->cemail}}" placeholder="Email ID" >                                       
                       </div>
                      
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-9 mb-3">
                         <label>Current Address</label>
-                        <textarea name="caddress" id="adr" class="form-control" placeholder="Current Address" readonly>{{ $referral->caddress}} </textarea>
+                        <textarea name="caddress" id="adr" style="width: 300px;" class="form-control" placeholder="Current Address" >{{ $referral->caddress}} </textarea>
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>CONSENT TO RELEASE OF INFORMATION</b></h5>
@@ -202,7 +209,7 @@
                <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Name</label>
-                        <input type="text" name="nok_name" id="nname" class="form-control" value="{{ $referral->nok_name}}" placeholder="Name" readonly>                                        
+                        <input type="text" name="nok_name" id="nname" class="form-control" value="{{ $referral->nok_name}}" placeholder="Name" >                                        
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Relation</label>
@@ -212,15 +219,15 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Address</label>
-                        <textarea name="nok_address" id="nadr" class="form-control" placeholder="Address" readonly>{{ $referral->nok_address}}</textarea>                                        
+                        <textarea name="nok_address" id="nadr" class="form-control" placeholder="Address" >{{ $referral->nok_address}}</textarea>                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Email</label>
-                        <input type="email" id="nemail" name="nok_email" class="form-control" value="{{ $referral->nok_email}}" placeholder="Email" readonly>                                        
+                        <input type="email" id="nemail" name="nok_email" class="form-control" value="{{ $referral->nok_email}}" placeholder="Email" >                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Phone</label>
-                        <input type="tel" name="nok_ph" id="nph" class="form-control" value="{{ $referral->nok_ph}}" placeholder="Phone" readonly>                                       
+                        <input type="tel" name="nok_ph" id="nph" class="form-control" value="{{ $referral->nok_ph}}" placeholder="Phone" >                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Medical Practitioner</b></h5>
@@ -228,25 +235,25 @@
                <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Name</label>
-                        <input type="text" name="gp_name" id="gpname" class="form-control" value="{{ $referral->gp_name}}" placeholder="Name" readonly>                                        
+                        <input type="text" name="gp_name" id="gpname" class="form-control" value="{{ $referral->gp_name}}" placeholder="Name" >                                        
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Address</label>
-                        <textarea name="gp_address" id="gpadr" class="form-control" placeholder="Address" readonly>{{ $referral->gp_address}}</textarea>                                        
+                        <textarea name="gp_address" id="gpadr" class="form-control" placeholder="Address" >{{ $referral->gp_address}}</textarea>                                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Phone</label>
-                        <input type="tel" id="gpph" name="gp_ph" class="form-control" value="{{ $referral->gp_ph}}" placeholder="Phone" readonly>                                        
+                        <input type="tel" id="gpph" name="gp_ph" class="form-control" value="{{ $referral->gp_ph}}" placeholder="Phone" >                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Fax</label>
-                        <input type="text" id="gpfax" name="gp_fax" class="form-control" value="{{ $referral->gp_fax}}" placeholder="Fax" readonly>                                        
+                        <input type="text" id="gpfax" name="gp_fax" class="form-control" value="{{ $referral->gp_fax}}" placeholder="Fax" >                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Email</label>
-                        <input type="email" id="gpemail" name="gp_email" class="form-control" value="{{ $referral->gp_email}}" placeholder="Email" readonly>                                       
+                        <input type="email" id="gpemail" name="gp_email" class="form-control" value="{{ $referral->gp_email}}" placeholder="Email" >                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;"><b>Guardian Details (if the client has guardian)</b></h5>
@@ -258,21 +265,21 @@
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Name</label>
-                        <input type="text" id="gname" name="gua_name" class="form-control" value="{{ $referral->gua_name}}" placeholder="Name" readonly>                                        
+                        <input type="text" id="gname" name="gua_name" class="form-control" value="{{ $referral->gua_name}}" placeholder="Name" >                                        
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Address</label>
-                        <textarea name="gua_addr" id="gadr" class="form-control" placeholder="Address" readonly>{{ $referral->gua_addr}}</textarea>                                        
+                        <textarea name="gua_addr" id="gadr" class="form-control" placeholder="Address" >{{ $referral->gua_addr}}</textarea>                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Email ID</label>
-                        <input type="email" id="gemail" name="gua_email" class="form-control" value="{{ $referral->gua_email}}" placeholder="Email ID" readonly>                                        
+                        <input type="email" id="gemail" name="gua_email" class="form-control" value="{{ $referral->gua_email}}" placeholder="Email ID" >                                        
                       </div>
                        <div class="col-md-3 mb-3">
                         <label>Phone</label>
-                        <input type="tel" name="gua_ph" id="gph" class="form-control" value="{{ $referral->gua_ph}}" placeholder="Phone" readonly>                                       
+                        <input type="tel" name="gua_ph" id="gph" class="form-control" value="{{ $referral->gua_ph}}" placeholder="Phone" >                                       
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <h5 style="color:#980000;font-size: 16px;">[If the client has an administrator]</h5>
@@ -306,26 +313,26 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Type of Income</label>
-                        <input type="text" class="form-control" value="{{ $referral->pen_type}}" id="tof" name="pen_type" placeholder="Type of Income" readonly>
+                        <input type="text" class="form-control" value="{{ $referral->pen_type}}" id="tof" name="pen_type" placeholder="Type of Income" >
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Client Ref Number</label>
-                        <input type="text" name="pen_refno" id="ref" class="form-control" value="{{ $referral->pen_refno}}" placeholder="Client Ref Number" readonly>                                          
+                        <input type="text" name="pen_refno" id="ref" class="form-control" value="{{ $referral->pen_refno}}" placeholder="Client Ref Number" >                                          
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>Medicare Number</label>
-                        <input type="text" name="pen_medino" id="medi1" class="form-control" value="{{ $referral->pen_medino}}" placeholder="Medicare Number" readonly >                                       
+                        <input type="text" name="pen_medino" id="medi1" class="form-control" value="{{ $referral->pen_medino}}" placeholder="Medicare Number"  >                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Expiry Date</label>
-                        <input type="month" name="pen_mediexp" id="mediexp" class="form-control" value="{{ $referral->pen_mediexp}}" placeholder="Expiry Date" readonly>                                        
+                        <input type="month" name="pen_mediexp" id="mediexp" class="form-control" value="{{ $referral->pen_mediexp}}" placeholder="Expiry Date" >                                        
                       </div>
                       
                       <div class="col-md-3 mb-3">
                         <label>Taxi Card Concession Number</label>
-                        <input type="text" name="pen_taxi" id="taxi" class="form-control" value="{{ $referral->pen_taxi}}" placeholder="Taxi Card Concession Number" readonly>                                       
+                        <input type="text" name="pen_taxi" id="taxi" class="form-control" value="{{ $referral->pen_taxi}}" placeholder="Taxi Card Concession Number" >                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Expiry Date</label>

@@ -190,7 +190,7 @@ class SrsStaffsController extends Controller
     {
         $this->authorize('edit',SrsStaff::class);
         $srs_staff = SrsStaff::find($id);
-        $name = explode(' ', $srs_staff->name);
+        $name = explode("  ", $srs_staff->name);
 
         $item_no = explode(',', $srs_staff->item_no);
         $quali = explode(',', $srs_staff->quali);

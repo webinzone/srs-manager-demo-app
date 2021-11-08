@@ -120,20 +120,17 @@
                     <h4 class="mb-3"><b>Personal Information</b></h4><br>              
                     
                     <div class="form-row">
-                      <div class="col-md-3 mb-3">
-                        <label for="fname">First name</label>
-                        <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" >                
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="mname">Middle name</label>
-                        <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value">                
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="lname">Last name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname"  v-on:change="page_one.lname = $event.target.value">                
-                      </div>
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label for="fname">Name of the Resident</label>
+                        <select class="form-control" required id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
+                            <option>--   Select Resident Name  --</option>
+                          @foreach($residents as $resident)
+                          <option value="{{ $resident->id }}"> {{ $resident->cfname }}</option>
+                          @endforeach
+                        </select>
+                    </div>
+
+                   
                       <div class="col-md-2 mb-3">
                         <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
                         <select name="gender"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
@@ -149,21 +146,23 @@
                         <label for="dob">Date of birth</label>
                         <input type="date" class="form-control" id="dob" placeholder="Date of birth" name="dob" v-on:change="page_one.dob = $event.target.value">              
                       </div>
-                      <div class="col-md-2 mb-3">
+                       </div>&nbsp;&nbsp;&nbsp;
+                        <div class="form-row">
+                      <div class="col-md-3 mb-3">
                         <label for="religion">Religion</label>
                         <input type="text" class="form-control" id="religion" placeholder="Religion"  name="religion" v-on:change="page_one.religion = $event.target.value">              
                       </div>
-                      <div class="col-md-2 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label for="nationality">Nationality</label>
                         <input type="text" class="form-control" id="nationality" placeholder="Nationality"  name="nationality" v-on:change="page_one.nationality = $event.target.value">            
                       </div> 
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
                        <div class="col-md-3 mb-3">
                         <label for="res_ph">Mobile Number</label>
                         <input type="tel" class="form-control" id="res_ph" placeholder="Phone" name="ph"  v-on:change="page_one.res_ph = $event.target.value">          
                       </div>
-
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+                      
                       <div class="col-md-3 mb-3">
                         <label for="res_email">Email</label>
                         <input type="email" class="form-control" id="res_email" placeholder="Email"  name="res_email"  v-on:change="page_one.res_email = $event.target.value">                
@@ -181,19 +180,19 @@
                         <label for="l_known">Languages Known</label>
                         <input type="text" class="form-control" id="l_known" placeholder="Languages Known"  name="l_known"  v-on:change="page_one.l_known = $event.target.value">          
                       </div>  
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
 
 
                       <div class="col-md-3 mb-3">
                         <label for="pre_address">Previous Address</label>
                         <input type="text" class="form-control" id="pre_address" placeholder="Previous Address" name="pre_address"  v-on:change="page_one.pre_address = $event.target.value">          
                       </div>
+
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
                       <div class="col-md-3 mb-3" >
                         <label for="medicard_no">Medicare card no.</label>
                         <input type="text" class="form-control" id="medicard_no" placeholder="Medicare card number" name="medicard_no"  v-on:change="page_one.medicard_no = $event.target.value">
                         </div>
-                      
 
                       <div class="col-md-3 mb-3">
                         <label for="expiry_date">Expiry Month & Year</label>
@@ -204,11 +203,6 @@
                         <input type="text" style="width:200px;" class="form-control" id="ent_no" placeholder="Entitlement No" name="ent_no"  v-on:change="page_one.ent_no = $event.target.value">            
                       </div>
                        
-
-                    </div>&nbsp;&nbsp;&nbsp;
-                    
-                      
-                      <div class="form-row">  
                       <div class="col-md-3 mb-3">
                         <label for="respite">Respite/permanent</label>
                        <select name="respite" id="respite" class="form-control" style="height: 26px;padding: 3px 10px;"> 
@@ -217,6 +211,9 @@
                         </select> 
                   
                       </div> 
+
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
                                      
                       <div class="col-md-3 mb-3">
                         <label for="weeks">Book From</label>
@@ -232,8 +229,6 @@
                         <input type="date" class="form-control" id="adm_date" placeholder="Admission Date" name="adm_date"  v-on:change="page_one.adm_date = $event.target.value" disabled>          
                       </div>
 
-                       </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label for="room_no">Room No</label>
                         <select class="form-control" required  id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
@@ -244,6 +239,9 @@
                         </select>
 
                       </div>
+
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
                       <div class="col-md-3 mb-3">
 
                         <label for="ref_by">Bed no</label>
@@ -264,17 +262,24 @@
                       </div>   
                       
                       
-                        </div>&nbsp;&nbsp;&nbsp;
-                        <div class="form-row">                        
+                    <div class="col-md-3 mb-3">
+
+                        <label for="ref_by">Ref By</label>
+                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
+                      </div> 
+
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+
                        <div class="col-md-6 mb-3">
                         <label for="ent_no">Allergy Details</label>
                         <textarea placeholder="Allergy Details" class="form-control" name="allergy_det"  v-on:change="page_one.allergy_det = $event.target.value"></textarea>
 
                                   
-                      </div> 
-                       <div class="col-md-3 mb-3">
+                      </div>
+                       <div class="col-md-6 mb-3">
                         <label for="ent_no">Status</label>
-                          <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                          <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;width: 200px;"> 
                             <option value="Active" style="font-size: 14px;">Active</option> 
                             <option value="Vaccate" style="font-size: 14px;">Vaccate</option> 
                             <option value="Transfered" style="font-size: 14px;">Transfered</option>
@@ -282,12 +287,9 @@
 
                       </div> 
                     
-                    <div class="col-md-3 mb-3">
-
-                        <label for="ref_by">Ref By</label>
-                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
-                      </div>
                        
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
                    
                      
                       <!--<div class="col-md-4 mb-3">

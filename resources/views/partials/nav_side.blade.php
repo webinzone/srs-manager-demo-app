@@ -356,6 +356,14 @@
                   <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu" style="background-color: #2c3b41;color: white;width: 177px;">
+
+                  
+                  <li>
+                      <a href="{{ route('referrals.index') }}" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                         Referal Record
+                    </a>
+                  </li>
                   
                   <li>
                       <a href="{{ route('clients.index') }}" style="color: #b8c7ce;">
@@ -378,12 +386,6 @@
                     </a>
                   </li>
 
-                  <li>
-                      <a href="{{ route('referrals.index') }}" style="color: #b8c7ce;">
-                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                         Referal Record
-                    </a>
-                  </li>
 
                     <li>
                       <a href="{{ route('support_plans.index') }}" style="color: #b8c7ce;">

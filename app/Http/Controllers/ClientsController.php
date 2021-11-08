@@ -62,18 +62,24 @@ class ClientsController extends Controller
          
         $this->authorize('create');
         $status = "Vacant";
+        $residents = Referral::orderBy('cfname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         $rooms = RoomDetail::where('status', '=', $status)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
         $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
-        return view('clients/create',compact('rooms', 'emps'));
+        return view('clients/create',compact('rooms', 'emps', 'residents'));
     }
 
     public function store()
     {
         
-        $client_detail = new ClientDetail();    
-        $client_detail->fname = request('fname');
-        $client_detail->mname = request('mname') ?? '';
-        $client_detail->lname = request('lname');
+        $client_detail = new ClientDetail();  
+        $aid = request('res_name')  ?? '';  
+
+        $referral = Referral::where('id', '=', $aid)->firstOrFail();
+        $aname = $referral->cfname;
+        $name = explode("  ", $aname);
+        $client_detail->fname = $name[0];
+        $client_detail->mname = $name[1];
+        $client_detail->lname = $name[2];
         $client_detail->address = ""  ?? '';
         $client_detail->dob = request('dob')  ?? '';
         $client_detail->cob = request('income_type')  ?? '';
