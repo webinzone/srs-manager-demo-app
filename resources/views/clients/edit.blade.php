@@ -122,53 +122,47 @@
                   <h4 class="mb-3"><b>Personal Information</b></h4><br>              
                     
                     <div class="form-row">
-                      <div class="col-md-3 mb-3">
-                        <label for="fname">First name</label>
-                        <input type="text" class="form-control" placeholder="First Name" id="fname" value="{{ $client_detail->fname}}" name="fname"  v-on:change="page_one.fname = $event.target.value" >                
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="mname">Middle name</label>
-                        <input type="text" class="form-control" placeholder="Middle Name" value="{{ $client_detail->mname}}" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value">                
-                      </div>
-                      <div class="col-md-3 mb-3">
-                        <label for="lname">Last name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="{{ $client_detail->lname}}" id="lname" name="lname"  v-on:change="page_one.lname = $event.target.value">                
-                      </div>
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label for="fname">Name of the Resident</label>
+                        <select class="form-control" required id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
+                            <option>--   Select Resident Name  --</option>
+                          @foreach($residents as $resident)
+                          <option value="{{ $resident->id }}" {{ $aaname == $resident->cfname ? 'selected' : ''  }}> {{ $resident->cfname }}</option>
+                          @endforeach
+                        </select>
+                    </div>
+
                       <div class="col-md-2 mb-3">
                         <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
-                        <select name="gender"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
-                            <option value="" style="font-size: 14px;">---Select--</option> 
-                            <option value="Male" {{ $client_detail->gender == 'Male' ? 'selected' : ''  }} style="font-size: 14px;">Male</option> 
-                            <option value="Female" {{ $client_detail->gender == 'Female' ? 'selected' : ''  }} style="font-size: 14px;">Female</option> 
-                            <option value="Other" {{ $client_detail->gender == 'Other' ? 'selected' : ''  }} style="font-size: 14px;">Other</option>
-                        </select>
-       
+                        
+                        <input type="date" class="form-control" id="gender" placeholder="Date of birth" value="{{ $client_detail->gender}}" name="gender" v-on:change="page_one.gender = $event.target.value" readonly> 
                       </div>
                       
                       <div class="col-md-3 mb-3">
                         <label for="dob">Date of birth</label>
-                        <input type="date" class="form-control" id="dob" placeholder="Date of birth" value="{{ $client_detail->dob}}" name="dob" v-on:change="page_one.dob = $event.target.value">              
+                        <input type="date" class="form-control" id="dob" placeholder="Date of birth" value="{{ $client_detail->dob}}" name="dob" v-on:change="page_one.dob = $event.target.value" readonly>              
                       </div>
-                      <div class="col-md-2 mb-3">
+                      </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+                    
+                      <div class="col-md-3 mb-3">
                         <label for="religion">Religion</label>
-                        <input type="text" class="form-control" id="religion" placeholder="Religion" value="{{ $client_detail->religion}}"  name="religion" v-on:change="page_one.religion = $event.target.value">              
+                        <input type="text" class="form-control" id="religion" placeholder="Religion" value="{{ $client_detail->religion}}"  name="religion" v-on:change="page_one.religion = $event.target.value" readonly>              
                       </div>
-                      <div class="col-md-2 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label for="nationality">Nationality</label>
                         <input type="text" class="form-control" id="nationality" placeholder="Nationality" value="{{ $client_detail->nationality}}"  name="nationality" v-on:change="page_one.nationality = $event.target.value">            
                       </div> 
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
                        <div class="col-md-3 mb-3">
                         <label for="res_ph">Mobile Number</label>
-                        <input type="tel" class="form-control" id="res_ph" placeholder="Phone" value="{{ $client_detail->res_ph}}" name="ph"  v-on:change="page_one.res_ph = $event.target.value">          
+                        <input type="tel" class="form-control" id="res_ph" placeholder="Phone" value="{{ $client_detail->res_ph}}" name="ph"  v-on:change="page_one.res_ph = $event.target.value" readonly>          
                       </div>
-
+                      </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+                    
                       <div class="col-md-3 mb-3">
                         <label for="res_email">Email</label>
-                        <input type="email" class="form-control" id="res_email" placeholder="Email" value="{{ $client_detail->res_email}}"  name="res_email"  v-on:change="page_one.res_email = $event.target.value">                
+                        <input type="email" class="form-control" id="res_email" placeholder="Email" value="{{ $client_detail->res_email}}"  name="res_email"  v-on:change="page_one.res_email = $event.target.value" readonly>                
                       </div>
                       <!--<div class="col-md-3 mb-3">
                         <label for="res_fax">Fax</label>
@@ -183,23 +177,22 @@
                         <label for="l_known">Languages Known</label>
                         <input type="text" class="form-control" id="l_known" placeholder="Languages Known" value="{{ $client_detail->l_known}}"  name="l_known"  v-on:change="page_one.l_known = $event.target.value">          
                       </div>  
-                    </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
-
-
                       <div class="col-md-3 mb-3">
                         <label for="pre_address">Previous Address</label>
-                        <input type="text" class="form-control" id="pre_address" placeholder="Previous Address" value="{{ $client_detail->pre_address}}" name="pre_address"  v-on:change="page_one.pre_address = $event.target.value">          
+                        <input type="text" class="form-control" id="pre_address" placeholder="Previous Address" value="{{ $client_detail->pre_address}}" name="pre_address"  v-on:change="page_one.pre_address = $event.target.value" readonly>          
                       </div>
+                    </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+                    
                       <div class="col-md-3 mb-3" >
                         <label for="medicard_no">Medicare card no.</label>
-                        <input type="text" class="form-control" id="medicard_no" placeholder="Medicare card number" value="{{ $client_detail->medicard_no}}" name="medicard_no"  v-on:change="page_one.medicard_no = $event.target.value">
+                        <input type="text" class="form-control" id="medicard_no" placeholder="Medicare card number" value="{{ $client_detail->medicard_no}}" name="medicard_no"  v-on:change="page_one.medicard_no = $event.target.value" readonly>
                         </div>
                       
 
                       <div class="col-md-3 mb-3">
                         <label for="expiry_date">Expiry Month & Year</label>
-                        <input type="month" class="form-control" id="expiry_date" placeholder="Expiry date" value="{{ $client_detail->expiry_date}}" style="height:26px;"  name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
+                        <input type="month" class="form-control" id="expiry_date" placeholder="Expiry date" value="{{ $client_detail->expiry_date}}" style="height:26px;"  name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value" readonly>            
                       </div>
                         <div class="col-md-3 mb-3">
                         <label for="ent_no">Entitlement No</label>
@@ -207,10 +200,7 @@
                       </div>
                        
 
-                    </div>&nbsp;&nbsp;&nbsp;
-                    
-                      
-                      <div class="form-row">  
+  
                       <div class="col-md-3 mb-3">
                         <label for="respite">Respite/permanent</label>
                        <select name="respite" id="respite" class="form-control" style="height: 26px;padding: 3px 10px;"> 
@@ -219,7 +209,9 @@
                         </select>  
                   
                       </div> 
-                                     
+                       </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+                                  
                       <div class="col-md-3 mb-3">
                         <label for="weeks">Book From</label>
                         <input type='date' name="start_period" id="book_from" class="form-control" value="{{ $client_detail->book_from}}" placeholder="Book From"  />          
@@ -234,8 +226,6 @@
                         <input type="date" class="form-control" id="adm_date" placeholder="Admission Date" value="{{ $client_detail->adm_date}}" name="adm_date"  v-on:change="page_one.adm_date = $event.target.value" disabled>          
                       </div>
 
-                       </div>&nbsp;&nbsp;&nbsp;
-                    <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label for="room_no">Room No</label>
                         <select class="form-control" required="" id="room_no" name="room_no" style="height: 26px;padding: 3px 10px;">
@@ -246,6 +236,9 @@
                         </select>
 
                       </div>
+                      </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+                    
                       <div class="col-md-3 mb-3">
 
                         <label for="ref_by">Bed no</label>
@@ -266,18 +259,24 @@
                         <input type="text" class="form-control" id="roommmrent" placeholder="Room Rent" value="{{ $client_detail->room_rent}}" name="room_rent"  readonly>            
                       </div>   
                       
-                      
-                        </div>&nbsp;&nbsp;&nbsp;
-                        <div class="form-row">                        
-                       <div class="col-md-6 mb-3">
+                         
+                    <div class="col-md-3 mb-3">
+
+                        <label for="ref_by">Ref By</label>
+                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By" value="{{ $client_detail->ref_by}}"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
+                      </div>                  
+                        
+                      </div>&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+                    <div class="col-md-6 mb-3">
                         <label for="ent_no">Allergy Details</label>
                         <textarea placeholder="Allergy Details" class="form-control" name="allergy_det"  v-on:change="page_one.allergy_det = $event.target.value">{{ $client_detail->allergy_det}}</textarea>
 
                                   
-                      </div> 
-                       <div class="col-md-3 mb-3">
+                      </div>
+                       <div class="col-md-6 mb-3">
                         <label for="ent_no">Status</label>
-                          <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;"> 
+                          <select name="status" id="status" class="form-control" style="height: 26px;padding: 3px 10px;width: 200px;"> 
                             <option value="Active" {{ $client_detail->status == 'Active' ? 'selected' : ''  }} style="font-size: 14px;">Active</option> 
                             <option value="Vaccate" {{ $client_detail->status == 'Vaccate' ? 'selected' : ''  }} style="font-size: 14px;">Vaccate</option> 
                             <option value="Transfered" {{ $client_detail->status == 'Transfered' ? 'selected' : ''  }} style="font-size: 14px;">Transfered</option>
@@ -285,11 +284,6 @@
 
                       </div> 
                     
-                    <div class="col-md-3 mb-3">
-
-                        <label for="ref_by">Ref By</label>
-                        <input type="text" class="form-control" id="ref_by" placeholder="Ref By" value="{{ $client_detail->ref_by}}"  name="ref_by" v-on:change="page_one.ref_by = $event.target.value">            
-                      </div>
                        
                    
                      
@@ -335,15 +329,15 @@
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="nok_name">Name</label>
-                        <input type="text" class="form-control" id="nok_name" placeholder="Name" name="nok_name"  value="{{ $client_nextofkin->nok_name}}"v-on:change="page_one.nok_name = $event.target.value">              
+                        <input type="text" class="form-control" id="nok_name" placeholder="Name" name="nok_name"  value="{{ $client_nextofkin->nok_name}}"v-on:change="page_one.nok_name = $event.target.value" readonly>              
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="nok_address">Address</label>
-                        <input type="text" class="form-control" id="nok_address" placeholder="Address" name="nok_address" value="{{ $client_nextofkin->nok_address}}" v-on:change="page_one.nok_address = $event.target.value">              
+                        <input type="text" class="form-control" id="nok_address" placeholder="Address" name="nok_address" value="{{ $client_nextofkin->nok_address}}" v-on:change="page_one.nok_address = $event.target.value" readonly>              
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="nok_ph">Mobile Number</label>
-                        <input type="tel" class="form-control" id="nok_ph" placeholder="Mobile Number" name="nok_ph" value="{{ $client_nextofkin->nok_ph}}" v-on:change="page_one.nok_ph = $event.target.value">  
+                        <input type="tel" class="form-control" id="nok_ph" placeholder="Mobile Number" name="nok_ph" value="{{ $client_nextofkin->nok_ph}}" v-on:change="page_one.nok_ph = $event.target.value" readonly>  
                       </div>  
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
@@ -353,7 +347,7 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="nok_nok">Email</label>
-                        <input type="email" class="form-control" id="nok_email" placeholder="Email" name="nok_email"  value="{{ $client_nextofkin->nok_email}}"v-on:change="page_one.nok_email = $event.target.value">  
+                        <input type="email" class="form-control" id="nok_email" placeholder="Email" name="nok_email"  value="{{ $client_nextofkin->nok_email}}"v-on:change="page_one.nok_email = $event.target.value" readonly>  
                       </div>
                       <!--<div class="col-md-4 mb-3">
                         <label for="nok_fax">Fax</label>
@@ -361,7 +355,7 @@
                       </div>-->
                       <div class="col-md-4 mb-3">
                         <label for="nok_relation">Relationship</label>
-                        <input type="text" class="form-control" id="nok_relation" placeholder="Relationship" value="{{ $client_nextofkin->relation}}" name="nok_relation" v-on:change="page_one.nok_relation = $event.target.value">  
+                        <input type="text" class="form-control" id="nok_relation" placeholder="Relationship" value="{{ $client_nextofkin->relation}}" name="nok_relation" v-on:change="page_one.nok_relation = $event.target.value" readonly>  
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;                   
 
@@ -402,16 +396,16 @@
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="gr_name">Name</label>
-                        <input type="text" class="form-control" id="gr_name" placeholder="Name"  name="gr_name" value="{{ $guardian_detail->gr_name}}"v-on:change="page_one.gr_name = $event.target.value">              
+                        <input type="text" class="form-control" id="gr_name" placeholder="Name"  name="gr_name" value="{{ $guardian_detail->gr_name}}"v-on:change="page_one.gr_name = $event.target.value" readonly>              
                       </div>
 
                       <div class="col-md-4 mb-3">
                         <label for="gr_address">Address</label>
-                        <input type="text" class="form-control" id="gr_address" placeholder="Fax" name="gr_address" value="{{ $guardian_detail->gr_address}}" v-on:change="page_one.gr_address = $event.target.value">  
+                        <input type="text" class="form-control" id="gr_address" placeholder="Fax" name="gr_address" value="{{ $guardian_detail->gr_address}}" v-on:change="page_one.gr_address = $event.target.value" readonly>  
                       </div> 
                       <div class="col-md-4 mb-3">
                         <label for="gr_mob">Mobile Number</label>
-                        <input type="tel" class="form-control" id="gr_mob" placeholder="Mobile" name="gr_mob" value="{{ $guardian_detail->gr_mob}}" v-on:change="page_one.gr_mob = $event.target.value">  
+                        <input type="tel" class="form-control" id="gr_mob" placeholder="Mobile" name="gr_mob" value="{{ $guardian_detail->gr_mob}}" v-on:change="page_one.gr_mob = $event.target.value" readonly>  
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
@@ -422,7 +416,7 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="gr_email">Email</label>
-                        <input type="email" class="form-control" id="gr_email" placeholder="Email" name="gr_email"  value="{{ $guardian_detail->gr_email}}" v-on:change="page_one.gr_email = $event.target.value">  
+                        <input type="email" class="form-control" id="gr_email" placeholder="Email" name="gr_email"  value="{{ $guardian_detail->gr_email}}" v-on:change="page_one.gr_email = $event.target.value" readonly>  
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="gr_relation">Relation</label>
@@ -481,7 +475,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="client_refno">Client Reference no</label>
-                        <input type="text" class="form-control" id="client_refno" placeholder="Client Reference no" name="client_refno" value="{{ $pension_detail->client_refno}}"  v-on:change="page_one.client_refno = $event.target.value">              
+                        <input type="text" class="form-control" id="client_refno" placeholder="Client Reference no" name="client_refno" value="{{ $pension_detail->client_refno}}"  v-on:change="page_one.client_refno = $event.target.value"readonly>              
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="con_card">Taxi Concession details</label>
@@ -491,12 +485,12 @@
                     <div class="form-row">
                      <div class="col-md-4 mb-3">
                         <label for="nok_taxi">Taxi Concession Card</label>
-                        <input type="text" class="form-control" id="nok_taxi" placeholder="Taxi Concession Card" name="nok_taxi" value="{{ $client_detail->nok_taxi}}"   v-on:change="page_one.nok_taxi = $event.target.value">            
+                        <input type="text" class="form-control" id="nok_taxi" placeholder="Taxi Concession Card" name="nok_taxi" value="{{ $client_detail->nok_taxi}}"   v-on:change="page_one.nok_taxi = $event.target.value" readonly>            
                       </div> 
 
                       <div class="col-md-4 mb-3">
                         <label for="nok_exp">Expiry Month & Year</label>
-                        <input type="month" class="form-control" id="nok_exp" placeholder="Expiry date" style="height:26px;"  name="exp_date" value="{{ $client_detail->nok_exp}}"  onChange="compareDate();" v-on:change="page_one.nok_exp = $event.target.value">         
+                        <input type="month" class="form-control" id="nok_exp" placeholder="Expiry date" style="height:26px;"  name="exp_date" value="{{ $client_detail->nok_exp}}"  onChange="compareDate();" v-on:change="page_one.nok_exp = $event.target.value" readonly>         
                       </div>
                       <div class="col-md-4 mb-3" >
                         <label for="nok_other">Other</label>
@@ -508,18 +502,9 @@
                
                     <div class="form-row">
                       <div class="col-md-12 mb-3">
-                        <label for="income_type">Payment Type : </label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label><input id="i1" {{ $pension_detail->income_type == 'Direct Debit' ? 'checked' : ''  }} type="checkbox" onclick="hidebox();" name="income_type" value="Direct Debit">Direct Debit</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label><input onclick="hidebox();" id="i2" {{ $pension_detail->income_type == 'Cash' ? 'checked' : ''  }}  type="checkbox" name="income_type" value="Cash">Cash</label>&nbsp;&nbsp;&nbsp;&nbsp;                         
-                                <label><input onclick="hidebox();" id="i3" {{ $pension_detail->income_type == 'Centre Link' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;
-                                <label><input onclick="hidebox();" id="i4" {{ $pension_detail->income_type == 'Veterans Affairs' ? 'checked' : ''  }} type="checkbox" name="income_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;
-                                <label><input onclick="hidebox();" id="i5" {{ $pension_detail->income_type == 'State Trustees' ? 'checked' : ''  }} type="checkbox" name="income_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
-                                <label><input {{ $pension_detail->income_type == 'Other' ? 'checked' : ''  }} id="other" onclick="addbox();" type="checkbox" name="income_type" value="Other"> Other</label>&nbsp;&nbsp;
-                                @if($pension_detail->income_type == 'Other')
-                                <input id="otherinc" type="text" value="{{ $client_detail->other_income}}" placeholder="Enter Income Details" name="other_income"  style="width: 200px;">                 
-                                                           
-                                @endif
-                                <input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;">
+                        <label for="client_refno">Type of Income</label>
+                           <input type="text" style="width: 300px;" class="form-control" value="{{ $pension_detail->income_type}}" id="tof" name="income_type" placeholder="Type of Income" readonly>
+                              
                       </div>
                       </div>&nbsp;&nbsp;&nbsp;
                

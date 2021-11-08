@@ -133,39 +133,35 @@
                    
                       <div class="col-md-2 mb-3">
                         <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
-                        <select name="gender"  class="form-control" style="height: 26px;padding: 3px 10px;"> 
-                            <option value="" style="font-size: 14px;">---Select--</option> 
-                            <option value="Male" style="font-size: 14px;">Male</option> 
-                            <option value="Female" style="font-size: 14px;">Female</option> 
-                            <option value="Other" style="font-size: 14px;">Other</option>
-                        </select> 
+                        
+                        <input type="text" class="form-control" id="gender" placeholder=" Gender" name="gender" v-on:change="page_one.gender = $event.target.value" readonly>
        
                       </div>
                       
                       <div class="col-md-3 mb-3">
                         <label for="dob">Date of birth</label>
-                        <input type="date" class="form-control" id="dob" placeholder="Date of birth" name="dob" v-on:change="page_one.dob = $event.target.value">              
+                        <input type="date" class="form-control" id="dob1" placeholder="Date of birth" name="dob" v-on:change="page_one.dob = $event.target.value" readonly>              
                       </div>
                        </div>&nbsp;&nbsp;&nbsp;
                         <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label for="religion">Religion</label>
-                        <input type="text" class="form-control" id="religion" placeholder="Religion"  name="religion" v-on:change="page_one.religion = $event.target.value">              
+                        <input type="text" class="form-control" id="religion" placeholder="Religion"  name="religion" v-on:change="page_one.religion = $event.target.value" readonly>              
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="nationality">Nationality</label>
-                        <input type="text" class="form-control" id="nationality" placeholder="Nationality"  name="nationality" v-on:change="page_one.nationality = $event.target.value">            
+                        <input type="text" class="form-control" id="nationality" placeholder="Nationality"  name="nationality" v-on:change="page_one.nationality = $event.target.value" >            
                       </div> 
                        <div class="col-md-3 mb-3">
                         <label for="res_ph">Mobile Number</label>
-                        <input type="tel" class="form-control" id="res_ph" placeholder="Phone" name="ph"  v-on:change="page_one.res_ph = $event.target.value">          
+                        <input type="tel" class="form-control" id="res_ph" placeholder="Phone" name="ph"  v-on:change="page_one.res_ph = $event.target.value" readonly>          
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
                       
                       <div class="col-md-3 mb-3">
                         <label for="res_email">Email</label>
-                        <input type="email" class="form-control" id="res_email" placeholder="Email"  name="res_email"  v-on:change="page_one.res_email = $event.target.value">                
+                        <input type="email" class="form-control" id="res_email" placeholder="Email"  name="res_email"  v-on:change="page_one.res_email = $event.target.value" readonly>                
                       </div>
                       <!--<div class="col-md-3 mb-3">
                         <label for="res_fax">Fax</label>
@@ -184,19 +180,19 @@
 
                       <div class="col-md-3 mb-3">
                         <label for="pre_address">Previous Address</label>
-                        <input type="text" class="form-control" id="pre_address" placeholder="Previous Address" name="pre_address"  v-on:change="page_one.pre_address = $event.target.value">          
+                        <input type="text" class="form-control" id="pre_address" placeholder="Previous Address" name="pre_address"  v-on:change="page_one.pre_address = $event.target.value" readonly>          
                       </div>
 
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
                       <div class="col-md-3 mb-3" >
                         <label for="medicard_no">Medicare card no.</label>
-                        <input type="text" class="form-control" id="medicard_no" placeholder="Medicare card number" name="medicard_no"  v-on:change="page_one.medicard_no = $event.target.value">
+                        <input type="text" class="form-control" id="medicard_no" placeholder="Medicare card number" name="medicard_no"  v-on:change="page_one.medicard_no = $event.target.value" readonly>
                         </div>
 
                       <div class="col-md-3 mb-3">
                         <label for="expiry_date">Expiry Month & Year</label>
-                        <input type="month" class="form-control" id="expiry_date" placeholder="Expiry date" style="height:26px;"  name="exp_date" onChange="compareDate();" v-on:change="page_one.expiry_date = $event.target.value">            
+                        <input type="month" class="form-control" id="exp_date1" placeholder="Expiry date" style="height:26px;"  name="exp_date" onChange="compareDate();" id="exp_date" v-on:change="page_one.expiry_date = $event.target.value" readonly>            
                       </div>
                         <div class="col-md-3 mb-3">
                         <label for="ent_no">Entitlement No</label>
@@ -334,25 +330,25 @@
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="nok_name">Name</label>
-                        <input type="text" class="form-control" id="nok_name" placeholder="Name" name="nok_name" v-on:change="page_one.nok_name = $event.target.value">              
+                        <input type="text" class="form-control" id="nok_name" placeholder="Name" name="nok_name" v-on:change="page_one.nok_name = $event.target.value" readonly>              
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="nok_address">Address</label>
-                        <input type="text" class="form-control" id="nok_address" placeholder="Address" name="nok_address" v-on:change="page_one.nok_address = $event.target.value">              
+                        <input type="text" class="form-control" id="nok_address" placeholder="Address" name="nok_address" v-on:change="page_one.nok_address = $event.target.value" readonly>              
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="nok_ph">Mobile Number</label>
-                        <input type="tel" class="form-control" id="nok_ph" placeholder="Mobile Number" name="nok_ph" v-on:change="page_one.nok_ph = $event.target.value">  
+                        <input type="tel" class="form-control" id="nok_ph" placeholder="Mobile Number" name="nok_ph" v-on:change="page_one.nok_ph = $event.target.value" readonly>  
                       </div>  
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="nok_lan">Land Phone</label>
-                        <input type="tel" class="form-control" id="nok_lan" placeholder="Land phone" name="nok_lan" v-on:change="page_one.nok_lan = $event.target.value">  
+                        <input type="tel" class="form-control" id="nok_lan" placeholder="Land phone" name="nok_lan" v-on:change="page_one.nok_lan = $event.target.value" >  
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="nok_nok">Email</label>
-                        <input type="email" class="form-control" id="nok_email" placeholder="Email" name="nok_email" v-on:change="page_one.nok_email = $event.target.value">  
+                        <input type="email" class="form-control" id="nok_email" placeholder="Email" name="nok_email" v-on:change="page_one.nok_email = $event.target.value" readonly>  
                       </div>
                      <!-- <div class="col-md-4 mb-3">
                         <label for="nok_fax">Fax</label>
@@ -360,7 +356,7 @@
                       </div>-->
                       <div class="col-md-4 mb-3">
                         <label for="nok_relation">Relationship</label>
-                        <input type="text" class="form-control" id="nok_relation" placeholder="Fax" name="nok_relation" v-on:change="page_one.nok_relation = $event.target.value">  
+                        <input type="text" class="form-control" id="nok_relation" placeholder="Relationship" name="nok_relation" v-on:change="page_one.nok_relation = $event.target.value" readonly>  
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;                   
 
@@ -401,16 +397,16 @@
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="gr_name">Name</label>
-                        <input type="text" class="form-control" id="gr_name" placeholder="Name" name="gr_name" v-on:change="page_one.gr_name = $event.target.value">              
+                        <input type="text" class="form-control" id="gr_name" placeholder="Name" name="gr_name" v-on:change="page_one.gr_name = $event.target.value" readonly>              
                       </div>
 
                       <div class="col-md-4 mb-3">
                         <label for="gr_address">Address</label>
-                        <input type="text" class="form-control" id="gr_address" placeholder="Fax" name="gr_address" v-on:change="page_one.gr_address = $event.target.value">  
+                        <input type="text" class="form-control" id="gr_address" placeholder="Fax" name="gr_address" v-on:change="page_one.gr_address = $event.target.value" readonly>  
                       </div> 
                       <div class="col-md-4 mb-3">
                         <label for="gr_mob">Mobile Number</label>
-                        <input type="tel" class="form-control" id="gr_mob" placeholder="Mobile" name="gr_mob" v-on:change="page_one.gr_mob = $event.target.value">  
+                        <input type="tel" class="form-control" id="gr_mob" placeholder="Mobile" name="gr_mob" v-on:change="page_one.gr_mob = $event.target.value" readonly>  
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">
@@ -421,7 +417,7 @@
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="gr_email">Email</label>
-                        <input type="email" class="form-control" id="gr_email" placeholder="Email" name="gr_email" v-on:change="page_one.gr_email = $event.target.value">  
+                        <input type="email" class="form-control" id="gr_email" placeholder="Email" name="gr_email" v-on:change="page_one.gr_email = $event.target.value" readonly>  
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="gr_relation">Relation</label>
@@ -480,7 +476,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="client_refno">Client Reference no</label>
-                        <input type="text" class="form-control" id="client_refno" placeholder="Client Reference no" name="client_refno" v-on:change="page_one.client_refno = $event.target.value">              
+                        <input type="text" class="form-control" id="client_refno" placeholder="Client Reference no" name="client_refno" v-on:change="page_one.client_refno = $event.target.value" readonly>              
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="con_card">Taxi Concession details</label>
@@ -490,12 +486,12 @@
                     <div class="form-row">
                      <div class="col-md-4 mb-3">
                         <label for="nok_taxi">Taxi Concession Card</label>
-                        <input type="text" class="form-control" id="nok_taxi" placeholder="Taxi Concession Card" name="nok_taxi"  v-on:change="page_one.nok_taxi = $event.target.value">            
+                        <input type="text" class="form-control" id="tp" placeholder="Taxi Concession Card" name="nok_taxi"  v-on:change="page_one.nok_taxi = $event.target.value" readonly>            
                       </div> 
 
                       <div class="col-md-4 mb-3">
                         <label for="nok_exp">Expiry Month & Year</label>
-                        <input type="month" class="form-control" id="nok_exp" placeholder="Expiry date" style="height:26px;"  name="exp_date" onChange="compareDate();" v-on:change="page_one.nok_exp = $event.target.value">         
+                        <input type="month" class="form-control" id="tpexp" placeholder="Expiry date" style="height:26px;"  name="exp_date" onChange="compareDate();" v-on:change="page_one.nok_exp = $event.target.value" readonly>         
                       </div>
                       <div class="col-md-4 mb-3" >
                         <label for="nok_other">Other</label>
@@ -507,13 +503,10 @@
                
                     <div class="form-row">
                       <div class="col-md-12 mb-3">
-                        <label for="income_type">Payment Type : </label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="income_type" value="Direct Debit"> Direct Debit</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="income_type" value="Cash"> Cash</label>&nbsp;&nbsp;&nbsp;&nbsp;                         
-                                <label><input  type="checkbox" name="income_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="income_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label><input  type="checkbox" name="income_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <label><input id="other" type="checkbox" name="income_type" value="Other" onclick="addbox();"> Other</label>&nbsp;&nbsp;<input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;">
+                        <label for="client_refno">Type of Income</label>
+                        
+                        <input type="text" style="width: 300px;" class="form-control" id="tof" name="income_type" placeholder="Type of Income" readonly>
+                      
                       </div>
                       </div>&nbsp;&nbsp;&nbsp;
                
@@ -1160,90 +1153,57 @@
   }
 });
 </script>
+<script>
+$('#res_name').change(function(){
+    var id = $(this).val();
+    var url = '{{ route("getref", ":id") }}';
+    url = url.replace(':id', id);
 
-<script type="text/javascript">
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function(response){
+            if(response != null){
+                $('#dob1').val(response.cdob);            
+                $('#gender').val(response.cgender);            
+                $('#religion').val(response.creligion);            
 
-  function transfer_data(){
-    var fname = $("#fname").val();
+                $('#res_ph').val(response.cph);            
+                $('#res_email').val(response.cemail);           
+                 
+                $('#pre_address').val(response.caddress);           
+                $('#medicard_no').val(response.pen_medino);           
+                $('#exp_date1').val(response.pen_mediexp);           
+                
+                $('#nok_name').val(response.nok_name);           
+                $('#nok_address').val(response.nok_address);           
+                $('#nok_ph').val(response.nok_ph);           
+                $('#nok_email').val(response.nok_email);           
+                $('#nok_relation').val(response.nok_relation);   
 
-      $.ajax({
-        url: '/formSubmit',
-        method: "POST",
-        datatype:"json",
-        headers: {
-              'X-CSRF-Token': '{{ csrf_field() }}'
-            },
-        data: { "fname": fname,
-                "mname": mname,
-                "lname": lname,
-                "address": address,
-                "dob": dob,
-                "cob": cob,
-                "age": age,
-                "gender": gender,
-                "religion": religion,
-                "l_known": l_known,
-                "ph": ph,
-                "medicard_no": medicard_no,
-                "expiry_date": expiry_date,
-                "pension_no": pension_no,
-                "insurance_no": insurance_no,
-                "insu_compny": insu_compny,
-                "likes": likes,
-                "dislikes": dislikes,
-                "hobies": hobies,
-                "po_maker": po_maker,
-                "po_maker_address": po_maker_address,
-                "po_granter": po_granter,
-                "po_granter_address": po_granter_address,
-                "grant_reason": grant_reason,
-                "g_date": g_date,
-                "place": place,
-                "termination_date": termination_date,
-                "f1name": f1name,
-                "m1name": m1name,
-                "l1name": l1name,
-                "relation": relation,
-                "address1": address1,
-                "gender1": gender1,
-                "ph1": ph1,
-                "email": email,
-                "country": country,
-                "religion1": religion1,
-                "tof_allergy": tof_allergy,
-                "hos_name": hos_name,
-                "doc_name": doc_name,
-                "duration": duration,
-                "madicine": madicine,
-                "tests_report": tests_report,
-                "allowed_status": allowed_status,
-                "name": name,
-                "gender2": gender2,
-                "relation1": relation1,
-                "address2": address2,
-                "ph2": ph2,
-                "id_no": id_no,
-                "nationality": nationality,
-                "gp_name": gp_name,
-                "gp_address": gp_address,
-                "ph3": ph3,
-                "clinic_name": clinic_name,
-                "booking_s_time": booking_s_time,
-                "booking_e_time": booking_e_time,
-                "allowed_status_nok": allowed_status_nok,
-                "nok_name": nok_name,
-                "nok_address": nok_address,
-                "gender3": gender3,
-                "relation2": relation2,
-                "nok_ph": nok_ph,
-                "id_no1": id_no1,
-                "nok_nationality": nok_nationality,
-              }
-      });
+                $('#gr_name').val(response.gua_name);           
+                $('#gr_address').val(response.gua_addr);           
+                $('#gr_email').val(response.gua_email);           
+                $('#gr_mob').val(response.gua_ph);           
 
-      
-  };
+                $('#tp').val(response.pen_taxi);           
+                $('#tpexp').val(response.pen_taxiexp);           
+                $('#client_refno').val(response.pen_refno);           
+                $('#tof').val(response.pen_type);           
+
+
+
+            }
+            else{
+              alert("error");
+ 
+            }
+        }
+    });
+});
 </script>
+
 <script type="text/javascript">
   function compareDate() {  
     var dateEntered = new Date(document.getElementById('expiry_date').value);    

@@ -311,11 +311,18 @@
                 <h5 style="color:#980000;font-size: 16px;"><b>Pension Details</b></h5>
 
                 <div class="form-row">
-                      <div class="col-md-6 mb-3">
+                      <div class="col-md-9 mb-3">
                         <label>Type of Income</label>
-                        <input type="text" class="form-control" value="{{ $referral->pen_type}}" id="tof" name="pen_type" placeholder="Type of Income" >
+                        <label for="pen_type">Payment Type : </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input id="i1" {{ $referral->pen_type == 'Direct Debit' ? 'checked' : ''  }} type="checkbox" onclick="hidebox();" name="pen_type" value="Direct Debit">Direct Debit</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input onclick="hidebox();" id="i2" {{ $referral->pen_type == 'Cash' ? 'checked' : ''  }}  type="checkbox" name="pen_type" value="Cash">Cash</label>&nbsp;&nbsp;&nbsp;&nbsp;                         
+                                <label><input onclick="hidebox();" id="i3" {{ $referral->pen_type == 'Centre Link' ? 'checked' : ''  }} type="checkbox" name="pen_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;
+                                <label><input onclick="hidebox();" id="i4" {{ $referral->pen_type == 'Veterans Affairs' ? 'checked' : ''  }} type="checkbox" name="pen_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;
+                                <label><input onclick="hidebox();" id="i5" {{ $referral->pen_type == 'State Trustees' ? 'checked' : ''  }} type="checkbox" name="pen_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;
+                                <label><input {{ $referral->pen_type == 'Other' ? 'checked' : ''  }} id="other" onclick="addbox();" type="checkbox" name="pen_type" value="Other"> Other</label>&nbsp;&nbsp;
+                               
                       </div>
-                      <div class="col-md-6 mb-3">
+                      <div class="col-md-3 mb-3">
                         <label>Client Ref Number</label>
                         <input type="text" name="pen_refno" id="ref" class="form-control" value="{{ $referral->pen_refno}}" placeholder="Client Ref Number" >                                          
                       </div>
@@ -336,7 +343,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Expiry Date</label>
-                        <input type="date" name="pen_taxiexp" id="pen_taxiexp" class="form-control" value="{{ $referral->pen_taxiexp}}" placeholder="Expiry Date" >
+                        <input type="month" name="pen_taxiexp" id="pen_taxiexp" class="form-control" value="{{ $referral->pen_taxiexp}}" placeholder="Expiry Date" >
                                                               
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

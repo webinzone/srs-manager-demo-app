@@ -117,7 +117,8 @@ Route::group(['middleware' => 'auth'], function () {
       Route::get('get/resguadetails/{id}', 'ResidentAgreementsController@getGuaDetails')->name('getGuaDetails');
       Route::get('get/resnominidetails/{id}', 'ResidentAgreementsController@getNominiDetails')->name('getNominiDetails');
       
-      
+      Route::get('get/ref/{id}', 'ReferralsController@getref')->name('getref');
+
     Route::get('/agreement','ResidentAgreementsController@agreement_generate');
     Route::get('/generateRSAReport/', 'ResidentAgreementsController@generateRSAReport')->name('generateRSAReport');
 

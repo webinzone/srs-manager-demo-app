@@ -312,7 +312,14 @@
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Type of Income</label>
-                        <input type="text" class="form-control" id="tof" name="pen_type" placeholder="Type of Income" >
+                        
+                        <label for="pen_type">Payment Type : </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="pen_type" value="Direct Debit"> Direct Debit</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="pen_type" value="Cash"> Cash</label>&nbsp;&nbsp;&nbsp;&nbsp;                         
+                                <label><input  type="checkbox" name="pen_type" value="Centre Link"> Centre Link</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="pen_type" value="Veterans Affairs"> Veterans Affairs</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input  type="checkbox" name="pen_type" value="State Trustees"> State Trustees</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <label><input id="other" type="checkbox" name="pen_type" value="Other" onclick="addbox();"> Other</label>&nbsp;&nbsp;<input id="income" type="text" placeholder="Enter Income Details" name="other_income" style="display: none;width: 200px;">
                       </div>
                       <div class="col-md-6 mb-3">
                         <label>Client Ref Number</label>
@@ -335,7 +342,7 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Expiry Date</label>
-                        <input type="date" name="pen_taxiexp" id="pen_taxiexp" class="form-control" placeholder="Expiry Date" >
+                        <input type="month" name="pen_taxiexp" id="pen_taxiexp" class="form-control" placeholder="Expiry Date" >
                                                               
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

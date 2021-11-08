@@ -364,6 +364,9 @@ class ClientsController extends Controller
         $bedno = $client_detail->bed_no;
         $r_no = RoomDetail::where('room_no', '=', $roomid)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
         $rrid = $r_no->id;
+         $residents = Referral::orderBy('cfname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+       
+        $aaname = $client_detail->fname."  ".$client_detail->mname."  ".$client_detail->lname;
         //$client_family = ClientFamily::where('client_id', '=', $id);
         //$power_of_atony = ClientPowerofatony::where('client_id', '=', $id);
         //$allergy = ClientAllergy::where('client_id', '=', $id)->firstOrFail();
@@ -378,7 +381,7 @@ class ClientsController extends Controller
         $rooms = RoomDetail::where('status', '=', $status)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
         $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
 
-        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid', 'bedno', 'emps'));
+        return view('clients/edit')->with(compact('client_detail', 'gpdetail', 'client_nextofkin', 'guardian_detail', 'health_service', 'pension_detail', 'income', 'rooms', 'rrid', 'bedno', 'emps','aaname','residents'));
     }
     /**
      * Update the specified resource in storage.
@@ -390,10 +393,17 @@ class ClientsController extends Controller
     public function update($id)
     {
         $this->authorize('update', ClientDetail::class);
-        $client_detail = ClientDetail::find($id);   
-        $client_detail->fname = request('fname');
-        $client_detail->mname = request('mname') ?? '';
-        $client_detail->lname = request('lname');
+        $client_detail = ClientDetail::find($id);  
+
+        $aid = request('res_name')  ?? '';  
+
+        $referral = Referral::where('id', '=', $aid)->firstOrFail();
+        $aname = $referral->cfname;
+        $name = explode("  ", $aname);
+        $client_detail->fname = $name[0];
+        $client_detail->mname = $name[1];
+        $client_detail->lname = $name[2];
+
         $client_detail->address = ""  ?? '';
         $client_detail->dob = request('dob')  ?? '';
         $client_detail->cob = request('income_type')  ?? '';
