@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('development', 'DashboardController@development')->name('development');   
 
     Route::get('get/bed/{id}', 'RoomDetailsController@getBed')->name('getBed');   
+    Route::get('/roomexchange','RoomDetailsController@roomexchange');
+    Route::get('/exchange/','RoomDetailsController@exchange')->name('exchange');
 
     Route::get('/search/', 'IncidentsController@search')->name('search');
     Route::get('downloadFile/{file_name}', 'RentDetailsController@downloadFile');

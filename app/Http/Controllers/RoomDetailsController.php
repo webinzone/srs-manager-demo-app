@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Http\Requests;
 use App\Models\RoomDetail;
+use App\Models\ClientDetail;
+use App\Models\ConditionReport;
+use App\Models\ResidentAgreement;
+use App\Models\TransferRecord;
+use App\Models\Rent;
+use App\Models\Vaccate;
+use App\Models\ProgressNote;
+
 use App\Models\ActivityLog;
 use App\Models\Bed;
 
@@ -231,5 +239,113 @@ class RoomDetailsController extends Controller
             'beds' => Bed::where('room_id', '=', $id)->where('status', '=', $st)->get()
         ]);
      }
+
+    public function roomexchange(){
+        $rooms = RoomDetail::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        return view('room_details/roomexchange',compact('rooms','residents'));
+    }
+
+    public function exchange(){
+        $cid = request('res_name');
+        $roomid = request('room_no');
+        $bed =  request('bed');
+        
+        $client_detail = ClientDetail::where('id', '=', $cid)->firstOrFail();
+        $client_r = $client_detail->room_no;
+        $client_b = $client_detail->bed_no;
+
+        $roomdetails = RoomDetail::where('room_no', '=', $client_r)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $rrrid = $roomdetails->id;
+        $r_beds = $roomdetails->beds_no;
+
+        $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $client_b)->firstOrFail();
+        $bed_details->status = "Vacant";
+        $bed_details->res_name = " ";
+        $bed_details->save();
+        $booked = "Booked";
+        $bed_det = Bed::where('room_id', '=', $rrrid)->where('status', '=', $booked)->get();
+        $b_count = count($bed_det);
+        $r_count = (int)$r_beds;
+
+        if($b_count == $r_count){
+            $roomdeta = RoomDetail::where('room_no', '=', $client_r)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta->status = "Booked";
+            $roomdeta->save();
+        }else{
+            $roomdeta = RoomDetail::where('room_no', '=', $client_r)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta->status = "Vacant";
+            $roomdeta->save();
+        }
+        
+
+
+        $roomm = RoomDetail::where('id', '=', $roomid)->firstOrFail();
+        $room = $roomm->room_no;
+        $roomdetails = RoomDetail::where('room_no', '=', $room)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $rrrid = $roomdetails->id;
+        $r_beds = $roomdetails->beds_no;
+
+         $roomdetails->client_id = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
+        $roomdetails->save();
+
+        $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $bed)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $bed_details->status = "Booked";
+        $bed_details->res_name = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
+        $bed_details->save();
+        $booked = "Booked";
+        $bed_det = Bed::where('room_id', '=', $rrrid)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->where('status', '=', $booked)->get();
+        $b_count = count($bed_det);
+        $r_count = (int)$r_beds;
+
+        if($b_count == $r_count){
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta->status = "Booked";
+            $roomdeta->save();
+        }
+
+        $res = ClientDetail::where('id', '=', $cid)->firstOrFail();
+        $res->room_no = $room;
+        $res->bed_no = $bed;
+        $res->save();
+
+        $checker1 = ConditionReport::select('client_id')->where('client_id', '=', $cid)->exists();
+        $checker2 = ResidentAgreement::select('client_id')->where('client_id', '=', $cid)->exists();
+        $checker3 = Vaccate::select('client_id')->where('client_id', '=', $cid)->exists();
+        $checker4 = Rent::select('client_id')->where('client_id', '=', $cid)->exists();
+        $checker5 = ProgressNote::select('client_id')->where('client_id', '=', $cid)->exists();
+
+        if ($checker1 == true) {
+            $condi = ConditionReport::where('client_id', '=', $cid)->firstOrFail();
+            $condi->room = $room;
+            $condi->save();
+        }
+        
+        if ($checker2 == true) {
+            $condi = ResidentAgreement::where('client_id', '=', $cid)->firstOrFail();
+            $condi->room_no = $room;
+            $condi->save();
+        }
+
+        if ($checker3 == true) {
+            $condi = Vaccate::where('client_id', '=', $cid)->firstOrFail();
+            $condi->roomno = $room;
+            $condi->save();
+        }
+
+        if ($checker4 == true) {
+
+            $condi = Rent::where('client_id', '=', $cid)->firstOrFail();
+            $condi->roomno = $room;
+            $condi->save();
+        }
+        if ($checker5 == true) {
+            $condi = ProgressNote::where('client_id', '=', $cid)->firstOrFail();
+            $condi->room = $room;
+            $condi->save();
+        }
+        return redirect()->route('room_details.index')
+                        ->with('success','Room Changed Successfully');
+    }
 
 }

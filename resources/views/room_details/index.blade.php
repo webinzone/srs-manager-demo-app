@@ -7,7 +7,13 @@
 @stop
 
 @section('header_right')
+
+     
     @can('create', \App\Models\RoomDetail::class)
+
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
         <a href="{{ route('room_details.create') }}" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;"> Create New</a>
     @endcan
 @stop
@@ -21,7 +27,7 @@
     <div class="box box-default">
         <div class="box-header with-border text-center">
                  <h3><b>Room Details</b></h3>
-                   
+                   <a href="/roomexchange" class="btn btn-primary pull-right" style="border-color: #23536f;background-color: #307095;height: 35px;width: 140px; color: white;padding: 5px;font-size: 14px;"> Exchange Room</a>
                 </div><!-- /.box-header -->
 
       <div class="box-body">
