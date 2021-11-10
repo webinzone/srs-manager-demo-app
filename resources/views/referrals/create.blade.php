@@ -80,7 +80,12 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="cgender">Gender</label>&nbsp;&nbsp;&nbsp;
-                          <input type="text" id="gender" name="cgender" class="form-control" placeholder="Gender" >
+                        <select name="cgender" id="cgender" class="form-control" style="height: 26px;padding: 3px 10px;width: 200px;"> 
+                            <option value="Male" style="font-size: 14px;">Select Gender</option> 
+
+                            <option value="Male" style="font-size: 14px;">Male</option> 
+                            <option value="Female" style="font-size: 14px;">Female</option> 
+                        </select>
                        
                       </div>
                       <div class="col-md-3 mb-3">
