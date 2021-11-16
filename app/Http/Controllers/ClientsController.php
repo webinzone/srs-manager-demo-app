@@ -27,6 +27,7 @@ use App\Models\ProgressNote;
 use App\Models\Referral;
 use App\Models\SupportPlan;
 use App\Models\SrsStaff;
+use App\Models\Appointment;
 
 use App\Models\Bed;
 
@@ -665,7 +666,7 @@ class ClientsController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy', ClientDetail::class);
-
+        
         $checker1 = ConditionReport::select('client_id')->where('client_id', '=', $id)->exists();
         $checker2 = ResidentAgreement::select('client_id')->where('client_id', '=', $id)->exists();
         $checker3 = Referral::select('client_id')->where('client_id', '=', $id)->exists();
@@ -675,6 +676,8 @@ class ClientsController extends Controller
         $checker7 = Vaccate::select('client_id')->where('client_id', '=', $id)->exists();
         $checker8 = Rent::select('client_id')->where('client_id', '=', $id)->exists();
         $checker9 = ProgressNote::select('client_id')->where('client_id', '=', $id)->exists();
+        $checker10 = Appointment::select('client_id')->where('client_id', '=', $id)->exists();
+
 
         if ($checker1 == true) {
             return redirect()->route('clients.index')
@@ -703,7 +706,11 @@ class ClientsController extends Controller
         }elseif ($checker9 == true) {
             return redirect()->route('clients.index')
                     ->with('error', 'Please delete Resident Progress Report First !');
-        }else {
+        }elseif ($checker10 == true) {
+            return redirect()->route('clients.index')
+                    ->with('error', 'Please delete Resident Appointment First !');
+        }
+        else {
 
 
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();

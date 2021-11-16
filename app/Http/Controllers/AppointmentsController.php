@@ -62,8 +62,13 @@ class AppointmentsController extends Controller
     {
         $this->authorize('create',Appointment::class);
         $appointment = new Appointment();
+        $id = request('res_name');
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+        
+        $appointment->res_name = $name;
+        $appointment->client_id = $id;
 
-        $appointment->res_name = request('res_name')  ?? '';
 
         $appointment->app_date = request('app_date')  ?? '';
         $appointment->app_time = request('app_time')  ?? '';
@@ -142,7 +147,13 @@ class AppointmentsController extends Controller
         $this->authorize('update', Appointment::class);
         $appointment = Appointment::find($id);
 
-        $appointment->res_name = request('res_name')  ?? '';
+        $id = request('res_name');
+        $res = ClientDetail::where('id', '=', $id)->firstOrFail();
+        $name = $res->fname." ".$res->mname." ".$res->lname;
+        
+        $appointment->res_name = $name;
+        $appointment->client_id = $id;
+        
         $appointment->app_date = request('app_date')  ?? '';
         $appointment->app_time = request('app_time')  ?? '';
         $appointment->app_with = request('app_with')  ?? '';

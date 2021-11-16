@@ -38,7 +38,7 @@
                         <label>Name of the resident</label>
                         <select class="form-control" required="" id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
                           @foreach($residents as $resident)
-                            <option value="{{ $resident->fname}} {{$resident->mname}} {{$resident->lname }}" {{ $appointment->res_name == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
+                            <option value="{{ $resident->id }}" {{ $appointment->res_name == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
                           @endforeach
                         </select>                
                       </div>
