@@ -56,19 +56,20 @@
                    <h5 style="color:#980000;font-size: 16px;"><b>Client  Details</b></h5>
 
                 <div class="form-row">                      
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-4 mb-3">
                         <label for="fname">First name</label>
                         <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" >                
                       </div>
-                      <div class="col-md-3 mb-3">
+                      <div class="col-md-4 mb-3">
                         <label for="mname">Middle name</label>
                         <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value">                
                       </div>
+                      <!--
                       <div class="col-md-3 mb-3">
                         <label for="lname">Last name</label>
                         <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname"  v-on:change="page_one.lname = $event.target.value">                
-                      </div>
-                      <div class="col-md-3 mb-3">
+                      </div>-->
+                      <div class="col-md-4 mb-3">
                         <label>Surname:</label>
                         <input type="text" name="csurname" class="form-control" placeholder="Surname:">                                        
                       </div>
