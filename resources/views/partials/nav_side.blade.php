@@ -440,7 +440,7 @@
                   <li>
                       <a href="/development" style="color: #b8c7ce;">
                           <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
-                          Staff Roaster
+                          Staff Roster
                       </a>
                   </li>
                 

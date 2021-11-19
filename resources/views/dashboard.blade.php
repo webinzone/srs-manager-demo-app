@@ -132,7 +132,7 @@
     <div class="small-box bg-purple">
       <div class="inner">
         <h3> {{ number_format($counts['staff_roaster']) }}</h3>
-          <p>Staff Roaster</p>
+          <p>Staff Roster</p>
       </div>
       <div class="icon" aria-hidden="true">
         <i class="fa fa-users"></i>

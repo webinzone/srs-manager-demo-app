@@ -43,7 +43,7 @@ td{
                 <!-- box-header -->
                <!-- box-header -->
               <div class="box-header with-border text-center">
-                 <h3><b>Staff Roaster</b></h3>
+                 <h3><b>Staff Roster</b></h3>
                    
                 </div><!-- /.box-header -->
 
