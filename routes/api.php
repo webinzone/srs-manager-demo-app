@@ -197,6 +197,18 @@ Route::group(['prefix' => 'v1','namespace' => 'Api', 'middleware' => 'auth:api']
         ]
     ); 
 
+   Route::resource('rosters', 'RostersController',
+        [
+            'names' =>
+                [
+                    'index' => 'api.rosters.index'
+                    
+                ],
+            'except' => ['create', 'edit'],
+            'parameters' => ['rosters' => 'rosters_id']
+        ]
+    ); 
+
    Route::resource('progresses', 'ProgressesController',
         [
             'names' =>

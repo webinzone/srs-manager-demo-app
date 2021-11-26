@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('certificates','CertificatesController'); 
     Route::resource('gp_details','GpDetailsController'); 
     Route::resource('room_items','RoomItemsController'); 
+    Route::resource('rosters','RostersController'); 
 
     Route::get('development', 'DashboardController@development')->name('development');   
 
