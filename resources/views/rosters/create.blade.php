@@ -13,6 +13,8 @@
 @section('inputFields')
 
 {{-- Page content --}}
+
+
 @section('content')
 <div id="webui">
   
@@ -50,8 +52,8 @@
               <label for="name" >Manager</label>
                 <select class="form-control" required=""  name="mngr" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Staff Name  --</option>
-                          @foreach($residents as $resident)
-                          <option value="{{ $resident->id }}"> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
                           @endforeach
                         </select>
              </div>
@@ -59,8 +61,8 @@
               <label for="name" >Acting Manager</label>
                     <select class="form-control" required=""  name="a_mngr" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Staff Name  --</option>
-                          @foreach($residents as $resident)
-                          <option value="{{ $resident->id }}"> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
                           @endforeach
                         </select>
       
@@ -72,8 +74,8 @@
               <label for="name" >Complaint Officer</label>
               <select class="form-control" required=""  name="c_oofr" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Staff Name  --</option>
-                          @foreach($residents as $resident)
-                          <option value="{{ $resident->id }}"> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
                           @endforeach
                         </select>
              </div>
@@ -86,8 +88,8 @@
                   <label for="name" >Facility Manager</label>
                      <select class="form-control" required=""  name="faci" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Staff Name  --</option>
-                          @foreach($residents as $resident)
-                          <option value="{{ $resident->id }}"> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
+                          @foreach($emps as $emp)
+                          <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
                           @endforeach
                         </select>    
             </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -222,7 +224,7 @@ $('#resname').change(function(){
         $('#tbody').append(`<tr id="R${++rowIdx}">
              <td class="row-index text-center">
              <select class="form-control" style="height: 26px;padding: 3px 10px;" id="e_name" name="e_name[]">
-                            <option>Emp</option>
+                           <option>Emp</option>
                           @foreach($emps as $emp)
                           <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
                           @endforeach
@@ -238,32 +240,32 @@ $('#resname').change(function(){
              
              </td>
              <td class="row-index text-center" width="100px;">
-             <input type="time" name="sun[]">
-             <input type="time" name="sunto[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="sun[]">
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="sunto[]" >
              </td>
              <td class="row-index text-center">
-             <input type="time" name="mon[]"  >
-             <input type="time" name="monto[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="mon[]"  >
+             <input type="text" placeholder="to"  onfocus="(this.type='time')" id="time" name="monto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="time" name="tue[]"  >
-             <input type="time" name="tueto[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="tue[]"  >
+             <input type="text" placeholder="to"  onfocus="(this.type='time')" id="time" name="tueto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="time" name="wed[]"  >
-             <input type="time" name="wedto[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="wed[]"  >
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="wedto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="time" name="thu[]"  >
-             <input type="time" name="thuto[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="thu[]"  >
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="thuto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="time" name="fri[]"  >
-             <input type="time" name="frito[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="fri[]"  >
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="frito[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="time" name="sat[]"  >
-             <input type="time" name="satto[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="sat[]"  >
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="satto[]"  >
              </td>
              <td class="row-index text-center">
              <input type="text" name="tot_hr[]"  >
@@ -311,6 +313,33 @@ $('#resname').change(function(){
       });
     });
   </script>
+
+  <script>
+var start = document.getElementById("start").value;
+var end = document.getElementById("end").value;
+
+document.getElementById("start").onchange = function() {diff(start,end)};
+document.getElementById("end").onchange = function() {diff(start,end)};
+
+
+function diff(start, end) {
+    start = document.getElementById("start").value; //to update time value in each input bar
+    end = document.getElementById("end").value; //to update time value in each input bar
+    
+    start = start.split(":");
+    end = end.split(":");
+    var startDate = new Date(0, 0, 0, start[0], start[1], 0);
+    var endDate = new Date(0, 0, 0, end[0], end[1], 0);
+    var diff = endDate.getTime() - startDate.getTime();
+    var hours = Math.floor(diff / 1000 / 60 / 60);
+    diff -= hours * 1000 * 60 * 60;
+    var minutes = Math.floor(diff / 1000 / 60);
+
+    return (hours < 9 ? "0" : "") + hours + ":" + (minutes < 9 ? "0" : "") + minutes;
+}
+
+setInterval(function(){document.getElementById("diff").value = diff(start, end);}, 1000); //to update time every second (1000 is 1 sec interval and function encasing original code you had down here is because setInterval only reads functions) You can change how fast the time updates by lowering the time interval
+</script>
 
 @include ('partials.bootstrap-table')
 @stop
