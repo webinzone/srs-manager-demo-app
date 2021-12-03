@@ -53,8 +53,8 @@
     <table>
       <tr>
         <td rowspan="2" style="width: 200px;align-items: center;">&nbsp;&nbsp;&nbsp;&nbsp;<b>STAFF &nbsp;&nbsp; ROSTER</b></td>
-        <td>&nbsp;&nbsp;From:  {{ $roster->p_from}}</td>
-        <td>&nbsp;&nbsp;To:  {{ $roster->p_to}}</td>
+        <td>&nbsp;&nbsp;From:  {{ date('d-m-Y', strtotime($roster->p_from))}}</td>
+        <td>&nbsp;&nbsp;To:  {{ date('d-m-Y', strtotime($roster->p_to))}}</td>
       </tr>
       <tr>
         <td>&nbsp;&nbsp;Manager:  {{ $roster->mngr}}</td>

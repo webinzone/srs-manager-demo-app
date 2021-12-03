@@ -50,7 +50,7 @@
             <table style="padding:10px;">
       <tr>
        
-        <td> &nbsp;&nbsp;&nbsp;&nbsp;Period: &nbsp;&nbsp;&nbsp;&nbsp; {{ $roster->p_from}} - &nbsp;&nbsp;&nbsp;&nbsp; {{ $roster->p_to}}</td>
+        <td> &nbsp;&nbsp;&nbsp;&nbsp;Period: &nbsp;&nbsp;&nbsp;&nbsp; {{ date('d-m-Y', strtotime($roster->p_from))}} &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp; {{ date('d-m-Y', strtotime($roster->p_to))}}</td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;Manager: &nbsp;&nbsp;&nbsp;&nbsp; {{ $roster->mngr}}</td>
       </tr>
       <tr>
