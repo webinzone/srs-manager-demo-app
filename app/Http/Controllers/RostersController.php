@@ -136,8 +136,14 @@ class RostersController extends Controller
           $frito = explode(',', $roster->frito);
           $satto = explode(',', $roster->satto);
           $tot_hr = explode(',', $roster->tot_hr);
+          $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
+        //$residents = $resid->where('status', '=', 'Active');
+        $companies = CompanyMaster::all();
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+        $item_last= count($e_name);
+          $num = (int)$item_last;
 
-      return view('rosters/show', compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr'));
+        return view('rosters/show',compact('roster','p_from','p_to','mngr','a_mngr', 'c_oofr', 'prop', 'faci', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr', 'emps', 'num'));
       //  $roster = Roster::find($id);
        // return view('rosters/show',compact('roster'));
     }
@@ -151,13 +157,7 @@ class RostersController extends Controller
      public function edit($id)
     {
         $this->authorize('edit',Roster::class);
-           $roster->p_from = request('p_from') ?? ' ';
-        $roster->p_to = request('p_to') ?? ' ';
-        $roster->mngr = request('mngr') ?? ' ';
-        $roster->a_mngr = request('a_mngr') ?? ' ';
-        $roster->c_oofr = request('c_oofr') ?? ' ';
-        $roster->prop = request('prop') ?? ' ';
-        $roster->faci = request('faci') ?? ' ';
+       
           $roster = Roster::find($id);
           $e_name = explode(',', $roster->e_name);
           $e_pos = explode(',', $roster->e_pos);
@@ -176,7 +176,14 @@ class RostersController extends Controller
           $frito = explode(',', $roster->frito);
           $satto = explode(',', $roster->satto);
           $tot_hr = explode(',', $roster->tot_hr);
-        return view('rosters/edit',compact('roster','p_from','p_to','mngr','a_mngr', 'c_oofr', 'prop', 'faci', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr'));
+          $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
+        //$residents = $resid->where('status', '=', 'Active');
+        $companies = CompanyMaster::all();
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+        $item_last= count($e_name);
+          $num = (int)$item_last;
+
+        return view('rosters/edit',compact('roster','p_from','p_to','mngr','a_mngr', 'c_oofr', 'prop', 'faci', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr', 'emps', 'num'));
     }
     /**
      * Update the specified resource in storage.
@@ -189,10 +196,6 @@ class RostersController extends Controller
     {
         $this->authorize('update', Roster::class);
         $roster = Roster::find($id);
-        //$id = request('res_name');
-       // $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        //$name = $res->fname." ".$res->mname." ".$res->lname;
-        $roster->room = request('room') ?? ' ';
         $roster->p_from = request('p_from') ?? ' ';
         $roster->p_to = request('p_to') ?? ' ';
         $roster->mngr = request('mngr') ?? ' ';
@@ -209,13 +212,13 @@ class RostersController extends Controller
         $roster->thu = implode(',', (array) request('thu')) ?? ' ';
         $roster->fri = implode(',', (array) request('fri')) ?? ' ';
         $roster->sat = implode(',', (array) request('sat')) ?? ' ';
-        $roster->sun2 = implode(',', (array) request('sun2')) ?? ' ';
-        $roster->mon2 = implode(',', (array) request('mon2')) ?? ' ';
-        $roster->tue2 = implode(',', (array) request('tue2')) ?? ' ';
-        $roster->wed2 = implode(',', (array) request('wed2')) ?? ' ';
-        $roster->thu2 = implode(',', (array) request('thu2')) ?? ' ';
-        $roster->fri2 = implode(',', (array) request('fri2')) ?? ' ';
-        $roster->sat2 = implode(',', (array) request('sat2')) ?? ' ';
+        $roster->sunto = implode(',', (array) request('sunto')) ?? ' ';
+        $roster->monto = implode(',', (array) request('monto')) ?? ' ';
+        $roster->tueto = implode(',', (array) request('tueto')) ?? ' ';
+        $roster->wedto = implode(',', (array) request('wedto')) ?? ' ';
+        $roster->thuto = implode(',', (array) request('thuto')) ?? ' ';
+        $roster->frito = implode(',', (array) request('frito')) ?? ' ';
+        $roster->satto = implode(',', (array) request('satto')) ?? ' ';
         $roster->tot_hr = implode(',', (array) request('tot_hr')) ?? ' ';
         $roster->company_id = Auth::user()->c_id  ?? '';
         $roster->location_id = Auth::user()->l_id  ?? '';

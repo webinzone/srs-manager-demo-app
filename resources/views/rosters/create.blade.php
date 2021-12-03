@@ -240,8 +240,9 @@ $('#resname').change(function(){
              
              </td>
              <td class="row-index text-center" width="100px;">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="sun[]">
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="sunto[]" >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start" name="sun[]">
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end" name="sunto[]" >
+
              </td>
              <td class="row-index text-center">
              <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="mon[]"  >
@@ -312,9 +313,12 @@ $('#resname').change(function(){
         rowIdx--;
       });
     });
-  </script>
 
-  <script>
+
+
+
+  </script>
+<script>
 var start = document.getElementById("start").value;
 var end = document.getElementById("end").value;
 
@@ -340,6 +344,7 @@ function diff(start, end) {
 
 setInterval(function(){document.getElementById("diff").value = diff(start, end);}, 1000); //to update time every second (1000 is 1 sec interval and function encasing original code you had down here is because setInterval only reads functions) You can change how fast the time updates by lowering the time interval
 </script>
+
 
 @include ('partials.bootstrap-table')
 @stop

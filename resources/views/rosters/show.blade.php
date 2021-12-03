@@ -93,8 +93,7 @@
         <td>&nbsp;&nbsp;&nbsp;&nbsp;{{$fri[$i] }}</td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;{{$sat[$i] }}</td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;{{$tot_hr[$i] }}</td>
-        <td></td>   
-        <td></td>     
+       
       </tr>
     @endfor
      

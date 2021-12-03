@@ -55,7 +55,7 @@ class DashboardController extends Controller
             $counts['resident'] = \App\Models\ClientDetail::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->count();
             $counts['appointments'] = Appointment::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->count();
             $counts['bookings'] = \App\Models\Booking::count();
-            $counts['staff_roaster'] = \App\Models\StaffRoaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->count();
+            $counts['rosters'] = \App\Models\Roster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->count();
             
             if ((!file_exists(storage_path().'/oauth-private.key')) || (!file_exists(storage_path().'/oauth-public.key'))) {
                 \Artisan::call('migrate', ['--force' => true]);
