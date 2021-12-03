@@ -443,6 +443,12 @@
                           Staff Roster
                       </a>
                   </li>
+                  <li>
+                      <a href="/generaterosters" style="color: #b8c7ce;">
+                          <i class="fa fa-circle-o text-grey" aria-hidden="true"></i>
+                          Staff Roster Report
+                      </a>
+                  </li>
                 
                 </ul>
               </li>

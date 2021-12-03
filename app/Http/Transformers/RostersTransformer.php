@@ -25,9 +25,9 @@ class RostersTransformer
 
             $array = [
                 'id' => (int) $roster->id,
-                'p_from' => e($roster->p_from),
+                'p_from' => e(date('d-m-Y', strtotime($roster->p_from))),
 
-                'p_to' => e($roster->p_to),
+                'p_to' => e(date('d-m-Y', strtotime($roster->p_to))),
                 
                 'created_at' => e(date('d-m-Y', strtotime($roster->created_at))),
                 'actions' => view('rosters/datatables_actions', compact('roster'))->render() 

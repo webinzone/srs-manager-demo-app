@@ -142,6 +142,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/generatevaccate', 'VaccatesController@generatevaccate');
     Route::get('/generateVaccateReport/', 'VaccatesController@generateVaccateReport')->name('generateVaccateReport');
 
+    Route::get('/generaterosters', 'RostersController@generaterosters');
+    Route::get('/generateRosterReport/', 'RostersController@generateRosterReport')->name('generateRosterReport');
+
     Route::get('/generatecomplaint', 'ComplaintsController@generatecomplaint');
     Route::get('/generateComplaintReport/', 'ComplaintsController@generateComplaintReport')->name('generateComplaintReport');
 

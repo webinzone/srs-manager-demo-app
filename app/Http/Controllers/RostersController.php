@@ -247,7 +247,7 @@ class RostersController extends Controller
         
     }
 
-    public function rosters()
+    public function generaterosters()
     {   
         $rosters = Roster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('rosters/report_show',compact('rosters'));
@@ -266,10 +266,13 @@ class RostersController extends Controller
 
     }
 
-    public function viewreport($id)
+    public function generateRosterReport()
     {
-      $roster = Roster::find($id);
-      $e_name = explode(',', $roster->e_name);
+        $from = request('from');
+        $to = request('to');
+        $roster = Roster::where('p_from', '=', $from)->where('p_to', '=', $to)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail() ?? '';
+
+          $e_name = explode(',', $roster->e_name);
           $e_pos = explode(',', $roster->e_pos);
           $sun = explode(',', $roster->sun);
           $mon = explode(',', $roster->mon);
@@ -286,9 +289,16 @@ class RostersController extends Controller
           $frito = explode(',', $roster->frito);
           $satto = explode(',', $roster->satto);
           $tot_hr = explode(',', $roster->tot_hr);
+          $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
+        //$residents = $resid->where('status', '=', 'Active');
+        $companies = CompanyMaster::all();
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+        $item_last= count($e_name);
+          $num = (int)$item_last;
+          $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
 
-      return view('rosters/report', compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr'));
-        
+
+        return view('rosters/report',compact('roster','p_from','p_to','mngr','a_mngr', 'c_oofr', 'prop', 'faci', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr', 'emps', 'num', 'locations'));  
     }
    
      public function generateReport()
@@ -336,37 +346,7 @@ class RostersController extends Controller
                         ->with('success','deleted successfully');
     }
 
-    public function getDetails($id){
-         $data = ClientDetail::where('id', '=', $id)->firstOrFail();
-         return response()->json($data);
-    }
-    public function getLocation($id){
-        // $data = LocationMaster::where('company_id', '=', $id)->firstOrFail();
-        // return response()->json($data);
-        $value = $id;
-         return response()->json([
-            'locations' => LocationMaster::where('company_id', $id)->get()
-        ]);
-
-    }
-
-    public function getCompanyName($id){
-        $data = CompanyMaster::where('company_id', '=', $id)->firstOrFail();
-        return response()->json($data);
-    }
-
-    public function getLocationName($id){
-        $data = LocationMaster::where('id', '=', $id)->firstOrFail();
-        return response()->json($data);
-    }
-    public function getLname($id){
-        $data1 = CompanyMaster::where('company_id', '=', $id)->firstOrFail();
-        $c_id = $data1->company_id;
-        $l_id = 'L001';
-        $data = LocationMaster::where('company_id', '=', $c_id)->where('location_id', '=', $l_id)->firstOrFail();
-        return response()->json($data);
-    }
-
+   
     public function getRow($id){
 
         $roster = Roster::where('id', '=', $id)->firstOrFail(); 

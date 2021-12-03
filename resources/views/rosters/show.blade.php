@@ -13,7 +13,8 @@
 
 {{-- Page content --}}
 @section('content')
-<style type="text/css">
+
+  <style type="text/css">
 
   table, td, th {
     border: 1px solid black;
@@ -22,7 +23,6 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    padding: 10px;
   }
   .container{
   width: 1000px;
@@ -31,10 +31,6 @@
   border: 3px solid black;
 
   }
-  input.right {
-        float: right;
-        right: 30px;
-      }
   </style>
 
   <div id="webui">
@@ -85,14 +81,14 @@
       <tr class="blank_row">
         <td > &nbsp;&nbsp;&nbsp;&nbsp;{{$e_pos[$i] }}</td>
         <td> &nbsp;&nbsp;&nbsp;&nbsp;{{$e_pos[$i] }}  </td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{$sun[$i] }}</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{$mon[$i] }}</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{$tue[$i] }}</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{$wed[$i] }}</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{$thu[$i] }}</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{$fri[$i] }}</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{$sat[$i] }}</td>
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{$tot_hr[$i] }}</td>
+        <td>{{$sun[$i] }}&nbsp; - &nbsp; {{$sunto[$i] }}</td>
+        <td>{{$mon[$i] }}&nbsp; - &nbsp; {{$monto[$i] }}</td>
+        <td>{{$tue[$i] }}&nbsp; - &nbsp; {{$tueto[$i] }}</td>
+        <td>{{$wed[$i] }}&nbsp; - &nbsp; {{$wedto[$i] }}</td>
+        <td>{{$thu[$i] }}&nbsp; - &nbsp; {{$thuto[$i] }}</td>
+        <td>{{$fri[$i] }}&nbsp; - &nbsp; {{$frito[$i] }}</td>
+        <td>{{$sat[$i] }}&nbsp; - &nbsp; {{$satto[$i] }}</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$tot_hr[$i] }}&nbsp;&nbsp;hr</td>    
        
       </tr>
     @endfor
