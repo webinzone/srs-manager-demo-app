@@ -159,23 +159,23 @@ class RostersController extends Controller
         $this->authorize('edit',Roster::class);
        
           $roster = Roster::find($id);
-          $e_name = explode(',', $roster->e_name);
-          $e_pos = explode(',', $roster->e_pos);
-          $sun = explode(',', $roster->sun);
-          $mon = explode(',', $roster->mon);
-          $tue = explode(',', $roster->tue);
-          $wed = explode(',', $roster->wed);
-          $thu = explode(',', $roster->thu);
-          $fri = explode(',', $roster->fri);
-          $sat = explode(',', $roster->sat);
-          $sunto = explode(',', $roster->sunto);
-          $monto = explode(',', $roster->monto);
-          $tueto = explode(',', $roster->tueto);
-          $wedto = explode(',', $roster->wedto);
-          $thuto = explode(',', $roster->thuto);
-          $frito = explode(',', $roster->frito);
-          $satto = explode(',', $roster->satto);
-          $tot_hr = explode(',', $roster->tot_hr);
+          $e_name = explode(',', $roster->e_name) ?? '';
+          $e_pos = explode(',', $roster->e_pos) ?? '';
+          $sun = explode(',', $roster->sun) ?? '';
+          $mon = explode(',', $roster->mon) ?? '';
+          $tue = explode(',', $roster->tue) ?? '';
+          $wed = explode(',', $roster->wed) ?? '';
+          $thu = explode(',', $roster->thu) ?? '';
+          $fri = explode(',', $roster->fri) ?? '';
+          $sat = explode(',', $roster->sat) ?? '';
+          $sunto = explode(',', $roster->sunto) ?? '';
+          $monto = explode(',', $roster->monto) ?? '';
+          $tueto = explode(',', $roster->tueto) ?? '';
+          $wedto = explode(',', $roster->wedto) ?? '';
+          $thuto = explode(',', $roster->thuto) ?? '';
+          $frito = explode(',', $roster->frito) ?? '';
+          $satto = explode(',', $roster->satto) ?? '';
+          $tot_hr = explode(',', $roster->tot_hr) ?? '';
           $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
         //$residents = $resid->where('status', '=', 'Active');
         $companies = CompanyMaster::all();
@@ -422,6 +422,36 @@ class RostersController extends Controller
 
         return redirect()->route('rosters.edit', compact('roster'))
                    ->with('success','deleted successfully');
+
+    }
+
+    public function previous(){
+        $roster        =   Roster::orderBy('created_at', 'desc')->first();
+          $e_name = explode(',', $roster->e_name) ?? '';
+          $e_pos = explode(',', $roster->e_pos) ?? '';
+          $sun = explode(',', $roster->sun) ?? '';
+          $mon = explode(',', $roster->mon) ?? '';
+          $tue = explode(',', $roster->tue) ?? '';
+          $wed = explode(',', $roster->wed) ?? '';
+          $thu = explode(',', $roster->thu) ?? '';
+          $fri = explode(',', $roster->fri) ?? '';
+          $sat = explode(',', $roster->sat) ?? '';
+          $sunto = explode(',', $roster->sunto) ?? '';
+          $monto = explode(',', $roster->monto) ?? '';
+          $tueto = explode(',', $roster->tueto) ?? '';
+          $wedto = explode(',', $roster->wedto) ?? '';
+          $thuto = explode(',', $roster->thuto) ?? '';
+          $frito = explode(',', $roster->frito) ?? '';
+          $satto = explode(',', $roster->satto) ?? '';
+          $tot_hr = explode(',', $roster->tot_hr) ?? '';
+          $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
+        //$residents = $resid->where('status', '=', 'Active');
+        $companies = CompanyMaster::all();
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+        $item_last= count($e_name);
+          $num = (int)$item_last;
+
+        return view('rosters/previous',compact('roster','p_from','p_to','mngr','a_mngr', 'c_oofr', 'prop', 'faci', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr', 'emps', 'num'));
 
     }
 

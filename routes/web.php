@@ -144,6 +144,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/generaterosters', 'RostersController@generaterosters');
     Route::get('/generateRosterReport/', 'RostersController@generateRosterReport')->name('generateRosterReport');
+    Route::get('/previous', 'RostersController@previous');
 
     Route::get('/generatecomplaint', 'ComplaintsController@generatecomplaint');
     Route::get('/generateComplaintReport/', 'ComplaintsController@generateComplaintReport')->name('generateComplaintReport');
