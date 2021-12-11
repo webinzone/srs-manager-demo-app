@@ -39,7 +39,6 @@
                    
                 </div><!-- /.box-header -->
 
-
               <!-- box-body -->
        <div class="box-body" style="padding-left: 20px;padding-right: 0px;width: 1000px;">                       
         <div class="form-row" style="padding-bottom:30px;width: 1000px;">
@@ -246,7 +245,7 @@ $('#resname').change(function(){
              </td>
              <td class="row-index text-center" width="100px;">
              <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start" name="sun[]">
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end" name="sunto[]" >
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" onchange="calculateTime();" id="end" name="sunto[]" >
 
              </td>
              <td class="row-index text-center">
@@ -323,59 +322,23 @@ $('#resname').change(function(){
 
 
   </script>
-<script>
-var start = document.getElementById("start").value;
-var end = document.getElementById("end").value;
-
-document.getElementById("start").onchange = function() {diff(start,end)};
-document.getElementById("end").onchange = function() {diff(start,end)};
-
-
-function diff(start, end) {
-    start = document.getElementById("start").value; //to update time value in each input bar
-    end = document.getElementById("end").value; //to update time value in each input bar
-    
-    start = start.split(":");
-    end = end.split(":");
-    var startDate = new Date(0, 0, 0, start[0], start[1], 0);
-    var endDate = new Date(0, 0, 0, end[0], end[1], 0);
-    var diff = endDate.getTime() - startDate.getTime();
-    var hours = Math.floor(diff / 1000 / 60 / 60);
-    diff -= hours * 1000 * 60 * 60;
-    var minutes = Math.floor(diff / 1000 / 60);
-
-    return (hours < 9 ? "0" : "") + hours + ":" + (minutes < 9 ? "0" : "") + minutes;
-}
-
-setInterval(function(){document.getElementById("diff").value = diff(start, end);}, 1000); //to update time every second (1000 is 1 sec interval and function encasing original code you had down here is because setInterval only reads functions) You can change how fast the time updates by lowering the time interval
-</script>
 <script type="text/javascript">
-  var time1 = document.getElementById("sun[]").value;
-  var time2 = document.getElementById("sunto[]").value;
-
-  var splitted1 = "{time1}".split(":");
-  var splitted2 = "{time2}".split(":");
-  var time1 = splitted1[0]+splitted1[1];
-  var time2 = splitted2[0]+splitted2[1];
-  var hours;
-  var minutes;
-
-  if (time1 < time2) {
-  var diff = getTimeDiff('{time2}', '{time1}', 'm');
-  hours = Math.floor((diff/60));
-  minutes =(diff%60);
-  } else {
-  var diff1 = getTimeDiff('24:00', '{time1}', 'm'); 
-  var diff2 = getTimeDiff('{time2}', '00:00', 'm');
-  var totalDiff = diff1+diff2;
-  hours = Math.floor((totalDiff/60));
-  minutes =(totalDiff%60);
-  };
-
- result =  hours + " hours, " + minutes + " minutes";
- alert(res)
-
-</script>
+    $('#end').change(function () {
+      alert("hiii")
+            //get values
+            var valuestart = document.getElementById('start').val(); 
+            var valuestop = document.getElementById('end').val();
+              
+             //create date format          
+             var timeStart = new Date("01/01/2007 " + valuestart).getHours();
+             var timeEnd = new Date("01/01/2007 " + valuestop).getHours();
+             
+             var hourDiff = timeEnd - timeStart;    
+            
+             $("p").html("<b>Hour Difference:</b> " + hourDiff )             
+             
+    });
+  </script>
 
 @include ('partials.bootstrap-table')
 @stop
