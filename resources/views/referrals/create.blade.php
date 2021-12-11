@@ -264,19 +264,21 @@
                 <h5 style="color:#980000;font-size: 16px;"><b>Guardian Details (if the client has guardian)</b></h5>
 
                <div class="form-row">
-                      <div class="col-md-6 mb-3">
-                        <label>Client Ref Number</label>
-                        <input type="text" name="gua_refno" id="" class="form-control" placeholder="Client Ref Number">                                        
-                      </div>
-                      <div class="col-md-6 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label>Name</label>
                         <input type="text" id="gname" name="gua_name" class="form-control" placeholder="Name" >                                        
                       </div>
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label>Address</label>
                         <textarea name="gua_addr" id="gadr" class="form-control" placeholder="Address" ></textarea>                                        
+                      </div>
+                      
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-row">
+                      
+                      <div class="col-md-6 mb-3">
+                        <label>Client Ref Number</label>
+                        <input type="text" name="gua_refno" id="" class="form-control" placeholder="Client Ref Number">                                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Email ID</label>
@@ -295,14 +297,15 @@
                         <input type="text" name="ad_name" class="form-control" placeholder="Name">                                        
                       </div>
                       <div class="col-md-6 mb-3">
-                        <label>Client Ref Number</label>
-                        <input type="text" name="ad_refno" class="form-control" placeholder="Client Ref Number">
+                        <label>Address</label>
+                        <textarea name="ad_addr" class="form-control" placeholder="Address"></textarea>                                        
                       </div>
+                      
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                       <div class="col-md-6 mb-3">
-                        <label>Address</label>
-                        <textarea name="ad_addr" class="form-control" placeholder="Address"></textarea>                                        
+                        <label>Client Ref Number</label>
+                        <input type="text" name="ad_refno" class="form-control" placeholder="Client Ref Number">
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Email ID</label>

@@ -349,7 +349,33 @@ function diff(start, end) {
 
 setInterval(function(){document.getElementById("diff").value = diff(start, end);}, 1000); //to update time every second (1000 is 1 sec interval and function encasing original code you had down here is because setInterval only reads functions) You can change how fast the time updates by lowering the time interval
 </script>
+<script type="text/javascript">
+  var time1 = document.getElementById("sun[]").value;
+  var time2 = document.getElementById("sunto[]").value;
 
+  var splitted1 = "{time1}".split(":");
+  var splitted2 = "{time2}".split(":");
+  var time1 = splitted1[0]+splitted1[1];
+  var time2 = splitted2[0]+splitted2[1];
+  var hours;
+  var minutes;
+
+  if (time1 < time2) {
+  var diff = getTimeDiff('{time2}', '{time1}', 'm');
+  hours = Math.floor((diff/60));
+  minutes =(diff%60);
+  } else {
+  var diff1 = getTimeDiff('24:00', '{time1}', 'm'); 
+  var diff2 = getTimeDiff('{time2}', '00:00', 'm');
+  var totalDiff = diff1+diff2;
+  hours = Math.floor((totalDiff/60));
+  minutes =(totalDiff%60);
+  };
+
+ result =  hours + " hours, " + minutes + " minutes";
+ alert(res)
+
+</script>
 
 @include ('partials.bootstrap-table')
 @stop
