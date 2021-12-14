@@ -99,16 +99,16 @@
                 <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label>From</label>
-                        <textarea rows="4" name="from" class="form-control" placeholder="From Address"></textarea>
+                        <textarea rows="4" name="from" class="form-control" placeholder="From Address" required></textarea>
                                                              
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>To</label>
-                        <textarea rows="4"  name="to" class="form-control" placeholder="To Address"></textarea>                                      
+                        <textarea rows="4"  name="to" class="form-control" placeholder="To Address" required></textarea>                                      
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Reason For Transfer</label>
-                        <textarea rows="4"  name="reason" class="form-control" placeholder="Reason For Transfer"></textarea>
+                        <textarea rows="4"  name="reason" class="form-control" placeholder="Reason For Transfer" required></textarea>
                        
                       </div>
 
@@ -130,7 +130,7 @@
 
                       <div class="col-md-12 mb-3">
                         <label>Date</label>
-                        <input type="date" style="width: 200px;" name="date" class="form-control" placeholder="Date">                                        
+                        <input type="date" style="width: 200px;" name="date" class="form-control" placeholder="Date" required>                                        
                       </div>
                      <!-- <div class="col-md-3 mb-3">
                         <label>Phone No.</label>

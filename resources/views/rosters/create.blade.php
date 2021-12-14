@@ -40,7 +40,7 @@
                 </div><!-- /.box-header -->
 
               <!-- box-body -->
-       <div class="box-body" style="padding-left: 20px;padding-right: 0px;width: 1000px;">                       
+       <div class="box-body" style="padding-left: 20px;padding-right: 0px;width: 1000px;">                      <!-- <button id="cal">calculate time</button>-->
         <div class="form-row" style="padding-bottom:30px;width: 1000px;">
           <div class="col-md-3 mb-3">
               <label for="name" >From</label>
@@ -245,32 +245,32 @@ $('#resname').change(function(){
              </td>
              <td class="row-index text-center" width="100px;">
              <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start" name="sun[]">
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" onchange="calculateTime();" id="end" name="sunto[]" >
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end" name="sunto[]" >
 
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="mon[]"  >
-             <input type="text" placeholder="to"  onfocus="(this.type='time')" id="time" name="monto[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start2" name="mon[]"  >
+             <input type="text" placeholder="to"  onfocus="(this.type='time')" id="end2" name="monto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="tue[]"  >
-             <input type="text" placeholder="to"  onfocus="(this.type='time')" id="time" name="tueto[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start3" name="tue[]"  >
+             <input type="text" placeholder="to"  onfocus="(this.type='time')" id="end3" name="tueto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="wed[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="wedto[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start4" name="wed[]"  >
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end4" name="wedto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="thu[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="thuto[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start5" name="thu[]"  >
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end5" name="thuto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="fri[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="frito[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start6" name="fri[]"  >
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end6" name="frito[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="sat[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="satto[]"  >
+             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start7" name="sat[]"  >
+             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end7" name="satto[]"  >
              </td>
              <td class="row-index text-center">
              <input type="text" name="tot_hr[]"  >
@@ -323,22 +323,109 @@ $('#resname').change(function(){
 
   </script>
 <script type="text/javascript">
-    $('#end').change(function () {
-      alert("hiii")
-            //get values
-            var valuestart = document.getElementById('start').val(); 
-            var valuestop = document.getElementById('end').val();
-              
-             //create date format          
-             var timeStart = new Date("01/01/2007 " + valuestart).getHours();
-             var timeEnd = new Date("01/01/2007 " + valuestop).getHours();
-             
-             var hourDiff = timeEnd - timeStart;    
-            
-             $("p").html("<b>Hour Difference:</b> " + hourDiff )             
-             
-    });
-  </script>
+  $('#cal').on('click', function () {
+   // //alert("1");
+    var timeOfCall1 = $('#start').val(),
+        timeOfResponse1 = $('#end').val(),
+        hours = timeOfResponse1.split(':')[0] - timeOfCall1.split(':')[0],
+        minutes = timeOfResponse1.split(':')[1] - timeOfCall1.split(':')[1];
+
+    minutes = minutes.toString().length<2?'0'+minutes:minutes;
+    if(minutes<0){ 
+        hours--;
+        minutes1 = 60 + minutes;
+    }
+    hours1 = hours.toString().length<2?'0'+hours:hours;
+    hr1 = hours1 + ':' + minutes1;
+
+    //alert(hours1 + ':' + minutes1);
+    var timeOfCall2 = $('#start2').val(),
+        timeOfResponse2 = $('#end2').val(),
+        hours = timeOfResponse2.split(':')[0] - timeOfCall2.split(':')[0],
+        minutes = timeOfResponse2.split(':')[1] - timeOfCall2.split(':')[1];
+
+    minutes = minutes.toString().length<2?'0'+minutes:minutes;
+    if(minutes<0){ 
+        hours--;
+        minutes2 = 60 + minutes;
+    }
+    hours2 = hours.toString().length<2?'0'+hours:hours;
+    hr2 = hours2 + ':' + minutes2;
+    //alert("3");
+    var timeOfCall3 = $('#start3').val(),
+        timeOfResponse3 = $('#end3').val(),
+        hours = timeOfResponse3.split(':')[0] - timeOfCall3.split(':')[0],
+        minutes = timeOfResponse3.split(':')[1] - timeOfCall3.split(':')[1];
+
+    minutes = minutes.toString().length<2?'0'+minutes:minutes;
+    if(minutes<0){ 
+        hours--;
+        minutes3 = 60 + minutes;
+    }
+    hours3 = hours.toString().length<2?'0'+hours:hours;
+    hr3 = hours3 + ':' + minutes3;
+    //alert("4");
+    var timeOfCall4 = $('#start4').val(),
+        timeOfResponse4 = $('#end4').val(),
+        hours = timeOfResponse4.split(':')[0] - timeOfCall4.split(':')[0],
+        minutes = timeOfResponse4.split(':')[1] - timeOfCall4.split(':')[1];
+
+    minutes = minutes.toString().length<2?'0'+minutes:minutes;
+    if(minutes<0){ 
+        hours--;
+        minutes4 = 60 + minutes;
+    }
+    hours4 = hours.toString().length<2?'0'+hours:hours;
+    hr4 = hours4 + ':' + minutes4;
+    //alert("5");
+    var timeOfCall5 = $('#start5').val(),
+        timeOfResponse5 = $('#end5').val(),
+        hours = timeOfResponse5.split(':')[0] - timeOfCall5.split(':')[0],
+        minutes = timeOfResponse5.split(':')[1] - timeOfCall5.split(':')[1];
+
+    minutes = minutes.toString().length<2?'0'+minutes:minutes;
+    if(minutes<0){ 
+        hours--;
+        minutes5 = 60 + minutes;
+    }
+    hours5 = hours.toString().length<2?'0'+hours:hours;
+    hr5 = hours5 + ':' + minutes5;
+    //alert("6");
+    var timeOfCall6 = $('#start6').val(),
+        timeOfResponse6 = $('#end6').val(),
+        hours = timeOfResponse6.split(':')[0] - timeOfCall6.split(':')[0],
+        minutes = timeOfResponse6.split(':')[1] - timeOfCall6.split(':')[1];
+
+    minutes = minutes.toString().length<2?'0'+minutes:minutes;
+    if(minutes<0){ 
+        hours--;
+        minutes6 = 60 + minutes;
+    }
+    hours6 = hours.toString().length<2?'0'+hours:hours;
+    hr6 = hours6 + ':' + minutes6;
+    //alert("7");
+    var timeOfCall7 = $('#start7').val(),
+        timeOfResponse7 = $('#end7').val(),
+        hours = timeOfResponse7.split(':')[0] - timeOfCall7.split(':')[0],
+        minutes = timeOfResponse7.split(':')[1] - timeOfCall7.split(':')[1];
+
+    minutes = minutes.toString().length<2?'0'+minutes:minutes;
+    if(minutes<0){ 
+        hours--;
+        minutes7 = 60 + minutes;
+    }
+    hours7 = hours.toString().length<2?'0'+hours:hours;
+    hr7 = hours7 + ':' + minutes7;
+
+    var total_hr = hr1.split(':')[0] + hr2.split(':')[0] + hr3.split(':')[0] + hr4.split(':')[0] + hr5.split(':')[0] + hr6.split(':')[0] + hr7.split(':')[0],
+    total_min = hr1.split(':')[1] + hr2.split(':')[1] + hr3.split(':')[1] + hr4.split(':')[1] + hr5.split(':')[1] + hr6.split(':')[1] + hr7.split(':')[1];
+
+   // alert(total_hr + ':' + total_min);
+
+    //$('#delay').val(hours + ':' + minutes);
+   // alert(hours + ':' + minutes);
+});
+</script>
 
 @include ('partials.bootstrap-table')
 @stop
