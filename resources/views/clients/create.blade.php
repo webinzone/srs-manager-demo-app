@@ -121,9 +121,9 @@
                     
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
-                        <label for="fname">Name of the Resident</label>
-                        <select class="form-control" required id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
-                            <option>--   Select Resident Name  --</option>
+                        <label for="fname">Name of the Resident</label>                      
+                        <select class="form-control" required  id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;" >
+                            <option value="">--   Select Resident Name  --</option>
                           @foreach($residents as $resident)
                           <option value="{{ $resident->id }}"> {{ $resident->cfname }}</option>
                           @endforeach
@@ -213,16 +213,16 @@
                                      
                       <div class="col-md-3 mb-3">
                         <label for="weeks">Book From</label>
-                        <input type='date' name="start_period" id="book_from" class="form-control" placeholder="Book From"  />          
+                        <input type='date' name="start_period" id="book_from" class="form-control" placeholder="Book From"  required />          
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="weeks">Book To</label>
-                        <input type='date' name="end_period" id="book_to" class="form-control" placeholder="Book From"  />          
+                        <input type='date' name="end_period" id="book_to" class="form-control" placeholder="Book From" required />          
                       </div>
 
                       <div class="col-md-3 mb-3">
                         <label for="adm_date">Admission Date</label>
-                        <input type="date" class="form-control" id="adm_date" placeholder="Admission Date" name="adm_date"  v-on:change="page_one.adm_date = $event.target.value" disabled>          
+                        <input type="date" class="form-control" id="adm_date" placeholder="Admission Date" name="adm_date"  v-on:change="page_one.adm_date = $event.target.value" disabled required>          
                       </div>
 
                       <div class="col-md-3 mb-3">

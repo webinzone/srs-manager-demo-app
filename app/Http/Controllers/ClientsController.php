@@ -63,7 +63,8 @@ class ClientsController extends Controller
          
         $this->authorize('create');
         $status = "Vacant";
-        $residents = Referral::orderBy('cfname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $res_st = "pending";
+        $residents = Referral::orderBy('cfname')->where('status', '=', $res_st)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         $rooms = RoomDetail::where('status', '=', $status)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
         $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
         return view('clients/create',compact('rooms', 'emps', 'residents'));
@@ -75,7 +76,9 @@ class ClientsController extends Controller
         $client_detail = new ClientDetail();  
         $aid = request('res_name')  ?? '';  
 
-        $referral = Referral::where('id', '=', $aid)->firstOrFail();
+        $referral = Referral::where('id', '=', $aid)->firstOrFail(); 
+        //$referral->status = "active"
+        //$referral->save();
         $aname = $referral->cfname;
         $name = explode("  ", $aname);
         $client_detail->fname = $name[0];
@@ -309,6 +312,10 @@ class ClientsController extends Controller
         $pension_detail->con_card = request('con_card')  ?? '';
         $pension_detail->user_id =  Auth::user()->id;
         $pension_detail->save();
+
+        $referralup = Referral::where('id', '=', $aid)->firstOrFail(); 
+        $referralup->status = "active";
+        $referralup->save();
 
         $activity = new ActivityLog();
         $activity->user = Auth::user()->first_name;

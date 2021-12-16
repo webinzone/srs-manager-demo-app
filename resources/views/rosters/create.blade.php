@@ -40,7 +40,15 @@
                 </div><!-- /.box-header -->
 
               <!-- box-body -->
-       <div class="box-body" style="padding-left: 20px;padding-right: 0px;width: 1000px;">                      <!-- <button id="cal">calculate time</button>-->
+       <div class="box-body" style="padding-left: 20px;padding-right: 0px;width: 1000px;">                      
+
+        <input type="time"  id="start"  >
+        <input type="time" id="end"  >
+
+        <input id="diff">
+
+
+
         <div class="form-row" style="padding-bottom:30px;width: 1000px;">
           <div class="col-md-3 mb-3">
               <label for="name" >From</label>
@@ -322,109 +330,30 @@ $('#resname').change(function(){
 
 
   </script>
-<script type="text/javascript">
-  $('#cal').on('click', function () {
-   // //alert("1");
-    var timeOfCall1 = $('#start').val(),
-        timeOfResponse1 = $('#end').val(),
-        hours = timeOfResponse1.split(':')[0] - timeOfCall1.split(':')[0],
-        minutes = timeOfResponse1.split(':')[1] - timeOfCall1.split(':')[1];
+<script>
+var start = document.getElementById("start2").value;
+var end = document.getElementById("end2").value;
 
-    minutes = minutes.toString().length<2?'0'+minutes:minutes;
-    if(minutes<0){ 
-        hours--;
-        minutes1 = 60 + minutes;
-    }
-    hours1 = hours.toString().length<2?'0'+hours:hours;
-    hr1 = hours1 + ':' + minutes1;
+document.getElementById("start").onchange = function() {diff(start,end)};
+document.getElementById("end").onchange = function() {diff(start,end)};
+                                                       
+function diff(start, end) {
+    start = document.getElementById("start").value; //to update time value in each input bar
+    end = document.getElementById("end").value; //to update time value in each input bar
+    
+    start = start.split(":");
+    end = end.split(":");
+    var startDate = new Date(0, 0, 0, start[0], start[1], 0);
+    var endDate = new Date(0, 0, 0, end[0], end[1], 0);
+    var diff = endDate.getTime() - startDate.getTime();
+    var hours = Math.floor(diff / 1000 / 60 / 60);
+    diff -= hours * 1000 * 60 * 60;
+    var minutes = Math.floor(diff / 1000 / 60);
 
-    //alert(hours1 + ':' + minutes1);
-    var timeOfCall2 = $('#start2').val(),
-        timeOfResponse2 = $('#end2').val(),
-        hours = timeOfResponse2.split(':')[0] - timeOfCall2.split(':')[0],
-        minutes = timeOfResponse2.split(':')[1] - timeOfCall2.split(':')[1];
+    return (hours < 9 ? "0" : "") + hours + ":" + (minutes < 9 ? "0" : "") + minutes;
+}
 
-    minutes = minutes.toString().length<2?'0'+minutes:minutes;
-    if(minutes<0){ 
-        hours--;
-        minutes2 = 60 + minutes;
-    }
-    hours2 = hours.toString().length<2?'0'+hours:hours;
-    hr2 = hours2 + ':' + minutes2;
-    //alert("3");
-    var timeOfCall3 = $('#start3').val(),
-        timeOfResponse3 = $('#end3').val(),
-        hours = timeOfResponse3.split(':')[0] - timeOfCall3.split(':')[0],
-        minutes = timeOfResponse3.split(':')[1] - timeOfCall3.split(':')[1];
-
-    minutes = minutes.toString().length<2?'0'+minutes:minutes;
-    if(minutes<0){ 
-        hours--;
-        minutes3 = 60 + minutes;
-    }
-    hours3 = hours.toString().length<2?'0'+hours:hours;
-    hr3 = hours3 + ':' + minutes3;
-    //alert("4");
-    var timeOfCall4 = $('#start4').val(),
-        timeOfResponse4 = $('#end4').val(),
-        hours = timeOfResponse4.split(':')[0] - timeOfCall4.split(':')[0],
-        minutes = timeOfResponse4.split(':')[1] - timeOfCall4.split(':')[1];
-
-    minutes = minutes.toString().length<2?'0'+minutes:minutes;
-    if(minutes<0){ 
-        hours--;
-        minutes4 = 60 + minutes;
-    }
-    hours4 = hours.toString().length<2?'0'+hours:hours;
-    hr4 = hours4 + ':' + minutes4;
-    //alert("5");
-    var timeOfCall5 = $('#start5').val(),
-        timeOfResponse5 = $('#end5').val(),
-        hours = timeOfResponse5.split(':')[0] - timeOfCall5.split(':')[0],
-        minutes = timeOfResponse5.split(':')[1] - timeOfCall5.split(':')[1];
-
-    minutes = minutes.toString().length<2?'0'+minutes:minutes;
-    if(minutes<0){ 
-        hours--;
-        minutes5 = 60 + minutes;
-    }
-    hours5 = hours.toString().length<2?'0'+hours:hours;
-    hr5 = hours5 + ':' + minutes5;
-    //alert("6");
-    var timeOfCall6 = $('#start6').val(),
-        timeOfResponse6 = $('#end6').val(),
-        hours = timeOfResponse6.split(':')[0] - timeOfCall6.split(':')[0],
-        minutes = timeOfResponse6.split(':')[1] - timeOfCall6.split(':')[1];
-
-    minutes = minutes.toString().length<2?'0'+minutes:minutes;
-    if(minutes<0){ 
-        hours--;
-        minutes6 = 60 + minutes;
-    }
-    hours6 = hours.toString().length<2?'0'+hours:hours;
-    hr6 = hours6 + ':' + minutes6;
-    //alert("7");
-    var timeOfCall7 = $('#start7').val(),
-        timeOfResponse7 = $('#end7').val(),
-        hours = timeOfResponse7.split(':')[0] - timeOfCall7.split(':')[0],
-        minutes = timeOfResponse7.split(':')[1] - timeOfCall7.split(':')[1];
-
-    minutes = minutes.toString().length<2?'0'+minutes:minutes;
-    if(minutes<0){ 
-        hours--;
-        minutes7 = 60 + minutes;
-    }
-    hours7 = hours.toString().length<2?'0'+hours:hours;
-    hr7 = hours7 + ':' + minutes7;
-
-    var total_hr = hr1.split(':')[0] + hr2.split(':')[0] + hr3.split(':')[0] + hr4.split(':')[0] + hr5.split(':')[0] + hr6.split(':')[0] + hr7.split(':')[0],
-    total_min = hr1.split(':')[1] + hr2.split(':')[1] + hr3.split(':')[1] + hr4.split(':')[1] + hr5.split(':')[1] + hr6.split(':')[1] + hr7.split(':')[1];
-
-   // alert(total_hr + ':' + total_min);
-
-    //$('#delay').val(hours + ':' + minutes);
-   // alert(hours + ':' + minutes);
-});
+setInterval(function(){document.getElementById("diff").value = diff(start, end);}, 1000); 
 </script>
 
 @include ('partials.bootstrap-table')

@@ -124,18 +124,19 @@
                     <div class="form-row">
                       <div class="col-md-4 mb-3">
                         <label for="fname">Name of the Resident</label>
-                        <select class="form-control" required id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;">
+                        <select class="form-control" required id="res_name" name="res_name" style="height: 26px;padding: 3px 10px;" disabled>
                             <option>--   Select Resident Name  --</option>
                           @foreach($residents as $resident)
                           <option value="{{ $resident->id }}" {{ $aaname == $resident->cfname ? 'selected' : ''  }}> {{ $resident->cfname }}</option>
                           @endforeach
                         </select>
+                        
                     </div>
 
                       <div class="col-md-2 mb-3">
                         <label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
                         
-                        <input type="date" class="form-control" id="gender" placeholder="Date of birth" value="{{ $client_detail->gender}}" name="gender" v-on:change="page_one.gender = $event.target.value" readonly> 
+                        <input type="text" class="form-control" id="gender" placeholder="Date of birth" value="{{ $client_detail->gender}}" name="gender" v-on:change="page_one.gender = $event.target.value" readonly> 
                       </div>
                       
                       <div class="col-md-3 mb-3">
@@ -155,7 +156,7 @@
                       </div> 
                        <div class="col-md-3 mb-3">
                         <label for="res_ph">Mobile Number</label>
-                        <input type="tel" class="form-control" id="res_ph" placeholder="Phone" value="{{ $client_detail->res_ph}}" name="ph"  v-on:change="page_one.res_ph = $event.target.value" readonly>          
+                        <input type="text" class="form-control" id="res_ph" placeholder="Phone" value="{{ $client_detail->ph}}" name="ph"  v-on:change="page_one.res_ph = $event.target.value" readonly>          
                       </div>
                       </div>&nbsp;&nbsp;&nbsp;
                     <div class="form-row">

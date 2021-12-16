@@ -156,6 +156,7 @@ class ReferralsController extends Controller
         $referral->user_id =  Auth::user()->id;
         $referral->company_id = Auth::user()->c_id  ?? '';
         $referral->location_id = Auth::user()->l_id  ?? '';
+        $referral->status = "pending";
 
         $referral->save();
         $ref_id = $referral->id;
