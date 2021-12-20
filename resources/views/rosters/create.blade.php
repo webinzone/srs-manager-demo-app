@@ -42,13 +42,8 @@
               <!-- box-body -->
        <div class="box-body" style="padding-left: 20px;padding-right: 0px;width: 1000px;">                      
 
-        <input type="time"  id="start"  >
-        <input type="time" id="end"  >
 
-        <input id="diff">
-
-
-
+      
         <div class="form-row" style="padding-bottom:30px;width: 1000px;">
           <div class="col-md-3 mb-3">
               <label for="name" >From</label>
@@ -281,7 +276,7 @@ $('#resname').change(function(){
              <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end7" name="satto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" name="tot_hr[]"  >
+             <input type="text" name="tot_hr[]" id="tot" readonly>
              </td>
              
               <td class="text-center">
@@ -330,13 +325,15 @@ $('#resname').change(function(){
 
 
   </script>
-<script>
-var start = document.getElementById("start2").value;
-var end = document.getElementById("end2").value;
+ 
+  <script>
+var start = document.getElementById("start").value;
+var end = document.getElementById("end").value;
 
 document.getElementById("start").onchange = function() {diff(start,end)};
 document.getElementById("end").onchange = function() {diff(start,end)};
-                                                       
+
+
 function diff(start, end) {
     start = document.getElementById("start").value; //to update time value in each input bar
     end = document.getElementById("end").value; //to update time value in each input bar
@@ -353,8 +350,9 @@ function diff(start, end) {
     return (hours < 9 ? "0" : "") + hours + ":" + (minutes < 9 ? "0" : "") + minutes;
 }
 
-setInterval(function(){document.getElementById("diff").value = diff(start, end);}, 1000); 
+setInterval(function(){document.getElementById("diff").value = diff(start, end);}, 1000); //to update time every second (1000 is 1 sec interval and function encasing original code you had down here is because setInterval only reads functions) You can change how fast the time updates by lowering the time interval
 </script>
+
 
 @include ('partials.bootstrap-table')
 @stop

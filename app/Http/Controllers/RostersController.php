@@ -9,11 +9,13 @@ use App\Models\ClientDetail;
 use App\Models\SrsStaff;
 use App\Models\CompanyMaster;
 use App\Models\LocationMaster;
+use DateTime;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Redirect;
 use DB;
+use Carbon\Carbon;
 
 /** This controller handles all actions related to Accessories for
  * the Snipe-IT Asset Management application.
@@ -89,7 +91,143 @@ class RostersController extends Controller
         $roster->thuto = implode(',', (array) request('thuto')) ?? ' ';
         $roster->frito = implode(',', (array) request('frito')) ?? ' ';
         $roster->satto = implode(',', (array) request('satto')) ?? ' ';
-        $roster->tot_hr = implode(',', (array) request('tot_hr')) ?? ' ';
+
+        $data1[] = implode(',', (array) request('sun')) ?? '';
+        $data2[] = implode(',', (array) request('sunto')) ?? '';
+        $keysOne = array_keys($data1);
+        $keysTwo = array_keys($data2);
+        $min = min(count($data1), count($data2));
+        for($i = 0; $i < $min; $i++) {
+
+        $startTime  =  DateTime::createFromFormat('H:i', $data1[$keysOne[$i]]);
+        $finishTime  = DateTime::createFromFormat('H:i', $data2[$keysTwo[$i]]);   
+        
+        $d1 = $finishTime->diff($startTime)->format('%H:%I');
+        $diffr1[] = $d1;
+        }
+
+        $data3[] = implode(',', (array) request('mon')) ?? '';
+        $data4[] = implode(',', (array) request('monto')) ?? '';
+        $keysOne2 = array_keys($data3);
+        $keysTwo2 = array_keys($data4);
+        $min2 = min(count($data3), count($data4));
+        for($i = 0; $i < $min2; $i++) {
+
+        $startTime2  =  DateTime::createFromFormat('H:i', $data3[$keysOne2[$i]]);
+        $finishTime2  = DateTime::createFromFormat('H:i', $data4[$keysTwo2[$i]]);   
+        
+        $d2 = $finishTime2->diff($startTime2)->format('%H:%I');
+        $diffr2[] = $d2;
+        }
+
+        $data5[] = implode(',', (array) request('tue')) ?? '';
+        $data6[] = implode(',', (array) request('tueto')) ?? '';
+        $keysOne3 = array_keys($data5);
+        $keysTwo3 = array_keys($data6);
+        $min3 = min(count($data5), count($data6));
+        for($i = 0; $i < $min3; $i++) {
+
+        $startTime3  =  DateTime::createFromFormat('H:i', $data5[$keysOne3[$i]]);
+        $finishTime3  = DateTime::createFromFormat('H:i', $data6[$keysTwo3[$i]]);   
+        
+        $d3 = $finishTime3->diff($startTime3)->format('%H:%I');
+        $diffr3[] = $d3;
+        }
+
+        $data7[] = implode(',', (array) request('wed')) ?? '';
+        $data8[] = implode(',', (array) request('wedto')) ?? '';
+        $keysOne4 = array_keys($data7);
+        $keysTwo4 = array_keys($data8);
+        $min4 = min(count($data7), count($data8));
+        for($i = 0; $i < $min4; $i++) {
+
+        $startTime4  =  DateTime::createFromFormat('H:i', $data7[$keysOne4[$i]]);
+        $finishTime4  = DateTime::createFromFormat('H:i', $data8[$keysTwo4[$i]]);   
+        
+        $d4 = $finishTime4->diff($startTime4)->format('%H:%I');
+        $diffr4[] = $d4;
+        }
+
+        $data9[] = implode(',', (array) request('thu')) ?? '';
+        $data10[] = implode(',', (array) request('thuto')) ?? '';
+        $keysOne5 = array_keys($data9);
+        $keysTwo5 = array_keys($data10);
+        $min5 = min(count($data9), count($data10));
+        for($i = 0; $i < $min5; $i++) {
+
+        $startTime5  =  DateTime::createFromFormat('H:i', $data9[$keysOne5[$i]]);
+        $finishTime5  = DateTime::createFromFormat('H:i', $data10[$keysTwo5[$i]]);   
+        
+        $d5 = $finishTime5->diff($startTime5)->format('%H:%I');
+        $diffr5[] = $d5;
+        }
+
+        $data11[] = implode(',', (array) request('fri')) ?? '';
+        $data12[] = implode(',', (array) request('frito')) ?? '';
+        $keysOne6 = array_keys($data11);
+        $keysTwo6 = array_keys($data12);
+        $min6 = min(count($data11), count($data12));
+        for($i = 0; $i < $min6; $i++) {
+
+        $startTime6  =  DateTime::createFromFormat('H:i', $data11[$keysOne6[$i]]);
+        $finishTime6  = DateTime::createFromFormat('H:i', $data12[$keysTwo6[$i]]);   
+        
+        $d6 = $finishTime6->diff($startTime6)->format('%H:%I');
+        $diffr6[] = $d6;
+        }
+
+        $data13[] = implode(',', (array) request('sat')) ?? '';
+        $data14[] = implode(',', (array) request('satto')) ?? '';
+        $keysOne7 = array_keys($data13);
+        $keysTwo7 = array_keys($data14);
+        $min7 = min(count($data13), count($data14));
+        for($i = 0; $i < $min7; $i++) {
+
+        $startTime7  =  DateTime::createFromFormat('H:i', $data13[$keysOne7[$i]]);
+        $finishTime7  = DateTime::createFromFormat('H:i', $data14[$keysTwo7[$i]]);   
+        
+        $d7 = $finishTime7->diff($startTime7)->format('%H:%I');
+        $diffr7[] = $d7;
+        }
+
+        $keysOneDiff1 = array_keys($diffr1);
+        $keysOneDiff2 = array_keys($diffr2);
+        $keysOneDiff3 = array_keys($diffr3);
+        $keysOneDiff4 = array_keys($diffr4);
+        $keysOneDiff5 = array_keys($diffr5);
+        $keysOneDiff6 = array_keys($diffr6);
+        $keysOneDiff7 = array_keys($diffr7);
+
+        $mindiff = min(count($diffr1), count($diffr2));
+        for($i = 0; $i < $mindiff; $i++) {
+
+        $time1  =  Carbon::parse($diffr1[$keysOneDiff1[$i]])->hour;
+        $time2  =  Carbon::parse($diffr2[$keysOneDiff2[$i]])->hour;
+        $time3  =  Carbon::parse($diffr3[$keysOneDiff3[$i]])->hour;
+        $time4  =  Carbon::parse($diffr4[$keysOneDiff4[$i]])->hour;
+        $time5  =  Carbon::parse($diffr5[$keysOneDiff5[$i]])->hour;
+        $time6  =  Carbon::parse($diffr6[$keysOneDiff6[$i]])->hour;
+        $time7  =  Carbon::parse($diffr7[$keysOneDiff7[$i]])->hour;   
+
+        $timemin1  =  Carbon::parse($diffr1[$keysOneDiff1[$i]])->minute;
+        $timemin2  =  Carbon::parse($diffr2[$keysOneDiff2[$i]])->minute;
+        $timemin3  =  Carbon::parse($diffr3[$keysOneDiff3[$i]])->minute;
+        $timemin4  =  Carbon::parse($diffr4[$keysOneDiff4[$i]])->minute;
+        $timemin5  =  Carbon::parse($diffr5[$keysOneDiff5[$i]])->minute;
+        $timemin6  =  Carbon::parse($diffr6[$keysOneDiff6[$i]])->minute;
+        $timemin7  =  Carbon::parse($diffr7[$keysOneDiff7[$i]])->minute;
+        
+        //$totalhrr = $time1->addHours($time2)->addHours($time3)->addHours($time4)->addHours($time5)->addHours($time6)->addHours($time7)->format('H:I');
+        $totalhrr = $time1 + $time2 + $time3 + $time4 + $time5 + $time6 + $time7;
+        $totalmin = $timemin1 + $timemin2 + $timemin3 + $timemin4 + $timemin5 + $timemin6 + $timemin7;
+        $totalTime = $totalhrr.':'.$totalmin;
+        //Carbon::parse('H:i:s',$a)->addHourss($b))->addHourss((intval($c)));
+        //$tt = timezone_open($totalhrr);
+        $totHr[] = $totalTime;
+        }
+
+        $roster->tot_hr = implode(',', (array) $totHr);
+
         $roster->company_id = Auth::user()->c_id  ?? '';
         $roster->location_id = Auth::user()->l_id  ?? '';
         $roster->user_id =  Auth::user()->id;
@@ -219,7 +357,142 @@ class RostersController extends Controller
         $roster->thuto = implode(',', (array) request('thuto')) ?? ' ';
         $roster->frito = implode(',', (array) request('frito')) ?? ' ';
         $roster->satto = implode(',', (array) request('satto')) ?? ' ';
-        $roster->tot_hr = implode(',', (array) request('tot_hr')) ?? ' ';
+        //$roster->tot_hr = implode(',', (array) request('tot_hr')) ?? ' ';
+        $data1[] = implode(',', (array) request('sun')) ?? '';
+        $data2[] = implode(',', (array) request('sunto')) ?? '';
+        $keysOne = array_keys($data1);
+        $keysTwo = array_keys($data2);
+        $min = min(count($data1), count($data2));
+        for($i = 0; $i < $min; $i++) {
+
+        $startTime  =  DateTime::createFromFormat('H:i', $data1[$keysOne[$i]]);
+        $finishTime  = DateTime::createFromFormat('H:i', $data2[$keysTwo[$i]]);   
+        
+        $d1 = $finishTime->diff($startTime)->format('%H:%I');
+        $diffr1[] = $d1;
+        }
+
+        $data3[] = implode(',', (array) request('mon')) ?? '';
+        $data4[] = implode(',', (array) request('monto')) ?? '';
+        $keysOne2 = array_keys($data3);
+        $keysTwo2 = array_keys($data4);
+        $min2 = min(count($data3), count($data4));
+        for($i = 0; $i < $min2; $i++) {
+
+        $startTime2  =  DateTime::createFromFormat('H:i', $data3[$keysOne2[$i]]);
+        $finishTime2  = DateTime::createFromFormat('H:i', $data4[$keysTwo2[$i]]);   
+        
+        $d2 = $finishTime2->diff($startTime2)->format('%H:%I');
+        $diffr2[] = $d2;
+        }
+
+        $data5[] = implode(',', (array) request('tue')) ?? '';
+        $data6[] = implode(',', (array) request('tueto')) ?? '';
+        $keysOne3 = array_keys($data5);
+        $keysTwo3 = array_keys($data6);
+        $min3 = min(count($data5), count($data6));
+        for($i = 0; $i < $min3; $i++) {
+
+        $startTime3  =  DateTime::createFromFormat('H:i', $data5[$keysOne3[$i]]);
+        $finishTime3  = DateTime::createFromFormat('H:i', $data6[$keysTwo3[$i]]);   
+        
+        $d3 = $finishTime3->diff($startTime3)->format('%H:%I');
+        $diffr3[] = $d3;
+        }
+
+        $data7[] = implode(',', (array) request('wed')) ?? '';
+        $data8[] = implode(',', (array) request('wedto')) ?? '';
+        $keysOne4 = array_keys($data7);
+        $keysTwo4 = array_keys($data8);
+        $min4 = min(count($data7), count($data8));
+        for($i = 0; $i < $min4; $i++) {
+
+        $startTime4  =  DateTime::createFromFormat('H:i', $data7[$keysOne4[$i]]);
+        $finishTime4  = DateTime::createFromFormat('H:i', $data8[$keysTwo4[$i]]);   
+        
+        $d4 = $finishTime4->diff($startTime4)->format('%H:%I');
+        $diffr4[] = $d4;
+        }
+
+        $data9[] = implode(',', (array) request('thu')) ?? '';
+        $data10[] = implode(',', (array) request('thuto')) ?? '';
+        $keysOne5 = array_keys($data9);
+        $keysTwo5 = array_keys($data10);
+        $min5 = min(count($data9), count($data10));
+        for($i = 0; $i < $min5; $i++) {
+
+        $startTime5  =  DateTime::createFromFormat('H:i', $data9[$keysOne5[$i]]);
+        $finishTime5  = DateTime::createFromFormat('H:i', $data10[$keysTwo5[$i]]);   
+        
+        $d5 = $finishTime5->diff($startTime5)->format('%H:%I');
+        $diffr5[] = $d5;
+        }
+
+        $data11[] = implode(',', (array) request('fri')) ?? '';
+        $data12[] = implode(',', (array) request('frito')) ?? '';
+        $keysOne6 = array_keys($data11);
+        $keysTwo6 = array_keys($data12);
+        $min6 = min(count($data11), count($data12));
+        for($i = 0; $i < $min6; $i++) {
+
+        $startTime6  =  DateTime::createFromFormat('H:i', $data11[$keysOne6[$i]]);
+        $finishTime6  = DateTime::createFromFormat('H:i', $data12[$keysTwo6[$i]]);   
+        
+        $d6 = $finishTime6->diff($startTime6)->format('%H:%I');
+        $diffr6[] = $d6;
+        }
+
+        $data13[] = implode(',', (array) request('sat')) ?? '';
+        $data14[] = implode(',', (array) request('satto')) ?? '';
+        $keysOne7 = array_keys($data13);
+        $keysTwo7 = array_keys($data14);
+        $min7 = min(count($data13), count($data14));
+        for($i = 0; $i < $min7; $i++) {
+
+        $startTime7  =  DateTime::createFromFormat('H:i', $data13[$keysOne7[$i]]);
+        $finishTime7  = DateTime::createFromFormat('H:i', $data14[$keysTwo7[$i]]);   
+        
+        $d7 = $finishTime7->diff($startTime7)->format('%H:%I');
+        $diffr7[] = $d7;
+        }
+
+        $keysOneDiff1 = array_keys($diffr1);
+        $keysOneDiff2 = array_keys($diffr2);
+        $keysOneDiff3 = array_keys($diffr3);
+        $keysOneDiff4 = array_keys($diffr4);
+        $keysOneDiff5 = array_keys($diffr5);
+        $keysOneDiff6 = array_keys($diffr6);
+        $keysOneDiff7 = array_keys($diffr7);
+
+        $mindiff = min(count($diffr1), count($diffr2));
+        for($i = 0; $i < $mindiff; $i++) {
+
+        $time1  =  Carbon::parse($diffr1[$keysOneDiff1[$i]])->hour;
+        $time2  =  Carbon::parse($diffr2[$keysOneDiff2[$i]])->hour;
+        $time3  =  Carbon::parse($diffr3[$keysOneDiff3[$i]])->hour;
+        $time4  =  Carbon::parse($diffr4[$keysOneDiff4[$i]])->hour;
+        $time5  =  Carbon::parse($diffr5[$keysOneDiff5[$i]])->hour;
+        $time6  =  Carbon::parse($diffr6[$keysOneDiff6[$i]])->hour;
+        $time7  =  Carbon::parse($diffr7[$keysOneDiff7[$i]])->hour;   
+
+        $timemin1  =  Carbon::parse($diffr1[$keysOneDiff1[$i]])->minute;
+        $timemin2  =  Carbon::parse($diffr2[$keysOneDiff2[$i]])->minute;
+        $timemin3  =  Carbon::parse($diffr3[$keysOneDiff3[$i]])->minute;
+        $timemin4  =  Carbon::parse($diffr4[$keysOneDiff4[$i]])->minute;
+        $timemin5  =  Carbon::parse($diffr5[$keysOneDiff5[$i]])->minute;
+        $timemin6  =  Carbon::parse($diffr6[$keysOneDiff6[$i]])->minute;
+        $timemin7  =  Carbon::parse($diffr7[$keysOneDiff7[$i]])->minute;
+        
+        //$totalhrr = $time1->addHours($time2)->addHours($time3)->addHours($time4)->addHours($time5)->addHours($time6)->addHours($time7)->format('H:I');
+        $totalhrr = $time1 + $time2 + $time3 + $time4 + $time5 + $time6 + $time7;
+        $totalmin = $timemin1 + $timemin2 + $timemin3 + $timemin4 + $timemin5 + $timemin6 + $timemin7;
+        $totalTime = $totalhrr.':'.$totalmin;
+        //Carbon::parse('H:i:s',$a)->addHourss($b))->addHourss((intval($c)));
+        //$tt = timezone_open($totalhrr);
+        $totHr[] = $totalTime;
+        }
+
+        $roster->tot_hr = implode(',', (array) $totHr);
         $roster->company_id = Auth::user()->c_id  ?? '';
         $roster->location_id = Auth::user()->l_id  ?? '';
         $roster->user_id =  Auth::user()->id;
