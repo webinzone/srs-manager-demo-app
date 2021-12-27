@@ -62,6 +62,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('referrals2','Referrals2Controller');
     Route::resource('vaccates','VaccatesController');
     Route::resource('rents','RentsController');
+    Route::resource('rostdetails','RostdetailsController');
 
     Route::get('/expired','SrsStaffsController@certiExp');
 
