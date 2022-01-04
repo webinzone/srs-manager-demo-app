@@ -124,7 +124,7 @@
                   id="addBtn" type="button">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </button><br>
-                <input type="hidden" name="diff" id="diff">
+                <input type="hidden" name="diff" id="diff1">
                   <table class="table table-bordered" width="1000px;" id="mytable">
                     <thead>
                       <tr>
@@ -522,7 +522,7 @@ $('#resname').change(function(){
             //document.getElementsByName("tot_hr")[i].value = total_hr[i];
         //}
 
-        $('#diff').val(total_hr);
+        $('#diff1').val(total_hr);
 
     });
   
