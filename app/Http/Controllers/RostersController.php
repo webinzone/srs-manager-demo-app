@@ -249,7 +249,7 @@ class RostersController extends Controller
         else
         {
 
-        return redirect()->route('rosters.index')
+        return redirect()->route('rosters.edit',$roster->id)
                         ->with('success','updated successfully');
                     }
         
