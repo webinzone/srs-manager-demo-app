@@ -19,6 +19,26 @@
 
 
 @section('content')
+<style type="text/css">
+
+  table, td, th {
+    border: 1px solid black;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  input[type=time], select {
+    width: 100px;
+   }
+
+   td {
+    width: 200px;
+  }
+  
+  </style>
 <div id="webui">
   
   <div class="row">
