@@ -30,9 +30,7 @@
     border-collapse: collapse;
   }
 
-  input[type=time], select {
-    width: 100px;
-   }
+  
 
    td {
     width: 200px;
@@ -64,18 +62,18 @@
         <div class="form-row" style="padding-bottom:30px;width: 1000px;">
           <div class="col-md-3 mb-3">
               <label for="name" >From</label>
-              <input type="date" name="p_from" id="p_from" placeholder="From" class="form-control" >
+              <input type="date" name="p_from" id="p_from" placeholder="From" class="form-control" required>
              </div>
                <div class="col-md-3 mb-3" >
               <label for="name" >To</label>
-                        <input type="date" name="p_to" id="p_to" placeholder="To" class="form-control" >                            
+                        <input type="date" name="p_to" id="p_to" placeholder="To" class="form-control" required>                            
 
              </div>
                      
               <div class="col-md-3 mb-3">
               <label for="name" >Manager</label>
-                <select class="form-control" required=""  name="mngr" style="height: 26px;padding: 3px 10px;">
-                            <option>--   Select Staff Name  --</option>
+                <select class="form-control" required=""  name="mngr" style="height: 26px;padding: 3px 10px;" required>
+                            <option value="">--   Select Staff Name  --</option>
                           @foreach($emps as $emp)
                           <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
                           @endforeach
@@ -125,11 +123,11 @@
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </button><br>
                 <input type="hidden" name="diff" id="diff1">
-                  <table class="table table-bordered" width="1000px;" id="mytable">
+                  <table class="table table-striped" width="1000px;" id="mytable">
                     <thead>
                       <tr>
-                        <th class="text-center" width="100px;">Emp </th>
-                        <th class="text-center" width="100px;">Role</th>
+                        <th class="text-center">Emp </th>
+                        <th class="text-center" >Role</th>
                         <th class="text-center">Sun</th>
                         <th class="text-center">Mon</th>
                         <th class="text-center">Tue</th>
@@ -216,7 +214,7 @@ $('#resname').change(function(){
         // Adding a row inside the tbody.
         $('#tbody').append(`<tr id="R${++rowIdx}" class="item">
              <td class="row-index text-center">
-             <select class="form-control" style="height: 26px;padding: 3px 10px;" id="e_name" name="e_name[]">
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="e_name" name="e_name[]">
                            <option>Emp</option>
                           @foreach($emps as $emp)
                           <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
@@ -224,7 +222,7 @@ $('#resname').change(function(){
                         </select>
              </td>
              <td class="row-index text-center">
-             <select class="form-control" style="height: 26px;padding: 3px 10px;" id="e_name" name="e_pos[]">
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="e_name" name="e_pos[]">
                   <option>Role</option>
                 @foreach($emps as $emp)
                 <option value="{{ $emp->posi }}"> {{ $emp->posi }}</option>
@@ -233,36 +231,36 @@ $('#resname').change(function(){
              
              </td>
              <td class="row-index text-center" width="100px;">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start" name="sun[]">
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end" name="sunto[]" >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start" name="sun[]">
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end" name="sunto[]" >
 
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start2" name="mon[]"  >
-             <input type="text" placeholder="to"  onfocus="(this.type='time')" id="end2" name="monto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start2" name="mon[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to"  onfocus="(this.type='time')" id="end2" name="monto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start3" name="tue[]"  >
-             <input type="text" placeholder="to"  onfocus="(this.type='time')" id="end3" name="tueto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start3" name="tue[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to"  onfocus="(this.type='time')" id="end3" name="tueto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start4" name="wed[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end4" name="wedto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start4" name="wed[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end4" name="wedto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start5" name="thu[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end5" name="thuto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start5" name="thu[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end5" name="thuto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start6" name="fri[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end6" name="frito[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start6" name="fri[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end6" name="frito[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start7" name="sat[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end7" name="satto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start7" name="sat[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end7" name="satto[]"  >
              </td>
              <td class="row-index text-center">
-              <input type="text" name="tot_hr[]"  readonly>
+              <input type="text" name="tot_hr[]" style="height: 26px;padding: 3px 10px;width:50px;"  readonly>
              </td>
              
               <td class="text-center">
@@ -365,6 +363,10 @@ $('#resname').change(function(){
 
        
         tot_hours1.push(hours);
+        if (isNaN(minutes)) {
+             minutes = 0;
+         }
+        
         tot_minutes1.push(minutes);
         }
         
@@ -388,6 +390,10 @@ $('#resname').change(function(){
 
        
         tot_hours2.push(hours2);
+        if (isNaN(minutes2)) {
+             minutes2 = 0;
+         }
+        
         tot_minutes2.push(minutes2);
         }
      
@@ -410,6 +416,9 @@ $('#resname').change(function(){
         hours3 = hours3.toString().length<2?'0'+hours3:hours3;
        
         tot_hours3.push(hours3);
+        if (isNaN(minutes3)) {
+             minutes3 = 0;
+         }
         tot_minutes3.push(minutes3);
         }
 
@@ -432,6 +441,9 @@ $('#resname').change(function(){
         hours4 = hours4.toString().length<2?'0'+hours4:hours4;
            
         tot_hours4.push(hours4);
+        if (isNaN(minutes4)) {
+             minutes4 = 0;
+         }
         tot_minutes4.push(minutes4);
         }
 
@@ -455,6 +467,9 @@ $('#resname').change(function(){
         hours5 = hours5.toString().length<2?'0'+hours5:hours5;
                
         tot_hours5.push(hours5);
+        if (isNaN(minutes5)) {
+             minutes5 = 0;
+         }
         tot_minutes5.push(minutes5);
         }
 
@@ -477,6 +492,9 @@ $('#resname').change(function(){
         hours6 = hours6.toString().length<2?'0'+hours6:hours6;
                
         tot_hours6.push(hours6);
+        if (isNaN(minutes6)) {
+             minutes6 = 0;
+         }
         tot_minutes6.push(minutes6);
         }
 
@@ -499,6 +517,9 @@ $('#resname').change(function(){
         hours7 = hours7.toString().length<2?'0'+hours7:hours7;
                
         tot_hours7.push(hours7);
+        if (isNaN(minutes7)) {
+             minutes7 = 0;
+         }
         tot_minutes7.push(minutes7);
         }
 
@@ -513,6 +534,8 @@ $('#resname').change(function(){
             tot_minutes = 60 + tot_minutes;
         }
         tot_hours = tot_hours.toString().length<2?'0'+tot_hours:tot_hours;
+
+
         total_hr.push(tot_hours + ':' + tot_minutes); 
         //total_hr = tot_hours + ':' + tot_minutes;   
 

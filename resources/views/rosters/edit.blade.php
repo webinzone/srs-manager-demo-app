@@ -10,6 +10,24 @@
 
 {{-- Page content --}}
 @section('content')
+<style type="text/css">
+
+  table, td, th {
+    border: 1px solid black;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  
+
+   td {
+    width: 200px;
+  }
+  
+  </style>
 
 <div id="webui">
   
@@ -99,7 +117,7 @@
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </button><br>
                 <input type="hidden" name="diff" id="diff">
-                  <table class="table table-bordered" id="paper-table">
+                  <table class="table table-striped" id="paper-table">
                                 <thead>
                                   <tr>
                                     <th class="text-center">Emp</th>
@@ -119,7 +137,7 @@
                                 <tbody id="tbodym">
                                     <tr id="R{$i}">
                                          <td class="row-index text-center">
-             <select class="form-control" style="height: 26px;padding: 3px 10px;" id="e_name" name="e_name[]">
+             <select class="form-control"  style="height: 26px;padding: 3px 10px;width:120px;" id="e_name" name="e_name[]">
                            <option>Emp</option>
                           @foreach($emps as $emp)
                           <option value="{{ $emp->name }}" {{ $roster->e_name == $emp->name ? 'selected' : '' }}>{{ $emp->name }}</option>
@@ -127,7 +145,7 @@
                         </select>
              </td>
              <td class="row-index text-center">
-             <select class="form-control" style="height: 26px;padding: 3px 10px;" id="e_name" name="e_pos[]">
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="e_name" name="e_pos[]">
                   <option>Role</option>
                 @foreach($emps as $emp)
                <option value="{{ $emp->posi }}" {{ $roster->e_pos == $emp->posi ? 'selected' : '' }}>{{ $emp->posi }}</option>
@@ -135,37 +153,37 @@
               </select>
              
              </td>
-             <td class="row-index text-center" width="100px;">
-             <input type="text" placeholder="From" value="{{  $sun[$i] }}"  onfocus="(this.type='time')" id="start" name="sun[]">
-             <input type="text" placeholder="To" value="{{  $sunto[$i] }}"  onfocus="(this.type='time')" id="end" name="sunto[]" >
+             <td class="row-index text-center">
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From" value="{{  $sun[$i] }}"  onfocus="(this.type='time')" id="start" name="sun[]">
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To" value="{{  $sunto[$i] }}"  onfocus="(this.type='time')" id="end" name="sunto[]" >
 
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  value="{{  $mon[$i] }}" onfocus="(this.type='time')" id="time" name="mon[]"  >
-             <input type="text" placeholder="to" value="{{  $monto[$i] }}"  onfocus="(this.type='time')" id="time" name="monto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  value="{{  $mon[$i] }}" onfocus="(this.type='time')" id="time" name="mon[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to" value="{{  $monto[$i] }}"  onfocus="(this.type='time')" id="time" name="monto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  value="{{  $tue[$i] }}" onfocus="(this.type='time')" id="time" name="tue[]"  >
-             <input type="text" placeholder="to" value="{{  $tueto[$i] }}"  onfocus="(this.type='time')" id="time" name="tueto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  value="{{  $tue[$i] }}" onfocus="(this.type='time')" id="time" name="tue[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to" value="{{  $tueto[$i] }}"  onfocus="(this.type='time')" id="time" name="tueto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From" value="{{  $wed[$i] }}"  onfocus="(this.type='time')" id="time" name="wed[]"  >
-             <input type="text" placeholder="To" value="{{  $wedto[$i] }}"  onfocus="(this.type='time')" id="time" name="wedto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From" value="{{  $wed[$i] }}"  onfocus="(this.type='time')" id="time" name="wed[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To" value="{{  $wedto[$i] }}"  onfocus="(this.type='time')" id="time" name="wedto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From" value="{{  $thu[$i] }}"  onfocus="(this.type='time')" id="time" name="thu[]"  >
-             <input type="text" placeholder="To" value="{{  $thuto[$i] }}"  onfocus="(this.type='time')" id="time" name="thuto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From" value="{{  $thu[$i] }}"  onfocus="(this.type='time')" id="time" name="thu[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To" value="{{  $thuto[$i] }}"  onfocus="(this.type='time')" id="time" name="thuto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From" value="{{  $fri[$i] }}"  onfocus="(this.type='time')" id="time" name="fri[]"  >
-             <input type="text" placeholder="To" value="{{  $frito[$i] }}"  onfocus="(this.type='time')" id="time" name="frito[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From" value="{{  $fri[$i] }}"  onfocus="(this.type='time')" id="time" name="fri[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To" value="{{  $frito[$i] }}"  onfocus="(this.type='time')" id="time" name="frito[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From" value="{{  $sat[$i] }}"  onfocus="(this.type='time')" id="time" name="sat[]"  >
-             <input type="text" placeholder="To" value="{{  $satto[$i] }}"  onfocus="(this.type='time')" id="time" name="satto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From" value="{{  $sat[$i] }}"  onfocus="(this.type='time')" id="time" name="sat[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To" value="{{  $satto[$i] }}"  onfocus="(this.type='time')" id="time" name="satto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" name="tot_hr[]"  value="{{  $tot_hr[$i] }}" >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:70px;" name="tot_hr[]"  value="{{  $tot_hr[$i] }}" >
              </td>
                                       <tr>                           
                                 </tbody>
@@ -244,7 +262,7 @@ $('#resname').change(function(){
         // Adding a row inside the tbody.
         $('#tbody').append(`<tr id="R${++rowIdx}">
             <td class="row-index text-center">
-             <select class="form-control" style="height: 26px;padding: 3px 10px;" id="e_name" name="e_name[]">
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="e_name" name="e_name[]">
                            <option>Emp</option>
                           @foreach($emps as $emp)
                           <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
@@ -252,7 +270,7 @@ $('#resname').change(function(){
                         </select>
              </td>
              <td class="row-index text-center">
-             <select class="form-control" style="height: 26px;padding: 3px 10px;" id="e_name" name="e_pos[]">
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="e_name" name="e_pos[]">
                   <option>Role</option>
                 @foreach($emps as $emp)
                 <option value="{{ $emp->posi }}"> {{ $emp->posi }}</option>
@@ -260,37 +278,37 @@ $('#resname').change(function(){
               </select>
              
              </td>
-             <td class="row-index text-center" width="100px;">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="start" name="sun[]">
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="end" name="sunto[]" >
+             <td class="row-index text-center">
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start" name="sun[]">
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end" name="sunto[]" >
 
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="mon[]"  >
-             <input type="text" placeholder="to"  onfocus="(this.type='time')" id="time" name="monto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="mon[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to"  onfocus="(this.type='time')" id="time" name="monto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="tue[]"  >
-             <input type="text" placeholder="to"  onfocus="(this.type='time')" id="time" name="tueto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="tue[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to"  onfocus="(this.type='time')" id="time" name="tueto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="wed[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="wedto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="wed[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="time" name="wedto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="thu[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="thuto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="thu[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="time" name="thuto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="fri[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="frito[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="fri[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="time" name="frito[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" placeholder="From"  onfocus="(this.type='time')" id="time" name="sat[]"  >
-             <input type="text" placeholder="To"  onfocus="(this.type='time')" id="time" name="satto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="sat[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="time" name="satto[]"  >
              </td>
              <td class="row-index text-center">
-             <input type="text" name="tot_hr[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:70px;" name="tot_hr[]"  >
              </td>
              
               <td class="text-center">
@@ -421,6 +439,9 @@ $('#resname').change(function(){
 
        
         tot_hours1.push(hours);
+        if (isNaN(minutes)) {
+             minutes = 0;
+         }
         tot_minutes1.push(minutes);
         }
         
@@ -444,6 +465,9 @@ $('#resname').change(function(){
 
        
         tot_hours2.push(hours2);
+        if (isNaN(minutes2)) {
+             minutes2 = 0;
+         }
         tot_minutes2.push(minutes2);
         }
      
@@ -466,6 +490,9 @@ $('#resname').change(function(){
         hours3 = hours3.toString().length<2?'0'+hours3:hours3;
        
         tot_hours3.push(hours3);
+        if (isNaN(minutes3)) {
+             minutes3 = 0;
+         }
         tot_minutes3.push(minutes3);
         }
 
@@ -488,6 +515,9 @@ $('#resname').change(function(){
         hours4 = hours4.toString().length<2?'0'+hours4:hours4;
            
         tot_hours4.push(hours4);
+        if (isNaN(minutes4)) {
+             minutes4 = 0;
+         }
         tot_minutes4.push(minutes4);
         }
 
@@ -511,6 +541,9 @@ $('#resname').change(function(){
         hours5 = hours5.toString().length<2?'0'+hours5:hours5;
                
         tot_hours5.push(hours5);
+        if (isNaN(minutes5)) {
+             minutes5 = 0;
+         }
         tot_minutes5.push(minutes5);
         }
 
@@ -533,6 +566,9 @@ $('#resname').change(function(){
         hours6 = hours6.toString().length<2?'0'+hours6:hours6;
                
         tot_hours6.push(hours6);
+        if (isNaN(minutes6)) {
+             minutes6 = 0;
+         }
         tot_minutes6.push(minutes6);
         }
 
@@ -555,6 +591,9 @@ $('#resname').change(function(){
         hours7 = hours7.toString().length<2?'0'+hours7:hours7;
                
         tot_hours7.push(hours7);
+        if (isNaN(minutes7)) {
+             minutes7 = 0;
+         }
         tot_minutes7.push(minutes7);
         }
 
@@ -569,6 +608,8 @@ $('#resname').change(function(){
             tot_minutes = 60 + tot_minutes;
         }
         tot_hours = tot_hours.toString().length<2?'0'+tot_hours:tot_hours;
+        
+        
         total_hr.push(tot_hours + ':' + tot_minutes); 
         //total_hr = tot_hours + ':' + tot_minutes;   
 
