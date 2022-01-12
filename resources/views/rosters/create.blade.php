@@ -30,12 +30,6 @@
     border-collapse: collapse;
   }
 
-  
-
-   td {
-    width: 200px;
-  }
-  
   </style>
 <div id="webui">
   
@@ -231,33 +225,75 @@ $('#resname').change(function(){
              
              </td>
              <td class="row-index text-center" width="100px;">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start" name="sun[]">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end" name="sunto[]" >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start" name="sun[]">
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To"  onfocus="(this.type='time')" id="end" name="sunto[]" >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:180px;" id="sun_leav" name="sun_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
 
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start2" name="mon[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to"  onfocus="(this.type='time')" id="end2" name="monto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start2" name="mon[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="to"  onfocus="(this.type='time')" id="end2" name="monto[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:180px;" id="mon_leav" name="mon_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start3" name="tue[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to"  onfocus="(this.type='time')" id="end3" name="tueto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start3" name="tue[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="to"  onfocus="(this.type='time')" id="end3" name="tueto[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:12180;" id="tues_leav" name="tues_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start4" name="wed[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end4" name="wedto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start4" name="wed[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To"  onfocus="(this.type='time')" id="end4" name="wedto[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:180px;" id="wed_leav" name="wed_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start5" name="thu[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end5" name="thuto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start5" name="thu[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To"  onfocus="(this.type='time')" id="end5" name="thuto[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:12180;" id="thur_leav" name="thur_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start6" name="fri[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end6" name="frito[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start6" name="fri[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To"  onfocus="(this.type='time')" id="end6" name="frito[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:180px;" id="fri_leav" name="fri_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start7" name="sat[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end7" name="satto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start7" name="sat[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To"  onfocus="(this.type='time')" id="end7" name="satto[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:180px;" id="sat_leav" name="sat_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
               <input type="text" name="tot_hr[]" style="height: 26px;padding: 3px 10px;width:50px;"  readonly>

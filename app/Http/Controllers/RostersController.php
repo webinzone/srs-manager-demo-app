@@ -92,6 +92,13 @@ class RostersController extends Controller
         $roster->thuto = implode(',', (array) request('thuto')) ?? ' ';
         $roster->frito = implode(',', (array) request('frito')) ?? ' ';
         $roster->satto = implode(',', (array) request('satto')) ?? ' ';
+        $roster->sun_leav = implode(',', (array) request('sun_leav')) ?? ' ';
+        $roster->mon_leav = implode(',', (array) request('mon_leav')) ?? ' ';
+        $roster->tues_leav = implode(',', (array) request('tues_leav')) ?? ' ';
+        $roster->wed_leav = implode(',', (array) request('wed_leav')) ?? ' ';
+        $roster->thur_leav = implode(',', (array) request('thur_leav')) ?? ' ';
+        $roster->fri_leav = implode(',', (array) request('fri_leav')) ?? ' ';
+        $roster->sat_leav = implode(',', (array) request('sat_leav')) ?? ' ';
 
         
 
@@ -142,6 +149,13 @@ class RostersController extends Controller
           $thuto = explode(',', $roster->thuto);
           $frito = explode(',', $roster->frito);
           $satto = explode(',', $roster->satto);
+          $sun_leav = explode(',', $roster->sun_leav);
+          $mon_leav = explode(',', $roster->mon_leav);
+          $tues_leav = explode(',', $roster->tues_leav);
+          $wed_leav = explode(',', $roster->wed_leav);
+          $thur_leav = explode(',', $roster->thur_leav);
+          $fri_leav = explode(',', $roster->fri_leav);
+          $sat_leav = explode(',', $roster->sat_leav);
           $tot_hr = explode(',', $roster->tot_hr);
           $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
         //$residents = $resid->where('status', '=', 'Active');
@@ -150,7 +164,7 @@ class RostersController extends Controller
         $item_last= count($e_name);
           $num = (int)$item_last;
 
-        return view('rosters/show',compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr', 'emps', 'num'));
+        return view('rosters/show',compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'sun_leav', 'mon_leav', 'tues_leav', 'wed_leav', 'thur_leav', 'fri_leav', 'sat_leav', 'tot_hr', 'emps', 'num'));
       //  $roster = Roster::find($id);
        // return view('rosters/show',compact('roster'));
     }
@@ -182,6 +196,13 @@ class RostersController extends Controller
           $thuto = explode(',', $roster->thuto) ?? '';
           $frito = explode(',', $roster->frito) ?? '';
           $satto = explode(',', $roster->satto) ?? '';
+          $sun_leav = explode(',', $roster->sun_leav);
+          $mon_leav = explode(',', $roster->mon_leav);
+          $tues_leav = explode(',', $roster->tues_leav);
+          $wed_leav = explode(',', $roster->wed_leav);
+          $thur_leav = explode(',', $roster->thur_leav);
+          $fri_leav = explode(',', $roster->fri_leav);
+          $sat_leav = explode(',', $roster->sat_leav);
           $tot_hr = explode(',', $roster->tot_hr) ?? '';
           $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
         //$residents = $resid->where('status', '=', 'Active');
@@ -190,7 +211,7 @@ class RostersController extends Controller
         $item_last= count($e_name);
           $num = (int)$item_last;
 
-        return view('rosters/edit',compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr', 'emps', 'num'));
+        return view('rosters/edit',compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'sun_leav', 'mon_leav', 'tues_leav', 'wed_leav', 'thur_leav', 'fri_leav', 'sat_leav', 'tot_hr', 'emps', 'num'));
     }
     /**
      * Update the specified resource in storage.
@@ -227,6 +248,13 @@ class RostersController extends Controller
         $roster->frito = implode(',', (array) request('frito')) ?? ' ';
         $roster->satto = implode(',', (array) request('satto')) ?? ' ';
         $roster->tot_hr = implode(',', (array) request('diff')) ?? ' ';
+        $roster->sun_leav = implode(',', (array) request('sun_leav')) ?? ' ';
+        $roster->mon_leav = implode(',', (array) request('mon_leav')) ?? ' ';
+        $roster->tues_leav = implode(',', (array) request('tues_leav')) ?? ' ';
+        $roster->wed_leav = implode(',', (array) request('wed_leav')) ?? ' ';
+        $roster->thur_leav = implode(',', (array) request('thur_leav')) ?? ' ';
+        $roster->fri_leav = implode(',', (array) request('fri_leav')) ?? ' ';
+        $roster->sat_leav = implode(',', (array) request('sat_leav')) ?? ' ';
 
         $roster->company_id = Auth::user()->c_id  ?? '';
         $roster->location_id = Auth::user()->l_id  ?? '';
@@ -296,6 +324,13 @@ class RostersController extends Controller
           $thuto = explode(',', $roster->thuto);
           $frito = explode(',', $roster->frito);
           $satto = explode(',', $roster->satto);
+          $sun_leav = explode(',', $roster->sun_leav);
+          $mon_leav = explode(',', $roster->mon_leav);
+          $tues_leav = explode(',', $roster->tues_leav);
+          $wed_leav = explode(',', $roster->wed_leav);
+          $thur_leav = explode(',', $roster->thur_leav);
+          $fri_leav = explode(',', $roster->fri_leav);
+          $sat_leav = explode(',', $roster->sat_leav);
           $tot_hr = explode(',', $roster->tot_hr);
           $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
         //$residents = $resid->where('status', '=', 'Active');
@@ -306,7 +341,7 @@ class RostersController extends Controller
           $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
 
 
-        return view('rosters/report',compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr', 'emps', 'num', 'locations'));  
+        return view('rosters/report',compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'sun_leav', 'mon_leav', 'tues_leav', 'wed_leav', 'thur_leav', 'fri_leav', 'sat_leav', 'tot_hr', 'emps', 'num', 'locations'));  
     }
    
      public function generateReport()
@@ -327,10 +362,17 @@ class RostersController extends Controller
           $thuto = explode(',', $roster->thuto);
           $frito = explode(',', $roster->frito);
           $satto = explode(',', $roster->satto);
+          $sun_leav = explode(',', $roster->sun_leav);
+          $mon_leav = explode(',', $roster->mon_leav);
+          $tues_leav = explode(',', $roster->tues_leav);
+          $wed_leav = explode(',', $roster->wed_leav);
+          $thur_leav = explode(',', $roster->thur_leav);
+          $fri_leav = explode(',', $roster->fri_leav);
+          $sat_leav = explode(',', $roster->sat_leav);
           $tot_hr = explode(',', $roster->tot_hr);
       $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
 
-      return view('rosters/report', compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr','locations'));
+      return view('rosters/report', compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'sun_leav', 'mon_leav', 'tues_leav', 'wed_leav', 'thur_leav', 'fri_leav', 'sat_leav', 'tot_hr','locations'));
       
      }
     /**
@@ -376,6 +418,13 @@ class RostersController extends Controller
           $thuto = explode(',', $roster->thuto);
           $frito = explode(',', $roster->frito);
           $satto = explode(',', $roster->satto);
+          $sun_leav = explode(',', $roster->sun_leav);
+          $mon_leav = explode(',', $roster->mon_leav);
+          $tues_leav = explode(',', $roster->tues_leav);
+          $wed_leav = explode(',', $roster->wed_leav);
+          $thur_leav = explode(',', $roster->thur_leav);
+          $fri_leav = explode(',', $roster->fri_leav);
+          $sat_leav = explode(',', $roster->sat_leav);
           $tot_hr = explode(',', $roster->tot_hr);
              
        // unset($item_no[$i]);
@@ -405,6 +454,13 @@ class RostersController extends Controller
         $thuto = array_values($thuto);
         $frito = array_values($frito);
         $satto = array_values($satto);
+        $sun_leav = array_values($sun_leav);
+        $mon_leav = array_values($mon_leav);
+        $tues_leav = array_values($tues_leav);
+        $wed_leav = array_values($wed_leav);
+        $thur_leav = array_values($thur_leav);
+        $fri_leav = array_values($fri_leav);
+        $sat_leav = array_values($sat_leav);
         $tot_hr = array_values($tot_hr);
         
         $roster->e_name = implode(',', (array) $e_name) ;
@@ -423,6 +479,14 @@ class RostersController extends Controller
         $roster->thuto = implode(',', (array) $thuto) ;
         $roster->frito = implode(',', (array) $frito) ;
         $roster->satto = implode(',', (array) $satto) ;
+        $roster->sun_leav = implode(',', (array) $sun_leav) ;
+        $roster->mon_leav = implode(',', (array) $mon_leav) ;
+        $roster->tues_leav = implode(',', (array) $tues_leav) ;
+        $roster->wed_leav = implode(',', (array) $wed_leav) ;
+        $roster->thur_leav = implode(',', (array) $thur_leav) ;
+        $roster->fri_leav = implode(',', (array) $fri_leav) ;
+        $roster->sat_leav = implode(',', (array) $sat_leav) ;
+
         $roster->tot_hr = implode(',', (array) $tot_hr) ;
         $roster->save();
 
@@ -451,6 +515,13 @@ class RostersController extends Controller
           $thuto = explode(',', $roster->thuto) ?? '';
           $frito = explode(',', $roster->frito) ?? '';
           $satto = explode(',', $roster->satto) ?? '';
+          $sun_leav = explode(',', $roster->sun_leav);
+          $mon_leav = explode(',', $roster->mon_leav);
+          $tues_leav = explode(',', $roster->tues_leav);
+          $wed_leav = explode(',', $roster->wed_leav);
+          $thur_leav = explode(',', $roster->thur_leav);
+          $fri_leav = explode(',', $roster->fri_leav);
+          $sat_leav = explode(',', $roster->sat_leav);
           $tot_hr = explode(',', $roster->tot_hr) ?? '';
           $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
         //$residents = $resid->where('status', '=', 'Active');
@@ -459,7 +530,7 @@ class RostersController extends Controller
         $item_last= count($e_name);
           $num = (int)$item_last;
 
-        return view('rosters/previous',compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'tot_hr', 'emps', 'num'));
+        return view('rosters/previous',compact('roster', 'e_name', 'e_pos', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sunto', 'monto', 'tueto', 'wedto', 'thuto', 'frito', 'satto', 'sun_leav', 'mon_leav', 'tues_leav', 'wed_leav', 'thur_leav', 'fri_leav', 'sat_leav', 'tot_hr', 'emps', 'num'));
 
     }
 

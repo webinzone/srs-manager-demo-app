@@ -43,7 +43,7 @@
          <input type="button" class="right" style="right: 90px; align-items: right;" onclick="printDiv('print-content1')" value="PRINT"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <input type="button" style="left:200px;" value="SAVE" onclick="saveEdits()"/>&nbsp;&nbsp;&nbsp;<br><br>
   <div id="print-content1">
-     <div id="edit333" contenteditable="true">
+     <div id="edit3334" contenteditable="true">
         <div class="container">
 
      <center>
@@ -86,13 +86,14 @@
       <tr class="blank_row">
         <td>{{$e_name[$i] }}</td>
         <td>{{$e_pos[$i] }}  </td>
-        <td>{{$sun[$i] }}&nbsp; - &nbsp; {{$sunto[$i] }}</td>
-        <td>{{$mon[$i] }}&nbsp; - &nbsp; {{$monto[$i] }}</td>
-        <td>{{$tue[$i] }}&nbsp; - &nbsp; {{$tueto[$i] }}</td>
-        <td>{{$wed[$i] }}&nbsp; - &nbsp; {{$wedto[$i] }}</td>
-        <td>{{$thu[$i] }}&nbsp; - &nbsp; {{$thuto[$i] }}</td>
-        <td>{{$fri[$i] }}&nbsp; - &nbsp; {{$frito[$i] }}</td>
-        <td>{{$sat[$i] }}&nbsp; - &nbsp; {{$satto[$i] }}</td>
+        <td>{{ $sun_leav[$i] == '' ? $sun[$i].' - '.$sunto[$i] : $sun_leav[$i] }}</td>
+        <td>{{ $mon_leav[$i] == '' ? $mon[$i].' - '.$monto[$i] : $mon_leav[$i] }}</td>
+        <td>{{ $tues_leav[$i] == '' ? $tue[$i].' - '.$tueto[$i] : $tues_leav[$i] }}</td>
+        <td>{{ $wed_leav[$i] == '' ? $wed[$i].' - '.$wedto[$i] : $wed_leav[$i] }}</td>
+        <td>{{ $thur_leav[$i] == '' ? $thu[$i].' - '.$thuto[$i] : $thur_leav[$i] }}</td>
+        <td>{{ $fri_leav[$i] == '' ? $fri[$i].' - '.$frito[$i] : $fri_leav[$i] }}</td>
+        <td>{{ $sat_leav[$i] == '' ? $sat[$i].' - '.$satto[$i] : $sat_leav[$i] }}</td>
+      
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$tot_hr[$i] }}&nbsp;&nbsp;hr</td>    
       </tr>
     @endfor
@@ -136,13 +137,13 @@
   function saveEdits() {
 
 //get the editable element
-var editElem333 = document.getElementById("edit333");
+var editElem3334 = document.getElementById("edit3334");
 
 //get the edited element content
-var userVersion333 = editElem333.innerHTML;
+var userVersion3334 = editElem3334.innerHTML;
 
 //save the content to local storage
-localStorage.userEdits555 = userVersion333;
+localStorage.userEdits55566 = userVersion3334;
 
 //write a confirmation to the user
 document.getElementById("update").innerHTML="";
@@ -152,8 +153,8 @@ document.getElementById("update").innerHTML="";
 function checkEdits() {
 
 //find out if the user has previously saved edits
-if(localStorage.userEdits555!=null)
-document.getElementById("edit333").innerHTML = localStorage.userEdits555;
+if(localStorage.userEdits55566!=null)
+document.getElementById("edit3334").innerHTML = localStorage.userEdits55566;
 }
 </script>
   </body>

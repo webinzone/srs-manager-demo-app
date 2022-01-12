@@ -31,6 +31,9 @@
   border: 3px solid black;
 
   }
+  td{
+    width: 300px;
+  }
   </style>
 
   <div id="webui">
@@ -81,13 +84,14 @@
       <tr class="blank_row">
         <td > &nbsp;&nbsp;&nbsp;&nbsp;{{$e_pos[$i] }}</td>
         <td> &nbsp;&nbsp;&nbsp;&nbsp;{{$e_pos[$i] }}  </td>
-        <td>{{$sun[$i] }}&nbsp; - &nbsp; {{$sunto[$i] }}</td>
-        <td>{{$mon[$i] }}&nbsp; - &nbsp; {{$monto[$i] }}</td>
-        <td>{{$tue[$i] }}&nbsp; - &nbsp; {{$tueto[$i] }}</td>
-        <td>{{$wed[$i] }}&nbsp; - &nbsp; {{$wedto[$i] }}</td>
-        <td>{{$thu[$i] }}&nbsp; - &nbsp; {{$thuto[$i] }}</td>
-        <td>{{$fri[$i] }}&nbsp; - &nbsp; {{$frito[$i] }}</td>
-        <td>{{$sat[$i] }}&nbsp; - &nbsp; {{$satto[$i] }}</td>
+        <td>{{ $sun_leav[$i] == '' ? $sun[$i].' - '.$sunto[$i] : $sun_leav[$i] }}</td>
+        <td>{{ $mon_leav[$i] == '' ? $mon[$i].' - '.$monto[$i] : $mon_leav[$i] }}</td>
+        <td>{{ $tues_leav[$i] == '' ? $tue[$i].' - '.$tueto[$i] : $tues_leav[$i] }}</td>
+        <td>{{ $wed_leav[$i] == '' ? $wed[$i].' - '.$wedto[$i] : $wed_leav[$i] }}</td>
+        <td>{{ $thur_leav[$i] == '' ? $thu[$i].' - '.$thuto[$i] : $thur_leav[$i] }}</td>
+        <td>{{ $fri_leav[$i] == '' ? $fri[$i].' - '.$frito[$i] : $fri_leav[$i] }}</td>
+        <td>{{ $sat_leav[$i] == '' ? $sat[$i].' - '.$satto[$i] : $sat_leav[$i] }}</td>
+      
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$tot_hr[$i] }}&nbsp;&nbsp;hr</td>    
        
       </tr>

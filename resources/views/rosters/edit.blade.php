@@ -21,12 +21,6 @@
     border-collapse: collapse;
   }
 
-  
-
-   td {
-    width: 200px;
-  }
-  
   </style>
 
 <div id="webui">
@@ -154,33 +148,75 @@
              
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From" value="{{  $sun[$i] }}"  onfocus="(this.type='time')" id="start" name="sun[]">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To" value="{{  $sunto[$i] }}"  onfocus="(this.type='time')" id="end" name="sunto[]" >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From" value="{{  $sun[$i] }}"  onfocus="(this.type='time')" id="start" name="sun[]">
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To" value="{{  $sunto[$i] }}"  onfocus="(this.type='time')" id="end" name="sunto[]" >
+             <select name="sun_leav[]" class="form-control" style=style="height: 26px;padding: 3px 10px;width:180px;"> 
+                            <option value="">Leave status</option>
+                            <option value="Paid Leave" style="font-size: 14px;" {{ $sun_leav[$i] == 'Paid Leave' ? 'selected' : ''  }}>Paid Leave</option> 
+                            <option value="Annual Leave" style="font-size: 14px;" {{ $sun_leav[$i] == 'Annual Leave' ? 'selected' : ''  }}>Annual Leave</option> 
+                            <option value="Sick Leave" style="font-size: 14px;" {{ $sun_leav[$i] == 'Sick Leave' ? 'selected' : ''  }}>Sick Leave</option> 
+                        </select>
 
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  value="{{  $mon[$i] }}" onfocus="(this.type='time')" id="time" name="mon[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to" value="{{  $monto[$i] }}"  onfocus="(this.type='time')" id="time" name="monto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  value="{{  $mon[$i] }}" onfocus="(this.type='time')" id="time" name="mon[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="to" value="{{  $monto[$i] }}"  onfocus="(this.type='time')" id="time" name="monto[]"  >
+             <select name="mon_leav[]" class="form-control" style=style="height: 26px;padding: 3px 10px;width:180px;">
+                            <option value="">Leave status</option> 
+                            <option value="Paid Leave" style="font-size: 14px;" {{ $mon_leav[$i] == 'Paid Leave' ? 'selected' : ''  }}>Paid Leave</option> 
+                            <option value="Annual Leave" style="font-size: 14px;" {{ $mon_leav[$i] == 'Annual Leave' ? 'selected' : ''  }}>Annual Leave</option> 
+                            <option value="Sick Leave" style="font-size: 14px;" {{ $mon_leav[$i] == 'Sick Leave' ? 'selected' : ''  }}>Sick Leave</option> 
+                        </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  value="{{  $tue[$i] }}" onfocus="(this.type='time')" id="time" name="tue[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to" value="{{  $tueto[$i] }}"  onfocus="(this.type='time')" id="time" name="tueto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  value="{{  $tue[$i] }}" onfocus="(this.type='time')" id="time" name="tue[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="to" value="{{  $tueto[$i] }}"  onfocus="(this.type='time')" id="time" name="tueto[]"  >
+             <select name="tues_leav[]" class="form-control" style=style="height: 26px;padding: 3px 10px;width:180px;">
+                            <option value="">Leave status</option> 
+                            <option value="Paid Leave" style="font-size: 14px;" {{ $tues_leav[$i] == 'Paid Leave' ? 'selected' : ''  }}>Paid Leave</option> 
+                            <option value="Annual Leave" style="font-size: 14px;" {{ $tues_leav[$i] == 'Annual Leave' ? 'selected' : ''  }}>Annual Leave</option> 
+                            <option value="Sick Leave" style="font-size: 14px;" {{ $tues_leav[$i] == 'Sick Leave' ? 'selected' : ''  }}>Sick Leave</option> 
+                        </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From" value="{{  $wed[$i] }}"  onfocus="(this.type='time')" id="time" name="wed[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To" value="{{  $wedto[$i] }}"  onfocus="(this.type='time')" id="time" name="wedto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From" value="{{  $wed[$i] }}"  onfocus="(this.type='time')" id="time" name="wed[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To" value="{{  $wedto[$i] }}"  onfocus="(this.type='time')" id="time" name="wedto[]"  >
+             <select name="wed_leav[]" class="form-control" style=style="height: 26px;padding: 3px 10px;width:180px;">
+                            <option value="">Leave status</option> 
+                            <option value="Paid Leave" style="font-size: 14px;" {{ $wed_leav[$i] == 'Paid Leave' ? 'selected' : ''  }}>Paid Leave</option> 
+                            <option value="Annual Leave" style="font-size: 14px;" {{ $wed_leav[$i] == 'Annual Leave' ? 'selected' : ''  }}>Annual Leave</option> 
+                            <option value="Sick Leave" style="font-size: 14px;" {{ $wed_leav[$i] == 'Sick Leave' ? 'selected' : ''  }}>Sick Leave</option> 
+                        </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From" value="{{  $thu[$i] }}"  onfocus="(this.type='time')" id="time" name="thu[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To" value="{{  $thuto[$i] }}"  onfocus="(this.type='time')" id="time" name="thuto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From" value="{{  $thu[$i] }}"  onfocus="(this.type='time')" id="time" name="thu[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To" value="{{  $thuto[$i] }}"  onfocus="(this.type='time')" id="time" name="thuto[]"  >
+             <select name="thur_leav[]" class="form-control" style=style="height: 26px;padding: 3px 10px;width:180px;">
+                            <option value="">Leave status</option> 
+                            <option value="Paid Leave" style="font-size: 14px;" {{ $thur_leav[$i] == 'Paid Leave' ? 'selected' : ''  }}>Paid Leave</option> 
+                            <option value="Annual Leave" style="font-size: 14px;" {{ $thur_leav[$i] == 'Annual Leave' ? 'selected' : ''  }}>Annual Leave</option> 
+                            <option value="Sick Leave" style="font-size: 14px;" {{ $thur_leav[$i] == 'Sick Leave' ? 'selected' : ''  }}>Sick Leave</option> 
+                        </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From" value="{{  $fri[$i] }}"  onfocus="(this.type='time')" id="time" name="fri[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To" value="{{  $frito[$i] }}"  onfocus="(this.type='time')" id="time" name="frito[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From" value="{{  $fri[$i] }}"  onfocus="(this.type='time')" id="time" name="fri[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To" value="{{  $frito[$i] }}"  onfocus="(this.type='time')" id="time" name="frito[]"  >
+             <select name="fri_leav[]" class="form-control" style=style="height: 26px;padding: 3px 10px;width:180px;">
+                            <option value="">Leave status</option> 
+                            <option value="Paid Leave" style="font-size: 14px;" {{ $fri_leav[$i] == 'Paid Leave' ? 'selected' : ''  }}>Paid Leave</option> 
+                            <option value="Annual Leave" style="font-size: 14px;" {{ $fri_leav[$i] == 'Annual Leave' ? 'selected' : ''  }}>Annual Leave</option> 
+                            <option value="Sick Leave" style="font-size: 14px;" {{ $fri_leav[$i] == 'Sick Leave' ? 'selected' : ''  }}>Sick Leave</option> 
+                        </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From" value="{{  $sat[$i] }}"  onfocus="(this.type='time')" id="time" name="sat[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To" value="{{  $satto[$i] }}"  onfocus="(this.type='time')" id="time" name="satto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From" value="{{  $sat[$i] }}"  onfocus="(this.type='time')" id="time" name="sat[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To" value="{{  $satto[$i] }}"  onfocus="(this.type='time')" id="time" name="satto[]"  >
+             <select name="sat_leav[]" class="form-control" style=style="height: 26px;padding: 3px 10px;width:180px;">
+                            <option value="">Leave status</option> 
+                            <option value="Paid Leave" style="font-size: 14px;" {{ $sat_leav[$i] == 'Paid Leave' ? 'selected' : ''  }}>Paid Leave</option> 
+                            <option value="Annual Leave" style="font-size: 14px;" {{ $sat_leav[$i] == 'Annual Leave' ? 'selected' : ''  }}>Annual Leave</option> 
+                            <option value="Sick Leave" style="font-size: 14px;" {{ $sat_leav[$i] == 'Sick Leave' ? 'selected' : ''  }}>Sick Leave</option> 
+                        </select>
              </td>
              <td class="row-index text-center">
              <input type="text" style="height: 26px;padding: 3px 10px;width:70px;" name="tot_hr[]"  value="{{  $tot_hr[$i] }}" >
@@ -278,34 +314,76 @@ $('#resname').change(function(){
               </select>
              
              </td>
-             <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="start" name="sun[]">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="end" name="sunto[]" >
+              <td class="row-index text-center">
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start" name="sun[]">
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To"  onfocus="(this.type='time')" id="end" name="sunto[]" >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="sun_leav" name="sun_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
 
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="mon[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to"  onfocus="(this.type='time')" id="time" name="monto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start2" name="mon[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="to"  onfocus="(this.type='time')" id="end2" name="monto[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="mon_leav" name="mon_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="tue[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="to"  onfocus="(this.type='time')" id="time" name="tueto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start3" name="tue[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="to"  onfocus="(this.type='time')" id="end3" name="tueto[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="tues_leav" name="tues_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="wed[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="time" name="wedto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start4" name="wed[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To"  onfocus="(this.type='time')" id="end4" name="wedto[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="wed_leav" name="wed_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="thu[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="time" name="thuto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start5" name="thu[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To"  onfocus="(this.type='time')" id="end5" name="thuto[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="thur_leav" name="thur_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="fri[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="time" name="frito[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start6" name="fri[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To"  onfocus="(this.type='time')" id="end6" name="frito[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="fri_leav" name="fri_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="From"  onfocus="(this.type='time')" id="time" name="sat[]"  >
-             <input type="text" style="height: 26px;padding: 3px 10px;width:100px;" placeholder="To"  onfocus="(this.type='time')" id="time" name="satto[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="From"  onfocus="(this.type='time')" id="start7" name="sat[]"  >
+             <input type="text" style="height: 26px;padding: 3px 10px;width:180px;" placeholder="To"  onfocus="(this.type='time')" id="end7" name="satto[]"  >
+             <select class="form-control" style="height: 26px;padding: 3px 10px;width:120px;" id="sat_leav" name="sat_leav[]">
+             <option value="">Leave status</option>
+             <option value="Paid Leave">Paid Leave</option>
+             <option value="Annual Leave">Annual Leave</option>
+             <option value="Sick Leave">Sick Leave</option>
+             </select>
              </td>
              <td class="row-index text-center">
              <input type="text" style="height: 26px;padding: 3px 10px;width:70px;" name="tot_hr[]"  >
