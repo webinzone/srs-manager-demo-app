@@ -128,7 +128,7 @@
   <div class="col-lg-3 col-xs-6" style="width:246px;">
     <!-- small box -->
 
-      <a href="/development" style="width:246px;">
+      <a href="{ route('rosters.index') }}" style="width:246px;">
     <div class="small-box bg-purple">
       <div class="inner">
         <h3> {{ number_format($counts['rosters']) }}</h3>
