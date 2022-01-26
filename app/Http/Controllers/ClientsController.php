@@ -315,6 +315,7 @@ class ClientsController extends Controller
 
         $referralup = Referral::where('id', '=', $aid)->firstOrFail(); 
         $referralup->status = "active";
+        $referralup->client_id = $clientid;
         $referralup->save();
 
         $activity = new ActivityLog();

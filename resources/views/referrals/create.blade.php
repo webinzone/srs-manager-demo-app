@@ -58,11 +58,11 @@
                 <div class="form-row">                      
                       <div class="col-md-4 mb-3">
                         <label for="fname">First name</label>
-                        <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" >                
+                        <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" required >                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="mname">Middle name</label>
-                        <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value">                
+                        <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value" required>                
                       </div>
                       <!--
                       <div class="col-md-3 mb-3">
@@ -71,13 +71,13 @@
                       </div>-->
                       <div class="col-md-4 mb-3">
                         <label>Surname:</label>
-                        <input type="text" name="csurname" class="form-control" placeholder="Surname:">                                        
+                        <input type="text" name="csurname" class="form-control" placeholder="Surname:" required>                                        
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                     <div class="col-md-3 mb-3">
                         <label>Date of Birth</label>
-                        <input type="date" name="cdob" id="dob" class="form-control" placeholder="Date of Birth" >                                       
+                        <input type="date" name="cdob" id="dob" class="form-control" placeholder="Date of Birth" required>                                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="cgender">Gender</label>&nbsp;&nbsp;&nbsp;
@@ -95,19 +95,19 @@
                       </div>
                       <div class="col-md-3 mb-3">
                         <label>Mobile</label>
-                        <input type="tel" name="cph" class="form-control" id="ph1" placeholder=" Mobile" >                                        
+                        <input type="tel" name="cph" class="form-control" id="ph1" placeholder=" Mobile" required>                                        
                       </div>
                     </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="form-row">
                 
                        <div class="col-md-3 mb-3">
                         <label>Email ID</label>
-                        <input type="email" name="cemail" id="em1" class="form-control" placeholder="Email ID" >                                       
+                        <input type="email" name="cemail" id="em1" class="form-control" placeholder="Email ID" required>                                       
                       </div>
                      
                       <div class="col-md-9 mb-3" >
                         <label>Current Address</label>
-                        <textarea name="caddress" id="addrr" style="width: 300px;" class="form-control" placeholder="Current Address" ></textarea>
+                        <textarea name="caddress" id="addrr" style="width: 300px;" class="form-control" placeholder="Current Address" required></textarea>
                       </div>
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
                 <h5 style="color:#980000;font-size: 16px;"><b>CONSENT TO RELEASE OF INFORMATION</b></h5>
