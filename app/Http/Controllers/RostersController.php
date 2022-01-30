@@ -103,6 +103,9 @@ class RostersController extends Controller
         
 
         $roster->tot_hr = implode(',', (array) request('diff')) ?? ' ';
+        $checkMe = $roster->p_from;
+        $month = date('m-Y', strtotime($roster->p_from));
+        $roster->month = $month;
 
         $roster->company_id = Auth::user()->c_id  ?? '';
         $roster->location_id = Auth::user()->l_id  ?? '';
@@ -288,6 +291,24 @@ class RostersController extends Controller
         $rosters = Roster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
         return view('rosters/report_show',compact('rosters'));
     
+    }
+
+    public function generateMonthlyRosterReport(){
+        $mon = request('month');
+        $month = date('m-Y', strtotime($mon));
+ 
+        $rosters = Roster::where('month', '=', $month)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+
+       
+          $residents = ClientDetail::where('company_id', '=', Auth::user()->c_id)->where([['location_id', '=', Auth::user()->l_id],['status', '=', 'Active']])->orderBy('fname')->get() ?? '';
+        //$residents = $resid->where('status', '=', 'Active');
+        $companies = CompanyMaster::all();
+        $emps = SrsStaff::orderBy('name')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get();
+      
+          $locations = LocationMaster::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+
+
+        return view('rosters/monthly_report',compact('rosters', 'emps', 'locations', 'mon'));  
     }
 
      public function generatePDF($id)

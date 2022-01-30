@@ -552,7 +552,7 @@
                     <div class="col-md-4 mb-3">
                         <label for="nok_st">Staff Name:</label>
                         <select class="form-control" style="height: 26px;padding: 3px 10px;" id="nok_st" name="nok_st">
-                            <option>--   Select Staff Name  --</option>
+                            <option value="" required>--   Select Staff Name  --</option>
                           @foreach($emps as $emp)
                           <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
                           @endforeach

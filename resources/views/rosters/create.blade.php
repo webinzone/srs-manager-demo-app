@@ -89,7 +89,7 @@
             <div class="col-md-3 mb-3">
               <label for="name" >Complaint Officer</label>
               <select class="form-control" required=""  name="c_oofr" style="height: 26px;padding: 3px 10px;">
-                            <option>--   Select Staff Name  --</option>
+                            <option value="">--   Select Staff Name  --</option>
                           @foreach($emps as $emp)
                           <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
                           @endforeach
@@ -103,7 +103,7 @@
                  <div class="col-md-3 mb-3">
                   <label for="name" >Facility Manager</label>
                      <select class="form-control" required=""  name="faci" style="height: 26px;padding: 3px 10px;">
-                            <option>--   Select Staff Name  --</option>
+                            <option value="">--   Select Staff Name  --</option>
                           @foreach($emps as $emp)
                           <option value="{{ $emp->name }}"> {{ $emp->name }}</option>
                           @endforeach

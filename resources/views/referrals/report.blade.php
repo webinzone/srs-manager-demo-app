@@ -177,7 +177,7 @@
                                   <br><br>
     <input type="text" name="pen_refno" id="pen_refno" class="border-class" style="width:910px"  value="Client Ref Number:&nbsp;&nbsp;&nbsp;{{ $referral->pen_refno}}" readonly><br><br>
     <input type="text" name="pen_medino" id="pen_medino" class="border-class"  style="width:510px" value="Medicare Number&nbsp;&nbsp;&nbsp; {{ $referral->pen_medino}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="text" name="pen_mediexp" id="pen_mediexp" class="border-class"  style="width:300px" value=" Expiry Date &nbsp;&nbsp;&nbsp;{{date('d-m-Y', strtotime($referral->pen_mediexp))}}" readonly><br><br>
+    <input type="text" name="pen_mediexp" id="pen_mediexp" class="border-class"  style="width:300px" value=" Expiry Date &nbsp;&nbsp;&nbsp;{{date('F-Y', strtotime($referral->pen_mediexp))}}" readonly><br><br>
     <input type="text" name="pen_taxi" id="pen_taxi" class="border-class"  style="width:510px" value="Taxi Card Concession Number&nbsp;&nbsp;&nbsp; {{ $referral->pen_taxi}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="text" name="pen_taxiexp" id="pen_taxiexp" class="border-class"  style="width:300px" value=" Expiry Date &nbsp;&nbsp;&nbsp;{{date('d-m-Y', strtotime($referral->pen_taxiexp))}}" readonly><br><br>
     </div><br><br>

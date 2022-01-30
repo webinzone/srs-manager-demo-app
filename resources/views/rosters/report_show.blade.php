@@ -18,11 +18,12 @@
               <!-- box-header -->
                   <div class="box-header with-border text-center">
                  <h3><b>Generate Staff Roster</b></h3>
-                   
+
                 </div><!-- /.box-header -->
 
                 <!-- box-body -->
                 <div class="box-body" style="padding-left: 50px;">    
+                 <h5>Weekily Roster</h5>
               
 
            <form class="form-horizontal" target="_blank"  action="{{ route('generateRosterReport') }}" method="get" >
@@ -38,6 +39,29 @@
                         <input type="date" name="to" id="res_date">
                        
                       </div>
+                      <div class="col-md-3 mb-3">
+                          <br><button type="submit" style="width:200px;" target="_blank" id="button" class="btn btn-primary pull-right" >
+                                   Generate Report
+                          </button>
+                      </div>
+                      </div>
+
+                  </form>
+                  <br><br><br><br>
+
+
+                   <h5>Monthly Roster</h5>
+              
+
+           <form class="form-horizontal" target="_blank"  action="{{ route('generateMonthlyRosterReport') }}" method="get" >
+
+                     <div class="form-row">
+                      <div class="col-md-3 mb-3">
+                         <label for="fname">Month & Year </label>
+                        <input type="month" name="month" >
+                       
+                      </div>
+                      
                       <div class="col-md-3 mb-3">
                           <br><button type="submit" style="width:200px;" target="_blank" id="button" class="btn btn-primary pull-right" >
                                    Generate Report
