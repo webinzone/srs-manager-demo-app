@@ -39,7 +39,13 @@ class ActivityLogPresenter extends Presenter
                 "sortable" => true,
                 "visible" => true,
                 "title" => trans('Item')
-            ]
+            ],[
+                "field" => "res_name",
+                "searchable" => true,
+                "sortable" => true,
+                "visible" => true,
+                "title" => trans('Resident')
+            ],
         ];
 
         return json_encode($layout);

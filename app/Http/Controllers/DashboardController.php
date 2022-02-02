@@ -85,6 +85,7 @@ class DashboardController extends Controller
        return view('viewusers',compact('vwusers'));
     }
     public function logs(){
-        return view('logs');
+        $activity_logs = ActivityLog::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('created_at', 'DESC')->get();
+        return view('logs',compact('activity_logs'));
     }
 }

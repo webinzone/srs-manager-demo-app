@@ -25,17 +25,53 @@
         <div class="table-responsive">
 
             <table
-                    data-columns="{{ \App\Presenters\ActivityLogPresenter::dataTableLayout() }}"
-                    data-cookie-id-table="activity_logsTable"
-                    data-height="400"
-                    data-pagination="false"
-                    data-id-table="activity_logsTable"
-                    data-side-pagination="server"
-                    data-sort-order="desc"
-                    data-sort-name="created_at"
-                    id="dashActivityReport"
-                    class="table table-striped snipe-table"
-                    data-url="{{ route('api.activity_logs.index', ['limit' => 25]) }}">
+                  data-columns=""
+                      data-cookie-id-table="dashCategorySummary"
+                      data-height="400"
+                      data-pagination="true"
+                      data-side-pagination="server"
+                      data-sort-order="desc"
+                      data-sort-field="assets_count"
+                      id="dashCategorySummary"
+                      class="table table-striped snipe-table"
+                      data-url=""
+                 >
+
+                    <thead >
+                            <tr style="padding: 5px;">
+                                <th style="padding: 10px;" class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Created Date </th>
+                                <th style="padding: 10px;" class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">User Name </th>
+                                <th style="padding: 10px;" class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Action </th>
+                                <th style="padding: 10px;" class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Item</th>
+                               
+                                <th style="padding: 10px;" class="col-sm-2" data-visible="true" data-field="name" data-formatter="categoriesLinkFormatter" data-sortable="true">Resident </th>                              
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($activity_logs as $log)
+                             
+                              <tr>
+                              
+                                <td>{{ date('j F Y h:i A', strtotime($log->created_at)) }}</td>
+                                <td>{{  $log->user }}</td>
+
+
+                                <td>{{ $log->action}}</td>
+                               @if ($log->action == "Deleted") 
+                               <td style="color: red;">{{ $log->item }}</td>
+                               @elseif ($log->action == "Created") 
+                              <td style="color: green;">{{ $log->item }} </td>
+                              @else
+                              <td style="color: blueviolet;">{{ $log->item }} </td>
+                              
+                               @endif
+                                <td>{{ $log->res_name}}</td>
+
+
+                                                     
+                              </tr>
+                            @endforeach
+                          </tbody>
                     
                 </table>
         </div>

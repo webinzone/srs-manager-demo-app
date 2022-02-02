@@ -24,7 +24,7 @@ class ActivityLogsController extends Controller
     {
         $this->authorize('index', ActivityLog::class);
              
-        $activity_logs = ActivityLog::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id);
+        $activity_logs = ActivityLog::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->orderBy('created_at', 'DESC');
 
         $total = $activity_logs->count();
         $activity_logs = $activity_logs->get();

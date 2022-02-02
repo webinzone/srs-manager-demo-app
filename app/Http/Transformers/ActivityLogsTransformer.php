@@ -28,6 +28,7 @@ class ActivityLogsTransformer
                 'user' => e($activity_log->user),
                 'action' => e($activity_log->action),
                 'item' => e($activity_log->item),
+                'res_name' => e($activity_log->res_name)
                 
             ];
 

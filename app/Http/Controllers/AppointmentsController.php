@@ -95,11 +95,15 @@ class AppointmentsController extends Controller
 
       $activity->user = Auth::user()->first_name;
       $activity->action = "Created";
-      $activity->item = "Appointments";
+      $activity->item = "Appointment";
       $activity->company_id = Auth::user()->c_id  ?? '';
       $activity->location_id = Auth::user()->l_id  ?? '';
       $activity->user_id = Auth::user()->id;
 
+      $activity->res_name = $appointment->res_name;
+      $activity->client_id = $appointment->client_id;
+      $activity->item_id = $appointment->id;
+      $activity->item_route = "appointment.show";
       $activity->save();
 
       return redirect()->route('appointments.index')
@@ -181,6 +185,9 @@ class AppointmentsController extends Controller
         $activity->company_id = Auth::user()->c_id  ?? '';
         $activity->location_id = Auth::user()->l_id  ?? '';
         $activity->user_id = Auth::user()->id;
+        $activity->res_name = $appointment->res_name;
+        $activity->client_id = $appointment->client_id;
+        $activity->item_id = $appointment->id;
         $activity->save();
 
         return redirect()->route('appointments.index')
@@ -196,7 +203,8 @@ class AppointmentsController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy', Appointment::class);
-        Appointment::destroy($id);
+        $appointment = Appointment::find($id);
+        
         $activity = new ActivityLog();
 
         $activity->user = Auth::user()->first_name;
@@ -205,7 +213,13 @@ class AppointmentsController extends Controller
         $activity->company_id = Auth::user()->c_id  ?? '';
         $activity->location_id = Auth::user()->l_id  ?? '';
         $activity->user_id = Auth::user()->id;
+        $activity->res_name = $appointment->res_name;
+        $activity->client_id = $appointment->client_id;
+        $activity->item_id = $appointment->id;
+        $activity->item_route = "appointment";
         $activity->save();
+
+        Appointment::destroy($id);
         return redirect()->route('appointments.index')
                         ->with('success','deleted successfully');
     }
