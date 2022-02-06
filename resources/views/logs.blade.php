@@ -57,17 +57,21 @@
 
 
                                 <td>{{ $log->action}}</td>
-                               @if ($log->action == "Deleted") 
-                               <td style="color: red;">{{ $log->item }}</td>
-                               @elseif ($log->action == "Created") 
-                              <td style="color: green;">{{ $log->item }} </td>
+                              @if ($log->action == "Deleted") 
+                                    <td style="color: red;">{{ $log->item }}</td>
+                              @elseif ($log->action == "Created") 
+                                    <td style="color: green;">{{ $log->item }}</td>
                               @else
-                              <td style="color: blueviolet;">{{ $log->item }} </td>
+                                    <td style="color: blueviolet;">{{ $log->item }} </td>
+                              @endif
                               
-                               @endif
+                              @if ($log->action == "Deleted")
                                 <td>{{ $log->res_name}}</td>
-
-
+                              @elseif ($log->item_id == 0)
+                                <td>{{ $log->res_name}} <p style="color:red">* This record has beendeleted.</p></td>
+                              @else
+                                <td><a href="{{  URL('/'.$log->item_route.'/'.$log->item_id ) }}">{{ $log->res_name}}</a></td>
+                              @endif
                                                      
                               </tr>
                             @endforeach

@@ -82,7 +82,8 @@
 
                   @can('index', \App\Models\ConditionReport::class)
                   <li aria-hidden="true"{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!} tabindex="-1">
-                      <a href="/policy" title="Policies & Procedures" tabindex="-1" style="color: white;">
+                     <!-- <a href="/policy" title="Policies & Procedures" tabindex="-1" style="color: white;">-->
+                      <a href="#" title="Policies & Procedures" tabindex="-1" style="color: white;">
                         <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                     
                           <span class="sr-only">Policies & Procedures</span>
@@ -92,7 +93,8 @@
 
                   @can('index', \App\Models\ConditionReport::class)
                   <li aria-hidden="true"{!! (Request::is('condition_reports*') ? ' class="active"' : '') !!} tabindex="-1">
-                      <a href="/chart" title="Organizational Chart" tabindex="-1" target="_blank" style="color: white;">
+                      <!--<a href="/chart" title="Organizational Chart" tabindex="-1" target="_blank" style="color: white;">-->
+                      <a href="#" title="Organizational Chart" tabindex="-1"  style="color: white;">
                           <i class="fa fa-bar-chart" aria-hidden="true"></i>                       
                           <span class="sr-only">Organizational Chart</span>
                       </a>

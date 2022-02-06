@@ -44,15 +44,15 @@
                     <div class="form-group ">
                       <div class="col-md-4 mb-3">
                         <label for="fname">First name</label>
-                        <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" >                
+                        <input type="text" class="form-control" placeholder="First Name" id="fname" name="fname"  v-on:change="page_one.fname = $event.target.value" required >                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="mname">Middle name</label>
-                        <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value">                
+                        <input type="text" class="form-control" placeholder="Middle Name" id="mname" name="mname"  v-on:change="page_one.mname = $event.target.value" required>                
                       </div>
                       <div class="col-md-4 mb-3">
                         <label for="lname">Last name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname"  v-on:change="page_one.lname = $event.target.value">                
+                        <input type="text" class="form-control" placeholder="Last Name" id="lname" name="lname"  v-on:change="page_one.lname = $event.target.value" required>                
                       </div>                        
                     </div>
                     <div class="form-group ">
@@ -234,7 +234,7 @@
              <input type="number" name="item_no[]" value="${rowIdx}" readonly>
              </td>
              <td class="row-index text-center">
-             <input name="quali[]" type="text" >
+             <input name="quali[]" type="text" required>
              </td>
              <td class="row-index text-center">
              <input name="qop_date[]" type="date" >
