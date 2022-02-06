@@ -244,11 +244,14 @@ class ReferralsController extends Controller
 
       $activity->user = Auth::user()->first_name;
       $activity->action = "Created";
-      $activity->item = "Referral Report";
-      
-        $activity->company_id = Auth::user()->c_id  ?? '';
-        $activity->location_id = Auth::user()->l_id  ?? '';
-        $activity->user_id = Auth::user()->id;
+      $activity->item = "Referral";
+      $activity->company_id = Auth::user()->c_id  ?? '';
+      $activity->location_id = Auth::user()->l_id  ?? '';
+      $activity->user_id = Auth::user()->id;
+      $activity->res_name = $referral->cfname;
+      $activity->client_id = $referral->client_id;
+      $activity->item_id = $referral->id;
+      $activity->item_route = "referrals";
       $activity->save();
 
       return redirect()->route('referrals.index')
@@ -728,14 +731,18 @@ class ReferralsController extends Controller
 
         $activity = new ActivityLog();
 
-        $activity->user = Auth::user()->first_name;
-        $activity->action = "Updated";
-        $activity->item = "Referral Report";
-        
-        $activity->company_id = Auth::user()->c_id  ?? '';
-        $activity->location_id = Auth::user()->l_id  ?? '';
-        $activity->user_id = Auth::user()->id;
-        $activity->save();
+      $activity->user = Auth::user()->first_name;
+      $activity->action = "Updated";
+      $activity->item = "Referral";
+      $activity->company_id = Auth::user()->c_id  ?? '';
+      $activity->location_id = Auth::user()->l_id  ?? '';
+      $activity->user_id = Auth::user()->id;
+      $activity->res_name = $referral->cfname;
+      $activity->client_id = $referral->client_id;
+      $activity->item_id = $referral->id;
+      $activity->item_route = "referrals";
+      $activity->save();
+
 
         $val = request('val')  ?? '';
         if($val == 'res')
@@ -762,6 +769,23 @@ class ReferralsController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy', Referral::class);
+        $referral = Referral::find($id);
+        $activity = new ActivityLog();
+
+      $activity->user = Auth::user()->first_name;
+      $activity->action = "Deleted";
+      $activity->item = "Referral";
+      $activity->company_id = Auth::user()->c_id  ?? '';
+      $activity->location_id = Auth::user()->l_id  ?? '';
+      $activity->user_id = Auth::user()->id;
+      $activity->res_name = $referral->cfname;
+      $activity->client_id = $referral->client_id;
+      $activity->item_id = $referral->id;
+      $activity->item_route = "referrals";
+      $activity->save();
+
+      ActivityLog::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->where('item_route', '=', "referrals")->where('item_id', '=', $referral->id)->update(['item_id' => 0]);
+
         Referral::destroy($id);
         $activity = new ActivityLog();
 
@@ -769,10 +793,7 @@ class ReferralsController extends Controller
         $activity->action = "Deleted";
         $activity->item = "Referral Report";
         
-        $activity->company_id = Auth::user()->c_id  ?? '';
-        $activity->location_id = Auth::user()->l_id  ?? '';
-        $activity->user_id = Auth::user()->id;
-        $activity->save();
+        
         return redirect()->route('referrals.index')
                         ->with('success','deleted successfully');
     }

@@ -319,15 +319,19 @@ class ClientsController extends Controller
         $referralup->save();
 
         $activity = new ActivityLog();
-        $activity->user = Auth::user()->first_name;
-        $activity->action = "Added";
-        $activity->item = "Resident";
+
+          $activity->user = Auth::user()->first_name;
+          $activity->action = "Created";
+          $activity->item = "Resident";
+          $activity->company_id = Auth::user()->c_id  ?? '';
+          $activity->location_id = Auth::user()->l_id  ?? '';
+          $activity->user_id = Auth::user()->id;
+          $activity->res_name = $name[0]."  ".$name[1]."  ".$name[2];
+          $activity->client_id = $client_detail->id;
+          $activity->item_id = $client_detail->id;
+          $activity->item_route = "clients";
+          $activity->save();
         
-        $activity->company_id = Auth::user()->c_id  ?? '';
-        $activity->location_id = Auth::user()->l_id  ?? '';
-        $activity->user_id = Auth::user()->id;
-        $activity->save();
-    
      
         return redirect()->route('clients.index')
                 ->with('success','Client Added successfully');                 
@@ -406,13 +410,14 @@ class ClientsController extends Controller
 
         $aid = request('res_name')  ?? '';  
 
-        $referral = Referral::where('id', '=', $aid)->firstOrFail();
+        $referral = Referral::where('id', '=', $aid)->firstOrFail(); 
+        //$referral->status = "active"
+        //$referral->save();
         $aname = $referral->cfname;
         $name = explode("  ", $aname);
         $client_detail->fname = $name[0];
         $client_detail->mname = $name[1];
         $client_detail->lname = $name[2];
-
         $client_detail->address = ""  ?? '';
         $client_detail->dob = request('dob')  ?? '';
         $client_detail->cob = request('income_type')  ?? '';
@@ -437,7 +442,7 @@ class ClientsController extends Controller
         $client_detail->ent_no = request('ent_no')  ?? '';
         $client_detail->pen_exp = request('pen_exp')  ?? '';
         $client_detail->respite = request('respite')  ?? '';
-      
+     
         $client_detail->nok_taxi = request('nok_taxi')  ?? '';
         $client_detail->nok_exp = request('nok_exp')  ?? '';
         $client_detail->nok_other = request('nok_other')  ?? '';
@@ -454,14 +459,15 @@ class ClientsController extends Controller
         $client_detail->res_fax = request('res_fax')  ?? '';
         $client_detail->res_email = request('res_email')  ?? ''; 
         $client_detail->ref_by = request('ref_by')  ?? '';        
-        $client_detail->pre_address = request('pre_address')  ?? '';        
         $client_detail->ent_no = request('ent_no')  ?? ''; 
         $client_detail->nationality = request('nationality')  ?? '';        
         $client_detail->adm_date = request('adm_date')  ?? ''; 
 
         $client_detail->inc_sname = request('inc_sname')  ?? ''; 
         $client_detail->inc_phone = request('inc_phone')  ?? ''; 
-        $client_detail->inc_email = request('inc_email')  ?? '';  
+        $client_detail->inc_email = request('inc_email')  ?? ''; 
+
+
         
         $roomid = request('room_no')  ?? '';
         $roomm = RoomDetail::where('id', '=', $roomid)->firstOrFail();
@@ -481,20 +487,18 @@ class ClientsController extends Controller
         $client_detail->weeks = $HowManyWeeks ?? ''; 
         $rate = request('room_rent')  ?? '';
         $client_detail->room_rent = (int)$HowManyWeeks * (int)$rate ?? '';
-
-        if(request('prof_pic') != ''){ 
         
+        if(request('prof_pic') != ''){ 
         $client_detail->prof_pic = request('prof_pic')->getClientOriginalName()  ?? '';
         $imageName = request('prof_pic')->getClientOriginalName() ?? '';
-        request()->prof_pic->move(public_path('images/profile_pics'), $imageName);  
-
-        }
-        
-        $client_detail->allergy_det = request('allergy_det')  ?? ''; 
+        request()->prof_pic->move(public_path('images/profile_pics'), $imageName);
+        }      
+ 
+         $client_detail->allergy_det = request('allergy_det')  ?? ''; 
          $client_detail->status = request('status')  ?? ''; 
          $client_detail->company_id = Auth::user()->c_id  ?? ''; 
          $client_detail->location_id = Auth::user()->l_id  ?? '';
-         
+
         $client_detail->user_id =  Auth::user()->id;
         $bed = request('bed')  ?? ''; 
         $client_detail->bed_no = $bed;
@@ -509,20 +513,23 @@ class ClientsController extends Controller
          $roomdetails->client_id = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
         $roomdetails->save();
 
-        $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $bed)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+        $bed_details = Bed::where('room_id', '=', $rrrid)->where('bed_no', '=', $bed)->firstOrFail();
         $bed_details->status = "Booked";
         $bed_details->res_name = $client_detail->fname." ".$client_detail->mname." ".$client_detail->lname;
         $bed_details->save();
         $booked = "Booked";
-        $bed_det = Bed::where('room_id', '=', $rrrid)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->where('status', '=', $booked)->get();
+        $bed_det = Bed::where('room_id', '=', $rrrid)->where('status', '=', $booked)->get();
         $b_count = count($bed_det);
         $r_count = (int)$r_beds;
 
         if($b_count == $r_count){
-            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
+            $roomdeta = RoomDetail::where('room_no', '=', $rroom)->where('location_id', '=', Auth::user()->l_id)->firstOrFail();
             $roomdeta->status = "Booked";
             $roomdeta->save();
         }
+
+        //$roomdetails->status = "Booked";
+       
 
         //$client_family = new ClientFamily();   
         //$client_family->client_id = $clientid;
@@ -552,7 +559,7 @@ class ClientsController extends Controller
         //$client_powerofatony->user_id =  Auth::user()->id;
         //$client_powerofatony->save();
 
-        //$client_allergy = ClientAllergy::where('client_id', '=', $clientid)->firstOrFail();
+        //$client_allergy = new ClientAllergy();    
         //$client_allergy->client_id = $clientid;
         //$client_allergy->allergy_status = request('allergy_status');
         //$client_allergy->tof_allergy = request('tof_allergy');
@@ -562,11 +569,11 @@ class ClientsController extends Controller
         //$client_allergy->madicine = "";
         //$client_allergy->tests_report = "";
         //$client_allergy->user_id =  Auth::user()->id;
-        ////$report = request('tests_report')->getClientOriginalName();
-        //// request()->tests_report->move(public_path('images/test_reports'), $report); 
+        //$report = request('tests_report')->getClientOriginalName();
+        // request()->tests_report->move(public_path('images/test_reports'), $report); 
         //$client_allergy->save();
 
-      //  $client_visitor = ClientVisitor::where('client_id', '=', $clientid)->firstOrFail();//     
+        //$client_visitor = new ClientVisitor();     
         //$client_visitor->client_id = $clientid;
         //$client_visitor->allowed_status = request('allowed_status');
         //$client_visitor->name = "";
@@ -579,48 +586,48 @@ class ClientsController extends Controller
         //$client_visitor->user_id =  Auth::user()->id;
         //$client_visitor->save();
 
-        $client_gpdetail = ClientGpdetail::where('client_id', '=', $clientid)->firstOrFail();
-        $client_gpdetail->client_id = $clientid ?? '';
-        $client_gpdetail->gp_name = request('gp_name') ?? '';
-        $client_gpdetail->address = request('gp_address') ?? '';
-        $client_gpdetail->ph = request('ph3') ?? '';
-        $client_gpdetail->clinic_name = "" ?? '';
-        $client_gpdetail->booking_s_time = "" ?? '';
-        $client_gpdetail->booking_e_time = "" ?? '';
-        $client_gpdetail->gp_email = request('gp_email') ?? '';
-        $client_gpdetail->gp_lan = request('gp_lan') ?? '';
-        $client_gpdetail->gp_fax = request('gp_fax') ?? '';
+        $client_gpdetail = new ClientGpdetail();     
+        $client_gpdetail->client_id = $clientid;
+        $client_gpdetail->gp_name = request('gp_name')  ?? '';
+        $client_gpdetail->address = request('gp_address')  ?? '';
+        $client_gpdetail->ph = request('ph3')  ?? '';
+        $client_gpdetail->clinic_name = ""  ?? '';
+        $client_gpdetail->booking_s_time = ""  ?? '';
+        $client_gpdetail->booking_e_time = ""  ?? '';
+        $client_gpdetail->gp_email = request('gp_email')  ?? '';
+        $client_gpdetail->gp_lan = request('gp_lan')  ?? '';
+        $client_gpdetail->gp_fax = request('gp_fax')  ?? '';
         $client_gpdetail->user_id =  Auth::user()->id;
         $client_gpdetail->save();
-        
-        $client_nextofkin = ClientNextofkin::where('client_id', '=', $clientid)->firstOrFail();
+
+        $client_nextofkin = new ClientNextofkin();    
         $client_nextofkin->client_id = $clientid;
-        $client_nextofkin->allowed_status = "" ?? '';
-        $client_nextofkin->name = request('nok_name') ?? '';
-        $client_nextofkin->gender = "" ?? '';
+        $client_nextofkin->allowed_status = ""  ?? '';
+        $client_nextofkin->name = request('nok_name')  ?? '';
+        $client_nextofkin->gender = ""  ?? '';
         $client_nextofkin->relation = request('nok_relation')  ?? '';
-        $client_nextofkin->address = request('nok_address') ?? '';        
-        $client_nextofkin->ph = request('nok_ph') ?? '';
-        $client_nextofkin->id_no = "" ?? '';
-        $client_nextofkin->nationality = "" ?? '';
-        $client_nextofkin->nok_email = request('nok_email') ?? '';
-        $client_nextofkin->nok_lan = request('nok_lan') ?? '';
-        $client_nextofkin->nok_fax = request('nok_fax') ?? '';
+        $client_nextofkin->address = request('nok_address')  ?? '';        
+        $client_nextofkin->ph = request('nok_ph')  ?? '';
+        $client_nextofkin->id_no = ""  ?? '';
+        $client_nextofkin->nationality = ""  ?? '';
+        $client_nextofkin->nok_email = request('nok_email')  ?? '';
+        $client_nextofkin->nok_lan = request('nok_lan')  ?? '';
+        $client_nextofkin->nok_fax = request('nok_fax')  ?? '';
         $client_nextofkin->user_id =  Auth::user()->id;
         $client_nextofkin->save();
 
-        $guardian_detail = GuardianDetail::where('client_id', '=', $clientid)->firstOrFail();  
+        $guardian_detail = new GuardianDetail();    
         $guardian_detail->client_id = $clientid;
-        $guardian_detail->gr_name = request('gr_name') ?? '';
-        $guardian_detail->gr_relation = request('gr_relation') ?? '';
-        $guardian_detail->gr_lan = request('gr_lan') ?? '';
-        $guardian_detail->gr_mob = request('gr_mob') ?? '';        
-        $guardian_detail->gr_email = request('gr_email') ?? '';
-        $guardian_detail->gr_address = request('gr_address') ?? '';
+        $guardian_detail->gr_name = request('gr_name')  ?? '';
+        $guardian_detail->gr_relation = request('gr_relation')  ?? '';
+        $guardian_detail->gr_lan = request('gr_lan')  ?? '';
+        $guardian_detail->gr_mob = request('gr_mob')  ?? '';        
+        $guardian_detail->gr_email = request('gr_email')  ?? '';
+        $guardian_detail->gr_address = request('gr_address')  ?? '';
         $guardian_detail->user_id =  Auth::user()->id;
         $guardian_detail->save();
 
-        $health_service = HealthService::where('client_id', '=', $clientid)->firstOrFail();    
+        $health_service = new HealthService();    
         $health_service->client_id = $clientid;
         $health_service->hs_name = request('hs_name')  ?? '';
         $health_service->hs_address = request('hs_address')  ?? '';
@@ -632,23 +639,33 @@ class ClientsController extends Controller
         $health_service->user_id =  Auth::user()->id;
         $health_service->save();
 
-        $pension_detail = PensionDetail::where('client_id', '=', $clientid)->firstOrFail();
+        $pension_detail = new PensionDetail();    
         $pension_detail->client_id = $clientid;
-        $pension_detail->income_type = request('income_type') ?? '';
-        $pension_detail->client_refno = request('client_refno') ?? '';
-        $pension_detail->con_card = request('con_card') ?? '';
+        $pension_detail->income_type = request('income_type')  ?? ''; //implode(',', (array) request('income_type'))  ?? '';
+        $pension_detail->client_refno = request('client_refno')  ?? '';
+        $pension_detail->con_card = request('con_card')  ?? '';
+        $pension_detail->user_id =  Auth::user()->id;
         $pension_detail->save();
+
+        $referralup = Referral::where('id', '=', $aid)->firstOrFail(); 
+        $referralup->status = "active";
+        $referralup->client_id = $clientid;
+        $referralup->save();
       
 
-        $activity = new ActivityLog();
-        $activity->user = Auth::user()->first_name;
-        $activity->action = "Updated";
-        $activity->item = "Resident";
-        
-        $activity->company_id = Auth::user()->c_id  ?? '';
-        $activity->location_id = Auth::user()->l_id  ?? '';
-        $activity->user_id = Auth::user()->id;
-        $activity->save();
+       $activity = new ActivityLog();
+
+          $activity->user = Auth::user()->first_name;
+          $activity->action = "Updated";
+          $activity->item = "Resident";
+          $activity->company_id = Auth::user()->c_id  ?? '';
+          $activity->location_id = Auth::user()->l_id  ?? '';
+          $activity->user_id = Auth::user()->id;
+          $activity->res_name = $client_detail->fname."  ".$client_detail->mname."  ".$client_detail->lname;
+          $activity->client_id = $client_detail->id;
+          $activity->item_id = $client_detail->id;
+          $activity->item_route = "clients";
+          $activity->save();
         
         $val = request('val')  ?? '';
         if($val == 'res')
@@ -747,6 +764,23 @@ class ClientsController extends Controller
             $roomdeta->status = "Vacant";
             $roomdeta->save();
         }
+        $client_detail = ClientDetail::find($id);
+
+        $activity = new ActivityLog();
+
+          $activity->user = Auth::user()->first_name;
+          $activity->action = "Deleted";
+          $activity->item = "Resident";
+          $activity->company_id = Auth::user()->c_id  ?? '';
+          $activity->location_id = Auth::user()->l_id  ?? '';
+          $activity->user_id = Auth::user()->id;
+          $activity->res_name = $client_detail->fname."  ".$client_detail->mname."  ".$client_detail->lname;
+          $activity->client_id = $client_detail->id;
+          $activity->item_id = $client_detail->id;
+          $activity->item_route = "clients";
+          $activity->save();
+
+          ActivityLog::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->where('item_route', '=', "clients")->where('item_id', '=', $client_detail->id)->update(['item_id' => 0]);
         
         ClientDetail::destroy($id);
         //ClientAllergy::where('client_id', '=', $id)->delete();

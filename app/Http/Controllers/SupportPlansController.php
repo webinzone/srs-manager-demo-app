@@ -101,16 +101,19 @@ class SupportPlansController extends Controller
         
         
         $support_plan->save();
-       $activity = new ActivityLog();
+        $activity = new ActivityLog();
 
       $activity->user = Auth::user()->first_name;
       $activity->action = "Created";
-      $activity->item = "Support Plans";
-        $activity->company_id = Auth::user()->c_id  ?? '';
-        $activity->location_id = Auth::user()->l_id  ?? '';
-        $activity->user_id = Auth::user()->id;
+      $activity->item = "Support Plan";
+      $activity->company_id = Auth::user()->c_id  ?? '';
+      $activity->location_id = Auth::user()->l_id  ?? '';
+      $activity->user_id = Auth::user()->id;
+      $activity->res_name = $support_plan->user_name;
+      $activity->client_id = $support_plan->client_id;
+      $activity->item_id = $support_plan->id;
+      $activity->item_route = "support_plans";
       $activity->save();
-
 
         return redirect()->route('support_plans.index')
                         ->with('success','created successfully');
@@ -209,14 +212,18 @@ class SupportPlansController extends Controller
         
         $support_plan->save();
         
-        $activity = new ActivityLog();
+         $activity = new ActivityLog();
 
       $activity->user = Auth::user()->first_name;
       $activity->action = "Updated";
-      $activity->item = "Support Plans";
-        $activity->company_id = Auth::user()->c_id  ?? '';
-        $activity->location_id = Auth::user()->l_id  ?? '';
-        $activity->user_id = Auth::user()->id;
+      $activity->item = "Support Plan";
+      $activity->company_id = Auth::user()->c_id  ?? '';
+      $activity->location_id = Auth::user()->l_id  ?? '';
+      $activity->user_id = Auth::user()->id;
+      $activity->res_name = $support_plan->user_name;
+      $activity->client_id = $support_plan->client_id;
+      $activity->item_id = $support_plan->id;
+      $activity->item_route = "support_plans";
       $activity->save();
 
       $val = request('val')  ?? '';
@@ -244,17 +251,26 @@ class SupportPlansController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy', SupportPlan::class);
+         $support_plan = SupportPlan::find($id);
+
+        $activity = new ActivityLog();
+
+        $activity->user = Auth::user()->first_name;
+        $activity->action = "Deleted";
+        $activity->item = "Support Plan";
+      $activity->company_id = Auth::user()->c_id  ?? '';
+      $activity->location_id = Auth::user()->l_id  ?? '';
+      $activity->user_id = Auth::user()->id;
+      $activity->res_name = $support_plan->user_name;
+      $activity->client_id = $support_plan->client_id;
+      $activity->item_id = $support_plan->id;
+      $activity->item_route = "support_plans";
+        $activity->save();
+
+        ActivityLog::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->where('item_route', '=', "support_plans")->where('item_id', '=', $support_plan->id)->update(['item_id' => 0]);
        SupportPlan::destroy($id);
 
-       $activity = new ActivityLog();
-
-      $activity->user = Auth::user()->first_name;
-      $activity->action = "Deleted";
-      $activity->item = "Support Plans";
-        $activity->company_id = Auth::user()->c_id  ?? '';
-        $activity->location_id = Auth::user()->l_id  ?? '';
-        $activity->user_id = Auth::user()->id;
-      $activity->save();
+       
 
         return redirect()->route('support_plans.index')
                         ->with('success','deleted successfully');

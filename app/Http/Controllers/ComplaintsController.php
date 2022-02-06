@@ -89,14 +89,18 @@ class ComplaintsController extends Controller
 
         $activity = new ActivityLog();
 
-        $activity->user = Auth::user()->first_name;
-        $activity->action = "Created";
-        $activity->item = "Complaints";
-        
-        $activity->company_id = Auth::user()->c_id  ?? '';
-        $activity->location_id = Auth::user()->l_id  ?? '';
-        $activity->user_id = Auth::user()->id;
-        $activity->save();
+
+      $activity->user = Auth::user()->first_name;
+      $activity->action = "Created";
+      $activity->item = "Complaint";
+      $activity->company_id = Auth::user()->c_id  ?? '';
+      $activity->location_id = Auth::user()->l_id  ?? '';
+      $activity->user_id = Auth::user()->id;
+      $activity->res_name = $complaint->user_name;
+      $activity->client_id = $complaint->client_id;
+      $activity->item_id = $complaint->id;
+      $activity->item_route = "complaints";
+      $activity->save();
     
      
         return redirect()->route('complaints.index')
@@ -168,14 +172,18 @@ class ComplaintsController extends Controller
 
         $activity = new ActivityLog();
 
-        $activity->user = Auth::user()->first_name;
-        $activity->action = "Updated";
-        $activity->item = "Complaints";
-        
-        $activity->company_id = Auth::user()->c_id  ?? '';
-        $activity->location_id = Auth::user()->l_id  ?? '';
-        $activity->user_id = Auth::user()->id;
-        $activity->save();
+
+      $activity->user = Auth::user()->first_name;
+      $activity->action = "Updated";
+      $activity->item = "Complaint";
+      $activity->company_id = Auth::user()->c_id  ?? '';
+      $activity->location_id = Auth::user()->l_id  ?? '';
+      $activity->user_id = Auth::user()->id;
+      $activity->res_name = $complaint->user_name;
+      $activity->client_id = $complaint->client_id;
+      $activity->item_id = $complaint->id;
+      $activity->item_route = "complaints";
+      $activity->save();
     
 
         return redirect()->route('complaints.index')
@@ -191,18 +199,26 @@ class ComplaintsController extends Controller
     public function destroy($id)
     {
         $this->authorize('destroy', Complaint::class);
-        Complaint::destroy($id);
-        $activity = new ActivityLog();
+        $complaint = Complaint::find($id);
 
+         $activity = new ActivityLog();
         $activity->user = Auth::user()->first_name;
-        $activity->action = "Deleted";
-        $activity->item = "Complaints";
+      $activity->action = "Deleted";
+      $activity->item = "Complaint";
+      $activity->company_id = Auth::user()->c_id  ?? '';
+      $activity->location_id = Auth::user()->l_id  ?? '';
+      $activity->user_id = Auth::user()->id;
+      $activity->res_name = $complaint->user_name;
+      $activity->client_id = $complaint->client_id;
+      $activity->item_id = $complaint->id;
+      $activity->item_route = "complaints";
+      $activity->save();
+
+
+        ActivityLog::where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->where('item_route', '=', "complaints")->where('item_id', '=', $complaint->id)->update(['item_id' => 0]);
+
+        Complaint::destroy($id);
         
-        $activity->company_id = Auth::user()->c_id  ?? '';
-        $activity->location_id = Auth::user()->l_id  ?? '';
-        $activity->user_id = Auth::user()->id;
-        $activity->save();
-    
         return redirect()->route('complaints.index')
                         ->with('success','deleted successfully');
     }
