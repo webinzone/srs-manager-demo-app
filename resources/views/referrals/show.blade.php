@@ -363,7 +363,7 @@ tr{
       </tr>
       <tr>
         <td style="border: 1px solid black;">{{ $referral->pen_medino}}</td>
-        <td style="border: 1px solid black;">{{date('F-Y', strtotime($referral->pen_mediexp)) }}</td>
+        <td style="border: 1px solid black;">{{date('d-m-Y', strtotime($referral->pen_mediexp)) }}</td>
       </tr>
     </table><br>
     <table>
