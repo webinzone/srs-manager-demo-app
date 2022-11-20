@@ -274,14 +274,14 @@ tr{
     </table><br>
 
     <h3 style="font-family:Bedrock">Guardian Details <i>[if the ctient has guardian]</i>:</h3>
-    <table>
+    <!-- <table>
       <tr>
         <td style="border: 1px solid black;">Client Ref Number</td>
       </tr>
       <tr>
         <td style="border: 1px solid black;">{{ $referral->gua_refno}}</td>
       </tr>
-    </table><br>
+    </table><br> -->
     <table>
       <tr>
         <td style="border: 1px solid black;">Name</td>
@@ -298,7 +298,7 @@ tr{
         <td style="border: 1px solid black;">{{ $referral->gua_addr}}</td>
       </tr>
     </table><br>
-    <table>
+    <!-- <table>
       <tr>
         <td style="border: 1px solid black;">Email</td>
         <td style="border: 1px solid black;">Phone</td>
@@ -307,17 +307,17 @@ tr{
         <td style="border: 1px solid black;">{{ $referral->gua_email}}</td>
         <td style="border: 1px solid black;">{{ $referral->gua_ph}}</td>
       </tr>
-    </table><br>
+    </table> --><br>
 
     <h3><i>[If the client has an administrator]:</i></h3>
     <table style="border: 1px solid black;">
       <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">Name</td>
-        <td style="border: 1px solid black;">Client Ref Number</td>
+        <!-- <td style="border: 1px solid black;">Client Ref Number</td> -->
       </tr>
       <tr style="border: 1px solid black;">
         <td style="border: 1px solid black;">{{ $referral->ad_name}}</td>
-        <td style="border: 1px solid black;">{{ $referral->ad_refno}}</td>  
+        <!-- <td style="border: 1px solid black;">{{ $referral->ad_refno}}</td> -->  
       </tr>
     </table><br>
     <table>
@@ -328,7 +328,7 @@ tr{
         <td style="border: 1px solid black;">{{ $referral->ad_addr}}</td>
       </tr>
     </table><br>
-    <table>
+   <!--  <table>
       <tr>
         <td style="border: 1px solid black;">Email</td>
         <td style="border: 1px solid black;">Phone</td>
@@ -337,7 +337,7 @@ tr{
         <td style="border: 1px solid black;">{{ $referral->ad_email}}</td>
         <td style="border: 1px solid black;">{{ $referral->ad_ph}}</td>
       </tr>
-    </table><br>
+    </table> --><br>
     
     <h3 style="font-family:Bedrock">Pension Details:</h3>
     <table>
@@ -348,14 +348,14 @@ tr{
         <td style="border: 1px solid black;">{{ $referral->pen_type}}</td>
       </tr>
     </table><br>
-    <table>
+    <!-- <table>
       <tr>
         <td style="border: 1px solid black;">Client Ref Number</td>
       </tr>
       <tr>
         <td style="border: 1px solid black;">{{ $referral->pen_refno}}</td>
       </tr>
-    </table><br>
+    </table><br> -->
     <table>
       <tr>
         <td style="border: 1px solid black;">Medicare Number</td>
