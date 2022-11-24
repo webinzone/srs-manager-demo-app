@@ -105,8 +105,11 @@
                         <label>Email ID</label>
                         <input type="email" name="cemail" id="em1" class="form-control" value="{{ $referral->cemail}}" placeholder="Email ID" >                                       
                       </div>
-                     
-                      <div class="col-md-9 mb-3">
+                      <div class="col-md-4 mb-3">
+                        <label>Client Ref No</label>
+                        <input type="text" name="gua_refno" id="" class="form-control" value="{{ $referral->gua_refno}}" placeholder="Client Ref No" >                                     
+                      </div>
+                      <div class="col-md-4 mb-3">
                         <label>Current Address</label>
                         <textarea name="caddress" id="adr" style="width: 300px;" class="form-control" placeholder="Current Address" >{{ $referral->caddress}} </textarea>
                       </div>
@@ -468,7 +471,7 @@
                       </div>
                        
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <h5 style="color:#980000;font-size: 16px;"><b>Mental Health Sfafus</b></h5>
+                <h5 style="color:#980000;font-size: 16px;"><b>Mental Health Status</b></h5>
 
                <div class="form-row">
                       <div class="col-md-12 mb-3">
@@ -531,10 +534,10 @@
                   <tr style="padding:5px;">
                     <thead style="padding:10px;">
                     <th style="left:5px;" width="50px;">S.NO</th>
-                    <th width="500px;">If you answer "Yes" pl provide further information.</th>
+                    <th width="500px;">If you answer "Yes" please provide further information.</th>
                     <th width="50px;">&nbsp;&nbsp;YES</th>
                     <th width="50px;">&nbsp;&nbsp;NO</th>
-                    <th width="200px;">Details(If you answer "Yes" pl provide further information)</th>
+                    <th width="200px;">Details(If you answer "Yes" please provide further information)</th>
                     </thead>
                   </tr>
                   <tr>
@@ -1262,10 +1265,11 @@ $('#resi_name').change(function(){
     if(result=="NO"){
 
         document.getElementById("f1").setAttribute('disabled', true);
-    }
-    else{
+        }
+        else{
+        document.getElementById("f1").setAttribute("required", "med1_det");
         document.getElementById("f1").removeAttribute('disabled', false);
-    }
+        }
 }
 function findselected12() { 
 
@@ -1275,6 +1279,7 @@ function findselected12() {
         document.getElementById("f2").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f2").setAttribute("required", "med2_det");
         document.getElementById("f2").removeAttribute('disabled', false);
     }
 }
@@ -1286,6 +1291,7 @@ function findselected13() {
         document.getElementById("f33").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f33").setAttribute("required", "med3_det");
         document.getElementById("f33").removeAttribute('disabled', false);
     }
 }
@@ -1297,6 +1303,7 @@ function findselected14() {
         document.getElementById("f4").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f4").setAttribute("required", "med4_det");
         document.getElementById("f4").removeAttribute('disabled', false);
     }
 }
@@ -1308,6 +1315,7 @@ function findselected15() {
         document.getElementById("f5").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f5").setAttribute("required", "med5_det");
         document.getElementById("f5").removeAttribute('disabled', false);
     }
 }
@@ -1319,6 +1327,7 @@ function findselected16() {
         document.getElementById("f66").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f66").setAttribute("required", "med6_det");
         document.getElementById("f66").removeAttribute('disabled', false);
     }
 }
@@ -1327,10 +1336,11 @@ function findselected17() {
     var result = document.querySelector('input[name="med7"]:checked').value;
     if(result=="NO"){
 
-        document.getElementById("f7").setAttribute('disabled', true);
+        document.getElementById("f77").setAttribute('disabled', true);
     }
     else{
-        document.getElementById("f7").removeAttribute('disabled', false);
+        document.getElementById("f77").setAttribute("required", "med7_det");
+        document.getElementById("f77").removeAttribute('disabled', false);
     }
 }
 function findselected18() { 
@@ -1341,6 +1351,7 @@ function findselected18() {
         document.getElementById("f8").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f8").setAttribute("required", "med8_det");
         document.getElementById("f8").removeAttribute('disabled', false);
     }
 }
@@ -1352,6 +1363,7 @@ function findselected19() {
         document.getElementById("f9").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f9").setAttribute("required", "med9_det");
         document.getElementById("f9").removeAttribute('disabled', false);
     }
 }
@@ -1363,6 +1375,7 @@ function findselected20() {
         document.getElementById("f10").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f10").setAttribute("required", "med10_det");
         document.getElementById("f10").removeAttribute('disabled', false);
     }
 }
@@ -1374,6 +1387,7 @@ function findselected21() {
         document.getElementById("f11").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f11").setAttribute("required", "med11_det");
         document.getElementById("f11").removeAttribute('disabled', false);
     }
 }
@@ -1385,6 +1399,7 @@ function findselected22() {
         document.getElementById("f12").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f12").setAttribute("required", "med12_det");
         document.getElementById("f12").removeAttribute('disabled', false);
     }
 }
@@ -1396,6 +1411,7 @@ function findselected23() {
         document.getElementById("f13").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f13").setAttribute("required", "med13_det");
         document.getElementById("f13").removeAttribute('disabled', false);
     }
 }
@@ -1407,6 +1423,7 @@ function findselected24() {
         document.getElementById("f14").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f14").setAttribute("required", "med14_det");
         document.getElementById("f14").removeAttribute('disabled', false);
     }
 }
@@ -1418,6 +1435,7 @@ function findselected25() {
         document.getElementById("f15").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f15").setAttribute("required", "med15_det");
         document.getElementById("f15").removeAttribute('disabled', false);
     }
 }
@@ -1429,6 +1447,7 @@ function findselected26() {
         document.getElementById("f16").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f16").setAttribute("required", "med16_det");
         document.getElementById("f16").removeAttribute('disabled', false);
     }
 }
@@ -1440,6 +1459,7 @@ function findselected27() {
         document.getElementById("f17").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f17").setAttribute("required", "med17_det");
         document.getElementById("f17").removeAttribute('disabled', false);
     }
 }
@@ -1451,10 +1471,12 @@ function findselected28() {
         document.getElementById("f18").setAttribute('disabled', true);
     }
     else{
+        document.getElementById("f18").setAttribute("required", "med18_det");
         document.getElementById("f18").removeAttribute('disabled', false);
     }
 }
 </script>
+
 
 @include ('partials.bootstrap-table')
 @stop

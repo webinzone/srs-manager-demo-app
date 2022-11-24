@@ -188,9 +188,11 @@ tr{
     </table><br>
     <table style="border: 1px solid black;">
       <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">Client Ref No</td>
         <td style="border: 1px solid black;">Current Address</td>
       </tr>
       <tr style="border: 1px solid black;">
+        <td style="border: 1px solid black;">{{ $referral->gua_refno}}</td>
         <td style="border: 1px solid black;">{{ $referral->caddress}}</td>
       </tr>
     </table>
@@ -469,7 +471,7 @@ tr{
         <td style="border: 1px solid black;">{{ $referral->dis_ph}}</td>
       </tr>
     </table><br>
-    <h3 style="font-family:Bedrock">Mental Health Sfafus:</h3>
+    <h3 style="font-family:Bedrock">Mental Health Status:</h3>
     <table>
       <tr>
         <td style="border: 1px solid black;">Please specify any mental health issues to which staff needs to be alerted</td>
@@ -526,10 +528,10 @@ tr{
     <table style="border: 1px solid black; border-width: 1px; border-color: black; padding-left: 8px;left: 50px;">
                   <tr style="padding:5px; border: 1px solid black;">
                     <th width="50px;" style="border:1px solid black;">S.NO</th>
-                    <th style="border:1px solid black;">If you answer "Yes" pl provide further information.</th>
+                    <th style="border:1px solid black;">If you answer "Yes" please provide further information.</th>
                     <th style="border:1px solid black;">YES</th>
                     <th style="border:1px solid black;">NO</th>
-                    <th style="border:1px solid black;">Details(If you answer "Yes" pl provide further information)</th>
+                    <th style="border:1px solid black;">Details(If you answer "Yes" please provide further information)</th>
                   </tr>
                   <tr>
                   <td>1</td>

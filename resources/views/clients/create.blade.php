@@ -1189,7 +1189,7 @@ $('#res_name').change(function(){
 
                 $('#tp').val(response.pen_taxi);           
                 $('#tpexp').val(response.pen_taxiexp);           
-                $('#client_refno').val(response.pen_refno);           
+                $('#client_refno').val(response.gua_refno);           
                 $('#tof').val(response.pen_type);           
 
 
