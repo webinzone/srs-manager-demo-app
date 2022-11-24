@@ -113,12 +113,12 @@
 
     <div class="abc">
     <h3 style="font-family:Bedrock"><i>Client  Details:</i></h3>
-      <input type="text" name="cfname" id="cfname" class="border-class" style="width:400px"  value="First Name:&nbsp;&nbsp;&nbsp;{{ $referral->cfname}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="cfname" id="cfname" class="border-class" style="width:400px"  value="First Name:&nbsp;&nbsp;&nbsp;{{ $referral->cfname}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="text" name="csurname" id="csurname" class="border-class" style="width:400px"  value="Surname:&nbsp;&nbsp;&nbsp; {{ $referral->csurname}}" readonly><br><br>
     <input type="text" name="cdob" id="cdob" class="border-class" style="width:320px"  value="Date of Birth:&nbsp;&nbsp;&nbsp; {{ date('d-m-Y', strtotime($referral->cdob))}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>Gender:</label>&nbsp;&nbsp;&nbsp;{{ $referral->cgender}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="text" name="creligion" id="creligion" class="border-class" style="width:310px"  value="Religion:&nbsp;&nbsp;&nbsp; {{ $referral->creligion}}" readonly><br><br>
     <input type="text" name="cph" id="cph" class="border-class" style="width:910px"  value="Client Contact details: Mobile:&nbsp;&nbsp;&nbsp;{{ $referral->cph}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email ID: &nbsp;&nbsp;&nbsp;{{ $referral->cemail}}" readonly><br><br>
-    <input type="text" name="caddress" id="caddress" class="border-class" style="width:910px"  value="Current Address:&nbsp;&nbsp;&nbsp;{{ $referral->caddress}}" readonly>
+    <input type="text" name="gua_refno" id="gua_refno" class="border-class" style="width:400px"  value="Client Ref No:&nbsp;&nbsp;&nbsp;{{ $referral->gua_refno}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="caddress" id="caddress" class="border-class" style="width:400px"  value="Current Address:&nbsp;&nbsp;&nbsp;{{ $referral->caddress}}" readonly>
     <p>[If client is residing in another SRS]:</p>
     <label>Name of SRS</label>&nbsp;&nbsp;&nbsp;
     <input type="text" name="csrs_name" id="csrs_name" class="border-class"  style="width:450px" value="{{ $referral->csrs_name}}" readonly>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -293,10 +293,10 @@
                   <tr style="border: 1px solid black; padding-left: 8px;left: 50px;">
                     <thead style="padding:10px;">
                     <th style="left:5px;" width="50px;">S.NO</th>
-                    <th width="500px;">If you answer "Yes" pl provide further information.</th>
+                    <th width="500px;">If you answer "Yes" please provide further information.</th>
                     <th width="50px;">&nbsp;&nbsp;YES</th>
                     <th width="50px;">&nbsp;&nbsp;NO</th>
-                    <th width="200px;">Details(If you answer "Yes" pl provide further information)</th>
+                    <th width="200px;">Details(If you answer "Yes" please provide further information)</th>
                     </thead>
                   </tr>
                   <tr>

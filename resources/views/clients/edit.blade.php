@@ -284,10 +284,6 @@
                         </select>       
 
                       </div> 
-                    
-                       
-                   
-                     
                       <!--<div class="col-md-4 mb-3">
                         <label for="likes">Likes</label>                        
                         <textarea class="form-control" id="likes" placeholder="likes" name="likes"  v-on:change="page_one.likes = $event.target.value"></textarea>            
