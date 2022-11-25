@@ -72,7 +72,7 @@ class ClientsController extends Controller
 
     public function store()
     {
-        
+
         $client_detail = new ClientDetail();  
         $aid = request('res_name')  ?? '';  
 
@@ -410,14 +410,14 @@ class ClientsController extends Controller
 
         $aid = request('res_name')  ?? '';  
 
-        $referral = Referral::where('id', '=', $aid)->firstOrFail(); 
-        //$referral->status = "active"
-        //$referral->save();
-        $aname = $referral->cfname;
-        $name = explode("  ", $aname);
-        $client_detail->fname = $name[0];
-        $client_detail->mname = $name[1];
-        $client_detail->lname = $name[2];
+        // $referral = Referral::where('id', '=', $aid)->firstOrFail(); 
+        // //$referral->status = "active"
+        // //$referral->save();
+        // $aname = $referral->cfname;
+        // $name = explode("  ", $aname);
+        // $client_detail->fname = $name[0];
+        // $client_detail->mname = $name[1];
+        // $client_detail->lname = $name[2];
         $client_detail->address = ""  ?? '';
         $client_detail->dob = request('dob')  ?? '';
         $client_detail->cob = request('income_type')  ?? '';
@@ -647,10 +647,10 @@ class ClientsController extends Controller
         $pension_detail->user_id =  Auth::user()->id;
         $pension_detail->save();
 
-        $referralup = Referral::where('id', '=', $aid)->firstOrFail(); 
-        $referralup->status = "active";
-        $referralup->client_id = $clientid;
-        $referralup->save();
+        // $referralup = Referral::where('id', '=', $aid)->firstOrFail(); 
+        // $referralup->status = "active";
+        // $referralup->client_id = $clientid;
+        // $referralup->save();
       
 
        $activity = new ActivityLog();
@@ -692,16 +692,16 @@ class ClientsController extends Controller
     {
         $this->authorize('destroy', ClientDetail::class);
         
-        $checker1 = ConditionReport::select('client_id')->where('client_id', '=', $id)->exists();
-        $checker2 = ResidentAgreement::select('client_id')->where('client_id', '=', $id)->exists();
-        $checker3 = Referral::select('client_id')->where('client_id', '=', $id)->exists();
-        $checker4 = SupportPlan::select('client_id')->where('client_id', '=', $id)->exists();
-        $checker5 = TransferRecord::select('client_id')->where('client_id', '=', $id)->exists();
-        $checker6 = Incident::select('client_id')->where('client_id', '=', $id)->exists();
-        $checker7 = Vaccate::select('client_id')->where('client_id', '=', $id)->exists();
-        $checker8 = Rent::select('client_id')->where('client_id', '=', $id)->exists();
-        $checker9 = ProgressNote::select('client_id')->where('client_id', '=', $id)->exists();
-        $checker10 = Appointment::select('client_id')->where('client_id', '=', $id)->exists();
+        $checker1 = ConditionReport::select('client_id')->where('client_id', '=', $id)->exists() ?? "false";
+        $checker2 = ResidentAgreement::select('client_id')->where('client_id', '=', $id)->exists() ?? "false";
+        $checker3 = Referral::select('client_id')->where('client_id', '=', $id)->exists() ?? "false";
+        $checker4 = SupportPlan::select('client_id')->where('client_id', '=', $id)->exists() ?? "false";
+        $checker5 = TransferRecord::select('client_id')->where('client_id', '=', $id)->exists() ?? "false";
+        $checker6 = Incident::select('client_id')->where('client_id', '=', $id)->exists() ?? "false";
+        $checker7 = Vaccate::select('client_id')->where('client_id', '=', $id)->exists() ?? "false";
+        $checker8 = Rent::select('client_id')->where('client_id', '=', $id)->exists() ?? "false";
+        $checker9 = ProgressNote::select('client_id')->where('client_id', '=', $id)->exists() ?? "false";
+        $checker10 = Appointment::select('client_id')->where('client_id', '=', $id)->exists() ?? "false";
 
 
         if ($checker1 == true) {
@@ -710,10 +710,12 @@ class ClientsController extends Controller
         }elseif ($checker2 == true) {
             return redirect()->route('clients.index')
                     ->with('error', 'Please delete Resident Resident Agreement  First !');
-        }elseif ($checker3 == true) {
-            return redirect()->route('clients.index')
-                    ->with('error', 'Please delete Resident Referral Report First !');
-        }elseif ($checker4 == true) {
+        }
+        // elseif ($checker3 == true) {
+        //     return redirect()->route('clients.index')
+        //             ->with('error', 'Please delete Resident Referral Report First !');
+        // }
+        elseif ($checker4 == true) {
             return redirect()->route('clients.index')
                     ->with('error', 'Please delete Resident Support Plan First !');
         }elseif ($checker5 == true) {

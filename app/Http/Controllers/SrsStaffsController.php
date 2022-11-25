@@ -96,8 +96,10 @@ class SrsStaffsController extends Controller
         }  
         
         $data1[] = implode(',', (array) request('quali')) ?? '';
-        $data2[] = implode(',', (array) request('certi_exp')) ?? '';
-
+        $data2 = array(); 
+        if(implode(',', (array) request('certi_exp')) != ''){
+            $data2[] = implode(',', (array) request('certi_exp')) ?? '';
+        }
         $srs_staff->item_no = implode(',', (array) request('item_no')) ?? '';
         $srs_staff->quali = implode(',', (array) request('quali')) ?? '';
         $srs_staff->qop_date = implode(',', (array) request('qop_date')) ?? '';
