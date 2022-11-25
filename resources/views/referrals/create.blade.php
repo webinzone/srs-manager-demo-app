@@ -729,92 +729,92 @@
                   <tr>
                   <td>Eating/d rinking/diet</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p1" onclick="findselected5();" value="No Assistance" required/> </td>
+                    <input type="radio" name="p1" value="No Assistance" required/> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p1" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p1" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p1" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p1" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Mobility</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p2" onclick="findselected5();" value="No Assistance" required/> </td>
+                    <input type="radio" name="p2" value="No Assistance" required/> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p2" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p2" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p2" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p2" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Showering/bathing</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p3" onclick="findselected5();" value="No Assistance" required/> </td>
+                    <input type="radio" name="p3" value="No Assistance" required/> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p3" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p3" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p3" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p3" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Shaving/grooming</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p4" onclick="findselected5();" value="No Assistance" required/> </td>
+                    <input type="radio" name="p4" value="No Assistance" required/> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p4" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p4" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p4" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p4" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Dressing</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="5" onclick="findselected5();" value="No Assistance" required/> </td>
+                    <input type="radio" name="5" value="No Assistance" required/> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="5" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="5" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="5" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="5" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Dental hygiene</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p6" onclick="findselected5();" value="No Assistance" required/> </td>
+                    <input type="radio" name="p6" value="No Assistance" required/> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p6" onclick="findselected5();" value="Prompting/Supervision"/></td>
+                    <input type="radio" name="p6" value="Prompting/Supervision"/></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p6" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p6" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Toileting</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p7" onclick="findselected5();" value="No Assistance" required/> </td>
+                    <input type="radio" name="p7" value="No Assistance" required/> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p7" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p7" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p7" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p7" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Foot care/nail care</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p8" onclick="findselected5();" value="No Assistance" required/> </td>
+                    <input type="radio" name="p8" value="No Assistance" required/> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p8" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p8" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p8" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p8" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Laundry</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p9" onclick="findselected5();" value="No Assistance" required /> </td>
+                    <input type="radio" name="p9" value="No Assistance" required /> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p9" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p9" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p9" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p9" value="Active Assistance" /></td>
                 </tr>
                 <tr>
                   <td>Housekeeping</td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p10" onclick="findselected5();" value="No Assistance" required/> </td>
+                    <input type="radio" name="p10" value="No Assistance" required/> </td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p10" onclick="findselected5();" value="Prompting/Supervision" /></td>
+                    <input type="radio" name="p10" value="Prompting/Supervision" /></td>
                   <td>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="p10" onclick="findselected5();" value="Active Assistance" /></td>
+                    <input type="radio" name="p10" value="Active Assistance" /></td>
                 </tr>
                 </table>
               </div>
@@ -1480,21 +1480,6 @@ function findselected28() {
     }
 }
 </script>
-
-<script type="text/javascript">
-$(document).ready(function () {
-    $('#checkBtn').click(function() {
-      checked = $("input[type=radio]:checked").length;
-
-      if(!checked) {
-        alert("You must check at least one checkbox.");
-        return false;
-      }
-
-    });
-});
-
-</script> 
 
 
 @include ('partials.bootstrap-table')
