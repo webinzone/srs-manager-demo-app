@@ -55,7 +55,7 @@
                         <select class="form-control" required="" id="resi_name" name="user_name" style="height: 26px;padding: 3px 10px;">
                             <option>--   Select Resident Name  --</option>
                           @foreach($residents as $resident)
-                          <option value="{{ $resident->id }}" {{ $transfer_record->user_name == $resident->fname." ".$resident->mname." ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
+                          <option value="{{ $resident->id }}" {{ $transfer_record->user_name == $resident->fname."  ".$resident->mname."  ".$resident->lname ? 'selected' : ''  }}> {{ $resident->fname}} {{$resident->mname}} {{$resident->lname  }}</option>
                           @endforeach
                         </select>
                        </div>

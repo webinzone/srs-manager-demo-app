@@ -65,7 +65,7 @@ class TransferRecordsController extends Controller
         $transfer_record = new TransferRecord();
         $id = request('user_name') ?? '';
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $name = $res->fname." ".$res->mname." ".$res->lname;
+        $name = $res->fname."  ".$res->mname."  ".$res->lname;
         $rroom = $res->room_no;
         $bed = $res->bed_no;
 
@@ -187,7 +187,9 @@ class TransferRecordsController extends Controller
     {
         $this->authorize('edit',TransferRecord::class);
         $transfer_record = TransferRecord::find($id);
-        $residents = ClientDetail::where('status', '=', 'Active')->orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+        $residents = ClientDetail::orderBy('fname')->where('company_id', '=', Auth::user()->c_id)->where('location_id', '=', Auth::user()->l_id)->get() ?? '';
+      
+        $aaname = $transfer_record->user_name;
         return view('transfer_records/edit',compact('transfer_record','residents'));
     }
     /**
@@ -204,7 +206,7 @@ class TransferRecordsController extends Controller
 
         $id = request('user_name') ?? '';
         $res = ClientDetail::where('id', '=', $id)->firstOrFail();
-        $name = $res->fname." ".$res->mname." ".$res->lname;
+        $name = $res->fname."  ".$res->mname."  ".$res->lname;
         $rroom = $res->room_no;
         $bed = $res->bed_no;
 
